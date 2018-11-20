@@ -1,0 +1,440 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Parameter efficient training of deep convolutional neural networks by dynamic sparse reparameterization | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Parameter efficient training of deep convolutional neural networks by dynamic sparse reparameterization" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=S1xBioR5KX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Parameter efficient training of deep convolutional neural networks..." />
+      <meta name="og:description" content="Modern deep neural networks are highly overparameterized, and often of huge sizes. A number of post-training model compression techniques, such as distillation, pruning and quantization, can reduce..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_S1xBioR5KX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Parameter efficient training of deep convolutional neural networks by dynamic sparse reparameterization</a> <a class="note_content_pdf" href="/pdf?id=S1xBioR5KX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019parameter,    &#10;title={Parameter efficient training of deep convolutional neural networks by dynamic sparse reparameterization},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=S1xBioR5KX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Modern deep neural networks are highly overparameterized, and often of huge sizes. A number of post-training model compression techniques, such as distillation, pruning and quantization, can reduce the size of network parameters by a substantial fraction with little loss in performance. However, training a small network of the post-compression size de novo typically fails to reach the same level of accuracy achieved by compression of a large network, leading to a widely-held belief that gross overparameterization is essential to effective learning. In this work, we argue that this is not necessarily true.  We describe a dynamic sparse reparameterization technique that closed the performance gap between a model compressed by pruning and a model of the post-compression size trained de novo. We applied our method to training deep residual networks and showed that it outperformed existing static reparameterization techniques, yielding the best accuracy for a given parameter budget for training. Compared to other dynamic reparameterization methods that reallocate non-zero parameters during training, our approach broke free from a few key limitations and achieved much better performance at lower computational cost. Our method is not only of practical value for training under stringent memory constraints, but also potentially informative to theoretical understanding of generalization properties of overparameterized deep neural networks.  
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">sparse, reparameterization, overparameterization, convolutional neural network, training, compression, pruning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We describe a dynamic sparse reparameterization technique that allow training of a small sparse network to generalize on par with, or better than, a full-sized dense model compressed to the same size.  </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">19 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_H1g-TRNAn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The authors designed a dynamic reparameterization method to apply model compression in deep neural architectures. They compared their proposed framework with three baseline methods in terms of test accuracy and sparsity.  The comparison to the existing works is lacking. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=H1g-TRNAn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper622 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper622 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Weaknesses:
+
+1-The authors claim that: "Compared to other dynamic reparameterization methods that reallocate non-zero parameters during training, our approach broke free from a few key limitations and achieved much better performance at lower computational cost." =&gt; However, there is no quantitative experiments related to other dynamic reparameterization methods. There should be at least sparsity-accuracy comparison to claim achieving better performance. I expect authors compare their work at-least with with DEEP R, and NeST even if it is clear for them that they produce better results. 
+2-The second and fourth contributions are inconsistent: In the second one, authors claimed that they are the first who designed the dynamic reparameterization method. In the fourth contribution, they claimed they outperformed existing dynamic sparse reparameterization.  Moreover, it seems DEEP R also is a  dynamic reparameterization method because DEEP R authors claimed: "DEEP R automatically rewires the network during supervised training so that connections are there where they are most needed for the task, while its total number is all the time strictly bounded."
+3- The authors claimed their proposed method has much lower computational costs, however, there is no running time or scalability comparison. 
+
+
+Suggestions:
+1-Authors need to motivate the applications of their work. For instance, are they able to run their proposed method on mobile devices?
+2-For Figure 2 (c,d) you need to specify what each color is.
+3-In general, if you claim that your method is more accurate or more scalable you need to provide quantitative experiments. Claiming is not enough.
+4-It is better to define all parameters definition before you jump into the proposed section. Otherwise, it makes paper hard to follow.  For instance, you didn't define the R_l directly (It is just in the Algorithm 1).
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HyldHxls2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>In its present form, this paper seems more like engineered modifications of existing pipelines with insufficient validation, rather than a mature research contribution.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=HyldHxls2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper622 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper622 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a method for training neural networks where an efficient sparse/compressed representation is enforced throughout the training process, as opposed to starting with are large model and pruning down to a smaller size.  For this purpose a dynamic sparse reparameterization heuristic is proposed and validated using data from MNIST, CIFAR-10, and ImageNet.
+
+My concerns with this work in its present form are two-fold.  First, from a novelty standpoint, the proposed pipeline can largely be viewed as introducing a couple heuristic modifications to the SET procedure from reference (Mocanu, et al., 2018), e.g., substituting an approximate threshold instead of sorting for removing weights, changing how new weights are redistributed, etc.  The considerable similarity was pointed out by anonymous commenters and I believe somewhat understated by the submission.  Regardless, even if practically effective, these changes seem more like reasonable engineering decisions to improve the speed/performance rather than research contributions that provide any real insights.  Moreover, there is no attendant analysis regarding convergence and/or stability of what is otherwise a sequence of iterates untethered to a specific energy function being minimized.
+
+Of course all of this could potentially be overcome with a compelling series of experiments demonstrating the unequivocal utility of the proposed modifications.  But it is here that unfortunately the paper falls well short.  Despite its close kinship with SET, there are surprisingly no comparisons presented whatsoever.  Likewise only a single footnote mentions comparative results with DeepR (Bellec et al., 2017), which represents another related dynamic reparameterization method.  In a follow up response to anonymous public comments, some new tests using CIFAR-10 data are presented, but to me, proper evaluation requires full experimental details/settings and another round of review.
+
+Moreover, the improvement over SET in these new results, e.g., from a 93.42 to 93.68 accuracy rate at 0.9 sparsity level, seems quite modest.  Note that the proposed pipeline has a wide range of tuning hyperparameters (occupying a nearly page-sized Table 3 in the Appendix), and depending on these settings relative to SET, one could easily envision this sort of minor difference evaporating completely.  But again, this is why I strongly believe that another round of review with detailed comparisons to SET and DeepR is needed.
+
+Beyond this, the paper repeatedly mentions significant improvement over "start-of-the-art sparse compression methods." But this claim is completely unsupported, because all the tables and figures only report results from a single existing compression baseline, namely, the pruning method from (Zhu and Gupta, 2017) which is ultimately based on (Han et al., 2015).  But just in the last year alone there have been countless compression papers published in the top ML and CV conferences, and it is by no means established that the pruning heuristic from (Zhu and Gupta, 2017) is state-of-the-art.
+
+Note also that reported results can be quite deceiving on the surface, because unless the network structure, data augmentation, and other experimental design details are exactly the same, specific numbers cannot be directly transferred across papers.  Additionally, numerous published results involve pruning at the activation level rather than specific weights.  This definitively sacrifices the overall compression rate/model size to achieve structured pruning that is more naturally advantageous to implementation in practical hardware (e.g., reducing FLOPs, run-time memory, etc.).  One quick example is Luo et al., "ThiNet: A Filter Level Pruning Method for Deep Neural Network Compression," ICCV 2017, but there are many many others.
+
+And as a final critique of the empirical section, why not report the full computational cost of training the proposed model relative to others?  For an engineered algorithmic proposal emphasizing training efficiency, this seems like an essential component.
+
+
+In aggregate then, my feeling is that while the proposed pipeline may eventually prove to be practically useful, presently this paper does not contain a sufficient aggregation of novel research contribution and empirical validation.
+
+Other comments:
+
+- In Table 2, what is the baseline accuracy with no pruning?
+
+- Can this method be easily extended to prune entire filters/activations?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Hkl9XKWc37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Efficient dynamic reparameterization but the claims need to be revisited</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=Hkl9XKWc37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper622 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper622 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper provides a dynamic sparse reparameterization method allowing small networks to be trained at a comparable accuracy as pruned network with (initially) large parameter spaces. Improper initialization along with a fewer number of parameters requires a large parameter model, to begin with (Frankle and Carbin, 2018).  The proposed method which is basically a global pooling followed by a tensorwise growth allocates free parameters using an efficient weight re-distribution scheme, uses an approximate thresholding method and provides automatic parameter re-allocation to achieve its goals efficiently. The authors empirically demonstrate their results on MNIST, CIFAR-10, and Imagenet and show that dynamic sparse provides higher accuracy than compressed sparse (and other) networks.
+
+The paper is addressing an important problem where instead of training and pruning, directly training smaller networks is considered. In that respect, the paper does provide some useful tricks to reparameterize and pick the top filters to prune. I especially enjoyed reading the discussion section.
+
+However, the hyperbole in claims such as "first dynamic reparameterization method for training convolutional network" makes it hard to judge the paper favorably given previous methods that have already proposed dynamic reparameterization and explored. This language is consistent throughout the paper and the paper needs a revision that positions this paper appropriately before it is accepted.
+
+The proposed technique provides limited but useful contributions over existing work as in SET and DeepR. However, an empirical comparison against them in your evaluation section can make the paper stronger especially if you claim your methods are superior.
+
+How does your training times compare with the other methods? Re-training times are a big drawback of pruning methods and showing those numbers will be useful.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJgPaBbb2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Appropriate Messaging</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=HJgPaBbb2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We believe it would be easier to understand the paper’s contribution if the writing style of the paper was less sensationalist.  Rather than focusing on being first to exceed some relatively arbitrary level of performance by a tiny margin and the first to apply this technique to a “modern all convolutional network” (conceptually, nothing prevented any of the previously proposed approaches from being applied to a similar network), the paper could instead make more clear its contributions are two modifications to SET that result in a small improvement in accuracy.  The authors have stated multiple times that their modifications are more efficient, yet they have yet to provide any actual runtime numbers to show that the theoretical improvement matters in practice.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rketmW5fnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response (1/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=rketmW5fnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper622 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+Thank you for your comments.  Please see our responses below.  
+
+(1) We did not intend to be "sensationalist".  In writing the manuscript, we clearly described our method and objectively stated claims of contributions.  We believe they are factually correct.  We are happy to address any of your specific confusions on our stated contributions that are not "easy to understand". 
+
+(2) We agree with you that "nothing prevented any of the previously proposed approaches from being applied to a similar network", but the fact that they did not do so leaves open the question of whether those proposed approaches were applicable to large-scale networks in practice, a question we answered in this work.  We fully recognize the contributions of previous approaches, i.e. DeepR, NeST and SET, and we explicitly stated in our paper that we were inspired by them (see Discussion on Page 8).  As we replied to another anonymous commenter below, our claim of contribution is factually correct, and we believe that our demonstration of the ability to scale up dynamic sparse training from a single layer to a deep network, and from toy-sized models to real-world applications, is rather nontrivial.
+
+(3) The choice of baseline method we benchmarked against (i.e. sparse compression by iterative training and pruning, Zhu et al. 2017) is not arbitrary for the following reasons:
+a) It was the strongest baseline performance known to us.
+b) It, unlike DeepR, SET and ours, is a compression method which does not impose a reduced parameter budget during the entire course, but only at the end, of training.  Matching this baseline has significant implications for direct training of compact sparse deep CNNs without compression--equally effective training can now be done under strict parameter constraints without the need to train a large model first and then followed by compression.  Closing this gap was not achieved by previous methods like DeepR and SET, but by ours in this work.  
+
+(4) Further, as we stated in response to the commenter below, the key advancement of our method as compared to SET is its ability to produce sparse models that generalize better, matching the best compression benchmark known to us so far.  To argue against your statement on our improvement "exceed some relatively arbitrary level of performance by a tiny margin", and "two modifications to SET that result in a small improvement in accuracy", we did further statistical analysis (p-values of T-tests) on the extra experiments presented in the table of our reply to the commenter below (WRN-28-2 on CIFAR10), the improvements were highly significant statistically.  
++----------------------------------------------------------------------------------------------+
+| Hypothesis test                                      | Sparsity = 0.9 | Sparsity = 0.8 |
++----------------------------------------------------------------------------------------------+
+| Ours vs. Bellec et al. 2017 (DeepR)    |    *0.000002    |    *0.000103    |
++----------------------------------------------------------------------------------------------+
+| Ours vs. Mocanu et al. 2018 (SET)      |     0.420649     |    *0.006790    |
++----------------------------------------------------------------------------------------------+
+| Ours vs. Zhu et al. 2017                        |     0.163627     |      0.152581    |
++----------------------------------------------------------------------------------------------+
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ByepGM9GnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response (2/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=ByepGM9GnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper622 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+This superior accuracy achieved by our method was observed in all networks and benchmarks that we tested:
+a) MNIST test accuracies (%):
++----------------------------------------------------------------------------------------------+
+| Method                                   |     Sparsity = 0.99    |    Sparsity = 0.98    |
++----------------------------------------------------------------------------------------------+
+| Mocanu et al. 2018 (SET)     |      70.00 ± 13.37      |      97.85 ± 0.11      |
++----------------------------------------------------------------------------------------------+
+| Ours                                        |      97.78 ± 0.098      |     98.08 ± 0.061     |
++----------------------------------------------------------------------------------------------+
+
+b) We did further Imagenet experiments to address your concerns, here we report single-run test accuracies (% of top-1, top-5) pending the completion of the rest of the 5 runs:
++----------------------------------------------------------------------------------------------+
+| Method                                    |     Sparsity = 0.9     |     Sparsity = 0.8     |
++----------------------------------------------------------------------------------------------+
+| Mocanu et al. 2018 (SET)      |         70.4, 90.1        |         72.6, 91.2        |
++----------------------------------------------------------------------------------------------+
+| Ours                                         |         71.6, 90.5        |         73.3, 92.4        |
++----------------------------------------------------------------------------------------------+
+
+(5) The two mechanistic differences from SET that gave rise to the significantly better performance of our method were indeed important, and we gave particular attention to them in the manuscript, pointing out that they made our method more performant, more efficient and more scalable.  
+
+(6) In response to your criticism "they have yet to provide any actual runtime numbers to show that the theoretical improvement matters in practice", here we give specific wall-clock time (in seconds) for reparameterization costs of our method and SET for Resnet-50 on Imagenet (we have already given the anonymous commenter below the cost of DeepR being roughly 5x of ours):
++------------------------------------------------------------------------------------------+
+| Method                                    |     CPU (Xeon)     |   GPU (Titan-XP)   |
++------------------------------------------------------------------------------------------+
+| Mocanu et al. 2018 (SET)      |           0.59            |            0.064           |
++------------------------------------------------------------------------------------------+
+| Ours                                         |           0.29            |            0.045           |
++------------------------------------------------------------------------------------------+
+
+As you can see, our reparameterization procedure is significantly cheaper than SET.  Remember that, when applied according to the same schedule, our reparameterization method produced significantly better sparse models than SET (see above).
+
+As such, we believe we have presented concrete facts to support our claims.  
+
+Finally, we wish to point out that we have publicized all source code in this interactive forum (see below), and this paper has been selected for the ICLR 2019 reproducibility challenge and is being validated by a third-party team.  We encourage you to validate our results as well and to check the specific claims we make.  
+
+Thank you again and we are happy to address your further concerns.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HyeBcckEnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>reply</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=HyeBcckEnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Does an improvement of .02 seconds per step on ImageNet matter?  I think this is a small fraction of the overall step time...  Reporting time relative to the overall step time would be far more useful.  Reporting total training time would be the most useful...
+
+We will have to agree to disagree about whether to use the term "significant" or "small" for the performance increases which are [.2%, .4%, 1.0%, 1.7%] with the exception of the 99% MNIST experiment.  It was not intended in the sense of statistically "significant"; merely as a description of magnitude.
+
+If the 99% results are general then _that_ would be a most interesting realm to explore.  I'm guessing this is where the re-parameterization really helps by moving more weights to the final layer?
+
+We find these improvements interesting and valuable; as we said before we were mostly concerned with the messaging.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byg8iX-V2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response: thank you for the valuable comments!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=Byg8iX-V2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper622 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+We absolutely agree with you: any _quantitative_ improvements in performance compared to previous methods like SET, whether statistically significant or not, are hard to justify significant achievement.  The next method might just improve yet a bit more, so what's special about this one?  
+Our argument is rather that our method's achievement is _qualitatively_ significant.  This is manifested in the benchmark against state-of-the-art compression by iterative pruning (Zhu et al. 2017).  Note that this is a compression method which first trains a large, dense network and then compresses it down, but our method and SET both train small sparse network from the very beginning of training.  Even though SET is just slightly worse than our method, SET actually fared significantly (statistically speaking) worse than state-of-the-art compression in at least some cases.  In contrast, even though our method is just slightly better than SET, ours performed at least indistinguishably well or in some cases significantly better (statistically speaking) than state-of-the-art compression; this is true in all experiments we did.  Therefore, the difference is _qualitative_: we fully close this gap, showing for the first time one can train a compact sparse model from scratch to reach at least the same performance of the best known post-training compression method.  
+
+We appreciate your criticism of the messaging which will be helpful to us when revising the manuscript. We will be cautious when using the term 'first' as it drew criticism from multiple commenters. We will focus instead on just stating our contributions in a clear and unambiguous manner.  
+
+Yes, we agree with your comment on run time.  Both SET and ours, unlike DeepR, perform parameter reallocation rather infrequently during training (once per hundreds of batch iterations), thusly the overhead is relatively negligible despite the fact that our replacement of sorting by comparison makes ours even cheaper than SET.  We wish to point out two things in this response: 
+a) Computational cost is a secondary argument in our paper, a much more important advantage of our method over SET is its ability to produce better sparse models, ones that matched state-of-the-art compression.
+b) As the number of parameters increase, sorting scales worse (n*log[n]) than comparison (n).  So in case parameter reallocation has to be done more frequently and in much larger models, there might be a substantial difference in computational overhead.  (This is just another secondary argument that does not make a major point of the paper.)</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_rkxbTjYKoX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Provide link to code</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=rkxbTjYKoX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">21 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Authors, 
+
+As part of the of the ICLR reproducibility challenge, our team has selected this paper for replication.
+In order to facilitate the process, we  kindly request you send  the link to your code to deepsparse(at)gmail(dot)com. 
+
+Looking forward to your response. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1e-51SaoQ" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=H1e-51SaoQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper622 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SkeE2kiqom" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>🤔🤔</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=SkeE2kiqom"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">22 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">suspicious</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HygC0-roiQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>What's the suspicion</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=HygC0-roiQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">22 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I'm not sure what the suspicion is. The link to our registration is provided [1] and the challenge guidelines say: "If available, the authors' code can and should be used; authors of ICLR submissions are encouraged to release their code to facilitate this challenge." [2]. Also, the authors mention regarding their code (Page 12, Appendix A): "Link suppressed for the sake of anonymity during review process." hence the request for the code.
+
+[1] - <a href="https://github.com/reproducibility-challenge/iclr_2019/issues/31" target="_blank" rel="nofollow">https://github.com/reproducibility-challenge/iclr_2019/issues/31</a>
+[2] - https://github.com/reproducibility-challenge/iclr_2019</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HyllVTC6sQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response, link to code, and request for your response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=HyllVTC6sQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper622 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">24 Oct 2018 (modified: 25 Oct 2018)</span><span class="item">ICLR 2019 Conference Paper622 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+Dear DeepSparse team,
+
+Thank you for taking the effort to assess our results as part of the 2019 ICLR reproducibility challenge.
+
+Since there is also an anonymous commenter (see below) raising questions on the details of our technique and its claimed superior performance over previous methods, we choose to publicize the source code for reproducing all results in our paper here in this interactive forum, so that all commenters and reviewers, including you, will be able to validate our results.  Since the paper is still under double-blind review, we set up an anonymous repo to host the code ( <a href="https://gitlab.com/anon-dynamic-reparam/iclr2019-dynamic-reparam" target="_blank" rel="nofollow">https://gitlab.com/anon-dynamic-reparam/iclr2019-dynamic-reparam</a> ).
+
+Along with the source code, we wish to make the following comments/requests to you:
+
+(1) Please disclose the academic affiliation of your team, which is a common practice exercised by all other teams of the reproducibility challenge ( https://github.com/reproducibility-challenge/iclr_2019/issues ).
+
+(2) In spirit of the reproducibility challenge, as instructed on its main page ( https://github.com/reproducibility-challenge/iclr_2019 ): "You are encouraged to contact the authors in private to clarify doubts regarding the paper but you should maintain your anonymity in the issue section before your report submission", please contact us for any questions you might have during your validation.  We would prefer that we communicate in this interactive forum so that (a) anonymity is guaranteed per requirements of the reproducibility challenge, and (b) other commenters/reviewers could also see our communications since our code is shared with all participants of this forum.
+
+(3) In the repo, you will find YAML files with specific commands and arguments to reproduce the experiments presented in the paper.  In response to specific comments by an earlier anonymous commenter, we also provided extra experiments in a separate YAML file for comparison with earlier methods such as DeepR, which is designed to address questions raised by the commenter, thus not an original part of the manuscript.  Though you are more than welcome to run these experiments as well (our code implements a variety of dynamic reparameterization methods including DeepR and SET; detailed results of our own runs will also be presented in our response to the anonymous commenter below), we would like to caution you that (a) they are not part of the original paper for the reproducibility study, and (b) since earlier methods like DeepR were not published with source code for the large models/datasets we tested here, we did our own implementation based on the original DeepR paper and on discussions with its authors, so in case you have questions on these baseline methods please contact the authors of the original paper for details.
+
+Thank you again and please kindly reply to our request for your affiliation.
+
+Kind regards,
+
+Authors</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SygDfLE0sQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to affiliations</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=SygDfLE0sQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">25 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Authors, 
+
+Thank you for sharing your code and relevant comments. 
+
+As for our academic affiliations, we currently do not have any. We regard ourselves as independent research trainees who are enthusiastic about Machine Learning research and are willing to contribute to the field. Moreover, it is stated on the challenge page: "Participation by other researchers or research trainees with adequate machine learning experience is also encouraged" (<a href="https://github.com/reproducibility-challenge/iclr_2019)." target="_blank" rel="nofollow">https://github.com/reproducibility-challenge/iclr_2019).</a>
+
+Regards,
+
+DeepSparse Team</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJgRILw0jm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=SJgRILw0jm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper622 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">25 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your response. Having no affiliation is unconventional, but in all cases, we are happy to address any questions you have regarding the code or the experiments.
+Kind regards,
+Authors</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_r1lxccLzo7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Issues with claimed contributions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=r1lxccLzo7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We disagree with some of the claims made by this paper.
+
+Claim 1: “Ours is the first systematic method able to train sparse models directly without an increased parameter footprint during the entire course of training, and still achieve performance on par with post-training compression of dense models, the best result at a given sparsity.”
+
+The authors of [2], which introduces DeepR, compare their technique to l1-shrinkage and magnitude-based pruning and demonstrate on-par or better performance than each for a given sparsity.
+
+DeepR achieves the same bounded parameter footprint as the technique presented here, and does not appear to have been evaluated beyond the experiments in the original publication, yet the authors do not compare to this technique. Given this, it seems premature for this work to claim that they have achieved something that existing techniques cannot, especially considering [2] demonstrates that they achieve performance on par or better than the compression techniques they compare to.
+
+Claim 2: “We described the first dynamic reparameterization method for training convolutional network.”
+
+The original DeepR paper demonstrates results on a convolutional neural network. This paper cites the original DeepR paper and refers to it as a “dynamic sparse reparameterization” technique.
+
+Claim 4: “Our method not only outperformed existing dynamic sparse reparameterization techniques, but also incurred much lower computational costs”
+
+This work does not compare to any existing dynamic sparse reparameterization technique. They also do not measure the runtime of their technique or compare to the baseline sorting-based pruning (e.g., TensorFlow model pruning [3]).
+
+In addition to these issues with the claimed contributions of this paper, the introduced “dynamic sparse reparameterization” technique only differs from Sparse Evolutionary Training (SET) [1] in its use of an approximate threshold for removing weights and in how it redistributes weights after pruning. Both of these modifications are potentially valuable contributions, but the authors make very broad claims rather than list these modifications and demonstrate their value over the existing methods.
+
+References
+1. <a href="https://www.nature.com/articles/s41467-018-04316-3.pdf" target="_blank" rel="nofollow">https://www.nature.com/articles/s41467-018-04316-3.pdf</a>
+2. https://arxiv.org/pdf/1711.05136.pdf
+3. https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/model_pruning</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HklYTgofs7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=HklYTgofs7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper622 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Oct 2018 (modified: 17 Oct 2018)</span><span class="item">ICLR 2019 Conference Paper622 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">*On Claim 1:*
+Indeed, DeepR showed that it performs better than L1-shrinkage and magnitude-based pruning. However, we use as our compression baseline the iterative pruning technique introduced in Zhu et al. 2017 that gives a stronger baseline and outperforms DeepR as shown by the accuracies in Fig.1a (compare to Fig. 3A in the DeepR paper). Our method closely matches the performance of this stronger baseline (see Fig.1a). Our claim is thus accurate given the stronger compression baseline we used.  We will rewrite the claim and make it more accurate by highlighting that it refers to the compression baseline obtained using the method in Zhu et al. 2017, instead of using the more general term "post-training compression". 
+
+For the MNIST network, we do indeed compare to one of the few numbers presented in the DeepR paper (see footnote 6 on page 5) and show better performance.  We rolled our own implementation of DeepR and found that evaluating DeepR on large imagenet-class networks was very computationally expensive (5x slower than our approach). Moreover, DeepR has more hyper-parameters than our approach involving, for example, an annealing schedule for the parameter update noise, layer-wise regularization coefficients, and hand-tuned layer sparsities. The large number of hyper-parameters, together with the slowness of DeepR, make a well-tuned evaluation on large networks extremely challenging. The authors of the DeepR paper do not provide code, nor guidelines on how to use DeepR in deep all-convolutional networks. We thus limit our comparison to the MNIST case. 
+
+
+*On Claim 2:*
+We apologize that the wording of this claim is not specific enough. In this claim, we were referring to modern all-convolutional networks such as residual networks. Our experiments showed that DeepR was very slow for these networks in the imagenet case. In the DeepR paper, DeepR was also not applied to the entire convolutional network, but only to a specific layer while other layers were left dense. Ours is the first application of dynamic reparameterization to an entire convolutional network. We fully acknowledge, however, the fact that DeepR was the first dynamic method of the kind applied to a convolutional layer. In the next revision, we will make the wording sufficiently clear to reflect the above facts.
+
+*On Claim 4:*
+We achieve better performance than DeepR on the small MNIST network. For the bigger convolutional networks, DeepR was very slow (see below). We will make the accuracy claim more precise by limiting it to the MNIST case (which is the case in which we can feasibly run and compare to DeepR). We make our claim regarding computational cost based on 2 observations:
+1)DeepR runs the re-wiring step every iteration while we re-allocate/rewire every few hundreds/thousands of iterations. DeepR also needs to generate a Gaussian random number at each parameter update which incurs extra MAC operations. We will add numbers to the paper to exactly quantify the extra operation needed by DeepR (due to increased rewire frequency and the need for Gaussian random number generation for each parameter update)
+2)We implemented DeepR ourselves. For imagenet training on 4 Titanxp GPUs, training using DeepR was 5x slower than our approach. We will include this DeepR implementation with our code release. 
+
+We did compare against sorting-based pruning methods, because Tensorflow model pruning [3] was based on the sparse compression technique described by Zhu et al. 2017, which was the strongest baseline (called "compressed sparse" in the manuscript) we benchmarked against in the paper.
+
+Indeed, runtime is an important metric. We did not observe significant slow-down when using our parameter-reallocation method (since it is only applied sporadically during training). We will include the wall-time runtime of our approach compared to training without parameter-reallocation to make this observation more precise. We will also include a comment on how the runtime of our method compares to DeepR. 
+
+Earlier methods like DeepR and SET provided key inspirations for this work. However, we have gone further than these previous algorithms and presented concrete results addressing several of their limitations (the computational inefficiency of DeepR, and its need for pre-specified layer sparsities; and the computational inefficiency of SET involving sorting, and the need for pre-specified layer sparsities). We illustrated for the first time the applicability of dynamic re-parameterization to practical large-scale convolutional networks, which earlier dynamic reparameterization approaches were not scalable enough to handle.  Thank you again and we are happy to address your further comments.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hyxhn39wjX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=Hyxhn39wjX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+Claim 1:
+Zhu et al. 2017 and DeepR were both submissions to ICLR 2018, thus it is not possible for DeepR to have compared to their pruning technique. They compared to a strong pruning baseline and beat it, claiming that you are the first because your performance exceeds a baseline they could not have compared to doesn’t make sense. 
+
+If your claim is that DeepR or SET cannot achieve comparable performance to the technique of Zhu et al. you should demonstrate this experimentally and include the results in your paper. A single data point of comparison in a footnote is not sufficient to establish superiority. If you were to demonstrate that DeepR and SET cannot achieve performance that your method can, this is a very valuable contribution and you can explain this and include it as a claim.
+
+Also, 5x slowdown is not so absurd that it precludes comparison given that ImageNet can be trained in under a day. You also pointed out that you have already re-implemented their technique. The authors of DeepR do provide code (see the very first line of the appendix). It is not clear why you should have any issue applying it to a deep all-convolutional network, the technique is very straightforward and is agnostic to model architecture. You also provide no comparison to SET, which your technique mirrors very closely.
+
+Claim 2:
+If your claim is that this is the first application of a “dynamic sparse reparameterization” to an entire convolutional network, it is not clear why this is a valuable contribution. DeepR and SET can both be trivially applied to an entire convolutional network.
+
+Claim 4:
+As stated above, a 5x slowdown is not so large that it justifies not comparing to a technique when claiming superiority. And a single data point in a footnote is not a sufficient comparison.
+
+For your computational complexity claim, you need to also compare to SET. It is not surprising that DeepR is very slow, and SET will almost certainly be much faster than it. Your technique only differs from SET in your use of an approximate threshold and your weight redistribution scheme. You claim that your technique is faster than SET because of this, but you provide no data to back up this claim. 
+
+When you do measure the performance of these techniques, it is important to note that the number of iterations between pruning steps is a trivial hyperparameter that can be adjusted for any pruning technique (and is commonly; see TensorFlow model pruning), and that you should compare to these techniques with the same number of iterations between pruning steps.
+
+Also, you claim to compare to the technique of Zhu et al., but the sparsity function you use (listed in the appendix) is not the same as theirs. If you want to compare to their technique, you should use TensorFlow model pruning, which is what was used in their experiments.
+
+We do not dispute the potential value of your approximate thresholding technique and weight redistribution technique. Our issues are that a) you do not properly compare to existing techniques to establish that either of these modifications has provided an improvement and b) you claim significant novelty relative to these techniques, in particular to SET, which is extremely close to your method and to which you do not compare at all.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyllM-B6jQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response (1/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=SyllM-B6jQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper622 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">24 Oct 2018</span><span class="item">ICLR 2019 Conference Paper622 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+Thank you for your comments.  Please find our full response below.
+
+**Claim 1:**
+We do not intend to discount the claims of either Zhu et al. 2017 or Bellec et al. 2017 (DeepR), which are two concurrent papers in ICLR 2018.  Being a submission to ICLR 2019, our work had the opportunity to benchmark against both techniques.  We found that Zhu et al. 2017 happened to be a stronger baseline, and this was the reason underlying our decision of using it as a previous state-of-the-art benchmark in our paper.  In fact, we did compare our method to various previous methods, including DeepR and SET; the reason why we did not include the comparison results in the manuscript was because (1) they did not beat the stronger network compression baseline, and (2) code and hyperparameter settings for these methods for the experiments we did were not available publicly, even though we made our own implementation based on the original papers and our discussion with authors (for performance metrics available in original papers we did include side-by-side comparisons in our manuscript, e.g. performance of LeNet-300-100 at 99% sparsity on MNIST reported by the DeepR paper).  Techniques like SET that do not use parameter reallocation among layers fared worse than our technique on MNIST as shown by Fig.5 in the appendix.  We are ready to include a full comparison to DeepR and SET in an additional appendix.  We also publicized source code for these experiments in addition to that required to reproduce all results in the paper (see response above to the DeepSparse team).
+Hence, by the above facts, we stand by our claim that "we are the first dynamic sparse reparameterization method to perform on par with or better than pruning-based compression techniques such as Zhu et al. 2017."
+
+**Claim 2:**
+Thank you for acknowledgement of our claim of contribution.  Your criticism is rather on whether our contribution is valuable or trivial, on which any reader of our paper may have a slightly different opinion from the next--not a factual error in our claim.  
+We believe the demonstration of the ability to scale up dynamic sparse training from a single layer to a deep network, and from toy-sized models to real-world applications, is rather nontrivial.  This is what previous work such as DeepR and SET did not show, and a key consequence of the improved efficiency and scalability achieved by our method.  
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJg6Q-STom" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response (2/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1xBioR5KX&amp;noteId=HJg6Q-STom"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper622 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">24 Oct 2018 (modified: 25 Oct 2018)</span><span class="item">ICLR 2019 Conference Paper622 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+**Claim 4:**
+Our observation of the 5x slowdown of DeepR compared to ours was intended to demonstrate the computational efficiency of our method as well as why we did not include DeepR in the comparison as it is computationally expensive for large dataset/model.   
+Though you correctly pointed out two mechanistic differences between our method and SET, we believe a much more consequential difference is downplayed--our method produced sparse models that generalize better.  Just the superior performance should, in our opinion, warrant a closer look at the underlying mechanisms that gave rise to these advantages, however simple these mechanisms might seem.
+In fact, the mechanistic differences between our method and SET are not trivial.  
+First, the higher computational efficiency of our method over SET stems from the fact that SET uses a sorting operation over all the weights in a layer whereas ours uses a comparison operation against a threshold for pruning.  This was stated in the manuscript, see second bullet point at the end of page 2 and the third line in page 9.  
+Second, automatic parameter reallocation across layers is a key feature of our algorithm that is entirely novel from SET or DeepR and directly contributed to its superior scalability (eliminating the need to configure sparsity for different layers manually) and superior performance (see Appendix C).  
+Per your suggestion, we did further experiments using the exact form (i.e. cubic) of the sparsity schedule in Zhu et al. 2017 (tensorflow.contrib.model_pruning).  The difference from our choice (i.e. exponential) is inconsequential.  In the table below we list further experimental results (in test accuracy%) for WRN-28-2 on CIFAR10, for a direct comparison of our method, Zhu et al. 2017, Bellec et al. 2017 (DeepR), and Mocanu et al. 2018 (SET), source code for reproduction also publicized. 
+Because the DeepR paper did not provide code or hyperparameter settings for the larger-scale experiments we did, we ran a systematic sweep on the parameters of DeepR (as well as on its temperature annealing schedule) and reported the best results here. 
+As you mentioned, demonstrating the superiority of our method over SET and DeepR in terms of accuracy is a valuable contribution. We intend to include the following results as well as further results comparing against SET and DeepR in Imagenet experiments in our paper.
++-----------------------------------------------------------------------------+
+| Sparsity                                    |         0.9        |         0.8         |
++-----------------------------------------------------------------------------+
+| Bellec et al. 2017 (DeepR)    | 90.81 ± 0.07 | 91.76 ± 0.22 |
++-----------------------------------------------------------------------------+
+| Mocanu et al. 2018 (SET)      | 93.42 ± 0.24 | 94.02 ± 0.09 |
++-----------------------------------------------------------------------------+
+| Zhu et al. 2017                        | 93.76 ± 0.08 | 94.16 ± 0.12 |
++-----------------------------------------------------------------------------+
+| Ours                                         | 93.68 ± 0.12 | 94.34 ± 0.16 |
++-----------------------------------------------------------------------------+
+
+Thank you again and we are happy to address your further comments.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

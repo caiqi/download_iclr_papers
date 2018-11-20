@@ -1,0 +1,361 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>STCN: Stochastic Temporal Convolutional Networks | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="STCN: Stochastic Temporal Convolutional Networks" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HkzSQhCcK7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="STCN: Stochastic Temporal Convolutional Networks" />
+      <meta name="og:description" content="Convolutional architectures have recently been shown to be competitive on many sequence modelling tasks when compared to the de-facto standard of recurrent neural networks (RNNs), while providing..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HkzSQhCcK7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>STCN: Stochastic Temporal Convolutional Networks</a> <a class="note_content_pdf" href="/pdf?id=HkzSQhCcK7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019stcn:,    &#10;title={STCN: Stochastic Temporal Convolutional Networks},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HkzSQhCcK7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=HkzSQhCcK7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Convolutional architectures have recently been shown to be competitive on many sequence modelling tasks when compared to the de-facto standard of recurrent neural networks (RNNs), while providing computational and modeling advantages due to inherent parallelism. However, 
+currently there remains a performance gap to more expressive stochastic RNN variants, especially those with several layers of dependent random variables. In this work, we propose stochastic temporal convolutional networks (STCNs), a novel architecture that combines the computational advantages of temporal convolutional networks (TCN) with the representational power and robustness of stochastic latent spaces. In particular, we propose a hierarchy of stochastic latent variables that captures temporal dependencies at different time-scales. The architecture is modular and flexible due to decoupling of deterministic and stochastic layers. We show that the proposed architecture achieves state of the art log-likelihoods across several tasks. Finally, the model is capable of predicting high-quality synthetic samples over a long-range temporal horizon in a variety of tasks including modeling of handwritten text and digits.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">latent variables, variational inference, temporal convolutional networks, sequence modeling, auto-regressive modeling</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We combine the computational advantages of temporal convolutional architectures with the expressiveness of stochastic latent variables.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_S1xUAx5667" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Updates in the revised paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkzSQhCcK7&amp;noteId=S1xUAx5667"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1356 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1356 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank all reviewers for their constructive comments. Our work combines the computational advantages of temporal convolutional networks (TCN) with the representational power and robustness of stochastic latent spaces. Based on the reviewer’s feedback we have prepared an updated revision of the paper. Furthermore, we will respond to each review in a detailed manner below.
+
+The most important changes in the revised version can be summarized as follows:
+- We cleaned up the description of the background, method and improved the figures describing our model. 
+- We include an extensive discussion of related work as suggested by R3 and include direct comparisons to the state-of-the-art, where possible.
+- During our experiments, we found that using separate \theta and \phi parameters for f^{l} is much more efficient, than to share the parameters of f^{l} (i.e., layers calculating mean and sigma of Normal distributions of the latent variables) for the prior and approximate posterior as suggested by Sønderby et al. (2016) and as was the case at submission time.
+- With this change implemented, we re-ran experiments and updated the tables in the paper. On IAM-OnDB, Deepwriting,    TIMIT and MNIST we now report state-of-the-art log-likelihood results (even compared to additional models listed by R3). We also evaluate our model on the Blizzard dataset where only the Variational Bi-LSTM architecture is marginally better than STCN-dense (i.e., 17319 against 17128) but has access to future information.
+- We include additional results on MNIST and provide insights why STCN-dense gives a large improvement in terms of reconstruction.
+- We updated figures and equations throughout to improve clarity of presentation. 
+
+-----
+Casper Kaae Sønderby, Tapani Raiko, Lars Maaløe, Søren Kaae Sønderby, and Ole Winther. Ladder variational autoencoders. In Advances in neural information processing systems, pp. 3738–3746, 2016.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BkeTXrG6nm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Ok paper with a reasonable -- though somewhat obvious -- approach to generative modeling of sequence data</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkzSQhCcK7&amp;noteId=BkeTXrG6nm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1356 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1356 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a generative sequence model based on the dilated CNN
+popularized in models such as WaveNet. Inference is done via a hierarchical
+variational approach based on the Variational Autoencoder (VAE). While VAE
+approach has previously been applied to sequence modeling (I believe the
+earliest being the VRNN of Chung et al (2015)), the innovation where is the
+integration of a causal, dilated CNN in place of the more typical recurrent
+neural network. 
+
+The potential advantages of the use of the CNN in place of
+RNN is (1) faster training (through exploitation of parallel computing across
+time-steps), and (2) potentially (arguably) better model performance. This
+second point is argued from the empirical results shown in the
+literature. The disadvantage of the CNN approach presented here is that
+these models still need to generate one sample at a time and since they are
+typically much deeper than the RNNs, sample generation can be quite a bit
+slower.
+
+Novelty / Impact: This paper takes an existing model architecture (the
+causal, dilated CNN) and applies it in the context of a variational
+approach to sequence modeling. It's not clear to me that there are any
+significant challenges that the authors overcame in reaching the proposed
+method. That said, it certainly useful for the community to know how the
+model performs.
+
+Writing: Overall the writing is fairly good though I felt that the model
+description could be made more clear by some streamlining -- with a single
+pass through the generative model, inference model and learning. 
+
+Experiments: The experiments demonstrate some evidence of the superiority
+of this model structure over existing causal, RNN-based models. One point
+that can be drawn from the results is that a dense architecture that uses multiple levels of the
+latent variable hierarchy directly to compute the data likelihood is
+quite effective. This observation doesn't really bear on the central message
+of the paper regarding the use of causal, dilated CNNs. 
+
+The evidence lower-bound of the STCN-dense model on MNIST is so good (low)
+that it is rather suspicious. There are many ways to get a deceptively good
+result in this task, and I wonder if all due care what taken. In
+particular, was the binarization of the MNIST training samples fixed in
+advance (as is standard) or were they re-binarized throughout training? 
+
+Detailed comments:
+- The authors state "In contrast to related architectures (e.g. (Gulrajani et
+al, 2016; Sonderby et al. 2016)), the latent variables at the upper layers
+capture information at long-range time scales" I believe that this is
+incorrect in that the model proposed in at least Gulrajani et al also 
+
+- It also seems that there is an error in Figure 1 (left). I don't think
+there should be an arrow between z^{2}_{t,q} and z^{1}_{t,p}. The presence
+of this link implies that the prior at time t would depend -- through
+higher layers -- on the observation at t. This would no longer be a prior
+at that point. By extension you would also have a chain of dependencies
+from future observations to past observations. It seems like this issue is
+isolated to this figure as the equations and the model descriptions are
+consistent with an interpretation of the model without this arrow (and
+including an arrow between z^{2}_{t,p} and z^{1}_{t,p}.
+
+- The term "kla" appears in table 1, but it seems that it is otherwise not
+defined. I think this is the same term and meaning that appears in Goyal et
+al. (2017), but it should obviously be defined here.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1lmRf5p6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Comments and Clarifications</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkzSQhCcK7&amp;noteId=r1lmRf5p6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1356 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1356 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">***"significant challenges that the authors overcame in reaching the proposed method."
+The goal of our work was to design a modular extension to the vanilla TCN, while improving the modelling capacity via the introduction of hierarchical stochastic variables. In particular, we did not want to modify deterministic TCN layers (as is the case for Stochastic WaveNet, Lai et al., 2016) since this may limit scalability, flexibility and may limit the maximum receptive field size. 
+These goals are motivated by findings from the initial phases of the project:  
+1) Initial attempts involved standard hierarchical latent variable models, none outperformed the VRNN baseline.  
+2) The precision-weighted update of approximate posterior, akin to LadderVAEs, significantly improved experimental results. 
+3) As can be seen from our empirical results, the increasing receptive field of TCNs provides different information context to different latent variables. This enables our architectures to more efficiently leverage the latent space and partially prevents latent space collapse issues highlighted in the literature (Dieng et al., 2018,  Zhao et al., 2017). The introduction of skip connections from every latent variable to the output layer directly in the STCN-dense variant seems to afford the network the most flexibility in terms of modelling different datasets (see p.8 &amp; Tbl. 3 in the revised paper).
+
+***  Effectiveness of TCN and densely connected latent variables
+Thanks for the interesting question. We agree that using multiple levels of the latent variables directly to make predictions is very effective. As we explain in the revised version of our submission, in STCN and STCN-dense models, the latent variables are provided with a different level of expressiveness. Hence, depending on the task and dataset, the model can focus on intermediate variables which have a different context. We think that this is an important aspect of our work, which can only be achieved by using the dilated CNNs. One can stack RNN cells similar to TCN blocks and use our densely connected latent space concept. In this scenario, the hierarchy would only be implicitly defined by the network architecture. However, since the receptive field size does not change throughout the hierarchy it is unclear whether the same effectiveness would be attained. Moreover, we note that combining our hierarchical stochastic variables with stacked LSTMs would inverse the effect on computational efficiency that we gain from the TCNs.  
+
+***“MNIST performance
+Yes, binarization of the MNIST is fixed in advance. We followed the procedure detailed in the Z-forcing paper closely. Naturally, we will release code and pre-processing scripts so that the results can be verified. Here is our experimental protocol:
+1) We used the binarized MNIST dataset of Larochelle and Murray (2011). It was downloaded from <a href="http://www.cs.toronto.edu/~larocheh/public/datasets/binarized_mnist/binarized_mnist_train.amat" target="_blank" rel="nofollow">http://www.cs.toronto.edu/~larocheh/public/datasets/binarized_mnist/binarized_mnist_train.amat</a>
+2) We trained all models without any further preprocessing or normalization. The first term of the ELBO, i.e., the reconstruction loss, is measured via binary cross-entropy. 
+We provide an in-depth analysis in the revised version, showing that the STCN-dense architecture makes very precise probability predictions, also for pixel values close to character discontinuities. This provides very accurate modeling of edges and in consequence, gives very good likelihood performance. See (new) Figure 4 in the revised version.
+
+*** Clarifications
+We updated and clarified the Figure in the revised version. The generative model only relies on the prior. At sampling time, samples from the prior latent variables are used both in prediction of the observation and computation of the next layer’s latent variable. Therefore the generative model takes the input sequence until t-1, i.e., x_{1:t-1} in order to predict x_t.
+“The term "kla" appears in table 1, but it seems that it is otherwise not defined. I think this is the same term and meaning that appears in Goyal et al. (2017), but it should obviously be defined here.”
+Yes. It stands for annealing of the weight of KL loss term. We now clarified the language in tables and captions. 
+
+***References
+Lai, G., Li, B., Zheng, G., &amp; Yang, Y. (2018). Stochastic WaveNet: A Generative Latent Variable Model for Sequential Data. arXiv preprint arXiv:1806.06116.
+Adji B Dieng, Yoon Kim, Alexander M Rush, and David M Blei. Avoiding latent variable collapse with generative skip models. arXiv preprint arXiv:1807.04863, 2018.
+Shengjia Zhao, Jiaming Song, and Stefano Ermon. Learning hierarchical features from generative models. arXiv preprint arXiv:1702.08396, 2017.
+Larochelle, Hugo, and Iain Murray. The neural autoregressive distribution estimator. Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics. 2011.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Syg22hUs2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting new architecture, but some clarity issues</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkzSQhCcK7&amp;noteId=Syg22hUs2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1356 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1356 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper introduces a new stochastic neural network architecture for sequence modeling. The model as depicted in figure 2 has a ladder-like sequence of deterministic convolutions bottom-up and stochastic Gaussian units top-down.
+
+I'm afraid I have a handful of questions about aspects of the architecture that I found confusing. I have a difficult time relating my understanding of the architecture described in figure 2 with the architecture shown in figure 1 and the description of the wavenet building blocks. My understanding of wavenet matches what is shown in the left of figure 1: the convolution layers d_t^l depend on the convolutional layers lower-down in the model, thus with each unit d^l having dependence which reaches further and further back in time as l increases. I don't understand how to reconcile this with the computation graph in figure 2, which proposes a model which is Markov! In figure 2, each d_{t-1}^l depends only on on the other d_{t-1} units and the value of x_{t-1}, which then (in the left diagram of figure 2) generate the following x_t, via the z_t^l. Where did the dilated convolutions go…? I thought at first this was just a simplification for the figure, but then in equation (4), there is d_t^l = Conv^{(l)}(d_t^{l-1}). Shouldn't this also depend on d_{t-1}^{l-1}…? or, where does the temporal information otherwise enter at all? The only indication I could find is in equation (13), which has a hidden unit defined as d_t^1 = Conv^{(1)}(x_{1:t}).
+
+Adding to my confusion, perhaps, is the way that the "inference network" and "prior" are described as separate models, but sharing parameters. It seems that, aside from the initial timesteps, there doesn't need to be any particular prior or inference network at all: there is simply a transition model from x_{t-1} to x_{t}, which would correspond to the Markov operator shown in the left and middle sections of figure 2. Why would you ever need the right third of figure 2? This is a model that estimates z_t given x_t. But, aside from at time 0, we already have a value x_{t-1}, and a model which we can use to estimate z_t  given x_{t-1}…!
+
+What are the top-to-bottom functions f^{(l)} and f^{(o)}? Are these MLPs?
+
+I also was confused in the experiments by the &gt;= and &lt;= on the reported numbers. For example, in table 2, the text describes the values displayed as log-likelihoods, in which case the ELBO represents a lower bound. However, in that case, why is the bolded value the *lowest* log-likelihood? That would be the worst model, not the best — does table 2 actually show negative log-likelihoods, then? In which case, though, the numbers from the ELBO should be upper bounds, and the &gt;= should be &lt;=. Looking at figure 4, it seems like visually the STCN and VRNN have very good reconstructions, but the STCN-dense has visual artifacts; this would correspond with the numbers in table 2 being log-likelihoods (not negative), in which case I am confused only by the choice of which model to bold.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJeA9X5TTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Comments and Clarifications</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkzSQhCcK7&amp;noteId=BJeA9X5TTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1356 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1356 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">*** Clarifications for figures and equations
+We apologize for the confusion. As the reviewer mentions the dilated convolutional stacks d_t^l has dependency reaching further and further back in time. 
+In the original Fig. 2 we aimed to simplify the model details and show only a graphical model representation. The caption provides an explanation of the (updated) figure in the revised version. Moreover, the “Conv” equation (Eq. 2 in the revised version) is now a corrected to be a function of multiple time-steps, explicitly showing the hierarchy across time.
+
+***Details of the inference and generative networks
+The difference between the prior and the approximate posterior, i.e., inference network are the respective input time-steps. The prior at time-step t is conditioned on all the input sequence until t-1, i.e., x_{1:t-1}. The inference network, on the other hand, is conditioned on the input until step t, i.e., x_{1:t}. 
+At sampling time, we only use the prior. In other words, the prior sample z_t (conditioned on  x_{1:t-1}) is used to predict x_t. Here we follow the dynamic prior concept of Chung et al. (2015). During training of the model, the KL term in the objective encourages the prior to be predictive of the next step. 
+
+*** f^{(l)} and f^{(o)} functions.
+f^{(l)} stands for neural network layers consisting of 1d convolution operations with filter size 1: Conv -&gt; ReLu -&gt; Conv -&gt; ReLu which is then used to calculate mu and sigma of a Normal distribution.
+
+f^{(o)} corresponds the output layer of the model. Depending on the task we either use 1d Conv or Wavenet blocks. Network details are provided in the appendix of the revised paper.
+
+*** Clarification on MNIST results.
+This was indeed a typo. We report negative log-likelihood performance, measured by ELBO. We correct this in the revised version.
+In Fig. 4 (in the submitted version) we wanted to emphasize that STCN-dense can reconstruct the low-level details such as noisy pixels, which results in large improvement in the likelihood. We agree the STCN and VRNN provide smoothed and perceptually beautiful results. However, such enhancements lower the likelihood performance. Since the figure did not convey this clearly, we updated the figure in the revised version.
+
+***References
+Junyoung Chung, Kyle Kastner, Laurent Dinh, Kratarth Goel, Aaron C Courville, and Yoshua Bengio. A recurrent latent variable model for sequential data. In Advances in neural information processing systems, pp. 2980–2988, 2015.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJghxFJ5hm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clearly written, but lacking comparisons</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkzSQhCcK7&amp;noteId=SJghxFJ5hm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1356 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1356 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The focus on novelty (mentioned in both the abstract, and conclusion as a direct claim) in the presentation hurts the paper overall. Without stronger comparison to other closely related work, and lack of citation to several closely related models, the claim of novelty isn't defined well enough to be useful. Describing what parts of this model are novel compared to e.g. Stochastic WaveNet or the conditional dilated convolutional decoder of "Improved VAE for Text ..." (linked below, among many others) would help strengthen the novelty claim, if the claim of novelty is needed or useful at all. Stochastic WaveNet in particular seems very closely related to this work, as does PixelVAE. In addition, use of autoregressive models conditioned on (non-variational, in some sense) latents have been shown in both VQ-VAE and ADA among others, so a discussion would help clarify the novelty claim.
+
+Empirical results are strong, though (related to the novelty issue) there should be greater comparison both quantitatively and qualitatively to further work. In particular, many of the papers linked below show better empirical results on the same datasets. Though the results are not always directly comparable, a discussion of *why* would be useful - similar to how Z-forcing was included.
+
+In the qualitative analysis, it would be good to see a more zoomed out view of the text (as in VRNN), since one of the implicit claims of the improvement from dense STCN is improved global coherence by direct connection to the "global latents". As it stands now the text samples are a bit too local to really tell. In addition, the VRNN samples look quite a bit different than what the authors present in their work - what implementation was used for the VRNN samples (they don't appear to be clips from the original paper)? 
+
+On the MNIST setting, there are many missing numbers in the table from related references (some included below), and the &gt;= 60.25 number seems so surprising as to be (possibly) incorrect - more in-depth analysis of this particular result is needed. Overall the MNIST result needs more description and relation to other work, for both sequential and non-sequential models.
+
+The writing is well-done overall, and the presented method and diagrams are clear. My primary concern is in relation to related work, clarification of the novelty claim, and more comparison to existing methods in the results tables. 
+
+Variational Bi-LSTM <a href="https://arxiv.org/abs/1711.05717" target="_blank" rel="nofollow">https://arxiv.org/abs/1711.05717</a>
+
+Stochastic WaveNet https://arxiv.org/abs/1806.06116
+
+PixelVAE https://arxiv.org/abs/1611.05013
+
+Filtering Variational Objectives https://github.com/tensorflow/models/tree/master/research/fivo
+
+Improved Variational Autoencoders for Text Modeling using Dilated Convolutions https://arxiv.org/abs/1702.08139
+
+Temporal Sigmoid Belief Networks for Sequential Modeling http://papers.nips.cc/paper/5655-deep-temporal-sigmoid-belief-networks-for-sequence-modeling
+
+Neural Discrete Representation Learning (VQ-VAE) https://arxiv.org/abs/1711.00937
+
+The challenge of realistic music generation: modelling raw audio at scale (ADA) https://arxiv.org/abs/1806.10474
+
+Learning hierarchical features from Generative Models https://arxiv.org/abs/1702.08396
+
+Avoiding Latent Variable Collapse with Generative Skip Models https://arxiv.org/abs/1807.04863</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJlBz456pX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Comments and Clarifications</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkzSQhCcK7&amp;noteId=SJlBz456pX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1356 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1356 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">***Missing citations and novelty claim
+We thank the reviewer for useful pointers to additional related papers. In the revised version, we added a more complete related work section. In particular, we discuss the most closely related Stochastic Wavenet paper in detail. While SWaveNet and ours combine TCNs with stochastic variables there are important differences in how this is achieved. Furthermore, we show that these design choices have implications in terms of modelling power and our architecture outperforms SWaveNet despite not having access to future information. Furthermore, we provide log-likelihood results from Variational Bi-LSTM and Stochastic Wavenet are inserted into the result table. In order to provide more evidence, we also include experiments on the Blizzard dataset. 
+
+We would like to emphasize that the main difference between our model and the models with autoregressive decoders (i.e., PixelVAE, Improved Variational Autoencoders for Text Modeling using Dilated Convolutions) is the sequential structure of our latent space. For every timestep x_t we have a corresponding latent variable z_t, similar to stochastic RNNs, which helps modeling the uncertainty in sequence data. We aim to combine TCNs with a powerful latent variable structure to better model sequence data rather than learning disentangled or interpretable representations. The updated results show that our design successfully preserves the modeling capacity of TCNs and representation power of latent variables.
+
+*** Handwriting sample figure.
+In order to make a direct comparison, we include a new figure (similar to VRNN) comparing generated handwriting samples of VRNN, Stochastic Wavenet and STCN-dense. The original figure referred to by the reviewer is now in the Appendix.
+
+*** MNIST results
+(Also see the answer to R1) We include a new figure comparing the performance of STCN, STCN-dense and VRNN on single test samples from seq-MNIST. We find that STCN-dense makes very precise probability predictions for the pixel values as opposed to other models, this explains the drastic increase in likelihood performance. 
+We include a table providing KL loss per latent variable across the whole dataset. We also provide a comparison between SKIP-VAE (Avoiding Latent Variable Collapse with Generative Skip Models) and our model. It shows that STCN-dense effectively uses the latent space capacity (indicated by high KL values) and encodes the required information to reconstruct the input sequence. We also provide generated MNIST samples in order to show that the discrepancy between the prior and approximate posterior does not degrade generative modeling capacity.
+Finally, in our MNIST experiments, we followed Z-forcing paper’s instructions. See reply to R1 for details of the experimental protocol. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

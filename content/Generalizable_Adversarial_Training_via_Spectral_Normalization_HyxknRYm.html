@@ -1,0 +1,303 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Generalizable Adversarial Training via Spectral Normalization | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Generalizable Adversarial Training via Spectral Normalization" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Hyx4knR9Ym" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Generalizable Adversarial Training via Spectral Normalization" />
+      <meta name="og:description" content="Deep neural networks (DNNs) have set benchmarks on a wide array of supervised learning tasks. Trained DNNs, however, often lack robustness to minor adversarial perturbations to the input, which..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Hyx4knR9Ym" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Generalizable Adversarial Training via Spectral Normalization</a> <a class="note_content_pdf" href="/pdf?id=Hyx4knR9Ym" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019generalizable,    &#10;title={Generalizable Adversarial Training via Spectral Normalization},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=Hyx4knR9Ym},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=Hyx4knR9Ym" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Deep neural networks (DNNs) have set benchmarks on a wide array of supervised learning tasks. Trained DNNs, however, often lack robustness to minor adversarial perturbations to the input, which undermines their true practicality. Recent works have increased the robustness of DNNs by fitting networks using adversarially-perturbed training samples, but the improved performance can still be far below the performance seen in non-adversarial settings. A significant portion of this gap can be attributed to the decrease in generalization performance due to adversarial training. In this work, we extend the notion of margin loss to adversarial settings and bound the generalization error for DNNs trained under several well-known gradient-based attack schemes, motivating an effective regularization scheme based on spectral normalization of the DNN's weight matrices. We also provide a computationally-efficient method for normalizing the spectral norm of convolutional layers with arbitrary stride and padding schemes in deep convolutional networks. We evaluate the power of spectral normalization extensively on combinations of datasets, network architectures, and adversarial training schemes.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Adversarial attacks, adversarial training, spectral normalization, generalization guarantee</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">9 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BJg4GCdkR7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response Summary (Draft Updated)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyx4knR9Ym&amp;noteId=BJg4GCdkR7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper976 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper976 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewers for their valuable time and constructive feedback. In response to the comments raised in the reviews, we have modified Figures 3, 5, and 6 in the main text to more clearly convey their messages. We have also performed the following additional numerical experiments and added the results to the Appendix:
+
+1. We reran and timed all 42 experiments in Table 1 for 40 epochs with and without spectral normalization to clearly illustrate the difference in training time when using our proposed spectral normalization method (Appendix Table 2). We see that the training time with our proposed method is comparable, often being roughly the same and in the worst case taking 1.84 times as long.
+
+2. We provide an extensive comparison of our spectral normalization method for convolutional layers to that proposed by Miyato et al. (2018) in Appendix A.1. We provide numerical evidence that our method properly controls the spectral norm of convolution layers through figures and the estimated spectral norms of the layers post-training. The proposed normalization scheme also results in better generalization performance (Figure 10). We also compare the runtimes of architectures trained using our spectral normalization method versus Miyato et al.’s spectral normalization method (Table 3) and observe that our method takes only slightly longer, as expected.
+
+3. We empirically compare spectral normalization to other common regularization techniques for deep neural nets (DNNs): batch normalization, weight decay, and dropout. We see that spectral normalization achieves the best generalization performance in adversarial training settings. The results are provided in Appendix A.2.
+
+We have also made the appropriate modifications in the main text and cited relevant works raised by the reviewers. We provide our code in an anonymous zip file that can be accessed at: <a href="https://www.dropbox.com/s/hl9q2f6epdu80qp/dl_spectral_normalization.zip?dl=0." target="_blank" rel="nofollow">https://www.dropbox.com/s/hl9q2f6epdu80qp/dl_spectral_normalization.zip?dl=0.</a></span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SkeXPX7hhm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good paper, but I have some questions about the experimental results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyx4knR9Ym&amp;noteId=SkeXPX7hhm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper976 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper976 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper first provides a generalization bounds for adversarial training, showing that the error bound depends on Lipschitz constant. This motivates the use of spectral regularization (similar to Miyato et al 2018) in adversarial training. Using spectral regularization to improve robustness is not new, but it's interesting to combine spectral regularization and adversarial training. Experimental results show significant improvement over vanilla adversarial training. 
+
+The paper is nicely written and the experimental results are quite strong and comprehensive. I really like the paper but I have two questions about the results: 
+
+1. The numbers reported in Figure 5 do not match with the performance of adversarial training in previous paper. In PGM L_inf adversarial training/attack (column 3 of Figure 5), the prediction accuracy is roughly 50% under 0.1 infinity norm perturbation. However, previous papers (e.g., "Obfuscated Gradients Give a False Sense of Security") reported 55% accuracy under 0.031 infinity norm perturbation. I wonder why the numbers are so different. 
+
+Maybe it's because of different scales? Previous works usually scale each pixel to [0,1] or [-1,1], maybe the authors use the [0, 255] scale? But 0.1/255 will be much smaller than 0.031. 
+
+Another factor might be the model structure. If Alexnet has much lower accuracy, it's probably worthwhile to conduct experiments on the same structure with previous works (Madry et al and Athalye et al) to make the conclusion more clear. 
+
+2. What's the training time of the proposed method compared with vanilla adversarial training? 
+
+3. The idea of using SN to improve robustness has been introduced in the following paper: 
+"Lipschitz-Margin Training: Scalable Certification of Perturbation Invariance for Deep Neural Networks"
+(but this paper did not combine it with adv training). 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ByeNL6dJAQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response to AnonReviewer1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyx4knR9Ym&amp;noteId=ByeNL6dJAQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper976 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper976 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank Reviewer 1 for the constructive feedback. Here is our point-to-point response to the comments and questions raised in the review:
+
+1. “The numbers reported in Figure 5 do not match with the performance of adversarial training in previous paper… I wonder why the numbers are so different.” 
+
+Table 1 of "Obfuscated Gradients Give a False Sense of Security" reports an accuracy of 47% under 0.031 norm-inf perturbation for the CIFAR10 dataset (55% is reported for the MNIST dataset), approximately the same as the 44% accuracy in our Figure 5. The difference in performance stems from how we preprocessed the CIFAR10 images: exactly in the manner described by (Zhang et al., 2017)’s ICLR paper “Understanding deep learning requires rethinking generalization” (we whiten and crop each image). 
+
+2. “What's the training time of the proposed method compared with vanilla adversarial training?” 
+
+We have added Table 2 to the Appendix which reports the increase in runtime for each of the 42 experiments discussed in Table 1 after introducing spectral normalization. For 39 of the cases, our TensorFlow implementation of the proposed method results in longer training times (from 1.02 to 1.84 times longer). In the 3 cases of iterative adversarial attacks with the Inception architecture, the proposed method actually results in faster training time. This is likely due to how TensorFlow handles training in the backend. We provide the code for full transparency.
+
+3. “The idea of using SN to improve robustness has been introduced in the following paper: "Lipschitz-Margin Training: Scalable Certification of Perturbation Invariance for Deep Neural Networks" (but this paper did not combine it with adv training).”
+
+Thank you for bringing this recent work to our attention. We cite and discuss this NIPS paper in our updated draft.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_B1xw3F5KhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>spectral normalization for adversarial training</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyx4knR9Ym&amp;noteId=B1xw3F5KhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper976 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper976 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes using spectral normalization (SN) as a regularization for adversarial training, which is based on [Miyato et. al., ICLR 2018], where the original paper used SN for GAN training. The paper also uses the results from [Neyshabur et. al., ICLR 2018], where the original paper provided generalization bounds that depends on spectral norm of each layer. 
+
+The paper is well written in general, the experiments are extensive. 
+
+The idea of studying based on the combination of the results from two previous papers is quite natural, since one uses spectral normalization in practice for GAN training, and the other provides generalization bound that depends on spectral norm. 
+
+The novelty of the algorithm itself is limited, since GAN and adversarial training are both minmax problems, and the original algorithm can be carried over easily. The experimental result itself is quite comprehensive. 
+
+On the other hand, this paper provides specific generalization bounds under three adversarial attack methods, which explains the power of SN under those settings. However, it is not clear to me that these are some novel results that can better help adversarial training.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HyxOkadJAX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response to AnonReviewer3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyx4knR9Ym&amp;noteId=HyxOkadJAX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper976 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper976 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank Reviewer 3 for the constructive feedback. Here is our point-to-point response to the comments and questions raised in this review:
+
+1. “The novelty of the algorithm itself is limited, since GAN and adversarial training are both minmax problems, and the original algorithm can be carried over easily”
+
+GAN inference and adversarial training seek different goals. Adversarial training addresses a supervised learning task while GAN inference focuses on an unsupervised learning problem. Due to the inherent difference between supervised and unsupervised learning problems, the notion of generalization is defined differently between them. Arora et al. (2017) provide the standard definition of generalization error for GANs which is very different from the standard generalization error considered in supervised learning. Furthermore, no work in the literature theoretically guarantees that spectral normalization closes the generalization gap for either adversarial supervised learning or GAN unsupervised learning.
+
+2. “It is not clear to me that these are some novel results that can better help adversarial training”
+
+Our work’s main contribution is the theoretical generalization guarantees for spectrally-normalized adversarially-trained DNNs. Introducing the adversary can significantly grow the capacity of a DNN. Therefore, existing DNN generalization bounds are not applicable to adversarial training settings. Our work, to our best knowledge, is the first to show that the adversarial learning capacity of a DNN for FGM, PGM, WRM training schemes can be effectively controlled by regularizing the spectral norm of the DNN’s weight matrices. Our numerical results further support our theoretical contribution.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1x3aUom2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The idea is well explained, but results are less clear</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyx4knR9Ym&amp;noteId=H1x3aUom2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper976 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper976 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper is well set-up to target the interesting problem of degraded generalisation after adversarial training. The proposal of applying spectral normalisation (SN) is well motivated, and is supported by margin-based bounds. However, the experimental results are weak in justifying the paper's claims.
+
+Pros:
+* The problem is interesting and well explained
+* The proposed method is clearly motivated
+* The proposal looks theoretically solid
+
+Cons:
+
+* It is unclear to me whether the "efficient method for SN in convolutional nets" is more efficient than the power iteration algorithm employed in previous work, such as Miyato et al. 2018, which also used SN in conv nets with different strides. There is no direct comparison of performance.
+
+* Fig. 3 needs more explanation. The horizontal axes are unlabelled, and "margin normalization" is confusing when shown together with SN without an explanation. Perhaps it's helpful to briefly introduce it in addition to citing Bartlett et al. 2017.
+
+* The epsilons in Fig. 5 have very different scales (0 - 0.5 vs. 0 - 5). Are these relevant to the specific algorithms and why?
+
+* Section 5.3 (Fig. 6) is the part most relevant to the generalisation problem. However, the results are unconvincing: only the results for epsilon = 0.1 are shown, and even so the advantage is marginal. Furthermore, the baseline models did not use other almost standard regularisation techniques (weight decay, dropout, batch-norm). It is thus unclear whether the advantage can be maintained after applying these standard regularsisers.
+
+A typo in page 6, last line: wth -&gt; with</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1eRd3dyCQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response to AnonReviewer2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyx4knR9Ym&amp;noteId=H1eRd3dyCQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper976 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper976 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank Reviewer 2 for the constructive feedback. Here is our point-to-point response to the comments and questions raised in the review:
+
+1. “It is unclear to me whether the "efficient method for SN in convolutional nets" is more efficient than the power iteration algorithm employed in previous work, such as Miyato et al. 2018, which also used SN in conv nets with different strides. There is no direct comparison of performance.”
+
+We do not claim that our method is more efficient than Miyato et al.’s method, which uses the spectral norm of the convolution kernel matrix to approximate the spectral norm of the convolution operation. In fact, our proposed method is computationally more expensive than their approximate scheme because each power iteration in our method requires a conv/deconv operation rather than a simple division used by Miyato et al.’s. 
+
+We introduce our new spectral normalization scheme for convolutional layers because there exist examples where the true spectral norm of a convolution operation can be arbitrarily larger than Miyato et al.’s approximation. Therefore, Miyato et al.’s normalization scheme is not guaranteed to control the spectral norm of convolutional layers which is critical for controlling a DNN’s generalization performance (please see our generalization bounds in Section 3). To further support our argument, we performed additional experiments demonstrating how our proposed method better controls the spectral norm of convolution layers, resulting in better generalization and test performance. The results are presented in Appendix A.1. Furthermore, we run several experiments to show that our method is not significantly slower than Miyato et al.’s method, and we report the results in Appendix A.1, Table 3. 
+
+2. “Fig. 3 needs more explanation. The horizontal axes are unlabelled, and "margin normalization" is confusing”
+
+We relabel the axes and add a more thorough explanation in the caption. We note that the text explaining Figure 3 mentions how the margin normalization is performed (paragraph 3 in section 5.1): the margin normalization factor is exactly the capacity norm \Phi described in Theorems 1-4. We clarify that we divide the obtained margins by the values of \Phi estimated on the dataset.
+
+3. “The epsilons in Fig. 5 have very different scales (0 - 0.5 vs. 0 - 5). Are these relevant to the specific algorithms and why?” 
+
+Yes, the epsilons are chosen to be different depending on whether we are looking at norm_inf attacks or norm_2 attacks. This is because the two norms can behave very differently in adversarial attack experiments. For example, a norm_inf attack of 0.5 implies that all pixels can be changed by 0.5. On the other hand, a norm_2 attack of 0.5 means the overall Euclidean norm of perturbation across all pixels is bounded by 0.5, resulting in a much less powerful attack. Based on this comment, we update the plots with the same attack-norm to have the same scale.
+
+4. "Section 5.3 (Fig. 6) is the part most relevant to the generalisation problem. However, the results are unconvincing: only the results for epsilon = 0.1 are shown, and even so the advantage is marginal." 
+
+We redo the visualization in Figure 6 to make the gains provided by SN clearer. We see that using SN can improve the test performance by over 12% for some FGM, PGM, and WRM cases.
+
+5. "The baseline models did not use other almost standard regularisation techniques (weight decay, dropout, batch-norm). It is thus unclear whether the advantage can be maintained after applying these standard regularisers."
+
+We did not originally discuss weight decay, dropout, and batch normalization as none of these methods were motivated by the theory we introduced in section 3. However, due to the reviewers’ concern in the updated draft we compare spectrally-normalized networks to networks with the same architecture except with weight decay, dropout, or batch norm in Appendix A.2. In our experiments, the SN-regularized network still performs better in terms of test accuracy. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rkgEjrnm9Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>On empirical contributions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyx4knR9Ym&amp;noteId=rkgEjrnm9Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Oct 2018</span><span class="item">ICLR 2019 Conference Paper976 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi, thank you for the nice work. I have three comments below.
+
+1. Regularizing Lipschitz constant for improved generalization/robustness seems not novel. It backs to [1] and [2] showed enhanced performance on both clean and adversarial examples. The main difference seems you used normalization instead of regularization. So I would like authors to clarify the advantages to use normalization.
+
+2. The method to calculate the spectral norm of convolution is already proposed by a recent NIPS paper in a more generalized form [3].
+
+3. Removing standard regularization techniques such as dropout and batch-normalization may degrade the baseline performance. It will be helpful if experiments with dropout and batch-normalization are available. For example, other Lipschitz-concerned work reports their accuracy with batch-normalization [2][4].
+
+[1] Szegedy et al. Intriguing properties of neural networks. ICLR2014
+[2] Cisse et al. Parseval Networks: Improving Robustness to Adversarial Examples. ICML2017
+[3] Tsuzuku et al. Lipschitz-Margin Training: Scalable Certification of Perturbation Invariance for Deep Neural Networks.  NIPS2018
+[4] Yoshida and Miyato. Spectral Norm Regularization for Improving the Generalizability of Deep Learning. <a href="https://arxiv.org/abs/1705.10941" target="_blank" rel="nofollow">https://arxiv.org/abs/1705.10941</a></span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkljOqLS9X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: On empirical contributions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyx4knR9Ym&amp;noteId=SkljOqLS9X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper976 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Oct 2018</span><span class="item">ICLR 2019 Conference Paper976 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hello, thank you for your feedback and your interest in our work. Regarding your comments:
+
+1) References [1] and [2] propose standard ERM training while regularizing the Lipschitz constant to improve robustness of the trained network against future adversarial attacks. On the other hand, the main concern of our work is the lack of generalizability in *adversarial* training settings, e.g. FGM and PGM training, which can be significantly worse than in the ERM case as demonstrated by Schmidt et al. (2018). This observation is further supported by the generalization bounds in Theorems 1-4, which motivate the regularization of spectral norms. While there exist multiple approaches for regularizing the Lipschitz constant, we specifically propose applying spectral normalization because this allows us to directly enforce our adversarial generalization bounds.
+
+2) Thank you for bringing the recent NIPS work [3] to our attention. We note that while the two iterative approaches for computing a convolution layer’s spectral norm both yield the same result, the implementations are different. [3]’s computation of spectral norm requires computing the gradient of the Euclidean norm of the convolution operation. Ours leverages the deconvolution operation, which circumvents needing to take the gradient.
+
+3) We observed in several experiments (e.g. for training Inception over CIFAR10) that batch normalization helps with training speed but does not offer a considerable improvement in adversarial test accuracy over the no-regularization case. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

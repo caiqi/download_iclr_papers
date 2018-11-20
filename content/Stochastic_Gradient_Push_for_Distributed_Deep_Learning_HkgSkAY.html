@@ -1,0 +1,317 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Stochastic Gradient Push for Distributed Deep Learning | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Stochastic Gradient Push for Distributed Deep Learning" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HkgSk2A9Y7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Stochastic Gradient Push for Distributed Deep Learning" />
+      <meta name="og:description" content="Large mini-batch parallel SGD is commonly used for distributed training of deep&#10;  networks. Approaches that use tightly-coupled exact distributed averaging based&#10;  on AllReduce are sensitive to slow..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HkgSk2A9Y7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Stochastic Gradient Push for Distributed Deep Learning</a> <a class="note_content_pdf" href="/pdf?id=HkgSk2A9Y7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019stochastic,    &#10;title={Stochastic Gradient Push for Distributed Deep Learning},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HkgSk2A9Y7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Large mini-batch parallel SGD is commonly used for distributed training of deep
+networks. Approaches that use tightly-coupled exact distributed averaging based
+on AllReduce are sensitive to slow nodes and high-latency communication. In
+this work we show the applicability of Stochastic Gradient Push (SGP) for distributed
+training. SGP uses a gossip algorithm called PushSum for approximate
+distributed averaging, allowing for much more loosely coupled communications
+which can be beneficial in high-latency or high-variability scenarios. The tradeoff
+is that approximate distributed averaging injects additional noise in the gradient
+which can affect the train and test accuracies. We prove that SGP converges to
+a stationary point of smooth, non-convex objective functions. Furthermore, we
+validate empirically the potential of SGP. For example, using 32 nodes with 8
+GPUs per node to train ResNet-50 on ImageNet, where nodes communicate over
+10Gbps Ethernet, SGP completes 90 epochs in around 1.5 hours while AllReduce
+SGD takes over 5 hours, and the top-1 validation accuracy of SGP remains within
+1.2% of that obtained using AllReduce SGD.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">optimization, distributed, large scale, deep learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">For distributed training over high-latency networks, use gossip-based approximate distributed averaging instead of exact distribute averaging like AllReduce.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Hkl3RCOAnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good balance of theory and practice, lackluster experiment results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgSk2A9Y7&amp;noteId=Hkl3RCOAnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper983 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper983 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Authors propose using gossip algorithms as a general method of computing approximate average over a set of workers approximately. Gossip algorithm approach is to perform linear iterations to compute consensus, they adapt this to practical setting by sending only to 1 or 2 neighbors at a time, and rotating the neighbors.
+
+Experiments are reasonably comprehensive -- they compare against AllReduce on ImageNet which is a well-tuned implementation, and D-PSGD.
+
+Their algorithm seems to trade-off latency for accuracy -- for large number of nodes, AllReduce requires large number of sequential communication steps, whereas their algorithm requires a single communication step regardless of number of nodes. Their "time per iteration" result support this, at 32 nodes they require less time per iteration than all-reduce. However, I don't understand why time per iteration grows with number of nodes, I expect it to be constant for their algorithm.
+
+The improvements seem to be quite modest which may have to do with AllReduce being very well optimized. In fact, their experimental results speak against using their algorithm in practice -- the relevant Figure is 2a and their algorithm seems to be worse than AllReduce. 
+
+Suggestions:
+- I didn't see motivation for particular choice of mixing matrix they used -- directed exponential graph. This seems to be more complicated than using fully-connected graph, why is it better?
+- From experiment section, it seems that switching to this algorithm is a net loss. Can you provide some analysis when this algorithm is preferrable
+- Time per iteration increases with number of nodes? Why? Appendix A.3 suggests that only a 2-nodes are receiving at any step regardless of world-size</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJe42bLjpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for your feedback (Response Part 1)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgSk2A9Y7&amp;noteId=SJe42bLjpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper983 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper983 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your feedback, for finding that our paper has a good balance between theory and practice, and for finding our experiments to be reasonably comprehensive.
+ 
+*About ‘improvements seem to be quite modest’:*
+We first want to emphasize that the aim of Stochastic Gradient Push (SGP) is to make distributed training less sensitive to low-bandwidth/high-latency links (i.e., to reduce the amount of tight coupling among nodes). Therefore, we expect the benefits of SGP to show in a communication-bound  scenario, which is a fairly common real-world setup as pointed out by AnonReviewer1.  For example, typical Amazon EC2 instances have a communication bandwidth of 5Gbps—25Gbps. (source: <a href="https://aws.amazon.com/blogs/aws/the-floodgates-are-open-increased-network-bandwidth-for-ec2-instances/)" target="_blank" rel="nofollow">https://aws.amazon.com/blogs/aws/the-floodgates-are-open-increased-network-bandwidth-for-ec2-instances/)</a>
+
+We demonstrate the benefit of SGP for a communication bound, low-bandwidth interconnect (Ethernet 10Gbps) in the experiment described section 5.1. In particular in Figure 1a., we show that SGP is more than 3 time faster than SGD when training on 256 GPUs, which we think is a significant speed-up, while the top-1 validation accuracy of SGP remains within 1.2% of AllReduce SGD.
+ 
+To provide a complete empirical evaluation and also show limitations of SGP, we also investigate a high-bandwidth (InfiniBand) scenario which is not communication bound for the size of model used in our experiments. We agree that the improvements observed are quite modest in this scenario; since communication is not a bottleneck, we did not expect SGP to outperform AllReduce SGD. The goal of this experiment was to illustrate that SGP is not significantly slower than AllReduce SGD in a high-bandwidth scenario (for which AllReduce is heavily optimized). However, given that the resulting accuracy of AllReduce SGD is better than SGP, it is clear that AllReduce SGD should be preferred in such a setting. We will revise the paper to clarify this point further.
+
+*About the 'motivation for particular choice of mixing matrix':*
+As you noted, we chose to use the directed exponential graph in our experiments. Of course, there are lots of possible alternatives including a fully-connected (complete) graph. The choice of mixing matrix (or really, the sequence of mixing matrices obtained by cycling through neighbors) impacts how well-synchronized the values at different nodes remain after approximate distributed averaging. To understand this choice, let's focus on simply averaging using linear iterations x(k+1) = P(k) x(k), ignoring that additional gradient term being injected at each node for optimization.
+
+Since x(k) = P(k-1) P(k-2) ... P(1) P(0) x(0), the worst-case averaging error after k steps is related to the second largest singular value of the product of matrices P(k-1) P(k-2) ... P(1) P(0); see, e.g., the reference Nedic et al. (2018) cited in our paper for a detailed derivation. Note that, since the matrices are column stochastic, the second largest singular value lies in the interval [0,1].
+
+The directed exponential graph has an expander-like quality: from any starting vertex, one can get to any destination after at most log2(n) steps because one can always take a step which reduces the distance to the destination by half. This also translates to good mixing properties. For a 32-node directed exponential graph, each node has 5 neighbors. After every product of 5 consecutive matrices P(4) P(3) P(2) P(1) P(0), where matrix P(k) corresponds to the step where every node i sends a message to node (i + 2**k) mod n, the second largest singular value of the product is at machine precision; i.e., if nodes were only averaging, then they would effectively have the exact average. On the other hand, if we cycle through edges in the complete graph then after 5 steps the second largest singular value is roughly 0.6, meaning that in the worst case, the difference || x(k) - avg(0) || &lt;= 0.6 ||x(0) - avg(0)||, where avg(0) is the average of the initial values at all nodes. Hence, cycling through edges of the fully-connected graph would lead to nodes being much less well-synchronized over shorter times, or taking many more iterations to be well-synchronized. In the context of stochastic optimization, this can be interpreted as having additional noise in the step direction which, we believe, will lead to worse accuracy. This is precisely what we observed in other experiments, not reported in the paper.
+
+In response to your suggestion we will add this motivation for using the directed exponential graph to the paper.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJgRaZ8opX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for your feedback (Response Part 2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgSk2A9Y7&amp;noteId=BJgRaZ8opX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper983 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper983 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+*About the 'Time per iteration increases':*
+We agree that in an ideal case, the time per iteration of SGP should be constant as we increase the number of nodes. We do observe a constant time per iteration for different networks sizes in the high-latency experiment. However, SGP is still a synchronous method, so other factors such as the cluster load could affect the timing. In particular, at each iteration every node waits (blocks) to receive a message from one neighbor. Hence, if one node or communication link is slow, the node waiting for that message will be delayed, but the rest of the network can continue processing. In this way, small delays (e.g., due to reading data from disk, communicating, computing gradients...) get averaged out over time. Those factors could be more prominent in the low-latency scenario, as discussed in section 5.3, where the overall time per iteration is lower. 
+
+We have run further experiments in the low-latency (InfiniBand) scenario to verify this hypothesis. First we re-ran AllReduce SGD and SGP 5 times, using 16 nodes (128 GPUs), to have a better sense of the timing variability. We observed that the time-per-iteration of SGP was actually slightly faster than SGD on average, and also observed significant time variability between the runs. (SGP: avg. time/iter: 0.279; avg. max time: 0.295; avg. min time: 0.264. AllReduceSGD: avg. time/iter: 0.287; avg. max time: 0.295; min time: 0.281). 
+
+We found that the timing variability was mainly caused by the data loading. To better isolate the effects of data-loading, we ran experiments on 32, 64, 128 GPUs where we first copied the data locally on every node. In that setting, we observe that the time-per-iteration of SGP remains approximately constant as we increase the number of nodes in the network, while the time for AllReduceSGD increases.
+
+We will include these additional results in the revised version of the paper.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_rkxdTUvqhX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting work that needs some clarification </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgSk2A9Y7&amp;noteId=rkxdTUvqhX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper983 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper983 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper demonstrates the benefit of stochastic gradient push (SGP) in the distributed training of neural networks. The contributions are twofold: (1) the paper proves the convergence of SGP for nonconvex smooth functions and gives a reasonable estimation of the convergence rate; (2) the paper did many experiments and shows the SGP can achieve a significant speed-up in the low-latency environment without sacrificing too much predictive performance. 
+
+I like this work. Although SGP is not the contribution of this paper, the paper strengthens the algorithm in theoretical perspective and broadens its usage into deep neural network training. 
+
+One thing the authors need to clarify is how to generate/choose P^{(k)}. This is different from Markov-Chain, since time invariant MCs will fix the transition kernels. Here P^{(k)} seems to be randomly sampled for each k. According to the theory, P^{(k)} also must correspond to a strongly connected graph. Then it is better to explain how to control the sparsity of each P^{(k)} and sample its values. And if P^{(k)} needs to vary each step, how to notify P^{(k)} to all the nodes in the cluster and how to maintain its consistency across the nodes? This seems another communication workload, but the paper never mentions that.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryxuXzUiam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for liking our work (Response Part 1)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgSk2A9Y7&amp;noteId=ryxuXzUiam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper983 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper983 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your feedback and for liking our work.
+
+*About the choice of mixing matrices P^{(k)}:*
+In our experiments we choose the mixing matrices P^{(k)} in a deterministic manner, by cycling through neighbors in the directed exponential graph described in Appendix A. For example, when n=32, each node has 5 neighbors. For i in {0,1,...,n-1}, node i has neighbors (i + 2j) mod n for j in {0,1,2,3,4}. In our default implementation, at every iteration, each node sends to one neighbor, so every column of P^{(k)} has two non-zero entries, both of which are equal to 0.5. The diagonal entries are always equal to 0.5, and P_{i',i}^{(k)} = 0.5 where i' = (i + 2**j) mod n and j = k mod 5.
+
+We made this decision because this sequence of matrices has very nice mixing properties. To understand this choice, let's focus on simply averaging using linear iterations x(k+1) = P(k) x(k), ignoring the additional gradient term being injected at each node for optimization. (We're using Push-Sum for averaging, so this is just focusing on how well we do averaging while ignoring additional complications for doing optimization simultaneously.)
+
+Since x(k) = P(k-1) P(k-2) ... P(1) P(0) x(0), the worst-case averaging error after k steps is related to the second largest singular value of the product of matrices P(k-1) P(k-2) ... P(1) P(0); see, e.g., the reference Nedic et al. (2018) cited in our paper for a detailed derivation. Note that, since the matrices are column stochastic, the second largest singular value lies in the interval [0,1].
+
+The directed exponential graph has an expander-like quality: from any starting vertex, one can get to any destination after at most log2(n) steps because one can always take a step which reduces the distance to the destination by half. This also translates to good mixing properties. For a 32-node directed exponential graph, each node has 5 neighbors. After every product of 5 consecutive matrices P(4) P(3) P(2) P(1) P(0), where matrix P(k) corresponds to the step where every node i sends a message to node (i + 2**k) mod n, the second largest singular value of the product is at machine precision (2e-17); i.e., if nodes were only averaging, then they would effectively have the exact average.
+
+We could have had each node randomly sample a neighbor at every iteration, but this would have resulted in slower mixing. For example, if each node sent a message to one randomly sampled neighbor in the directed exponential graph, then after the same number of steps the (empirical average) second largest singular value of the product is around 0.4, meaning that in the worst case, the difference || x(k) - avg(0) || &lt;= 0.4 ||x(0) - avg(0)||, where avg(0) is the average of the initial values at all nodes. Even if nodes randomly sample a neighbor uniformly from all other nodes in the network, the (expected) second largest singular value is still around 0.2 after 5 steps. Hence, random sampling would lead to nodes being much less well-synchronized. In the context of stochastic optimization, this can be interpreted as having additional noise in the step direction which, we believe, would lead to even worse accuracy. Moreover, implementation-wise, if nodes randomly and independently sample an out neighbor at every iteration, it is likely that some nodes will receive more than one message in some iterations. On the other hand, with the scheme adopted in the paper every node sends and receives exactly one message at every iteration, so the communication load is always balanced across nodes.
+
+*Regarding “... P^{(k)} also must correspond to a strongly connected graph”:*
+The theory in our paper does not require that each individual P^{(k)} correspond to a strongly connected graph. Rather (see assumption 3, specifically), if we take the union over edge sets of the graphs corresponding to B consecutive P^{(k)}'s, we need there to be a B such that this union graph is strongly connected. This is a weaker condition than requiring each graph to be strongly connected. For the specific example where the P^{(k)}'s are chosen as described above, cycling through neighbors in the directed exponential graph, when n=32 then for B=5 we have the property we need, since after 5 steps we have sent to all neighbors in the directed exponential graph, which itself is strongly connected.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HkeUrGUjTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>(Response Part 2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgSk2A9Y7&amp;noteId=HkeUrGUjTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper983 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper983 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+*About the implementation of this scheme:*
+The number of neighbors a node chooses to communicate with directly controls the sparsity of the mixing matrices.
+In general, we have each node choose one neighbor from its out-neighbor set to communicate with at each iteration, cycling through the neighbors in a deterministic order. We also conducted other experiments, with less sparse mixing matrices, where nodes deterministically choose two neighbors from their out-neighbour set to communicate with at each iteration.
+
+Nodes do not need to know the global structure of the mixing matrix at each time step, they only need to decide which neighbor(s) they will send a message to, and with what mixing weight. Thus, there is no overhead required to coordinate this over the network. In our experiments, nodes determine their out-neighbor(s) in each iteration by deterministically cycling through their out-neighbour set. Also note that SGP is synchronous, so nodes cycle through their neighborhoods at the same rate. Fixing the order of the out-neighbour set at initialization predetermines the graph topology at each iteration.
+
+Thank you again for your feedback. We are preparing a revised version of the paper in which we will clarify all of these points.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_BkgKBPEc2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting application of PushSum, but how does it fare relative to AD-PSGD?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgSk2A9Y7&amp;noteId=BkgKBPEc2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper983 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper983 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value"># overview
+This paper leverages a consensus based approach for computing and communicating approximate gradient averages to each node running a decentralized version of stochastic gradient descent.
+
+Though the PushSum idea isn't new, its application to distributed SGD and corresponding convergence analysis represents a valuable contribution, and the experimental results indicate a potentially large speedup (in highly variable or latent networks) without substantially sacrificing model accuracy.
+
+The paper itself is reasonably comprehensive but does miss out on comparisons with more recent but equally promising approaches, namely AD-PSGD. 
+
+# pros
+* Empirically shown to be significantly faster than SGD, D-PSGD in high-latency, communication bound configurations which is a fairly common real-world setup. There is an accuracy tradeoff at work here, but performance doesn't seem to suffer too much as the node count scales.
+* introduces and proves theoretical guarantees for SGP approximate distributed average convergence for smooth, non-convex case, including upper bounded convergence rates.
+
+# cons
+* biggest criticism is that AD-PSGD from Lian et al 2018 is not included in experimental comparisons even though the paper is referenced. Authors state that asynchronous methods typically generalize worse than their synchonous counterparts but that isn't what Lian et al found in their comparison with D-PSGD (see table 2 and 3 from their paper). This comparison would be particularly interesting as AD-PSGD also performs well in the high network latency regime that SGP is touted for.
+* would've liked to see comparison on other tasks beyond just image classification on ResNet.
+
+# other comments
+* Didn't see mention of specific iteration count value(s) K used in experiments or hyperparameters A.3. Since it bounds the convergence rate, this would be important to include.
+* Found a few small typos:
+  * pg. 5: Relatively -&gt; Relative
+  * pg. 7, fig. 2: part -&gt; par
+  * pg. 8, sec. 5.3. par. 2: achieves -&gt; achieved
+  * pg. 8, sec. 5.3, par. 2: "neighbors also to increases" (drop "to")
+  * pg. 12, sec. A.2: "send-buffer to filled" -&gt; "send-buffer to be filled"</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJxxhfIj67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your suggestions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgSk2A9Y7&amp;noteId=BJxxhfIj67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper983 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper983 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your feedback and for finding our work to be a valuable contribution.
+
+*About the comparison with AD-PSGD:*
+Thank you for this suggestion! In order to provide a comparison with AD-PSGD, we have re-implemented it since there is no openly-available reference implementation. We discuss the results here, and we are also preparing an updated version of the paper that will include these new results.
+
+We compared AD-PSGD to AllReduce SGD, D-PSGD and SGP on 32 GPUs in a low-bandwidth/high-latency scenario (10Gbps Ethernet). Our AD-PSGD implementation achieves 75.48% validation accuracy, which is better than what Lian et al. (2018) report in a similar setting (74.66%). However, AD-PSGD is outperformed, in terms of validation accuracy, by both AllReduce SGD and SGP, which respectively achieve 76.23% and 76.33%.
+
+Observe that our implementation of AllReduce SGD achieves better test accuracy than the results reported in Table 3 of Lian et al. (2018) for both AllReduce SGD and AD-PSGD for different network sizes (32, 64 and 128GPUs). SGP also achieves better test accuracy than the values reported in Lian et al. (2018). 
+
+In terms of computational time, our implementation of AD-PSGD is faster than both AllReduce SGD and D-PSGD with an average time-per-iteration of 0.48ms, but it is not faster than SGP, which has an average time-per-iteration of 0.38ms. Note that it is difficult to directly compare times between our results and those reported in Lian et al. (2018) since the experiments were conducted on different systems and with different implementations. Recall that in AD-PSGD the nodes are partitioned into two equal-sized sets: active and passive nodes. The passive nodes in AD-PSGD do not initiate communication, and we observe that they run faster (in iterations per second) than the average node in SGP. On the other hand, active nodes (which do initiate communication) initiate one push-pull communication (i.e., send and receive) with a passive node at every update to have doubly stochastic mixing matrices, and we observe that the active nodes run substantially slower than SGP nodes.
+
+Finally, we would like to emphasize that the contributions of AD-PSGD and SGP can be seen as being orthogonal. By combining the two (leverage the PushSum gossip protocol in an asynchronous manner), one could expect to further speed up SGP. We leave this as a promising line of investigation for future work.
+
+We plan to release our implementations of SGP and D-PSGD and AD-PSGD to foster more research in this area and ease evaluation and comparison between algorithms. Each algorithm is implemented as a Pytorch module in a similar manner as torch.distributed.DistributedDataParallel.
+
+*About comparison on other tasks:*
+The ImageNet dataset is a standard relatively large-scale dataset that has been used in many papers looking at training deep neural networks in a distributed setting (Goyal et al, 2017; Lian et al., 2017; Lian et al., 2018). For this reason we chose to focus the empirical evaluation on this datasets. We agree that a comparison with other datasets would be valuable and we intend to investigate this in a near future.
+
+*About the #other comments:*
+Thanks again for the suggestions! We will include the global iteration count 'K'. In particular, as we scale up the number of nodes 'n', we scale down the number of iterations to 'K/n'. That is, 32-node runs involve 8x fewer global iterations than 4-node runs.
+
+We are incorporating the information from our responses into a revised version of our paper.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

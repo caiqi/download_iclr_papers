@@ -1,0 +1,474 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>textTOvec: DEEP CONTEXTUALIZED NEURAL AUTOREGRESSIVE MODELS OF LANGUAGE WITH DISTRIBUTED COMPOSITIONAL PRIOR | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="textTOvec: DEEP CONTEXTUALIZED NEURAL AUTOREGRESSIVE MODELS OF LANGUAGE WITH DISTRIBUTED COMPOSITIONAL PRIOR" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rkgoyn09KQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="textTOvec: DEEP CONTEXTUALIZED NEURAL AUTOREGRESSIVE MODELS OF..." />
+      <meta name="og:description" content="We address two challenges of probabilistic topic modelling in order to better estimate&#10;  the probability of a word in a given context, i.e., P(wordjcontext) : (1) No&#10;  Language Structure in Context:..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rkgoyn09KQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>textTOvec: DEEP CONTEXTUALIZED NEURAL AUTOREGRESSIVE MODELS OF LANGUAGE WITH DISTRIBUTED COMPOSITIONAL PRIOR</a> <a class="note_content_pdf" href="/pdf?id=rkgoyn09KQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019texttovec:,    &#10;title={textTOvec: DEEP CONTEXTUALIZED NEURAL AUTOREGRESSIVE MODELS OF LANGUAGE WITH DISTRIBUTED COMPOSITIONAL PRIOR},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rkgoyn09KQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We address two challenges of probabilistic topic modelling in order to better estimate
+the probability of a word in a given context, i.e., P(wordjcontext) : (1) No
+Language Structure in Context: Probabilistic topic models ignore word order by
+summarizing a given context as a “bag-of-word” and consequently the semantics
+of words in the context is lost. In this work, we incorporate language structure
+by combining a neural autoregressive topic model (TM) with a LSTM based language
+model (LSTM-LM) in a single probabilistic framework. The LSTM-LM
+learns a vector-space representation of each word by accounting for word order
+in local collocation patterns, while the TM simultaneously learns a latent representation
+from the entire document. In addition, the LSTM-LM models complex
+characteristics of language (e.g., syntax and semantics), while the TM discovers
+the underlying thematic structure in a collection of documents. We unite two complementary
+paradigms of learning the meaning of word occurrences by combining
+a topic model and a language model in a unified probabilistic framework, named
+as ctx-DocNADE. (2) Limited Context and/or Smaller training corpus of documents:
+In settings with a small number of word occurrences (i.e., lack of context)
+in short text or data sparsity in a corpus of few documents, the application of TMs
+is challenging. We address this challenge by incorporating external knowledge
+into neural autoregressive topic models via a language modelling approach: we
+use word embeddings as input of a LSTM-LM with the aim to improve the wordtopic
+mapping on a smaller and/or short-text corpus. The proposed DocNADE
+extension is named as ctx-DocNADEe.
+
+We present novel neural autoregressive topic model variants coupled with neural
+language models and embeddings priors that consistently outperform state-of-theart
+generative topic models in terms of generalization (perplexity), interpretability
+(topic coherence) and applicability (retrieval and classification) over 6 long-text
+and 8 short-text datasets from diverse domains.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">neural topic model, natural language processing, text representation, language modeling, information retrieval, deep learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Unified neural model of topic and language modeling to introduce language structure  in topic models for contextualized topic vectors </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">14 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Hkg2dz7Kh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Method is not novel but results seem to be solid</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=Hkg2dz7Kh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1016 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1016 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+Cons: 
+The proposed method is not novel. For example, Lauly et al., 2017 have proposed a similar way of combining LM and DocNADE. This paper does not provide some motivations or theories behind such artificial combination (i.e., just linearly combine their hidden state) to explain why it works better than other alternatives (e.g., what about adding some linear layers before combining h_i^{DN} and h_i^{LM}).
+
+Pros: 
+However, the results seem to be solid and significantly better than the previous state-of-the-art methods. I think some recent neural topic models such as [1,2,3] are still missing even though there are already many tables in the paper (I am not an expert on neural topic modeling or embedding for IR tasks, so there might be others missing state of the arts which I am not aware of). In addition, why does Table 5 only compares perplexity between 3 methods and Table 6 only compares coherence between 4 or 5 methods, while there are 9 or 12 methods are compared in IR task (Table 3 and 4). What's the difficulty of comparing the coherence and perplexity of all different topic models (including [1,2,3])?
+I will vote for acceptance if the mentioned baselines are also compared or there are good reasons why they cannot be compared.
+
+
+Writing and presentation:
+The quality of writing should be improved. Here are several examples.
+1. In the abstract, the following sentence needs to be rewritten and the rule of capitalization should be consistent. "(2) Limited Context and/or Smaller training corpus of documents: In settings with a small number of word occurrences (i.e., lack of context) in short text or data sparsity in a corpus of few documents, the application of TMs is challenging."
+2. I do not understand what's the purpose of the right figure in Figure 1. I think the paper does not do any matching like that.
+3. In the 3rd paragraph of the introduction, "topmost" -&gt; top most 
+4. The paper should have a related work section. In addition to the related work discussion scattered in the introduction, authors should discuss the difference between this work and Lauly et al., 2017. Authors should also include some related work such as [1,2,3].
+5. Just below (1), "where," -&gt; , where
+6. In the last sentence of the paragraph after (1), you mentioned "v_{&lt;i} are orderless", so what's the ordering used in experiments? Random ordering?
+7. I guess "a" in algorithm 1 means sum_{k&lt;i}(W_{:,v_k}), but I cannot find the explicit explanation about the purpose of "a".
+8. For ctx-DocNADEe, is W+E the embedding of words at input layer in LM?
+9. In the 3rd paragraph of section 2.2, you said: "each row vector W_{j,:} is a distribution over vocabulary of size K". Could W has negative values during optimization?  If yes, why a distribution representing a topic could have negative value. If no, you should explicitly mention this non-negativity constraint.
+10. Why are some values in Table 12 and 13 missing?
+
+[1] Cao, Z., Li, S., Liu, Y., Li, W., &amp; Ji, H. (2015, January). A Novel Neural Topic Model and Its Supervised Extension. In AAAI (pp. 2210-2216).
+[2] Srivastava, A., &amp; Sutton, C. (2017). Autoencoding variational inference for topic models. ICLR
+[3] Card, D., Tan, C., &amp; Smith, N. A. (2017). A Neural Framework for Generalized Topic Models. arXiv preprint arXiv:1705.09296.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1xTIhGKn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>related work not great, but experiements extensive otherwise</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=H1xTIhGKn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1016 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1016 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">DocNADE has great performance so this is a welcome bit of
+research extending it.
+
+There has been a huge amount of activity in combining topic models with
+(1) embeddings and (2) neural networks such as LSTMs and RNNs.
+I will say I have great sympathy for the poor author trying to do
+fair comparisons against start-of-the-art because the standards are
+moving quickly.
+
+In this case, some neural network papers I have seen are TopicRNNs by
+Dieng, Wang Gao and Paisley, and LLA by Zaheer, Ahmed and Smola.  The
+latter is still a bag-of-words model and but places the LSTM over the
+sequence of topic proportions.  The Gauss-LDA and glove-DMM work is
+fairly dated (in our fast-paced ML world) and their performance is
+known to be poor, as some papers in 2017 show.  Now I know historically LDA has been fairly poor
+with IR tasks, but I would expect the recent supervised LDA methods,
+some also have word embeddings, to do better as well.
+So the discussion of related work and comparative experiments
+are poor.
+
+If you want to illustrated good improvememts gained using embeddings,
+it helps to try different proportions, say 20/40/60/80% of a data
+set and plot.  Usually, you should see embeddings aid performance
+dramatically for smaller fractions of data sets.  Hence, your results
+seem strange.
+
+Note the data sets are all fairly small, which makes me wonder about
+the computation time.  Could you give some computational performance
+stats for a data set?
+
+In section 2.2 top of page 5, why is it "pseudo" log likelihood?
+Isn't that formula exact?
+
+The paper has a relatively small part devoted to the model, and
+virtually nothing on the algorithm, although this is probably covered
+in earlier DocNADE papers.   I'm assuming the model is
+trained by SGD on the log likelihood with all the parameters
+shoved in there in one go.  Is that right?  Would be nice to mention
+whatever it is.
+
+The use of four different kinds of evaluations (classification, IR,
+perplexity, etc.) is good.  Note that the improvement over the earlier
+DocNADE is quite small but clearly significant, and improvement of adding
+embeddings seems even smaller, though seems better for short texts.
+I wonder if the method for including embeddings is much good!
+Not fully convinced.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BygKj5yM2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=BygKj5yM2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1016 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I liked the concept. A few quick questions.
+
+1. How efficient is the vector generator in terms of ease of use and implementation as compared to existing state-of-the-art techniques? 
+
+2. Did you release the source code and pre-trained model for community evaluation?
+
+I see you tested on an array of datasets.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Bygx_-FN37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>interesting work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=Bygx_-FN37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1016 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1016 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your interest in our work, positive comments and questions.
+
+Please find our response below:
+
+1.  We briefly discussed the model complexity in section 2.2. 
+
+2. Yes, we will release the source code and also the pre-trained models.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJgGJZ_e2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Extends existing DocNADE model by replacing the feedforward network with an LSTM</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=BJgGJZ_e2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1016 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1016 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper extends an existing topic model - DocNADE - by replacing the feedforward part of the network which combines the textual context with an LSTM sequence model. Hence this paper fits in a long tradition of work which aims to extend the bad-of-words model from the original LDA paper with some sequence information.
+
+The authors do a commendable job in thoroughly evaluating the proposed extension, using a number of evaluations based on perplexity, topic coherence, and text retrieval and categorization.
+
+My main problem with the paper as it stands is that it a) arguably oversells the contribution, and b) is unclear when explaining certain crucial aspects of the model.
+
+It would also help to have a clearer statement of whether the contribution here is on the document modeling side, or the language modeling side. Motivation is provided from both angles, but the evaluation focuses largely on the topic modeling (which is fine, just need to say it).
+
+More specific comments:
+--
+The abstract should mention that the DocNADE model already exists, and that the contribution of the current work is to extend that existing model in a particular way. For those readers unfamiliar with DocNADE, this will help situate the work with regard to the existing literature.
+
+Using existing word embeddings as a 'prior' for the LSTM word embeddings is a completely standard alternative now to learning those embeddings from scratch. I'm not sure that can count as a second, major contribution of the paper. (I'm also not sure that either extension to DocNADE warrants a new name, but I'll leave that to the authors' judgement.)
+
+I'm confused by one aspect of the DocNADE model: "the topic assigned ...equally depends all the other words appearing in the same document". But the model is generative, no? And eqn 1 suggests that each word is generated conditioned on the *previous* words in the document, or did I miss something? 
+
+Related to this point, DocNADE transforms its BoWs into a sequence. But what's the order? Is it just the order of the words in the document? In which case it's very similar to the LSTM extension, except the LSTM keeps the order in the history, whereas the bag-of-words model doesn't.
+
+Relation to generative models: LDA is a generative model with a generative story. It's not completely obvious to me what the generative story is in the new model. Talking about "distributed compositional priors" doesn't help, since I'm assuming these aren't priors in a Bayesian modeling sense? (It's also not clear in what sense these "priors" are compositional, but that's a separate question.)
+
+Equation 2: what's the motivation for mixing the LSTM history with the bag-of-words (esp. if the history is from the same bag of words in each case). Why not just use the LSTM?
+
+It would be useful to state in the main body of the text what the value of lambda ends up being. In 3.1 there's a suggestion this might be 0.01, but that effectively ignores the LSTM?
+
+Similar question: how can the DocNADE model provide a *global* context if the model is generative?
+
+Perplexity is a reasonable thing to measure, but presumably the auto-regressive nature of the LSTM means that it's more-or-less guaranteed to do better than a bag-of-words model? I wonder if it's worth acknowledging this fact?
+
+I don't understand why lambda has to be zero "to compute the exact log-likelihood".
+
+The first line of the conclusion doesn't say much: it's pretty obvious that the ordering of the words is going to help better estimate the probability of a word in a given context; 50 years of language modeling research has already taught us that.
+
+Minor presentational comments:
+--
+Some of the hyphenation looks odd, eg in the title. Are you using the standard LaTeX hyphenation settings?
+
+Strictly speaking, I'm not sure that 'bear' in the example is a proper noun.
+
+"orderless sets of words": bags, not sets, since the counts matter, no?
+
+The tables are too small, with a lot of numbers in them. One option is to move some of the details to the Appendix. Either way there needs to be more summary in the main body explaining what the numbers tell us.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJe3T9ORsm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Some clarifications</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=HJe3T9ORsm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">25 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1016 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Interesting work! I do like the idea of word-order cues into topic models. A few clarifications:
+(a) You mention DocNade does not model context since it computes Eqn (1) using word ID's &lt; i (which can be arbitrary)? What happens if you still use DocNade exactly as it is, but just modify that computation in Eqn 1 to use only the token ID's corresponding to the context. This approach would be a reasonable baseline without using an LSTM. Perhaps you can justify the superiority of your model over this?
+
+(b) Would your method also explicitly represent a document as a probability distribution over topics or is it assumed that the latent representation does not necessarily imply a probability distribution?  </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HygAK7Te2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Some clarifications</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=HygAK7Te2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1016 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1016 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your interest and comments about our work. 
+
+Please find our answers below:
+
+(a) As mentioned in Larochelle &amp; Lauly (2012), due to the bag-of-word nature of DocNADE, a document v  takes the form of a set of word counts vectors in which the original word order is lost; this, in turn, is required by DocNADE to compute the sequence of conditionals p(v_i | v&lt;i). Consequently, a random permutation of its words is generated in each iteration an, as a result, a distribution over all possible permutations that could have generated the original document v is obtained  (see also section 4.1 in Larochelle &amp; Lauly, 2012). 
+While in principle it is an interesting approach to use only those token IDs corresponding to the context of a given target word v_i, it is not possible to obtain the token IDs in the document, given the word IDs from its bag-of-word representation. For instance, given a word ID that occurs n times, it is not feasible to trace back the token ID(s) in the document. 
+
+We would also like to add that the neural language model not only introduces word ordering into topic models, but also language concepts such as the syntax and semantics encoded in its internal states ("Deep contextualized word representations", Peters et al. (2018)).   
+
+(b) Yes. Following the baseline topic model (i.e., DocNADE), our modeling approaches explicitly do represent a document as a probability distribution over topics. This can be seen in equations (1) and (2) in the paper, where the autoregressive conditional p(v_i = w | v_&lt;i) computes H (i.e., number of topics) distributions over the vocabulary for the input document v, using the H dimensional hidden topic vector.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1ec-sqtiX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Few Comments/Questions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=H1ec-sqtiX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">21 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1016 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Very interesting work (improving topic modelling using RNN), the paper looks quite strong technically, I believe it will be helpful for the community. I especially like the idea of using compositional distributional priors which seems effective for short text passages. Also, the results are very nice,  especially for IR. I have some comments/questions:
+i. Will you release the source code?
+ii. reference is duplicated for 'Deep temporal-recurrent-replicated-softmax for topical trends over time.'
+ii. page 2, (last line) However, in the distributed embedding space, the word pairs are semantically related as shown in Figure 1 (left) -&gt; shouldn't it be Figure 1 (right)?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJlyLFmsi7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Few Comments/Questions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=BJlyLFmsi7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1016 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">22 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1016 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your positive comments. 
+
+We will incorporate your suggestions in our revised version.
+
+Yes, we will release the code and pre-processed datasets. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Bkgy0EL8jQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>How about citing and comparing to recent work?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=Bkgy0EL8jQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Adji_Bousso_Dieng1" class="profile-link">Adji Bousso Dieng</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1016 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi there,
+
+You have not mentioned any of the many recent work on marrying topic models and autoregressive neural models. There are just too many for you to not cite none of them. Please correct this in your revision; respecting related work is important. I added the main references below for your information.
+
+<a href="https://ieeexplore.ieee.org/document/6424228" target="_blank" rel="nofollow">https://ieeexplore.ieee.org/document/6424228</a>
+https://arxiv.org/abs/1611.01702
+https://arxiv.org/abs/1712.09783
+https://arxiv.org/abs/1704.08012</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1Pw8ng27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>citing and comparing to recent work </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=H1Pw8ng27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1016 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1016 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We appreciate your comments about missing citations of related neural topic models (TMs) and we will make sure to include them in a revised version. While in our initial submission we considered a comparison of our model to these studies as out of scope, we have since been running additional experiments to quantitatively compare TM performance of our proposed models to the studies you mention. We will include these new comparisons in the revised version.
+
+In the following, we briefly summarize our contributions again and contrast them to the related work you mention. We then present the results of our new experiments and show that DocNADE-based models have a competitive or superior performance in terms of topic coherence, compared to Topic-RNN, TCNLM and TDLM.
+
+The related studies you mention focus on improving language models (LMs) using TMs: in contrast, the focus of our work is on improving TM for textual representations (short-text or long-text documents) by incorporating language concepts (e.g., word ordering, syntax, semantics, etc.) via neural LMs. In addition, we also address the challenges of topic learning that arise from limited context in collections of "short-text" and/or  "few" documents. Therefore, as part of our second contribution, we incorporate external knowledge, i.e., word embeddings into neural autoregressive TM to better model such document collections. In contrast to this sparse-data setting, the related approaches you mention were designed for collections of long-text as well as a sufficient number of documents.
+
+We have already compared our contributions to several baselines (e.g., DocNADE, glove, glove-DMM, glove-LDA, gaussian-LDA, doc2vec, etc.) that either
+(1) do not model contextualized word information, or
+(2) do not incorporate word embeddings, or
+(3) ignore both in TMs.
+We outperform them in terms of perplexity, topic coherence, text retrieval and classification, evaluated on 14 datasets.
+
+We now further compare our models to other approaches combining TMs with autoregressive neural models. To this end, we follow the approach presented in "Topic Compositional Neural Language Model" (Wang et al., 2018) and quantitatively compare TM performance in terms of topic coherence (NPMI) on the BNC dataset. 
+
+Model				Topic Coherence (BNC dataset)
+				         #Topics   =50    =100	 =150
+------------------------------------------------------------------------
+LDA# 						.106    .119     .119
+NTM# 						.081    .070     .072
+TDLM(s)# 					.102    .106	.100
+TDLM(l)#    				        .095	    .101	.104
+Topic-RNN(s)#                              .102    .108     .102
+Topic-RNN(l)#                               .100    .105     .097
+TCNLM(s)#                                    .114    .111     .107
+TCNLM(l)#                                     .101    .104     .102 
+                
+                          (sliding window=20)
+DocNADE                                       .097    .095     .097
+ctx-DocNADE*(lambda=0.2)      .102    .103     .102
+ctx-DocNADE*(lambda=0.8)      .106    .105     .104
+ctx-DocNADEe*(lambda=0.2)    .098    .101       -
+ctx-DocNADEe*(lambda=0.8)    .105    .104       -
+       
+                         (sliding window=110)
+DocNADE                                       .133    .131     .132
+ctx-DocNADE*(lambda=0.2)      .134     .141     .138
+ctx-DocNADE*(lambda=0.8)      .139    .142     .140
+ctx-DocNADEe*(lambda=0.2)    .133    .139       -    
+ctx-DocNADEe*(lambda=0.8)    .135    .141       -
+                
+        
+Here, the asterisk (*) indicates our proposed models and (#) taken from Wang et al.; lambda is the mixture weight of the LM component in the topic modeling process and sliding window is one of the hyper-parameters for computing topic coherence (Wang et al. (2018) and "Exploring the Space of Topic Coherence Measures" (Röder et al., 2015). A sliding window of 20 is used in Wang et al.; in addition we also present results for a window of size 110.
+
+Our results (table above) suggest that our contribution (i.e., ctx-DocNADE) of introducing language concepts into bag-of-word topic model (i.e., DocNADE) improves topic coherence. Better performance for high values of lambda illustrate the relevance of the LM component for topic coherence (DocNADE corresponds to lambda=0). Similarly, the inclusion of word embeddings (i.e., ctx-DocNADEe) results in more coherent topics than the baseline DocNADE. 
+
+Importantly, while ctx-DocNADEe was motivated by sparse data settings, the BNC dataset is neither a collection of short-text nor a corpus of few documents. Consequently, ctx-DocNADEe does not show improvements in topic coherence over ctx-DocNADE.
+
+Beyond topic coherence, we also evaluate TMs for text retrieval as well as classification tasks on 14 datasets. However, since the BNC dataset is unlabeled, we are here restricted to comparing model performance in terms of topic coherence only.
+
+We will include the additional results (above) in the revised version.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hkgb3c2e2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>citing and comparing to recent work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=Hkgb3c2e2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1016 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1016 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">In continuation to our response above, we further qualitatively show the top 5 words of six learnt topics (topic name summarised by Wang et al., 2018):
+
+---------------------------------------------------------------------------------------------------------------------------
+	Topic			Model        	    Topic-words (ranked by probabilities)
+---------------------------------------------------------------------------------------------------------------------------
+				TCNLM#			  pollution, emissions, nuclear, waste, environmental
+environment		ctx-DocNADE*       ozone, pollution, emissions, warming, waste
+                                ctx-DocNADEe*     pollution, emissions, dioxide, warming, environmental
+---------------------------------------------------------------------------------------------------------------------------
+                               TCNLM#                   elections, economic, minister, political, democratic
+politics                  ctx-DocNADE*        elections, democracy, votes, democratic, communist
+                               ctx-DocNADEe*      democrat, candidate, voters, democrats, poll
+---------------------------------------------------------------------------------------------------------------------------    
+                               TCNLM#                   album, band, guitar, music, film
+art                         ctx-DocNADE*         guitar, album, band, bass, tone
+                              ctx-DocNADEe*       guitar, album, pop, guitars, song
+---------------------------------------------------------------------------------------------------------------------------
+                              TCNLM#                    bedrooms, hotel, garden, situated, rooms
+facilities               ctx-DocNADE*          bedrooms, queen, hotel, situated, furnished
+                              ctx-DocNADEe*       hotel, bedrooms, golf, resorts, relax
+---------------------------------------------------------------------------------------------------------------------------
+                             TCNLM#                    corp, turnover, unix, net, profits
+business             ctx-DocNADE*          shares, dividend, shareholders, stock, profits
+                             ctx-DocNADEe*        profits, growing, net, earnings, turnover
+---------------------------------------------------------------------------------------------------------------------------
+                             TCNLM#                     eye, looked, hair, lips, stared
+expression         ctx-DocNADE*           nodded, shook, looked, smiled, stared
+                            ctx-DocNADEe*         charming, smiled, nodded, dressed, eyes
+---------------------------------------------------------------------------------------------------------------------------
+
+We will include the topics (above) in the revised version.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_BJegm-88sX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Small questions about your experimental setup and results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=BJegm-88sX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1016 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Overall, the paper looks strong technically. But the experiments (on IR and Classification) do not show its strong promise:
+1, In Table 3, it looks like the very simple baseline "glove" can get very high F1, and slightly lower IR. This indicates me that in practical, sum up of glove/word2vec embeddings is good enough;
+
+2, For the "Categoriztion" experience, you used logistic regression over doc representation learned by your methods and those baselines;  so.... it is supervised system now; why not compare with the popular CNN/LSTM+LR classifiers?   If you really want to focus on unsupervised system, i guess the "Categorization" can be implemented by matching the doc and label representations, then choose the closest label; No training needed;
+
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ByebqQXoiX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Small questions about your experimental setup and results </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=ByebqQXoiX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1016 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">22 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1016 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your comments/suggestions. 
+
+Please find our response below:
+
+1.	Experimental results on IR and F1:
+
+In this work, we have introduced contextual information and word embeddings into neural autoregressive topic models (DocNADE) with ease and shown that our contributions outperform all the baseline topic models, in terms of generalization (perplexity), topic coherence, text retrieval and classification. 
+
+Table 3 illustrates the scores for information retrieval (IR) and classification (F1) tasks on *short-text* datasets, quantifying the quality of representations learned by the baseline topic models (row #4-#9). The scores in rows #1-#3 are additional baselines that we used in this work to quantify text representations generated by glove and doc2vec methods. 
+
+About IR, we have clearly shown a strong promise (Table 3 and 4), compared to the 'glove' baseline:
+- On an average over 8 *short-text* datasets, we (i.e., ctx-DocNADEe) show a gain of 13.7% (.630 vs .554) in precision at retrieval fraction 0.02.  
+- On an average over 6 *long-text* datasets, we (i.e., ctx-DocNADEe) show a gain of 20.0% (.601 vs .501) in precision at retrieval fraction 0.02.  
+
+Additionally, to quantify the quality of word representations learned, we also compare the text classification scores of our proposed method (i.e., ctx-DocNADEe) and glove embeddings. While only for the short-text, we observe that the average F1 scores over 8 short-text datasets due to glove baseline is competitive, ctx-DocNADEe outperforms glove (F1: 0.618 vs 0.575) on average over 6 long-text datasets. The behavior is obvious because "the application of topic models is challenging to short-text datasets due to a small number of word occurrences (i.e., lack of context)" and therefore, the difficulties in learning representations. However, one can exploit the glove vectors to generate more coherent topics. It is further demonstrated in the related works of topic modeling, such as DocNADE, Gauss-LDA, glove-DMM and glove-LDA (Table 3, row #4-#9). We treat them as the baselines and outperform by a noticeable margin in all evaluations. 
+
+With a focus on improving topic models for unsupervised tasks, such as generalization (perplexity), text retrieval and topic extraction (i.e., coherence), our proposed models (i.e., ctx-DocNADE and ctx-DocNADEe) outperform all the baselines for both the short-text and long-text datasets, where the topic models extract topics, encoding the thematic structures in documents that explains them. On other hand, the glove vectors encode semantic similarity in word representations.     
+
+2.	In this work, we focus on unsupervised systems in context of topic modeling.  Following the experimental setup of RSM (Salakhutdinov and Hinton, 2009) and DocNADE (Larochelle and Lauly, 2012; Lauly et al., 2017), we perform the task of IR and report precision at different retrieval fractions. The IR task is similar to the one suggested.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HkxX9BwbnQ" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=HkxX9BwbnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper1016 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJeM9qqFj7" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgoyn09KQ&amp;noteId=SJeM9qqFj7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper1016 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

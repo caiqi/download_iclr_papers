@@ -1,0 +1,363 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Measuring and regularizing networks in function space | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Measuring and regularizing networks in function space" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SkMwpiR9Y7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Measuring and regularizing networks in function space" />
+      <meta name="og:description" content="To optimize a neural network one often thinks of optimizing its parameters, but it is ultimately a matter of optimizing the function that maps inputs to outputs. Since a change in the parameters..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SkMwpiR9Y7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Measuring and regularizing networks in function space</a> <a class="note_content_pdf" href="/pdf?id=SkMwpiR9Y7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019measuring,    &#10;title={Measuring and regularizing networks in function space},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SkMwpiR9Y7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=SkMwpiR9Y7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">To optimize a neural network one often thinks of optimizing its parameters, but it is ultimately a matter of optimizing the function that maps inputs to outputs. Since a change in the parameters might serve as a poor proxy for the change in the function, it is of some concern that primacy is given to parameters but that the correspondence has not been tested. Here, we show that it is simple and computationally feasible to calculate distances between functions in a $L^2$ Hilbert space. We examine how typical networks behave in this space, and compare how parameter $\ell^2$ distances compare to function $L^2$ distances between various points of an optimization trajectory. We find that the two distances are nontrivially related. In particular, the $L^2/\ell^2$ ratio decreases throughout optimization, reaching a steady value around when test error plateaus. We then investigate how the $L^2$ distance could be applied directly to optimization. We first propose that in multitask learning, one can avoid catastrophic forgetting by directly limiting how much the input/output function changes between tasks. Secondly, we propose a new learning rule that constrains the distance a network can travel through $L^2$-space in any one update. This allows new examples to be learned in a way that minimally interferes with what has previously been learned. These applications demonstrate how one can measure and regularize function distances directly, without relying on parameters or local approximations like loss curvature.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">function space, Hilbert space, empirical characterization, multitask learning, catastrophic forgetting, optimization, natural gradient</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">It is cheap to measure distances in function space, and these distances aren't always proportional to the corresponding parameter distances.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Sylzu7J6nX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Experimental results are not convincing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMwpiR9Y7&amp;noteId=Sylzu7J6nX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper811 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 18 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper811 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=Sylzu7J6nX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Although, I liked the exploratory part of the paper I must admit that I found myself confused a few times. The results given in the paper suggest that the proposed HCGD does not demonstrate any advantages on CIFAR-10 and has a limited impact on seq. MNIST. I think that section 3.3 of the paper should be extended and demonstrate some more convincing results.    
+Overall, I am not certain about my assessment. Therefore, I set my confidence level to "2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper". 
+
+Update on 17 Nov:
+
+Section 2. 
+I am not sure that the results shown in Figure 2 tell more answers than they pose new questions. 
+For instance, "In particular, the parameter distance between successive epochs is negatively correlated with the L^2 distance for most of optimization (Fig. 2b). The distance from initialization shows a clean and positive relationship, but the relationship changes during optimization"  
+Would it be possible to have a supplementary figure with weight decay switched-off? I am not sure why you need it at all since the purpose is not to get state-of-the-art results. Could it also explain the angle for L^2/l^2 shown in the third column since weight decay is something that affects l^2? 
+I am not sure that the discussion of the negative correlation is sufficient. The actual correlation is linked to the stage of convergence, it would be nice to have a figure showing its average value per epoch (you say it is negative for the most part of optimization) and some discussion on its impact for the remaining part of your paper. 
+
+Section 3.
+I am not an expert in online learning, this is probably why I don't recognize the novelty of the proposed approach. Is it novel to train networks for new tasks while making the objective function accounting for the old tasks? It sounds like a definition of online learning of multiple tasks. Importantly, here it is done while keeping training data from the old tasks. I understand your arguments about storage, but I find it surprising that your proposed change to the objective function is novel. If it is the case, please emphasize it more and mention that despite its simplicity, this idea is very novel. Otherwise, please cite relevant papers where similar methods were used. 
+
+I am not sure it is optimal to put Algorithm 1 in experimental results and applications. I don't see it as an application of your observations. I can imagine that the algorithm was inspired by your observations but it is your primary contribution and if possible should be discussed in a separate section. Here, you present it and then discuss how it is related to the natural gradient. 
+Please consider an alternative presentation where you first discuss the natural gradient and its various related works and algorithms, then present your algorithm and then demonstrate your empirical observations. This presentation might contradict the timeline of the development of your approach but it might help to better connect your work to other works  on the same topic. Also, it might help to better show novelties of your approach/observations. 
+
+Please comment if you find some interesting connection with [1].
+
+[1] "Regularizing neural networks by penalizing confident output distributions" <a href="https://arxiv.org/pdf/1701.06548.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1701.06548.pdf</a></span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1eC1wclCm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>New experimental results and general responses</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMwpiR9Y7&amp;noteId=S1eC1wclCm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper811 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper811 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We are grateful for the close reading and helpful review. We have made several changes to the paper in response.
+ 
+First, we have introduced a variant of the proposed algorithm that uses the Adam optimizer to take a proposed step, rather than a SGD step. We found that this outperforms standard Adam in training recurrent networks. In the sequential MNIST task, we had previously augmented only SGD with the L2 regularization, and saw that it boosted performance. 
+ 
+Regarding section 3: The method is indeed simple, but has no exact precedence in the literature that we are aware of, either. We have updated the manuscript to underline that this is a novel approach. It performs well, too; our results are very near the state-of-the-art method of Synaptic Intelligence, despite being significantly cheaper and less memory-intensive. (To even test SI on our 64GB box, in fact, we had to decrease the size of the network). There is also one significant advantage of our method that we did not at all emphasize in the paper: it does not require knowing “task boundaries”, the moment when one task ends and another begins. Such knowledge is unavailable in many continual learning applications, including when tasks smoothly deform into one another instead of having sharp breaks. SI and EWC, the benchmark methods we compare to, both require this knowledge. We now emphasize this additional advantage in the paper.
+ 
+As for section 2, we want to first emphasize that we designed this section to be of wider interest than just to motivate our later algorithm. We received feedback that this work would be relevant to theoreticians whose work depends on the relationship between parameters and output functions. This is a common situation; parameters are easy to analyze and change predictably, while the output function determines performance. Section 2 is meant to appeal to the community of neural network researchers interested in empirical characterizations. Aside from our metric, we are not aware of other feasible methods to calculate the distance between two networks’ functions that works globally. (Only local measures, like the Fisher metric, exist). This is why we were initially more interested in establishing that our measure of distance in function space is actually feasible to calculate, and why we devoted such space to evaluating the convergence properties of its empirical estimator. It is for these researchers that we analyzed the relationship between these two distances, rather than just for exploratory purposes setting up Section 3.
+ 
+As you suggested, we investigated whether Figure 2 would change if the network were trained without weight decay. This now appears in Figure A.5. As you predicted, weight decay affects the angle L2/l2 in the third column; the no-WD network traverses larger distances in l2 space, and actually moves less in L2 space than the WD network. Weight decay affects the other columns, as well, and actually removes the negative correlation in the middle column. The L2/l2 ratio still changes considerable throughout training, which is in line with this paper's motivation to consider L2 distances directly. We also followed your other suggestion to present the figure when each epoch is averaged. This now appears as Figure A.3.
+
+Thank you for the suggestion to discuss the natural gradient first, as motivation. An early draft of this work did indeed frame the work like this. However, we later realized from feedback that the empirical characterizations of section 2 were of wider interest than because of their relation to the natural gradient literature. Furthermore, there are many uses of the L2 distance besides a natural-gradient-esque algorithm (such as mitigating catastrophic forgetting). Since much of the paper is not directly inspired by or meant to replace the natural gradient, we have decided not to lead with that concept.
+
+Lastly, thank you for the related reference. This paper penalizes the entropy of a network’s output distribution to reduce overconfident probabilities. It’s an interesting idea, and we cite it in the discussion.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HJlmxzl52X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Nice empirical motivations but weak proposed solution</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMwpiR9Y7&amp;noteId=HJlmxzl52X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper811 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper811 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary:
+This paper proposes first to measure distances, in a L2 space, between functions computed by neural networks. It then compares those distances with the parameter l2 distances of those networks, and empirically shows that the l2 parameter distance is a poor proxy for distances in the function space. Following those observations, the authors propose to use such constraint to combat catastrophic forgetting, and show some results on the permuted MNIST task. Finally, they propose the Hillber-constrained gradient descent (HCGD), a gradient descent algorithm that constraint movement in the function space, and evaluate it on a CNN (CIFAR10) and an LSTM (permuted MNIST).
+
+Clarity:
+The paper is well motivated, clearly written and easy to follow.
+
+Novelty:
+The idea of trying to move in the function space rather than in the parameter space is definitely not new (see the whole literature about Natural Gradient for instance). However, the proposed HCGD seems quite new, but unfortunately it doesn’t seem to perform well.
+
+Pros and Cons:
++ The paper is well motivated, not only through the text but also with empirical evidence (section 2).
++ The paper focuses on an important research direction in deep learning.
++ This paper proposes a novel algorithm that penalizes movement in the function space.
+- However, it is not clear if the proposed algorithm actually penalizes the distance in function space, since it is performing a crude approximation of the distance measure (using one step of gradient).
+- Better way of penalizing movement in the function space already exists (at least for probability distributions: Natural Gradient)
+
+Detailed Comments:
+1. Batch Normalization and Weight Decay:
+I have mixed feelings about your experiments in section 2. Both Batch Normalization (BN) and Weight Decay (WD) have a regularization effect on the weights.  I am wondering if the change in ratio L2/l2 during the course of training is simply caused by the regularization terms getting stronger and stronger (compared to the cross-entropy loss). Also, BN makes the function computed by the network independent of the scale (of each row) of the weight matrices. I do think that running again those experiments without BN and WD would make the argument that “the parameter space is a proxy for function space” more robust. 
+2. About HCGD:
+The origins of the HCGD algorithm is extremely similar to the origins of Natural Gradient (NG) (just switch the L2 norm with the KL). The main difference resides in how the proximal formulation (equation 2) is approximated. For NG, one approximate the KL using a 2nd order Taylor expansion and then the proximal formulation is explicitly solved for Delta theta, where HCGD takes only a simple gradient step. It is thus not clear how well this step is  indeed a good approximation of the distance in function space. For CNNs and LSTMs, K-FAC [1-2], which is a Natural Gradient approximation, has been shown to outperform ADAM, so the proposed approximation might not be good enough, as HCGD doesn't beat ADAM in the experimental setup. One experiment that would be nice to have is to do one update of the parameter in a neural network (using HCGD) and then measure how much you actually moved in the function space. 
+[1] Roger Grosse, James Martens, A Kronecker-factored Approximate Fisher Matrix for Convolution Layers, ICML 2016
+[2] James Martens, Jimmy Ba, Matt Johnson,Kronecker-factored Curvature Approximations for Recurrent Neural Networks, ICLR 2018
+
+Minor Comments:
+Section 2.3: “one would require require” -&gt; “one would require”
+Figure 3: “that a set batch size” -&gt; “that a fixed batch size”
+Section 3.1.1: “permuted different on” -&gt; “permuted differently on”
+Section 3.2.1: “that minimizes equation 6” -&gt; “that minimizes equation 5”
+
+Conclusion:
+The paper proposes nice empirical evidence than parameter distance is not a good proxy for function distance. However, it is not clear if the proposed algorithm actually fixes this problem.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HkeQ3Ocl0Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We have added new analyses on the L2/l1 ratio and tested whether the L2 distance is indeed decreased</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMwpiR9Y7&amp;noteId=HkeQ3Ocl0Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper811 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper811 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We are grateful for the close reading and helpful review. We like your Pros and Cons list, and would like to respond to your two Cons.
+ 
+Re: “It is not clear if the proposed algorithm actually penalizes the distance...”:
+ 
+To address this, we have added a figure in Appendix C that shows that the algorithm decreases movement in function space, even for a single correction step.
+ 
+However, we think there is a small misunderstanding here. The number of correction steps taken doesn’t actually impact the quality of the approximation of the distance measure, but rather the quality of the constraint that the change in function space is constant for each step. The quality of the distance measure approximation is controlled only by the number of samples the measure is computed over, and we took care in section 2 to determine how many samples would be necessary. 
+ 
+The extended algorithm in the Appendix current does have an option for multiple steps. We did not focus on this option because of the computational expense, and since a single step already shows some improvement. However, the algorithm does work better for larger number of correction steps. We have updated the sequential MNIST figure to make this clear.
+ 
+Re: “Better way of penalizing movement in the function space already exists (at least for probability distributions: Natural Gradient)":
+ 
+The natural gradient has its strengths, but we disagree that it is universally better. Our method has a few strengths over the natural gradient. First, it can be generalized to regularize the change in function space between any two arbitrary functions, while the natural gradient is set to regularize with respect to only local changes between updates. This is because the 2nd order Taylor expansion of the KL divergence is only valid locally. We exploited this advantage in our catastrophic forgetting section, and used the distance to regularize the functional change between tasks.
+ 
+The KL divergence also has different properties than the L2 norm, and is not the better choice in all circumstances. If the distributions of two networks are nonoverlapping, the KL divergence is infinite. Imagine, for example, that each output distribution is zero everywhere but a single line, and that the lines of the two distributions are parallel but separated. In this case the L2 norm is well-defined and gets smaller if you pull the lines closer to one another. The KL divergence is simply infinite until the lines overlap, at which point it becomes 0. This behavior is not likely to emerge in the natural gradient setting when the two networks have necessarily very close distributions, but in other settings (like the forgetting task, or otherwise when comparing far distributions like between that of a GAN’s output and real images) the L2 norm will be better.
+ 
+Detailed comments:
+1.     We have run new experiments to examine how BN and WD affect the L2/l2 ratio. These now appear in Appendix A.3-5. As predicted, BN and WD both have strong effects on how the L2/l2 ratio changes throughout learning. However, their omission seems to actually exacerbate the problem, and the L2/l2 ratio still changes considerably. We discuss the changes in figure captions, and point out in the main text that we have run these controls.
+
+2.     
+Regarding the approximation quality:
+a.     The quality of the distance measure approximation depends on the number of validation examples of its empirical estimator, rather than the number of gradient steps. Even as formulated it can be arbitrarily accurate if one uses many examples.
+b.     The new Appendix figure measures this to make sure that the distance is indeed decreased.
+ 
+Regarding the comparison between HCGD and the natural gradient:
+a.     We have updated the sequential-MNIST task with a version of HCGD that bootstraps ADAM, rather than SGD. (Rather than taking a L2-regularizing step after an SGD step, we now take it after an ADAM step). Just as the first version outperformed SGD, this new version outperforms ADAM.
+b..     It often takes several refinements on a method before records are set. The natural gradient has been known for decades, and it is only recently with the additional modification of Kronecker factorization that it could be applied to large networks. Since ours is a fundamentally different approach to thinking about function space than the natural gradient, we actually consider this first attempt quite promising. We feel that it is important to get this work out so that a broader community can help think of potential improvements and modifications. Thus, we ask that this work be considered more as the initial introduction of a different approach, rather than a paper fine-tuning an established optimizer.
+ 
+Minor comments:
+Thank you for pointing out these errors. We have addressed them in the draft.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJxn7ibY3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Core idea is interesting, but the follow-through is kind of scattered with weak results in too many directions.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMwpiR9Y7&amp;noteId=SJxn7ibY3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper811 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper811 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a method for functional regularization for training neural nets, such that the sequence of neural nets during training is stable in function space. Specifically, the authors define a L2 norm (i.e., a Hilbert norm), which can be used to measure distances in this space between two functions. The authors argue that this can aid in preventing catastrophic forgetting, which is demonstrated in a synthetic multi-task variant of MNIST.   The authors also show how to regularize the gradient updates to be conservative in function space in standard stochastic gradient style learning, but with rather inconclusive empirical results.  The authors also draw upon a connection to the natural gradient.
+
+
+***Clarity***
+
+The paper is reasonably well written.  I think the logical flow could be improved at places.   I think the major issue with clarity is the title.  The authors use the term "regularizing" in a fairly narrow sense, in particular regularizing the training trajectory to be stable in function space.  However, the more dominant usage for regularizing is to regularize the final learned function to some prior, which is not studied or even really discussed in the paper.
+
+Detailed comments:
+
+-- The notation in Section 2 could be cleaned up.  The use of \mu is a bit disconnected from the rest of the notation.  
+
+-- Computing the empirical L2 distance accurately can also be NP hard.  There's no stated guarantee of how large N needs to be to have a good empirical estimate.  Figure 3 is nice, but I think a more thorough discussion on this point could be useful.
+
+-- L2-Space was never formally defined.  
+
+-- Section 2.1 isn't explained clearly.  For instance, in the last paragraph, the first sentence states "the networks are initialized at very different point", and halfway into the paragraph a sentence states "all three initializations begin at approximately the same point in function space.".  The upshot is that Figure 1 doesn't crisply capture the intuition the authors aim to convey.
+
+
+***Originality***
+
+Strictly speaking, the proposed formulation is novel as far as I am aware.  However, the basic idea has been the air for a while.  For instance, there are some related work in RL/IL on functional regularization:
+-- <a href="https://arxiv.org/abs/1606.00968" target="_blank" rel="nofollow">https://arxiv.org/abs/1606.00968</a>
+
+The proposed formulation is, in some sense, the obvious thing to try (which is a good thing).  The detailed connection to the natural gradient is nice.  I do wish that the authors made stronger use of properties of a Hilbert space, as the usage of Hilbert spaces is fairly superficial.  For instance, one can apply operators in a Hilbert space, or utilize an inner product.  It just feels like there was a lost opportunity to really explore the implications.
+
+
+***Significance***
+
+This is the place where the contributions of this paper are most questionable.  While the multi-task MNIST experiments are nice in demonstrating resilience against catastrophic forgetting, the experiments are pretty synthetic.  What about a more "real" multi-task learning problem?
+
+More broadly, it feels like this paper is suffering from a bit of an identity crisis.  It uses regularizing in a narrow sense to generate conservative updates.  It argues that this can help in catastrophic forgetting.  It also shows how to employ this to construct the standard bounded-update gradient descent rules, although without much rigorous discussion for the implications.  There are some nice empirical results on a synthetic multi-task learning task, and inconclusive results otherwise.  There's a nice little discussion on the connection to the natural gradient.  It argues that that this form of regularization lives in a Hilbert space, but the usage of a Hilbert space is fairly superficial.  All in all, there are some nice pieces of work here and there, but it's all together neither here or there in terms of an overall contribution.    
+
+
+***Overall Quality***
+
+I think if the authors really pushed one of the angles to a more meaningful contribution, this paper would've been much stronger.  As it stands, the paper just feels too scattered in its focus, without a truly compelling result, either theoretically or empirically.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ByeOl39lAQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We have made some edits to address these concerns</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMwpiR9Y7&amp;noteId=ByeOl39lAQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper811 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper811 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We are grateful for the close reading and helpful review.
+ 
+It is true that we pursued many directions in this work, and that these results somewhat compete for space. Our high-level goal was to establish (and disseminate) that 1) yes, there are other measures of function space besides the Fisher metric, 2) the L2 distance is actually reasonable to estimate, and 3) this could have many direct applications. We could have more aggressively documented each application, but we thought this would distract from the overall message.
+ 
+With that said, we present three specific empirical results that we believe are quite significant.
+ 
+1)    Near state-of-the-art results on catastrophic forgetting at considerable less computational cost.
+
+
+To this point, there is a significant advantage of our method that we did not previously note. Unlike the benchmark methods of SI and EWC, our method does not require knowledge of task boundaries. SI and EWC both require this input, but in many real-world applications this is not available, or tasks shift continuously. We have now noted this in the text.
+
+The reviewer noted that our task is somewhat synthetic. While this is true, it was the same task as was presented in the papers of both of our benchmark methods.
+
+ 
+2)    Better performance than ADAM at training recurrent neural networks. This is a new result.
+
+Previously, the HCGD algorithm adjusted the updates proposed by SGD, and we showed that on the sequential MNIST task that this adjustment outperformed SGD. We have introduced a new variant of the HCGD algorithm that adjusts the updates proposed instead by ADAM. We document that this scheme improves upon ADAM on the sequential MNIST task.
+
+3)    The empirical study relating L2 distances to l2 distances. It is surprising to us that this has not been done before, given how often methods are designed to operate on parameters. These figures communicate a compelling finding that could be quickly digested but that could nevertheless change how researchers would design a new learning rule, or trust theoretical results relying on Lipschitz bounds.
+ 
+We believe that these findings are significant, and that they belong together.
+ 
+Responses to individual comments:
+ 
+‘I think the major issue with clarity is the title.  The authors use the term "regularizing" in a fairly narrow sense, in particular regularizing the training trajectory to be stable in function space.  However, the more dominant usage for regularizing is to regularize the final learned function to some prior, which is not studied or even really discussed in the paper.”
+
+It is true that our main algorithm is more correctly a form of trajectory constraint that than imposing a prior. For this reason our algorithm is called “Hilbert-constrained gradient descent” rather than, say, “Hilbert-regularized”. Still, there were a few points that we used “regularization” in this broad sense, and we have gone through and edited these for language. In the title, however, we played around with several options and thought that among them this was the best balance of precision and clarity.
+
+ 
+“The use of \mu is a bit disconnected from the rest of the notation.”
+We don’t observe any typos in this section, and this is standard notation to denote a probability measure. We are not sure we understand this comment, though, and welcome any clarification.
+
+ “Computing the empirical L2 distance accurately can also be NP hard. There's no stated guarantee of how large N needs to be to have a good empirical estimate. Figure 3 is nice, but I think a more thorough discussion on this point could be useful.”
+
+This is true; we realize now that the text implied that our the convergence scales less than exponentially with N when this might not be the case. Unfortunately, precise guarantees of convergence will depend both on the data distribution and also upon the network. This is why we took an empirical approach. We have removed the implied claim that arbitrarily precise estimates are not NP-hard. 
+
+“L2-Space was never formally defined.”
+At the moment we define the space at the very start of Section 2 by writing the norm that defines the space. It is true that Hilbert spaces are defined by the inner product, but since this is a standard function space we thought the inner product would be apparent from the norm. We have updated the manuscript such that we mention the inner product, as well.
+
+“Section 2.1 isn't explained clearly. For instance, in the last paragraph, the first sentence states "the networks are initialized at very different point", and halfway into the paragraph a sentence states "all three initializations begin at approximately the same point in function space.". The upshot is that Figure 1 doesn't crisply capture the intuition the authors aim to convey”
+
+We meant different points in parameter space, which correspond to a similar point in function space. We have edited this paragraph to be more clear about its overall relevance.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

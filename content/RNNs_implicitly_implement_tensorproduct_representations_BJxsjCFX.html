@@ -1,0 +1,265 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>RNNs implicitly implement tensor-product representations | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="RNNs implicitly implement tensor-product representations" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BJx0sjC5FX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="RNNs implicitly implement tensor-product representations" />
+      <meta name="og:description" content="Recurrent neural networks (RNNs) can learn continuous vector representations of symbolic structures such as sequences and sentences; these representations often exhibit linear regularities..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BJx0sjC5FX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>RNNs implicitly implement tensor-product representations</a> <a class="note_content_pdf" href="/pdf?id=BJx0sjC5FX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019rnns,    &#10;title={RNNs implicitly implement tensor-product representations},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BJx0sjC5FX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Recurrent neural networks (RNNs) can learn continuous vector representations of symbolic structures such as sequences and sentences; these representations often exhibit linear regularities (analogies). Such regularities motivate our hypothesis that RNNs implicitly compile symbolic structures into tensor product representations (TPRs; Smolensky, 1990), which additively combine tensor products of vectors for roles (e.g., sequence position) and vectors for fillers (e.g., a particular word). To test this hypothesis, we introduce Tensor Product Decomposition Networks (TPDNs), which use TPRs to approximate existing vector representations. We demonstrate using synthetic data that TPDNs can successfully approximate linear and tree-based RNN autoencoder representations; those representation exhibit highly interpretable compositional structure. We explore the settings that lead RNNs to induce such structure-sensitive representations. By contrast with these results, TPDN experiments with four standard sentence encoding models showed that those sentence encodings could be largely approximated using bag-of-words representations, with only marginal improvements from more sophisticated structures. We conclude that TPDNs provide a powerful method for interpreting vector representations, and that standard RNNs can induce compositional sequence representations that are remarkably well approximated by TPRs; at the same time, existing training tasks for sentence representation learning may not be sufficient for inducing robust structural properties.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">tensor-product representations, compositionality, neural network interpretability, recurrent neural networks</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">RNNs implicitly implement tensor-product representations, a principled and interpretable method for representing symbolic structures in continuous space.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_S1x9a0e2hX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>RNNs implicitly implement tensor-product representations</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJx0sjC5FX&amp;noteId=S1x9a0e2hX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper670 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper670 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper is not standalone.  A section on the basics of document analysis would have been nice.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkgLvpJraX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJx0sjC5FX&amp;noteId=rkgLvpJraX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper670 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper670 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the feedback. We believe it would be difficult to make a paper completely stand-alone, but it is, indeed, not our goal to discuss sentence/sequence embeddings per se (note that the models we use are sentence models, not document models), but, rather, to describe a general analysis method applied to the special case of these models. 
+
+To help make the paper understandable with less context, we will integrate a very short description of what we currently refer to as "the standard left-to-right sequence-to-sequence setup" on page 3.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1l7y8esh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting work offers first step in inspecting RNN representations, the experimental results does not fully support the claim</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJx0sjC5FX&amp;noteId=S1l7y8esh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper670 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper670 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The work proposes Tensor Product Decomposition Networks (TRDN) as a way to uncover the representation learned in recurrent neural networks (RNNs). TRDN trains a Tensor Product Representation, which additively combine tensor products of role (e.g., sequence position) embeddings and filler (e.g., word) embeddings to approximate the encoding produced by RNNs. TRDN as a result shed light into inspecting and interpreting representation learned through RNNs. The authors suggest that the structures captured in RNNs are largely compositional and can be well captured by TPRs without recurrence and nonlinearity.
+
+pros:
+1. The paper is mostly clearly written and easy to follow. The diagrams shown in Figure 2 are illustrative;
+2. TRDN offers a headway to look into and interpret the representations learned in RNNs, which remained largely incomprehensible;
+3. The analysis and insight provided in section 4 is interesting and insightful. In particular, how does the training task influence the kinds of structural representation learned. 
+
+
+cons:
+1. The method relies heavily on these manually crafted role schemes as shown in section 2.1; It is unclear the gap in the approximation of TPRs to the encodings learned in RNNs are due to inaccurate role definition or in fact RNNs learn more complex structural dependencies which TPRs cannot capture;
+2. The MSE of approximation error shown in Table 1 are not informative. How should these numbers be interpreted? Why normalizing by dividing by the MSE from training TPDN on random vectors?
+3. The alignment between prediction using RNN representations and TPDN approximations shown in Table 2 are far from perfect, which would contradict with the claim that RNNs only learn tensor-product representation. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1eg-zgrT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJx0sjC5FX&amp;noteId=r1eg-zgrT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper670 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper670 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for these comments! Here are replies to the specific concerns you discuss:
+
+Point 1:
+There are two issues raised here. The first is the limitation of using handcrafted role schemes. What this paper attempts to do is explicit, discrete model comparisons between different candidate role schemes. We take this to be a necessary first step on the way to automatically exploring the space of logically possible role schemes, and thus "learning" the optimal role scheme, thereby ruling out this kind of omission. 
+
+However, such a project is an ambitious goal, and we feel it is important to establish the basic methodology, and some basic results, first. Figure 3c and Table 3b show cases where handcrafted role schemes have succeeded near-perfectly, serving as a proof of concept that, given the right role scheme (whether it be hand-crafted or learned), TPDNs can reveal striking levels of systematic structure in RNN representations. 
+
+The second issue is the possibility that RNNs do use a systematic structural representation whose representational space cannot be approximated with a TPR. We agree that this is a possibility; although TPRs are capable of capturing complex structural relations, they rely upon certain assumptions about the structure of the representational space. RNNs are not constrained in any way that enforces these assumptions - indeed, this fact is partly why we find the successful TPDN approximations so striking in Figure 3c and Table 3b. 
+
+In the final version of the paper, we will emphasize the possibility that RNNs may sometimes use non-TPR structural representations. 
+
+Point 2:
+The MSE is informative on a relative level: It allows us to compare role schemes within a model. To allow comparisons across models, we normalize by dividing by the random-vector performance to factor out overall vector magnitude differences across different models. The other metrics besides MSE allow for absolute measurements of performance. We will clarify the contributions of these different metrics.
+
+Point 3:
+We will edit the paper to clarify the three possibilities for why the alignments in Table 2 are not perfect. 
+
+Two of the possibilities, as discussed in our response to your first point, are that the RNNs are using some role scheme other than the ones we tested, or that the RNNs are using some structural representation that cannot be approximated with any tensor product representation. 
+
+However, we argue for a third possibility: the representation can be characterized as a combination of a bag-of-words representation, plus some incomplete (not always encoded) structural information. Such a result is consistent with our observation that bag-of-words roles yield a strong but imperfect approximation for the sentence embedding models. We will edit the text to emphasize that this is merely a conjecture and that the other two possibilities must also be considered. 
+
+Finally, we agree with your comment that these results do not indicate that RNNs *only* learn tensor-product representations, but we had not intended to make that claim (we meant the title to be read as “RNNs *sometimes* implement tensor-product representations”).
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HJgWEWbPnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting paper in general</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJx0sjC5FX&amp;noteId=HJgWEWbPnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper670 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper670 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents an analysis of popularly-use RNN model for structure modeling abilities by designing Tensor Product Decomposition Networks to approximate the encoder. The results show that the representations exhibit interpretable compositional structure. To provide better understanding, the paper evaluates the performance on synthesized digit sequence data as well as several sentence-encoding tasks.
+
+Pros:
+1. The paper is well-written and easy to follow. The design of the TPDN and corresponding settings (including what an filler is and what roles are included) for experiments are understandable. It makes good point at the end of the paper (section 4) on how these analysis contribute to further design of RNN models, which seems useful.
+2. The experiments are extensive to support their claims. Not only synthetic data but also several popularly-used data and models are being conducted and compared. An addition of analogy dataset further demonstrate the effect of TPDN on modeling structural regularities.
+
+Cons:
+1. More detailed and extensive discussion on the contribution of the paper should be included in the introduction part to help readers understand what's the point of investigating TPDN on RNN models.
+2. Some details are missing to better understand the construction. For example, on page 4, Evaluation, it is unclear of how TPDN encoder is trained, specifically, which parameters are updated? What's the objective for training? It is also unclear of whether the models in Figure 3(c) use bidirectional or unidirectional or tree decoder? In Section 3, it could be better to roughly introduce each of the existing 4 models. How do TPDN trained for these 4 sentence encoding models need to be further illustrated. More reasons should be discussed for the results in Table 2 (why bag-of-words role seem to be ok, why skip-thought cannot be approximated well).
+3. It could be better to provide the actual performance (accuracy) given by TPDN on the 4 existing tasks.
+4. Further thoughts: have you considered applying these analysis on other models besides RNN?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJl1E7lHTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJx0sjC5FX&amp;noteId=rJl1E7lHTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper670 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper670 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the feedback! Here are replies to the concerns you raise:
+
+Point 1:
+We will edit the introduction to make the contributions clearer. 
+
+Point 2:
+Some of these details are available in the appendices, and we will add the ones that are not already there. We will also make it clearer in the main text that such information is available in the appendices. 
+
+We will also clarify our discussion of the results in Table 2. We do not have a strong hypothesis for why Skip-thought is approximated less well than the other models. For the other models, our conjecture is that the models’ representations consist of a combination of a bag-of-words representation and some structural information that is occasionally, but not reliably, present as well. This conjecture is consistent with the finding that these representations could be approximated well, though not perfectly, with a bag-of-words role scheme. 
+
+We argue that such representations arise because the training tasks for these sentence embedding models do not depend much on the structure of the input; our results in Table 3b indicate that only structure-sensitive training tasks will induce models to learn structured representations. 
+
+However, we will also clarify the other two possible explanation for the results in Table 2, namely that the models could be well-approximated by some role scheme that we did not test, or that the models are using some systematic but non-TPR structural representation.
+
+Point 3:
+Tables 9 and 10 show the actual performance on downstream tasks of TPDNs trained to approximate the sentence embedding models. We did not emphasize these results, however, because we are presenting the TPDN as a tool for analyzing existent models, not as a new architecture for performing tasks of interest. Therefore, the most relevant metrics are ones showing how the TPDN approximates existing models, not how it performs in its own right. For this same reason, we have not tried training the TPDN end-to-end on these specific tasks rather than training it to approximate existing models.
+
+Point 4:
+Yes, we have considered applying the TPDN to other models. 
+
+For example, TPDNs might be used to analyze transformer models by seeing whether the representations generated for each word via self-attention can be approximated as tensor product representations based on the structure of the surrounding context. We are further interested in expanding the domain of inquiry to computer vision to see if convolutional neural networks learn structured representations of scenes that can be approximated by tensor product representations. 
+
+Finally, we hope that, by making our code available on GitHub, we will enable others to use this technique to analyze the models they are interested in.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>BNN+: Improved Binary Network Training | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="BNN+: Improved Binary Network Training" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SJfHg2A5tQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="BNN+: Improved Binary Network Training" />
+      <meta name="og:description" content="Deep neural networks (DNN) are widely used in many applications. However, their deployment on edge devices has been difficult because they are resource hungry. Binary neural networks (BNN) help to..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SJfHg2A5tQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>BNN+: Improved Binary Network Training</a> <a class="note_content_pdf" href="/pdf?id=SJfHg2A5tQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019bnn+:,    &#10;title={BNN+: Improved Binary Network Training},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SJfHg2A5tQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=SJfHg2A5tQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Deep neural networks (DNN) are widely used in many applications. However, their deployment on edge devices has been difficult because they are resource hungry. Binary neural networks (BNN) help to alleviate the prohibitive resource requirements of DNN, where both activations and weights are limited to 1-bit. We propose an improved binary training method (BNN+), by introducing a regularization function that encourages training weights around binary values. In addition to this, to enhance model performance we add trainable scaling factors to our regularization functions. Furthermore, we use an improved approximation of the derivative of the sign activation function in the backward computation. These additions are based on linear operations that are easily implementable into the binary training framework. We show experimental results on CIFAR-10 obtaining an accuracy of 86.5%, on AlexNet and 91.3% with VGG network. On ImageNet, our method also outperforms the traditional BNN method and XNOR-net, using AlexNet by a margin of 4% and 2% top-1 accuracy respectively.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Binary Network, Binary Training, Model Compression, Quantization</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">The paper presents an improved training mechanism for obtaining binary networks with smaller accuracy drop compared that helps close the gap with it's full precision counterpart</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">24 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HyeeWC2jh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Weak Accept</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=HyeeWC2jh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1074 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">1. The abstract of this paper should be further refined. I could not find the technical contributions of the proposed method in it.
+
+2. The proposed method for training BNNs in Section 3 is designed by combining or modifying some existing techniques, such as regularized training and approximated gradient. Thus, the novelty of this paper is somewhat weak.
+
+3. Fcn.3 is a complex function for deep neural networks, which integrates three terms of x. I am worried about the convergence of the proposed method.
+
+4. Fortunately, the performance of the proposed method is very promising, especially the results on the Imagenet, which achieves the highest accuracy over the state-of-the-art methods. Considering that the difficulty for training BNNs, I vote it for acceptance.  </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJl3OQvWCX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>To Reviewer #1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=rJl3OQvWCX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for reviewing the paper and providing us comments. Below is a point-point response
+-----------------------------------------------------------------------------------------------------------------
+ *comment: "The abstract of this paper should be further refined. I could not find the technical contributions of the proposed method in it."
+
+We have refined the abstract to include our contributions, please see the revision. 
+
+“Deep neural networks (DNN) are widely used in many applications. However, their deployment on edge devices has been difficult because they are resource hungry. Binary neural networks (BNN) help to alleviate the prohibitive resource requirements of DNN, where both activations and weights are limited to 1-bit. We propose an improved binary training method (BNN+), by introducing a regularization function that encourages training weights around binary values. In addition to this, to enhance model performance we add trainable scaling factors in our regularization functions. Furthermore, we use an improved approximation of the derivative of the $\sign$ activation function in the backward computation. These additions are based on linear operations that are easily implementable into the binary training framework and we show experimental results on CIFAR-10 obtaining an accuracy of 86.5%, on AlexNet and 91.3% with VGG network. On ImageNet, our method also outperforms the traditional BNN method and XNOR-net, using AlexNet by a margin of 4% and 2% top-1 accuracy respectively.”
+-----------------------------------------------------------------------------------------------------------------
+
+*comment: "The proposed method for training BNNs in Section 3 is designed by combining or modifying some existing techniques, such as regularized training and approximated gradient. Thus, the novelty of this paper is somewhat weak."
+
+Main contributions of this paper are as follows: 
+Suggesting regularization functions that encourage training binary weights
+Embedding trainable scaling factors in the regularization function
+Adaptive backward approximation to the sign derivative
+Admittedly, the notion of regularization as well as that of approximation of the derivative are not new in the literature of binary neural networks (BNN). But, the regularization introduced until then is different from ours because it does not penalize the weights greater than 1 or smaller than -1, also the fact that it is a quadratic function (1 - w^2 in [1]) and does not include a scaling factor. For the gradient approximation,  to the best of our knowledge, there is no adaptive function capable of approximating the derivative of the sign function. Indeed, STE and the one proposed in [2] are both arbitrarily chosen and are fixed approximations. Thus, our novelty is the introduction of the scaling factor into a regularization function constructed for a BNN (class of regularization functions R(w) = |scaling_factor - |weights| |^p where p=1 and 2 in the paper) , as well as an adaptive approximation (using a parameter) of the derivative of the sign function. Hence, using back-propagation, the binary weights and scaling factors are learned using only one objective function.
+
+-----------------------------------------------------------------------------------------------------------------
+*comment: "Fcn.3 is a complex function for deep neural networks, which integrates three terms of x. I am worried about the convergence of the proposed method."
+    
+The function can be simplified to take on this form: tanh(beta x / 2) + (beta x / 2) sech^2(beta x / 2). We formulated it as such so that the correspondence with the derivative of the swish function is more clear. Though this the similar complexity as the swish function and as demonstrated by the swish paper [3], as well as our empirical results, we have not observed problems with convergence using the proposed method
+
+[1]Tang, Wei, Gang Hua, and Liang Wang. "How to train a compact binary neural network with high accuracy?." AAAI. 2017.
+[2] Zechun Liu, Baoyuan Wu, Wenhan Luo, Xin Yang, Wei Liu, Kwang-Ting Cheng. ”Bi-Real Net: Enhancing the Performance of 1-bit CNNs With Improved Representational Capability and Advanced Training Algorithm” ECCV. 2018
+[3] Prajit Ramachandran, Barret Zoph, Quoc V. Le. “Searching for Activation Functions.” <a href="https://arxiv.org/abs/1710.05941." target="_blank" rel="nofollow">https://arxiv.org/abs/1710.05941.</a> 2018</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SygwCr4qh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Impressive results for binarized neural networks by combining existing ideas</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=SygwCr4qh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1074 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors of this paper aim to reduce the constraints required by neural networks so they can be evaluated on lower-power devices. Their approach is to quantize weights, i.e. rounding weights and hidden units so they can be evaluated using bit operations. There are many challenges in this approach, namely that one cannot back-propagate through discrete weights or discrete sign functions. The authors introduce an approximation of the sign function, which they call the SignSwish, and they back-propagate through this, quantizing the weights during the forward pass. Further, they introduce a regularization term to encourage weights to be around learned scales. They evaluate on CIFAR-10 and Imagenet, surpassing most other quantization methods. 
+
+The paper is pretty clear throughout. The authors do a good job of motivating the problem and placing their approach in the context of previous work. I found Figures 1 and 2 helpful for understanding previous work and the SignSwish activation function, respectively. However, I did not get much out of Figures 3 or 4. I thought Figure 3 was unnecessary (it shows the difference between l1 and l2 regularization), and I thought the psuedo-code in Algorithm 1 was a lot clearer than Figure 4 for showing the scaling factors. Algorithm 1 helped with the clarity of the approach, although it left me with a question: In section 3.3, the authors say that they train by "replacing the sign binarization with the SS_\beta activation" and that they can back-propagate through it. However, in the psuedo-code it seems like they indeed use the sign-function in the forward-pass, replacing it with the signswish in the backward pass. Which is it?
+
+The original aspects of their approach are in introducing a new continuous approximation to the sign function and introducing learnable scales for l1 and l2 regularization. The new activation function, the SignSwish, is based off the Swish-activation from Ramachandran et al. (2018). They modify it by centering it and taking the derivative. I'm not sure I understand the intuition behind using the derivative of the Swish as the new activation. It's also unclear how much of BNN+'s success is due to the modification of the Swish function over using the original Swish activation. For this reason I would've liked to see results with just fitting the Swish. In terms of their regularization, they point out that their L2 regularization term is a generalization of the one introduced in Tang et al. (2017). The authors parameterize the regularization term by a scale that is similar to one introduced by Rastegari et al. (2016). As far as I can tell, these are the main novel contributions of the authors' approach. 
+
+This paper's main selling point isn't originality -- rather, it's that their combination of tweaks lead to state-of-the-art results. Their methods come very close to AlexNet and VGG in terms of top-1 and top-5 CIFAR10 accuracy (with the BNN+ VGG even eclipsing the full-precision VGG top-1 accuracy). When applied to ImageNet, BNN+ outperforms most of the other methods by a good margin, although there is still a lot of room between the BNN+ and full-precision accuracies. The fact that some of the architectures did not converge is a bit concerning. It's an important detail if a training method is unstable, so I would've liked to see more discussion of this instability. The authors don't compare their method to the Bi-Real Net from Liu et al. (2018) since it introduces a shortcut connection to the architecture, although the Bi-Real net is SOTA for Resnet-18 on Imagenet. Did you try implementing the shortcut connection in your architecture? 
+
+Some more minor points:
+- The bolding on Table 2 is misleading. It makes it seem like BNN+ has the best top-5 accuracy for Resnet-18, although XNOR-net is in fact superior. 
+- It's unclear to me why the zeros of the derivative of sign swish being at +/- 2.4beta means that when beta is larger, we get a closer approximation to the sign function. The derivative of the sign function is zero almost everywhere, so what's the connection?
+- Is the initialization of alpha a nice trick, or is it necessary for stable optimization? Experiments on the importance of alpha initialization would've been nice. 
+
+PROS:
+- Results. The top-1 and top-5 accuracies for CIFAR10 and Imagenet are SOTA for binarized neural networks.
+- Importance of problem. Reducing the size of neural networks is an important direction of research in terms of machine learning applications. There is still a lot to be explored.
+- Clarity: The paper is generally clear throughout.
+
+CONS:
+-Originality. The contributions are an activation function that's a modification of the swish activation, along with parameterized l1 and l2 regularization. 
+-Explanation. The authors don't provide much intuition for why the new activation function is superior to the swish (even including the swish in Figure 2 could improve this). Moreover, they mention that training is unstable without explaining more. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJePcEvWRm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>To Reviewer #2 (1/3)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=SJePcEvWRm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your constructive feedback. Please find below a response to the comments.
+-----------------------------------------------------------------------------------------------------------------
+*comment: However, I did not get much out of Figures 3 or 4. I thought Figure 3 was unnecessary (it shows the difference between l1 and l2 regularization), and I thought the pseudo-code in Algorithm 1 was a lot clearer than Figure 4 for showing the scaling factors. 
+
+Regarding figure 3, the purpose of this is to give a visualization of the regularization functions to help our non-expert readers with the intuition. We also added a dotted version of the functions to the plot depicting the effect of the scales on the functions. Further, we added a sentence in the body explaining the motivation behind designing it as such (end of pg 4) as well:
+
+“The proposed regularizing terms are inline with the wisdom of the regularization function R(w) = (1 - w^2) \1_{\{|w| \leq 1\}} as introduced in Tang et al. (2017). A primary difference are in introducing a trainable scaling factor, and formulating it such that the gradients capture appropriate sign updates to the weights. Further this regularization term does not penalize weights that are outside of [-1, +1]. One can re-define the function as to include a scaling factor R(w) = (\alpha - w^2) \1_{\{|w| \leq \alpha\}}. In Figure 3, we depict the different regularization terms, to help with intuition”
+
+We removed figure 4 and used the added space to add details to the discussion and experiment section.
+-----------------------------------------------------------------------------------------------------------------
+*comment: Algorithm 1 helped with the clarity of the approach, although it left me with a question: In section 3.3, the authors say that they train by "replacing the sign binarization with the SS_\beta activation" and that they can back-propagate through it. However, in the psuedo-code it seems like they indeed use the sign-function in the forward-pass, replacing it with the signswish in the backward pass. Which is it?
+
+Thank you for pointing out this issue. The pseudo-code is the correct one. We use the derivative of SwishSign function as the approximation in the backward pass as opposed to the straight through estimator. We corrected the sentence in the text pg.5:
+
+“Combining both the regularization and activation ideas, we modify the training procedure by replacing the sign backward approximation with that of the derivative of SS_B activation (\ref{sswish}).”
+----------------------------------------------------------------------------------------------------------------
+
+*comment: “They modify it by centering it and taking the derivative. I'm not sure I understand the intuition behind using the derivative of the Swish as the new activation. It's also unclear how much of BNN+'s success is due to the modification of the Swish function over using the original Swish activation. For this reason I would've liked to see results with just fitting the Swish.” 
+
+The activation function of a BNN is the sign function. The original swish function resembles that of Relu and is not a valid approximation for the sign function as it does not saturate on the right side hence we did not experiment with this function. In training binary networks, there is a discrepancy between the forward pass and backward pass. With the modifications made to the Swish, we attempt to close this gap. One interesting property of this function is it captures gradients over a larger domain as opposed to the straight through estimator (STE) where it immediately reaches zero.
+
+In our experiments we compared with the htan backward approximation, which is the valid alternative that is being used in the literature.
+----------------------------------------------------------------------------------------------------------------
+*comment: “The fact that some of the architectures did not converge is a bit concerning. It's an important detail if a training method is unstable, so I would've liked to see more discussion of this instability.” 
+
+Table 2 is a computationally time consuming task, as we are training the networks on the ImageNet dataset, with limited resources on two different architectures. The total number of experiments are 20. As a result, for those two specific table values our experiments had not terminated by the submission deadline. This sentence hadn’t been worded appropriately. Also we would like to point that we have not experienced any convergence issues with the method. 
+----------------------------------------------------------------------------------------------------------------
+*comment: “The bolding on Table 2 is misleading”
+    
+We removed the boldings from table 2 and instead emphasize them in table 3.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SkldLNDZRX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>To Reviewer #2 (2/3)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=SkldLNDZRX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">*comment: “It's unclear to me why the zeros of the derivative of sign swish being at +/- 2.4beta means that when beta is larger, we get a closer approximation to the sign function. The derivative of the sign function is zero almost everywhere, so what's the connection?”
+
+This is a property of the swish sign function, which locates the max and min at +/- 2.4/beta. We thought it’d be interesting to point this out, and by this we meant that by increasing beta, one can adjust the locations at which the gradients start saturating. Also, it is easy to show that when beta tends to infinity, sign swish converges to the sign function. We added an explanation in the text: 
+
+“Note that the derivative d/dxSS_\beta(x) is zero at two points, controlled by \beta. Indeed, it is simple to show that the derivative is zero for x \approx \pm 2.4 / \beta. By adjusting this parameter beta, it is possible to adjust the location at which the gradients start saturating. In contrast to the STE estimators, where it is fixed. Thus, the larger \beta is, the closer the approximation is to the derivative of the \sign function”
+
+----------------------------------------------------------------------------------------------------------------
+*comment: I'm not sure I understand the intuition behind using the derivative of the Swish as the new activation. It's also unclear how much of BNN+'s success is due to the modification of the Swish function over using the original Swish activation. For this reason I would've liked to see results with just fitting the Swish. 
+
+As explained in our answer to the previous comment, the swish is not bounded on the right side.
+
+“where \sigma(z) is the sigmoid function and the scale \beta &gt; 0 controls how fast the activation function asymptotes to -1 and +1. The \beta parameter can be learned by the network or be hand-tuned as a hyperparameter. As opposed to the Swish function, where it is unbounded on the right side, the modification make it bounded and a valid approximator of the \sign function. As a result, we call this activation SignSwish, and its gradient is”
+----------------------------------------------------------------------------------------------------------------
+
+*comment: In terms of their regularization, they point out that their L2 regularization term is a generalization of the one introduced in Tang et al. (2017). The authors parameterize the regularization term by a scale that is similar to one introduced by Rastegari et al. (2016). As far as I can tell, these are the main novel contributions of the authors' approach
+
+The notion of regularization as well as that of scaling factors are not new in the literature of binary neural networks (BNN). But, the regularization introduced in Tang et al. (2017) is different from ours because it does not penalize the weights outside of [-1;1], it is a quadratic function (1 - w^2) and does not include the notion of scaling factor. For the scaling factors introduced by Rastegari et al. (2016), they estimate them in a 2-stage fashion. They first find the weights and second, they solve an optimization function (L2 norm of the difference between full-precision weights and scaling factor times binary weights) in order to estimate the scaling factors. This results in the scaling factor is the mean of absolute values of the weights.
+
+In our work, we introduce a new approach to the quantization of BNNs. Our novelty is the introduction of the scaling factor into a regularization function constructed for a BNN (class of regularization functions R(w) = |scaling_factor - |weights| |^p where p=1 and 2 in the paper) , as well as an adaptive approximation (using a parameter) of the derivative of the sign function. Instead of having two separate optimization problems, we only need back-propagation in order to minimize the loss function plus the regularization term in order to estimate the binary weights as well as the scaling factors. Depending on the regularization term used, the scaling factors estimation falls into either mean of absolute values of the weights (p=2) or median of absolute values of the weights (p=1). 
+
+----------------------------------------------------------------------------------------------------------------    
+*comment: The authors don't provide much intuition for why the new activation function is superior to the swish (even including the swish in Figure 2 could improve this). Moreover, they mention that training is unstable without explaining more. 
+
+I believe we addressed this in prior comments. There is no new activation function but a new approximation of the sign function derivative. Hence, the swish function is not appropriate, but our modification is. We point out the relationship with the swish function is due to our SignSwish function being modification to the derivative of the swish function.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1lWV4P-CQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>To Reviewer #2 (3/3)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=S1lWV4P-CQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">*comment: "The authors don't compare their method to the Bi-Real Net from Liu et al. (2018) since it introduces a shortcut connection to the architecture, although the Bi-Real net is SOTA for Resnet-18 on Imagenet. Did you try implementing the shortcut connection in your architecture?" 
+
+
+The connection was not added, as suggested in bi-real net. Here our main objective was to improve the training mechanism for Binary Networks. As future work we can investigate more efficient architectures for binarized neural networks, such as condensenet as opposed to residual networks due to their summation operator rids of too much information, whereas in condensenet the activations are appended hence information is maintained  across layers.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BkgIvK4Lhm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Borderline paper -- OK empirical results but weak in most other regards</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=BkgIvK4Lhm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1074 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary: 
+This paper presents three small improvements for training binarized neural networks: (1) a modified straight-through estimator, (2) a novel regularizer to push weights to +/- 1, and (3) the use of scaling factors for the binarized weights. Using the methods presented, the validation accuracies on ImageNet and CIFAR-10 are improved by just under 2 percentage points.
+
+  Pros:
+    - Decent improvement in the performance of the binarized network in the end
+    - The presented regularizers make sense and seem effective. The modified straight-through estimator seems reasonable as well, although the authors do not compare to recent work with a similar adjustment. 
+
+  Cons:
+    - The paper is poorly written and confusing. It reads as if it was written in one pass with no editing or re-writing to clarify contributions or key points, or ensure consistency.
+    - While the final numbers are acceptable, the experiments themselves could be stronger and could be presented more effectively.
+   - The novelty of the scale factors is questionable.
+
+
+Questions and comments:
+
+1. How exactly is the SS_\beta activation used? It is entirely unclear from the paper, which contradicts itself in multiple ways. Is SS_\beta used in the forward pass at all for either the weight or activation binarization? Or is only its derivative used in the backward pass? If the latter, then you are not replacing the activation anywhere but are simply using a different straight-through estimator in place of the saturated straight-through estimator (e.g., see [1]).
+   (a) At the beginning of Section 3.3, you say that you modify the training procedure by replacing the sign binarization with the SS_\beta activation. This sounds like it is referring to the activation function at each layer; however, the pseudocode says that you are using sign() as the per-layer activation. 
+   (b) Further, Figure 4 shows that you are using the SS_\beta function to do weight binarization. However, again, the pseudocode shows that you are using sign() to do the weight binarization. 
+
+2. In [1], the authors used a similar type of straight-through estimator (essentially, the gradient of tanh instead of hard_tanh) and found that to be quite effective. You should compare to their method. Also, it's possible that SS_\beta reduces to tanh for some choice of \beta -- is this true?
+
+3. The use of scale factors seems to greatly increase the number of parameters in the network and thus greatly decrease the compression benefits gained by using binarization, i.e., you require essentially #scale_factors =  a constant factor times the number of actual parameters in the network (since you have a scale factor for each convolutional filter and for each column of each fully-connected layer). As a result of this, what is the actual compression multiplier that your network achieves relative to the original network?
+
+4. For the scale factor, how does yours differ from that used in Rastegari et al. (2016)? It seems the same but you claim that it is a novel contribution of your work. Please clarify.
+
+5. Why did learning \beta not work? What was the behavior? What values of \beta did learning settle on? 
+
+6. I assume that for each layer output y_i = f(W_i x_i), the regularizer is applied as R(y_i) while at the same time y_i is passed to the next layer -- is this correct? The figures do not clearly show this and should be changed to more clearly show how the regularizer is computed and used, particularly in relation to the activation.
+
+7. In the pseudocode:
+   (a) What does "mostly bitwise operations" mean? Are some floating point?
+   (b) Is this the shift-based batchnorm of Hubara et al. (2016)?
+
+8. For Table 1:
+   (a) I assume these are accuracies? The caption should say.
+   (b) Why are there no comparisons to the performance of other methods on this dataset?
+   (c) Any thoughts as to why your method performs better than the full-precision method on this dataset for VGG?
+
+8. For Table 2:
+   (a) Does Table 2 show accuracies on ImageNet? You need to make this clear in the caption.
+   (b) What type of behavior do the runs that do not converge show? This seems like a learning rate problem that is easily fixable. Are there no hyperparameter values that allow it to converge?
+   (c) What behavior do you see when you use SS_1 or SS_2, i.e., \beta = 1 or \beta = 2? Since lower \beta values seem better.
+   (d) The regularization seems to be the most useful contribution -- do you agree?
+   (e) Why did you not do any ablations for the scale factor? Please include these as well.
+
+9. For Table 3, did you compute the numbers for the other approaches or did you use the numbers from their papers? Each approach has its own pros and cons. Please be clear.
+
+10. Are there any plots of validation accuracy versus epoch/time for the different algorithms in order to ensure that the reported numbers were not simply cherry-picked from the run? I assume that you simply used the weights from the end of the 50th epoch -- correct? 
+
+11. Is there evidence for your introductory claims that 'quantizing weights ... make neural networks harder to train due to a large number of sign fluctuations' and 'maintaining a global structure to minimize a common cost function is important' ? If so, you should cite this evidence. If not, you should make it clear that these are hypotheses. 
+
+12. Why are there not more details about the particular architectures used? These should be included in the appendices to aid those who would like to rerun your experiments. In general, please include more experiment details in the body or appendices.
+
+
+Detailed comments:
+- R(l) is not defined in Figure 1 and thus is confusing. Also, its replacement of 'Error' from the original figure source makes the figure much more confusing and less clear.
+
+- Typos:
+   - 'accustomed' (p.1)
+   - 'the speed by quantizing the activation layers' doesn't make sense (p.1)
+   - 'obtaining' (p.4)
+   - 'asymmetric' doesn't make sense because these are actually symmetric functions across the y-axis (p.4)
+   - 'primary difference is that this regularization ...' --&gt; 'primary difference is that their regularization ...' (p.4)
+   - 'the scales with 75th percentile of the absolute value ... ' is very confusing and unclear (p.7)
+   - 'the loss metric used was the cross-entropy loss, the order of R_1.' I do not know what you're trying to say here (p.8)
+
+- Citations: Fix the capitalization issues, typos, and formatting inconsistencies.
+
+
+[1]  Friesen and Domingos. Deep Learning as a Mixed Convex-Combinatorial Optimization Problem. ICLR 2018.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1esUOwb0X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>To Reviewer #3 (1/4)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=S1esUOwb0X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your constructive feedback. Please find below a point to point response.
+
+-----------------------------------------------------------------------------------------------------------------
+*comment: How exactly is the SS_\beta activation used? It is entirely unclear from the paper, which contradicts itself in multiple ways. Is SS_\beta used in the forward pass at all for either the weight or activation binarization? Or is only its derivative used in the backward pass? If the latter, then you are not replacing the activation anywhere but are simply using a different straight-through estimator in place of the saturated straight-through estimator (e.g., see [1]).
+
+In the forward pass the sign function is used, and in the backward pass we use the derivative of SwishSign function as the approximation in the backward pass. We corrected the sentence in the text:
+
+“Combining both the regularization and activation ideas, we modify the training procedure by replacing the \sign backward approximation binarization with that of the derivative of the SS_\beta activation (2).”
+
+     b) Due to the confusion introduced by this figure, we removed it accordingly.
+
+-----------------------------------------------------------------------------------------------------------------
+*comment: In [1], the authors used a similar type of straight-through estimator (essentially, the gradient of tanh instead of hard_tanh) and found that to be quite effective. You should compare to their method. Also, it's possible that SS_\beta reduces to tanh for some choice of \beta -- is this true?
+
+[1] is concerned with solving a combinatorial optimization problem for hard thresholding activation units. In their work they keep the weights to full precision values, and only limit the activations of units to binary values. Our primary motivation behind SS_beta was to define a class of functions for which the derivatives are different approximations of the sign function. In [1], the approximation is fixed and therefore less flexible than ours. In the ablation study, we see that for different values of beta, the accuracy changes.The SS_\beta does not reduce to the tanh function. The tanh function is similar to that of the sigmoid, although in the case of SS_1 they look similar, in the swish function there is a subtle difference in that there is a bump at -2.4/beta and +2.4/beta which helps with learning (gradient flow, saturation at later point). Further, one of the major difference between signswish and tanh is that signswish is non monotonous.
+
+-------------------------------------------------------------------------------------------------------------
+*comment: The use of scale factors seems to greatly increase the number of parameters in the network and thus greatly decrease the compression benefits gained by using binarization, i.e., you require essentially #scale_factors =  a constant factor times the number of actual parameters in the network (since you have a scale factor for each convolutional filter and for each column of each fully-connected layer). As a result of this, what is the actual compression multiplier that your network achieves relative to the original network?
+
+The use of scale factors does reduce the actual compression, but not significantly. For example in the case of AlexNet, 
+
+conv 64 - conv 192 - conv 384 - conv 256 - conv 256 - FC 4096 - FC 4096 
+
+The number of parameters in the original network are ~ 6M/32 = 187500 
+The number of scales introduced are (192+384+256+256+4096+4096) = 9280
+The compression with the addition of scales becomes ~ 31.5
+
+The additional overhead of the scales is less than ~2 %.
+
+At inference time, one can fold the batch norms onto the scaling factors, thus removing the batchnorms operations and their parameters. This has the similar effect as in [2]. As a result although we introduce scaling factors, we remove the batch norm parameters and division operation.
+
+[2] Rastegari, Mohammad, et al. "Xnor-net: Imagenet classification using binary convolutional neural networks." European Conference on Computer Vision. Springer, Cham, 2016.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rklWMOvZCm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>To Reviewer #3 (2/4)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=rklWMOvZCm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">*comment: For the scale factor, how does yours differ from that used in Rastegari et al. (2016)? It seems the same but you claim that it is a novel contribution of your work. Please clarify.
+
+In Rastegari et al. (2016) the parameters are estimated dynamically given the weights of the network. Hence in training, on each pass they are updated accordingly. Whereas in our work we introduce the scaling factors in the regularization function. 
+
+This follows as the scaling factors introduced by Rastegari et al. (2016) are estimated in a 2-stage fashion. First they find the weights and second, they solve an optimization problem (L2 norm of the difference between full-precision weights and scaling factor times binary weights) in order to estimate the scaling factors. So, the estimated scaling factor is the mean of absolute values of the weights. 
+
+In our work, there is a difference in how the scales are formulated. We introduce the scales into a regularization function constructed specifically for a BNN. This class of regularization functions can be written to 
+
+R(w) = |scaling_factor - |weights| |^p 
+
+where p=1 and 2 in the paper. Instead of having two separate optimization problems, we back-propagate the updates to the scales in order to minimize the loss function plus the regularization term.
+
+Depending on the regularization term used, the scaling factors estimation falls into either mean of absolute values of the weights (p=2) or median of absolute values of the weights (p=1). As a result, this could also be seen as a generalization of Rastegari et al. (2016)’s scaling factor.
+
+----------------------------------------------------------------------------------------------------------------
+*comment: Why did learning \beta not work? What was the behavior? What values of \beta did learning settle on? 
+
+
+Learning beta adds only one equation to back-propagation in our experiments we fixed  beta to have explicit value. We did not extensively try to experiment with learning beta. We changed the following sentence accordingly:
+
+“The parameter $\beta$ could be learn-able , and would add one equation only to back-propagation. However,  we fixed $\beta$ through out our experiments. The results are summarized in Table \ref{tab:ablation}”
+
+We did few experiments having beta trainable though it was not conclusive. Accordingly, we decided to leave it for future work. For instance one can investigate changing the beta parameter dynamically as training progresses, perhaps by starting with a smaller beta and moving towards larger beta.
+
+-------------------------------------------------------------------------------------------------------------
+*comment: I assume that for each layer output y_i = f(W_i x_i), the regularizer is applied as R(y_i) while at the same time y_i is passed to the next layer -- is this correct? The figures do not clearly show this and should be changed to more clearly show how the regularizer is computed and used, particularly in relation to the activation.
+
+Referring to equation (6) of section 3.3, the regularizer is applied as a function of the weights and scaling factor (R(W_l, \alpha_l)), which is then added to the loss function. This total loss is used to optimize the network. 
+
+From section 3.3: 
+“J(W, b) = L(W, b) + \lambda \sum_{l} R(W_l,\alpha_l)
+
+where L(W, b) is the cost function, W and b are the sets of all weights and biases in the network, W_l is the set weights at layer l and \alpha_l is the corresponding scaling factor. Here, R(.) is the regularization function 4 or 5.”
+
+--------------------------------------------------------------------------------------------------------------
+*comment: In the pseudocode:
+   (a) What does "mostly bitwise operations" mean? Are some floating point?
+Here by mostly bitwise operation in algorithm 1 we mean that, the only floating operation is the multiplication of the scales, into the W^bx^b (line 6 in forward pass of algorithm 1)
+
+   (b) Is this the shift-based batchnorm of Hubara et al. (2016)?
+    No. But, shift-based batchnorm of Hubara et al. (2016) is orthogonal to our methodology. Shift-based batchnorm is only useful if you want to speed up the training. At run-time, you can fold the vanilla batchnorm operations into a simple threshold function.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1xXsPPZ0X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>To Reviewer #3 (3/4)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=B1xXsPPZ0X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">*comment: For Table 1:
+   (a) "I assume these are accuracies? The caption should say."
+
+We modified the caption as follows: 
+“Accuracy results on test set for CIFAR10 dataset, using Manhattan regularization function (\ref{l1reg}) with AlexNet and VGG.”
+
+   (b) "Why are there no comparisons to the performance of other methods on this dataset?"
+
+Cifar10 consists of low resolution images and limited number of classes hence it is not a challenging dataset. Accordingly in order to show the empirical results for our comparisons, we decided to forgo comparison on this task and instead focus on ImageNet.
+We thought comparison on CIFAR10 does not provide fair comparison as it is not a challenging dataset. Instead it makes sense to do so on a harder dataset such as Imagenet.
+
+   (c) "Any thoughts as to why your method performs better than the full-precision method on this dataset for VGG?"
+
+VGG network is over-parameterized and given the simplicity of CIFAR10 dataset, binarization helps regularize the network and avoid overfitting.
+
+--------------------------------------------------------------------------------------------------------------
+*comment: For Table 2:
+   (a) "Does Table 2 show accuracies on ImageNet? You need to make this clear in the caption."
+
+Table 2 we modified the caption as follows:
+
+“ImageNet Top-1 and top-5 accuracies (in percentage) of different combinations of the proposed technical novelties on different architectures. Some architectures were harder to train and did not converge within the time frame of the others, and so is not reported.”
+
+   (b) What type of behavior do the runs that do not converge show? This seems like a learning rate problem that is easily fixable. Are there no hyperparameter values that allow it to converge?
+
+Table 2 is a computationally time consuming task, as we are training the networks on the ImageNet dataset. As a result, for those two specific table values our experiments were not run. This sentence hadn’t been worded appropriately. Also we would like to point that there are no convergence issues with the method. 
+
+   (c) "What behavior do you see when you use SS_1 or SS_2, i.e., \beta = 1 or \beta = 2? Since lower \beta values seem better."
+
+Lower \beta value do not necessarily mean better results. We modified the sentence in the text
+
+“Lastly, it seems smaller (moderate) values of β is better than larger values.”
+
+In theory, higher \beta value mean better approximation of the derivative of the sign function. However, there is a trade-off between approximation of the derivative of the sign function and the gradient value. So, moderate values of \beta seem better. So, we presented SS_5 and SS_10.
+
+   (d) "The regularization seems to be the most useful contribution -- do you agree?"
+Our contributions are incremental, like just about any contributions. E.g., ReLUs were a small modification of activation functions, yet ReLUs had a huge impact. The regularization functions introduced in this paper are two out of many functions we can use for quantizing BNN. Including the scaling factors in the regularization function. As a result, learning the scales through back-propagation is a contribution and useful since it gives a flexibility to the method to adapt to the data. Finally, based on our experimental results summarized in Table 2, our approximation of the derivative of the sign function proves to be useful empirically l since it gives better results than the straight through estimator.
+
+
+   (e) "Why did you not do any ablations for the scale factor? Please include these as well."
+
+The scaling factors are parameters estimated along with the weights. By our comparison with the BNN method we demonstrated the efficacy of using the suggested scales.
+“We added the following in the text…”
+--------------------------------------------------------------------------------------------------------------
+*comment: For Table 3, did you compute the numbers for the other approaches or did you use the numbers from their papers? Each approach has its own pros and cons. Please be clear.
+
+We have a re-implementation of BNN, and for XNOR Net we decided to cite the accuracies in the paper instead. We have added the following to the caption of the paper:
+
+“Comparison of top-1 and top-5 accuracies of our method BNN$+$ with BinaryNet, XNOR-Net and ABC-Net on ImageNet, summarized from Table \ref{tab:ablation}. Results are cited from the corresponding papers.”</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1xXePv-AQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>To Reviwer #3 (4/4)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=H1xXePv-AQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+*comment: “Are there any plots of validation accuracy versus epoch/time for the different algorithms in order to ensure that the reported numbers were not simply cherry-picked from the run? I assume that you simply used the weights from the end of the 50th epoch -- correct?”
+
+
+Yes we simply evaluated the model at the end of the training procedure.
+
+----------------------------------------------------------------------------------------------------------------
+*comment: “Is there evidence for your introductory claims that 'quantizing weights ... make neural networks harder to train due to a large number of sign fluctuations' and 'maintaining a global structure to minimize a common cost function is important' ? If so, you should cite this evidence. If not, you should make it clear that these are hypotheses.” 
+
+This intuition and reasoning was provided in [3], thanks for pointing this out we made sure to cite the paper. We modified the subsequent sentence, to
+“How to quantize the weights locally, and maintaining a global structure to minimize common cost function is important[4]”
+
+For “maintaining a global structure to minimize a common cost function” how to re-write? Or citation.
+[3] Lin, Xiaofan, Cong Zhao, and Wei Pan. "Towards accurate binary convolutional neural network." Advances in Neural Information Processing Systems. 2017.
+[4]Li, Hao, et al. "Training quantized nets: A deeper understanding." Advances in Neural Information Processing Systems. 2017.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*comment: “Why are there not more details about the particular architectures used? These should be included in the appendices to aid those who would like to rerun your experiments. In general, please include more experiment details in the body or appendices.”
+
+We added more explanations on the architectures and experiments in the corresponding sections. 
+
+We train both, AlexNet \citep{krizhevsky2012imagenet}, and VGG \citep{Simonyan2014VeryDC} using the ADAM \citep{Kingma2014AdamAM} optimizer. The architecture used for VGG is conv(256)-conv(256-conv(512-conv(512-conv(1024)-conv(1024-fc(1024-fc(1024) where conv(\cdot) is a convolutional layer, and fc(\cdot) is a fully connected layer. The standard 3\times3 filters are used in each layer. We also add a batch normalization layer (Ioffe2015BatchNA) prior to activation. For AlexNet, the architecture from (Krizhevsky2014OneWT) is used, and batch normalization layers are added prior to activations. We use a batch size of 256 for training. Many learning rates were experimented with such as 0.1, 0.03, 0.001,  etc, and the initial learning rate for AlexNet was set to 10^{-3}, and 3 \times 10^{-3} for VGG. 
+
+- Typos:
+Thank you for pointing these out. We made sure to correct all typos and unclear sentences in the revised version of the paper.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SkeoW9jv9m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>How many layers did you use in AlexNet and VGG? </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=SkeoW9jv9m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1.How many layers did you use in AlexNet and VGG?    Did you binarize all layers? 
+
+2.As you said   bi-real net introduce a shortcut connection .Did you binarize the shortcut ? You didn't binarize the first layer,how about the last layer?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1etthr59m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Architectures</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=r1etthr59m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Oct 2018 (modified: 17 Oct 2018)</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1. VGG-16 was used without the two first convolutional layers (conv2d-64 and conv2d64). 
+
+conv 256 - conv 256 - conv 512 - conv 512 - conv 1024 - conv 1024 - FC 1024 - FC 1024 - FC (num classes)
+
+For AlexNet:
+
+conv 64 - conv 192 - conv 384 - conv 256 - conv 256 - FC 4096 - FC 4096 - FC (num classes)
+
+Additionally, a BatchNorm layer was added before every activation. In the case of Cifar10 only the first layer was not binarized, whereas in ImageNet both the first layer and last layers were not binarized.
+
+
+2. The shortcut was not binarized in the results presented in the paper. Also the last layer was not binarized for ResNet-18.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyeGKH7XoQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The architectures of AlexNet  used for ImageNet ？</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=SyeGKH7XoQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I know your alexnet used for cifar10. What‘s the the architectures of AlexNet  used for ImageNet? can you put up the  framework？</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1gMIMKXoQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>alexnet imagenet</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=H1gMIMKXoQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Same as above was used.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1lXaYQmsm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Architectures</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=S1lXaYQmsm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">conv 64 - conv 192 - conv 384 - conv 256 - FC 4096 - FC 4096 - FC 4096
+
+excuse me,is this the  original AlexNet  layers?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1lL-zYQim" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>correction</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=S1lL-zYQim"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This is the AlexNet from one weird trick (<a href="https://arxiv.org/abs/1404.5997" target="_blank" rel="nofollow">https://arxiv.org/abs/1404.5997</a> ), I corrected the original statement.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BygamLVVoX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>alexnet Architectures</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=BygamLVVoX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Are you kidding? The AlexNet from one weird trick is
+conv 64 - conv 192 - conv 384 -conv 384 - conv 256 - FC 4096 - FC 4096 - FC 1000 .</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HklJGpLNim" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>corrected</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=HklJGpLNim"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Yes, that is the one used. I had made a mistake in writing it down. Sorry for the confusion. 
+
+I modified it to FC(num classes) for both.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Bke5-qUEi7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>effective communication</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=Bke5-qUEi7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Just a bystander chiming in to make some comments -- please be respectful to others even if you disagree strongly.
+
+Or, in the case when you are not sure if you would offend someone in the discussion due to language/culture barriers, it would be better to set that expectation, e.g.:
+
+"Pardon me if I may sound aggressive / offensive, but ..."
+
+The whole point of discussion is to increase mutual understanding, isn't it?</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_HJg4vQe857" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Some questions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=HJg4vQe857"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1. As said in the paper, bi-real net uses pretrained network weights as an initialization, then what kind of weight initialization do you use?
+
+2. What's the meaning of "we modify the training procedure by replacing the sign binarization with the SSβ activation (2). During training, the real weights are no longer clipped as in BNN training" in section 3.3? Do the float values generated by the SSβ activation replace the {+1, -1} in forward time? If so, how can you make use of bit-wise operation, which is the key to speed up bnn?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1xD8ABq9X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Calrification</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=H1xD8ABq9X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1. For Cifar10 results the weights were initialized with the Xavier Glorot [1], as for ImageNet the same approach as bi-realnet was used, where a pre-trained full precision network using htan activation was used.
+
+2. By this we mean, we replace the STE estimator in the backward pass with the derivative of the SS function. The weights are no longer clipped to allow them to move beyond -1, 1 as we factor out a scale for each filter. Lastly, we still do the forward pass using binary values {-1, +1}
+
+[1] Glorot, Xavier, and Yoshua Bengio. "Understanding the difficulty of training deep feedforward neural networks." Proceedings of the thirteenth international conference on artificial intelligence and statistics. 2010.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1xlsA5Vjm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Forward pass</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=H1xlsA5Vjm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your reply, so in the forward pass, as in other BNNs, the sign function is used, and in the backward pass, the derivative of the SS function is used instead of STE, isn't it? Thanks</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkeWAp24j7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Forward pass</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJfHg2A5tQ&amp;noteId=rkeWAp24j7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1074 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1074 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Yes, that is correct. You could also refer to the algorithm section in the paper as well.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>signSGD with Majority Vote is Communication Efficient and Byzantine Fault Tolerant | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="signSGD with Majority Vote is Communication Efficient and Byzantine Fault Tolerant" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BJxhijAcY7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="signSGD with Majority Vote is Communication Efficient and Byzantine..." />
+      <meta name="og:description" content="Training neural networks on large datasets can be accelerated by distributing the workload over a network of machines. As datasets grow ever larger, networks of hundreds or thousands of machines..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BJxhijAcY7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>signSGD with Majority Vote is Communication Efficient and Byzantine Fault Tolerant</a> <a class="note_content_pdf" href="/pdf?id=BJxhijAcY7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019signsgd,    &#10;title={signSGD with Majority Vote is Communication Efficient and Byzantine Fault Tolerant},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BJxhijAcY7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Training neural networks on large datasets can be accelerated by distributing the workload over a network of machines. As datasets grow ever larger, networks of hundreds or thousands of machines become economically viable. The time cost of communicating gradients limits the effectiveness of using such large machine counts, as may the increased chance of network faults. We explore a particularly simple algorithm for robust, communication-efficient learning---signSGD. Workers transmit only the sign of their gradient vector to a server, and the overall update is decided by a majority vote. This algorithm uses 32x less communication per iteration than full-precision, distributed SGD. Under natural conditions verified by experiment, we prove that signSGD converges in the large and mini-batch settings, establishing convergence for a parameter regime of Adam as a byproduct. We model adversaries as those workers who may compute a stochastic gradient estimate and manipulate it, but may not coordinate with other adversaries. Aggregating sign gradients by majority vote means that no individual worker has too much power. We prove that unlike SGD, majority vote is robust when up to 50% of workers behave adversarially. On the practical side, we built our distributed training system in Pytorch. Benchmarking against the state of the art collective communications library (NCCL), our framework---with the parameter server housed entirely on one machine---led to a 25% reduction in time for training resnet50 on Imagenet when using 15 AWS p3.2xlarge machines.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">large-scale learning, distributed systems, communication efficiency, convergence rate analysis, robust optimisation</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Workers send gradient signs to the server, and the update is decided by majority vote. We show that this algorithm is convergent, communication efficient and adversarially robust, both in theory and in practice.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SygCGdygTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Summary of reviews and general comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJxhijAcY7&amp;noteId=SygCGdygTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper658 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper658 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewers,
+
+Thank you for your thoughtful and thorough reviews. We will summarise the discussion and make some general points here, then respond in detail to each reviewer below.
+
+First some high notes:
+
+Rev3 says our “experiments are extensive” and our paper is “solid and interesting”. Rev2 says the paper is a “nice addition to our understanding of signSGD”. Rev1 says our work “could be a great paper” if we add sufficient comparisons during the rebuttal.
+
+The reviewers’ main concerns:
+
+1. Rev1 and Rev2 question the strength of the adversarial model;
+2. Rev1 asks for comparison experiments for communication and/or Byzantine property;
+3. Rev3 would like to see additional datasets and network architectures.
+
+A summary of our response:
+
+1. Strength of adversarial model: Given our non-cooperative adversarial model, the *worst* thing the adversary can do for *convergence* is send the inverted sign. We will prove this rigorously in the updated draft. Any other adversary scheme (such as random bits) leads to faster theoretical rates of convergence according to our analysis. We will also prove the special case of random bits for completeness.
+
+Rev1 makes the great point that a powerful adversary can do more subtle things like steer convergence to bad local minimisers. This is true. This is why we see our Byzantine property as more useful as a proof of robustness to general machine faults, as stated in the paper.
+
+2. Comparison experiments: we completely agree. Rev1, would you consider upgrading your score if we provided communication comparisons during the rebuttal, and promised Byzantine comparison experiments for the camera ready?
+
+3. Additional datasets: we are running experiments on a natural language task, and will update the paper with these results.
+
+Revs: please let us know if this sounds reasonable. It sounds like you generally like the paper but want us to close up these gaps before you would be happy to accept.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1eUDnU037" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A distributed implementation of signSGD with majority vote as aggregation. An interesting idea, that however is lacking comparisons with state of the art.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJxhijAcY7&amp;noteId=B1eUDnU037"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper658 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper658 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors present a distributed implementation of signSGD with majority vote as aggregation. The result is a  communication efficient and byzantine robust distributed training method. This is an interesting and relevant problem. There are two parts in this paper: first the authors prove a convergence guarantee for signSGD, and then they prove that under a weak adversary attack signSGD will be robust to a constant fraction of adversarial nodes. The authors conclude with some limited experiments.
+
+Overall, the idea of combining low-communication methods with byzantine resilience is quite interesting. That is, by limiting the domain of the gradients one expects that the power of an adversary would be limited too. The application of the majority vote on the gradients is an intuitive technique that can resolve weak adversarial attacks. Overall, I found the premise quite interesting.
+
+There are several issues that if fixed this could be a great paper, however I am not sure if there is enough time between rebuttals to achieve this for this round of submissions. I will summarize these key issues below.
+
+
+1) Although the authors claim that this is a communication efficient technique, signSGD (on its communication merit) is not compared with any state of the art communication efficient training algorithm, for example:
+- 1Bit SGD [1]
+- QSD [2]
+- TernGrad [3]
+- Deep Gradient compression [4]
+I think it is important to include at least one of those algorithms in a comparison. Due to the lack of comparisons with state of the art it is hard to argue on the relative performance of signSGD.
+
+2) Although the authors claim byzantine resilience, this is against a very weak type of adversary, eg one that only sends back the opposite sign of the local stochastic gradient. An omniscient adversary can craft attacks that are significantly more sophisticated, for which a simple majority vote would not work. Please see the results in [b1].
+
+3) The authors although reference some limited literature on byzantine ML, they do not compare with other byzantine tolerant ML methods. For example check [eg, b1-b4] below. Again, due to the lack of comparisons with state of the art it is hard to argue on the relative performance of signSGD.
+
+Overall, although the presented ideas are promising, a substantial revision is needed before this paper is accepted for publication. I think it is extremely important that an extensive comparison is carried out with respect to both communication efficient algorithms, and/or byzantine tolerant algorithms, since signSGD aims to be competitive with both of these lines of work. This is a paper that has potential, but is currently limited by its lack of appropriate comparisons.
+
+
+
+[1] <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/IS140694.pdf" target="_blank" rel="nofollow">https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/IS140694.pdf</a>
+[2] https://papers.nips.cc/paper/6768-qsgd-communication-efficient-sgd-via-gradient-quantization-and-encoding.pdf
+[3] https://papers.nips.cc/paper/6749-terngrad-ternary-gradients-to-reduce-communication-in-distributed-deep-learning.pdf
+[4] https://arxiv.org/pdf/1712.01887.pdf
+
+[b1] https://arxiv.org/pdf/1802.07927.pdf
+[b2] https://arxiv.org/pdf/1803.01498.pdf
+[b3] https://dl.acm.org/citation.cfm?id=2933105
+[b4] https://arxiv.org/pdf/1804.10140.pdf
+[b5] https://arxiv.org/pdf/1802.10116.pdf
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1lMfYylTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJxhijAcY7&amp;noteId=r1lMfYylTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper658 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper658 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer1,
+
+Thank you for your clear and precise review. We appreciate the comment that our work “could be a great paper” if we add some comparisons during the rebuttal. We want to contest your take on the weakness of our adversarial model, yet wholeheartedly agree with the need for adequate experimental comparisons to other techniques.
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Quick clarification &gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+Do we read your review correctly, in that if we provide rigorous communication comparisons during the rebuttal period, and promise to add Byzantine comparisons for the camera ready, that you would consider upgrading your score?
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Adversarial model &gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+&gt; the adversary is “very weak” since it “only sends back the opposite sign of the local stochastic gradient”
+Inverting the sign bits is *the worst way* a non-cooperative adversary can manipulate its stochastic gradient estimate to slow *convergence*. Any other scheme would lead to faster theoretical convergence bounds.
+
+That said, you point us to the paper [b1] saying that “convergence is not enough” since, for example, a powerful adversary can steer convergence to bad local minimisers. This is a great point, thank you for raising it. For this reason we do not recommend using our algorithm to protect against “omniscient” adversaries. But for “mere mortal” adversaries, our results are interesting. An example of a “mere mortal” adversary could be a broken machine that sends random bits or stale gradients.
+
+We are excited about signSGD because it is incredibly simple yet has many nice properties.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HkgS6925hX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>good work but can be improved</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJxhijAcY7&amp;noteId=HkgS6925hX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper658 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper658 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper continues the study of the signSGD algorithm due to (Balles &amp; Hennig, Bernstein et al), where only the sign of a stochastic gradient is used for updating. There are two main results: (1) a slightly refined analysis of two results in Bernstein et al. The authors proved that signSGD continues to converge at the 1/sqrt(T) rate even with minibatch size 1 (instead of T as in Bernstein et al), if the gradient noise is symmetric and unimodal; (2) a similar convergence rate is obtained even when half of the worker machines flip the sign of their stochastic gradients. These results appear to be relatively straightforward extensions of those in Bernstein et al.
+
+Clarity: The paper is mostly nicely written, with some occasionally imprecise claims. 
+
+Page 5, right before Remark 1: it is wrongly claimed that signSGD converges to a critical point of the objective. This cannot be inferred from Theorem 1. (If the authors disagree, please give the complete details on how the random sequence x_t converges to some critical point x^*. or perhaps you are using the word "convergence" differently from its usual meaning?)
+
+Page 6, after Lemma 1. The authors claimed that "the bound is elegant since ... even at low SNR we still have ... &lt;= 1/2." In my opinion, this is not elegant at all. This is just your symmetric assumption on the noise, nothing more...
+
+Eq (1): are you assuming g_i &gt; 0 here? this inequality is false as you need to discuss the two cases. 
+
+"Therefore signSGD cannot converge for these noise distributions, ..... point in the wrong direction." This is a claim based on intuitive arguments but not a proven fact. Please refrain from using definitive sentences like this.
+
+Footnote 1: where is the discussion?
+
+
+Originality: Compared to the existing work of Bernstein et al, the novelty of the current submission is moderate. The main results appear to be relatively straightforward refinements of those in Bernstein. The observation that majority voting is Byzantine fault tolerant is perhaps not very surprising but it is certainly nice to have a formal justification.
+
+Quality: At times this submission feels like half-baked:
+-- The theoretical results are about signSGD while the experiments are about sigNUM
+-- The adversaries must send the negation of the sign? why can't they send an arbitrary bit vector?
+-- From the authors' discussion " we will include this feature in our open source code release", "plan to run more extensive experiments in the immediate future and will update the paper...", and "should be possible to extend the result to the mini-batch setting by combining ..."
+
+Significance: This paper is certainly a nice addition to our understanding of signSGD. However, the current obtained results are not very significant compared to the existing results: Theorem 1 is a minor refinement of the two results in Bernstein et al, while Theorem 2 at its current form is not very interesting, as it heavily restricts what an adversary worker machine can do. It would be more realistic if the adversaries can send random bits (still non-cooperated though).
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1lxIcJxpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJxhijAcY7&amp;noteId=r1lxIcJxpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper658 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper658 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer2,
+
+Thank you for your clear and thorough review. We appreciate your comment that the paper is a “nice addition to our understanding of signSGD”. 
+
+We will first contest the criticism about the significance of the work. We will then respond to the other comments in detail.
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt; On matters of significance &gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+&gt; “it heavily restricts what an adversary worker machine can do”
+The *worst* thing that a non-cooperating adversary can do to slow down convergence is invert the bits of their sign stochastic gradient estimate. We will add a rigorous proof of this to the paper. Moreover, we will add a convergence proof for the case where adversaries send random bits since this is in an interesting special case.
+
+&gt; “Theorem 1 is a minor refinement”.
+Reddi et al. (2018) showed how bimodal noise distributions can lead to divergence of Adam. This leaves a major outstanding question in the community: if Adam generally diverges, why does it work so well in practice? Theorem 1 shows how signSGD---a special limit of Adam---may be guaranteed to converge in natural settings such as Gaussian noise distributions. Such settings are very realistic in practice due to central limit theorem.
+
+Note that Reddi et al. (2018) was deemed significant enough to win *best paper award* at ICLR-18. This paper is our response. It suggests that we may be able to prove convergence of Adam for Gaussian noise distributions.
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Minor comments &gt;&gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+&gt; “signSGD converges to a critical point of the objective”
+To clarify, we mean convergence in the sense that the gradient norm goes to zero as N increases, which is exactly what Theorem 1 tells us. Points with zero gradient norm are critical points. The mixed norm on the left hand side is unusual, but by inspection it is clear that the mixed norm shrinking to zero implies that the L2-norm shrinks to zero. We will clarify this in the paper.
+
+&gt; “are you assuming g_i &gt; 0 here”
+We assume, without loss of generality, that g_i &gt; 0. (The case that g_i &lt; 0 follows by totally analogous reasoning.) We will clarify this, thank you.
+
+&gt; The claim “signSGD cannot converge for these noise distributions” is only “based on intuitive arguments”. 
+We will prove this rigorously in the form of a Lemma, and update the paper. We hoped to convey intuition, but we appreciate the need to also have precise mathematical statements.
+
+&gt; “Footnote 1: where is the discussion?”
+The discussion is located at this URL: <a href="https://math.stackexchange.com/questions/1632135/how-to-show-that-cantellis-inequality-has-no-better-result." target="_blank" rel="nofollow">https://math.stackexchange.com/questions/1632135/how-to-show-that-cantellis-inequality-has-no-better-result.</a> We will reproduce the discussion in an appendix for completeness.
+
+&gt; ”The theoretical results are about signSGD while the experiments are about sigNUM”
+See [1, Appendix, Figure A.4] for experiments across a range of momentum values. [1] also discusses the theoretical relation between Signum and signSGD. In general we suggest practitioners use Signum instead of signSGD in practice since it is only fair to give our algorithm as many hyperparameters as momentum SGD.
+
+[1] signSGD, compressed optimisation for non-convex problems https://arxiv.org/abs/1802.04434.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1eEYTEq2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>interesting distributed optimization algorithm based on signSGD</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJxhijAcY7&amp;noteId=r1eEYTEq2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper658 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper658 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a distributed optimization method based on signSGD. Majority vote is used when aggregating the updates from different workers.
+ The method itself is naturally communication efficient. Convergence analysis is provided under certain assumptions on the gradient. It also theoretically shows that it is robust up to half of the workers behave independently adversarially. Experiments are carried out on parameter server environment and are shown to be effective in speeding up training. 
+
+I find the paper to be solid and interesting. The idea of using signSGD for distributed optimization make it attractive as it is naturally communication efficient. The work provides theoretical convergence analysis under the small batch setting by further assuming the gradient is unimodal and symmetric, which is the main theoretical contribution. Another main theoretical contribution is showing it is Byzantine fault tolerant. The experiments are extensive, demonstrating running time speed-up comparison to normal SGD.  
+
+It is interesting to see a test set gap in the experiments. It remains to be further experimented to see if the method itself inherently suffer from generalization problems or it is a result of imperfect parameter tuning. 
+
+One thing that would be interesting to explore further is to see how asynchronous updates of signSGD affect the convergence both in theory and practice. For example, some workers might be lost during one iteration, how will this affect the overall convergence.
+Also, it would be interesting to see the comparison of the proposed method with SGD + batch normalization, especially on their generalization performance. It might be interesting to explore what kind of regularization technique would be suitable for signed update kind of method.   
+
+Overall, I think the paper proposes a novel distributed optimization algorithm that has both theoretical and experimental contribution. The presentation of the paper is clear and easy to follow. 
+
+Suggestions: I feel the experiments part could still be improved as also mentioned in the paper to achieve competitive results. More experiments on different tasks and DNN architectures could be performed. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1eaXqJgpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJxhijAcY7&amp;noteId=S1eaXqJgpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper658 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper658 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer3,
+
+Thank you for your positive review. We really appreciate the remarks that our “experiments are extensive” and our paper is “solid and interesting”.
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; More experiments &gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+&gt; “More experiments on different tasks and DNN architectures could be performed”
+
+Thanks for the suggestion, we will add experiments training the QRNN language model on the Wikitext-103 dataset. This is a relevant and interesting problem in the natural language community.
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Further thoughts &gt;&gt;&gt;&gt;&gt;&gt;&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+&gt; “some workers might be lost during one iteration”
+Intuitively, dropping workers will slow down convergence but not prevent it. You can see this immediately since a dropped worker is strictly better for convergence than an adversarial worker. This is one of the reasons we are excited about our Byzantine fault tolerance results.
+
+&gt; what “regularization technique would be suitable for signed update kind of method”?
+We are particularly excited about this question for future work, thanks for suggesting it.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJezmXgjt7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Jupyter notebook</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJxhijAcY7&amp;noteId=BJezmXgjt7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper658 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018</span><span class="item">ICLR 2019 Conference Paper658 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear anonReviewers,
+
+Here's a Jupyter notebook in case you'd like to play with the algorithm: <a href="https://colab.research.google.com/drive/1PlD2jXoXr2a8e57aIDINCw1-7RIttRTt" target="_blank" rel="nofollow">https://colab.research.google.com/drive/1PlD2jXoXr2a8e57aIDINCw1-7RIttRTt</a>
+
+It can be run in the browser, or you can just download it and run on your machine.
+
+Best wishes,
+anonAuthors</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

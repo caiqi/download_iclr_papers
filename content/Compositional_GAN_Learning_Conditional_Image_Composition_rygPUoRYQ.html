@@ -1,0 +1,340 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Compositional GAN: Learning Conditional Image Composition | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Compositional GAN: Learning Conditional Image Composition" />
+        <meta name="citation_author" content="Samaneh Azadi" />
+        <meta name="citation_author" content="Deepak Pathak" />
+        <meta name="citation_author" content="Sayna Ebrahimi" />
+        <meta name="citation_author" content="Trevor Darrell" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rygPUoR9YQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Compositional GAN: Learning Conditional Image Composition" />
+      <meta name="og:description" content="Generative Adversarial Networks (GANs) can produce images of surprising complexity and realism, but are generally structured to sample from a single latent source ignoring the explicit spatial..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rygPUoR9YQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Compositional GAN: Learning Conditional Image Composition</a> <a class="note_content_pdf" href="/pdf?id=rygPUoR9YQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures"><a href="/profile?email=sazadi%40berkeley.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="sazadi@berkeley.edu">Samaneh Azadi</a>, <a href="/profile?email=pathak%40berkeley.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="pathak@berkeley.edu">Deepak Pathak</a>, <a href="/profile?email=sayna%40berkeley.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="sayna@berkeley.edu">Sayna Ebrahimi</a>, <a href="/profile?email=trevor%40eecs.berkeley.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="trevor@eecs.berkeley.edu">Trevor Darrell</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Withdrawn Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Generative Adversarial Networks (GANs) can produce images of surprising complexity and realism, but are generally structured to sample from a single latent source ignoring the explicit spatial interaction between multiple entities that could be present in a scene. Capturing such complex interactions between different objects in the world, including their relative scaling, spatial layout, occlusion, or viewpoint transformation is a challenging problem. In this work, we propose to model object composition in a GAN framework as a self-consistent composition-decomposition network. Our model is conditioned on the object images from their marginal distributions and can generate a realistic image from their joint distribution. We evaluate our model through qualitative experiments and user evaluations in scenarios when either paired or unpaired examples for the individual object images and the joint scenes are given during training. Our results reveal that the learned model captures potential interactions between the two object domains given as input to output new instances of composed scene at test time in a reasonable fashion.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Image Composition, GAN, Conditional Image generation</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We develop a novel approach to model object compositionality in images in a GAN framework.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">9 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SygB0Lm6T7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Submission Withdrawn by the Authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rygPUoR9YQ&amp;noteId=SygB0Lm6T7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper183 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper183 Withdraw Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Withdrawal confirmation: </span><span class="note_content_value">I have read and agree with the withdrawal statement on behalf of myself and my co-authors.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1lkzhIP6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>[Authors' Meta Response] Clarifying contributions of the paper:</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rygPUoR9YQ&amp;noteId=S1lkzhIP6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper183 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper183 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewers for their time and feedback. We believe there is a misunderstanding among reviewers with respect to the main goal and novelty of our work in the context of contemporary related work. We agree this is partially the fault of our presentation. We apologize and will update the paper to clearly reflect our main goal and situate it better among the existing literature. Here, we concisely rephrase the main idea of the paper:
+
+Goal: We are the first to propose the *conditional image composition* task given two input *objects* sampled from two distinct distributions. The composite image should follow the structure, shape, and color of the input objects while looking realistic according to the seen joint distribution. We show compelling results for two objects (n=2) using our proposed approach, which is potentially generalizable for n&gt;2, but is currently out of the scope of this paper. We will update the title, abstract and introduction to clarify this.
+
+Related Work: There is no other related work which tackles the exact problem of composing two objects. The work closest to this setup is Spatial Transformer GAN (ST-GAN) [1] which composes only a fixed background and a given foreground object (n=1.5) and ignores object occlusions and viewpoint transformation. Further, we would also like to emphasize that the task we propose in this paper is different from an *unconditional image generation* problem where the generated images are random samples from the joint distribution. In contrast, in our setup, the generated composed image has to maintain the fidelity to the input object images in terms of texture, shape, and color.
+
+Novelty of the method: Our main idea is to train the task of “composition” by self-supervising training of the model from “decomposition” of the generated composite images and enforcing a self-consistency loss function. This self-supervised training scheme specifically enables updating a refinement network at inference time which results in sharper outputs. We build our model on top of several state-of-the-art components, e.g., spatial transformer networks, inpainting, and appearance flow to achieve the overall composition-decomposition goal but their use is not the main novelty of the paper.
+[1] “ST-GAN: Spatial Transformer Generative Adversarial Networks for Image Compositing”, Lin et at., CVPR 2018.
+
+We provide point-by-point responses to the comments in individual replies to the reviewers below.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1g7nRPR37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Incremental novelty, weak experimental evaluation, simple test cases </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rygPUoR9YQ&amp;noteId=B1g7nRPR37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper183 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper183 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper a method of generating compositional images using conditional GANs in proposed. The proposed GAN model is conditioned on two input images concatenated channel-wise and is aimed to generate images from a target distribution of images whose content is a composition of the two input images. In all settings, it is assumed that the ground truth foreground masks of the inputs and the target composite images are available; these segmentation masks are used throughout the learning and the backgrounds are removed for simplicity (explained in paragraph 2 of section 3.3, paragraph 1 of section 3.4, etc)
+
+-----Pros-----
+
+-Being able to generate compositional images is an ambitious goal and interesting application.
+-The Supplemental Material in the appendix provides good visualizations.
+
+-----Cons-----
+
+* This paper does not provide a coherent technical novelty. Essentially, the proposed method combines several prior works and uses different tricks to make the final compositional image. Here are some of them:
+
+-A conditional GAN similar to Goodfellow 2016 and Mirza &amp; Osindero (2014) and Isola et al 2017
+-A relative appearance flow network (RAFN) which has an encoder-decoder architecture similar to Zhou et al. 2016
+-A spatial transformer network(STN) Jaderberg et al 2015
+-A self-supervised inpainting network of Pathak et al 2016
+-An Inference Refinement Network which is similar to Azadi et al 2017
+
+* The applicability and extendibility of the proposed method is not demonstrated: 
+-Does the proposed method only work with two input images? 
+-How would the proposed method work if three or more input images were provided (similarly concatenated channelwise). What is the actual application of this model if only works with two images? 
+-How can one extend it to a more general use case? 
+-Why is it better to generate compositional images conditioned on images rather than lingual phrases describing the scene?
+
+* The experimental result does not support the claims of the paper for generating compositional images. Evaluation based on known criteria is not done and no comparative study with prior work is conducted.
+
+- The test cases are very simplistic. While the paper claims about dealing with challenging object compositional problems such as “3D object translations” and “view points” and “occlusions” there are only two test cases: (a)chair and desk (b) bottle and basket. These are very narrow test cases. Even in these two test cases the results are not satisfying. While chair can be behind the desk it can also be next to it! And many diverse situations can happen for composing a chair and a desk. However, all the provided results show only one compositional pose and these modes of diversity have never appeared in the results. The same issue exists with “bottle and basket”. The generated examples only show a bottle inside a basket. This is no different than if the GAN was conditioned on the lingual phrase of “bottle inside basket” rather than images.
+
+-The generated images are not evaluated based on any known criteria of image generation. For example, Inception Score (IS) could be used to quantitatively evaluate (a) the quality of the generated images and (b) their diversity. Other known evaluation criteria are Fréchet Inception Distance (FID), precision, recall, F1 score, etc. Even just a simple log-likelihood is not measured to quantitatively show the performance of the proposed approach.
+
+* I strongly suggest improving the the presentation of the paper. There are many formulations which are taken from prior GAN works, there is no need to repeat writing these formulations. Summarizing those formulations or putting them in the appendix can open up space so that you can bring in some of the qualitative results inside the main manuscript.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Bye3jgww67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response [part 1 of 2]  -- Thanks for the review.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rygPUoR9YQ&amp;noteId=Bye3jgww67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper183 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper183 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Please refer to our meta-reply for the combined response to all reviewers and we answer the individual comments below. We use &gt; for quotes.
+
+&gt;”This paper does not provide a coherent technical novelty. Essentially, the proposed method combines several prior works and uses different tricks to make the final compositional image.”
+-- We have elaborated the main novelty of our work in the combined meta-reply above. Our main idea is to train the task of “composition” by self-supervising training of the model from “decomposition” of the generated composite images and enforcing a self-consistency loss function. In achieving so, our model takes benefit from the existing state-of-the-art methods at different levels, but we believe leveraging existing ideas should be seen as a positive. We have made novel modifications to multiple state-of-the-art models to achieve our goal of conditional image composition and roped them efficiently under one main idea of composition and then decomposition.
+
+&gt;”A conditional GAN similar to Goodfellow 2016 and Mirza &amp; Osindero (2014) and Isola et al 2017”
+-- This is true that our generator and discriminator network architectures follow the models proposed in the prior works but none of the existing state-of-the-art models in conditional image generation (pix2pix and cycleGAN) can compose the two input objects even with a given layout of the objects, as depicted in Figure 9-b of the appendix. We have compared our results to these models in the same figure.
+
+&gt;”A relative appearance flow network (RAFN) which has an encoder-decoder architecture similar to Zhou et al. 2016”
+-- While our main idea/goal is orthogonal to this, we would like to clarify that we have modified the existing model of Zhou et al. 2016 to synthesize a new viewpoint of an object given “the mask of the corresponding second object” while the AFN model of Zhou et al takes an explicit rotation angle in the input.
+
+&gt;”A spatial transformer network (STN) similar to Jaderberg et al 2015”
+-- The existing STN takes a single image as the input while we have modified it to take the two given input objects and transform each one with respect to the other one, thus calling it as a “Relative Spatial Transformer Network”.
+
+&gt;”An Inference Refinement Network which is similar to Azadi et al 2017”
+-- The refinement network proposed in this paper is completely different from that of Azadi et al 2017 in terms of architecture, application, and purpose. They are both refining the weights of a network to generate sharper results at inference but the main purpose of using a refinement network in Azadi et al 2017 is transferring the style of a few given letters to the generated unseen glyphs. Here, we use our proposed self-consistent composition-decomposition network at inference time to generate sharper composite images following the color and structure of the given inputs. 
+We will make sure to clearly highlight the above points in the final version.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HyxgfWPD6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response [part 2 of 2] -- Thanks for the review.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rygPUoR9YQ&amp;noteId=HyxgfWPD6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper183 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper183 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">&gt;”Why is it better to generate compositional images conditioned on images rather than lingual phrases describing the scene?”
+-- We think this confusion has been raised due to the discussion of Johnson et al 2018 mentioned in our related works section. Note that Johnson et al generate “arbitrary random” composite images “from noise” given a phrase which provides an explicit information about the relation of the objects.  Here, our goal is to generate a composite image that strictly follows the structure, shape, and color of the given disjoint input objects. We are not claiming that our model is better than using lingual phrases, but it is completely a different task that we are proposing for the first time. We will clarify this in the paper.
+
+&gt;”The generated images are not evaluated based on any known criteria of image generation.”
+-- We have evaluated our results using qualitative examples and user evaluations, similar to all existing works in conditional image generation [pix2pix, CycleGAN etc.]. There has been a misunderstanding here between the task of conditional image generation and an unconditional image generation from noise. As mentioned earlier, we are not generating random composite images, but ones following the structure and color of the given inputs. Therefore, Inception score and FID are not valid metrics for this task since the output depends on the given input images. Using precision and recall does not make sense in this context either. We will make sure that it is clarified in the final version.
+
+&gt;”no comparative study with prior work is conducted. “
+-- Since we are the first one proposing the task of conditional image composition, there is no existing model to be used as a direct baseline. The closest work is ST-GAN which handles the composition task with a fixed background and one foreground object (n=1.5). We have compared our results of both the paired and unpaired cases with ST-GAN in section 4.3 for composing real faces with sunglasses and have shown a significant outperformance to this baseline. We have also compared our results with the pix2pix and cycleGAN models when the layout of the objects is given in the input (Figure 9-b). As shown in this figure, none of them can solve the problem of occlusion and/or composition.
+
+&gt; “The applicability and extendibility of the proposed method is not demonstrated”
+-- We accept that our proposed model is mainly designed for composing two objects, but it is worth mentioning that we are the first in solving this problem. Generalizing the network to compose n&gt;2 objects is possible by increasing the generator’s input channels to nx3 instead of 2x3 (here, 3 stands for the RGB channels). However, we leave it up to the future work. We will clearly specify this in the abstract and the introduction.
+
+&gt; “There are only two test cases: (a)chair and desk (b) bottle and basket.”
+-- To have a more realistic setup, we have performed another experiment on real faces to be composed with sunglasses (section 4.3).
+
+&gt;”all the provided results show only one compositional pose and these modes of diversity have never appeared in the results. The same issue exists with “bottle and basket”. The generated examples only show a bottle inside a basket. This is no different than if the GAN was conditioned on the lingual phrase of “bottle inside basket” rather than images.”
+-- As mentioned in section 3 of the paper, our model learns the mode of the joint distributions and this claim is effectively shown in the chair and table experiment. In the basket+bottle experiment, we mostly focus on the occlusion issue while composing these two objects. As mentioned above, this task is different from generating random images given a lingual phrase. We are given an image of a basket and an image of a bottle and want to compose them into one image consisting of exactly the same objects (not random).
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_Syef3Yz3n7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting but tricky method for compositional image generation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rygPUoR9YQ&amp;noteId=Syef3Yz3n7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper183 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper183 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">[Overview]
+
+In this paper, the authors proposed a new method for compositional image generation, called compositional GAN. Given two object images, the proposed model could compose them through spatial transformations into a single image which has a reasonable object layouts. The authors worked on two objects and considered both paired and unpaired training cases. The experimental results shows that the proposed model could learn to compose two objects into a single image with plausible relative layouts.
+
+[Strengths] 
+
+1. the authors proposed an interesting method to compose the objects into a single image with meaningful layouts. To achieve this, the authors first used a relative appearance flow network to perform transformation on each object image, and then learns a spatial transformation for each object, through which the file image is generated by putting these two transformed objects into a clean scene.
+
+2. The authors considered both paired training and unpaired training, and also proposed a post-processing method for the image refinement during inference time. In the experiments, the authors presented some generation results on the chair-table and basket-bottle samples.
+
+[Weaknesses]
+
+[1] LR-GAN: Layered Recursive Generative Adversarial Networks for Image Generation. Yang et al.
+[2] ST-GAN: Spatial Transformer Generative Adversarial Networks for Image Compositing. Lin et al.
+[3] Language-Driven Synthesis of 3D Scenes from Scene Databases. Ma et al.
+
+1. The paper did not present and explain the proposed method clearly. The writing is organized poorly and the formulas are sloppy and scattered. The pipeline Fig.1 is hard to follow as well.  
+
+2. The experiments are mainly performed on two composition cases, i.e., chair-table and basket-bottle. Without extensive experiments on various object categories, I can hardly buy this method and admit the contributions of the proposed model.
+
+3. As far as I know, there are a number of work that cope with more complicated and natural images compositions [1][2][3], and these methods do not have the paired supervision, or even do not have the input object images. Also, this proposed method does not take the background into account, which I think is important for a natural image and also challenging due to the contextual constraints. 
+
+4. Also, I doubt the generalization ability to other objects. The proposed model needs to be trained specially for each pair of object. Firstly, this is not possible in practice since we usually can not always have the training data for combinational number of object pairs.  I would suggest the authors increase the diversity of the training data and demonstrate the generalization ability of the proposed method. Since the authors used ShapeNet. I think it would be straightforward to use more object categories into account. Moreover, the authors can also use the dataset provided in [2] or [3].
+
+[Summary]
+
+This paper proposed a method for image generation based on composition. The experiments are performed on two paired object, which demonstrate the effectiveness to some extent. However, I doubt the generalization ability of the proposed method, and the strong assumptions made by the authors for simplicity (no background, strong supervision even in unpaired case) also make it unclear to me regarding the contributions. Overall, I think the authors should perform more experiments to show the generalization ability of the proposed model to more object categories and novel combinations.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byelmfvvam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response -- Thanks for the review.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rygPUoR9YQ&amp;noteId=Byelmfvvam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper183 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper183 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Please refer to our meta-reply for the combined response to all reviewers and we answer the individual comments below. We use &gt; for quotes.
+
+&gt; “As far as I know, there are a number of works that cope with more complicated and natural image compositions [1][2][3], and these methods do not have the paired supervision or even do not have the input object images”
+-- Please see our combined meta-reply for the main goal of our paper which is different from all [1,2,3] as follows:
+ - LR-GAN generates natural images from noise by recursively generating a background and a foreground and adding them together. This is an unconditional image generation problem which is different from our paper. We are not generating random composite images, but want to composite two input images together such that the output looks realistic according to the joint distribution and follows the structure and color of the given inputs.
+- ST-GAN only adds a foreground object to a fixed background (n=1.5) and does not work for two or more objects. It also ignores object occlusions and viewpoint transformation. We propose the conditional image composition task given two input *objects* sampled from two distinct distributions. We agree that our model requires more supervision (segmentation masks) but it works for n=2&gt;1.5 objects (and is possibly extendable to n&gt;2). In addition, our results are significantly better than ST-GAN as discussed in section 4.3. 
+- The third referred paper [3] is also different since they synthesize images from a 3D scene database based on a linguistic phrase where their database scene is annotated with group relationships. Our model tries to solve a completely different task that we are proposing for the first time. We will clarify this in the paper.
+
+&gt; “The experiments are mainly performed on two composition cases, i.e., chair-table and basket-bottle. “
+-- As a more realistic setup, we have performed another experiment on real faces to be composed with sunglasses (shown in section 4.3). We will add more examples in the final version of the paper.
+
+&gt; “Without extensive experiments on various object categories, I can hardly buy this method and admit the contributions of the proposed model”
+-- We accept that our proposed model is mainly designed for composing two objects, but it is worth mentioning that we are the first in solving this problem. Generalizing the network to compose n&gt;2 objects is possible by increasing the generator’s input channels to nx3 instead of 2x3 (here, 3 stands for the RGB channels). However, we leave it up to the future work. We will clearly specify this in the abstract and the introduction.
+
+&gt; “The proposed model needs to be trained specially for each pair of objects. Firstly, this is not possible in practice since we usually cannot always have the training data for combinational number of object pairs.”
+-- This is not true. The model can be extended to more objects without training for each pair separately. A possible solution is to only increase the number of input channels by feeding in all input objects simultaneously. The composition and decomposition generators would also generate the composite image and all decomposed objects at once.  The STN network can take all given images as input (instead of n=2) and applies an appropriate transformation to each object according to the others. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HygBpcRw27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Not much novelty/limited scope</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rygPUoR9YQ&amp;noteId=HygBpcRw27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper183 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper183 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors present a model to compose two synthetic objects into a whole. The idea is to learn networks that can perform geometric transformations to objects, compose them into a target configuration and then learn to decompose. Results are shown on synthetic data of chair and table; bottle and basket, and one real dataset. Presumably, the idea is that the learned representations can generalize to some other task where object compositionality is useful; however I did not see such an experiment.
+
+In this paper, the authors suggest that they have learnt object compositionality without any "explicit" prior information about object layout. But the use of segmentation masks seems to be an important prior, which somewhat weakens the claim, is it not?
+
+I found the paper somewhat hard to parse owing to excessive use of notation and verbose writing. It is better for the authors to be precise and to the point. It took me 3-4 readings of the paper to understand the setup and architectures. The novelty of the paper is somewhat limited - it mostly consists in plugging together existing architectures in a somewhat obvious and incrememental fashion. The experiments are fine, but they left me with questions:
+
+1. Is it a surprise that the network learnt to compose objects and inpaint over occluded regions? Given that the data and training was explicitly setup to achieve this in a carefully controlled synthetic environment, I find it not a very interesting result.
+
+2. What might have been more interesting is if the representations learnt were used for various tasks such as 3D pose estimation. Did they try such experiments?
+
+3. For all the 3 datasets, what are the failure cases? How far out of train regime can you go before the inference network also stops working? 
+
+I request the authors to address the above questions in their rebuttal.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HygF3MwD6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response -- Thanks for the review.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rygPUoR9YQ&amp;noteId=HygF3MwD6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper183 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper183 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Please refer to our meta-reply for the combined response to all reviewers and we answer the individual comments below. We use &gt; for quotes.
+
+&gt;”Presumably, the idea is that the learned representations can generalize to some other task where object compositionality is useful; however I did not see such an experiment such as in 3D pose estimation.”
+-- The prior works in conditional image generation (such as pix2pix or CycleGAN) have been designed for transferring *one* image from the input domain to the output domain. Here, we have designed a model to transform *two* images from two input domains to the output domain. Thank you for this suggestion. However, learning the representations for a downstream task in out of the scope of the current paper, and we will consider that as our future work.
+
+&gt;”The novelty of the paper is somewhat limited - it mostly consists in plugging together existing architectures in a somewhat obvious and incremental fashion.”
+-- We have elaborated the main novelty of our work in the combined meta-reply above. Our main idea is to train the task of “composition” by self-supervising training of the model from “decomposition” of the generated composite images and enforcing a self-consistency loss function. We have made novel modifications to multiple state-of-the-art models to achieve our goal of conditional image composition and roped them efficiently under one main idea of composition and then decomposition. We believe leveraging existing ideas should be seen as a positive step. The exact differences are discussed in detail in reply to Reviewer-2.
+
+&gt;”In this paper, the authors suggest that they have learnt object compositionality without any "explicit" prior information about object layout. But the use of segmentation masks seems to be an important prior, which somewhat weakens the claim, is it not?”
+-- By providing the segmentation masks of the composite image consisting of e.g. a bottle and a basket, we don’t provide this explicit information that the bottle is *in* the basket. The model automatically learns such relations and occlusions through the self-consistent composition-decomposition network and by observing examples of all other bottles and baskets from the two disjoint domains.
+
+&gt; “Is it a surprise that the network learnt to compose objects and inpaint over occluded regions? Given that the data and training was explicitly setup to achieve this in a carefully controlled synthetic environment, I find it not a very interesting result.”
+-- We have proposed a novel model for the complex task of conditional image composition. The task is complicated enough that the state-of-the-art existing image-to-image translation models cannot even solve the individual occlusion problem when the spatial layout of the objects is given in the input (see comparisons in Figure 9-b). Our model, however, generates reasonable outputs with all occlusion, spatial layout, and viewpoint complexities.
+
+&gt; “For all the 3 datasets, what are the failure cases? How far out of train regime can you go before the inference network also stops working? “
+-- We are able to show results on the composition of two clean objects. The current approach would not scale very well when complex *different* backgrounds are present in the two input object images. An additional foreground background subtraction layer might be required in order to scale to such examples.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

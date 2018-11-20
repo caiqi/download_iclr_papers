@@ -1,0 +1,283 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>An Adversarial Learning Framework for a Persona-based Multi-turn Dialogue Model | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="An Adversarial Learning Framework for a Persona-based Multi-turn Dialogue Model" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rkeYUsRqKQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="An Adversarial Learning Framework for a Persona-based Multi-turn..." />
+      <meta name="og:description" content="In this paper, we extend the persona-based sequence-to-sequence (Seq2Seq) neural network conversation model to a multi-turn dialogue scenario by modifying the state-of-the-art hredGAN architecture..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rkeYUsRqKQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An Adversarial Learning Framework for a Persona-based Multi-turn Dialogue Model</a> <a class="note_content_pdf" href="/pdf?id=rkeYUsRqKQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019an,    &#10;title={An Adversarial Learning Framework for a Persona-based Multi-turn Dialogue Model},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rkeYUsRqKQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">In this paper, we extend the persona-based sequence-to-sequence (Seq2Seq) neural network conversation model to a multi-turn dialogue scenario by modifying the state-of-the-art hredGAN architecture to simultaneously capture utterance attributes such as speaker identity, dialogue topic, speaker sentiments and so on. The proposed system, phredGAN has a persona-based HRED generator (PHRED) and a conditional discriminator. We also explore two approaches to accomplish the conditional discriminator: (1) $phredGAN_a$, a system that passes the attribute representation as an additional input into a traditional adversarial discriminator, and (2) $phredGAN_d$, a dual discriminator system which in addition to the adversarial discriminator, collaboratively predicts the attribute(s) that generated the input utterance. To demonstrate the superior performance of phredGAN over the persona SeqSeq model, we experiment with two conversational datasets, the Ubuntu Dialogue Corpus (UDC) and TV series transcripts from the Big Bang Theory and Friends. Performance comparison is made with respect to a variety of quantitative measures, including BLEU, ROUGE, and perplexity scores. We also explore the trade-offs from using either variant of $phredGAN$ on datasets with many but weak attribute modalities (such as with Big Bang Theory and Friends) and ones with few but strong attribute modalities (customer-agent interactions in Ubuntu dataset).</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">conversation model, dialogue system, adversarial net, persona</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">This paper develops an adversarial learning framework for neural conversation models with persona</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Bkeg36TFnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Extension of HREDGan</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkeYUsRqKQ&amp;noteId=Bkeg36TFnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper196 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper196 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper uses the idea from 'A Persona-Based Neural Conversation Model' by Li et al and incrementally applies it to the 'Multi-turn Dialogue Response Generation in an Adversarial Learning Framework' work-in-progress by Olabiyi et al. The paper by Olabiyi uses the idea of adversarial training to the HRED work by Xing et al (Hierarchical Recurrent Attention Network for Response Generation). The paper shows very promising results for controlling the response generation based on input attributes with adversarial training. Compared to the persona based model, this work seems to outperform that model significantly as reported in Table 1 (in terms of Perplexity/Bleu). It would have been great to see the quantitative comparison in terms of other metrics (if the authors could try to reproduce their results). There are other interesting ways to incorporate attribute information into the dialogue model such as reported in the work of Lee et al (SCALABLE SENTIMENT FOR SEQUENCE-TO-SEQUENCE CHATBOT RESPONSE WITH PERFORMANCE ANALYSIS) - since this paper is primarily about personalization of responses - a comparison to some of the methods used in Lee's work would have been very relevant and made the paper much more convincing in terms of core contributions. The model and architecture is pretty convincing but the paper lacks more in-depth analysis, comparison and evaluation of the model.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HyxVn2dGTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Human evaluation ongoing...</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkeYUsRqKQ&amp;noteId=HyxVn2dGTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper196 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018 (modified: 14 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper196 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We are reproducing Li et al. 's model and we will also report results on human evaluation with detailed analysis and comparison across all models soon.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BkxiAAOY27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The idea seems interesting but both the contribution and evaluation are not strong enough for the paper to be accepted, the proposed objective function is also questionable. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkeYUsRqKQ&amp;noteId=BkxiAAOY27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper196 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper196 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes an extension to hredGAN, which is an adversarial framework for multi-turn dialogue model, to simultaneously learns a set of attribute embeddings that represents the persona of each speaker and generate persona-based responses. The generator of the proposed system phredGAN is conditioned on both the history utterances and the speakers’ persona by concatenating the utterance encoding with attribute embeddings. For discriminator, the authors explore two versions: 1) phredGAN_a takes attributes as inputs; 2) phredGAN_d adds a dual discriminator that predicts the attribute(s) for each utterance. 
+
+
+Strength: 1) to the best of my knowledge, adding persona information to an adversarial multi-turn dialogue model is novel; 2) the authors explore two different approaches to build the discriminator(s) and the idea of adding a second discriminator that predicts the attributes seems interesting.    
+
+
+Weakness:
+
+1) Novelty: The idea of learning speaker-specific attribute embeddings is very similar to the Speaker Model proposed by Li et al.(2016) <a href="http://www.aclweb.org/anthology/P16-1094" target="_blank" rel="nofollow">http://www.aclweb.org/anthology/P16-1094</a> and the proposed system only makes minor changes to hredGAN https://arxiv.org/abs/1805.11752.  
+
+
+2) Presentation: 
+The writing of this paper is a little hard to follow, for example, it presents the two discriminators after the objective function (Equation 2) and does not explain the intuition behind each model. In Equation 2, the objective function, why training the discriminator to minimize the attributes prediction probability？ Simply saying the attribute prediction loss is collaborative is not clear enough. Or is the min for the second term a typo? 
+
+
+3) Model:
+The idea of adding a discriminator that predicts the attributes seems interesting. However the loss is not adversarial for the second discriminator (Equation 6), you should not indicate L_att is GAN in your notation. I’m also not convinced that this should be collaborative. Despite that the “discriminator” is trying to predict the correct attribute id, the input of the two terms in Equation 6 is different, one comes from the true data, the other comes from the generator. Shouldn’t the discriminator try to differentiate these two cases? Otherwise, it’s not a discriminator (also raise the question for Equation 2, why argmin min(L_att)).
+
+
+4) Evaluation：
+The evaluation is not strong enough to demonstrate the benefit of the proposed model. 
+
+a. It only compares against one previous work that takes speaker identity into account on one dataset. Despite that the authors apply several different metrics to evaluate the proposed model, they only compare with previous models by Li et al. (2016) on perplexity and BLEU. 
+
+b. The perplexity scores of the proposed models are worse than SAM by Li et al. (2016). The authors explain this by stating that the entropy for a multi-turn model is supposed to be higher than the single-turn model. It’s better to provide a more rigorous analysis. For a fair comparison, they could also train the proposed model using only one-turn history, which should be identical to Li et al.’s setting (How many turns history are you using?). The improvements of the BLEU score might also be the consequence of substituting the past generated sequence in the generator with ground truth (since the model uses the same training algorithm as hredGAN https://arxiv.org/abs/1805.11752). It’s unclear if this is the cause unless the authors provide the comparison among SAM, hredGAN, and phredGAN. 
+
+c. Table 2 compares the non-persona hredGAN with phredGAN on UDC, but the authors do not provide a comparison between these two on the TV dataset in Table 1. 
+
+d. The comparison between phredGAN_a and phredGAN_d is inconsistent for the two datasets (Table 1 and Table 2).</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Syg9jTOz6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Typos in objective function Eq. (6) and human evaluation </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkeYUsRqKQ&amp;noteId=Syg9jTOz6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper196 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018 (modified: 14 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper196 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your review and for recognizing the contribution of this work. 
+-- Limitation on Evaluation
+We are retraining SM and SAM so that we can evaluate it across all the metrics similar to the phredGAN. We will also include the hredGAN results on TV series for the purpose of completeness. Finally, we are crowdsourcing human judges to evaluate the models so that we can have a more conclusive comparison.
+--Minor typos and L_att
+Indeed there is omission of negative signs in front of "log"s in Eq.(6) which are responsible for your questions 2 and 3. Also, We will remove GAN from L_att notation as suggested. The proposed L_att is similar to the idea in Class-conditional Superresolution with GAN (<a href="http://cs231n.stanford.edu/reports/2017/pdfs/314.pdf)" target="_blank" rel="nofollow">http://cs231n.stanford.edu/reports/2017/pdfs/314.pdf)</a> . The only difference is that we didn’t pre-train the attribute discriminator as they did. The idea is to use the attribute discriminator to transfer the attribute differences learned from the ground truth to the generator output. Hence the reason for the collaborative setup. This improves the model interpretability since the attribute discriminator necessarily reveals the strength of the attribute modality in the ground truth. The performance of the discriminator during training already reveals if there’s any distinct attribute from the ground truth that can be transferred to the generator. Please note that the discriminator is only updated by the ground truth portion (LHS) during training while the generator is updated by the generator output portion (RHS). We will include more explanation in the final version.
+
+In case you have other questions, please don’t hesitate to ask while we prepare the new results.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HyxbMDyF3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>novelty limited and experiments not convincing enough</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkeYUsRqKQ&amp;noteId=HyxbMDyF3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper196 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper196 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Contributions:
+
+The main contribution of this paper is the proposed phredGAN, which is a persona-based GAN framework for multi-turn dialogue modeling. Specifically, a persona-based HRED generator is developed, with two different kinds of discriminator design. Experiments are conducted on both the UDC and the TV series transcript datasets.  
+
+Weaknesses:
+
+(1) Novelty: I would say the novelty of this paper is rather limited. This paper heavily rely on the previous hredGAN work (Olabiyi et al., 2018), and extends it by injecting attributes into the system, borrowing ideas from the persona-based Seq2seq model (Li et al, 2016b). 
+
+phredGAN_a is a straightforward extension of hredGAN, while phredGAN_d further introduces a collaborative discriminator that tries to predict the attribute that generated the input utterance. However, in summary, I think this paper is not novel enough. 
+
+(2) Presentation: The paper is generally easy to follow and understand. However, I would say the paper is poorly written, and needs further polishing. For example, Table 1 &amp; 2 are pretty ugly. 
+
+(3) Evaluation: Generally, I think the experiments are not convincing and also not well-executed, with detailed comments listed below. 
+
+Questions:
+
+(1) In phredGAN_a, as shown in Eqn. (4), the attribute is used as input of the discriminator, while in phredGAN_d, as shown in Eqn. (5) &amp; (6), the attribute is used as the target of the discriminator. My question is: why not use the attribute as both input &amp; output? That is, why not combine (4) &amp; (6), instead of using (5) &amp; (6)? Please clarify this. 
+
+(2) In experiments, Section 3.1, the authors mention that the generator and the discriminator use a shared encoder. However, the generator and discriminator has a different role. Since the encoder is shared, then: in one step, we update the encoder to minimize the GAN objective, in the alternative step, we update the encoder again to maximize the GAN objective. So, how to deal with this conflicting role of encoder during the training? Please clarify this. 
+
+(3) From Table 2, it seems that it is difficult to see that phredGAN is better than hredGAN. Can you provide some explanations here?
+
+(4) In Table 4, if the responses generated by hredGAN can be provided, that would be better to demonstrate the advantage of phredGAN. How does phredGAN compare with hredGAN qualitatively?
+
+(5) From Table 1 &amp; 2, it seems to me there is no metric that is specifically designed to evaluate whether the model captures the attribute information. Is there a way to quantitatively evaluate this? For example, pretrain an attribute classifier, or use the collaborative discriminator in the phredGAN_d model to measure how the generated response reflect the attribute. If we can observe the performance of phredGAN is better than that of hredGAN, that would be helpful for the paper.  
+
+(6) Since the task is challenging, and the automatic metrics designed for this task is not perfect, like other papers, I think human evaluation is essential and desired for this task. However, such human evaluation is lacked in this paper.
+  </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJlObhFf6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Novelty, experiments and human evaluation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkeYUsRqKQ&amp;noteId=rJlObhFf6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper196 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018 (modified: 14 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper196 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your review.
+
+--Novelty: I would say the novelty of this paper is rather limited.
+We would like to draw your attention to the fact that this is the first and only work addressing adversarial framework for persona multi-turn conversation models with the exploration of different discrimination methods across datasets with varying persona strength. We believe this is unique and important for the future research in this domain.
+   
+-- Limitation on Evaluation
+We are retraining SM and SAM so that we can evaluate them across all the metrics similar to the phredGAN. We will also include the hredGAN results on TV series for the purpose of completeness. Finally, we are crowdsourcing human judges to evaluate the models so that we can have a more conclusive comparison.
+
+---Table 1 &amp; 2 are pretty ugly.
+Can you please clarify this comment so that we can fix any issue with the Tables?
+
+--That is, why not combine (4) &amp; (6), instead of using (5) &amp; (6)? Please clarify this.
+There is nothing that prevents learning this way that but we feel that it is unnecessary as phredGAN_a is already sufficient. The phredGAN_d can be seen as a decomposition of phredGAN_a, i.e., the adversarial discriminator of phredGAN_d makes the real/fake determination just like the hredGAN, while the attribute discriminator makes the attribute determination. This independent decomposition allows for better interpretability but also comes with a loss of performance when the attribute is weak as shown in the results in Tables 1 and 2. This tradeoff is what we wanted to investigate.
+
+--So, how to deal with this conflicting role of encoder during the training? Please clarify this.
+The encoder and embedding parameters are not updated during the discriminator update. However, the gradients flow from the discriminator to the generator through the encoder and the embedding during the adversarial generator update.
+
+--From Table 2, it seems that it is difficult to see that phredGAN is better than hredGAN. Can you provide some explanations here?
+We believe that there is a trade-off between response quality and diversity with persona. Similar behavior has been observed by Li et al, 2016b. Therefore, the hredGAN is inherently more diverse than phredGAN but generates less quality responses. Also, from the data distribution perspective, the phredGAN separates the original hredGAN response distribution into multiple modalities based on the number of attributes. This allows it to generate more relevant samples but less room for diversity. This agrees with the results in Table 2 as discussed in section 4.6 in the paper.      
+
+--In Table 4, if the responses generated by hredGAN can be provided, that would be better to demonstrate the advantage of phredGAN. How does phredGAN compare with hredGAN qualitatively?
+We will add the corresponding samples from the hredGAN to Table 3 to show that the phredGAN is actually better for datasets with persona information albeit with some loss of diversity.
+
+--If we can observe the performance of phredGAN is better than that of hredGAN, that would be helpful for the paper. 
+We will capture this in the human evaluation exercise.
+
+In case you have other questions while we populate the new results, please let me know.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

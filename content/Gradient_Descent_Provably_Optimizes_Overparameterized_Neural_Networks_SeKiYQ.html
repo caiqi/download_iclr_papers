@@ -1,0 +1,536 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Gradient Descent Provably Optimizes Over-parameterized Neural Networks | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Gradient Descent Provably Optimizes Over-parameterized Neural Networks" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=S1eK3i09YQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Gradient Descent Provably Optimizes Over-parameterized Neural Networks" />
+      <meta name="og:description" content="One of the mysteries in the success of neural networks is randomly initialized first order methods like gradient descent can achieve zero training loss even though the objective function is..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_S1eK3i09YQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Gradient Descent Provably Optimizes Over-parameterized Neural Networks</a> <a class="note_content_pdf" href="/pdf?id=S1eK3i09YQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019gradient,    &#10;title={Gradient Descent Provably Optimizes Over-parameterized Neural Networks},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=S1eK3i09YQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=S1eK3i09YQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">One of the mysteries in the success of neural networks is randomly initialized first order methods like gradient descent can achieve zero training loss even though the objective function is non-convex and non-smooth. This paper demystifies this surprising phenomenon for two-layer fully connected ReLU activated neural networks. For an $m$ hidden node shallow neural network with ReLU activation and $n$ training data, we show as long as $m$ is large enough and no two inputs are parallel, randomly initialized gradient descent converges to a globally optimal solution at a linear convergence rate for the quadratic loss function.
+Our analysis relies on the following observation: over-parameterization and random initialization jointly restrict every weight vector to be close to its initialization for all iterations, which allows us to exploit a strong convexity-like property to show that gradient descent converges at a global linear rate to the global optimum. We believe these insights are also useful in analyzing deep models and other first order methods.
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">theory, non-convex optimization, overparameterization, gradient descent</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We prove gradient descent achieves zero training loss with a linear rate on over-parameterized neural networks.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">29 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BkxSoWagAm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Common Questions and Summary of Revisions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=BkxSoWagAm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear reviewers, 
+
+We thank for all your comments. Especially all reviewers agree our proof is simple. Here we address some common questions from reviews and other comments.
+
+1.    H^{\infty} matrix. 
+Many comments asked when the least eigenvalue of H^{\infty} is strictly positive and what is the intuition of H^{\infty} matrix. We thank Dougal J Sutherland and Olivier Grisel for providing numerical evidence showing that on real datasets, this quantity is indeed strictly positive. 
+
+a.    Theoretically, in our revised version, we give a theorem (c.f. Theorem 3.1) which shows if no two inputs are parallel, then the H^{\infty} is full rank and thus it has a strictly positive eigenvalue. 
+
+b.    Here we also want to discuss informally on why we think H^{\infty} is the fundamental quantity that determines the convergence rate. In Equation (7), the time derivative of the predictions u(t) is EQUAL to -H(t) (y-u(t)), i.e., the dynamics of the predictions is completely determined by H(t). Furthermore, in our analysis, we show if m -&gt; \infty, H(t) -&gt; H^{\infty} for all t &gt;0. Therefore, the worst case scenario is that at the beginning y-u(0) is in the span of the eigenvector of H^{\infty} that corresponds to the least eigenvalue of H^{\infty}. In this case, y-u(t) will stay in this space and by one-dimensional linear ODE theory, we see that y-u(t) converges to 0 at a rate exp(-\lambda_0 t). Also, see Remark 3.1.
+
+
+
+2.    Why fixing the output layer and only training the first layer? The analysis will be much harder if one trains both the first and the output layer.
+This is the concern raised by Reviewer 2 and Reviewer 3. In our original version, we only analyzed the convergence of gradient optimizing the first layer because we believe this problem already demonstrated the main challenge as many previous works tried to understand the same problem, but none of them has a polynomial time convergence guarantee towards zero training loss. For reviewers’ concern:    
+
+a.    First, we disagree with Reviewer 3 that analyzing the case that only the first layer is trained is a trivial problem. For the same setting, there are many previous attempts to answer this question, but these results often rely upon strong assumptions on the labels and input distributions or do not imply why randomly initialized first order method can achieve zero training loss. Please see the second paragraph on Page 2 and Section 3 for detailed discussions. 
+
+b.    Second, if we fix the first layer and only train the second layer, the learned function is different from the function learned by fixing the second layer and training the first layer. We have added this point in footnote 3.
+
+c.    Lastly, in our revised version, we added a new theorem (c.f. Theorem 3.3) which shows using gradient flow to train both layers jointly, we can still enjoy linear convergence rate towards zero loss. To prove Theorem 3.3, we use the same arguments as we used to prove Theorem 3.1 with slightly more calculations. Therefore, we have shown analyzing the case that both layers are trained is just as hard as analyzing the case where only the first layer is trained. 
+
+
+3.    Amount of over-parameterization. 
+Our current bound requires m = \Omega(n^6). In this paper, to present the cleanest proof, we only use the simplest concentration inequalities (Hoeffding and Markov). As we discussed in the conclusion section, we do not think this bound is tight, and we believe using more advanced techniques from probability theory, this bound can be tightened. 
+
+
+
+4.    Lemma 3.2. 
+We are sorry about the confusion in the statement in our original version. We have changed the statement, and the new statement is independent of t. 
+
+
+
+5.    Extending to more layers. 
+We have added more discussions in the conclusion section on how to extend our analysis to deeper neural networks, including a very concrete plan. In short, for deep neural networks, we can also consider the dynamics of the n predictions, and the dynamics are determined by the summation of H (number of layers) Gram matrices. We conjecture that 1) at the initialization phase as m -&gt; \infty, the summation converges to a fixed n by n matrix and 2) as m -&gt; \infty, these matrices do not change by much over iterations. Thus, as long as the least eigenvalue of that fixed matrix is strictly positive and m is large enough, we can still have linear convergence for deep neural networks.
+
+
+
+
+Summary of Revisions:
+1.    We add a new theorem (Theorem 3.1) which shows as long as no two inputs are parallel, H^{\infty} matrix is non-degenerate.
+2.    We add a new theorem (Theorem 3.3) on the convergence of gradient flow for jointly training both layers.
+3.    We add experimental results to verify our theoretical findings. 
+4.    More discussions on how to extend our analysis to more layers and why H^{\infty} is a fundamental quantity.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1gzcd-5aX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=r1gzcd-5aX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper729 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=r1gzcd-5aX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">First, I apologize to the authors and ACs for the late review, since this paper desearves much more time to judge the quality. 
+
+Summary: This paper proves that the gradient descent/flow converges to the global optimum with zero training error under the settings (1) the neural network is a heavily over-parameterized ReLU network (i.e., requiting Omega(n^6) neurons); (2) the algorithm update rule “ignores” the non-differentiable point; (3) the parameters in the output layer (i.e., a_i’s) are fixed; (4) the data set has some non-degenerate properties and comes from a unit ball. The proof relies on the fact that the Gram matrix is always positive definite on the converging trajectory. 
+
+Pros: The proof is simple and seems to be correct. The paper is paper is written clearly  and easy to follow. 
+
+Cons:
+
+The problem setting considered in this paper does not seem to be difficult enough. The difficulty of analyzing the landscape property of a ReLU network and proving the global convergence of the gradient descent mainly lies in the following three perspective and this paper does not try to tackle any one of them. 
+
+First, it is very hard to characterize the landscape or the convergence trajectory at/ near the non-differentiable point and this paper fails to touch it. The parameter space is separated into several regions by the hyperplanes and the loss function is differentiable in the interior of each region and non-differentiable on the boundary. I believe the very first question authors need to answer is wether there are critical points on the boundary and why the sub-gradient descent escapes from  any of these points. However, in this paper, authors avoid this problem by defining an update rule used  in practice and this rule does not use the sub-gradient at the non-differentiable point. Thus, it is totally unclear to me wether this global convergence result comes from the fact that this update rule can generally avoid the non-differentiable  points on the boundary or the fact that the landscape is so nice such that there are no critical points on the boundary or the fact that all points on the convergence trajectory is differentiable only in this unique problem.
+
+Second, the problem is much easier if the loss is not jointly optimized over the parameters in the first and second layer. Having parameters in one layer fixed does not seem to be a big problem at first glance, but then I realize it indeed makes the problem much easier, which can be seen in the following example. If we randomly sample the weight vector w_i from N(0, I) and only optimize  over the parameters in the second layer, then it is straightforward to show the following result.
+
+Result: If \lambda_\min(H^\inf)&gt;0 and m=\Omega(n\log n), then with high probability, the loss function L is strongly convex with respect to a=(a_1,…, a_m) and the loss function is zero at the global minimum.
+
+The above result shows that if we fix the parameters in the first layer and only optimize the parameters in the second layer, it is easy to prove the global convergence with a linear convergence rate. In fact, this result does not require the samples coming from a unit ball and the network size is only slightly over-parameterized. Therefore, if we are allowed to fix the parameters in some layer, how are the result presented in this paper fundamentally different from the above result. 
+
+Authors may say that the loss is not convex with respect to the weights in the first layer even if the second layer is fixed. However, when the second layer is fixed, the loss function is  smooth and convex in each parameter region and some recent works have shown that in this case, the loss function is a weakly global function. This means that the loss function is similar to a convex function except those plateaus and this further indicates that if the initial point is chosen in a strictly convex basin, the gradient descent is able to converge to a global min.  However, the problem becomes far more difficult if the loss is jointly optimized over  all parameters in the first and second layer. This can be easily seen since in each parameter region, the loss is no longer a convex function and this may lead to some high order saddle points such that the gradient descent cannot provably escape. Furthermore, the critical points on the boundary can be much more difficult to characterize for this joint optimization problem. 
+
+
+Third, the dataset considered in this paper does not seem to be a fundamental pattern and it seems more like a technical condition required by the proof. It is easy to see that a linearly separable dataset does not necessarily satisfy the conditions that 1) the gram matrix is positive definite and that 2) samples come from the surface of a unit ball. Therefore, I do not understand the reason why we need to analyze this pattern. Clearly, in practice, the data samples is unlikely sampled from a ball surface and it is totally unclear to me why the gram matrix is necessarily positive definite. I understand that some technical assumptions are needed in a theoretical work, but I would like to see more discussions on the dataset, e.g., some necessary conditions on the dataset such that the global convergence is possible.
+
+
+Last, I understand that the over-parameterization assumption is needed. In fact, I expect the network size to be of the order Omega(n*ploylog(n)). I am wondering wether Omega(n^6) is a necessary condition or wether there exists a case such that Theta(n^6) is required. 
+
+
+Above all, I believe this paper is a half-baked paper with some interesting explorations. In summary, it cannot deal with non-differential points, which is considered a major difficulty for analyzing ReLU. In addition, it makes an un-justified assumption on some matrix, it requires too many neurons, and fixed 2nd layer. With so many strong assumptions, and compared to related works like [1], Mei et al., Bach and ..., its contribution is rather limited.
+
+[1] <a href="https://arxiv.org/abs/1702.05777" target="_blank" rel="nofollow">https://arxiv.org/abs/1702.05777</a>
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJg5_7pe0m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=HJg5_7pe0m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank for your long review. Unfortunately, we disagree with most of your comments. First, we would like to point out two wrong statements in your review.
+
+First, the “result” you claim is wrong. If the first layer is fixed and m = \Omega(n \logn), and only a=(a_1,…, a_m) is being optimized, this is a linear regression problem with respect to a=(a_1,…, a_m). Since m &gt; n, this problem has more features than the number of samples, and the covariance matrix (Hessian) is degenerate. There is no way this problem is a strongly convex one.
+
+Second, you claimed there exists a linearly separable dataset whose corresponding H^{\infty} is degenerate. However, we are considering a regression problem whereas linearly separable condition is only a favorable condition for classification problems. We don’t understand what does linearly separable mean for regression.
+
+Now regarding your main complaint that the problem is not difficult enough:
+
+1.    This is not true at all. Reviewer #1 and Reviewer #2 both explicitly agreed this is a challenging/difficult problem and we have devoted a whole paragraph (second paragraph on page 2) and many sentences in Section 2 to describe the difficulty. 
+
+
+2.    You complained that we are not analyzing the landscape of this non-differentiable function and we are using the “practically used update rule instead of subgradient.” We don’t understand the point here. Our primary goal is to understand why practically used rule (gradient descent) can achieve zero training loss. We have stated our goal at the beginning of the abstract and the introduction. For the non-differentiability issue, in the revised version we have cited papers and added discussions in the fourth paragraph of Section 2 on recent progress in dealing with non-differentiability. 
+
+
+3.    You claimed fixing one layer and optimizing the other one is a trivial problem. We agree if one fixes the first layer and optimizes the output layer, then this is trivial because this is a convex problem. However, if one fixes the output layer and optimizes the first layer, the problem is significantly harder. You claimed in this case 
+
+“the loss function is a weakly global function. This means that the loss function is similar to a convex function except those plateaus and this further indicates that if the initial point is chosen in a strictly convex basin, the gradient descent is able to converge to a global min. ”
+
+We kindly ask for a reference and why it can imply the global convergence of gradient descent analyzed in our paper. To our knowledge, none of the previous results implies the global convergence of gradient descent in the setting we are analyzing. We have discussed this point in Section 2. Furthermore, we have never heard of the notion “weakly global function”. 
+
+4.    You believed that the inputs are generated from a unit sphere is a strong assumption. In our original version, we said making this assumption is only for simplicity. In our revised version, we added more details on this assumption. Please check footnote 7. 
+
+5.    For your other concerns, we kindly ask you to read our response to common questions. 
+
+
+We thank the reviewer again. We welcome all further comments!
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJeygSVrTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting paper studying gradient descent in over-parameterized simple NNs</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=BJeygSVrTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper studies one hidden layer neural networks with square loss, where they show that in over-parameterized setting, random initialization + gradient descent gets to zero loss. The results depend on the property of data matrix, but not the output values.
+
+The high level idea of the proof is quite different from recent papers, and it would be quite interesting to see how powerful this is for deep neural nets, and whether any insights could help practitioners in the future. 
+
+Some discussions regarding the results: 
+
+I would suggest the authors to be specific about ‘with high probability’, whether it is 1-c, or 1-n^{-c}. The proof step using Markov’s inequality gives 1-c probability, which is stated as ‘with high probability’. What about other ‘high probability’ statements?
+
+In the statement of Theorem 3.1 and 4.1, please add ‘i.i.d.’ (independence) for generating w_r s.
+
+The current statement of Lemma 3.2 is confusing. The authors state that given t, w.h.p. (let’s say 0.9 for now) over initialization, the minimum eigenvalue is lower bounded. This does not imply, for example, that there exists an initialization, such that for 20 different t s, the minimum eigenvalue is lower bounded. The proof uses Markov’s inequality for a single t. Therefore, I am slightly worried about its correctness. I hope the authors could address my concern. 
+
+Also, in the proof of Lemma 3.2, (just to improve the readability,) I would suggest the authors to make it clear that the expectation is taken over the initialization of the weights. 
+
+Some typos: 
+
+‘converges’ -&gt; ‘converges to’ in the abstract
+‘close’ -&gt; ‘close to’ on page 5
+‘a crucial’ -&gt; ‘a crucial role’ on page 5
+In the proof of Lemma 3.2, x_0 should be x_i
+whether using boldface for H_{ij} should be consistent
+'The next lemma shows we show' in page 6
+'Markov inequality' -&gt; ‘Markov’s inequality’
+‘a fixed a neural network architecture’ in page 8
+
+It is good to see other comments and discussions on this paper. I believe the authors will make a revision and I would be happy to see the new version of the paper and re-evaluate if some of my comments are not correct.  
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1l4CQpeAm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 4</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=B1l4CQpeAm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank for your careful review. 
+
+We have modified our draft according to your suggestions:
+•    We changed the statement of Lemma 3.2, and now it is independent of t.
+•    We have added more discussions on how to generalize our technique to analyze multiple layers. In the conclusion section, we have described a concrete plan for analysis. 
+•    For all theorems and lemmas, we have added failure probability and how the amount of over-parameterization depends on this failure probability. 
+•    We have fixed the typos.
+•    We have modified the statement of Theorem 3.1, 4.1 and the proof of Lemma 3.2 according to your suggestions. 
+
+Regarding your question on how our insights could help practitioners in the future since we have characterized the convergence rate of gradient descent from the Gram matrix perspective, we believe our insights can inspire practitioners to design faster optimization algorithms from this perspective. 
+
+We kindly ask you to read our revised paper and our response to common questions and re-evaluate your comments. 
+
+We thank the reviewer again and welcome all further comments. 
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HygOMNNqhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting result on optimization of two-layer network with ReLU activations</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=HygOMNNqhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper729 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This work considers optimizing a two-layer over-parameterized ReLU network with the squared loss and given a data set with arbitrary labels. It is shown that for a sufficiently large number of hidden neurons (polynomially in number of samples) gradient descent converges to a global minimum with a linear convergence rate. The proof idea is to show that a certain Gram matrix of the data, which depends also on the weights, has a lower bounded minimum eigenvalue throughout the optimization process. Then, it is shown that this property implies convergence of gradient descent.
+
+This work is very interesting. Proving convergence of gradient descent for over-parameterized networks with ReLU activations and data with arbitrary labels is a major challenge. It is surprising that the authors found a relatively concise proof in the case of two-layer networks. The insight on the connection between the spectral properties of the Gram matrix and convergence of gradient descent is nice and seems to be a very promising technique for future work. One weakness of the result is the extremely large number of hidden neurons that are required to guarantee convergence.
+
+The paper is clearly written in most parts. The statement of Lemma 3.2 and its application appear to be incorrect as mentioned in the comments. I am convinced by the authors' response and the current proof that it can be fixed by defining an event which is independent of t. Moreover, I think it would be nice to include experiments that corroborate the theoretical findings. Specifically, it would be interesting to see if in practice most of the patterns of ReLUs do not change or if there is some other phenomenon.
+
+As mentioned in the comments, it would be good to add a discussion on the assumption of non-degeneracy of the H^{infty} matrix and include a proof (or exact reference) which shows under which conditions the minimum eigenvalue is positive.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJeQQfalRm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=rJeQQfalRm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank for your encouraging review. 
+We have modified our paper according to your suggestions:
+•	We fixed lemma 3.2.
+•	We added a new theorem (Theorem 3.1) showing the non-degeneracy of H^{\infty} matrix.
+•	We also added some experiments to corroborate our theoretical findings. Indeed, most of the patterns of ReLUs do not change. Furthermore, over-parameterization leads to faster convergence rate.
+
+We thank the reviewer again. We welcome all further comments!
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1g-pI4Dhm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An elegant proof on convergence of gradient descent for over-parameterized two-layer ReLU neural networks</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=H1g-pI4Dhm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper729 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper studies convergence of gradient descent on a two-layer fully connected ReLU network with binary output and square loss. The main result is that if the number of hidden units is polynomially large in terms of the number of training samples, then under suitable randomly initialization conditions and given that the output weights are fixed, gradient descent necessarily converge to zero training loss.
+
+Pros:
+The paper is presented clearly enough, but I still urge the authors to carefully check for typos and grammatical mistakes as they revise the paper. As far as I have checked, the proofs are correct. The analysis is quite simple and elegant. This is one thing that I really like about this paper compared to previous work. 
+
+Cons:
+The current setting and conditions for the main result to hold are quite a bit limited. If one has polynomially large number of neurons (i.e. on the order of n^6 where n is number of training samples) as stated in the paper, then the weights of the hidden layer can be easily chosen so that the outputs of all training samples become linearly independent in the hidden layer (see e.g. [1] for the construction, which requires only n neurons even with weight sharing) , and thus fixing these weights and optimizing for the output weights would lead directly to a convex problem with the same theoretical guarantee. At this point, it would be good to explain why this paper is focusing on the opposite setting, namely fixing the output weights and learning just the hidden layer weights, because it seems that this just makes the problem become more non-trivial compared to the previous case while yielding almost the same results . Either way, this is not the way how practical neural networks are trained as only a subset of the weights are optimized. Thus it's hard to conclude from here why the commonly used GD w.r.t. all variables converges to zero loss as stated in the abstract.
+
+The condition on the Gram matrix H_infty in Theorem 3.1 seems to be critical. I would like to see the proof that this condition can be fulfilled under certain conditions on the training data.
+
+In Lemma 3.1, it seems that "log^2(n/delta)" should be "log(n^2/delta)"? 
+
+Despite the above limitations, I think that the analysis in this paper is still interesting (mainly due to its simplicity) from a theoretical perspective. Given the difficulty of the problem, I'm happy to vote for its acceptance.
+
+[1] Optimization landscape and expressivity of deep CNNs</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJlyYM6gCQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=HJlyYM6gCQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank for your careful and encouraging review.  We believe our revised version has addressed most of your concerns. 
+
+1.    We have added discussions on the problem of fixing the first layer and only training the output layer in footnote 3. We believe the learned function is different from the function learned by fixing the output layer and only training the first layer. We would also like to point out that many previous papers considered the same setting but did not rigorously prove the global convergence of gradient descent. 
+
+2.    We have added a new theorem (Theorem 3.3) which shows applying gradient flow to optimize all variables still enjoys a linear convergence rate. To prove Theorem 3.3, we use the same arguments as we used to prove Theorem 3.1 with slightly more calculations. Therefore, we have shown analyzing the case that both layers are trained is just as hard as analyzing the case where only the first layer is trained.
+
+3.    We have added a new theorem (Theorem 3.1) which shows as long as no two inputs are parallel, H^{\infty} is non-degenerate. 
+
+We thank the reviewer again. We welcome all further comments! 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SklA8vtVh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>non-degenerate data</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=SklA8vtVh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Olivier_Grisel1" class="profile-link">Olivier Grisel</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 30 Oct 2018)</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I found the paper interesting to read (although I did not try to check the mathematical correctness of the results).
+
+One point could be improved though: several times the text mentions that the main assumption is that "data is non-degenerate" without formally defining what is meant by this. The data matrix is not square so the traditional definition of non-degeneracy does not apply here.
+
+When reading the theorems, I believe that the informal "non-degenerate data" assumption of the main text corresponds to the double assumptions that each input vectors has unit norm and more importantly that the H_inf kernel matrix is full-rank (non-degenerate).
+
+In practice, this full-rank H_inf kernel assumption is typically not met if there exists duplicated samples in the training set (if there are duplicated samples with different labels, it's not possible to have zero training loss for any model).
+
+I just read in your reply (<a href="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=SJeNOPOU9Q)" target="_blank" rel="nofollow">https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=SJeNOPOU9Q)</a> that you can prove that this assumption is met as soon as there are no two parallel samples in the training set. But I assume that this is not necessarily a problem if the labels of such parallel samples are the same. Furthermore, since you also assume that all x_i have unit norm, a pair of parallel samples is actually a pair of duplicated samples.
+
+So to conclude I would suggest editing your text to change the "non-degenerate data" phrase to something more specific (such as "record-wise normed data without duplicated records" or alternatively "non-degenerate extended feature matrix") so as to avoid any confusion.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HylJ7E6xAm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your suggestion!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=HylJ7E6xAm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank for your suggestion. We have changed "non-degenerate data" to "no parallel inputs".</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Hkgk1YwgnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Lemma 3.2 and w.h.p. in proving induction hypothesis</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=Hkgk1YwgnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the inspiring work. I found something confusing about the probability part though.
+
+Denote B(t) = the event that at time/iteration t, || w_r(t)-w_r(0)||_2\leq R for all r happens. Denote C(t) =  the event that at time/iteration t, the smallest eigenvalue of H(t) is at least \lambda_0/2 happens
+
+Then Lemma 3.2 states that the conditional probability Prob[C(k)|B(k)] is large( &gt; 1- c) when c ~ R*n^2/\lambda_0 for a fixed k. However, it is unclear whether C(k)|B(k) implies C(k+1)|B(k+1) from the paper. It is possible that Prob[\cap_k=1^N (C(k)|B(k))] is not high at all, and even could be zero when N approaches infinity.
+
+In the last few lines of proving the induction hypothesis on page 10,  it uses Lemma 3.2 that C(k)|B(k) holds with high probability over initialization. But if we review the WHOLE process of proof by induction, in k=1,2.. till infinity, we assume different events hold (assume C(k)|B(k) when proving case k+1), and their relationships are unclear. Thus the "with high probability" statement seems to be not solid to me. No lower bound on Prob[\cap_k=1^\infty (C(k)|B(k))] is proved.
+
+I would really appreciate your answer to this!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1xpytvfnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarification</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=S1xpytvfnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your question.
+
+We proved that with high probability over initialization, for any weight matrix $W(t)$ that satisfies $w_r(t)$ is close to $w_r(0)$ for all $r \in [m]$,  the induced Gram matrix $H(t)$ has lower bounded eigenvalue. Here $t$ is just an index relating the weight matrix and the induced Gram matrix. Note there is only one event which is independent of $t$. 
+
+We are sorry about the confusion and we will modify the statement of the lemma to make it more clear in the revised version.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1eU0bxSn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=S1eU0bxSn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your reply, but sorry, I couldn't see how it helps to answer my question. Looking forward to the revision though.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SylV--er37" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=SylV--er37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_SkxQT2fFcQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>some thoughts + a bit of a numerical study of lambda_0</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=SkxQT2fFcQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Dougal_J_Sutherland1" class="profile-link">Dougal J Sutherland</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We discussed this in our reading group today, and I'd like to relay some of our thoughts to other readers.
+
+The paper randomly initializes an extremely overparameterized network: m = Omega(n^6 / lambda_0^4), where lambda_0's dependence on n will vary with the dataset, but presumably it decays with n, making the overall rate for m worse than n^6. Then, here's another way to think about the results of the paper; with high probability:
+
+1. There is a global optimum without switching any of the activation patterns, i.e. keeping sign(w_r^T x_i) the same for all i, r. (This isn't directly shown as a separate step in the paper, but it's implied by Theorem 3.1.)
+
+2. Following a continuous-time gradient flow leads you to that global optimum, following a path that "looks" strongly convex as you follow it (so you get linear convergence), without ever switching any of the sign(w_r^T x_i), with high probability.
+
+3. Discrete-time gradient descent, for a small enough step size O(lambda_0 / n^2), does basically the same thing. It's allowed to switch some of the activation patterns, but only a few of them, S_i (or maybe S_i^\perp, depending on if you go by the definition you give or the way you then use it...). Those ones don't affect the loss too much, and we still have convergence.
+
+
+Given (1), (2) is maybe not super-surprising: the set of W with the same activation patterns is the intersection of m n linear constraints, and within that set, the objective function is a convex QP. Probably lambda_min(H(0)) is related to lambda_min of the quadratic term in the QP objective, though I couldn't immediately show that. Of course, this doesn't show a result as strong as (2)/(3) without additionally showing you don't happen to break the constraints in following the gradient flow, and and it's circular anyway in that it's not obvious how to show (1) other than through the proof via (2) given here.
+
+
+The applicability of this approach to deeper networks, then, rests on how realistic the extreme overparameterization here is. Is it still the case that you can avoid switching too many activation patterns in training a deeper network? It would be interesting to track that empirically while training a practical deep net. If switching activation patterns is indeed rare, then this type of approach might be very fruitful for studying deeper nets. Even if not, though, this is an elegant solution to the 1-layer setting.
+
+
+Out of curiosity, I also tried to check numerically what the dependence of lambda_0 is on n for a uniform distribution of inputs. It seems like lambda_0 is about n^{-2} for d=2, n^{-1/2} for d = 5, and n^{-1/4} for d = 10 - <a href="https://gist.github.com/dougalsutherland/cc7d8b6d740c6c07d3c6081cfb42d191" target="_blank" rel="nofollow">https://gist.github.com/dougalsutherland/cc7d8b6d740c6c07d3c6081cfb42d191</a> . If that's correct, then in 2d the required m is Omega(n^14) (!) while in 10d it's only Omega(n^7), and presumably in very high dimensions it becomes omega(n^6). It might be interesting to try to actually bound lambda_0 in terms of n and d to see if these simulations are accurate. (It might very well be that lambda_0 has a different rate for very large n, with "very large" depending on d; I only ran up to n about 3,000 because I only wanted to run for a few minutes on my desktop.)</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HklcRVD4hm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Another numerical study</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=HklcRVD4hm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Olivier_Grisel1" class="profile-link">Olivier Grisel</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Interesting numerical study. I did not know about the analytical relationship between H and the data Gram matrix. I did a more brute-force numerical study of H on a non-random toy dataset (8x8-pixels gray level digits, d=64, n~=1797) and found lambda_0 &gt; 1.3e-2 which is in line with your random data study:
+
+<a href="https://gist.github.com/ogrisel/1b430b2bf1e83173f6061676c62b9f18" target="_blank" rel="nofollow">https://gist.github.com/ogrisel/1b430b2bf1e83173f6061676c62b9f18</a></span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rygEFV6l0m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your experiments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=rygEFV6l0m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks, Olivier. 
+
+We have acknowledged your experiments in our response.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryxgnoz357" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your comments and the numerical study!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=ryxgnoz357"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your comments and the numerical study! They are very inspiring!
+
+For the analysis:
+Your intuition is basically correct. We want to clarify that our current proof cannot show for continuous time gradient flow there is no activation pattern change. What we can show is the number of pattern changes is small and only incur small perturbation on H. See Lemma 3.2 and its proof.
+
+Extension to deep neural networks:
+Yes, it would be very interesting to investigate empirically whether there is only a small amount of pattern changes when training deeper models.
+
+On lambda_0:
+Thanks for your numerical study! We agree it would be very interesting to obtain some bounds on lambda_0 under certain distributional assumptions. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HklKuGwacm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Change in activation patterns</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=HklKuGwacm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Dougal_J_Sutherland1" class="profile-link">Dougal J Sutherland</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I see now; Lemma 3.2 says that the expected number of total changes is small, not zero. Whoops; thanks.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_HygpnikO9X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>comments on relation with prior works</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=HygpnikO9X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I would like to give a comment on the relation of this paper and certain prior works. The paper by Chizat and Bach proves continuous-time gradient flow can converge to optimal population loss, in the limit of infinite number of neurons, under certain conditions (which include sigmoid activation, and ReLU at a formal level). Mei et al. proves that noisy SGD can optimize to near optimal population loss. In fact, Mei et al. provides a quantitative statement, that the continuous-time flow and the discrete-time one are close already when the number of neurons &gt;&gt; the dimension of the input (i.e. m&gt;&gt;d as in the notation of this paper). As such, these works already suggest that first-order methods can work well on neural nets with a single hidden layer (in terms of population loss), requiring m&gt;&gt;d.
+
+These two works are briefly mentioned in the paper, but I think it is important to clarify the distinction. The paper, whose analytical approach aligns with many other papers, proves that gradient descent can optimize to optimal empirical loss, for the specific case of ReLU activation. The analysis is nice in its simplicity (and length!), and so I believe many will try to study  this type of analysis. The key finding is that when m&gt;&gt;poly(n) (where n is the number of training samples) and when n is large, many things remain close to initialization at all iterations. As such, random initialization works to our advantage.
+
+Interestingly the aforementioned two works require m&gt;&gt;d, whereas here m&gt;&gt;poly(n). There is no contradiction since the former analyzes SGD, and this paper analyzes (full-batch) gradient descent. Yet this difference raises a question of whether there is an analysis to unify the picture. There is also a question of generalization performance, which is resolved in the aforementioned two works but not in this paper.
+
+I must admit that I have not verified the proof, so it remains to see whether the analysis is correct.
+
+As a clarifying question, is it crucial that the output weight is initialized uniformly random? The role of random initialization for the output weight is not transparent at first glance.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkgYjPMn97" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your comments and questions!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=SkgYjPMn97"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your comments and questions!
+
+As stated in our paper, the results in the two papers you mentioned do not imply why randomly initialized gradient descent can achieve 0 training loss with arbitrary labels. Furthermore, there are many subtle differences in the assumptions. We will definitely expand our discussions on these two papers in the revised version. 
+
+
+Dependency on d and n: our bound depends on lambda_0, which is a dataset-dependent quantity. In general, this quantity is related to d,n and the input distribution. 
+
+
+On generalization: in general, population risk bound can be obtained only if there are additional assumptions on the input distribution and labels. It is an interesting direction to extend our analysis to incorporate structures in the input distributions and labels.
+
+
+Why using uniform random initialization for the second layer:
+There are two purposes for using this initialization scheme.
+First, as already explained by Dougal, $a_r^2 =1$ makes H matrix independent of a_r and in turn, makes our calculation much easier.
+Second, this initialization makes ||y-u(0)||_2 = O(\sqrt{n}). If the output layer are all ones, then u(0) is of order \sqrt{m}  which makes  ||y-u(0)||_2  be of order \sqrt{mn}. In this case, R' cannot be smaller than R.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1gUINXtqX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Comment on output weights</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=H1gUINXtqX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Dougal_J_Sutherland1" class="profile-link">Dougal J Sutherland</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Not an author and haven't super-carefully checked the proof, but the derivation of (5), at the start of Proof of Theorem 3.1, assumes that a_r^2 = 1. Otherwise H would contain an a_r^2 term multiplying the indicator; if you used a different distribution for a, then everything to do with H is going to depend on that too. That could make things a lot messier....
+
+But that doesn't prevent you from choosing a_r as some weighted distribution on +-1. In particular, you could pick all of the a_r = 1. The only place I see that affecting the continuous-time proof is the Markov's inequality bound for ||y - u(0)|| at the end, which uses E[a_r] = 0. But if you had some other high-probability bound on ||y - u(0)||, which you could definitely get just based on the distribution of W, it seems that the rest of the proof carries through with possibly a bigger m. But that can't be right – if all the a_r = 1, f can't output negative values, and nothing else stops any of the y from being negative.... Authors, what am I missing here?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1gUqYQK5m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=B1gUqYQK5m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you Dougal. The assumption on a_r is stated in Theorem 3.1, that a_r \in {-1, 1} (and hence a_r^2=1). This is a perfectly fine assumption for ReLU given its homogeneity. There is also randomization: a_r ~ Unif({-1, 1}). Somehow the role of randomness of a_r is not transparent in the proof. But I suspect it should be important: suppose that I use a_r = 1 for all r (hence no randomization), and since ReLU is non-negative, with strictly negative labels y, there is no way that the network can find y...
+
+P.S.: I somehow missed the second part of Dougal's reply, which pointed to the same concern.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_r1el9Jqv5X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>possible simplification of H^{\infty}</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=r1el9Jqv5X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Hongyi_Zhang1" class="profile-link">Hongyi Zhang</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Oct 2018 (modified: 08 Oct 2018)</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Interesting results! It seems to me that the definition of H^{\infty}_{ij} in your main theorems could be simplified as (x_i^T x_j) * arccos(- x_i^T x_j) / (2 * pi) -- am I correct?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkeKdmWn9Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Correct!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=BkeKdmWn9Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Yes that's the correct formula. Thanks!</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HJei63YVq7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Lack of Experimental Results and Unrealistic Assumptions?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=HJei63YVq7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The analysis in this paper seems technically sound. However, I have questions w.r.t. this paper: is there any experimental result to support the analysis in this paper? The results are quite simple, and I wish the author(s) could add some experimental validations, even a toy one, to support the theoretical results.
+
+Besides, the assumption on the least eigenvalue of the Gram matrix seems somewhat unreasonable, because if we use some data augmentation tricks, such as mix-up [1] (i.e. if there is a training sample that is the linear combination of other samples), the assumption apparently does not hold in this case in the sense that the least eigenvalue of this gram matrix will become zero. However, the adding of one more data seems have little influence on the training procedure.
+
+Another concern is that the analysis and conclusion in this paper is somewhat trivial. There are not much technical contributions in this paper. The technical part follows closely to this work [2].
+
+
+[1] Zhang, Hongyi, et al. "mixup: Beyond Empirical Risk Minimization." (2018).
+[2] Li, Yuanzhi, and Yingyu Liang. "Learning Overparameterized Neural Networks via Stochastic Gradient Descent on Structured Data." arXiv preprint arXiv:1808.01204 (2018).</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJeNOPOU9Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The Gram matrix is not degenerate. The analysis is simple and novel.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=SJeNOPOU9Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank for your comments and we are happy to answer your concerns.
+
+1) Adding a linear combination of existing features to the data set leads to a degenerate Gram matrix?
+This is wrong. Every entry in our Gram matrix is not an inner product between two features, but the result of using a non-linear kernel acting on two features. Please check our definition of the Gram matrix (H^{\infty}) more carefully (c.f. Theorem 3).
+
+For data augmentation with a linear combination of other samples, here we provide a counterexample. 
+We have two features (1,0), (0,1) and we add a linear combination (1/\sqrt{2},1/\sqrt{2}).
+The Gram matrix is 
+[0.5000         0    0.2652; 
+0    0.5000    0.2652; 
+0.2652    0.2652    0.5000 ] 
+which is not degenerate.
+In general, only if the activation is linear, the Gram matrix becomes degenerate after adding a linear combination of existing features. 
+
+In fact, we can easily prove as long as no two features are parallel, H^\infty is always non-degenerate. We will add the proof in the revised version.
+
+2) Is this a trivial paper?
+Simplicity is not equivalent to triviality. 
+
+Our result is simple: we just prove randomly initialized gradient descent achieves zero training loss for over-parameterized neural networks with a linear convergence rate. However, why randomly initialized first order methods can fit all training data is one of the unsolved open problems in neural network research.
+
+For the same setting (training two-layer ReLU activated neural networks), there are many previous attempts to answer this question but these results often rely upon strong assumptions on the labels and input distributions or do not imply why randomly initialized first order method can achieve zero training loss. Please see the second paragraph on Page 2 and Section 3 for detailed discussions.
+
+For technical contributions, we do agree our analysis is simple but we think this is actually an advantage because it will be easier to generalize simple arguments instead of involved ones. Our proof does not require heavy calculations and reveals the intrinsic properties of over-parameterized neural networks and random initialization schemes. Please see Analysis Technique Overview paragraph on page 2.
+
+Comparing with [2], except that we use the same property that the patterns do not change by much during training, our analysis is completely different from theirs and is significantly simpler and more transparent. We have devoted a whole paragraph in Section 3 discussing the differences with [2].
+
+3) Experiments
+We would like to emphasize that this is pure theory paper and the theorem we proved (randomly initialized gradient descent achieves zero training loss) is a well known experimental fact in training neural networks. Nevertheless, we are happy to provide some experimental results in the revised version.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyemVAXv9Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for Your Reply</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=SyemVAXv9Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the author(s) reply.
+
+I've just seen some discussions about this paper on another website and here I wanna seen the official reply from the author(s) w.r.t. the following interesting comments, which is also somewhat the concerns of mine. (I simplily repost those discussions)
+
+1. "One of the mystery in the success of neural networks is randomly initialized first order methods like gradient descent can achieve zero training loss even though the objective function is non-convex and non-smooth. This paper demystifies this surprising phenomenon for two-layer fully connected ReLU activated neural networks."
+Hardly a mystery, Cybenko's paper back in 1989 pointed out NN with one hidden layer can approximate any continuous high-dimensional surface without higher degree of smoothness assumption nor being convex, optimization methods like gradient descent is but one of the methods can do the job.
+
+2."For an m hidden node shallow neural network with ReLU activation and n training data, we show as long as m is large enough and the data is non-degenerate, randomly initialized gradient descent converges a globally optimal solution with a linear convergence rate for the quadratic loss function."
+Another falsehood, the assumption of surface with positive eigen-values i.e. non-degenerate (in theorem 3.1 and 4.1 for example) implies convexity of the solution landscape. When the data is non-convex, there is no guarantee nor proof that the gradient descent or other more powerful optimization methods can always find the global optimal. Non-convexity problems pose similar challenges like NP-hard problems: solutions stuck in local optimum and there is no way in general to convert locally best solution to global optimal.
+
+3."Cybenko's paper back in 1989 pointed out NN with one hidden layer can approximate any continuous high-dimensional surface without higher degree of smoothness assumption nor being convex."
+Cybenko's paper only says that, for a given continuous function and epsilon, there exists a one-hidden-layer sigmoidal NN with less than epsilon maximum error. It says nothing about the learnability of this NN (nor even the number of neurons in it).
+
+4. "the assumption of surface with positive eigen-values i.e. non-degenerate (in theorem 3.1 and 4.1 for example) implies convexity of the solution landscape."
+The matrix H∞ is not the "solution landscape". It's a function of the data only, not the parameters. It is not the Hessian of the loss function, as you seem to think.
+
+
+5."The key assumption is the least eigenvalue of the matrix H∞ is strictly positive. Interestingly, various properties of this H∞ matrix has been thoroughly studied in previous work [Xie et al., 2017, Tsuchida et al., 2017]. In general, unless the data is degenerate, the smallest eigenvalue of H∞ is strictly positive."
+For example, Xie's paper [1] focus most with spherical data, from section 3. Problem setting and preliminaries.
+
+6."We will focus on a special class of data distributions where the input x ∈ Rd is drawn uniformly from the unit sphere, and assume that |y| ≤ Y . We consider the following hypothesis class."
+Moreover, it also stated:
+"Typically, gradient descent over L(f) is used to learn all the parameters in f, and a solution with small gradient is returned at the end. However, adjusting the bases {wk} leads to a non-convex optimization problem, and there is no theoretical guarantee that gradient descent can find global optima."
+
+It said nothing how common or not a given data set is convex like the current paper claimed. We suspect not, in general. Xie mentioned nothing about such data being degenerate.
+
+Now to Cybenko's paper:
+"Cybenko's paper only says that, for a given continuous function and epsilon, there exists a one-hidden-layer sigmoidal NN with less than epsilon maximum error. It says nothing about the learnability of this NN (nor even the number of neurons in it)."
+
+Once we know the objective function, and expression of functional form, then the number of hidden layer neurons is a matter of engineering as long as we know "there exists a one-hidden-layer sigmoidal NN with less than epsilon maximum error.", that's learnability of one hidden-layer NN.
+
+References:
+[1]. Xie, Bo, Yingyu Liang, and Le Song. "Diverse neural network learns true target functions." arXiv preprint arXiv:1611.03131 (2016).
+
+ </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SklNmL-nq7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eK3i09YQ&amp;noteId=SklNmL-nq7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper729 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Oct 2018</span><span class="item">ICLR 2019 Conference Paper729 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for bringing concerns from others! We are happy to answer these concerns. In fact, point 3 and point 4 already resolved some of the issues. 
+
+
+To point 1: Comparison with the universal approximation theorem.
+Response: The universal approximation theorem only establishes that there exists a wide neural network that can approximate continuous function on compact subsets of $R^d$. It does not imply a wide neural network trained by randomly initialized gradient descent has the same approximation property.
+We will add more discussions on universal approximation theorem in the revised version.
+
+To point 2: Is this a convex problem?
+Response: because of the use of ReLU activation, this is not a convex problem. The l2 loss is convex with respect to the predictions but is not convex with respect to the parameters we are optimizing.
+
+To point 5,6: Degeneracy of the Gram matrix:
+Response: This has been addressed in our previous reply.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Link Prediction in Hypergraphs using Graph Convolutional Networks | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Link Prediction in Hypergraphs using Graph Convolutional Networks" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=ryeaZhRqFm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Link Prediction in Hypergraphs using Graph Convolutional Networks" />
+      <meta name="og:description" content="Link prediction in simple graphs is a fundamental problem in which new links between nodes are predicted based on the observed structure of the graph. However, in many real-world applications..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_ryeaZhRqFm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Link Prediction in Hypergraphs using Graph Convolutional Networks</a> <a class="note_content_pdf" href="/pdf?id=ryeaZhRqFm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 10 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019link,    &#10;title={Link Prediction in Hypergraphs using Graph Convolutional Networks},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=ryeaZhRqFm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=ryeaZhRqFm" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Link prediction in simple graphs is a fundamental problem in which new links between nodes are predicted based on the observed structure of the graph. However, in many real-world applications, there is a need to model relationships among nodes which go beyond pairwise associations. For example, in a chemical reaction, relationship among the reactants and products is inherently higher-order. Additionally, there is need to represent the direction from reactants to products. Hypergraphs provide a natural way to represent such complex higher-order relationships. Even though Graph Convolutional Networks (GCN) have recently emerged as a powerful deep learning-based approach for link prediction over simple graphs, their suitability for link prediction in hypergraphs is unexplored -- we fill this gap in this paper and propose Neural Hyperlink Predictor (NHP). NHP adapts GCNs for link prediction in hypergraphs. We propose two variants of NHP --NHP-U and NHP-D -- for link prediction over undirected and directed hypergraphs, respectively. To the best of our knowledge, NHP-D is the first method for link prediction over directed hypergraphs. Through extensive experiments on multiple real-world datasets, we show NHP's effectiveness.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Graph convolution, hypergraph, hyperlink prediction</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We propose Neural Hyperlink Predictor (NHP). NHP adapts graph convolutional networks for link prediction in hypergraphs</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_S1xMYoWc2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting problem, but incremental contribution</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeaZhRqFm&amp;noteId=S1xMYoWc2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1218 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1218 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">[Relevance] Is this paper relevant to the ICLR audience? yes
+
+[Significance] Are the results significant? somewhat
+
+[Novelty] Are the problems or approaches novel? rather incremental
+
+[Soundness] Is the paper technically sound? yes
+
+[Evaluation] Are claims well-supported by theoretical analysis or experimental results? marginal
+
+[Clarity] Is the paper well-organized and clearly written? okay
+
+Confidence: 2/5
+
+Seen submission posted elsewhere: No
+
+Detailed comments:
+
+In this work, the authors propose an approach to the (hyper-) link prediction problem in both directed and undirected hypergraphs. The approach first applies an existing dual transformation to the hypergraph such that the link prediction problem (in the primal) becomes a node classification problem in the dual. They then use GCNs to classify the (dual) nodes. Experimentally, the proposed approach marginally outperforms existing approaches.
+
+=== Major comments
+
+I found the novelty of the proposed approach rather limited. The proposed approach essentially just concatenates three existing strategies (dual reformulation from Scheinerman and Ullman, GCNs from Kipf and Welling, and negative sampling which is common in many communities, e.g., Han and Chen, but many others, as well). I believe the contribution for link prediction in directed hypergraphs is a more novel contribution, however, I had difficulty following that discussion.
+
+It is difficult to interpret the experimental results. Tables 3 and 6 do not include a measure of variance. Thus, it is not clear if any of the results are statistically significant. It is also not clear whether the “10 trials” mentioned in the figure captions correspond to a 10-fold cross-validation scheme or something else. It is unclear to me what the random feature matrix for the metabolic network is supposed to me or do. It is also unclear to me why “fake papers” are needed for the citation networks; it is clear that “fake author lists” are needed for negative sampling, but it seems they could be attached to existing papers. Similarly, it is unclear how the set of candidate edges (\mathcal{E}) was chosen.
+
+I appreciate that the authors made the code available. I did not run it, but I did have a look, and I believe it could be adapted by others without an unreasonable amount of work.
+
+=== Minor comments
+
+This work is very similar to the arXiv submission 1809.09401. To the best of my knowledge, though, that work has not yet been published in a peer-reviewed venue, so I do not consider it a problem that it is not cited here.
+
+According to Tables 1 and 2, iAF692 and iHN637 datasets are smaller than the other datasets except DBLP; those two are also less dense than DBLP. According to Table 3, NHP-U seems noticeably better than SHC and CMM on the, while does not appear very significant in the other cases. Is there some relationship between NHP’s performance and the size/density of the graph? or is there some other explanation for this behavior?
+
+Related to the above point, Table 3 shows that the performance on the undirected versions for those two datasets is better than on the other two metabolic networks, while Table 6 shows the opposite for the directed versions. Is there some explanation for this? For example, are there qualitative differences in the size of the hypernodes?
+
+The described strategy for negative sampling seems as though it selects “easy” negative samples, in the sense that they are far away from observed positives; thus, they are also likely far away from any sort of decision boundary. How does the performance change if more “difficult” (or just uniformly random) negative samples are chosen?
+
+I believe Recall@100 (or Precision@100, or @$\Delta E$, etc.) is a more meaningful value to report in Tables 4 and 7, rather than the raw number of edges. That is, it would be more helpful to report something so that numbers across datasets are at least somewhat comparable.
+
+=== Typos, etc.
+
+In Equation (4), the “k” index in d_{ijk} is in {1,2}, but in the text, it is in {0,1}.
+
+“table 2” -&gt; “Table 2”, and many other similar examples throughout the paper.
+
+“higher-order etc.” -&gt; “higher-order, etc.”
+“GCN based” -&gt; “GCN-based”, and similar in several places in the paper
+“a incomplete” -&gt; “an incomplete”
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1xL2zM4pX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Our response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeaZhRqFm&amp;noteId=B1xL2zM4pX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1218 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1218 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the review
+
+On the novelty of our work:
+Link prediction in undirected hypergraphs is an underexplored problem and that in directed hypergraphs is an unexplored problem. Our main contribution is a unified framework for both the settings and our proposed solution is conceptually simple, yet effective. We believe the problem settings are important and interesting (as noted by the other reviewers too), and that this paper will inspire further research in this direction.
+
+
+On the discussion of results for directed hyperlink prediction:
+Both NHP-D (joint) and NHP-D (sequential) perform similarly. To appreciate the results, we have added three baselines as suggested by reviewers 2 and 3. We request the reviewer to see below for a sample of the updated results and the paper for all updated results.
+
+---------------------------------------------------------------------------------------------------------------------------------
+                         dataset				  	iAF692	         iHN637	          iAF1260b          iJO1366
+---------------------------------------------------------------------------------------------------------------------------------
+node2vec + MLP			                      255 +/- 5	         237 +/- 5	  838 +/- 13	   902 +/- 11
+---------------------------------------------------------------------------------------------------------------------------------
+CMM + MLP    			                     253 +/- 9	        241 +/- 11	  757 +/- 26	   848 +/- 21
+---------------------------------------------------------------------------------------------------------------------------------
+GCN on star expansion + MLP	             242 +/- 5	        241 +/- 10	   786 +/- 13	   852 +/- 11
+---------------------------------------------------------------------------------------------------------------------------------
+
+NHP-D (sequential)			             263 +/- 7	       221 +/- 10	  867 +/- 31	   954 +/- 29
+
+NHP-D (joint)				            262 +/- 8	        236 +/- 8	  869 +/- 13	   944 +/- 20
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+On variance in the results:
+We observed variances of AUC values to be in the third decimal places (i.e., very close to zero). We have reported variances in the number of hyperlinks recovered in all experiments. These are much more interpretable/statistically significant. 
+
+
+On 10 trials:
+We report the mean values over 10 different splits of train and test. 
+
+
+On random features:
+The feature initialisations are random for metabolic network experiments as we do not have any available features to exploit. We believe the neighbourhood feature aggregation of GCN causes useful node embeddings to be learnt during training.
+We also observe that NHP is competitive with a node2vec baseline (suggested by reviewer 3) which is a featureless approach. 
+
+
+On creation of fake papers:
+In these experiments, authors correspond to nodes in the (primal) graph, while papers correspond to hyperlinks, i.e., sets of authors. So in this context, fake papers are the same as fake author lists and hence cannot be attached to existing (true) papers. The set of candidate edges is the set of true papers union the set of fake papers.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1x10QuUhm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting and important problem; technical contribution is limited given existing work.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeaZhRqFm&amp;noteId=r1x10QuUhm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1218 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1218 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposed Neural Hyperlink Predictor (NHP) to perform link prediction based on graph convolutional network (GCN). Following prior work, the hyperlink prediction is perform in the dual hypergraph, where each node represents a hyperlink in the primal hypergraph. The original problem is then equivalent to a simple node classification problem. To deal with directed hyperlink, a separate term is added to distinguish heads from tails.
+
+The problem of link prediction in hypergraph is important and interesting, especially in the chemistry domain. However from the technical point of view, this work is somewhat incremental since prior work has done link prediction using GCN (Zhang and Chen, 2018). The idea of performing hyperlink prediction in the dual hypergraph is not new, either (Lugo-Martinez and Radivojac, 2017). As for the directed hypergraph setting, it seems to be a straightforward extension once one knows how to do in the undirected setting (adding an extra term to classify head/tail).
+
+In terms of experiments, given the similarity between Lugo-Martinez and Radivojac, 2017 and NHP (both operates in the dual hypergraph), it would be better if the former could also be used as a baseline, as least in the undirected setting.
+
+It is reasonable to have a subset of links as candidate reactions in the metoboli network datasets. For CORA and DBLP, it is not clear where the ‘actual papers’ and ‘candidate papers’ come from. For example in CORA there are 1072 authors; yet there are only 5416 candidate papers.
+
+It seems the joint learning of NHP-D does not improve the accuracy in the directed setting as claimed in Sec. 5.2. Besides, there is no baseline in the directed setting. It is difficult to appreciate the performance in Sec. 6. One thing one can do is to use previous methods in the undirected setting, e.g., CMM, with the extra term L_d in Eq. (4).
+
+Minor comments:
+Typo: 
+P5: atleast -&gt; at least
+P5: What is GCN 2?
+Sec. 5: ‘p = 32 in 1’ and ‘shown in 2’
+
+Missing references on link prediction and/or deep learning:
+Discriminative relational topic models. PAMI 2014.
+Relational deep learning: A deep latent variable model for link prediction. AAAI 2017
+Neural relational topic models for scientific article analysis. CIKM 2018.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJenCQzNaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Our response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeaZhRqFm&amp;noteId=BJenCQzNaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1218 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1218 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the review. 
+
+On the novelty of our work:
+Link prediction in undirected hypergraphs is an underexplored problem and that in directed hypergraphs is an unexplored problem. Our main contribution is a unified framework for both the settings and our proposed solution is conceptually simple, yet effective. We believe the problem settings are important and interesting (as noted by the other reviewers too), and that this paper will inspire further research in this direction.
+
+
+On adding an extra term to CMM as a baseline for directed hyperlink experiments:
+Following the reviewer’s suggestion, we have added CMM + MLP as a baseline. We have also compared NHP against node2vec + MLP and star expansion + MLP as suggested by reviewer #3. We report below the number of reactions recovered in the directed hypergraph experiments. 
+
+---------------------------------------------------------------------------------------------------------------------------------
+                            dataset				iAF692	         iHN637	          iAF1260b          iJO1366
+---------------------------------------------------------------------------------------------------------------------------------
+node2vec + MLP			                      255 +/- 5	         237 +/- 5	  838 +/- 13	   902 +/- 11
+---------------------------------------------------------------------------------------------------------------------------------
+CMM + MLP    			                     253 +/- 9	        241 +/- 11	  757 +/- 26	   848 +/- 21
+---------------------------------------------------------------------------------------------------------------------------------
+GCN on star expansion + MLP	             242 +/- 5	        241 +/- 10	   786 +/- 13	   852 +/- 11
+---------------------------------------------------------------------------------------------------------------------------------
+
+NHP-D (sequential)			             263 +/- 7	       221 +/- 10	  867 +/- 31	   954 +/- 29
+
+NHP-D (joint)				            262 +/- 8	        236 +/- 8	  869 +/- 13	   944 +/- 20
+
+---------------------------------------------------------------------------------------------------------------------------------
+We request the reviewer to see the updated paper for AUC numbers. We have also observed that NHP-U outperforms all its baselines in the undirected experiments and the results have been updated in our paper.
+
+
+On candidate papers in coauthorship networks such as cora:
+The standard cora dataset has 2708 papers. We sampled an equal number of fake papers at random to get the 5416 candidate papers for cora. We request the reviewer to see the appendix for more details.
+
+
+On comparison with Lugo-Martinez and Radivojac, 2017:
+We had difficulty reproducing the results, given that the code was not available and the authors did not respond to our request emails, and the method as described in the paper is rather vague about the details.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HJxLFwebh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Novelty of the proposed method is very marginal</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeaZhRqFm&amp;noteId=HJxLFwebh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1218 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1218 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposed to use graph convolutional neural networks for link prediction. The authors proposed to use the dual graph to simultaneously learn node and edge embeddings. The label of the edges (positive or negative) are used as supervised signal for training the GCNs. Experiments on a few small data set prove the effectiveness of the proposed approaches.
+
+Strength:
+- important problem
+
+Weakness:
+- the novelty of the proposed method is very marginal
+- the experiments are quite weak
+
+Details:
+- the novelty of the proposed method seems to be very marginal, which simply applies the GCN for link prediction. The existing GCN based method for recommendation shares similar ideas (e.g., Yin et al. 2018, PinSage), though dual hypergraph is not used. But the essential idea is very similar. 
+- the data sets used in the experiments are too small
+- the node embedding based methods should be compared for link prediction, e.g., DeepWalk, LINE, and node2vec.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJxfTVfNpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Our response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeaZhRqFm&amp;noteId=SJxfTVfNpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1218 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1218 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the review. 
+
+On the novelty of our work:
+Link prediction in undirected hypergraphs is an underexplored problem and that in directed hypergraphs is an unexplored problem. Our main contribution is a unified framework for both the settings and our proposed solution is conceptually simple, yet effective. We believe the problem settings are important and interesting (as noted by the other reviewers too), and that this paper will inspire further research in this direction.
+
+
+On comparison with PinSage [Ying et al. KDD 2018]:
+PinSage has been designed to work on the bipartite graph of Pinterest. The Pinterest graph can be seen as the star expansion of a hypergraph with pins (hypernodes) on one side of the partition and boards (hyperlinks) on the other side. Following the reviewer’s suggestion, we have compared NHP against star expansion below.
+
+
+On comparison with node2vec:
+Following the reviewer’s suggestion, we have compared NHP against node2vec. Node2vec has been shown to be superior to DeepWalk and LINE in [Grover et al. KDD 2016] and hence we have compared only against it. We have also compared NHP against CMM+MLP as suggested by reviewer #2. We report only the number of reactions recovered in the undirected hypergraph experiments.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+dataset				  	       iAF692	           iHN637	               iAF1260b	              iJO1366
+-----------------------------------------------------------------------------------------------------------------------------------
+node2vec 				     299 +/- 10	          303 +/- 4	     1100 +/- 13	          1221 +/- 21
+-----------------------------------------------------------------------------------------------------------------------------------
+GCN on star expansion	            174 +/- 5	         219 +/- 12	      649 +/- 10	           568 +/- 18
+-----------------------------------------------------------------------------------------------------------------------------------
+NHP-U (ours)			            313 +/- 6	          360 +/- 5	     1258 +/- 9	           1381 +/- 9
+-----------------------------------------------------------------------------------------------------------------------------------
+
+We request the reviewer to see the updated paper for AUC numbers. We have updated the results for all the other datasets and experiments and we request the reviewer to see the paper.
+
+From the table above, we can see that the star expansion of a hypergraph is less effective because there are no direct connections between chemical reactions (because the graph is bipartite). Clique expansion, on the other hand, connects two chemical reactions if they share a chemical substance and hence can exploit the relationships much better.
+
+
+On the size of the datasets used:
+Our work was motivated by the task of predicting reactions, for which we used datasets already available in the literature (given by Zhang et. al, AAAI 2018). Regarding the co-authorship datasets used, we had to filter the large datasets already available to ensure that meaningful hyperlinks were obtained which led to some reduction in size. We request the reviewer to take a look at the appendix for the exact details.
+
+
+On simultaneous learning of node and edge embeddings:
+NHP, our proposed method, learns node embeddings in the dual hypergraph which is the same as learning hyperlink embeddings in the primal.  While PinSage works on the Pinterest bipartite graph (star expansion) and hence involves simultaneous learning of node/edge embeddings, NHP works on the clique expansion and learns node embeddings of the dual
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Ada-Boundary: Accelerating the DNN Training via Adaptive Boundary Batch Selection | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Ada-Boundary: Accelerating the DNN Training via Adaptive Boundary Batch Selection" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SyfXKoRqFQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Ada-Boundary: Accelerating the DNN Training via Adaptive Boundary..." />
+      <meta name="og:description" content="Neural networks can converge faster with help from a smarter batch selection strategy. In this regard, we propose Ada-Boundary, a novel adaptive-batch selection algorithm that constructs an..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SyfXKoRqFQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Ada-Boundary: Accelerating the DNN Training via Adaptive Boundary Batch Selection</a> <a class="note_content_pdf" href="/pdf?id=SyfXKoRqFQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019ada-boundary:,    &#10;title={Ada-Boundary: Accelerating the DNN Training via Adaptive Boundary Batch Selection},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SyfXKoRqFQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Neural networks can converge faster with help from a smarter batch selection strategy. In this regard, we propose Ada-Boundary, a novel adaptive-batch selection algorithm that constructs an effective mini-batch according to a learner’s level. Our key idea is to automatically derive the learner’s level using the decision boundary which evolves as the learning progresses. Thus, the samples near the current decision boundary are considered as the most effective to expedite convergence. Taking advantage of our design, Ada-Boundary maintains its dominance in various degrees of training difficulty. We demonstrate the advantage of Ada-Boundary by extensive experiments using two convolutional neural networks for three benchmark data sets. The experiment results show that Ada-Boundary improves the training time by up to 31.7% compared with the state-of-the-art strategy and by up to 33.5% compared with the baseline strategy.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">acceleration, batch selection, convergence, decision boundary</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We suggest a smart batch selection technique called Ada-Boundary.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HJet7CSinX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The proposed construction for more effective sampling during DNN training is conceptually nice and has the potential for wide impact, but the paper does not provide clear evidence that value is gained.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SyfXKoRqFQ&amp;noteId=HJet7CSinX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper430 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper430 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper describes a sampling distribution construction over examples from which to draw mini-batches to train multi-classification models. A distance function on examples is described wherein an example's current (softmax) label probabilities and correctness are taken into account. The bounded distance function supports quantization of example distances and then subsequent sampling from an exponentially decaying probability mass function defined over the binned examples. Results from experiments implementing the proposed method and some baselines on three image classification datasets are provided.
+
+Clearly, any generic improvement to training DNN's has the potential for far-reaching impact. I thought the exposition was fairly clear and appreciated how the introductory sections provided an intuitive understanding of e.g., the differences between the proposed method and the method of Loshchilov and Hutter (2016). The relative conceptual simplicity of the proposed method is a clear positive. The experimental methodology and results are my biggest issues with the paper. The experimental evaluation suggests the proposed method was run 3 times, one for each value of the selection pressure parameter. Then, the best run was selected for comparison. This suggests the proposal is not practical. For results, the benefit of the proposed method is only clearly apparent in one of the three experiments (Fashion MNIST). In the MNIST case, the proposed method does not seem to improve upon the online batch method. For CIFAR-10, where a good case for the proposed method could have been made since the architecture is more complex and potentially more difficult to train, the improvement seems slight. Moreover, it isn't clear whether a relevant baseline was included (see second question below). Also, at least some discussion of computational cost incurred by the method should have been provided. Even better would be to include results wrt/ wall clock training time.
+
+Questions/Comments:
+
+Why not set \gamma = 1? Having a larger value seems to run counter to making training faster. Technically, to use the proposed method, all of the examples need to be processed only once before the distance-based sampling distribution can be utilized. 
+
+Does the random method of the paper denote uniformly at random from the entire dataset per batch or sequential batches from a pre-shuffled dataset per epoch? The distinction is important as Loshchilov and Hutter (2016) report that the latter method performs better than their online batch method on CIFAR-10.
+
+ADA-easy seems to be an irrelevant baseline given the context of the paper.
+
+The phrase "learner's level" is used multiple times, but not defined.
+
+The average is reported in the convergence curves, but shouldn't the variance be reported as well?
+
+Perhaps the selection pressure parameter can be annealed as performed in Loshchilov and Hutter (2016)?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BygPAI5AhX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SyfXKoRqFQ&amp;noteId=BygPAI5AhX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper430 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018</span><span class="item">ICLR 2019 Conference Paper430 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We would like to thank AnonReviewer1 for the valuable questions and comments. We will revise our paper as soon as possible to reflect your comments. Below are our responses.
+
+1. The selection pressure parameter:
+ -  To be precise, the best selection pressure value is “100”, so all experiments in our paper used this value. We conducted an additional experiment to find which value of s_e={10, 100, 1000} is the best for acceleration, and in general “100” showed the best performance in our three benchmark data sets. We will make this clear in our revised version.
+
+2. Improvement on CIFAR-10: 
+ - In the CIFAR-10 data set (Figure 6(c)), the convergence improvement may seem insignificant, but numerically the proposed method reduced 24.3% of the total number of epochs (i.e., 24.3% reduction of the number of parameter updates). Also, even considering the additional computation cost of the proposed method, we saved 14.0% of training time. We think that such improvement is meaningful. Please note that it was obtained without any modification of learning rate, batch size and loss function, which have a great effect on training speed.
+
+3. Computational cost of proposed method: 
+ - We are sorry for the missing of the computational cost incurred by our method. We thought that it can be indirectly inferred by subtracting Gain_epo and Gain_tim. For example, in the CIFAR-10 data set (Figure 6(c)), the 10.3% gap between Gain_epo and Gain_tim was incurred by the extra cost of our method.
+
+4. The large value of \gamma: 
+ - Technically, your comment is right. But, we tried to exclude the impact of random initial weights to highlight the effect of batch selection strategies. As you can see in Figure 6(b), all methods shared the model weights until reaching \gamma epochs. We thought the weight sharing during large \gamma epochs can remove the impact of random initial weights on training step. 
+
+5. The random method: 
+ - Random method denotes uniformly at random from entire data set per batch. But, in our experimental setting for CIFAR-10, online batch method was worse than random method. We have not yet compared the convergence speed with shuffle method.
+
+6. Variance: 
+ - As we mentioned, we tried to reduce the variance of each run by sharing the weights during \gamma epochs, so there is no significant difference for each run. Also, we concerned that figure 6-9 would be too messy. 
+
+7. Annealed: 
+ - Of course, the selection pressure can be annealed. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HyeO3O55nQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An adaptive batch normalization approach with limited technical novelty. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SyfXKoRqFQ&amp;noteId=HyeO3O55nQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper430 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper430 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper introduces an adaptive importance sampling strategy, as opposed to uniform sampling, for batch normalization. The key idea is to assign higher importance to those correctly classified training samples with relatively smaller soft-max prediction variance, hopefully to push the deep nets to learn faster from uncertain samples near the decision boundary. Experimental results on several benchmark datasets (MNIST, CIFAR-10) and commonly used deep nets (LeNet, ResNet) are reported to show the power of boundary batch selection in improving the overall training efficiency.
+
+The paper is clearly presented and the numerical results are mostly easy to access. My main concern is about the novelty of technical contribution which is mainly composed by two: 1) a prediction variance based importance sampling strategy for batch selection and 2) an empirical study the show the merits of approach. Concerning the first contribution, the idea of defining boundary samples according to prediction variance looks fairly common, if not superficial, in modern machine learning. The way of defining the sampling probability (see Eq. 4 &amp; 5) follows largely the rank-based method (Loshchilov and Hutter 2016) with slight modifications. The numerical study shows some promise of the proposal on several relatively easy data sets. However, as a practical paper, the numerical results could be much more supportive if more challenging data sets (e.g., ImageNet) are included for evaluation. 
+
+Pros: 
+
+-The method is well motivated and clearly presented. 
+- The paper is easy to follow. 
+
+
+Cons:
+
+-  The overall contribution is incremental with limited novelty.  
+- As a practical paper, the numerical study falls short in evaluation on large-scale data. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1giBYNWp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SyfXKoRqFQ&amp;noteId=H1giBYNWp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper430 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper430 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We would like to thank AnonReviewer3 for the useful comments. We would like to respond to your main concern.
+
+1. Novelty of this paper:
+- As you mentioned, the idea of defining boundary samples using “prediction variance” looks fairly common. However, we hope you look into our contribution as the insight that boundary samples should be preferred in training step for acceleration, rather than the simplicity of the methodology. As for the methodology, we tried various and complex methods (e.g., a modified pseudo loss of adaboost, adaptive weight scaling for each sample, ...) to decide the boundary samples, but we selected “prediction variance” since the performance was generally good. Also, we thought that the simplicity of the method is the best advantage for practical use.
+- For similar reasons, we selected the quantization-based method to compute the selection probability of each sample.
+
+2. Large-scale data:
+- As a practical paper, we agree that it would be better if we showed the performance of the proposed method for a more challenging data set (e.g., ImageNet). However, in our limited experimental environment, handling such data set like ImageNet required too much effort, so we focused on showing the performance details for the three benchmark data sets (MNIST, Fashion-MNIST, and CIFAR-10). In our future work, we are planning to add the result performed on more diverse data sets and neural architectures.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJlcMLoPnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Decent paper, but little added insight beyond "Active Bias"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SyfXKoRqFQ&amp;noteId=rJlcMLoPnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper430 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper430 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper attempts to speed up convergence of deep neural networks by intelligently selecting batches. The experiments show this method works moderately well.
+
+This paper appears quite similar to the recent work "Active Bias" [1].
+The motivation for the technique and setting appear very similar, while the details of the techniques are different. Unfortunately, this is not mentioned in the related work, or even cited.
+
+When introducing a new method, it is important that design choices are principled, have theoretical guidance, or are experimentally verified against similar design choices. Without one of these, the methods become arbitrary and it is unclear what causes better performance. Unfortunately, this paper makes several choices, about an uncertainty function, the probability distribution, the discretization, and the algorithm (when to update) that appear rather arbitrary. For instance, the uncertainty function is a signed standard deviation of the softmax output. While there are a variety of uncertainty functions, such as entropy and margin, a new seemingly arbitrary uncertainty function is introduced.
+
+The experiments are good but could be designed a bit better. For instance, it is unclear if the gains are because of lower asymptotic error or because of faster convergence. The learning curves are stopped too early, while the test error is still dropping quickly.
+
+In summary, it is not clear if this paper adds any insight beyond "Active Bias".
+
+[1] Active Bias: Training More Accurate Neural Networks by Emphasizing High Variance Samples. 2017. Haw-Shiuan Chang, Erik Learned-Miller, Andrew McCallum.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rygEfdl1aQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SyfXKoRqFQ&amp;noteId=rygEfdl1aQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper430 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018</span><span class="item">ICLR 2019 Conference Paper430 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We would like to thank AnonReviewer2 for the helpful comments. We will revise our paper as soon as possible to reflect your comments. Below are our responses. 
+
+1. Related to “Active Bias” paper:
+- Thanks again for mentioning the recent related work that we did not consider. We have just read “Active Bias” paper and agree that their motivation is similar to ours: “Active Bias” also claims that we should prefer uncertain samples, not easy or hard samples. However, we would like you to know that the goal of our paper differs greatly from that of “Active Bias”. “Active Bias” gives more weight to the samples with large variance of prediction probabilities for its true label during training, and finally succeeds to train more accurate and robust model. On the other hand, we select the samples near the decision boundary and focus on training the model quickly in a given time. Therefore, insights of our paper for fast training are clearly different from those of “Active Bias” (“Active Bias” paper did not compare the convergence speed at all). We will discuss this in the related work section.
+
+2. Learning curves are stopped too early:
+- As mentioned earlier, the main contribution of this paper is accelerating convergence speed (or saving training time), rather than reducing the final test error. In this situation, since the training step is fully converged at the end of training, we thought that it would be more appropriate to show the clear difference by stopping the training procedure early.
+
+3. Asymptotic error vs faster convergence:
+- We tried to avoid the gains from lower asymptotic error. We are sorry for the missing detail in our paper. We thought that random weights for initialization cause such asymptotic gains, so we updated all strategies for the same random batch with the same initial weights during \gamma epochs called warm-up period. Therefore, as shown in Figure 6(b), the convergence curve for training/test is the same in all methods. We believe that such weight sharing technique can mitigate the asymptotic gains in training.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

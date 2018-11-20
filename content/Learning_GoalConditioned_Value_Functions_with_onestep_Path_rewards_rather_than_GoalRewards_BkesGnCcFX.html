@@ -1,0 +1,415 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Learning Goal-Conditioned Value Functions with one-step Path rewards rather than Goal-Rewards | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Learning Goal-Conditioned Value Functions with one-step Path rewards rather than Goal-Rewards" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BkesGnCcFX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Learning Goal-Conditioned Value Functions with one-step Path..." />
+      <meta name="og:description" content="Multi-goal reinforcement learning (MGRL) addresses tasks where the desired goal state can change for every trial. State-of-the-art algorithms model these problems such that the reward formulation..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BkesGnCcFX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Learning Goal-Conditioned Value Functions with one-step Path rewards rather than Goal-Rewards</a> <a class="note_content_pdf" href="/pdf?id=BkesGnCcFX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019learning,    &#10;title={Learning Goal-Conditioned Value Functions with one-step Path rewards rather than Goal-Rewards},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BkesGnCcFX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=BkesGnCcFX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Multi-goal reinforcement learning (MGRL) addresses tasks where the desired goal state can change for every trial. State-of-the-art algorithms model these problems such that the reward formulation depends on the goals, to associate them with high reward. This dependence introduces additional goal reward resampling steps in algorithms like Hindsight Experience Replay (HER) that reuse trials in which the agent fails to reach the goal by recomputing rewards as if reached states were psuedo-desired goals. We propose a reformulation of goal-conditioned value functions for MGRL that yields a similar algorithm, while removing the dependence of reward functions on the goal. Our formulation thus obviates the requirement of reward-recomputation that is needed by HER and its extensions. We also extend a closely related algorithm, Floyd-Warshall Reinforcement Learning, from tabular domains to deep neural networks for use as a baseline. Our results are competetive with HER while substantially improving sampling efficiency in terms of reward computation. 
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Floyd-Warshall, Reinforcement learning, goal conditioned value functions, multi-goal</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Do Goal-Conditioned Value Functions need Goal-Rewards to Learn?</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SkgRQQbMa7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkesGnCcFX&amp;noteId=SkgRQQbMa7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1298 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1298 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a reinterpretation of hindsight experience replay (HER) that avoids recomputing the reward function on resampled hindsight goals in favor of simply forcing the terminal state flag for goal-achieving transitions, referred to by the authors as a "step loss".
+The new proposal is evaluated on two goal-conditioned tasks from low-dimensional observations, and show modest improvements over HER and a function-approximation version of Floyd-Warshall RL, mostly as measured against the number of times the reward function needs to be recomputed.
+
+Pros:
+- minor improvement in computational cost
+- investigation of classical FWRL technique in context of deep RL
+
+Cons:
+- computational improvement seems very minor
+- sparse-reward implementations of HER already do essentially what this paper proposes
+
+Comments:
+
+The main contribution of the paper appears to be the addition of what the authors refer to as a "step loss", which in this case enforces the Q function to correctly incorporate the termination condition when goals are achieved. I.E. the discounted sum of future rewards for states that achieve termination should be exactly equal to the reward at that timestep.
+
+It's not clear to me how this is fundamentally different than HER. One possible "sparse reward" implementation of HER involves no reward function recomputation at all, instead simply replacing the scalar reward and termination flag for resampled transitions with the indicator function for whether the transition achieves the resampled goal.
+Is this not essentially identical to the proposal in this paper? I would consider this a task-dependent implementation detail for an application of HER rather than a research contribution that deserves an entire paper.
+
+The authors claim the main advantage here is avoiding recomputation of the reward function for resampled goals.
+I do not find this particularly compelling, given that all of the evaluations are done in low-dimensional state space: reward recomputation here is just a low-dimensional euclidean distance computation followed by a simple threshold.
+In a world where we're doing millions of forward and backward passes of large matrix multiplications, is this a savings that really requires investigation?
+It is somewhat telling that the results are compared primarily in terms of "# of reward function evaluations" rather than wall time. If the savings were significant, I expect a wall time comparison would be more compelling.
+Maybe the authors can come up with a situation in which reward recomputation is truly expensive and worth avoiding?
+
+All of the experiments in this paper use a somewhat unusual task setup where every timestep has a reward of -1. Have the authors considered other reward structures, such as the indicator function R=(1 if s==g else 0) or a distance-based dense reward?
+Would this proposal work in these cases? If not, how significant is a small change to HER if it can only work for one specific reward function?
+
+Conclusion:
+
+In my view, the main contribution is incremental at best, and potentially identical to many existing implementations of HER.
+The reconsideration of Floyd-Warshall RL in the context of deep neural networks is a refreshing idea and seems worth investigating, but I would need to see much more careful analysis before I could recommend this for publication.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkxw606xAQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>One-step loss is applicable to all transitions not just terminal condition</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkesGnCcFX&amp;noteId=rkxw606xAQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1298 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1298 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">&gt; The main contribution of the paper appears to be ...  equal to the reward at that timestep.
+
+The one-step loss is, in fact, incorporated for every transition between states, not just the termination condition when the goal is achieved. An alternative perspective of one-step loss is one-step-episode Q-Learning. In other words, the one-step loss function is equivalent to treating every state transition as a full episode and the terminating condition. In the paper we have updated the "one-step loss" section to include this perspective. 
+
+&gt; It's not clear to me how this is fundamentally different than HER ... the transition achieves the resampled goal.
+
+All our comparisons are already with "sparse reward" R(s,a,g) = (0 if s == g else -1) implementation of HER. As far as we can understand, in your proposed formulation the reward should be R(s,a,g) = (1 if s == g else 0) which is shifted by a constant factor. The sparse reward formulation still possesses the unnecessary dependence on the goal whose redundancy and removal is the emphasis of our work.
+
+&gt; Is this not essentially identical to the proposal in this paper? ... deserves an entire paper.
+
+No, this is not identical to the paper. At no point in our algorithm do we check the condition s == g. The proposed one-step loss that learns one-step reward Q(s_t, a_t, g=s_{t+1}) = r_t as we apply one-step loss to every transition. One-step loss is therefore task independent. As mentioned previously, this can also be thought of as one-step hindsight experience replay where the achieved goal at every step is treated as the desired goal.
+
+&gt; The authors claim the main advantage here is avoiding recomputation of the reward function for resampled goals ... worth avoiding?
+
+In machine learning, the sample complexity is always distinguished from computation complexity. The only case where the two are comparable is when the samples are generated from simulations which is, admittedly, true for our experiments. However, our proposed improvement is general enough to be applicable to non-simulation experiments.
+
+It is a consequence of this task-dependent reward formulation that it can be re-sampled cheaply, hence, the computational cost is improvement is marginal. But we eliminate a redundancy common to the HER algorithm and its derivatives. With the massive popularity of HER (107 citations and counting), we believe that this is a worthwhile contribution to bring to the attention of the RL community. 
+
+Consider the example of an agent navigating a maze where the goal is specified in the form of an image. The semantic comparison of the observed image with the goal image is an expensive operation that will require separate training for goal-dependent reward formulation [1]. However, in our proposed formulation, the comparison operation (s == g) in the reward formulation is not needed thereby eliminating the need of another learning module. 
+
+
+&gt; All of the experiments in this paper use a somewhat unusual task setup where every timestep has a reward of -1. 
+
+This unusual reward formulation is possible because of our contribution (one-step loss). Hence, it is only true for the experiments that are referred to with "Ours" label. All the baselines (HER and FWRL) and "Ours (goal rewards)" operate on the reward structure for HER which is R=(0 if s==g else -1).
+
+&gt; Have the authors considered other reward structures, such as the indicator function R=(1 if s==g else 0) or a distance-based dense reward?
+&gt; Would this proposal work in these cases? If not, how significant is a small change to HER if it can only work for one specific reward function?
+
+We have considered and we are advocating against such reward structures because of their goal dependence. In fact in one experiment we run our algorithm with the reward structure R=(0 if s==g else -1) which is equivalent to yours with a constant shift. These results can be found in Fig. 4(b), labeled as "Ours (goal rewards)". 
+
+Distance-based dense reward is by definition goal dependent. Our contribution is to eliminate this dependence. RL on dense rewards is easier than sparse rewards. Hence, we do not believe that distance-based reward adds much to our contribution. We do note that our method does work with goal based sparse rewards(Fig. 4b) and hence we would expect to continue to work with dense rewards. 
+
+&gt; The reconsideration of Floyd-Warshall RL ... recommend this for publication.
+
+We analyze FWRL and added the ablation study of loss function in Appendix Figure 6.
+It is clear that FWRL inspired loss function do not contribute to better
+learning. Instead, they hurt the performance. We think this is because Bellman inspired loss already captures the information that FWRL inspired constraints intend to capture.
+
+[1] Nikolay Savinov, Alexey Dosovitskiy, Vladlen Koltun. "Semi-Parametric Topological Memory for Navigation". In ICLR 2018</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1loBx0K27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkesGnCcFX&amp;noteId=S1loBx0K27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1298 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1298 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper aims to improve on Hindsight Experience Replay by removing the need to compute rewards for reaching a goal. The idea is to frame goal-reaching as a shortest path problem where all rewards are -1 until the goal is reached, removing the need to compute rewards. While similar ideas were explored in a recent arxiv tech report, this paper claims to build on these ideas with new loss functions. The experimental results do not seem to be any better compared to baselines when measured in terms of data efficiency, but the proposed method requires fewer “reward computations”.
+
+Clarity:
+While the ideas in the paper were easy to follow, there are a number of problems with the writing. The biggest problem is that it wasn’t clear exactly what algorithms were evaluated in the experiments. There is an algorithm box for the proposed method in the appendix, but it’s not clear how the method differs from the FWRL baseline.
+
+Another major problem is that the paper does a poor job of citing earlier related work on RL. DQN is introduced without mentioning or citing Q-learning. Experience replay is mentioned without citing the work of Long-Ji Lin. There’s no mention of earlier work on shortest-path RL from LP Kaelbling from 1993. 
+
+Novelty and Significance:
+After reading the paper I am not convinced that there’s anything substantially new in this paper. Here are my main concerns:
+
+1) The shortest path perspective for goal-reaching was introduced in “Learning to Achieve Goals” by LP Kaelbling [1]. This paper should be cited and discussed.
+
+2) I am not convinced that the proposed formulation is any different than what is in Hindsight Experience Replay (HER) paper. Section 3.2 of the HER paper defines the reward function as -1 if the current state is not the same as the goal and 0 if the current state is the same as the goal. Isn’t this exactly the cost-to-go/shortest path reward structure that is used in this paper?
+
+3) This paper claims that the one-step loss (Equation 8) is new, but it is actually the definition of the Q-learning update for transitioning to a terminal state. Since goal states are absorbing/terminal, any transition to a goal state must use the reward as the target without bootstrapping. So the one-step loss is just Q-learning and is not new. This is exactly how it is described in Section 3 of [1].
+
+4) The argument that the proposed method requires fewer reward evaluations than FWRL or HER seems flawed. HER defines the reward to be -1 if the current state and the goal are different and 0 if they are the same. As far as I can tell this paper uses the same reward structure, so how is it saving any computation?
+
+Can the authors comment on these points and clarify what they see as the novelty of this work?
+
+Overall quality:
+Unless the authors can convince me that the method is not equivalent to existing work I don’t see enough novelty or significance for an ICLR paper.
+
+[1] “Learning to Achieve Goals” LP Kaelbling, 1993.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">1: Trivial or wrong</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkgVLVMZTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>In our reward formulation we do not get 0 reward, it is always -1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkesGnCcFX&amp;noteId=SkgVLVMZTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1298 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1298 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">There are two main reasons for the confusion about the contributions of
+this work. 
+
+First, our reward formulation is different from that of Hindsight Experience Replay
+(HER). In HER, the agent receives -1 reward for all state transitions except on
+reaching the goal when it receives 0 reward. In contrast, for our reward
+formulation the agent receives -1 reward for all state transitions including
+when agent reaches and continues to stay at the goal.
+
+Second, our reward formulation is atypical with respect to conventional
+Reinforcement Learning (RL). In conventional RL, a high reward is used to
+specify the desired goal (goal-reward). However, this goal-reward is not
+necessary in goal-conditioned RL because the goal specification is already given
+at the start of every episode. We believe that this result is counter-intuitive
+and will be interesting to the RL community.
+
+We clarify the reviewer's concerns and
+edit our draft to minimize chances of similar confusion.
+
+Clarity:
+1. The main difference between HER, FWRL and our algorithm lies in the choice of
+   loss terms used. HER uses Eq (3), FWRL uses Eq (3) + L_up + L_lo, and Our
+   algorithm uses Eq (3) + L_step as shown in the pseudo-code. Another difference
+   is due to reward formulation. Because our rewards are independent of reaching
+   the goal, we do not need to recompute rewards. We have added the description
+   about these differences in the appendix to highlight them.
+
+2. We have introduced the requested citations at appropriate places in the
+   paper. 
+
+   Since [1] introduced the idea of FWRL before Dhiman et. al. 2018,
+   we replace the attributions accordingly in the paper. We further add
+   discussion points specific to their algorithm in the Related Work and
+   One-Step Loss section.
+
+Novelty and Significance
+1. Our contribution is learning *without* using goal-rewards *using* the
+   shortest path perspective. Our secondary contribution is to extend [1] to
+   deep neural networks.
+
+2. As mentioned above, our reward is always -1 *even when* current state is same
+   as the goal state. 
+
+   Similar to HER, our goal states are not absorbing/terminal. Instead the
+   episodes are of fixed number of steps and the agent is encouraged to stay in
+   the goal state for as long as possible. This is how the replay buffer is
+   populated and how the average episode reward is computed. However, the
+   objective maximized is equivalent to treating this fixed length episode
+   problem as if the episodes are terminating on reaching the goal.
+
+   To further clarify this in the paper, we have added reward structure
+   details to the Introduction (section 1, paragraph 3) and the
+   Experiments section (section 5, end of paragraph 1).
+
+3. One-step loss is different from both the terminal step of both Q-Learning and [1].
+
+   One-step loss is different from terminal step of Q-Learning because it is
+   applied to every state transition rather than just the terminal step of the
+   episode. Having said that it is indeed equivalent to Q-Learning, if every
+   state transition is viewed as a one-step episode with the reached state as
+   the pseudo-goal. Correspondingly we have updated the manuscript in both the
+   introduction and the one-step loss section to include one-step-episode
+   Q-Learning perspective.
+
+   One-step loss is also different from the terminal step of [1].
+   Referring to Section 3 of [1], we see the one-step loss (Eq. 8)
+   as an alternative of the terminal condition DG*(s, a, g) = 0 if s = g in the
+   recursive definition of DG*(s, a, g). As an alternative, one-step loss 
+   translates to DG*(s_t, a_t, g_{t+1}) = -1, for all transitions (s_t, a_t -&gt;
+   g_{t+1}) i.e. it removes the dependence of checking s=g. Although it serves
+   the same purpose of terminal condition in recursive definition but the
+   condition is mathematically different and requires the different
+   assumption that one-step path is the highest reward path between s_t and g_{t+1}. 
+   
+ 
+4. As stated earlier, our reward independent of desired goal. The reward
+   re-computation for the pseudo-goals becomes unnecessary because the reward
+   does depend upon the check if current state is same as the desired goal.
+
+   To further highlight saved reward computation, we magnify on our
+   reward-computation plots removing the uninformative parts of the plots where
+   the curves overlap.
+
+Overall quality:
+
+(A) Novelty: As argued above our proposed one-step loss is novel and so is the
+extension of [1] from tabular domain to deep learning.
+
+(B) Significance 
+  (a) The counter-intuitive result that goal-conditioned RL does not need goal
+  reward is worth bringing to the attention of the RL community
+  (b) The absence of the requirement of reward-recomputation is significant
+  because in real robotics experiments, the reward computation may not be
+  possible without re-running the entire experiment.
+
+[1]: Kaelbling, Leslie Pack. "Learning to achieve goals." IJCAI. 1993.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1l2zvNt3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Evaluation and judgement</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkesGnCcFX&amp;noteId=r1l2zvNt3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1298 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1298 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper presents an approach for an approach to addressing multi-goal reinforcement learning, based on what they call "one-step path rewards" as an alternative to the use of goal conditioned value function. 
+The idea builds on an extension of a prior work on FWRL. 
+The paper presents empirical comparison of the proposed method with two baselines, FWRL and HER. 
+The experimental results are mixed, and do not convincingly demonstrate the effectiveness/superiority of the proposed method. 
+The idea of the proposed method is relatively simple, and is not theoretically justified. 
+
+Based on these observations, the paper falls short of the conference standard. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkxW9NfW6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Our method consistent performs better than baselines when computered in terms of distance from the goal and reward computation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkesGnCcFX&amp;noteId=rkxW9NfW6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1298 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1298 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your feedback. 
+
+1. The experimental results are mixed, and do not convincingly demonstrate the
+   effectiveness/superiority of the proposed method.
+
+The results are mixed when the learning curves are compared with respect to the epochs (the number of transition samples) that intentionally does not take reward-recomputation in to account. 
+
+When this computation is taken in to account, our algorithm comprehensively improves upon the baselines in 6 out of 8 experiments. To further highlight these differences we magnify our reward-recomputation plots to eliminate sections where curves overlap and are non-informative. These changes can be found in Figure 2 and 3.  
+
+We further reiterate that reward recomputation
+cost can be significant dependent upon the environment and setup. In cases when
+the reward-computation depends upon collisions and haptic feedback of real
+robots, the reward recomputation may even be impossible without re-running the
+experiment. Hence reducing reward-computation based on a simple loss term is an
+important contribution.
+
+
+2. The idea of the proposed method is relatively simple, and is not theoretically justified.
+
+The main contribution of this paper is to show that goal-conditioned value functions can be learned without requiring goal-reward.
+We believe that the simplicity of this proposed idea is the beauty of the method leading to significant changes in performance of the algorithm when reward recomputation is taken in to account.
+
+Our algorithm builds upon HER which does not itself possess theoretical guarantees. We would be able to addess this point specifically if the reviewer could clarify what kind of theoretical justification they would expect to see. 
+   
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1gzrfOGcQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Floyd-Warshall &amp; RL</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkesGnCcFX&amp;noteId=H1gzrfOGcQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1298 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The paper cites a recent arXiv paper for the concept of employing the Floyd-Warshall algorithm in goal-based reinforcement learning. This was actually introduced into the reinforcement learning literature 25 years ago in "Learning to Achieve Goals" <a href="https://people.csail.mit.edu/lpk/papers/ijcai93.ps" target="_blank" rel="nofollow">https://people.csail.mit.edu/lpk/papers/ijcai93.ps</a>
+ by Leslie Pack Kaelbling, in IJCAI 93. However, the extension to the non-tabular case presented here does sound interesting.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJl_G5df5m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We will update the attribution</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkesGnCcFX&amp;noteId=BJl_G5df5m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1298 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1298 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comment. We were made aware of this paper recently. We will replace the attribution for the tabular version of the path-rewards idea with Kaelbling (1993) in an updated version of the manuscript.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

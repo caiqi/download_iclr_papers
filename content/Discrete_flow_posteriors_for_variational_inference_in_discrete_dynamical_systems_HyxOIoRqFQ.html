@@ -1,0 +1,278 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Discrete flow posteriors for variational inference in discrete dynamical systems | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Discrete flow posteriors for variational inference in discrete dynamical systems" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HyxOIoRqFQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Discrete flow posteriors for variational inference in discrete..." />
+      <meta name="og:description" content="Each training step for a variational autoencoder (VAE) requires us to sample from the approximate posterior, so we usually choose simple (e.g. factorised) approximate posteriors in which sampling..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HyxOIoRqFQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Discrete flow posteriors for variational inference in discrete dynamical systems</a> <a class="note_content_pdf" href="/pdf?id=HyxOIoRqFQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019discrete,    &#10;title={Discrete flow posteriors for variational inference in discrete dynamical systems},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HyxOIoRqFQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Each training step for a variational autoencoder (VAE) requires us to sample from the approximate posterior, so we usually choose simple (e.g. factorised) approximate posteriors in which sampling is an efficient computation that fully exploits GPU parallelism.  However, such simple approximate posteriors are often insufficient, as they eliminate statistical dependencies in the posterior.  While it is possible to use normalizing flow approximate posteriors for continuous latents, there is nothing analogous for discrete latents. The most natural approach to model discrete dependencies is an autoregressive distribution, but sampling from such distributions is inherently sequential and thus slow.  We develop a fast, parallel sampling procedure for autoregressive distributions based on fixed-point iterations which enables efficient and accurate variational inference in discrete state-space models.  To optimize the variational bound, we considered two ways to evaluate probabilities: inserting the relaxed samples directly into the pmf for the discrete distribution, or converting to continuous logistic latent variables and interpreting the K-step fixed-point iterations as a normalizing flow.  We found that converting to continuous latent variables gave considerable additional scope for mismatch between the true and approximate posteriors, which resulted in biased inferences, we thus used the former approach.  We tested our approach on the neuroscience problem of inferring discrete spiking activity from noisy calcium-imaging data, and found that it gave accurate connectivity estimates in an order of magnitude less time.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">normalising flow, variational inference, discrete latent variable</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We give a fast normalising-flow like sampling procedure for discrete latent variable models.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Skg7fQTnnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Poorly developed (potentially useful) idea</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxOIoRqFQ&amp;noteId=Skg7fQTnnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper188 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper188 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper uses an autoregressive filtering variational approximation for parameter estimation in discrete dynamical systems. One issue that crops up with this *particular choice* of variational distribution is that (a) inference proceeds sequentially (by definition) and (b) this does not make use of parallelism in modern hardware. To mitigate this, the paper proposes using fixed point iterations. After the first iteration, the approximate posterior for each latent variable corresponds to a random draw from a logistic distribution. Each subsequent application of the fixed point iteration modifies the posterior distribution by incorporating information from the previous latent state. After T applications of the fixed point equation, the procedure approximates an auto-regressive variational posterior distribution. Its possible I've misunderstood the point being made in Sections 2.2 - 2.4, but the paper points out that the choice of iterations "looks like" a normalizing flow (with Jacobian 1).
+
+The method for inference is evaluated on two synthetic datasets. The paper finds that the flow-based approach takes less time than using the full autoregressive variational posterior and learns less bias weights than a fully factorized approach.
+
+Overall:
+I think the idea of approximating posterior distributions via fixed point iterations as presented here is interesting since it presents a reasonable way to trade off between expressivity and computational complexity. However, in this manuscript the idea is insufficiently explored and not presented clearly.
+
+Clarity -- methodology:
+The paper is poorly written. It is formatted in an awkward manner making it quite difficult to understand what model was considered here. For example, the *first equation* in the paper is a variational lower-bound. The equation is present in the absence of describing what generative model is considered in this work (or even stating what P and Q are, and how they factorize). Unless I'm missing something, as long as the *final step* of every fixed-point iteration (at each point in time) realizes a valid prediction of the mean parameter of continuous distribution relaxed to a discrete one, the proposed method is still valid for approximate inference. Why then is the relationship to normalizing flows important to highlight or emphasize?
+
+Clarity -- experimental results:
+The baselines in the experimental section are not described. Out of the blue, one of the method describes "supervised training" (up until that point, I was under the impression that the model was entirely unsupervised). Where does the supervision comes from? The IWAE objective is mentioned without justification in the experimental section whereas the methodology section describes learning with the lower-bound.
+
+Larger time series problems:
+A reason, motivated by the paper, for considering this method was the potential to parallelize computation of the approximate posterior distribution on GPUs. Yet, the evaluation was conducted on significantly smaller problems. The paper would be strengthened by an evaluation on density estimation on larger, higher dimensional datasets [e.g. the benchmark polyphonic music dataset -- <a href="http://www-etud.iro.umontreal.ca/~boulanni/icml2012]." target="_blank" rel="nofollow">http://www-etud.iro.umontreal.ca/~boulanni/icml2012].</a>
+
+*Why* does convergence happen quickly?
+An unanswered issue is that a central claim of the paper hinges on an empirical observation -- namely that the fixed point iterations converge "quickly". In the absence of theory on *why* and how quickly we might expect convergence and what convergence depends on, I think there is a need for further experimentation to understand and characterize situations when we can expect rapid convergence. Intuitively, the number of fixed point iterations controls how far in the past the posterior distribution for the latent variable at timestep t depends. Rapid convergence, as observed here, could happen because the experiments only consider simplistic generative models in which the true posterior distribution is well approximated using a small temporal context from the past. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BkxzQuVqnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Promising idea but lack of thorough experiments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxOIoRqFQ&amp;noteId=BkxzQuVqnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper188 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper188 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Normalizing flows provide a way for variational posteriors to go beyond the mean-field assumption and introduce correlations in the posterior for latent variables. Typically, normalizing flows are only defined for continuous distributions, and the authors tackle the issue of creating flexible variational posteriors for discrete latent models. They posit a general autoregressive posterior family for discrete variables or their continuous relaxations. In order to perform variational inference with reparameterization gradients, one needs to have a sample from their variational family and be able to evaluate the density at the sample. The obvious way to sample from this autoregressive variational family is O(T) for T the number of autoregressive time-steps. Instead, they propose a method based off fixed point iterations to compute logits in parallel based off the results of previous iterations to generate an approximate sample. Moreover, they can interpret each iteration as a volume-preserving flow, so they don't have to add any terms to the density. They also use a continuous relaxation of Bernoulli random variables so they can back-propagate through a recognition network. They use their method on synthetic calcium spike data, and show that the correlated posterior is better-suited to handle uncertainty. 
+
+This is certainly original work, and it presents it in a general way. The authors' formulation of the probabilistic model and variational family in equations 6a-7b can be extended to any autoregressive family. As the authors mention, they also do not need to work only with continuous relaxations of Bernoulli random variables, as they can extend it to categorical random variables using something like the Gumbel-Softmax/Concrete distributions.   Although the idea behind parallelizing updates is not inherently elaborate, the authors provide an interesting interpretation as a normalizing flow. 
+
+My main criticism of the paper is the experiments section. The experiments are only performed on synthetic data sets. How do the methods scale to larger data sets? The authors state that iterations of the fixed point procedure converge rapidly in practice, but it seems like it's only been evaluated on these synthetic data sets. It seems like performing K fixed point iterations fixes the dependencies to be in a window of size K, so this may perform worse in practice for models that have long temporal dependencies (or for non-temporal latent discrete random variables where the ordering is not important). 
+
+The experiments also do not seem to evaluate any held-out metrics. The experiments would be stronger by e.g. approximating the marginal held-out loss (perhaps using IWAE or otherwise), since it seems almost guaranteed that more flexible variational families should achieve a tighter bound on the training set (it's possible that there were actually held-out metrics but I missed them, in which case please let me know).
+
+Another criticism of the paper is with the clarity. The authors sometime use notation before/without defining it. For example, T is used without definition it at the beginning of page 2 and N is used without definition at the beginning of section 2.1. It makes it difficult to have intuition for the math as a result of not knowing the definitions. Even things like explicitly stating that k is a timestep index before equation 9 would be helpful. 
+
+More minor notes:
+
+-I got a lot out of Figure 1A. For Figure 1B-E, what is beta? Is there intuition for how these results change as a function of beta?
+
+-When you say Equation 8 in section 2.2 I believe you mean equation 7b.
+
+Overall, there has not been much (if any) work for correlated posterior families for discrete latent variable models, and the authors have provided a promising first step. The next step would be seeing more experimental results for a larger variety of models.
+
+PROS
+-Idea is very interesting and novel, with a nice connection to normalizing flows 
+-Underexplored area of research, promising first steps.
+
+CONS
+-Experiments should be more thorough
+-Lack of clarity made it hard to understand at certain points</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HyecyNAVhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Solid work, but the presentation is not self-contained and hard to follow</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxOIoRqFQ&amp;noteId=HyecyNAVhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper188 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper188 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper has two main contributions: 
+ 1) it extends normalizing flows to discrete settings (exploiting relaxation ideas from Jang et al and Maddison et al).
+ 2) it presents an approximate fixed-point update rule for autoregressive time-series that can exploit GPU parallelism.
+
+Overall, I think the work is solid. Contribution 1 isn't very novel, but is useful and the authors did a good job there.
+
+Contribution 2 seems more interesting, but is not as well studied. When is the fixed point update expected to work? 
+What assumptions does it imply? How does performance improve with the number of steps K? Does simulating for a finite steps emphasize the effect of early z's?
+I'm a bit surprised that the authors did not attempt to study this part of their algorithm in isolation. They make a claims 
+but never look at this in detail.
+
+That said, the authors do a good job showing the method "works", and figures 3F and 3G are particularly nice. 
+In 3G, is "autoregressive" supposed to converge to flow eventually?
+Why don't the authors also use time as the x-axis in figure 2F (like 3F)?
+
+My biggest complaint about the paper is the writing, which does not introduce and present ideas in a clear sequential 
+manner, making the paper hard to read. I realize ELBO is standard, but at least some description of the setup in equation 1 
+is warranted. What is x,z,\theta etc? Any paper should aim to be minimally self-contained. This continues throughout the paper, which does not really attempt to place the contribution in the larger literature, but rather just reports what the authors did and observed.
+
+Some more examples:
+
+Page 3: "so we need to evaluate \hat{Q}". This isn't defined. The authors should mention what \hat{Q} and \bar{Q} are.
+Similarly for P. After a couple of passes through the paragraph, I could figure what the authors meant, but they 
+should introduce the notation they use.
+
+In section 2, while defining their model, they do not mention the dimension of z_t until after equation 8
+(and even here, it has to be inferred).
+
+What is x in 6b? What is the generative model they are doing inference on?
+
+Section 2.2: it's not clear to me how convergence is defined even in the discrete case. I feel this discussion 
+also really belongs to section 2.1
+
+While I can understand what section 2.3 is trying to say, I could not really follow the notation.
+
+I could not understand figure 1E and the associated sentence in section 2.4
+
+What is the take-away of section 2.3 and 2.4? The authors seem to imply working with the discrete model is 
+better in their experiments. Maybe forewarn the reader here?
+
+The experiments are a bit hard to follow. It is inspired by a neuroscience application, but uses only simulated data. This is fine, but rather than describe the setup in mathematical/time-series language, it is complicated the with neuroscience jargon. As such, it feels disjointed and disconnected from the rest of the paper. I already complained that earlier sections do not describe the modeling setup, this is one way the paper could be improved.
+
+In figure 2A and 3A, are the s's actually z's?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

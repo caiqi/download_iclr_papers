@@ -1,0 +1,231 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Confidence Calibration in Deep Neural Networks through Stochastic Inferences | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Confidence Calibration in Deep Neural Networks through Stochastic Inferences" />
+        <meta name="citation_author" content="Seonguk Seo" />
+        <meta name="citation_author" content="Paul Hongsuck Seo" />
+        <meta name="citation_author" content="Bohyung Han" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HJz1vo0cYX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Confidence Calibration in Deep Neural Networks through Stochastic..." />
+      <meta name="og:description" content="We propose a generic framework to calibrate accuracy and confidence (score) of a prediction through stochastic inferences in deep neural networks. We first analyze relation between variation of..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HJz1vo0cYX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Confidence Calibration in Deep Neural Networks through Stochastic Inferences</a> <a class="note_content_pdf" href="/pdf?id=HJz1vo0cYX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures"><a href="/profile?email=seonguk%40snu.ac.kr" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="seonguk@snu.ac.kr">Seonguk Seo</a>, <a href="/profile?email=hsseo%40postech.ac.kr" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="hsseo@postech.ac.kr">Paul Hongsuck Seo</a>, <a href="/profile?email=bhhan%40snu.ac.kr" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="bhhan@snu.ac.kr">Bohyung Han</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Withdrawn Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=HJz1vo0cYX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We propose a generic framework to calibrate accuracy and confidence (score) of a prediction through stochastic inferences in deep neural networks. We first analyze relation between variation of multiple model parameters for a single example inference and variance of the corresponding prediction scores by Bayesian modeling of stochastic regularization. Our empirical observation shows that accuracy and score of a prediction are highly correlated with variance of multiple stochastic inferences given by stochastic depth or dropout. Motivated by these facts, we design a novel variance-weighted confidence-integrated loss function that is composed of two cross-entropy loss terms with respect to ground-truth and uniform distribution, which are balanced by variance of stochastic prediction scores. The proposed loss function enables us to learn deep neural networks that predict confidence calibrated scores using a single inference. Our algorithm presents outstanding confidence calibration performance and improves classification accuracy with two popular stochastic regularization techniques---stochastic depth and dropout---in multiple models and datasets; it alleviates overconfidence issue in deep neural networks significantly by training networks to achieve prediction accuracy proportional to confidence of prediction.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Variance-Weighted Confidence-Integrated loss, Confidence Calibration, Stochastic Regularization, Stochastic Inferences</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We propose a framework to learn confidence-calibrated networks by designing a novel loss function that incorporates predictive uncertainty estimated through stochastic inferences.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">4 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_ryeIc5T9p7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Submission Withdrawn by the Authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJz1vo0cYX&amp;noteId=ryeIc5T9p7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper227 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper227 Withdraw Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Withdrawal confirmation: </span><span class="note_content_value">I have read and agree with the withdrawal statement on behalf of myself and my co-authors.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HyxezJb037" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>CONFIDENCE CALIBRATION IN DEEP NEURAL NETWORKS THROUGH STOCHASTIC INFERENCES</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJz1vo0cYX&amp;noteId=HyxezJb037"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper227 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper227 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors propose a generic framework to calibrate predictions in deep-neural-network-based classifiers. They do this using a new variance-weighted loss function that does not introduce additional (hyper-)parameters. Results on various datasets using various architectures demonstrate how the framework result in models with well calibrated predictions, i.e., not under or overconfident probabilistic estimates of labels.
+
+In Section 3.3, \theta is, I think, not a deterministic parameter, though the authors may refer to the fact that it is learned as a point estimate.
+
+Equation (7) should be conditioned on \theta.
+
+In section 3.3, expected predictions and their variances can be approximated by MC not "calculated" as the authors write.
+
+In Figure 1 (right), the authors should use the same range for x and y axis to make more evident that the models are poorly calibrated. A diagonal line may also make the deviations from perfect calibration easier to see.
+
+In Section 4.2, the authors do not provide a theoretical justification for the choice of the variances as the weights for the loss function in (9). Other than that the proposed loss is very similar to that in (10). Also the authors do not properly justify/discuss the use of the Bhattacharyya coefficient as the variance metric or why T=5 samples are enough to get a good estimate of \alpha.
+
+The experiments although relatively extensive are not very convincing because results in Table 1 are to be expected (given CI is an average of multiple \beta values), and Table 2 shows that TS case 2 has better calibration results (ECE) than VWCI, although VWCI has in general better accuracy (at the cost of some calibration loss).
+
+It is not clear why the authors do not show calibration plots like in Figure 1(right) or Figure 4 in Guo et al, 2017.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BylXnKeRhm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Poorly written and confusing paper, albeit with an interesting and worthy aim</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJz1vo0cYX&amp;noteId=BylXnKeRhm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper227 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper227 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">I was pleased to be assigned this paper as it sounded like a worthy aim and an interesting topic. However, having attempted to read it several times, I find it hard to take anything from the paper. My first criticism is that the English in the paper is poor, which makes it hard to follow. Take the following sentence from the abstract:
+ "We first analyze relation between variation of multiple model parameters for a single example inference and variance of the corresponding prediction scores by Bayesian modeling of stochastic regularization." Despite reading this multiple times I can't make sense of it. The paper is full of sentences such as this.
+
+I had expected the paper to make more of a link to the scoring rule literature given that this is where ideas about how to score predictions, ensuring calibration of predictions etc, has been developed. The Brier score and loglikelihood are used in the results, but the link is not made explicit. The use of the word 'calibration' in this paper is different to how it is used in the scoring rule literature, which is confusing (e.g. 'NLL and Brier score are another metrics for calibration' - whereas usually we'd talk about proper scoring rules, which these both are, as assessing some combination of calibration and sharpness, where these terms are given precise meanings).
+
+The results, if I've understood them correctly, seem to be positive, but not stellar. A slight improvement is made on the baseline method, but the improvement is very minor.
+
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1l75UH53Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Behavior of the new loss at the beginning of the training and weird empirical results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJz1vo0cYX&amp;noteId=S1l75UH53Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper227 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper227 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper describes a new method to calibrate the accuracy and confidence of the prediction. The authors propose a variance-weighted confidence-integrated loss function to balance the accuracy and confidence via stochastic inference. The empirical results show the proposed method performs better than previous related methods. 
+
+Compared to the previous work Pereyra et al. (2017) and Lee et al. (2018), the novelty of this paper is to use different $\alpha_i$ for different training example instead of a global hyper-parameter $\beta$. When the variance of prediction is high, the loss weights more on the cross-entropy term with uniform distribution and when the variance of prediction is low, the loss weights more on the cross-entropy loss with ground-truth. 
+
+I wonder how this new loss works at the beginning of the training. At the beginning of the training, the variance of the prediction for most samples is high, so the new loss forces the prediction to be close to the uniform distribution. How could the model learn the prediction distribution by optimizing this loss?
+
+The new loss requires multiple forward passes in order to compute $\alpha_i$ while the previous method Eq. 10 only requires one pass. So the computational cost of the new method is $n$ times of the previous method where $n$ is the number of forward passes in the new method. It seems unfair to use the same number of epochs for the new and previous methods. I wonder what the comparison would be if training the previous method for longer.
+
+I’m not familiar with the literature of the calibration scores and cannot tell whether the improvement is significant or not. However, the test accuracy of DenseNet on CIFAR-100 is much lower than the number in Huang et al. (2016). And the new loss only achieves a significant improvement on DenseNet while the improvement is marginal on the other architectures. I wonder if the significant improvement is because of some implementation mistakes.
+
+Overall, the idea to use data-dependent weights is interesting and reasonable. However, some issues in terms of both methodology and experiments need to be clarified.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

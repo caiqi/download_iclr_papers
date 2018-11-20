@@ -1,0 +1,308 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>CBOW Is Not All You Need: Combining CBOW with the Compositional Matrix Space Model | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="CBOW Is Not All You Need: Combining CBOW with the Compositional Matrix Space Model" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=H1MgjoR9tQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="CBOW Is Not All You Need: Combining CBOW with the Compositional..." />
+      <meta name="og:description" content="Continuous Bag of Words (CBOW) is a powerful text embedding method. Due to its strong capabilities to encode word content, CBOW embeddings perform well on a wide range of downstream tasks while..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_H1MgjoR9tQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>CBOW Is Not All You Need: Combining CBOW with the Compositional Matrix Space Model</a> <a class="note_content_pdf" href="/pdf?id=H1MgjoR9tQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019cbow,    &#10;title={CBOW Is Not All You Need: Combining CBOW with the Compositional Matrix Space Model},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=H1MgjoR9tQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=H1MgjoR9tQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Continuous Bag of Words (CBOW) is a powerful text embedding method. Due to its strong capabilities to encode word content, CBOW embeddings perform well on a wide range of downstream tasks while being efficient to compute. However, CBOW is not capable of capturing the word order. The reason is that the computation of CBOW's word embeddings is commutative, i.e., embeddings of XYZ and ZYX are the same. In order to address this shortcoming, we propose a
+learning algorithm for the Continuous Matrix Space Model, which we call Continual Multiplication of Words (CMOW). Our algorithm is an adaptation of word2vec, so that it can be trained on large quantities of unlabeled text. We empirically show that CMOW better captures linguistic properties, but it is inferior to CBOW in memorizing word content. Motivated by these findings, we propose a hybrid model that combines the strengths of CBOW and CMOW. Our results show that the hybrid CBOW-CMOW-model retains CBOW's strong ability to memorize word content while at the same time substantially improving its ability to encode other linguistic information by 8%. As a result, the hybrid also performs better on 8 out of 11 supervised downstream tasks with an average improvement of 1.2%.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Text representation learning, Sentence embedding, Efficient training scheme, word2vec</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We present a novel training scheme for efficiently obtaining order-aware sentence representations.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rkxCqDVshm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>new training schemes for a matrix-multiplicative variant of CBOW </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MgjoR9tQ&amp;noteId=rkxCqDVshm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper591 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper591 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper presents new training schemes and experiments for a matrix-multiplicative variant of CBOW. This variant is called a CMSM (Yessenalina and Cardie, 2011; Asaadi and Rudolph, 2017) which swaps the bag of vectors to a product of square matrices for encoding context to incorporate word ordering. It seems this model has not been trained successfully before (at least with a simple approach) due to the vanishing gradient problem.
+
+The paper's main contributions are an initialization scheme for context matrices (to I + [N(0,0.1)]) to counter the vanishing gradient problem and a modification of the CBOW objective so that the target word is drawn uniformly at random from the context window (rather than the center word). Both are shown to improve the quality of learned representations when evaluated as sentence embeddings. Concatenating CBOW and CMSM architectures is additionally helpful. 
+
+I was not aware of the matrix-multiplicative variant of CBOW previously so it's possible that I don't have the expertise to judge the novelty of the approach. But the idea is certainly sensible and the proposed strategies seem to work. The main downside is that for all this work the improvements seem a little weak. The averaged fastText embeddings are clearly superior across the board, though as the authors say it's probably unfair to compare based on different training settings. But this doesn't hurt the simplicity and effectiveness of the proposed method when compared against CBOW baselines. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJl-95bx0X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The hybrid CBOW-CMOW model makes CBOW a more robust baseline</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MgjoR9tQ&amp;noteId=rJl-95bx0X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper591 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper591 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear reviewer,
+
+Thank you for your comments! To my understanding, your main concerns with our paper are the following:
+
+1. “fastText embeddings are clearly better than our approach.”
+2. “The improvements of the Hybrid model over CBOW are small”.
+
+I would like to address these concerns in the following.
+
+1.
+We aim at conducting a controlled study, where we have full control over the independent variables. This allows me to precisely measure the effect of our changes/extensions to the CBOW model. Therefore, our baseline is the CBOW we trained ourselves, not fastText or fastSent. We report the scores of fastText and fastSent merely to show that our models produce useful embeddings and are therefore worth studying in the first place. FastText and FastSent are NOT the baselines we compare against.
+
+Let me elaborate why the scores we report for fastText are not comparable to our approach. The scores achieved by fastText are based on the implementation by Mikolov et al. (2018). Like our baseline, fastText is based on the CBOW objective, i.e., predicting the center word from the sum of its context word embeddings. However, their model is trained on a much larger corpus (CommonCrawl, 630B tokens, vs UMBC, 3B tokens), and with a much larger vocabulary (2M words vs. 30,000 in our case). 
+
+Furthermore, the authors of fastText employ many tricks to enhance the quality of their models (word subsampling, subword-information, phrase representation, n-gram representations, etc.). For simplicity, I focus on the essential part of our models, i.e., the composition function, in order to conduct a fair and scientifically robust comparison of the performance of CBOW with my novel CMOW and finally the hybrid CBOW-CBOW-model. This makes a direct comparison with fastText very difficult, if not entirely unfair.
+
+2.
+My paper is concerned with learning universal sentence embeddings with simple word embedding methods. Averaging word embeddings already shows good performance on downstream tasks. However, one cannot really expect to obtain a "universal" sentence embedding from an encoder that is word-order agnostic like CBOW. In fact, finding some empirical evidence, Henao et al. (2018) recently hypothesized that word-order sensitivity may be the main difference of simple word aggregation methods to RNNs.
+We successfully propose a method to diminish this difference.
+Our hybrid CBOW-CMOW-model is not only able to capture word order information like RNNs. It also scores on average 8% better on the linguistic probing tasks than CBOW! Even if we disregard the benefit from BShift, the improvement is still large (~4%). From the perspective of learning linguistically informed universal sentence embeddings, this is an important result.
+
+It is true that the results on linguistic probing tasks do not transfer to the same extent to the downstream tasks, achieving an average improvement of "only" 1.2%. We have added this in the revised version of the paper. 
+We evaluate our models on the SentEval benchmark. This framework is the de facto standard for evaluating sentence embeddings, and thus we should evaluate our models this way as well. Most tasks in SentEval depend heavily on word content memorization (Conneau et al., 2018). Thus, the selection of downstream tasks rather disfavors our model, since it improves in every aspect but Word Content memorization.
+Recently, more doubt has been cast repeatedly whether the selection of tasks in SentEval is sufficient to test the generality of sentence embeddings (“Anonymous ICRL Submission”, 2018), especially their compositionality (Dasgupta et al., 2018).
+
+In summary, considering the strong results on linguistic probing tasks, and the nature of the SentEval framework, we believe that the results obtained by our hybrid CBOW-CMOW model are already strong evidence that our method produces more general, robust sentence embeddings.
+
+“Anonymous ICRL Submission”(2018): No Training Required: Exploring Random Encoders for Sentence Classification. URL: <a href="https://openreview.net/forum?id=BkgPajAcY7" target="_blank" rel="nofollow">https://openreview.net/forum?id=BkgPajAcY7</a>
+Conneau et al. (2018): What you can cram into a single vector, ACL 2018
+Dasgupta et al. (2018): Evaluating Compositionality in Sentence Embeddings, arXiv:1802.04302
+Henao et al. (2018) : Baseline Needs More Love: On Simple Word-Embedding-Based Models and Associated Pooling Mechanisms, ACL 2018
+Mikolov et al. (2018): Advances in Pre-Training Distributed Word Representations, LREC 2018
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Bkgah1-i37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a> Interesting model to embed words in a way that captures order information</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MgjoR9tQ&amp;noteId=Bkgah1-i37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper591 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper591 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+The authors propose CMOW, an extension of the CBOW model that allows the model to capture word order. Instead of each word being represented as a vector, words are represented by matrices. They extend the CBOW objective to take into account word order by replacing the averaging of vectors to create the context with matrix multiplication (a non-commutative operation). This is the first time this model has been applied in a large scale unsupervised setting. They are able to do this using their objective and an initialization strategy where the matrix embeddings are set to the identity matrix with some Gaussian noise added.
+
+The results of this paper are its main weakness. I did enjoy reading the paper, and it is nice to see some results using matrices as embeddings and matrix multiplication as a compositional function. They include a nice analysis of how word order is captured by these CMOW embeddings while CBOW embeddings capture the word content, but it doesn't seem to make much of a difference on the downstream tasks where CBOW is better than CMOW and close to the performance of the hybrid combination of CBOW and CMOW.
+
+I think it's clear that their model is able to capture word information to some extent, but other models  (RNNs etc.) can do this as well, that admittedly are more expensive, but also have better performance on downstream tasks. I think a stronger motivation for their method besides an analysis of some phenomena it captures and a slight improvement on some downstream tasks when combined with CBOW is needed though for acceptance. Could it be used in other settings besides these downstream transfer tasks?
+
+PROS:
+- introduced an efficient and stable approach for training CMSM models
+- Show that their model CMOW is able to capture word order information
+- Show that CMOW compliments CBOW and a hybrid model leads to improved results on downstream tasks. 
+
+CONS
+- The results on the hybrid model are only slightly better than CBOW. CMOW alone is mostly worse than CBOW.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkxNis-xC7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Enhancing simple word embedding models is an common, important topic of research</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MgjoR9tQ&amp;noteId=BkxNis-xC7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper591 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper591 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear reviewer,
+
+Thanks for your review! To my understanding, your main concerns with our paper are:
+
+1. “The improvements of the Hybrid model over CBOW are not large enough”
+2. “There are other, more powerful models (RNNs) that achieve much better results, so there is not enough justification.”
+
+Let me address these issues one at a time:
+
+1.
+We conducted a study in the field of learning universal sentence embeddings. Obviously, an embedding that doesn’t have a notion of word order should not be considered "universal". The goal of our research is thus to push the limits of what simple word aggregation methods are capable of encoding. Finding some empirical evidence, Henao et al. (2018) hypothesize that the main difference of simple word embedding methods to RNNs may be their inability to capture word order.
+
+We successfully propose a way to diminish that difference. Our hybrid CBOW-CMOW model is not only able to capture word order information, it scores 8% better on average on the linguistic probing tasks than CBOW. Even if we disregard the benefit from BShift, the improvement is still large (~4%). From the perspective of learning linguistically informed universal sentence embeddings, this is an important result, especially at a conference that is all about learning representations.
+
+It is true that the results on linguistic probing tasks do not transfer to the same extent to the downstream tasks, achieving an average improvement of "only" 1.2%. We have added this in the revised version of the paper. 
+We evaluate our models on the SentEval benchmark. This framework is the de facto standard for evaluating sentence embeddings, and thus we should evaluate our models this way as well. Most tasks in SentEval depend heavily on word content memorization (Conneau et al., 2018). Thus, the selection of downstream tasks rather disfavors our model, since it improves in every aspect but Word Content memorization.
+Recently, more doubt has been cast repeatedly whether the selection of tasks in SentEval is sufficient to test the generality of sentence embeddings (“Anonymous ICRL Submission”, 2018), especially their compositionality (Dasgupta et al., 2018).
+
+In summary, considering the strong results on linguistic probing tasks, and the nature of the SentEval framework, we believe that the results obtained by our hybrid CBOW-CMOW model are already strong evidence that our method produces more general, robust sentence embeddings.
+
+2.
+
+The research community in sentence embedding learning has paid a lot of attention to baselines based on word embedding aggregation methods (such as the one presented in this paper) that are conceptually simple, e.g., Henao et al. (2018), Pagliardini et al. (2018), Rueckle et al. (2018), including important work presented at ICLR (Wieting et al (2016), Arora et al. (2017).
+The reasoning is two-fold: i) Aggregated word embeddings are computationally inexpensive compared to RNNs (see Hill et al. (2016), and the measurements in our work). ii) Pushing the limits of conceptually simple encoders helps to identify the benefit introduced by more sophisticated encoders, which has also been a recurring topic of interest ( Adi et al. (2016), Conneau et al. (2018), Zhu et al. (2018), Anonymous (2018) ).
+Our paper is clearly motivated by reason i), since our method is computationally as inexpensive as CBOW. It is also motivated by reason ii): The conceptual difference between CBOW and CMOW boils down to using matrix multiplication instead of addition, followed by simple adaptations to the training procedure. Yet, these changes substantially improve the model's ability to learn linguistic properties such as word order, which were formerly left up to more sophisticated RNNs.
+
+Adi et al. (2016) : Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks, ICLR 2017
+Anonymous (2018) : No Training Required: Exploring Random Encoders for Sentence Classification. URL: <a href="https://openreview.net/forum?id=BkgPajAcY7" target="_blank" rel="nofollow">https://openreview.net/forum?id=BkgPajAcY7</a> , ICLR 2019 Submission
+Arora et al. (2017) : A Simple But Tough-to-Beat Baseline for Sentence Embeddings, ICLR 2017
+Conneau et al. (2018): What you can cram into a single vector, ACL 2018
+Henao et al. (2018) : Baseline Needs More Love: On Simple Word-Embedding-Based Models and Associated Pooling Mechanisms, ACL 2018
+Hill et al. (2016) : Learning Distributed Representations of Sentences from Unlabelled Data, NAACL 2016
+Pagliardini et al. (2018) : Unsupervised Learning of Sentence Embeddings using Compositional n-Gram Features, NAACL 2018
+Rueckle et al. (2018) : Concatenated Power Mean Word Embeddings as Universal Cross-Lingual Sentence Representations, arXiv:1803.01400
+Wieting et al. (2016) : Towards Universal Paraphrastic Sentence Embeddings, ICLR 2016
+Zhu et al. (2018) : Exploring Semantic Properties of Sentence Embeddings</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Byg69SmWhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A way to actually train sequential embedding models</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MgjoR9tQ&amp;noteId=Byg69SmWhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper591 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper591 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=Byg69SmWhQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The main contribution of this paper in practice seems to be a way to initialize the Continuous Matrix Space Model so that training actually converges, followed by a slightly different contrastive loss function used to train these models. The paper explores the pure matrix model and a mixed matrix / vector model, showing that both together improve on simpler methods on many benchmark tasks.
+
+My main concern is that the chained matrix multiplication involved in this method is not substantially simpler than an RNN or LSTM sentence encoding model, and there are no comparisons of training and inference cost between the models proposed in this paper and conceptually simpler RNNs and LSTMs. The FastSent paper, used here as a baseline, does compare against some deep models, but they choose far more complex baselines such as the NMT encoding, which is trained on a very different loss function. Indeed the models proposed here do not seem to outperform fasttext and fastsent despite having fairly similar computational costs.
+
+I think this paper could use a little more justification for when it's appropriate to use the method proposed here versus more straightforward baselines.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJe4Q3-x07" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Our model is more efficient than RNNs</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MgjoR9tQ&amp;noteId=SJe4Q3-x07"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper591 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper591 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear reviewer,
+
+Thank you for your helpful comments. From my understanding, your main critique is:
+
+1. “No comparison in terms of encoding speed with RNNs”
+2. “Our model does not yield as good performance as fastText and fastSent”
+
+Let me respond to these points one by one.
+
+1.
+We did not do compare against RNNs in terms of encoding speed, because it is already clear from the corpus of related work that embeddings from RNNs are much slower to compute than CBOW embeddings (see for instance Hill et al. (2016), to which you also refer).  Since we report that CMOW is approximately as fast as CBOW, we thought that this is clear, i.e., that our method is much more efficient than RNNs.
+
+However, it seems that this is not clear from our paper. Thus, we performed some measurements of our own and added the results to the paper (last paragraph of Discussion section). We had already reported the encoding speeds of CBOW and CMOW at test time (61k and 71k sentences per second, respectively). We also added the results of an Elman RNN in order to show that CMOW is substantially faster: In our experiments, the Elman RNN encodes 12k sentences per second, which is 5 times slower than our CMOW encoder. This corresponds almost exactly to the results also observed by Hill et al. at test time.
+
+Please note, CMOW and CBOW are based on matrix multiplication and addition, respectively, which are associative operations. As such, CMOW and CBOW have substantial parallelization capacities: For a sequence of length n, only log(n) sequential steps are required, and the rest can be computed in parallel. On the other hand, an RNN is not associative and cannot be parallelized in the same manner: It requires n sequential steps.
+
+2.
+First, I would like to point out that our Hybrid method DOES outperform the results from fastSent on all supervised datasets that they report results on. On TREC and MRPC, the differences are even as large as 14.1% and 8.3% improvement, respectively.
+
+However, the training settings are too different to be considered fair, which we point out in the paper repeatedly: FastSent is trained on a corpus that is three times smaller (1B tokens vs 3B tokens in our case).
+It is important to understand that we do not consider fastSent as a baseline to directly compare to. We report their results merely to show that our methods (which perform better than fastSent) produce embeddings that are reasonably useful.
+The same holds for fastText: This was trained on a much larger corpus than our methods (600B tokens as opposed to 3B tokens) and its vocabulary has 2M words as opposed to 30k in our case. Hence, again, this comparison is by no means fair. 
+We perform a controlled study which allows us to identify exactly where the differences in performance come from. Hence, the only direct baseline is the CBOW model from our paper.
+
+Hill et al. (2016) : Learning Distributed Representations of Sentences from Unlabelled Data, NAACL 2016</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1eTBddx0X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>response to author response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MgjoR9tQ&amp;noteId=H1eTBddx0X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper591 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper591 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">After reading the author response I'm revising my scores upward.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

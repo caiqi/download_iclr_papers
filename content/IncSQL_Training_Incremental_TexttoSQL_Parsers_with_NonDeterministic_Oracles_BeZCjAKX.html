@@ -1,0 +1,247 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>IncSQL: Training Incremental Text-to-SQL Parsers with Non-Deterministic Oracles | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="IncSQL: Training Incremental Text-to-SQL Parsers with Non-Deterministic Oracles" />
+        <meta name="citation_author" content="Tianze Shi" />
+        <meta name="citation_author" content="Kedar Tatwawadi" />
+        <meta name="citation_author" content="Kaushik Chakrabarti" />
+        <meta name="citation_author" content="Yi Mao" />
+        <meta name="citation_author" content="Oleksandr Polozov" />
+        <meta name="citation_author" content="Weizhu Chen" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=B1eZCjA9KX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="IncSQL: Training Incremental Text-to-SQL Parsers with..." />
+      <meta name="og:description" content="We present a sequence-to-action parsing approach for the natural language to SQL task that incrementally fills the slots of a SQL query with feasible actions from a pre-defined inventory. To..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_B1eZCjA9KX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>IncSQL: Training Incremental Text-to-SQL Parsers with Non-Deterministic Oracles</a> <a class="note_content_pdf" href="/pdf?id=B1eZCjA9KX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures"><a href="/profile?email=tianze%40cs.cornell.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="tianze@cs.cornell.edu">Tianze Shi</a>, <a href="/profile?email=kedart%40stanford.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="kedart@stanford.edu">Kedar Tatwawadi</a>, <a href="/profile?email=kaushik%40microsoft.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="kaushik@microsoft.com">Kaushik Chakrabarti</a>, <a href="/profile?email=maoyi%40microsoft.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="maoyi@microsoft.com">Yi Mao</a>, <a href="/profile?email=polozov%40microsoft.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="polozov@microsoft.com">Oleksandr Polozov</a>, <a href="/profile?email=wzchen%40microsoft.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="wzchen@microsoft.com">Weizhu Chen</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Withdrawn Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We present a sequence-to-action parsing approach for the natural language to SQL task that incrementally fills the slots of a SQL query with feasible actions from a pre-defined inventory. To account for the fact that typically there are multiple correct SQL queries with the same or very similar semantics, we draw inspiration from syntactic parsing techniques and propose to train our sequence-to-action models with non-deterministic oracles. We evaluate our models on the WikiSQL dataset and achieve an execution accuracy of 83.7% on the test set, a 2.1% absolute improvement over the models trained with traditional static oracles assuming a single correct target SQL query. When further combined with the execution-guided decoding strategy, our model sets a new state-of-the-art performance at an execution accuracy of 87.1%.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">semantic parsing, non-deterministic oracles, natural language to SQL, incremental parsing, sequence prediction</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We design incremental sequence-to-action parsers for text-to-SQL task and achieve SOTA results. We further improve by using non-deterministic oracles to allow multiple correct action sequences. </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">4 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SJg9wnNS6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Submission Withdrawn by the Authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1eZCjA9KX&amp;noteId=SJg9wnNS6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper866 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper866 Withdraw Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Withdrawal confirmation: </span><span class="note_content_value">I have read and agree with the withdrawal statement on behalf of myself and my co-authors.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJe_xx-anm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>would like to see the authors spend more time in (a) core contribution and (b) fairer evals.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1eZCjA9KX&amp;noteId=HJe_xx-anm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper866 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper866 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This work proposes to use 'non-deterministic oracles' during training seq2seq models for converting natural language queries to SQL counterparts. The authors show better performance on wikisql dataset to 87.1%.
+
+- The authors main contribution is section 4 which i found to be very superficially discussed. 
+  (a) I would've liked to see more details on how the set "O" is constructed/implemented,
+  (b) How can set O detect some non-trivial invalid continuation actions like "x &gt;= 10 and x &lt;= 5", is this outside the scope ?
+  (c) the beam search decoding of correct sqls seems like it can be applied to any seq2seq model, I am not able to see the novelty of this.
+  
+- Evaluation
+  (a) The authors could've presented comparison with other work they cite, including (Zhong et al., 2017) and (Xu et al., 2017). The authors claims for not comparing - such as lowering optimization stability/increases training time does not look valid since the authors do not claim to have better optimization stability/lower training time.
+  (b) The author's trick of adding ANYCOL (and converting to disjunctions) increases the expressive power of the SQL, was this applied to other work as well ?
+  
+  
+For acceptance, 
+- the author's core contribution in defining the non-deterministic oracles, what are the constraints, what is in-scope vs out-of-scope needs to be clearly detailed.
+- the evaluation needs to be (a) better in comparing against more recent work, (b) more fair in including ANYCOL to other work and (c) have a separate metric that discusses how the new contribution of oracles helps lower inconsistent SQL output.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rkeGhZJo3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Impressive result by combining existing ideas, but novelty in the algorithm is limited</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1eZCjA9KX&amp;noteId=rkeGhZJo3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper866 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper866 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a state-of-the-art model on natural language to SQL task evaluated on the WikiSQL dataset and a subset of ATIS. The model combines several ideas, such as non-deterministic oracle, execution-guided strategy, cross attention between column names and question, and the introduction of “ANYCOL” symbol to augment the meaning representation. The main proposal is to use non-deterministic oracle to help with the “order-matters” issue. The evaluation on WikiSQL is solid but doesn’t strongly support the claim about non-deterministic oracle. More specific comments below. 
+
+The paper is well written. The model architecture and the techniques applied are clear and easy to follow. 
+
+Despite the impressive result, my main concern is with the novelty. As the use of non-deterministic oracle seems to be a straightforward application of the idea from (Goldberg &amp; Nivre, 2013), and doesn’t seem to make a significant difference. It is the use of “ANYCOL” that makes a bigger improvement, which, however, seems to be an augmentation of the meaning representation instead of an innovation in the learning algorithm. The result on the subset of ATIS helps, but it is less solid than the evaluation on WikiSQL because the dataset is too small (only 126 examples in the test set) and there are no external baselines. 
+
+Overall, the paper is clear and the state-of-the-art result on WikiSQL is impressive, but the innovation in terms of the learning algorithm is limited and doesn’t seem to contribute much to the result. So the merits of this paper might be more suited for NLP venues. 
+
+One clarification question: 
+one page 4, “where r^A_a is a vector representation of the action a … as the concatenation of the action embedding and the parameter representation”. What does the "parameter representation" refer to here? 
+
+Missing references: 
+
+The introduction discussed weakly supervised approach in “Without paired natural language statement…". Several weakly supervised approaches were applied before on semantic parsing over tables (Pasupat &amp; Liang, 2015) and a recent work (Liang et al., 2018) actually applied the weakly supervised approach to the WikiSQL dataset, which are worth mentioning. 
+
+Panupong Pasupat, Percy Liang, Compositional Semantic Parsing on Semi-Structured Tables, Association for Computational Linguistics (ACL), 2015
+
+Chen Liang, Mohammad Norouzi, Jonathan Berant, Quoc Le, Ni Lao, Memory Augmented Policy Optimization for Program Synthesis and Semantic Parsing, NIPS 2018</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ByxoCCTN2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The main novelty claim is not valid: non-deterministic oracles have been previous used for incremental semantic parsing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1eZCjA9KX&amp;noteId=ByxoCCTN2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper866 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper866 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes the use of non-deterministic oracles, also known as dyamic oracles or expert policies for incremental text2sql parsing, a kind of semantic parsing task. However this has been done by a number of authors:
+
+- Vlachos and Clark (2014): <a href="http://www.aclweb.org/anthology/Q14-1042" target="_blank" rel="nofollow">http://www.aclweb.org/anthology/Q14-1042</a>
+- Berant and Liang (2015): https://nlp.stanford.edu/pubs/berant-liang-tacl2015.pdf
+
+while the idea of using such oracles for structured prediction tasks in NLP was first proposed by Daume III et al. 2009:
+https://arxiv.org/abs/0907.0786
+
+Furthermore, it has been applied for RNN decoding in NLP, see: 
+https://arxiv.org/abs/1511.06732
+
+Apart from this, some further comments:
+- The subset of SQL tackled in this paper is less expressive than what has been done in previous work on ATIS and GeoQuery datasets. The claim about the high diversity of WikiSQL dataset used should be supported with evidence from the data.
+- The results on ATIS are not compared against any of the numerous works on it, so it is impossible to appreciate them. Luke Zettlemoyer has done a lot of work on this dataset, a comparison should be possible.
+- If the only reason the predicted query doesn't match the gold is the ordering of the columns, this should be straightforward to handle programmatically. Execution match can mask incorrect queries, eg. adding further conditions that were not expressed in language but didn't affect the results of the execution would be forgiven.
+- It is odd that the full oracle doesn't really work without the execution graph.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

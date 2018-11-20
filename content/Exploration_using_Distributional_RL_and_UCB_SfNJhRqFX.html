@@ -1,0 +1,277 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Exploration using Distributional RL and UCB | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Exploration using Distributional RL and UCB" />
+        <meta name="citation_author" content="Borislav Mavrin" />
+        <meta name="citation_author" content="Hengshuai Yao" />
+        <meta name="citation_author" content="Linglong Kong" />
+        <meta name="citation_author" content="ShangtongZhang" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=S1fNJhRqFX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Exploration using Distributional RL and UCB" />
+      <meta name="og:description" content="    We establish the relation between Distributional RL and the Upper Confidence Bound (UCB) approach to exploration.&#10;      In this paper we show that the density of the Q function estimated by..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_S1fNJhRqFX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Exploration using Distributional RL and UCB</a> <a class="note_content_pdf" href="/pdf?id=S1fNJhRqFX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures"><a href="/profile?email=mavrin%40ualberta.ca" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="mavrin@ualberta.ca">Borislav Mavrin</a>, <a href="/profile?email=hengshuai.yao%40huawei.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="hengshuai.yao@huawei.com">Hengshuai Yao</a>, <a href="/profile?email=lkong%40ualberta.ca" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="lkong@ualberta.ca">Linglong Kong</a>, <a href="/profile?email=zhangshangtong.cpp%40gmail.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="zhangshangtong.cpp@gmail.com">ShangtongZhang</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Withdrawn Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">    We establish the relation between Distributional RL and the Upper Confidence Bound (UCB) approach to exploration.
+    In this paper we show that the density of the Q function estimated by Distributional RL can be successfully used for the estimation of UCB. This approach does not require counting and, therefore, generalizes well to the Deep RL. We also point to the asymmetry of the empirical densities estimated by the Distributional RL algorithms like QR-DQN. This observation leads to the reexamination of the variance's performance in the UCB type approach to exploration. We introduce truncated variance as an alternative estimator of the UCB and a novel algorithm based on it. We empirically show that newly introduced algorithm achieves better performance in multi-armed bandits setting. Finally, we extend this approach to high-dimensional setting and test it on the Atari 2600 games. New approach achieves better performance compared to QR-DQN in 26 of games, 13 ties out of 49 games.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Distributional RL, UCB, exploration, Atari 2600, multi-armed bandits</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Exploration using Distributional RL and truncagted variance.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rylPH1QP6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Submission Withdrawn by the Authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1fNJhRqFX&amp;noteId=rylPH1QP6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper979 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper979 Withdraw Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Withdrawal confirmation: </span><span class="note_content_value">I have read and agree with the withdrawal statement on behalf of myself and my co-authors.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Byg_T9BTnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Exploration using Distributional RL and UCB</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1fNJhRqFX&amp;noteId=Byg_T9BTnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper979 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper979 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary:
+========
+The paper presents an RL method to manage exploration-exploitation trade-offs via UCB
+techniques. The main idea appears to be that quantile regression can be used to construct
+tighter upper confidence bounds which give rise to better performance. The authors
+demonstrate their method on a synthetic multi-armed bandit problem and the Atari games.
+
+I don't think the methodological and technical contributions are significant enough to
+warrant acceptance. Moreover, the presentation of the paper needs to be improved.
+
+
+
+Detailed Comments
+=================
+
+I see two main issues with the proposed method.
+1. First, the fact that the authors are attempting to recover the entire pdfs of the
+reward distributions - the sample complexity for estimating pdfs (or quantilies) is
+significantly more than what is required to recover the optimal arm. In that sense, the
+proposed method runs counter to theoretical work in the MAB literature.
+2. Once you estimate the quantiles/pdfs, there really is no reason to use the
+ "mean + constant * std" form for the UCB anymore - you can directly use the pdf to
+ discard a low probability region.
+
+
+Many design choices are made in a very ad hoc manner with only (if any) speculative
+justification. Some examples,
+- Many of the statements in the para starting "In the case of UCB type ..."
+- The quantity \sigma^2_+ and in particular, the use of the median and not the mean
+
+
+Other:
+- Page 1: In the RL setting, an arm corresponds to a state-action pair ... : this
+  statement needs justification. The naive way to treat n RL problem as a MAB problem is
+  to treat all sequences of actions as an arm.
+- If you are repeating algorithms for other work (e.g. Algorithm 1), include the citation
+  there.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hyx_VofvTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1fNJhRqFX&amp;noteId=Hyx_VofvTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper979 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper979 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1. In the setting of bandits/RL with features representing arms/(state, actions) the baseline choice of the location estimator would be linear regression. Quantile regression has comparable efficiency to least squares linear regression in Gaussian error case and better efficiency with non Gaussian error distributions as shown in Koenker, Roger, and Gilbert Bassett Jr. "Regression quantiles." Econometrica: journal of the Econometric Society (1978): 33-50.
+
+2. We make use of mean + schedule * std since the pdf has a mixture of intrinsic and parametric uncertainties. As agent learns parametric uncertainty drops, however intrinsic uncertainty stays (if any). Therefore, decaying schedule allows to use parametric uncertainty in the beginning and avoid relying on the intrinsic uncertainty in the later.
+
+Design choices:
+- Not sure what is exactly meant by  " Many of the statements in the para starting 'In the case of UCB type ...'"
+- We explicitly state on page 5 that we chose median over mean due to well known robustness of the former.
+
+Other:
+-  We agree with that - sentence should be removed completely
+- Will do</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HJl_ONGih7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting results, but somewhat lacking in novelty</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1fNJhRqFX&amp;noteId=HJl_ONGih7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper979 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper979 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors propose a method to use the distribution learned by Quantile Regression (QR) DQN (Dabney et al.) for exploration. This is accomplished by computing an estimate of the variance from the QR value function and using this as an exploration bonus for generating actions, in place of the usual epsilon-greedy strategy.
+
+The novelty of this method is somewhat low and a few parts of the algorithm and their uses are unclear. From the text of the paper it seems like the authors are using this exploration bonus for action selection and the update “remains the same”. However in Algorithm 3 the update for the value function has been modified to include this bonus in the Bellman update (line 2).
+
+It is also somewhat unclear that this is the right approach to take for exploration, and the authors do not discuss this fact. QR-DQN provides an update for which the learned distribution will converge towards the inherent distribution of values due to the noise in the environment. However, there is no guarantee (e.g. with high probability) that the intermediate values will upper bound the true value. Further, it is possible that this leads to an agent that becomes “addicted to noise”. IE since this should converge to the true noise of the system an agent may continue to revisit states that are “uncertain” only due to irreducible noise from the environment.
+
+Finally, the authors provide a somewhat odd presentation of UCB-style algorithms. There is an odd distinction made between the “optimism in the face of uncertainty” approach and the optimistic setting of Sutton et al. These algorithms differ, but are fundamentally related via the optimism line of reasoning. Further, approaches based on optimism in this way go back to Lai and Robbins (1985) and are not necessarily based on Hoeffdings Inequality, but rather the more general idea of a high-probability bound on the value. Finally, the authors also give great weight to asymmetry in their introduction of the variance, however this overlooks the frequent use of so-called “one sided” bounds.
+
+Overall, this approach does have some interesting results, however it is a relatively simple modification of QR-DQN, and it is unclear that it is more generally applicable. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJgXeTGwT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1fNJhRqFX&amp;noteId=SJgXeTGwT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper979 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper979 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1. Algorithm 3 line 2 is not the update, it is action selection. Line 3 is the update exactly as in the "Dabney, Will, et al. "Distributional reinforcement learning with quantile regression." arXiv preprint arXiv:1710.10044 (2017)."
+
+2. Good point, that's the reason for c_t term in the algorithm. In the experiments we used decaying c_t as defined on page 7. We admit that we didn't make it clear that the decaying schedule allows agent to avoid being 'addicted to noise'. Estimated PDF has a mixture of intrinsic and parametric uncertainties. As agent learns parametric uncertainty drops, however intrinsic uncertainty stays (if any). Therefore, decaying schedule allows to use parametric uncertainty in the beginning and avoid relying on the intrinsic uncertainty in the later.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BkxGNwYV3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The reviewer does not understand why equation 2 solves the exploration-exploitation tradeoff.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1fNJhRqFX&amp;noteId=BkxGNwYV3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper979 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper979 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes new algorithms (QUCB and QUCB+) to handle the exploration exploitation tradeoff in Multi-Armed Bandits and more generally in Reinforcement Learning. The first idea of the paper is to use an Upper Confidence Bound based on the variance estimation rather than an exploration factor based on a concentration inequality such as Hoeffding inequality. The variance estimation is done using Quantile Regression. The second idea of the paper is to adapt the proposed algorithm, QUCB, to the case of asymmetrical distributions. \sigma+ is defined as the standard deviation of the quantiles higher than the median,. \sigma+ isused in place of \sigma in QUCB. Synthetic experiments are done for MAB, and Atari game are used to test DQN-UCB+ for RL.
+
+Major concern:
+
+The authors claim that the main advantage of QUCB is that no counter is needed to evaluate the Upper Confidence Bound, and therefore that QUCB can be used in RL where the number of state-action pairs is too high to be stored. Indeed, QUCB does not use counts on the number of times each action has been selected. However, the upper confidence bound that is used in QUCB (see eq 2, line 5 of algorithm 2) is not optimistic in face of uncertainty but reckless: the arm, that is selected, is the arm with the highest mean plus standard deviation.  The reviewer understands that to obtain an accurate estimate of means, the arms with high variance need to be sampled more than the arms with low variance, as in UCB-V.  The reviewer does not understand why equation 2 solves the exploration-exploitation tradeoff. No theoretical analysis of the algorithm is given. No convincing arguments are provided. At a minimum, 
+1/ the authors have to explain why it could work. May be based on Chebyshev's inequality or Follow the Perturbed Leader ?
+2/ QUCB has to be compared with UCB (Auer et al 2002) in the experiments.
+3/ The variance and/or the distribution of arms have to be different in the experiment. Notably it could be interesting to launch an experiment where the best arm has a low variance while the worst arm has an high variance.
+
+
+Minor concerns:
+
+Theorem 1 is not used in QUCB, so I suggest removing it.
+q_j is not defined and not initialized in algorithm 1 and 3. 
+c_t is not defined in algorithm 3. 
+The right reference for UCB is Finite Time Analysis of the Multi-Armed Bandit Problem, P. Auer, N. Cesa-Bianchi, P. Fischer, 2002.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJxH-Jmwa7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1fNJhRqFX&amp;noteId=rJxH-Jmwa7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper979 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper979 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Line 5 of algorithm 2 has the schedule multiplier c_t. Estimated PDF has a mixture of intrinsic and parametric uncertainties. As agent learns parametric uncertainty drops, however intrinsic uncertainty stays (if any). Therefore, decaying schedule allows to use parametric uncertainty in the beginning and avoid relying on the intrinsic uncertainty in the later. In fact we ran the experiments where the best arm has rewards follows Normal(0, 1) and other arms follow N(0, 5). Due to the decaying schedule the algorithm is able to perform well.
+
+As per 'Minor concerns':
+good points, will do.e</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

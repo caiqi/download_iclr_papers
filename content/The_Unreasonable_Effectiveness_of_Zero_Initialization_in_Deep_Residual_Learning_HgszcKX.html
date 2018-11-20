@@ -1,0 +1,438 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>The Unreasonable Effectiveness of (Zero) Initialization in Deep Residual Learning | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="The Unreasonable Effectiveness of (Zero) Initialization in Deep Residual Learning" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=H1gsz30cKX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="The Unreasonable Effectiveness of (Zero) Initialization in Deep..." />
+      <meta name="og:description" content="Normalization layers are a staple in state-of-the-art deep neural network architectures. They are widely believed to stabilize training, enable higher learning rate, accelerate convergence and..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_H1gsz30cKX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The Unreasonable Effectiveness of (Zero) Initialization in Deep Residual Learning</a> <a class="note_content_pdf" href="/pdf?id=H1gsz30cKX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019the,    &#10;title={The Unreasonable Effectiveness of (Zero) Initialization in Deep Residual Learning},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=H1gsz30cKX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Normalization layers are a staple in state-of-the-art deep neural network architectures. They are widely believed to stabilize training, enable higher learning rate, accelerate convergence and improve generalization, though the reason for their effectiveness is still an active research topic. In this work, we challenge the commonly-held beliefs by showing that none of the perceived benefits is unique to normalization. Specifically, we propose ZeroInit, an initialization motivated by solving the exploding and vanishing gradient problem at the beginning of training by initializing as a zero function. We find training residual networks with ZeroInit to be as stable as training with normalization - even for networks with 10,000 layers. Furthermore, with proper regularization, ZeroInit without normalization matches or exceeds the performance of state-of-the-art residual networks in image classification and machine translation.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">deep learning, residual networks, initialization</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">All you need to train deep residual networks is a good initialization; normalization layers are not necessary.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">15 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SygoSH1b0m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Code release</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=SygoSH1b0m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Will you release the code for this paper? This would be helpful for reproducibility.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1e_BZjmpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Prior work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=H1e_BZjmpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi,
+
+This is an interesting paper. How would you compare your method to the method in [1] setting gamma=0 for every batchnorm going back to the main branch? On the surface the techniques look very similar and the authors in [1] also noted that such initialization improves optimization at the beginning of training.
+
+[1] Goyal et al.  Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJgkrvsDpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>comparison with prior work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=HJgkrvsDpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1297 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi, thanks for your interest and pointer to related work! Goyal et al. (2017) made a great observation, however setting gamma=0 for the last batchnorm is not sufficient for training without using a normalization method. As we explain in the paper, only setting the residuals to zero, the Step 1 of our method, will still result in explosion after a few steps. This is why our method requires Step 2 to lead to reliable convergence in all cases we tested.
+
+We summarize some key differences in the following, and also provide a detailed account of why the alternative method of setting gamma=0 would not work. For detailed justifications about Step 1 &amp; 2, please refer to our "general reply (2)" to AnonReviewer1.
+
+The critical insight for our design is that, we would like to ensure the norm of the update to each residual branch function to be O(eta/L) per each step where eta is the maximal learning rate and L is the number of residual branches, hence ensuring the logits do not blow up after O(1/eta) steps. As we show in the updated version, a scalar ResNet model may help understand the argument.
+
+Step 2, combined with Step 1, ensures each SGD step updates the residual branch function by O(eta/L) so that the whole network is updated by O(eta). This is the most important component of our method and also distinguishes it from all previous work.
+
+Why simply setting gamma=0 does not work:
+
+Suppose the affine layers in batchnorm is preserved while the normalization layers are removed, and suppose we set gamma=0 in the last affine layer of each residual branch. What will happen in the first SGD update? By chain rule and Kaiming initialization, one can show that the gamma(s) in the last affine layer of each residual branch will get an update of O(eta), whereas the other layers in the residual branch get no updates. It then follows that each residual branch is a function of scale O(eta) after the first SGD update. Furthermore, we can show that all the residual branches are highly correlated after one update, resulting in output logits of O(1 + eta*L) scale, which leads to gradient explosion if L is large and eta is not small, as shown in our analysis.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1eV6OUGpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Tensorflow implementation of resnet already has zero initialization by default; Comment on prior works</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=H1eV6OUGpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear authors.
+
+Thanks for an interesting paper. Incidentally, in the current resnet implementation (at least in TPU) in Tensorflow, the last batchnorm going back into the main branch as \gamma initialized to 0, which I believe achieves a similar effect to what you are doing here, at least from an initialization perspective. This has been around since February of this year.
+
+<a href="https://github.com/tensorflow/tpu/blob/master/models/official/resnet/resnet_model.py#L219" target="_blank" rel="nofollow">https://github.com/tensorflow/tpu/blob/master/models/official/resnet/resnet_model.py#L219</a>
+
+Is the resnet in your experiments initialized like so? If not, how does such initialization compare to your initialization (without BN)?
+
+In addition, please correct me if I'm mistaken, but the theoretical analysis of variances in this paper seems to have been done (quite thoroughly) in Yang &amp; Schoenholz 2017 and Hanin &amp; Rolnick 2018, where the theory in the former works for any nonlinearity and predicts the empirical results (for tanh and relu) highly accurately, while the latter mathematically characterizes the activation dynamics. The former paper is missing in the citation, while the latter only gets a passing mention. Could you comment on the novelty of the derivation in the current work and why it's not enough to use results from these two papers?
+
+Yang &amp; Schoenholz 2017 https://arxiv.org/abs/1712.08969
+Hanin &amp; Rolnick 2018 http://arxiv.org/abs/1803.01719
+
+Thanks, and looking forward to your reply.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1lgruiDa7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>comparison with prior methods and theoretical work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=B1lgruiDa7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1297 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi, thanks for your interest and pointer to related work! We believe that both our method and the theoretic analysis contain substantial novelty. 
+
+A comparison with the gamma=0 alternative:
+
+For the batchnorm implementation, as the other comment pointed out, the suggestion of setting gamma=0 in the last batchnorm dates back at least to (Goyal et al., 2017). We agree that it is a great observation. However, setting gamma=0 for the last batchnorm is not sufficient for training without using a normalization method. As we explain in the paper, only setting the residuals to zero, the Step 1 of our method, will still result in explosion after a few steps. This is why our method requires Step 2 to lead to reliable convergence in all cases we tested.
+
+We summarize some key differences in the following, and also provide a detailed account of why the alternative method of setting gamma=0 would not work. For further information, please also refer to our reply to AnonReviewer1.
+
+The critical insight for our design is that, we would like to ensure the norm of the update to each residual branch function to be O(eta/L) per each step where eta is the maximal learning rate and L is the number of residual branches, hence ensuring the logits do not blow up after O(1/eta) steps. As we show in the updated version, a scalar ResNet model may help understand the argument.
+
+Step 2, combined with Step 1, ensures each SGD step updates the residual branch function by O(eta/L) so that the whole network is updated by O(eta). This is the most important component of our method and also distinguishes it from all previous work.
+
+For example, suppose the affine layers in batchnorm is preserved while the normalization layers are removed, and suppose we set gamma=0 in the last affine layer of each residual branch. What will happen in the first SGD update? By chain rule and Kaiming initialization, one can show that the gamma(s) in the last affine layer of each residual branch will get an update of O(eta), whereas the other layers in the residual branch get no updates. It then follows that each residual branch is a function of scale O(eta) after the first SGD update. Furthermore, we can show that all the residual branches are highly correlated after one update, resulting in output logits of O(1 + eta*L) scale, which leads to gradient explosion if L is large and eta is not small, as shown in our analysis.
+
+A comparison with related theoretic work:
+
+First, we thank you for bringing (Yang &amp; Schoenholz 2017) to our attention. We appreciate the depth and mathematical skills demonstrated in both works, and agree that our analysis does not apply to arbitrary activation functions. That said, we would like to emphasize that our analysis excels in three aspects when compared with related work: general, realistic and simple. We now explain below:
+
+Generality:
+
+We only make two assumptions: (1) positive homogeneity and (2) weight distribution of the fully-connected layer. No other assumptions about the network structure is made (in particular, our analysis applies to (i) both the basic residual block and the bottleneck residual block; (ii) both the original version and the pre-activation version). No assumption about the distribution of other weights is made (in particular, our analysis applies to orthogonal initialization as well as data-dependent initialization).
+
+In contrast, Yang &amp; Schoenholz (2017) only analyzed what they called the "reduced residual network" and the "full residual network", both of which only contains one activation function per each residual branch, hence does not apply to the usual 2-layer block or the bottleneck structure. Their analysis also requires both (Axiom 3.1) symmetry of activation and gradients and (Axiom 3.2) gradient independence. Finally, their analysis does not include convolutional layers, which are a crucial element of practical networks.
+
+Reality:
+
+With our general and mild assumptions, our analysis directly applies to the models and algorithms people implement.
+
+In contrast, the gradient independence assumption (Axiom 3.2) in (Yang &amp; Schoenholz 2017) requires the forward and backward process to be fully decoupled, which is not the case for the networks that are used in practice.
+
+Simplicity:
+
+In addition to applying to real-world networks, our proof technique is simple and only involves basic probability and calculus. Our proof length is less than one page. In contrast, the proofs in (Yang &amp; Schoenholz 2017) involve intricate algebraic manipulations and advanced math topics such as the mean field theory, and often span multiple pages.
+
+We would like to note that by all means we sincerely respect the works of (Yang &amp; Schoenholz 2017) and (Hanin &amp; Rolnick 2018), and will discuss their contributions in the revised paper. On the other hand, we also believe that simple and general theories such as our analysis are good things to have and to build upon.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SyeHla6K37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting, but unsure about the impact</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=SyeHla6K37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1297 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1297 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes an exploration of the effect of normalization and initialization in residual networks. In particular, the Authors propose a novel way to initialize residual networks, which is motivated by the need to avoid exploding/vanishing gradients. The paper proposes some theoretical analysis of the benefits of the proposed initialization. 
+
+I find the paper well written and the idea well executed overall. The proposed analysis is clear and motivates well the proposed initialization. Overall, I think this adds something to the literature on residual networks, helping the reader to get a better understanding of the effect of normalization and initialization. I have to admit I am not an expert on residual networks, so it is possible that I have overlooked at previous contributions from the literature that illustrate some of these concepts already. Having said that, the proposal seems novel enough to me. 
+
+Overall, I think that the experiments have a satisfactory degree of depth. The only question mark is on the performance of the proposed method, which is comparable to batch normalization. If I understand correctly, this is something remarkable given that it is achieved without the common practice of introducing normalizations. However, I have not found a convincing argument against the use of batch normalization in favor of ZeroInit. I believe this is something to elaborate on in the revised version of this paper, as it could increase the impact of this work and attract a wider readership. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJeS4HjvpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Comparison with previous work; practical implications</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=BJeS4HjvpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1297 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer2, we appreciate your encouraging review and valuable suggestions. We hope to address your questions below:
+
+1. The reviewer hopes to know if "previous contributions from the literature" have similar concepts. 
+
+We listed related work we knew of by the time of paper submission. After submission, we did find more related work. Indeed, some previous works propose to initialize the residual branches in a way such that the network output variance is independent of depth, which is a necessary but not sufficient condition for training very deep residual networks, as we show in the updated version.
+
+However, none of the related work observes that the residual branches should be initialized in a way such that its update is O(eta/L) per SGD step, where eta is the maximal global learning rate and L is the total number of residual branches. This ensures the network has an update of O(eta) per SGD step, which we find is a sufficient condition for training to proceed as fast as batch normalization.
+
+2. The reviewer has not found a "convincing argument against the use of batch normalization".
+
+Even if a practitioner continues to use batch normalization, we argue that this work helps understand how BatchNorm improves training.
+
+And for several tasks, batch normalization is not applicable or at least no preferable. Our method holds promise in many of these different tasks. For example, batch normalization is not used in many natural language tasks, where the state-of-the-art models use layer normalization (Vaswani et al., 2017), whereas we show our method can match or supercede its performance. In image super-resolution, it is recently shown that training without batch normalization improves performance (Lim et al., 2017); our method could possibly help achieve further improvement. In image style transfer, instance normalization is currently the standard technique (Ulyanov et al., 2016; Zhu et al., 2017); our method could possibly help as well. In semantic segmentation task, although batch normalization is found useful, its batchsize requirement put a severe constraint on the model size and the parallelizability of training, resulting in heavy burden of cross-GPU communication (Peng et al., 2017); hence using ZeroInit in combination with other regularization may be preferable. In image classification problems, current evidences are still in favor of batch normalization; however, as our method removes the necessity of using batch normalization in training and exposes the severe overfitting problem, future exploration of regularization methods that supersede batch normalization is possible. 
+
+References:
+[1] Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, Ł. and Polosukhin, I., (2017). Attention is all you need. In Advances in Neural Information Processing Systems (pp. 5998-6008).
+[2] Lim, B., Son, S., Kim, H., Nah, S., &amp; Lee, K. M. (2017, July). Enhanced deep residual networks for single image super-resolution. In The IEEE conference on computer vision and pattern recognition (CVPR) workshops (Vol. 1, No. 2, p. 4).
+[3] Dmitry Ulyanov, Andrea Vedaldi, Victor Lempitsky. (2016). Instance Normalization: The Missing Ingredient for Fast Stylization
+[4] Zhu, J. Y., Park, T., Isola, P., &amp; Efros, A. A. (2017). Unpaired image-to-image translation using cycle-consistent adversarial networks. arXiv preprint.
+[5] Peng, C., Xiao, T., Li, Z., Jiang, Y., Zhang, X., Jia, K., ... &amp; Sun, J. (2017). Megdet: A large mini-batch object detector. arXiv preprint arXiv:1711.07240, 7.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1gTIYutnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The method presented is partially based on interesting observations, and it obtains good empirical results (tough not better than competition in general). However, the presentation is somewhat misleading: the method includes normalization elements not discussed, and some of its components are not justified and not tested empirically in isolation.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=r1gTIYutnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1297 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1297 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary: 
+A method is presented for initialization and normalization of deep residual networks. The method is based on interesting observations regarding forward and backward explosion in such networks with the standard Xavier or (He, 2015) initializations. Experiments with the new method show that it is able to learn with very deep networks, and that its performance is on a par with the best results obtained by other networks with more explicit normalization.
+Advantages:
+-	The paper includes interesting observations, resulting in two theorems,  which show the sensitivity of traditional initializations in residual networks
+-	The method presented seems to work comparable to other state of the art initialization + normalization methods, providing overall strong empirical results. 
+Disadvantages:
+-	The authors claim to suggest a method without normalization, but the claim is misleading: the network has additive and multiplicative normalization nodes, and their function and placement is at least as ‘mysterious’  as the role of normalization in methods like batch and layer normalization.
+o	This significantly limits the novelty of the method: it is not ‘an intialization’ method, but a combination of initialization and normalization, which differ from previous ones in some details. 
+-	The method includes 3 components, of which only one is justified in a principled manner. The other components are not justified neither by an argument, nor by experiments. Without such experiments, it is not clear what actually works in this method, and what is not important.
+-	The argument for the ‘justified’ component is not entirely clear to me. The main gist is fine, but important details are not explained so I could not get the entire argument step-by-step. This may be a clarity problem, or maybe indicate deeper problem of arbitrary decisions made without justification – I am not entirely sure. Such lack of clear argumentation occurs in several places
+-	Experiments isolating the contribution of the method with respect to traditional initializations are missing (for example: experiments on Cifar10 and SVHN showing the result of traditional initializations with all the bells and whistles (cutout, mixup) as the zeroInit gets.
+
+More detailed comments:
+Page 3:
+-	While I could follow the general argument before eq. 2, leading to the conclusion that the initial variance in a resnet explodes exponentially, I could not understand eq. 2. What is its justification and how is it related to the discussion before it? I think it requires some argumentation.
+Page 4:
+-	I did not understand example 2) for a p.h. set. I think an argument, reminder of the details of resnet, or a figure are required.
+-	I could not follow the details of the argument leading to the zeroInit method:
+o	How is the second design principle “Var[F_l(x_l)] = O( 1/L) justified?
+As far as I can see, having Var[F_l(x_l)] = 1/L will lead to output variance of (1+1/L)^L =~e, which is indeed O(1). Is this the argument? Is yes, why wasn’t it stated? Also: why not smaller than O(1/L)?
+o	Following this design principle several unclear sentences are stated:
+	We strive to make Var[F_l(x_l)] = 1/L, yet we set the last convolutional layer in the branch to 0 weights. Does not it set Var[F_l(x_l)] = 0, in contradiction to the 1/L requirement?
+	 “Assuming the error signal passing to the branch is O(1),” – what does the term “error signal” refer to? How is it defined? Do you refer to the branch’s input?
+	I understand why the input to the m-th layer in the branch is O(\Lambda^m-1) if the branch input is O(1) but why is it claimed that “the overall scaling of the residual branch after update is O(\lambda^(2m-2))”? what is ‘the overall scaling after update’ (definition) and why is it the square of forward scaling?
+-	The zero Init procedure step 3 is not justified by any argument in the proceeding discussion. Is there any reason for this policy? Or was it found by trial and error and is currently unjustified theoretically (justified empirically instead). This issue should be clearly elaborated in the text. Note that the addition of trainable additive and multiplicative elements is inserting the normalization back, while it was claimed to be eliminated. If I understand correctly, the ‘zeroInit’ method is hence not based on initialization (or at least: not only on initialization), but on another form of normalization, which is not more justified than its competitors (in fact it is even more mysterious: what should we need an additive bias before every element in the network?)
+Page 5:
+-	What is \sqrt(1/2) scaling? It should be defined or given a reference.
+Page 6:
+-	It is not stated on what data set figure 2 was generated.
+-	In table 2, for Cifar-10 the comparison between Xavier init and zeroInit shows only a small advantage for the latter. For SVHN such an experiment is completely missing, and should be added.
+o	It raises the suspect the the good results obtained with zeroInit in this table are only due to the CutOut and mixup used, that is: maybe such results could be obtained with CutOut+Mixup without zero init, using plain Xavier init? experiments clarifying this point are also missing.
+Additional missing experiments:
+-	It seems that  ZeroInit includes 3 ingredients (according to the box in page 4), among which only one (number 2) is roughly justified from the discussion.  Step 1) of zeroing the last layer in each branch is not justified –why are we zeroing the last layer and not the first, for example? Step 3 is not even discussed in the text – it appear without any argumentation. For such steps, empirical evidence should be brought, and experiments doing this are missing. Specifically experiments of interest are:
+o	Using zero init without its step 3: does it work? The theory says it should.
+o	Using only step 3 without steps 1,2. Maybe only the normalization is doing the magic?
+The paper is longer than 8 pages.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1xnufswaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to more detailed comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=r1xnufswaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1297 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Page 3:
+Eq. 2 is essentially restating the reasoning and conclusion before it in a mathematical way. It can be derived by calculating the variance of both the LHS and RHS of Eq. 1 and applying the independence assumption. The second equality can be shown by mathematical induction. We will clarify in the updated version.
+
+Page 4:
+- Thanks, we will add a figure to clarify each p.h. set example.
+- Yes, the fact "(1+1/L)^L =~e" is exactly why we would like the update of each residual branch rather than Var[F_l(x_l)] to be O(eta/L). Thanks for asking, we will correct in the updated version.
+- By "error signal" we mean the partial derivative of the loss function w.r.t. a layer. This term is used in e.g. (Schraudolph, 1998) but we now realize it is not clear. We will clarify its meaning.
+- Thanks for asking -- this is central to understanding our method. Please refer to our new analysis in justifying Step 1 &amp; 2 above.
+- Please see the above general reply for justifications of step 3. Once again, we emphasize that our method is an initialization with minimal network components for achieving state-of-the-art performance, and contains no normalization operation.
+
+Page 5:
+- "\sqrt(1/2) scaling" is rescaling the activations by \sqrt(1/2) after each block. It is proposed as a possible remedy for ResNet without batch normalization in (Balduzzi et al., 2017).
+
+Page 6:
+- The dataset is CIFAR-10, as stated in the figure caption.
+- While the difference of the end performance of the two initialization is not huge (7% relative improvement for the median of 5 runs), we note that there is substantial difference in the difficulty of training. Network with ZeroInit is trained with the same learning rate and converge as fast as network trained with batch normalization, while we fail to train a Xavier initialized ResNet-110 with 0.1x maximal learning rate. Personal communication with the authors of (Shang et al., 2017) confirms our observation, and reveals that the Xavier initialized network need more epochs to converge.
+- Cutout and Mixup both contribute to the final performance in the CIFAR and SVHN experiments, as they likely supersede the regularization benefits of batch normalization. However, training with Xavier initialization cannot generalize as well, mainly because a substantially smaller learning rate has to be used to stabilize training, which in turn hurts generalization. We empirically validate this claim in the updated version.
+- We answered these questions in the general reply. In short, which layer to zero does not matter, training without step 3 works (though a bit worse). Using step 3 alone will not work due to incorrect scaling of the updates. We will add these experiments in the appendix.
+
+- References:
+[1] Schraudolph, N. N. (1998). Centering neural network gradient factors. In Neural Networks: Tricks of the Trade (pp. 207-226). Springer, Berlin, Heidelberg.
+[2] Balduzzi, D., Frean, M., Leary, L., Lewis, J. P., Ma, K. W. D., &amp; McWilliams, B. (2017). The Shattered Gradients Problem: If resnets are the answer, then what is the question?. arXiv preprint arXiv:1702.08591.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1xtAbjwaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>General reply (2): further justifications</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=B1xtAbjwaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1297 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value"> -- The reviewer thinks that among the 3 components of ZeroInit, only Step 2 is justified in a principled manner. Step 1 and Step 3 are not justified by an argument or experiments.
+
+We will clarify the justification for each step in the paper. We hope you will find the following explanation helpful in understanding the effects and importance of each component. These improvements and new ablation experiments will appear in the revised paper.
+
+Summary: Step 2, combined with Step 1, ensures each SGD step updates the residual branch function by O(eta/L) so that the whole network is updated by O(eta). This is the most important component of our method and also distinguishes it from all previous work. Step 3 is indeed not essential for training, but the bias parameters (empirically) create better loss landscape, and the multipliers help us avoid tuning the global learning rate schedule.
+
+We now provide further in-depth justifications for each of the above arguments.
+
+Step 1 &amp; 2:
+
+On one hand, as explained in the paper, initializing the residual branches to 0 prevents them from exploding and minimizes the lower bound of the gradient in Theorem 2. On the other hand, 0 initialization helps Step 2 limit the norm of the update of the residual branches to O(eta/L), as we now explain:
+
+Consider a residual branch with m layers, our goal is to derive the correct scaling for these layers, so that the residual branch is updated by O(eta/L) per gradient step. For simplicity, we assume the network is a composition of scalar functions (i.e. the input, output and hidden layers are all scalars), and there is no activation function. The residual branch can therefore be written as:
+
+F(x) = a_1 * ... * a_m * x
+
+where x is the input to this residual branch, and a_1, ..., a_m are nonnegative scalars (thinking of them as the rescaling of default initialization). Furthermore, we denote the gradient of the objective function w.r.t. F(x) as g. It is then easy to show that the gradient w.r.t. a_i is g * F(x) / a_i. Now if we perform a gradient descent update with step size eta, and calculate the update to F(x) using first-order approximation w.r.t. eta, we will get:
+
+\Delta F(x) =~ - eta * g * (F(x))^2 * ((1/a_1)^2 + ... + (1/a_m)^2)
+
+Note that we would like the scale of \Delta F(x) to be O(eta/L). Assuming g is O(1), it then follows that the scale of M = (1/a_1)^2 + ... + (1/a_m)^2 should be O(1/(L * (F(x))^2)). Let A = min_i {a_i} and we have (1/A)^2 &lt;= M &lt;= m * (1/A)^2. Put together, we arrive at A = O(sqrt{L} * F(x)). We hence finally get the desired design constraints:
+
+(I.) A = min_i {a_i},
+(II.) F(x) / A = O(1/sqrt{L})
+
+In sum, with (I.) and (II.) satisfied and assuming g is O(1), we can ensure the update of F(x) is O(eta/L), hence the update of the overall network is O(eta).
+
+A simple and natural design to satisfy these constraints is our Step 1 and Step 2. Furthermore, setting A to 0 (Step 1) has the additional benefit that each residual branch doesn't need to "unlearn" its random initial state, so that training proceeds faster in the first few epochs.
+
+Step 3: 
+
+Using biases in the linear and convolution layers is a common practice in neural network history. In normalization methods, bias and scale parameters are typically used to restore the representation power after normalization. For example, in batch normalization gamma and beta parameters are used to affine-transform the normalized activations per each channel.
+
+Step 3 is the simplest design which provides similar representation power to affine layers. Our design is a substantial simplification of the common practice, in that we only introduce O(K) parameters beyond conv and linear weights (note that our conv and linear layers do not have biases), whereas the common practice includes O(KC) (e.g. batch normalization and weight normalization) or O(KCWH) (e.g. layer normalization) additional parameters, where K is the number of layers, C is the max number of channels per layer and W, H are the spatial dimension of the largest feature maps.
+
+Finally, it is important to note that the bias and multiplier parameters are not essential for training to proceed -- without them the training still works, even with 10,000 layers, albeit with suboptimal performance.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJxPwIScaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re-ordering of multipliers and bias</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=BJxPwIScaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Why were the biases and multipliers re-ordered, and one multiplier replaced with a bias (as in Figure 1)? The use of the architecture on the right of Figure 1 has still has not been justified over the (seemingly more natural) architecture in the middle of Figure 1.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJxywPsqaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>It's actually (1) removing extra multiplier(s) and (2) adding biases before conv layers (i.e. after ReLU)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=HJxywPsqaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1297 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for asking!
+
+It may appear as we are doing a reordering, but in fact the right of Figure 1 makes two changes to the middle of Figure 1:
+
+(1) Deleting extra multiplier(s) so that there is only one multiplier per residual branch. This is because the effect of two (or more) multipliers is similar to that of one multiplier, which is to influence the effective learning rate of the conv layers in the same branch.
+
+(2) Adding a bias before each conv layer (i.e. changing ReLU-Conv to ReLU-Bias-Conv). The intuitive justification is that the preferred input mean of the conv layer may be different from the preferred output mean of the ReLU, hence a bias parameter allows for more representation power to satisfy both preferences. This is similar to why a bias term is added before ReLU (e.g. in standard feed-forward networks, Conv-BN-ReLU module, as well as our Conv-Bias-ReLU module).
+
+For additional justifications of (2), also note that there are debates about whether Conv-BN-ReLU or Conv-ReLU-BN is better in practice [1]; on the other hand, in [2, Figure 6 (d)] the authors find the best-performing residual branch to be "BN-Conv-BN-ReLU-Conv-BN". It may appear that the conclusion to draw from [2] is that one should use "more batchnorm and less relu [3]". However, if we remove the normalization layers in "BN-Conv-BN-ReLU-Conv-BN" and delete extra multipliers as per (1), we are left with:
+"Bias-Conv-Bias-ReLU-Conv-Multiplier-Bias", 
+which is indeed very similar to what we proposed in the right of Figure 1:
+"Bias-Conv-Bias-ReLU-Bias-Conv-Multiplier-Bias".
+
+------------------
+A side remark: when comparing middle and right of Figure 1, it may be helpful to switch the "bias" after the "+" into the residual branch, i.e. after the "multiplier", as the correspondence is easier to see this way and these two computation graphs are mathematically equivalent.
+
+------------------
+References:
+[1] Batch Normalization before or after ReLU?<a href="https://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/" target="_blank" rel="nofollow">https://www.reddit.com/r/MachineLearning/comments/67gonq/d_batch_normalization_before_or_after_relu/</a>
+[2] Han, D., Kim, J., &amp; Kim, J. (2017). Deep pyramidal residual networks. CVPR.
+[3] Andrej Karpathy. https://twitter.com/karpathy/status/827644920143818753?lang=en</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_SJlbdxjva7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>General reply (1): No normalization anywhere</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=SJlbdxjva7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1297 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer1, we thank you for the very detailed review, and find it valuable for improving the writing of our paper in an updated version. We are happy to hear that you find our observations interesting, and our empirical results strong. 
+
+Regarding your concerns:
+------------------------------
+
+ -- The reviewer seems to think our method is "a combination of initialization and normalization".
+
+The proposed method does not use any normalization and so we believe there is a misunderstanding, either about the method, or about what is commonly regarded as normalization.
+
+We do not divide any neural network component by its statistics, neither do we subtract the mean from any activations. In fact, with our method there is **no computation of statistics (mean, variance or norm) at initialization or during any phase of training**.
+
+In a sharp contrast, all normalization methods for training neural networks explicitly normalize (i.e. standardize) some component (activations or weights) through dividing activations or weights by some real number computed from its statistics and/or subtracting some real number activation statistics (typically the mean) from the activations.
+
+To elaborate, we provide a brief historical background on normalization techniques. The first use of such ideas and terminology in modeling visual system dates back at least to Heeger (1992) in neuroscience and to Pinto et al. (2008) and Lyu &amp; Simoncelli (2008) in computer vision, where each neuron output is divided by the sum (or norm) of all of the outputs, a module called divisive normalization. Recent popular normalization methods, such as local response normalization (Krizhevsky et al., 2012), batch normalization (Ioffe &amp; Szegedy, 2015) and layer normalization (Ba et al., 2016) mostly follow this tradition of dividing the neuron activations by their certain summary statistics, often also with the activation mean subtracted. An exception is weight normalization (Salimans &amp; Kingma, 2016), which instead divides the weight parameters by their statistics, specifically the weight norm; weight normalization also adopts the idea of activation normalization for weight initialization. The recently proposed actnorm (Kingma &amp; Dhariwal, 2018) removes the normalization of weight parameters, but still use activation normalization to initialize the affine transformation layers.
+
+Therefore, our method is substantially different from all aforementioned techniques, and should not be regarded as being close to a normalization method.
+
+- References:
+[1] Heeger, D. J. (1992). Normalization of cell responses in cat striate cortex. Visual neuroscience, 9(2), 181-197.
+[2] Pinto, N., Cox, D. D., &amp; DiCarlo, J. J. (2008). Why is real-world visual object recognition hard?. PLoS computational biology, 4(1), e27.
+[3] Lyu, S., &amp; Simoncelli, E. P. (2008). Nonlinear image representation using divisive normalization. In IEEE Conference on Computer Vision and Pattern Recognition, 2008.
+[4] Krizhevsky, A., Sutskever, I., &amp; Hinton, G. E. (2012). Imagenet classification with deep convolutional neural networks. In Advances in neural information processing systems (pp. 1097-1105).
+[5] Ioffe, S., &amp; Szegedy, C. (2015). Batch normalization: Accelerating deep network training by reducing internal covariate shift. arXiv preprint arXiv:1502.03167.
+[6] Ba, J. L., Kiros, J. R., &amp; Hinton, G. E. (2016). Layer normalization. arXiv preprint arXiv:1607.06450.
+[7] Salimans, T., &amp; Kingma, D. P. (2016). Weight normalization: A simple reparameterization to accelerate training of deep neural networks. In Advances in Neural Information Processing Systems (pp. 901-909).
+[8] Kingma, D. P., &amp; Dhariwal, P. (2018). Glow: Generative flow with invertible 1x1 convolutions. arXiv preprint arXiv:1807.03039.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Skl714KOnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting results. Normalization is not necessary to train deep resnets.  </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=Skl714KOnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1297 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1297 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+This paper shows that with a clever initialization method ResNets can be trained without using batch-norm (and other normalization techniques).  The network can still reach state-of-the-art performance.
+
+
+The authors propose a new initialization method called "ZeroInit" and use it to train very deep ResNets (up to 10000 layers). They also show that the test performance of their method matches the performance of state-of-the-art results on many tasks with the help of strong data augmentation. This paper also indicates that the role of normalization in training deep resnets might not be as important as people thought. In sum, this is a very interesting paper that has novel contribution to the practical side of neural networks and new insights on the theoretical side. 
+
+Pros:
+1. The analysis is not complicated and the algorithm for ZeroInit is not complicated.  
+2. Many people believe normalization (batch-norm, layer-norm, etc. ) not only improves the trainability of deep NNs but also improves their generalization. This paper provides empirical support that NNs can still generalize well without using normalization. It might be the case that the benefits from the data augmentation (i.e., Mixup + Cutout) strictly contain those from normalization. Thus it is interesting to see if the network can still generalize well (achieving &gt;=95% test accuracy on Cifar10)  without using strong data-augmentation like mixup or cutout. 
+3.Theoretical analysis of BatchNorm (and other normalization methods) is quite challenging and often very technical. The empirical results of this paper indicate that such analysis, although very interesting, might not be necessary for the theoretical understanding of ResNets.  
+
+
+Cons:
+1.The analysis works for positively homogeneous activation functions i.e. ReLU, but not for tanh or Swish. 
+2.The method works for Residual architectures, but may not be applied to Non-Residual networks (i.e. VGG, Inception)  </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkgrdHowTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks; we totally agree</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=rkgrdHowTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1297 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1297 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer3, thank you for your encouraging review. We totally agree with your comments.
+
+A side note to your question: our experiments show that with standard data augmentation, the regularization effect of batch normalization can bring about 0.5% improvement in test accuracy on CIFAR-10, but we hypothesize some advanced regularization methods (such as ShakeDrop or DropBlock) could also make up for this gap.
+
+- References:
+[1] Yamada, Y., Iwamura, M., &amp; Kise, K. (2018). ShakeDrop regularization. arXiv preprint arXiv:1802.02375.
+[2] Ghiasi, G., Lin, T. Y., &amp; Le, Q. V. (2018). DropBlock: A regularization method for convolutional networks. arXiv preprint arXiv:1810.12890.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1eLim8b2m" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1gsz30cKX&amp;noteId=H1eLim8b2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper1297 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

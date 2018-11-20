@@ -1,0 +1,344 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Per-Tensor Fixed-Point Quantization of the Back-Propagation Algorithm | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Per-Tensor Fixed-Point Quantization of the Back-Propagation Algorithm" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rkxaNjA9Ym" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Per-Tensor Fixed-Point Quantization of the Back-Propagation Algorithm" />
+      <meta name="og:description" content="The high computational and parameter complexity of neural networks makes their training very slow and difficult to deploy on energy and storage-constrained comput- ing systems. Many network..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rkxaNjA9Ym" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Per-Tensor Fixed-Point Quantization of the Back-Propagation Algorithm</a> <a class="note_content_pdf" href="/pdf?id=rkxaNjA9Ym" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019per-tensor,    &#10;title={Per-Tensor Fixed-Point Quantization of the Back-Propagation Algorithm},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rkxaNjA9Ym},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">The high computational and parameter complexity of neural networks makes their training very slow and difficult to deploy on energy and storage-constrained comput- ing systems. Many network complexity reduction techniques have been proposed including fixed-point implementation. However, a systematic approach for design- ing full fixed-point training and inference of deep neural networks remains elusive. We describe a precision assignment methodology for neural network training in which all network parameters, i.e., activations and weights in the feedforward path, gradients and weight accumulators in the feedback path, are assigned close to minimal precision. The precision assignment is derived analytically and enables tracking the convergence behavior of the full precision training, known to converge a priori. Thus, our work leads to a systematic methodology of determining suit- able precision for fixed-point training. The near optimality (minimality) of the resulting precision assignment is validated empirically for four networks on the CIFAR-10, CIFAR-100, and SVHN datasets. The complexity reduction arising from our approach is compared with other fixed-point neural network designs.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">deep learning, reduced precision, fixed-point, quantization, back-propagation algorithm</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We analyze and determine the precision requirements for training neural networks when all tensors, including back-propagated signals and weight accumulators, are quantized to fixed-point format.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Syg8bl0N6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>the introduction of criteria 2-5 are kind of heuristic and lack of clarity</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxaNjA9Ym&amp;noteId=Syg8bl0N6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper39 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper39 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a FX (fixed point) framework to calculate the reduced bit numbers, which can (I) use float numbers with the reduced bits to represent each NN layer's weight values W_l, activation values A_l, gradients of weights G_l^W, gradients of nodes G_{l+1}^A, and the cumulated (updated) weight W_l^(acc); (II) with the reduced representations, the training loss and testing loss will not be sacrificed much comparing with the original FL framework, where each float number is 32-bit.
+
+Some positive points:
+(a) The proposed FX framework can reduce cost for both inference and training.
+(b) The experimental results looks promising.
+(c) The Criteria 1-5 seems systematic and the conditions in Claim 1 can be used to calculate the required bit numbers. The author proposed an implementation of Claim 1.
+
+Some negative points / questions:
+
+(a) The most important part of the paper is Criteria 1-5. Criteria 1 generalizes the idea from Sakr et al. 2017, to force the contributions of weight and activation almost at the same order, which seems reasonable to make the mismatch budget p_m smallest. But the other criteria (with their corresponding notions, e.g., Criterion 2 and the concept of clipping rate \beta) are introduced in a way which is not clear enough and make the audience confused. For example, why is clipping rate \beta and relative quantization bias \eta is needed here and what is their relationship with the usual weight gradient clip norm (5% target \beta and 1% \eta target correspond to what order of clip norm)? Criteria 4 &amp; 5 are introduced in the same way with one sentence explained like heuristics. They seem to me are introduced just for reducing corresponding bit numbers. More motivation and explanation of introducing these criteria and notions are needed.
+
+(b) For W_l and A_l, the necessary bit numbers are calculated using Criteria 1 &amp; EFQN condition. But for gradients, their PDRs and Deltas are calculated using other criteria &amp; conditions. Then how to calculate their bit numbers from PDRs and Deltas?
+
+(c) The proof of Lemma 2 &amp; 3 directly used CLT for mini-batch average gradient items. CLT is for asymptotic case and in finite sample case it is not true. So it is heuristic calculation rather than lemma with proof (If seeking proof then some finite-sample argument like Berry-Esseen theorem is needed to quantify the probability of the average is not Gaussian). And what is the mini-batch size used here? If it is too small then probably the error of taking the mini-batch SGD as Gaussian will be large.
+
+(d) The importance/minimality of each individual bit number in C_o is not investigated, and the claim of the near minimality of C_o cannot hold according to the current experiments. The experiments of C_{+1} and C_{-1} do not exclude the possibility that some items (not the whole C_o) are minimal. More experiments (changing one or more items while fixing the others) are needed to show every item in C_o is minimal (or not). And which one of them is the most important for training/testing (how sensitive the training/testing performance is to each bit number)? Also in C_{-1} and C_{+1}, are target \beta, \eta changed? What are these changed values?
+
+(e) From the Claim 1, it seems that these bit numbers are sufficient, and smaller than necessary to get the same training/testing performance (e.g., from the proof of Lemma 3, with the result \eta = 0.4% &lt; 1%). So one question is what kind of \beta and \eta target are necessary for preserving the performance and what corresponding bit numbers are necessary to achieve the necessary \beta and \eta values?
+
+(f) The computational cost definition looks different with Eq (3) in Sakr et al. 2017. Why?
+
+Some typos:
+1.Figure 2(a), B_{A_l} is 8 for Layer 1, but 9 in Appendix Table.
+2. In the last third paragraph of Page 7, is it 2.6 = (148/56.5) instead of 2.6 * (148/56.5)? Same for the following numbers.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HyxDep-ITX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to AnonReviewer4 (Part 1/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxaNjA9Ym&amp;noteId=HyxDep-ITX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper39 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper39 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer4,
+
+Thank you very much for your detailed review! As we prepare our revised manuscript, we will address your questions and concerns. In this reply, we wish to provide a first response:
+
+
+- Reply to question (a)
+
+-- Thank you for this question. The motivation behind all the criteria is presented at the start of Section 3. These criteria are used to obtain a quantitative correspondence between the convergence behavior and the different precision assignments. 
+
+As you have correctly pointed out, Criterion 1 (EFQN) is used to ensure that all feedforward quantization noise sources contribute equally to the p_m budget.
+
+Because FX numbers require a constant PDR, clipping of gradients is needed since their dynamic range is arbitrary. Ideally, a very small PDR would be preferred in order to obtain quantization steps of small magnitude, and hence less quantization noise. If you are familiar with signal processing theory, it is known that for a given quantizer, the signal-to-quantization-noise ratio (SQNR) is equal to SQNR (dB) = 6B + 4.78 – PAR where PAR is the peak-to-average ratio, proportional to the PDR. Thus, we would like to reduce the PDR as much as possible in order to increase the SQNR for a given precision. However, this comes at the risk of overflows (due to clipping). To address this trade-off between quantization noise and overflow errors, we introduce Criterion 2 (GC). The clipping rate \beta is used to quantify the impact of overflows for a given choice of PDR. To answer your question about the order of clipping, we are using simple max-clipping. That is, any scalar larger than the PDR in magnitude is clipped, while other scalars are unchanged.
+
+Since the back-propagation procedure is an iterative one, it is important to ensure that quantization bias does not accumulate in a positive feedback fashion. This is why we have introduced Criterion 3 (RQB) and \eta is used to quantify this bias as a function of quantization step size.
+
+Criterion 4 (BQN) is in fact an extension of Criterion 1 (EFQN), but for the back-propagation phase. Indeed, once the precision (and hence quantization noise) of weight gradients is set as per Criterion 3 (RQB), it is needed to ensure that the quantization noise source at the activation gradients would not contribute more noise to the updates. This criterion sets the quantization step of the activation gradients.
+
+Criterion 5 (AS) ties together feedforward and gradient precisions through the weight accumulators. It is required to increment/decrement the feedforward weights whenever the accumulated updates crossover the weight quantization threshold. This is used to set the PDR of the weight accumulators. Furthermore, since the precision of weight gradients has already been designed to account for quantization noise (through Criteria 2-4), we ensure that the accumulators do not cause additional noise. To do so the quantization step of the accumulator should be at most that of the weight gradient multiplied by the learning rate.
+
+As per your request, we will further motivate and include a summary of the above explanations in our revision.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hkejra-86X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to AnonReviewer4 (Part 2/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxaNjA9Ym&amp;noteId=Hkejra-86X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper39 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper39 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">- Reply to question (b)
+
+-- Good question. As described in Section 2.1 and as mentioned in the practical considerations paragraph following Claim 1, we use the following formula based on definition of precision, PDR, and LSB: B = log_2 (r/Delta) +1. We will make this mention more explicit following Claim 1.
+
+
+- Reply to question (c) 
+
+--Very good point. The CLT is used as approximation here, because we are averaging over the minibatch dimension. Fortunately, it is typical to use quite a large batch size for most deep learning applications. For instance, in our case we used a batch size of 256 throughout. Thus, by the Berry-Essen theorem, we expect the Kolmogorov-Smirnov distance between the true PDF and the Gaussian one to be small (as it decreases with a rate of n^-0.5). Using the Berry-Essen theorem, we will explicitly compute a bound on the approximation error and include in our revision. Thanks for this suggestion!
+
+
+- Reply to question (d)
+
+-- That’s a very good point. We use the term ‘near’ minimal because, as you have correctly point out, simply comparing to C_{-1} and C_{+1} does not take into account all possible scenarios in between. However, please note that it is computationally prohibitive to perform a search over all precision assignments possible, since their number is exponentially increases with L (number of layers). 
+
+We propose doing the following: we will randomly increment or decrement a random fraction of the precisions in C_o and repeat the experiments. If we can try this for several values of the fraction of precisions to alter, hopefully we can provide more evidence as to the ‘near’ minimality of C_{o}. These new experiment will be don during this rebuttal period, and we will be providing you with the new results. 
+
+Also, to answer your question, target \beta is not altered because the PDRs are unchanged as mentioned in Section 4.2. Target \eta becomes 2.12% for C_{-1} as \Delta is multiplied by 2, and 0.16% for C_{+1} and \Delta is divided by 2 (these two numbers are obtained by evaluating \mu on page 13 for the new values of \Delta).
+
+
+- Reply to question (e)
+
+-- Again, a very good question. In order to preserve performance, target values of \beta and \eta should be small. We do not provide an exact formula to relate these two quantities to the performance. Instead, we chose \beta = 5% and \eta = 1% for very low clipping rate and quantization bias, respectively. In practice, this choice of \beta and \eta was found to be adequate (as illustrated by our experiments). 
+
+Further, the precisions chosen do achieve these values. As we have described in Section 2.1, FX numbers, by definition, have PDRs and LSBs equal to specific powers of 2. Should we modify the precision assignments to decrease the precision, then Claim 1 would no longer hold. For instance, as we mention in the response to question (d), decrementing the weight gradient precision cause \eta to become equal to 2.12%.
+
+
+- Reply to question (f)
+
+-- Sakr et al. (2017) were only concerned with inference (feedforward) precision and did not consider the quantization of the back-propagation algorithm itself. In their setup, there is one set of dot products, those needed for the forward propagation. In our case, we have two other sets of dot products, those needed for the back-propagation and gradient computation. This is one difference between our works and theirs. Further, we have chosen to focus on the cost of multiplications (i.e., we have not included a term for the summations). The reason being representation quantization directly impacts the cost of multiplication and there are hardware/algorithmic ways to handle the cost of summations, which we leave as beyond the scope of our paper.
+
+
+Finally, thanks for catching these typos, we will correct them in our revision.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_SkxGkN9c2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Paper needs to be re-written</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxaNjA9Ym&amp;noteId=SkxGkN9c2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper39 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper39 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This papers introduces a quantization scheme for the back-propagation algorithm to reduce the bit size in the target neural networks. While the paper introduces one way to bring the quantization inside the training procedure and shows the tradeoff between number of bits and the accuracy, the paper is poorly written so it is hard to understand the paper's main proposal.
+So I would recommend to re-organize the paper and introduce one toy example to illustrate how the proposed method works in the training time and the inference time.
+Currently the important part, the overall architecture, is explained in the appendix, not in the main paper.
+The main idea is rather simple, to introduce a quantizer in various components in the back-propagation algorithm.
+I think we need a clear explanation on "how to" quantize each tensor in each quantizer, instead of many obscure terms in the section 2 and 3. Also the important numbers are in the appendix C, but their meanings are hard to understand.
+
+Also in general, quantization is one way of reducing training and inference computational complexity. There are other ways of achieving the same purpose such as distillation to a smaller network (less parameters), etc, so in order to argue the computational gains over this obvious approach, we need a training time and inference time benchmark. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hye1UClfpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to AnonReviewer2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxaNjA9Ym&amp;noteId=Hye1UClfpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper39 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper39 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer2,
+
+Thank you for your review. We are sorry that you had difficulties reading our paper. We will make revisions to hopefully address your concerns; however, we first wish to reply to your comments:
+
+
+ - "I would recommend to re-organize the paper and introduce one toy example to illustrate how the proposed method works in the training time and the inference time" 
+
+-- We have done that to a great extent. The method is obtained by application of Claim 1 (eq. (1) (2) (3) (4) - for every precision to be determined, there is a closed form expression to be used). At the end of Section 3, we provide practical considerations to keep in mind when using the method. When introducing the results at the start of Section 4, we mention that a step by step procedure is given in Appendix C to illustrate explicitly how the method is to be used. We will revise these parts to make the illustrations clearer.
+
+
+ - "Currently the important part, the overall architecture, is explained in the appendix, not in the main paper" 
+
+-- The architecture is described in Figure 1. This figure conveys all of the information needed to understand our setup. We have included Appendix A as a supplement for readers not familiar with the back-propagation algorithm. The Appendix itself is by no means the important part, nor is it necessary, the paper, as is, very well stands on its own without it. 
+
+
+- "I think we need a clear explanation on "how to" quantize each tensor in each quantizer, instead of many obscure terms in the section 2 and 3"
+
+-- The issue has been explained with great transparency in the paper. In Section 2.1, we explicitly define what a fixed-point number representation is, and what scalar values are representable. Determining the precision $B$ is enough to fully characterize the quantizer in the case of normalized scalars. Otherwise, the quantizer can be characterized once the values of the pre-defined dynamic range $r$ and quantization step $\Delta$ are set. Then, in Section 3, we derive closed form formulas for each of these quantities, for all tensors, and that is how we characterize all quantizers. This is actually even mentioned in the "practical considerations" paragraph following Claim 1. 
+
+
+- "Also, the important numbers are in the appendix C, but their meanings are hard to understand" 
+
+-- Appendix C contains intermediate results utilized to obtain the different precisions in the network. The latter are the important numbers, along with the convergence behaviors in Figure 3 and the several comparisons in Table 1. The role of Appendix C is purely illustratory. The appendices are supplementary material with details, proofs, and examples, meant to illustrate and reproduce our results. They are not required to understand the paper. The main paper stands on its own.
+
+
+-"There are other ways of achieving the same purpose such as distillation to a smaller network (less parameters), etc, so in order to argue the computational gains over this obvious approach, we need a training time and inference time benchmark" 
+
+-- You are absolutely right. In fact, the general area of resource constrained machine learning has been growing rapidly in the past few years. Particularly, many works have addressed the problem of training/inference with reduced precision (see Section 5.1), and those naturally come closest to our work. It is for that reason that we have focused on this body of work in most of our analyses and comparisons. Of course, distillation techniques are also related and we will therefore include a comparative discussion. 
+
+
+Finally, with all of the above in mind, we hope you would give us a second chance when updating your review.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJep_2Kr2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Nice work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxaNjA9Ym&amp;noteId=BJep_2Kr2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper39 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper39 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summarization:
+This paper presents a framework (called FX Network) of quantizing the weights and gradients of neural networks, based on five quantization criteria proposed in literature. The proposed framework can quantize the neural network obtaining a minimal or close-to-minimal error for a pre-specified precision level.
+
+
+Pros:
+- The proposed FX network can quantize all variables including both network weights and back-propagated gradients.
+- Promising results have been obtained. Experimental results on CIFAR have shown that the proposed quantization framework had reduced the representational cost, computational cost, and the communication  by up to 6x, 8x, and 4x, respectively, compared to the 32-b FL baseline and related works.
+- The paper is well written.
+
+
+
+
+Cons:
+- The experiment results showed in Figure 3 are quite confusing: why do the curves of the test error and loss suddenly drop at epoch 100? Explanation is needed. 
+
+- This proposed quantization method require to pre-train a network with high precision in advance, similarly as the student-teacher framework or knowledge distillation. Different from BN and TG, FX network requires to pre-train a 32-b floating-point network, which requires more extra computational costs. 
+
+- How does the quantization method compare with strategies like parameter pruning and sharing? It is better to see a discussion with them. It is also suggested to show the improvement of the proposed framework in terms of inference time during test. 
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJg8YWWzTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to AnonReviewer3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxaNjA9Ym&amp;noteId=rJg8YWWzTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper39 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper39 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer3, 
+
+Thank you very much for your encouraging review and thoughtful comments! We will make revisions to address the several points you have raised in your review; however, we first wish to reply to your comments: 
+
+
+-"why do the curves of the test error and loss suddenly drop at epoch 100?" 
+
+-- This is actually not related to the thesis of our work. It is just part of the training procedure we have used, which includes a scheduled learning rate. In particular, at epoch 100, the learning rate is decreased by a factor of 10, which marks the switch between exploration and exploitation phases. Such behavior is very typical of neural network training. 
+
+
+-"This proposed quantization method requires to pre-train a network with high precision in advance... which requires more extra computational costs"
+
+-- You are right. This assumption is mentioned Section 1, 4th paragraph. Such assumption has been made in the past, for instance by Sakr et al. (ICML’17, which we cited) for determining inference precisions. Since much of training is done in floating-point anyway (most notably, in order to establish a benchmarking baseline), our approach simply leverages data statistics to find a min precision network. We will make sure to raise this issue more explicitly in our revised version. 
+
+
+-"How does the quantization method compare with strategies like parameter pruning and sharing" 
+
+-- We have focused on quantization as it provides by itself a large body of work inside the general area of resource constrained machine learning. That is to say, in our paper, we have treated other methods such as parameter pruning and sharing as orthogonal. Interestingly, we do believe that other strategies are related and that we may use a similar approach as the presented method to address parameter pruning and sharing. In particular, we believe that one may perform a noise analysis, similar to our analysis for determining feedforward precisions, applied to the weights, where the noise value is equal to the weight magnitude. Such analysis potentially acts as a weight pruning criterion. Furthermore, parameter sharing, if obtained via some form of clustering algorithm, presents a setup of vector (nonlinear) quantization. Thus, we again believe that we may leverage our method to address this other strategy of complexity reduction. These are definitely interesting issues to consider for future work, and, as per your suggestion, we will include a discussion.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Bridging HMMs and RNNs through Architectural Transformations | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Bridging HMMs and RNNs through Architectural Transformations" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HyesB2RqFQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Bridging HMMs and RNNs through Architectural Transformations" />
+      <meta name="og:description" content="A distinct commonality between HMMs and RNNs is that they both learn hidden representations for sequential data. In addition, it has been noted that the backward computation  of  the  Baum-Welch..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HyesB2RqFQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Bridging HMMs and RNNs through Architectural Transformations</a> <a class="note_content_pdf" href="/pdf?id=HyesB2RqFQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019bridging,    &#10;title={Bridging HMMs and RNNs through Architectural Transformations},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HyesB2RqFQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">A distinct commonality between HMMs and RNNs is that they both learn hidden representations for sequential data. In addition, it has been noted that the backward computation  of  the  Baum-Welch  algorithm  for  HMMs  is  a  special  case  of  the back propagation algorithm used for neural networks (Eisner (2016)).  Do these observations  suggest  that,  despite  their  many apparent  differences,  HMMs  are a special case of RNNs?   In this paper,  we investigate a series of architectural transformations between HMMs and RNNs, both through theoretical derivations and empirical hybridization, to answer this question. In particular, we investigate three key design factors—independence assumptions between the hidden states and the observation, the placement of softmax, and the use of non-linearity—in order to pin down their empirical effects.  We present a comprehensive empirical study to provide insights on the interplay between expressivity and interpretability with respect to language modeling and parts-of-speech induction. </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">rnns, hmms, latent variable models, language modelling, interpretability, sequence modelling</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Are HMMs a special case of RNNs? We investigate a series of architectural transformations between HMMs and RNNs, both through theoretical derivations and empirical hybridization and provide new insights.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_ryeg3SThaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyesB2RqFQ&amp;noteId=ryeg3SThaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1574 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1574 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">First, we’d like to thank all of the reviewers for their time. We agree that this paper is only the tip of the iceberg in a large area studying the relation between various sequence models, which includes continuous state HMMs, non-homogenous HMMs, the growing literature of latent variable sequence models, as well as the interpretability of these models. The goal of this paper is to spark this exact conversation in the community, by providing an initial mathematical treatment unifying discrete HMMs and RNNs as a backbone for the larger discussion.
+
+We will clarify the key takeaways from our work: First, we show that HMMs can indeed be viewed as a special case of RNNs (within a general definition of the functional form of RNNs). While some people in the community have had an intuitive idea that this connection exists, and there has been some previous work alluding to these connections, we do not believe that it has been formalized in a unified framework as we do in this paper. Second, we aim to answer a more fundamental question, which is what is the relation between the properties which let HMMs define a distribution over latent variables, and the properties of RNNs which makes them as powerful as they are. We will add further discussion within the space limitations of the paper. 
+
+We will expand the related work section to discuss some other related architectures, including the many ad-hoc latent variable models which are conceptually cousins to the HMM/RNN but rarely contextualized as such. We welcome concrete suggestions of additional analyses to include within the space constraints of this paper. However, we do not believe that an extensive analysis of additional models, or a full review of sequence modeling and interpretability, is within the scope of the current paper. 
+
+Regarding the performance of our LSTM baseline: The main goal of our empirical evaluation is to compare HMMs against vanilla (Elman) RNNs. We are not aware of better reported perplexities for vanilla, 1-layer RNNs. To put our results into context we included results for a single-layer LSTM with the same parameter budget and using the same regularization and hyperparameter search strategy. We realize that the performance of our LSTM model is not state-of-the-art - we’ll make that clearer in the paper - but the more sophisticated optimization and regularization techniques required to obtain that are not applicable to all the models we are comparing. Doing a more fine-grained hyperparameter grid search will also further improve performance, but doing so overall the model variants we study was not feasible with the computational resources we had available. Given the large margins in performance between most of the models we are comparing, this is unlikely to change the conclusions we draw here. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SygG3Ncrpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interpetability</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyesB2RqFQ&amp;noteId=SygG3Ncrpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1574 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I think the authors should include examples (figures, visualization), by picking some inputs from the dataset and show how to interpret outputs HMM-from-RNN and HMM-RNN hybrid.  And show some failure cases that can be known *why* by intepreting the models.
+What is the authors' main intent for doing this work?</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1xW4seqnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting, in-depth study but lacks summary and clarity</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyesB2RqFQ&amp;noteId=r1xW4seqnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1574 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1574 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The empirical evaluation of models is an important part of scientific research, and I am glad to see work in this vein. The authors clearly put a significant amount of effort into the ablation study of these common sequence architectures, and there is a lot to look at and think about here. What are the key takeaways from this ablation study? Are there any concrete recommendations the authors can make, or possible directions of further exploration?
+
+The current paper is dense, and on reading all the details it is still difficult to find a key takeaway, or set of recommendations that might be useful in other work. Adding this kind of high level overview or synopsis would strengthen the paper. A more in-depth discussion of some of these architecture changes, and why they might be theoretically unsound (sigmoid RNN issues, for example) would be also useful alongside the ablation study. Some of ablations performed seem like methods that *shouldn't* work well, and a description of why they don't make sense would help (alongside the bad performance numbers). For discussing if HMMs really are just RNNs, a clear mathematical description of the type of HMM, its factorization, and relationship the RNN factorization would be needed. This discussion seems to be present in the paper to some extent, but stating it clearly and directly in a concrete section would be beneficial - as it stands now it is spread over several sections and derivations.
+
+The concluding sentence "We also find that HMM outperforms other RNNs variants in a next POS tag prediction task, which demonstrates the advantages of models with discrete bottlenecks in increased interpretability" seems unclear to me - how does performance in prediction show anything directly about interpretability? Exploring the interpretability aspect would be interesting, but as it stands I don't see the connection between the POS performance and interpretability. In addition, POS tagging is an extremely common task, and seeing more references to recently related work in NLP would be useful, alongside past papers using HMMs for this. Given the discussion of Viterbi decoding, it may also be relevant to have discussion or pointers to beam search in RNNs, and the importance of this technique. A recent paper describing beam search (A Stable and Effective Learning Strategy for Trainable Greedy Decoding), with a number of "backward references" to related work is linked below.
+
+On LSTM performance on language modeling in particular, I think it is important that it be stated or shown that LSTM can do much better on this task. See for example the papers linked below. While the paper focuses on ablation and understanding, which is nice, it is also important to show the peak performance that can be achieved, especially when there are several papers showing that a "base" LSTM can outperform more intricate models.
+
+RNNss have also been analyzed from the interpretability angle, and maybe some of these can inspire further looks at HMM interpretability in direct comparison to RNNs. There have also been extensive studies on HMM interpretability in the past, and some in relation to RNN as well, a few links are provided below. If the interpretability angle is to be highlighted, it should probably reference other work on this topic and have a stronger focus in the paper. If it isn't a focus, then it probably shouldn't be discussed in the conclusion.
+
+The question posed by the abstract "Do these observations suggest that, despite their many apparent differences, HMMs are a special case of RNNs?" isn't directly answered anywhere in the text. This was discussed above, but worth highlighting in particular here since a question/hypothesis posed in the abstract should probably have a direct answer in the text, and likely re-summarized in the conclusion. In addition, the title of the paper and the direct "hypothesis question" seem at different with each other - is the primary contribution in answering this question, or in deriving the "bridge" in a clear way? Doing the latter seems to answer the former to some extent, but a more direct unification and direct answer to these would clarify the paper.
+
+This is interesting work overall, with a lot to digest. My primary concerns are a larger relation to past related work for unfamiliar readers, comparison to modern work (or any work outside this paper itself) in the results tables, and a focus on clarifying the take home message of the paper. Is it interpretability? Is it the bridging of HMMs and RNNs through the derivation (this is something I have not seen directly until now)? Are HMMs really just RNNs? What are the reasons to choose one over the other? What is the driving motivation for the work, and what things were learned by this empirical exploration?
+
+On the State of the Art of Evaluation in Neural Language Models <a href="https://arxiv.org/abs/1707.05589" target="_blank" rel="nofollow">https://arxiv.org/abs/1707.05589</a>
+Regularizing and Optimizing LSTM Language Models https://arxiv.org/abs/1708.02182
+An Analysis of Neural Language Modeling at Multiple Scales https://arxiv.org/abs/1803.08240
+A Stable and Effective Learning Strategy for Trainable Greedy Decoding https://arxiv.org/abs/1804.07915
+LSTMVis http://lstm.seas.harvard.edu/
+Visualizing and Understanding Recurrent Neural Networks https://arxiv.org/abs/1506.02078
+Increasing the Interpretability of Recurrent Neural Networks Using Hidden Markov Models https://arxiv.org/abs/1611.05934
+Beyond Sparsity: Tree Regularization of Deep Models for Interpretability https://arxiv.org/abs/1711.06178
+A Tutorial on Hidden Markov Models and Selected Applications in Speech Recognition https://www.robots.ox.ac.uk/~vgg/rg/papers/hmm.pdf</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1xPgP636X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyesB2RqFQ&amp;noteId=B1xPgP636X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1574 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1574 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your detailed comments. We discuss many of the issues you raise in the general response. 
+
+We will add or expand references to the related work you mention, but we do not believe that a complete review of sequence modeling and interpretability is within the scope of this paper.
+
+We discuss Viterbi decoding only in the context of finding the optimal hidden state sequence in HMMs for a given observed sequence - we do not discuss decoding (generating the observed sequence) from either RNNs and HMMs, so we don’t see that RNN beam search is directly relevant here.
+
+Regarding interpretability, we would be happy to include traditional unsupervised parts-of-speech clustering metrics to demonstrate the tradeoff in interpretability of the latent states as one transitions from the HMM to the RNN. While our investigation of interpretability is not comprehensive, our goal was just to give a concrete example of where HMMs are more interpretable than comparable RNNs. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_B1lriO4Y37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>questionable necessity/importance of establishing explicit connections between HMMs and RNNs </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyesB2RqFQ&amp;noteId=B1lriO4Y37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1574 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1574 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper studies explicit connections between HMMs and RNNs by architecturally transforming an HMM to an RNN and vice versa. This gives a spectrum of architectures between HMMs and RNNs (Figure 1). The paper also proposes to build on the tutorial paper of Eisner (2016) by establishing connections between forward probabilities under HMMs with quantities in the RNN cell.
+
+The main problem with the work is unfortunately its direction. It's not clear why these architectural connections between two particular models are significant. The aspects of these connections (e.g., independence) are not unknown and do not seem to add significant insights (other than what components of RNNs are responsible for how much performance gain). 
+
+It's possible that this architectural analysis for its own sake is of interest to others, so I'll not put confidence on my review. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1g19PT2TQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyesB2RqFQ&amp;noteId=B1g19PT2TQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1574 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1574 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your review. Please see the motivation we give in the general response. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJg9RNZY27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>review of the paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyesB2RqFQ&amp;noteId=rJg9RNZY27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1574 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1574 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper discusses the connections between HMMs and RNNs and investigates a number of architectural transformations between the two for the expressivity and interpretability.  Overall, the paper is well-written and the logic is clear.  However, I have following concerns.
+
+1.  The HMMs discussed in the paper, in my opinion, are only a subset of the HMM family.  First of all, it only covers the HMMs with a discrete emission state distribution which is commonly used in NLP, but not popular in speech recognition.  Speech recognition, which is dominantly based on HMMs, uses continuous emission state distributions such as Gaussian distributions or Gaussian mixture distributions, which is not addressed in the framework investigated in this paper.  Actually starting from the fundamentals, the authors phrase the framework as "word prediction","word distribution" and "word probability", which all hints that the HMM-RNN discussion is implicitly carried out in the NLP domain.   Therefore, I would suggest the authors make it clear in the title to point it out that this discussion is about HMMs with discrete emission state distributions. 
+
+2. A follow-up comment on HMMs.  I think some of the architecturally transformed HMMs, which are considered to be some special form of RNNs, are actually still within the HMM family.  The difference is that they are not homogeneous HMMs any more. Their state transitions are not fixed and state emission distributions can also be time variant. These heterogeneous HMMs are still HMMs, although they possess some characteristics of RNNs.  Again,  the assumption on HMMs in this paper is too limited to begin with as HMMs consist of a broad family of models. 
+
+3. I also have concerns with the experiments.  The PTB baseline seems a bit high to me.  I will feel more comfortable if a single-layer LSTM LM can have a perplexity around 70. Note that this is not even state of the art.   Overall, I find the experimental justification is not overwhelmingly strong. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SygoSv63am" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyesB2RqFQ&amp;noteId=SygoSv63am"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1574 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1574 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your review. We do restrict ourselves to HMMs where the emission distribution is over discrete observations. However using continuous distributions requires further theoretical and empirical analysis, and we believe that a proper treatment of these distributions falls outside the scope of this paper.
+
+We agree that some of our HMM variants are heterogenous HMMs - we do discuss which independence assumptions different variants violate but we’ll make that clearer. Indeed, we do not aim to make a clear delineation between HMMs and RNNs: We show that all the HMMs we study can be formulated as special RNNs. The strength of HMMs is that their hidden states correspond to distributions over latent random variables.
+
+See our general response discussion of baseline performance. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

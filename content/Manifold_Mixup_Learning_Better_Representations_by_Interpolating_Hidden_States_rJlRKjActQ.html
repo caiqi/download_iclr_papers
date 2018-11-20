@@ -1,0 +1,371 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Manifold Mixup: Learning Better Representations by Interpolating Hidden States | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Manifold Mixup: Learning Better Representations by Interpolating Hidden States" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rJlRKjActQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Manifold Mixup: Learning Better Representations by Interpolating..." />
+      <meta name="og:description" content="Deep networks often perform well on the data distribution on which they are trained, yet give incorrect (and often very confident) answers when evaluated on points from off of the training..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rJlRKjActQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Manifold Mixup: Learning Better Representations by Interpolating Hidden States</a> <a class="note_content_pdf" href="/pdf?id=rJlRKjActQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 12 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019manifold,    &#10;title={Manifold Mixup: Learning Better Representations by Interpolating Hidden States},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rJlRKjActQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=rJlRKjActQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Deep networks often perform well on the data distribution on which they are trained, yet give incorrect (and often very confident) answers when evaluated on points from off of the training distribution. This is exemplified by the adversarial examples phenomenon but can also be seen in terms of model generalization and domain shift.  Ideally, a model would assign lower confidence to points unlike those from the training distribution.  We propose a regularizer which addresses this issue by training with interpolated hidden states and encouraging the classifier to be less confident at these points.  Because the hidden states are learned, this has an important effect of encouraging the hidden states for a class to be concentrated in such a way so that interpolations within the same class or between two different classes do not intersect with the real data points from other classes.  This has a major advantage in that it avoids the underfitting which can result from interpolating in the input space.  We prove that the exact condition for this problem of underfitting to be avoided by Manifold Mixup is that the dimensionality of the hidden states exceeds the number of classes, which is often the case in practice.  Additionally, this concentration can be seen as making the features in earlier layers more discriminative.  We show that despite requiring no significant additional computation, Manifold Mixup achieves large improvements over strong baselines in supervised learning, robustness to single-step adversarial attacks, semi-supervised learning, and Negative Log-Likelihood on held out samples.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Regularizer, Supervised Learning, Semi-supervised Learning, Better representation learning, Deep Neural Networks.</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">A method for learning better representations, that acts as a regularizer and despite its no significant additional computation cost , achieves improvements over strong baselines on Supervised and Semi-supervised Learning tasks.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">11 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_S1xQL8DBTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Table 3. FGSM replaced by MIM or PGD?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJlRKjActQ&amp;noteId=S1xQL8DBTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper491 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Do the numbers hold up when you replace FGSM by MIM or PGD perhaps?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJekpcvSa7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>PGD</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJlRKjActQ&amp;noteId=rJekpcvSa7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper491 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper491 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hello, 
+
+Manifold Mixup improves robustness to the weak FGSM attack but does not provide any robustness to the PGD attack (and I'm guessing for any strong attack).  The same is true for mixup.  This is actually already mentioned in the text at the end of section 5.3 and there is some discussion there on the intuition for this.  
+
+Our only goal in including these results is to show that at least in some directions, Manifold Mixup does a better job than Input Mixup at moving the decision boundary away from the data - and not to claim robustness (which would require the decision boundary to move further away in *all* directions).  
+
+I think that at least one reason why it is not adversarially robust, is that we only consider interpolations between pairs of points, and thus I don't think there's a reason to believe that these points would cover all of the directions that an adversarial perturbation could take around a data point.  </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HylDFCwHp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for the response!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJlRKjActQ&amp;noteId=HylDFCwHp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper491 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">That clears up things! Nice paper!</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_SJeIIMu9hX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a> The paper is well written and its tone is notably scientific, though the novelty is limited</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJlRKjActQ&amp;noteId=SJeIIMu9hX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper491 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper491 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The tone of the paper is notably scientific, as the authors clearly state the assumptions and all observations, whether positive or negative. That said, the approach itself can be seen as a direct extension of the earlier advanced 'mixup' scheme. In addition to performing data augmentation solely in the input space, their method proposes to train the networks on the convex combinations of the hidden state representations by learning to map them to the convex combinations of their one-hot ground truth encodings. 
+
+The results are competitive, in most cases exceeding the current state-of-art. However, the scheme has only been tested on low-res datasets such as MNIST, CIFAR and SVHN while the predecessor (plain 'mixup') also demonstrated improvement over the much larger and high-res ImageNet dataset.
+
+Although their work is not extremely novel, the experiments and observations could serve as a useful extension to this line of research. 
+
+Suggestions:
+1.  The results on ImageNet would be a useful add-on to really drive home the benefit of their method when we talk of real-world large-scale datasets. 
+2. The associated functions represented by 'f',  'g' and 'h' change meaning between sec. 2 and sec. 3. It would be more smooth if some consistency in notations was maintained.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkgpCYcuTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your feedback</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJlRKjActQ&amp;noteId=BkgpCYcuTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper491 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper491 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">R3: 
+
+“Although their work is not extremely novel, the experiments and observations could serve as a useful extension to this line of research. “
+
+Although novelty is subjective, there is a case that the work is actually quite novel: 
+
+   1) We present a novel analysis of how manifold mixup changes representations (section 3) which is totally different from the motivation of mixup (and indeed deals with a completely different problem, as the inputs in input mixup are fixed and cannot be changed by training).  
+
+  2) The way that the representations are changed by manifold mixup is to our knowledge fairly unique, not just relative to mixup, but compared to other regularizers as well.  For example if you look at Figure 1 and Figure 6 in appendix B, you’ll see that the way the representations are changed by manifold mixup is not accomplished by four common regularizers: weight decay, batch normalization, dropout, and adding noise to the hidden states.  The representations look completely different, even though all of the methods succeed (to some extent) as regularizers.  More concretely, manifold mixup has the fairly unique effect of concentrating the hidden states of the points from each class and encouraging the hidden state to have broad areas of low confidence between those regions.  This is not accomplished to any appreciable degree by the other regularizers.  This is some evidence that the method by which manifold mixup achieves regularization is fairly unique and worthy of further study.  
+
+“The associated functions represented by 'f',  'g' and 'h' change meaning between sec. 2 and sec. 3. It would be more smooth if some consistency in notations was maintained.”
+
+Thanks, that’s a good catch.  Our intent was for g to refer to the earlier part of the network and for f to refer to the later part of the network.  We’ve fixed the notation and uploaded an updated version of the paper.  
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Hkegs4KP2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJlRKjActQ&amp;noteId=Hkegs4KP2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper491 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper491 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a novel method called Manifold Mixup, which linearly interpolating (with a careful selected mixing ratio) two feature maps in latent space as well as their labels during training, aiming at regularizing deep neural networks for better generalization and robust to adversarial attacks. The authors experimentally show that networks with Manifold Mixup as regularizer can improve accuracy for both supervised and semi-supervised learning, are robust to adversarial attacks, and obtain promising results on Negative Log-Likelihood on held out samples. 
+
+The paper is well written and easy to follow. Various experiments are conducted to support the contributions of the paper.  Nevertheless, the technical novelty seems a bit weak to me. The method basically moves the interpolating process from input space as in MixUp to randomly selected hidden states. More importantly, some of the paper’s claims are not very convincing to me in its current form.
+
+Major remarks:
+
+1.	The authors suggest that Mixup can suffer from interpolations intersecting with a real sample, but how Manifold Mixup can avoid this issue is not very clear to me. 
+The authors theoretically prove that with the proposed training cost in Manifold Mixup, the representation for each class will lie on a subspace of dimension dim (h) –d +1 (h and d are the hidden dimension and number of classes, respectively). I did not get the idea of how such dimension reduction relates to the ‘’flattening’’ of the manifold and in particular how such representations (representations for each class “concentrating into local regions”) can avoid the class collision issues as that in Mixup.
+Experimentally, from Figures 3 and 4, it seems the class collision issue could be worse than that of Mixup. For example, for mixing ratio of 0.6 (meaning the created image has almost half labels from the two original images), MixUp clearly shows, for instance in the second row, that there are two overlapped images (Horse and Plane), but Manifold Mixup seems to have only the Plane in the mixed image with a soft label. 
+
+2.	The observations of mixing in the hidden space is better than mixing in the input space seem to contradictive to the observations by Mixup, it would be very useful if the paper can make that much clear to the readers. I would suggest that the authors fully compare with MixUp in the supervised learning tasks, namely using all the datasets (including ImageNet) and networks architectures used in MixUp for supervised learning. In this way, the paper would be much more convincing because the proposed method is so close to MixUp and the observation here is contradictive.
+3.	I wonder how sensitive is the parameter Alpha in Manifold Mixup. For example, how the mixing rate Alpha impacts the results for NLL and Semi-supervised learning in section 5.2? 
+4.	It would be useful to also present the results for SVHN for supervised learning since the Cifar10 and Cifar100 datasets are similar, and the authors have already used SVHN for other task in the paper.
+
+Minor remarks:
+
+1.	In Table2, the result from AdaMix seems missed.
+2.	Why not using Cifar100, but with a new dataset SVHN for the semi-supervised learning in section 5.2?
+3.	In related work, regarding regularizing deep networks by perturbing the hidden states, the proposed method may relate to AgrLearn (Guo et al., Aggregated Learning: A Vector Quantization Approach to Learning with Neural Networks) as well.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJlZwlog0Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for feedback - is there anything additional that we could do?  </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJlRKjActQ&amp;noteId=rJlZwlog0Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper491 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper491 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hello, 
+
+Thanks again for your feedback.  Our new experiments directly address the empirical questions for #3/#4 (effect of alpha and SVHN).  We also ran a new experiment for Reviewer-1 which studied the effect of the choice of layers to mix in.  
+
+For the conceptual issues about manifold mixup (#1/#2), is there any chance that you could give us more details or feedback on them?  This is really important to us, and if anything is in error or not argued convincingly, it would be great to understand better.  
+
+Are there any experiments (especially related to the conceptual properties of manifold mixup) that you would be interested in or that would make the arguments more convincing or that would resolve any remaining issues?  
+
+Your feedback has already been very helpful in making the paper better (for example, the new appendix H and Figure 10 illustrating how inconsistent interpolations can be avoided) and if you have any more feedback it could be really helpful for us.  </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Hkl5Tu5d6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your Feedback</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJlRKjActQ&amp;noteId=Hkl5Tu5d6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper491 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper491 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Remarks 1/2 are addressed in the previous comment "Motivation for why Manifold Mixup Works".  
+
+Remark 3: “I wonder how sensitive is the parameter Alpha in Manifold Mixup. “
+
+We didn’t tune alpha very carefully, and used alpha=2.0 in all cases except for supervised learning with the large PreResNet152, where we performed better with larger alphas.  Our general experience is that manifold mixup helps over a wide range of alphas but manifold mixup benefits more from larger alphas, especially when using a larger model.  
+
+Nonetheless we performed a new experiment for the rebuttal where we trained a PreResNet18 on CIFAR-10 with a range of alphas.  
+
+Baseline (no mixing):       93.21%
+
+Manifold Mixup (α=0.5):  96.12%
+Mixup (α=0.5):                   95.75%
+
+Manifold Mixup (α=1.0):  96.10%
+Mixup (α=1.0): 	             95.84%
+
+Manifold Mixup (α=1.2):  96.29%
+Mixup (α=1.2): 	             96.09%
+
+Manifold Mixup (α=1.5):  96.35%
+Mixup (α=1.5):                   96.06%
+
+Manifold Mixup (α=1.8):  96.45%
+Mixup (α=1.8): 	             95.97%
+
+Manifold Mixup (α=2.0):  96.73%
+Mixup (α=2.0): 	             95.83%
+
+Manifold Mixup outperformed Input Mixup for all alphas in the set (0.5, 1.0, 1.2, 1.5, 1.8, 2.0) - indeed the lowest result for Manifold Mixup is better than the worst result with Input Mixup.  Note that Input Mixup’s results deteriorate when using an alpha that is too large, which is not seen with manifold mixup.  
+
+Remark 4: “It would be useful to also present the results for SVHN for supervised learning since the Cifar10 and Cifar100 datasets are similar, and the authors have already used SVHN for other task in the paper.”
+
+We ran new experiments on SVHN using the training set without the “extra” data.  We used PreActResNet-18 and used the exact same setup as with CIFAR-10.  
+
+Method: Test Accuracy
+Manifold Mixup (α=2.0):  98.10
+Manifold Mixup (α=1.5):  98.08
+Input Mixup (α=1.5):        97.59
+Input Mixup (α=1.0):        97.63
+Input Mixup (α=0.5):        97.74
+Input Mixup (α=0.2):        97.71
+Input Mixup (α=0.05):      97.72
+Input Mixup (α=0.01):      97.70
+Baseline:                             97.78
+
+Minor Remark 2: “Why not using Cifar100, but with a new dataset SVHN for the semi-supervised learning in section 5.2?”
+
+For SSL. cifar10 (with 4k labelled samples) and SVHN (1K labelled samples) have emerged as the standard benchmark datasets and they have been used to compare all of the recent state-of-the-art methods, so we followed the same setup.  We used the standard semi-supervised setup and used the exact same architectures from (Oliver 2018) “Realistic Evaluation of Deep Semi-Supervised Learning Algorithms”, which evaluated on SVHN and CIFAR-10.  
+
+Minor Remark 1/3: “In Table2, the result from AdaMix seems missed… AgrLearn missed”
+
+Note that these were released after our method’s preprint was released and they cite our method, so this is why we originally did not have it in our related work.  Nonetheless, AdaMix reports 3.52% error on CIFAR-10 and 20.97% error on CIFAR-100.  AgrLearn reports 5.53% on CIFAR-10 and 25.6% on CIFAR-100.  We report 2.38% error on CIFAR-10 and 20.39% error on CIFAR-100.  
+
+I think how the methods are related is an interesting question. AdaMix only interpolates in the input space, and they report that their method hurt results significantly when they tried to apply it to the hidden layers.  Thus the methods likely work for different reasons and might be complementary.  Nonetheless we will add these to the related work section.  
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SJg-oP7epQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Motivation for why Manifold Mixup Works</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJlRKjActQ&amp;noteId=SJg-oP7epQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper491 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018 (modified: 08 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper491 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your review.  We will post a more detailed response with new experimental results soon, but I want to quickly address issues related to the motivation for why manifold mixup works.  We also updated the paper with a new appendix section H (page 20) which discusses this in more detail and gives an illustration.  
+
+“Mixup can suffer from interpolations intersecting with a real sample, but how Manifold Mixup can avoid this issue is not very clear to me … The observations of mixing in the hidden space is better than mixing in the input space seem to contradictive to the observations by Mixup, it would be very useful if the paper can make that much clear to the readers”
+
+You are correct that manifold mixup works through a mechanism which is very different from input mixup, which I think is actually what makes it interesting.  
+
+With input mixup, if the interpolations between two points of the same class intersect with points from a different class (or interpolations are inconsistent), this leads to underfitting and poor performance.  You can see this in the center column of figure 1.  However with manifold mixup, the hidden states of the network are learned, such that these inconsistent interpolations are avoided.  
+
+To illustrate, let’s imagine that you have a binary classification problem with 2 examples from class A and 2 examples from class B.  Let’s suppose that we perform manifold mixup in a single 1-dimensional hidden layer.  Let’s say that the points from A are both at h=0.  Where can the points from B be located for the interpolations to all return the same label?  If the points from class B have different h values, then the interpolations must be inconsistent.  For example if one point from class B is at h=1 and one point from B is at h=2, then the point h=1 will either be labeled as 100% class B or it will be labeled as 50% class B / 50% class A.  This will cause manifold mixup to have error, and the only way for it to avoid this is to learn the hidden states such that all examples from each class maps to the same point.  This is what needs to happen if we have a 1D hidden space and 2 classes.  For higher dimensional hidden spaces, a similar phenomenon occurs but it is much less restrictive.  
+
+Section 3 provides exact conditions for these inconsistent interpolations to be completely avoided.  Essentially, the representations for each class need to “flatten” so that they don’t have any variation in directions which point towards other classes (you can imagine that this would lead to inconsistent interpolations because some points of the same class would have different distances to points from the other classes).  Figure 1c/1f shows exactly how this happens in a toy problem.  
+
+Moreover in section 5.1 we presented an experiment where we train with manifold mixup, but don’t pass gradient to layers before the layer where we mix (however all layers are still trained, as the layer to mix in is randomly selected on each update) - and this made accuracy much worse.  This is strong evidence that it is important for manifold mixup to learn to change the representations to make interpolations consistent.  
+
+Why is it desirable for manifold mixup to change the representations to avoid inconsistent interpolations?  The first reason is that it can help to avoid underfitting, but another reason is that the way to make interpolations consistent is to make the representations for each class more concentrated, which can only be accomplished by forcing the network to learn more discriminative features in earlier layers.  
+
+Please let me know if anything is unclear here, if you’re uncertain about part of the argument, or if there is any other type of illustration/figure that would be helpful.  </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Bye9qJi4hQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJlRKjActQ&amp;noteId=Bye9qJi4hQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper491 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper491 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">TL;DR. a generalization of the mixup algorithm to any layer, improving generalization abilities.
+
+* Summary
+
+The manuscript generalizes the mixup algorithm (Zhang et al., 2017) which proposed to interpolate between inputs to yield better generalization. The present manuscript addresses a fairly more general setting as the mixup may occur at *any* layer of the network, not just the input layer. Once a layer is chosen, mixup occurs with a random proportion $\lambda\in (0,1)$ (sampled from a $\mathrm{Beta}(\alpha,\alpha)$ distribution).
+
+A salient asset of the manuscript is that it avoids a pitfall of the original mixup algorithm: interpolating between inputs may result in underfitting (if inputs are far from each others: the interpolation may overlap with existing inputs). Interpolating deep layers of the networks makes it less prone to this phenomenon.
+
+A sufficient condition for Manifold Mixup to avoid this underfitting phenomenon is that the dimension of the hidden layer exceeds the number of classes.
+
+I found no flaw in the (two) proofs. Literature is well acknowledged. In my opinion, a clear accept.
+
+* Major remarks
+
+- There is little discussion in the manuscript about which layers should be eligible to mixup and how such layers get picked up by the algorithm. I would suggest elaborating on this.
+- References: several preprints cited in the manuscript are in fact long-published. I strongly feel proper credit should be given to authors by replacing outdated preprints with correct citations.
+- I find the manifold mixup idea to be closely related to several lines of work for generalization abilities in machine learning (not just for deep neural networks). In particular, I would like to read the authors' opinion on possible connection to the vicinal risk minimization (VRM) framework, in which training data is perturbed before learning, to improve generalization (see, among other references, Chapelle et al., 2000). I feel it would help improve supporting the case of the manuscript and reach a broader community.
+
+* Minor issues
+
+- Tables 1 and 3: no confidence interval / standard deviation provided, diminishing the usefulness of those tables.
+- Footnote, page 4: I would suggest to add a reference to the consistency theorem, to improve readability.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJl6ia7867" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your feedback</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJlRKjActQ&amp;noteId=HJl6ia7867"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper491 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper491 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">“- There is little discussion in the manuscript about which layers should be eligible to mixup and how such layers get picked up by the algorithm. I would suggest elaborating on this.”
+
+We performed a new experiment to directly study this.  Because the theory in section 3 assumes that the part of the network after mixing is a universal approximator, there is a sensible case to be made for not mixing in the very last layer.  
+
+For this experiment, we evaluated PreActResNet18 models on CIFAR-10 and considered mixing in a subset of the layers, we ran for fewer epochs than in the paper (making the accuracies slightly lower across the board), and we decided to fix the alpha to 2.0 as we did in the paper for manifold mixup.  We considered different subsets of layers to mix in, with 0 referring to the input, 1/2/3 referring to the output of the 1st/2nd/3rd resblocks respectively.  For example {0,2} refers to mixing in the input layer and the output of the 2nd resblock.  {} refers to no mixing.  
+
+Layers: Test Accuracy
+{0,1,2}:    96.73%
+{0,1}:       96.40%
+{0,1,2,3}: 96.23%
+{1,2}:       96.14%
+{0}:          95.83%
+{1,2,3}:    95.66%
+{1}:          95.59%
+{2,3}:       94.63%
+{2}:          94.31%
+{3}:          93.96%
+{}:            93.21%
+
+Essentially, it helps to mix in more layers, except for the later layers which hurts to some extent - which we believe is consistent with our theory.  
+
+“- References: several preprints cited in the manuscript are in fact long-published. I strongly feel proper credit should be given to authors by replacing outdated preprints with correct citations.”
+
+We’ve updated all of the references to the conference/journal citations.  See the new version of the paper uploaded.  In the future it would be nice if arXiv could also list the bibtex for a conference/journal version, because these are often not easy to look up (for example, for older ICLR conferences it was hard to find the bibtex).  Google scholar does not help because it often only lists the first instance of the paper, which is usually arXiv.
+
+“I find the manifold mixup idea to be closely related to several lines of work for generalization abilities in machine learning (not just for deep neural networks). In particular, I would like to read the authors' opinion on possible connection to the vicinal risk minimization (VRM) framework, in which training data is perturbed before learning, to improve generalization (see, among other references, Chapelle et al., 2000). I feel it would help improve supporting the case of the manuscript and reach a broader community.“
+
+The fundamental question of interest to us here is how deep networks behave when evaluated on points which are off of the data manifold.  Vicinal risk minimization (Chapelle 2000), which you refer to, definitely seems like an improvement over ERM, but it seems like it’s very dependent on our ability to select the right “vicinity”.  
+
+Our intuition is that our models should still be able to classify well off of the data manifold (just meaning points x where p_data(x)=0), by identifying factors and structural elements that are shared with the training distribution.  VRM can deal with this if the vicinity covers points which are off of the manifold but doesn’t include points which change the class identity.  In practice selecting this can be quite difficult.  Defining the vicinity as a spherical-Gaussian around the data points is unlikely to capture much of the space that exists off of the data manifold (or at least, reach these points with reasonable probability) while avoiding class overlap.  
+
+The “AutoAugment” paper (Cubuk 2018) proposed to learn such augmentations with a neural architecture search procedure (i.e. manually training submodels with different augmentation schemes and selecting those which lead to better generalization), although this is quite expensive and may be difficult to scale beyond a sequence of fixed augmentations.  </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Language Modeling Teaches You More Syntax than Translation Does: Lessons Learned Through Auxiliary Task Analysis | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Language Modeling Teaches You More Syntax than Translation Does: Lessons Learned Through Auxiliary Task Analysis" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=ryeNPi0qKX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Language Modeling Teaches You More Syntax than Translation Does:..." />
+      <meta name="og:description" content="Recent work using auxiliary prediction task classifiers to investigate the properties of LSTM representations has begun to shed light on why pretrained representations, like ELMo (Peters et al...." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_ryeNPi0qKX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Language Modeling Teaches You More Syntax than Translation Does: Lessons Learned Through Auxiliary Task Analysis</a> <a class="note_content_pdf" href="/pdf?id=ryeNPi0qKX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 18 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019language,    &#10;title={Language Modeling Teaches You More Syntax than Translation Does: Lessons Learned Through Auxiliary Task Analysis},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=ryeNPi0qKX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=ryeNPi0qKX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Recent work using auxiliary prediction task classifiers to investigate the properties of LSTM representations has begun to shed light on why pretrained representations, like ELMo (Peters et al., 2018) and CoVe (McCann et al., 2017), are so beneficial for neural language understanding models. We still, though, do not yet have a clear understanding of how the choice of pretraining objective affects the type of linguistic information that models learn. With this in mind, we compare four objectives - language modeling, translation, skip-thought, and autoencoding - on their ability to induce syntactic and part-of-speech information.  We make a fair comparison between the tasks by holding constant the quantity and genre of the training data, as well as the LSTM architecture. We find that representations from language models consistently perform best on our syntactic auxiliary prediction tasks, even when trained on relatively small amounts of data. These results suggest that language modeling may be the best data-rich pretraining task for transfer learning applications requiring syntactic information. We also find that the representations from randomly-initialized, frozen LSTMs perform strikingly well on our syntactic auxiliary tasks, but this effect disappears when the amount of training data for the auxiliary tasks is reduced.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">representation learning, recurrent neural networks, syntax, part-of-speech tagging</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We throughly compare several pretraining tasks on their ability to induce syntactic information and find that representations from language models consistently perform best, even when trained on relatively small amounts of data.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_S1lDaxv027" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Well done with few surprises</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeNPi0qKX&amp;noteId=S1lDaxv027"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper255 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper255 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+I have mixed feelings about this paper. On one hand, it’s a thorough and well-written experimental paper, something which is really important but is also clearly underappreciated in the machine learning community. On the other, it was not really obvious to me why some of objectives tested here are interesting: LM objectives like ELMo have seen a lot of uptake in the NLP community (and this is definitely an NLP paper), but most of the others—like skip-thought, MT, and autoencoders—have not. So the basic research question doesn’t seem like an especially burning one. The trends in Fig. 2 show that these alternatives underperform an LM objective, which suggests that the NLP community can keep using that objective without worry—and everything else in the figure seems as we would expect. 
+
+In short, I think the paper is a well-done study on a hypothesis of perhaps minor interest. The results are sensible but confirm what we already strongly suspected, and they seem unlikely to strongly influence other research, since they confirm that everyone has been the right thing all along. I’m not entirely sure what I learned from this.
+
+To me, the most interesting experiment is the final one in Section 6. This experiment seems like it could be the germ for a far more interesting paper getting at how these pretraining objectives help with downstream tasks. As it stands, it feels like an interesting nugget tacked on to an otherwise complete (and much less interesting) paper.
+
+Presentational comments:
+
+Fig.1: really nitpicky, but the typography of the POS tags and CCG categories is all wrong. These aren’t mathematical symbols!
+
+Fig 2. Slightly confused why these are broken up into two separate plots.
+
+Fig 4. is hard to read due to the lurid colors and patterns, which require a lot of cross-referencing with the legend. I wonder if this would be better as simply a table. I also found it very confusing at first since the y-axes are out of sync between the two figures—initially it looked as if the legend was overlaid on a set of bars in the left figure that had the same baseline as the right figure. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkgklG4CpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your comments!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeNPi0qKX&amp;noteId=SkgklG4CpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper255 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper255 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Our contribution is a thorough examination of several different pretraining tasks, controlling for the domain, amount of data, and training procedure. When CoVe was released at NIPS last year, it achieved SoTA numbers on several prominent NLP tasks. Although ELMo compares to CoVe in their paper and outperforms CoVe, since CoVe was trained on WMT English-German and ELMo was trained on the One Billion Word Benchmark, it was unclear if the performance gain of ELMo was primarily due to the increased amount of training data. Moreover, without a direct comparison we can’t even be sure that language modeling is better because ELMo could have just been more carefully tuned. Our finding that language modeling, an unsupervised task, outperformed translation models trained on the *same* data is still surprising because the translation models are given the source sentence in a different language and thus have strictly more information than language models. We also agree that the results of our analysis of the randomly-initialized encoder in Section 6 are surprising, and could form the basis for a larger study.
+
+Fig 1: You are right. We just fixed the typography in our most recent revision.
+
+Fig 2: The upper plot is for POS tagging and the bottom for CCG supertagging. Each of those plots are then split into three columns corresponding to different amounts of classifier training data. Each column has two plots because when we tried plotting all ten lines into one figure it was difficult to read, so we split up the models into two groups: models with attention (plus BiLMs) and models without attention (plus forward LM). We welcome further suggestions for improving our presentation.
+
+Fig 4: We included the patterns and bright colors in order to make it easier for the visually impaired to read.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HylENB7xAQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeNPi0qKX&amp;noteId=HylENB7xAQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper255 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper255 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I agree, it's definitely interesting that CoVe doesn't help, since it has access to strictly more information in your controlled comparison. But suppose you had found the opposite: that training with CoVe worked better than ELMo. Would readers of this paper already using ELMo (or one of its variants) go out and replace it with CoVe? Of course they wouldn't, because they can train ELMo using as much data as they want. With CoVe they would need parallel data, which is much scarcer. In other words: if the results of the experiment had been different, they would likely have the same effect on actual use of these methods, i.e. very little effect at all.
+
+Again, this is just a comment on the impact of the paper. I think the science is sound, and I agree it's interesting. Were I chair (I'm not), my decision on this paper would depend on how many other potentially high-impact papers were on offer, and whether there was space left for this one. (I personally favor higher accept rates for precisely this reason. But again it's not up to me.)
+
+Re: Fig. 4. It's great that this is intended to be readable to the visually impaired, but I think it fails as an effective figure in general. The main problem is that it requires a lot of cognitive effort to decode what each of the bars means, particularly for (b), since the reader has to cross-reference with the legend on (a). This means scanning back and forth, doing a lot of visual search, and keeping several bits of information in memory at once. Those are exactly the kind of things you want to minimize when presenting information visually.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_BkedG4CTnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>carefully done experiments but is it enough?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeNPi0qKX&amp;noteId=BkedG4CTnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper255 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper255 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper tests various pretraining objectives (language modeling, machine translation, skip-thought, and autoencoding) on two syntactic tasks: POS tagging and CCG tagging. It finds that language modeling outperforms the other pretraining objectives; additionally, randomly-initializing an encoder achieves decent performance when given a large amount of labeled data for the tagging task. The experiments in this paper are very thorough and explained well. By controlling for pretraining data size, the authors are able to reasonably claim that language modeling is superior to translation as a syntactic transfer learning task. On the other hand, I have some concerns regarding the significance of the paper's contributions, and as such I am borderline on its acceptance. 
+
+comments:
+- the experiments in the paper feel biased towards language modeling. Language modeling is the only token-level prediction task of the four objectives here, but both of the two downstream tasks are at the token level. It is perhaps unsurprising then that language modeling performs best; perhaps the authors could have considered some sentence-level downstream tasks as well to properly control for this? Or added some more word-level pretraining objectives? 
+
+- sort of relatedly, the authors do not provide any explanations as to *why* language modeling is a better pretraining objective than translation. What kinds of examples do the tagging models using LM pretraining get right that the translation models do not? Such an analysis could help provide more concrete insights into what kind of information each objective is encoding.
+
+- the claim that LMs &gt; translation is not a new finding. The authors cite Blevins et al, who find the same result on the task of dependency arc prediction. Similarly, the surprisingly good performance of random encoders was also found in Conneau et al., ACL 2018. As the main contribution of this paper seems to be a more controlled study of Blevins et al on different syntactic tasks, I don't think there is enough here for an ICLR submission. 
+
+- what is the effect of the specific dataset and architecture on the results? Here we just look at a couple translation datasets (all news data) and LSTM models. Do things change when we move to transformers or more diverse domains? </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hyl2uSVCa7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your feedback!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeNPi0qKX&amp;noteId=Hyl2uSVCa7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper255 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper255 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">- All the tasks use the same training data. The data each model is trained on was pre-processed in the same way, word-level tokenization. All the training objectives we compare all have the same loss: average negative log likelihood of the target sequence. For these reasons, we believe our methods were a fair of all the training tasks we examined. Perhaps I am misunderstanding your comment?
+
+- We agree that why language models are a better pretraining objective than translation is an interesting question. It is in general difficult to answer the question of why representations from one neural model are better than those from another. We did our best to thoroughly compare these training objectives and are interested in any methods / techniques to further address the question of why as there is always room to do more.
+
+- Blevins et al. compare translation models trained on WMT 14 English-German with LMs trained on CoNLL 2012’s training set on dependency arc prediction using the Universal Dependencies dataset. It was unclear from their results alone that if LMs were superior to translation models simply due to differences in the domain and amount of training data for the respective models. We updated how we address this in our literature review section to make this point more clear.
+        The surprisingly good performance of random encoders was found by Conneau et al. ACL 2018 for sentence vector representations using different architectures with pretrained fastText embeddings. We show that randomly initialized LSTM hidden state representations with *randomly* initialized embeddings perform quite well on POS and CCG tagging, which puts the results of Belinkov et al. and Blevins et al. that encoders trained on tasks like MT and language modelling learn syntactic information in a new light, since we find that many of these “learned” syntactic properties can even be learned from random LSTMs. We also show that random LSTMs preserve information about neighboring word identities better than trained LSTMs, which raises new questions about what kind of alternative information is learned by LSTMs that helps them with training task performance.
+
+- We believe that the results for LSTMs trained on WMT data is quite representative of neural NLP models trained on most large-scale datasets. Since we use the same dataset for all tasks, we control for any domain effects. It seems unlikely that using one pretraining task over another will lead to much better or worse domain adaptation from the same domain.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJl1Yb9O2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>official review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeNPi0qKX&amp;noteId=rJl1Yb9O2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper255 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper255 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This is nicely written paper analyzing the effect of various pre-training methods and shows that language models are very effective on sequence tagging tasks (POS, CCG). The experiments are well motivated and well described.
+
+Regarding Table 1: which one of the "LM forward" models was used in the subsequent experiments? 
+
+Are the input embeddings for the random init LSTM pre-trained or are they also randomly initialized?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Sygh7MNRTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks! Let us know if you have further feedback!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryeNPi0qKX&amp;noteId=Sygh7MNRTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper255 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper255 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you! 
+
+We used both “LM Forward” models - the larger forward LM we examined on its own and the small forward LM was combined with the small backward LM into the bidirectional LM.
+
+The input embeddings for the randomly initialized LSTMs are also randomly initialized.
+
+Let us know if you have further feedback!</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

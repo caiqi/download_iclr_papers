@@ -1,0 +1,330 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Efficient Convolutional Neural Network Training with Direct Feedback Alignment | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Efficient Convolutional Neural Network Training with Direct Feedback Alignment" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BkGiPoC5FX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Efficient Convolutional Neural Network Training with Direct..." />
+      <meta name="og:description" content="There were many algorithms to substitute the back-propagation (BP) in the deep neural network (DNN) training. However, they could not become popular because their training accuracy and the..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BkGiPoC5FX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Efficient Convolutional Neural Network Training with Direct Feedback Alignment</a> <a class="note_content_pdf" href="/pdf?id=BkGiPoC5FX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 14 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019efficient,    &#10;title={Efficient Convolutional Neural Network Training with Direct Feedback Alignment},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BkGiPoC5FX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=BkGiPoC5FX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">There were many algorithms to substitute the back-propagation (BP) in the deep neural network (DNN) training. However, they could not become popular because their training accuracy and the computational efficiency were worse than BP. One of them was direct feedback alignment (DFA), but it showed low training performance especially for the convolutional neural network (CNN). In this paper, we overcome the limitation of the DFA algorithm by combining with the conventional BP during the CNN training. To improve the training stability, we also suggest the feedback weight initialization method by analyzing the patterns of the fixed random matrices in the DFA. Finally, we propose the new training algorithm, binary direct feedback alignment (BDFA) to minimize the computational cost while maintaining the training accuracy compared with the DFA. In our experiments, we use the CIFAR-10 and CIFAR-100 dataset to simulate the CNN learning from the scratch and apply the BDFA to the online learning based object tracking application to examine the training in the small dataset environment. Our proposed algorithms show better performance than conventional BP in both two different training tasks especially when the dataset is small.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Direct Feedback Alignment, Convolutional Neural Network, DNN Training</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rJgvU8g3h7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The contribution is limited</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkGiPoC5FX&amp;noteId=rJgvU8g3h7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper297 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper297 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper targets at developing new DFA method to replace BP for neural network model optimization, in order to speed up the training process. The paper is generally written clearly and relatively easy to follow. 
+
+My main concern is about significance of the contribution of this paper.
+
+1. the novelty is limited. This paper only simply combines two well-known approach BP and DFA together. 
+
+2. performance contribution seems not significant from the proposed approach. In the implementation, the authors only apply their approach to optimize a few top layers. A majority of the layers in the NN model are still optimized via BP. 
+
+3. the authors should provide more evaluations on different NN backbones and datasets, to make the experiments stronger and more convincing.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BklM51jOT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for valuable comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkGiPoC5FX&amp;noteId=BklM51jOT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper297 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper297 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks to your valuable comments, we can improve the quality of the manuscript more than before. 
+
+Before answering your main concerns, the manuscript was revised as follow.
+
+1) The contents of the 2nd paragraph was gradient vanishing problem but it is replaced with the overfitting problem to emphasize the effect of the CDFA. 
+
+2) We made the figures smaller to secure more manuscript spaces.
+
+3) Minor typos in the manuscripts were revised.
+
+Followings are our response to your comments.
+
+1) Limited Novelty
+As you pointed out, we suggest the combination of two well-known training methods, BP and binarized DFA. Although the proposed solution is simple, the effect of the training is powerful especially when the training dataset is small. To emphasize the effect of the algorithm, we added the simulation of data augmentation (table 2).
+
+2) Performance contribution
+Reduced amount of computation by BDFA can be much smaller when we include the computations due to the covolutional layers. Therefore, computational efficiency caused by BDFA can be larger only for the specific NN models. For example, MDNet (referred in the paper) uses only FC fine-tuning, and BDFA can improve the computational efficiency significantly. 
+However, when the BDFA is applied instead of BP, we can reduce the required size of the dataset to achieve same test accuracy. Finally, training with the small dataset can additionally improve the effectiveness of the BDFA based training.
+
+3) Limited evaluations
+We are really sorry that we could not add the evaluations with the different NN models and datasets. Our computation resources are limited so, it is hard to get the results before the deadline. Instead, we added the simulation results with data augmentation, and convolution layer only training. We are still evaluating the more various network configurations and datasets.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HklxaibB2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkGiPoC5FX&amp;noteId=HklxaibB2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper297 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper297 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper propses to use a combination of Direct Feedback Allignment (DFA) and BackPropagation (BP) to improve upon standard back propagation.
+To understand what is done, consider the following: Feedback Alignment is +- equal to back propagation when using random but fixed weights in the backwards pass. Direct feedback alignment uses random backprojections directly to the layer of interest. 
+The advantage of DFA is that It bypasses the normal computational graph. The advantage of this is that if compute is infinite, all of these updates can be computed in parallel instead of pipelining them as is done in standard BP.
+
+In the current paper, the use of DFA for dense layers and BP for conv layers which is named CDFA is proposed.
+In addition the paper also proposes a binarized version of BDFA to limit memory consumption and communication. It is claimed that the proposed techniques improve upon standard back propagation.
+
+Overall, the paper is easy to understand, but I lean towards rejecting this paper because I am not convinced by the experimental evidence. As outlined below, the key issue is that the baseline appears to be weak. Additionally, the main limitation of the proposed approach can only benefit a very limited set of architectures. 
+
+Positive points:
+---------------------
+The authors did an excellent job of introducing BP, FA and DFA in the paper. This makes the core concepts and ideas accessable without having to delve through prior work.
+
+
+The own contributions and the key idea is easy to understand. 
+
+Limitations and possible improvements
+-------------------------------------------------------
+A core limitation is that recent networks do not have a combination of dense layers and convolutional layers. In many cases the networks are fully convolutional, this limits the applicability of the proposed combination of DFA and BP. The use of additional networks would benefit the paper. Currently only VGG 16 on Cifar 10 is used. Also, the data augmentation strategy is not discussed. Of course, it would be nice if additional datasets could be included as well, but this of course depends on the computational resources the authors have available. 
+
+
+The key issue to me is that performance improvements for CIFAR are reported, but I fear that the baseline accuracy for VGG16 might be a bit low. If I memory serves me well, it should be able to achieve around 90% at least on CIFAR 10 using VGG style networks. I did a quick search and found <a href="http://torch.ch/blog/2015/07/30/cifar.html" target="_blank" rel="nofollow">http://torch.ch/blog/2015/07/30/cifar.html</a> corroborating this but I did not verify this directly. 
+
+
+Related to the previous point, since this is an empirical paper, describing the hyper-parameter optimizations and final settings in detail  can convince the reader that the study is exectued correctly. Much of the information is missing now.
+
+
+Similarly, I have trouble understanding section 4.1 and section 4.2 since I do not know the exact details of the experiments. This can be fixed easily however.
+
+
+Provide complexity estimates of the potential speedup or provide actual timing information. (Although this might not be that meaningful without much additional work given that gpu kernels are often heavily optimized).
+
+
+Last year there was a submission to ICLR about fixing the final output layer and only learning the convolutional layers. If we consider that random projections work remarkably well and can be considered approximations of kernels, it could be interesting to add a baseline where the fully connected layers are fixed and only the convolutional layers are trained. The error signal can be propagated using standard BP, FA or DFA methods but it would shed light on whether learning in the higher layers is actually needed or BP in the conv layers is sufficient.
+
+Minor possible improvements
+------------------------------------------
+Finally, I would strongly suggest that the authors perform some additional proofreading. There are quite a few strange formulations and spelling mistakes. That being said, it did not prevent me from understanding the manuscript so this remark DID NOT factor into my judgement.
+
+In addition to remark above, I would suggest removing the second paragraph from the introduction. It feels out of place to me, and the vanishing gradient effects are not discussed in the remainder of the manuscript.
+
+
+The list of possible optimizers before the selection for SGD+Momentum is not needed. Simply stating that SGD with momentum is used should be sufficient. 
+
+
+“Training from scratch” instead of “Training from the scratch”
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkeKcIiO6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response about your valuable comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkGiPoC5FX&amp;noteId=rkeKcIiO6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper297 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper297 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks to your valuable comments, we can improve the quality of the manuscript more than before. 
+
+Before answering your main concerns, the manuscripts are revised as follow.
+
+1) The contents of the 2nd paragraph was gradient vanishing problem but it is replaced with the overfitting problem to emphasize the effect of the CDFA. 
+
+2) We made the figures smaller to secure more manuscript spaces.
+
+3) Minor typos in the manuscripts were revised.
+
+----------------------------------------
+
+Followings are our response about your comments.
+
+1) Data augmentation strategy and the details of the experiment (hyper parameter, network configuration, data augmentation, optimization method, etc)
+As you pointed out, the data augmentation startegy was not mentioned in the previous manuscript. We added the explantion about the data augmentaion clearly and added more details of the experiments as follow.
+  - The base network follows the VGG-16 configuration, but has one additional FC layer.
+  - The simulation was based on mini-batch gradient descent with the batch size 100 and uses momentum for the optimization method.
+  - The parameters of the network is initialized as introduced by He et al. (2015), and the learning rate decay and the weight decay method is adopted. Other hyper parameters are not changed for fair comparison.
+
+In this experiments result in the previous manuscripts was evaluated with no data augmentation. Even though the data augmentation is not used, CBDFA shows more robust training performance compared with the BP. We emphasized this strength into the manuscript. Moreover, the related simulation is added in table 2. 
+
+2) Complexity and speedup estimation
+The complexity of the BP training highly depends on the network configurations. Instead, we add the reference, Han et al (ISCAS 2018) which explains the BP based online learning can be the obstacle of real-time object tracking implementation. 
+
+3) Comparison with "Conv. only training"
+In table 2, we added the comparison results with conv. only training suggested by Hoffer et al. (2018). CBDFA shows much better training performance compared with the conv. only training.
+
+4) Explanation of gradient vanishing problem in intorudction.
+We removed the second paragraph, but add the overfitting problem.
+
+5) Low baseline performance
+There are three reasons why the baseline model in the manuscript shows lower accuracy compared with the state-of-the-art CIFAR results.
+  (1) There was no data augmentation. 
+  (2) Simple optimization, momentum is used.
+  (3) We used one additional FC layer for VGG-16.
+We added the simulation result with data augmentation in table 2. The explanation of the different network configuration is added in section 4.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJxID8GNh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The method needs more insight or novelty, and the results have room to improve</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkGiPoC5FX&amp;noteId=BJxID8GNh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper297 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper297 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This manuscript extends the direct feedback alignment (DFA) approach to convolutional neural networks (CNN) by (1) only applying DFA to FC layers with backpropagation (BP) in place for convolutional layers (2) using binary numbers for feedback matrix.
+
+Originality wise, I think (1) is a very straightforward extension to the original DFA approach by just applying DFA to places where it works. It still does not solve the ineffectiveness of DFA on convolutional layers. And there is no much insight obtained. (2) is interesting in that a binary matrix is sufficient to get good performance empirically. This would indeed save memory bandwidth and storage. This falls into the category of quantization or binarization, which is not super novel in the area of model compression. 
+
+The experimental results show that the proposed approach is better than BP based on accuracy. However, these results might be called into question because the shown accuracies on CIFAR10 and CIFAR100 are not state-of-the-art results. For example, the top 1 accuracy of CIFAR10 in this paper 81.11%. But with proper tuning, a CNN should be able to get more than 90% accuracy. See this page for more details.
+<a href="http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html" target="_blank" rel="nofollow">http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html</a>
+Therefore, though the claimed accuracy of the proposed method is 89%, it is still not the state-of-the-art result and it seems to be lack of tuning for the BP approach to perform similar level of accuracy. The same conclusion applies to CIFAR100. In fact, from figure 4, the training accuracy gets 100% while the testing accuracy is around 40% for BP, which seems to be overfitting. With these results, it is hard to judge the significance of the manuscript.
+
+Minor typos:
+In Equation 1, the letter i is overloaded.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1efJssO6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for your comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkGiPoC5FX&amp;noteId=S1efJssO6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper297 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper297 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comments. 
+
+Followings are our response about your comments.
+
+1) Effectiveness of DFA
+Reduced amount of computation by BDFA can be much smaller when we include the computations due to the covolutional layers. Therefore, computational efficiency caused by BDFA can be larger only for the specific NN models. For example, MDNet (referred in the paper) uses only FC fine-tuning, and BDFA can improve the computational efficiency significantly. 
+However, when the BDFA is applied instead of BP, we can reduce the required size of the dataset to achieve same test accuracy. Finally, training with the small dataset can additionally improve the effectiveness of the BDFA based training.
+
+2) Limited Novelty
+As you pointed out, we suggest the combination of two well-known training methods, BP and binarized DFA. Although the proposed solution is simple, the effect of the training is powerful especially when the training dataset is small. To emphasize the effect of the algorithm, we added the simulation of data augmentation (table 2).
+
+3) Low baseline performance
+There are three reasons why the baseline model in the manuscript shows lower accuracy compared with the state-of-the-art CIFAR results.
+  (1) There was no data augmentation. 
+  (2) Simple optimization, momentum is used.
+  (3) We used one additional FC layer for VGG-16.
+We added the simulation result with data augmentation in table 2. The explanation of the different network configuration is added in section 4.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

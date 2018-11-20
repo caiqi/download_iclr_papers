@@ -1,0 +1,304 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Defensive Quantization: When Efficiency Meets Robustness | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Defensive Quantization: When Efficiency Meets Robustness" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=ryetZ20ctX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Defensive Quantization: When Efficiency Meets Robustness" />
+      <meta name="og:description" content="Neural network quantization is becoming an industry standard to efficiently deploy deep learning models on hardware platforms, such as CPU, GPU, TPU, and FPGAs. However, we observe that the..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_ryetZ20ctX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Defensive Quantization: When Efficiency Meets Robustness</a> <a class="note_content_pdf" href="/pdf?id=ryetZ20ctX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019defensive,    &#10;title={Defensive Quantization: When Efficiency Meets Robustness},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=ryetZ20ctX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Neural network quantization is becoming an industry standard to efficiently deploy deep learning models on hardware platforms, such as CPU, GPU, TPU, and FPGAs. However, we observe that the conventional quantization approaches are vulnerable to adversarial attacks. This paper aims to raise people's awareness about the security of the quantized models, and we designed a novel quantization methodology to jointly optimize the efficiency and robustness of deep learning models. We first conduct an empirical study to show that vanilla quantization suffers more from adversarial attacks. We observe that the inferior robustness comes from the error amplification effect, where the quantization operation further enlarges the distance caused by amplified noise. Then we propose a novel Defensive Quantization (DQ) method by controlling the Lipschitz constant of the network during quantization, such that the magnitude of the adversarial noise remains non-expansive during inference. Extensive experiments on CIFAR-10 and SVHN datasets demonstrate that our new quantization method can defend neural networks against adversarial examples, and even achieves superior robustness than their full-precision counterparts, while maintaining the same hardware efficiency as vanilla quantization approaches. As a by-product, DQ can also improve the accuracy of quantized models without adversarial attack. </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">defensive quantization, model quantization, adversarial attack, efficiency, robustness</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We designed a novel quantization methodology to jointly optimize the efficiency and robustness of deep learning models.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">19 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rJlCsNCx0X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Unable to reproduce R+FGSM results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=rJlCsNCx0X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1189 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I am trying to reproduce the results of this paper (mainly the claims that R+FGSM training is just as effective as PGD adversarial training, see the long discussion below regarding Table 3). I have tried taking the CIFAR-10 code from ( <a href="https://github.com/MadryLab/cifar10_challenge" target="_blank" rel="nofollow">https://github.com/MadryLab/cifar10_challenge</a> ) and implementing the R+FGSM attack during training as described in this paper. However, I have been unable to reproduce the claim of 43% robustness at eps=8.
+
+Would the authors be willing to release their source code?</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SJlagR_gR7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good research work with clear arguments well supported by rigorous experiments.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=SJlagR_gR7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1189 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1189 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary of paper
+This paper presents an approach  for quantising neural networks such that the resulting quantised model is robust to adversarial and random perturbations.
+The core idea of the paper is to enforce the Lipschitz constant of each linear layer of the network approximately close to 1. Since the Lipschitz constant of the neural network is bounded by the product of the
+Lipschitz constant of its linear layer (assuming Lipschitz 1 activation functions) the Lipschitz constant of the trained neural network is bounded by 1. This results in a model which is robust to adversarial and random noise ad all directions in the model space are non-expansive. Algorithmically, controlling the Lipschitz constant is achieved by using the orthogonal regulariser presented in the paper Cisse et.al which has the same motivation for this work but for standard neural network training but not quantising. The authors presents thorough experimental study showing why standard quantisation schemes are prone to adversarial noise and demonstrate clearly how this approach improves robustness of quantised network and sometimes even improve over the accuracy of original model. 
+
+Review:
+The paper is well written with clear motivation and very easy to follow. 
+The core idea of using orthogonal regulariser for improving the robustness of neural network models have been presented in Cisse et.al and the authors re-use it for improving the robustness of quantised models. The main contribution of this work is in identifying that the standard quantised models are very vulnerable to adversarial noise which is illustrated through experiments and then empirically showing that the regulariser presented in Cisse et. al improves the robustness of quantised models with rigorous experiments. The paper add value to the research community through thorough experimental study as well as in industry since quantised models are widely used and the presented model is simple and easy to use. 
+
+Some suggestions and ideas:
+
+1. It will be great if the authors could add a simple analytical explanation why the quantised networks are not robust.                      
+
+2. The manifold of Orthogonal matrices does not include all 1 - Lipschitz matrices and also the Orthogonal set is not convex. I think a better strategy for this problem is to regularise the spectral norm to be 1.  Regularising the spectral norm is computationally cheaper than Orthogonal regulariser when combined with SGD using power iterations.  Moreover the regulariser part of the model becomes nice and convex.
+
+3. Another strategy to control the Lipschitz constant of the network is to directly penalise the norm of the Jacobian as explained in Improved Training of Wasserstein GANs (Gulrajani et. al).
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SylvEsdV3m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A simple regularization scheme that efficiently protects quantized models from adversarial attacks</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=SylvEsdV3m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1189 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1189 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary: 
+The paper proposes a regualrization scheme to protect quantized neural networks from adversarial attacks. The authors observe that quantized models become less robust to adversarial attacks if the quantization includes the inner layers of the network. They propose a Lipschitz constant filtering of the inner layers' input-output to fix the issue.  
+
+Strengths:
+The key empirical observation that fully quantized models are more exposed to adversarial attacks is remarkable in itself and the explanation given by the authors is reasonable. The paper shows how a simple regularization scheme may become highly effective when it is supported by a good understanding of the underlying process.
+
+Weaknesses:
+Except for observing the empirical weakness of fully quantized models, the technical contribution of the paper seems to be limited to combining the Lipschitz-based regularization and quantization. Has the Lipschitz technique already been proposed and analysed elsewhere? If not, the quality of the paper would be improved by investigating a bit more the effects of the regularization from an empirical and theoretical perspective. If yes, are there substantial differences between applying the scheme to quantized models and using it on full-precision networks? It looks like the description of the Lipschitz method in Section 4 is restricted to linear layers and it is not clear if training is feasible/efficient in the general case.
+ 
+Questions:
+- has the Lipschitz technique been proposed and analysed elsewhere? Is the robustness of full-precision models under adversarial attacks also improved by Lipschitz regularization?
+- how popular is the practice of quantizing inner layers? Has the performance of fully quantized models ever been compared to full-precision or partially quantized models in an extensive way (beyond adversarial attack robustness)? 
+- are the adversarial attacks computed using the full-precision or the quantized models? would this make any difference?
+- the description of the Lipschitz regularization given in Section 4 assumes the layers to be linear. Does the same approach apply to non-linear layers? Would the training be feasible in this case? </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1lNfHKMTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: A simple regularization scheme that efficiently protects quantized models from adversarial attacks</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=H1lNfHKMTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1189 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1189 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you so much for the feedback. Below are our answers to the questions.
+
+- Lipschitz regularization has been proposed in previous papers, and the robustness of full-precision models can also be improved when combined with Lipschitz regularization. However, there is a significant difference between applying Lipschitz regularization term to full-precision model and quantized model: when the quantized model is trained with Lipschitz regularization, we found it more robust than the original full-precision model, and it is **even more robust** than the full-precision model trained with the same Lipschitz regularization. That is to say, when we introduce the Lipschitz regularization term, quantization itself can be used as an effective denoiser to reduce the adversarial perturbation, as much of the perturbation strength is smaller than the quantization bucket width. Thus we call the method Defensive Quantization.
+Actually, we have already shown such an effect in Table 1 of the original paper. The column *Quantize Gain* shows the adversarially attacked accuracy improvement of the quantized model compared to the full-precision model, trained with exactly the same Lipschitz regularization term. Without Lipschitz regularization, quantized models are less robust than full-precision ones (-9.1%). While with Lipschitz quantization, the quantized models are consistently more robust.
+In short, (1) conventional quantized models are less robust. (2) Lipschitz regularization makes the model robust. (3) Lipschitz regularization + quantization makes model even more robust. The reviewer has noticed (1)(2), but we also want to emphasize (3) in the paper. 
+
+- Quantization has become an industry standard for deep learning hardware. Making quantized models robust is an important topic that concerns billions of AI devices. To deploy models on GPU/TPU/FPGA/Mobile phones, we need quantization to reduce the storage, inference time and energy. Many companies have provided both hardware and software to support quantized models. For example, TensorFlow-Lite supports running quantized models on mobile phones [1] to reduce inference time and storage. NVIDIA has released TensorCore [2] to support low-bit training like INT4, INT8, and binary precision for inference.
+The performance of fully quantized models compared to full-precision counterparts is extensively studied in previous works like XNOR-Net [3], BNN [4], DoReFa-Net [5], where weights, activation (and even gradients) are quantized to low-bit representations. With quantization, we can achieve massive compression or speed-up at the cost of little or no accuracy lost. In short, quantization is an important topic widely adopted by industry. Making quantized models robust will benefit billions of AI devices. 
+
+- For adversarial training, we used the quantized model itself to generate white-box adversarial samples. For white-box adversarial testing, we also used the quantized model, by definition. For black-box adversarial testing, we used another full-precision model. Since we used an STE (straight through estimator) y=x + clip_gradient(x_quant - x)  to compute the gradient of quantization operator, it behaves just like the normal full-precision model during backpropagation. Therefore we believe it does not make much difference to use full-precision or quantized models.
+
+- Our Lipschitz regularization term only applies to layers with parameters, i.e., convolution and fully connected layer, which make up the majority of modern networks. Our experiments also show that such a regularization term is enough to make quantized models robust. Also, since the size of parameters is much smaller compared to activations (we usually use a large batch size like 256 for training, while we only need to maintain a single copy of parameters), the cost for calculating the regularization is negligible according to our experiments.
+Furthermore, since non-linear layers like ReLU itself has a Lipschitz constant &lt;=1, we do not need to take special care of them.
+
+[1] <a href="https://www.tensorflow.org/lite/performance/model_optimization#model_quantization" target="_blank" rel="nofollow">https://www.tensorflow.org/lite/performance/model_optimization#model_quantization</a>
+[2] https://www.nvidia.com/en-us/data-center/tensorcore/
+[3] Rastegari et al., XNOR-Net: Imagenet classification using binary convolutional neural networks
+[4] Courbariaux et al., Binarized neural networks: Training deep neural networks with weights and activations constrained to+ 1 or-1
+[5] Zhou et al., DoReFa-net: Training low bitwidth convolutional neural networks with low bitwidth gradients
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rygxXn_fhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>while i am no expert an adversarial attacks in deep learning, the results are compelling imho</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=rygxXn_fhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1189 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1189 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">imho, this manuscript is clearly written, addresses a confusing point in the current literature, clarifies some issues, and provides a novel and useful approach to mitigate those issues. 
+reading the other comments online, the authors seem to have addressed those concerns as well.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkxPH1-xp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Please write a more thoughtful review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=BkxPH1-xp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Nicholas_Carlini1" class="profile-link">Nicholas Carlini</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1189 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Reviewer 1, I'm sure you have a lot going on, and having only a few weeks to review several papers can be hard, but I would encourage you to re-read the paper carefully and write a more detailed review. This may not be your area -- that's okay. In fact, given that it's not your area of focus, your perspective could be very helpful in what could be improved on to make the paper more generally accessible to the broader community.
+
+Unfortunately, what you currently have written does not come close to resembling a complete paper review. It is disrespectful to both the authors of this paper (even if you do give it a high score, they don't get any comments on how to improve it) and the other reviewers (who put effort into writing a thorough review of the paper).</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryxW9o4Z9m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Confusing Table 3 Results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=ryxW9o4Z9m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Table 3 appears to show that training with R+FGSM is more robust than full PGD adversarial training, consistently across every entry entry, even without DQ. This contradicts much prior work, especially Madry et al. (2018). Do the authors believe there is something interesting going on to cause this?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hkehlty29X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>No Contradiction with Prior Conclusion. We Observed Consistent Trends Demonstrated by Other Paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=Hkehlty29X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1189 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks. R+FGSM was proposed in Tramer et al. (2018), where the author used R+FGSM for the black-box based adversarial training. Previous work showed adversarial *FGSM* training is weaker than PGD, but not *R-FGSM*. There is no prior work conducted comparisons between white-box R+FGSM and PGD adversarial training, and thus no conclusion whether one of them is significantly better. In fact, compared with FGSM, R-FGSM introduced randomness, making it less likely to cause gradient masking than FGSM.
+
+We do find a similar result (<a href="https://openreview.net/forum?id=ryxeB30cYX)" target="_blank" rel="nofollow">https://openreview.net/forum?id=ryxeB30cYX)</a> where the author finds that randomized one-step adversarial training can achieve comparable and even better robustness than PGD adversarial training. R+FGSM adversarial training is also a randomized one-step adversarial training method, and therefore also achieves comparable or better robustness against PGD adversarial training. Since adversarial R+FGSM training is more stable, it would be possible to achieve better robustness under certain evaluations.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryly95Z29X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>R-FGSM is strictly weaker than PGD</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=ryly95Z29X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Reading the text more carefully, it appears you are not performing the strong version of adversarial training as proposed by Madry et al. (2018), but instead the BIM as used by Kurakin et al. (2016). The PGD implementation as proposed by Madry et al. (2018) take a single random step and then perform PGD from there. That is to say,  R-FGSM is identical to 1 step of PGD. So the extra random steps can not be the reason for preventing gradient masking. Calling this "Adversarial PGD" is therefore deceptive.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkx4Xm72cm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We used PGD (Mady et al., 2018) but not BIM for adversarial training</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=rkx4Xm72cm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1189 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">No, we *strictly* used the PGD as proposed by Madry et al. (2018) for adversarial training and attack evaluation, *NOT* the BIM without a random start. We mentioned R+FGSM is less likely to cause gradient masking compared to *FGSM* because of the random start, but not compared to *PGD*.
+
+Under stronger attack like PGD, our experiments have consistently shown that defensive quantization outperforms vanilla quantization, and bridges the gap between efficiency and robustness.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkgmUBVncQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarifying your claims</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=BkgmUBVncQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">To confirm then, the claim your paper makes is that if I take PGD adversarial training on CIFAR-10, and reduce the number of iterations to 1, that it is not less effective than before? (Before: Madry et al. use N=7 steps of PGD during training, a step size of 2/255, and a bound of eps=8/255. After: this paper proposes N=1 steps of PGD during training, a step size of 8/255, and a bound of eps=8/255.)
+
+Looking at Table 3: PGD adversarial training reaches 44% accuracy on eps=8 PGD attacks, and R+FGSM adversarial training reaches 43% accuracy accuracy on eps=8 PGD attacks.
+
+Is this correct?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1gHry3ijQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>R+FGSM is different from 1-step PGD</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=S1gHry3ijQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1189 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">23 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">No. Even if you use n_step=1 for PGD, it is still different from R+FGSM. Please refer to equation (2) for details. Since we used an iterative PGD, we do not know how it behaves to use PGD with n_step=1.
+
+We would like to stress that our paper aims to demonstrate the effectiveness of Defensive Quantization, not to compare R+FGSM adversarial training with PGD adversarial training. And all the experiments are conducted under the same setting for strict comparison. Comparison of other defend methods is beyond the scope of our paper.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hyly7UCijQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>R+FGSM is nearly the same as 1 step of PGD</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=Hyly7UCijQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">23 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I'm sorry, but while technically you are right that they are different, for all intents and purposes, they are the same.
+
+As you say in your paper, R+FGSM does the following: choose a constant e1, e2 so that e1&lt;e2. For an image x first let x1 = x + e1*R where R is chosen to be randomly component-wise either -1 or 1. Then, let x2 = FGSM(x1, e).
+
+PGD, as described by Madry et al. (2018) does the following: choose a constant e. For an image x first let x1 = x + e*R where each entry of R is chosen *uniformly* from [-1,1]. Then, let x2 = FGSM(x1,e) (and repeat as necessary, but we're talking about 1 iteration here).
+
+While technically there is a difference (in how the initial noise sample is selected), they are essentially identical. But okay, technically different. To re-phrase my question then, your paper is claiming that if I do R+FGSM as described above, with epsilon=8, on CIFAR-10, the resulting model will have 43% accuracy? Is this the claim you are making?
+
+
+Regarding the comparisons: I understand you're not trying to compare the two approaches. However, in order to ensure that DQ is actually effective, it is important to also ensure that you get everything else right.
+
+As of right now, it appears that your attack algorithm is somehow broken, because it should be possible to still attack a R+FGSM trained model and reduce its accuracy to near-0%. Because you can't attack this baseline that is known to be broken successfully, it raises doubts about the evaluation of your DQ defense.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJeTRnNpjX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Our attacker is not broken, and the results are correct</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=BJeTRnNpjX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1189 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">24 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We have confirmed with the author of Madry et al. (2018) about the details of R+FGSM adversarial training in their OpenReview reply. To make a fair comparison, we re-implemented their R+FGSM training and test the accuracy under PGD attack using their hyper-parameter (step_size=2, n_step=7, eps=8) compared to our R+FGSM adversarially trained model. The results are listed below:
+
+								original		PGD (Madry’s) attacked accuracy
+Madry’s adv. R+FGSM training		93.130		2.8
+Our adv. R+FGSM training			91.61		36.05
+Our adv. R+FGSM training + DQ	94.0			43.23
+
+We can see that using R+FGSM (Madry’s) adversarial training, the resulted model indeed reaches near 0% accuracy under PGD attack, while the model trained with our R+FGSM adversarial training is resistant to the attack. And DQ further improves the robustness. The reason is not due to the attacker, since we used the same attacker, but we have a stronger defense method. We think the difference is due to mainly 2 reasons:
+1. In Madry’s R+FGSM adversarial training, they used a fixed eps same as testing (here they use eps=8). While in our method, the eps is sampled from a truncated normal distribution ranging (0, 16) during training, so that the model does not overfit to a certain epsilon. Our method can generate a noise with bigger infinity norm (up to 16) and thus provides better robustness. At the same time, it also reduces overfitting to R+FGSM adversarial samples itself and prevents gradient masking.
+2. In Madry’s R+FGSM, they first sample a noise within [-eps, eps], and take a step with size 2*eps followed by clipping, so that the noise reaches a corner of the box. The value in the noise is one of {-eps, eps}. While with our implementation, the value of noise is one of {-eps, 0, eps}, which is more representative.
+In conclusion, PGD attack can break Madry’s R+FGSM adversarial training but cannot break our R+FGSM adversarial training. Therefore, we think our results are correct and the attacker is not broken.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1e96wfRoQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Those results are different</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=S1e96wfRoQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">25 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">In the paper you report 44% accuracy for PGD training and 43% accuracy for R+FGSM training (going up to 50% with DQ). The table above shows 36%. without DQ and 43% with DQ. Which is correct?
+
+Also, Madry et al. uses 40 iterations of PGD to attack the trained model, not 7 (which is used during training).</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_SyxwKb2hcX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>It seems that the difference is due to the different parameters in attack not training</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=SyxwKb2hcX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">In this comment ( <a href="https://openreview.net/forum?id=rJzIBfZAb&amp;noteId=HkRKZDTQM" target="_blank" rel="nofollow">https://openreview.net/forum?id=rJzIBfZAb&amp;noteId=HkRKZDTQM</a> ), the authors claimed that when adversarially *training* the network using R+FGSM, it overfits to R+FGSM and completely vulnerable to PGD. 
+
+However, the result at Table 3 (R+FGSM training without DQ under PGD attacks) is contradictory and I think that the difference is because of the parameters of PGD attacks which are different from Madry et al. (2018), especially the small step-size, alpha=1. See Section 2.2.1.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1lOYy3joQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Not related to the claim of our paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=H1lOYy3joQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1189 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">23 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">In the link you provided, the author uses an iterative version of R+FGSM with multiple random starts, which is different from ours. 
+
+As mentioned in Section 2.2.1, we used the varying attack strength following Song et al. (2016), so that we can test the model’s robustness under different strength. Although we used a smaller step size, we provided the results under eps=16 for PGD, which is a much stronger attack than Madry’s. And our DQ method consistently outperforms normal network and VQ.
+
+Furthermore, all our experiments are conducted under the same setting for vanilla quantization and defensive quantization. Therefore, it does not affect the conclusion that DQ is more robust than VQ. What we try to demonstrate is that DQ is more robust than VQ, but not to compare adversarial R+FGSM training with adversarial PGD training. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_HklDKcVZqQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>FGSM results are limiting</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=HklDKcVZqQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This paper makes many of its claims (e.g., Table 1, Figure 5) by evaluating against FGSM. Unfortunately, many times results that appear correct using FGSM do not hold true against the stronger attacks of Kurakin et al. (2017), Carlini &amp; Wagner (2017), Madry et al. (2018). It would strengthen the paper to use one of these attacks consistently.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ByguRKJhqQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We already demonstrated the robustness of DQ under strong attack. We added strong attack results to Figure 5 and the result is consistent.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryetZ20ctX&amp;noteId=ByguRKJhqQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1189 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1189 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We used FGSM in motivation, but we used PGD in experiments (Table 2/3). Even under weak attacks, vanilla quantization suffers. Even under strong attacks, defensive quantization is more robust. We have already shown the robustness of DQ under strong attack (PGD) in Table 2 and 3, both white and black box. 
+ 
+We choose FGSM attack for motivation because it is most transferable (Su et al., 2018) and thus best for mounting black-box attacks (Kurakin et al., 2017), while the black-box robustness is more essential for real deployed models. 
+To solve the reviewer’s concern and make our claim stronger, we added the results of PGD attack (ε=8) (Madry et al., 2018) to Figure 5. The corresponding results are listed below:
+Accuracy under PGD attack:
+n_bit	1	2	3	4
+----------- white-box -----------
+VQ		1.6	0.7	0.2	0.4
+DQ		1.3	1.0	2.0	1.1
+----------- black-box -----------
+VQ		35.7	59.2	64.0	65.0	
+DQ		69.7	68.0	68.9	68.3
+
+For black-box under PGD attack, our Defensive Quantization (DQ) consistently out-performed Vanilla Quantization (VQ) by a large margin. For example, under 1-bit quantization, VQ got only 35.7% accuracy, while DQ still maintains the accuracy at 69.7%. The trend is similar to the FGSM attacked results written in the paper.
+For white-box, since the models are normally trained without adversarial training, the white-box accuracy is randomly near zero for both VQ and DQ, this is another reason why we use FGSM for the motivation. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

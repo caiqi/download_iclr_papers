@@ -1,0 +1,385 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>LIT: Block-wise Intermediate Representation Training for Model Compression | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="LIT: Block-wise Intermediate Representation Training for Model Compression" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BkeUasA5YQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="LIT: Block-wise Intermediate Representation Training for Model..." />
+      <meta name="og:description" content="Knowledge distillation (KD) is a popular method for reducing the computational over-&#10;  head of deep network inference, in which the output of a teacher model is used to train&#10;  a smaller, faster..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BkeUasA5YQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>LIT: Block-wise Intermediate Representation Training for Model Compression</a> <a class="note_content_pdf" href="/pdf?id=BkeUasA5YQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 08 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019lit:,    &#10;title={LIT: Block-wise Intermediate Representation Training for Model Compression},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BkeUasA5YQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=BkeUasA5YQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Knowledge distillation (KD) is a popular method for reducing the computational over-
+head of deep network inference, in which the output of a teacher model is used to train
+a smaller, faster student model. Hint training (i.e., FitNets) extends KD by regressing a
+student model’s intermediate representation to a teacher model’s intermediate representa-
+tion. In this work, we introduce bLock-wise Intermediate representation Training (LIT),
+a novel model compression technique that extends the use of intermediate represen-
+tations in deep network compression, outperforming KD and hint training. LIT has two
+key ideas: 1) LIT trains a student of the same width (but shallower depth) as the teacher
+by directly comparing the intermediate representations, and 2) LIT uses the intermediate
+representation from the previous block in the teacher model as an input to the current stu-
+dent block during training, avoiding unstable intermediate representations in the student
+network. We show that LIT provides substantial reductions in network depth without
+loss in accuracy — for example, LIT can compress a ResNeXt-110 to a ResNeXt-20
+(5.5×) on CIFAR10 and a VDCNN-29 to a VDCNN-9 (3.2×) on Amazon Reviews
+without loss in accuracy, outperforming KD and hint training in network size at a given
+accuracy. We also show that applying LIT to identical student/teacher architectures
+increases the accuracy of the student model above the teacher model, outperforming the
+recently-proposed Born Again Networks procedure on ResNet, ResNeXt, and VDCNN.
+Finally, we show that LIT can effectively compress GAN generators.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_ryerNNfWam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>cute idea but need more analysis</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkeUasA5YQ&amp;noteId=ryerNNfWam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper804 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper804 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a new approach to compress neural networks by training the student's intermediate representation to match the teacher's.
+
+The paper is easy to follow. The idea is simple. The motivation and contribution are clear. The experiments are comprehensive.
+
+One advantage of the proposed approach that the authors did not mention is that LIT without KD can be optimized in parallel, though I'm not sure how useful this is.
+
+One major weakness of the paper is how the hyperparameters, such as the number of layers, the alpha, beta, tau, and so on, are tuned. It is not clear from the paper that there is a separate development set for tuning these values. If the hyperparameters are tuned on the test set, then it is not surprising LIT works better.
+
+Here are some minor questions:
+
+p.5
+
+LIT outperforms KD and hint training on all settings.
+--&gt; what are the training errors (cross entropy) for LIT, KD and hint training? what about the KD objectives (on the training set) of the model trained with LIT and the one trained with KD? this might tell us why LIT is better than the two.
+
+LIT outperforms the recently proposed Born Again procedure ...
+--&gt; what are the training errors (cross entropy) before and after the born again procedure? this might help us understand why LIT is better.
+
+KD degrades the accuracy of student models when the teacher model is the same architecture
+--&gt; again, the training errors (cross entropy) might be able to help us understand what is going on.
+
+p.7
+
+As shown in Table 3, none of the three variants are as effective as LIT or KD.
+--&gt; is this claim statistically significant? some of the differences are very small.
+
+We additionally pruned ResNets trained from scratch.
+--&gt; what pruning method is being used?
+
+As shown in Figure 6., LIT models are pareto optimal in accuracy vs model size.
+--&gt; this is a very strong claim. it's better to say we fail to prune the network with the approach, but we don't know whether there exists another approach that can reduce the network size while maintaining accuracy.
+
+As shown, L2 and L1 do not significantly differ, but smoothed L1 degrades accuracy.
+--&gt; is this claim statistically significant?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJeoktdZp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for your review; initial response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkeUasA5YQ&amp;noteId=SJeoktdZp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper804 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper804 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the thoughtful review. We have responded to your comments inline. We have improved the manuscript based on your feedback. Several experiments are in progress and we will update the manuscript upon completion.
+
+1. Hyperparameter tuning
+
+The hyperparameters of alpha and tau are directly taken from KD. The only hyperparameter LIT introduces is beta. We are in the process of updating our results when using separate validation set for hyperparameter selection and test set (see the response to reviewer number 2). Our initial results show that LIT outperforms KD and training from scratch by the same margins.
+
+
+2. Further analysis of training errors
+
+Thank you for the suggestion. We are in the process of conducting this analysis and will respond once we have completed this analysis.
+
+
+3. Differences in table 3 are small
+
+We are in the process of running the training procedure multiple times and will perform a statistical test upon completion. We will update the manuscript once the analysis has completed. However, the trend of LIT outperforming KD is consistent across architectures (ResNet, ResNeXt, VDCNN), datasets (CIFAR10, CIFAR100, Amazon Reviews), and tasks (image classification, sentiment analysis). Additionally, a 0.5% increase in accuracy corresponds to nearly doubling the depth of the network and corresponds to a 7% reduction in error.
+
+
+4. Pruning method for LIT.
+
+We used standard pruning proposed by Han et al. 2015 (<a href="https://arxiv.org/abs/1506.02626)," target="_blank" rel="nofollow">https://arxiv.org/abs/1506.02626),</a> in which small weights are iteratively removed and the network is retrained at each step. We have updated the manuscript to reflect this.
+
+
+5. LIT vs pruning
+
+Thank you for the comment. We have updated the manuscript to avoid overclaiming. Additionally, pruning typically requires new hardware for improved inference throughput, whereas LIT does not.
+
+
+6. Statistical significance of different loss functions.
+
+We are in the process of running the training procedure multiple times and will perform a statistical test upon completion. Once we have the results, we will update the manuscript.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Byxs1hHsnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A novel approach for compressing deep learning models</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkeUasA5YQ&amp;noteId=Byxs1hHsnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper804 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper804 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes to compress the model by depth. It uses hint training and knowledge distillation techniques to compress a "deep" network block-wisely. It shows a better compression ratio than knowledge distillation or hint training while achieving comparable accuracy performance.
+
+Pros: 
+1. This paper considers block-wise compression. For each block, it uses the output of the teacher's last layer as input during training, which improves the learnability of the student models. 
+2. The experiments include a large range of tasks, e.g., image classification, sentiment analysis and GAN. 
+
+Cons:
+1. Validation accuracy is used as the performance metric, which might be over-tuned. How is the performance on testing datasets?
+2. The writing and organization of the paper need some improvement, especially the experiments section.
+3. The compression ratio (3-5) is not very impressive compared with other compression techniques with pruning and quantization techniques, such as Han et al. 2015, Hubara et al. 2016.
+
+In summary, I think this is an interesting approach to compress deep learning models. But I think the comparisons should be done in terms of testing accuracy. Otherwise, it is hard to judge the performance of this approach. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rylNtOuWTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for the review; initial response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkeUasA5YQ&amp;noteId=rylNtOuWTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper804 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper804 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the thoughtful review. We have responded to your comments inline. We have improved the manuscript based on your feedback. Our experiments using a test dataset are in progress and we will update the manuscript upon completion.
+
+1. Validation accuracy is used as the performance metric, which might be over-tuned. How is the performance on testing datasets?
+
+Thank you for your thoughtful question. We agree with your point that validation accuracy may be over-tuned. We have started to run experiments with a separate test set, which will take some time due to our limited computational resources. We have initial results for ResNet on CIFAR10, which also show that LIT outperforms training from scratch, and KD. The results are essentially the same as the results currently in the manuscript. For ResNet-110 -&gt; ResNet-20 we found that:
+- LIT achieves 93.19%,
+- KD achieves 92.68%,
+- Training from scratch achieves 91.68%
+Once we have completed the rest of the results, we will update the manuscript with test accuracy.
+
+We note that the majority of compression papers (including Han et al. 2015 and Hubera et al. 2016, Li et al. 2017 mentioned below, Furlanello et al. 2018, etc.) and the original ResNet and ResNeXt papers use validation accuracy as their primary metric. Additionally, Li et al. 2017 and Conneau et al. 2017 (the original VDCNN paper) refer to validation accuracy as “test accuracy.” To ensure LIT can be compared against other methods, we will also report validation accuracy, as using a separate test set requires using a different set of data.
+
+
+2. The writing and organization of the paper need some improvement, especially the experiments section.
+
+We have improved the presentation of the experiments section by removing some redundancy, pointing to the appendix for further experimental details, and adding details for which datasets were used. Are there other points we should address?
+
+
+3. The compression ratio (3-5) is not very impressive compared with other compression techniques with pruning and quantization techniques, such as Han et al. 2015, Hubara et al. 2016.
+
+Both Han et al. 2015 and Hubara et al. 2016 test on older networks (e.g., VGG) where the majority of the weights are in the fully connected layers. Compressing the FC layer can achieve up to ~10x compression, while compressing the convolutional layers achieves around ~1.14x compression. As the majority of weights for these older networks are in the FC layer, this achieves high compression rates for these networks.
+
+Compressing modern networks is significantly harder. For example, Li et al. 2017 (<a href="https://arxiv.org/pdf/1608.08710.pdf)" target="_blank" rel="nofollow">https://arxiv.org/pdf/1608.08710.pdf)</a> only achieves ~1.6x compression on ResNet (which achieves significantly higher accuracy than VGG). We believe our results should be compared against other methods for compressing _modern_ networks. We have made this point more clear in the paper.
+
+Additionally, in this work, we focus on compression techniques that can improve inference throughput on existing hardware. Pruning and quantization generally require special hardware (e.g., Han et al. 2016’s EIE https://arxiv.org/abs/1602.01528) for inference improvements.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1e_k8xc3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>paper well presented, experimental validation could be further improved</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkeUasA5YQ&amp;noteId=S1e_k8xc3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper804 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper804 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper introduces LIT, a network compression framework, which uses multiple intermediate representations from a teacher network to guide the training of a student network. Experiments are designed such that student networks are shallower than teacher networks, while maintaining their width. The method is validated on CIFAR-10 and 100 as well as on Amazon Reviews.
+
+The paper is clearly written and easy to follow. The main novelty of the paper is essentially using the teacher intermediate representations as input to the student network to stabilize the training, and applying the strategy to recent networks and tasks.
+
+The authors claim that they are only concerned with knowledge transfer between layers of the same width, that is teacher and student network been designed (by model construction) to have the same number of downsampling operations, while maintaining the same number of stages (referred to as sections in the paper). However, resnet-based architectures have been shown to perform iterative refinement of their features between downsampling operations (see e.g. <a href="https://arxiv.org/pdf/1612.07771.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1612.07771.pdf</a> and https://arxiv.org/pdf/1710.04773.pdf ). Moreover, these models were also shown to be good regularizers, since they can reduce their model capacity as needed (see https://arxiv.org/pdf/1804.11332.pdf).  Therefore, having experiments skipping stages would be interesting, and may allow to further compress the networks (by skipping layers or stages which do not incorporate much transformation). Following https://arxiv.org/pdf/1804.11332.pdf, for the sake of completeness, it might also be interesting to compare LIT results to the ones obtained by just removing layers in the teacher network which have small weight norms.
+
+In method, the last sentence before "knowledge distillation loss" suggests the training of student networks might not be done end-to-end. Could the authors clarify this?
+It seems there might be a typo in the KD loss of "knowledge distillation loss", equation (2). Shouldn't the second term of the equation be a function of p^T and q^T (with temperature)?
+
+I would suggest changing "sections" to stages, as previously introduced in https://arxiv.org/pdf/1612.07771.pdf .
+
+As for the experiments, it would be more interesting to see this kind of analysis on ImageNet (pretained resnet models are readily available).
+Figure 3, why not add hint training as well?
+Figure 4, what's the dataset used here?
+
+In Section 4.2, it seems that the choice of the IR layer in the analysis could have a significant impact. How was the layer chosen for the ablation study experiments?
+
+There are a few overstatements in the paper:
+- page 5, paragraph 2: FitNets proposes a general framework to transfer knowledge from a teacher network to a student network through intermediate layers. Thus, the framework itself does not require the student networks to be deeper and thinner than the teacher network.
+- page 6, "LIT can compress GANs": authors claim to overcome limitations of KD when it comes to applying knowledge transfer to pixel-wise architecture that do not output distributions. It seems that changing the loss and using a l2 loss instead is a rather minor change, especially since performing knowledge transfer by means of l2 (although at intermediate layers) has already been explored in FitNets.
+
+Please add references for inception and FID scores.
+Please fix references format in page 10.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hyg9X__b67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for your review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkeUasA5YQ&amp;noteId=Hyg9X__b67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper804 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper804 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the thoughtful review. We have responded to your comments inline. We have improved the manuscript based on your feedback.
+
+1. Compare LIT to removing small weight norm parts of networks.
+
+Li et al. 2017 (<a href="https://arxiv.org/pdf/1608.08710.pdf)" target="_blank" rel="nofollow">https://arxiv.org/pdf/1608.08710.pdf)</a> removes small norm filters from networks, including ResNets. They achieve ~1.6x compression for the same ResNets we use in this paper, which significantly underperforms LIT. We have added this reference to the paper.
+
+
+2. Clarifying the training procedure.
+
+LIT trains with the combined loss for some number of epochs. Then, LIT trains with just the KD loss after that. We have clarified this in the manuscript.
+
+
+3. Typo in Eq. 2.
+
+We have fixed the typo.
+
+
+4. Changing sections to stages. 
+
+Thank you for pointing out the standard terminology. We have updated sections to stages in the manuscript.
+
+
+5. ImageNet models
+
+Unfortunately training ImageNet models and hyperparameter tuning alpha and beta are computationally expensive. We are currently running these experiments, but they may not complete by the revision close period.
+
+
+6. Hint training in Figure 3.
+
+We were unable to complete hint training experiments in time for the submission, but they have completed. We have added hint training to Figure 3. Briefly, hint training outperforms KD, but underperforms LIT.
+
+
+7. Dataset in Figure 4.
+
+For Figure 4, we used CIFAR10. We have updated the caption to reflect this.
+
+
+8. Choice of IR.
+
+We used the IR after the second stage of the ResNet. We have updated the manuscript to reflect this.
+
+
+9. Overstatements in the paper.
+
+We have fixed these statements in the paper.
+
+We realized the issue for GANs in the paper and conducted the L2 experiment (i.e., KD with a different loss). As we show in the updated paper (Table 2), LIT outperform this procedure.
+
+
+10. References and formatting.
+
+We have added references to the Inception and FID scores. We have additionally fixed the formatting on the last page of citations.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

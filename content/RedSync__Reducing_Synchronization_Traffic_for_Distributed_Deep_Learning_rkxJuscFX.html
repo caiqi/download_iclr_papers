@@ -1,0 +1,255 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>RedSync : Reducing Synchronization Traffic for Distributed Deep Learning | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="RedSync : Reducing Synchronization Traffic for Distributed Deep Learning" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rkxJus0cFX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="RedSync : Reducing Synchronization Traffic for Distributed Deep..." />
+      <meta name="og:description" content="Data parallelism has become a dominant method to scale Deep Neural Network (DNN) training across multiple nodes.  Since the synchronization of the local models or gradients can be a bottleneck for..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rkxJus0cFX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>RedSync : Reducing Synchronization Traffic for Distributed Deep Learning</a> <a class="note_content_pdf" href="/pdf?id=rkxJus0cFX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019redsync,    &#10;title={RedSync : Reducing Synchronization Traffic for Distributed Deep Learning},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rkxJus0cFX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Data parallelism has become a dominant method to scale Deep Neural Network (DNN) training across multiple nodes.  Since the synchronization of the local models or gradients can be a bottleneck for large-scale distributed training, compressing communication traffic has gained widespread attention recently.  Among several recent proposed compression algorithms, 
+Residual Gradient Compression (RGC) is one of the most successful approaches---it can significantly compress the transmitting message size (0.1% of the gradient size) of each node and still preserve accuracy. However, the literature on compressing deep networks focuses almost exclusively on achieving good compression rate, while the efficiency of RGC in real implementation has been less investigated. In this paper, we develop an RGC method that achieves significant training time improvement in real-world multi-GPU systems. Our proposed RGC system design called RedSync, introduces a set of optimizations to reduce communication bandwidth while introducing limited overhead. We examine the performance of RedSync on two different multiple GPU platforms, including a supercomputer and a multi-card server. Our test cases include image classification on Cifar10 and ImageNet, and language modeling tasks on Penn Treebank and Wiki2 datasets. For DNNs featured with high communication to computation ratio, which has long been considered with poor scalability, RedSync shows significant performance improvement.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Data parallel, Deep Learning, Multiple GPU system, Communication Compression, Sparsification, Quantization</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We proposed an implementation to accelerate DNN data parallel training by reducing communication bandwidth requirement.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1eSJT-a27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good analysis and provides empirical value of gradient compression</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxJus0cFX&amp;noteId=r1eSJT-a27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper320 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper320 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Paper focuses on Residual Gradient Compression (RGC) as a promising approach to reducing the synchronization cost of gradients in a distributed settings. Prior approaches focus on the theoretical value of good compression rates without looking into the overall cost of the changes. This paper introduces RedSync that builds on the existing approaches by picking the most appropriate ones that reduce the overall cost for gradient reduction without unduly focusing on the compression rate.
+The paper does this by providing an analysis of the cost of RGC and also the limitations in scaling as the bandwidth required grows with the number of nodes. It also highlights the value of applying different algorithms in this process for compression and the benefits and issues with each.
+
+Pros:
+- Useful analysis that will help direct research in this area
+- Shows that this approach works for models that have a high communication to computation ratio
+- Provides a useful approach that works for a number of models
+
+Cons:
+- Positive experimental results are on models that are typically not used in practice e.g. AlexNet and VGG16
+- Speedups shown on LSTMs don't see worthwhile to scale, and in practice a model-parallelism approach may scale better
+
+Corrections:
+- Typo in notes for Table 1 last sentence RCG =&gt; RGC
+- Typo in first sentence in section 3.2: RedSycn =&gt; RedSync
+- Section 3.3, #2 last sentence: maybe overdrafts =&gt; overshadows ?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BylHXcGWCm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a> Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxJus0cFX&amp;noteId=BylHXcGWCm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper320 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper320 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comments.
+RedSync performs better with the worse network.  Actually, platforms used to test our implement, a supercomputer, and a multi-GPU server, are equipped with the relative good inter-connected network. If testing on worse network fabric, like Ethernet and Wifi, ResNet will also gain a performance boost.
+LSTM is traditionally scaled with model parallelism. However, as we mentioned, data parallel is the easiest way to scale out with limited modifications of original serial code.  Part of work in (Lin et al 2018) also involves LSTMs.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rklNHAOc2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>RedSync should implement a more systematic approach for optimization. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxJus0cFX&amp;noteId=rklNHAOc2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper320 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper320 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper introduces a set of implementation optimizations for minimizing communication overhead and thereby reducing the training time in distributed settings. The method relies on existing gradient compression and pruning techniques and is tested on synchronous/data-parallel settings. 
+
+The contribution and impact of the paper is unclear. The authors claim implementation innovations that show true performance gains of gradient compression techniques. But again it is unclear what those innovations are and how they can be reused for accelerating training for a new model.
+
+The authors did perform an extensive set of experiments and while the method works well for some models and batch sizes, it doesn't work well for some other models. What would make the paper much more compelling would be if it came up with ways to systematically explore the relationship between training batch size, model parameter size, communication/computation/decompression ratos, and based on these properties, it can come up with best strategies to accelerate distributed data parallel training for any new model. 
+
+The paper needs to be polished as it has multiple typos. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byx1rqMWCm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxJus0cFX&amp;noteId=Byx1rqMWCm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper320 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper320 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comments.
+Admittedly, dirty works we did overshadows our main contributions.
+I believe the value of this paper for ICLR is that it is one of few works considers gradient sparsification from the perspective of real system implementation. We would like to share with our peers some of our experiences, although looks not so remarkable.
+1.The fast top-0.1 method on GPU.
+2.Using allgather for sparse allreduce.
+3.Details for parallel Local Gradient Clipping.
+Thank you for your advice. Considering the limitation of space, a systematic tuning will be left as our future work.
+My draft may not be very well-written due to limited time. We have polished it and fix most of the typos.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Bkgkpnntn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good implementation optimizations in a important practical problem, but relatively incremental contribution</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxJus0cFX&amp;noteId=Bkgkpnntn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper320 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper320 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Quality and clarity:
+The paper proposes an approach to reduce the communication bandwidth and overhead in distributed deep learning. The approach leverages on previous work (mainly the residual gradient compression (RGC) algorithm), and proposes several implementation optimizations. From what I can read, it is the basic RGC algorithm that is used, but with some clever optimization to improve the performance of it. 
+
+The quality of the paper is good, it is well-written and easy to read. The evaluation of the proposed approach is well done, using several diverse datasets and models, and executed on two different parallel systems. However, the reasons why RGC and qRGC sometimes have better accuracy than SGD needs to be analyzed and explained. 
+
+Originality and significance:
+The originality of the paper is relatively low (optimization of an existing algorithm) and the contributions are incremental. However, the paper addresses an important practical problem in distributed learning, and thus can have a significant practical impact on how distributed deep learning systems are implemented.
+
+Pros:
+* Addresses an important issue. 
+* Good performance.
+* Good evaluation on two different systems. 
+
+Cons:
+* Limited contribution. Although I like implementation papers (very important), I think the contribution is to low for ICLR.
+
+Minor:
+* In general, the figures are hard to read (the main problem is to small text)
+* Compression in the title is slightly misleading, since it's mainly selection that is done (top-0.1% gradients). Although the values are packed in a data structure for transmission, it's not compression in a information theory perspective.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkeBP9fZRQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxJus0cFX&amp;noteId=rkeBP9fZRQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper320 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper320 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your sincere comments.
+We add one sentence in the paper to clear that our contributions lie in system perspective rather than information theory perspective.
+We also have reorganized the figures and make them more clear.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1e1qb1-hm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>where is technical contribution</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxJus0cFX&amp;noteId=S1e1qb1-hm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018</span><span class="item">ICLR 2019 Conference Paper320 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi there,
+     In this paper, you claim that you design a cost-efficient method for communication, but the core of the algorithms is already shown in Lin et al 2018 ICLR. So from the technical perspective, I didn't see anything new here. 
+     Then you combine the encoding technique which is well established in the past years, and nothing new in this paper.
+     If you say the technical contribution is only for the implementation part, and then I think it is too weak for the contribution, or you can call it programming skills in real practice.
+     Thanks for reading your paper. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rygdFMCGnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarifications on technical contribution.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxJus0cFX&amp;noteId=rygdFMCGnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper320 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018</span><span class="item">ICLR 2019 Conference Paper320 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for reading our paper. 
+The Gradient Compression idea was first proposed in 2014. Its ultimate goal is to accelerate the performance of data parallel training in real practice. A set of work including (Lin et al 2018) is devoted to solving the convergence problem of the algorithm. Based on their efforts, our work is devoted to solving the performance problem of the algorithm. Some of our innovations are critical to the successful application of this algorithm, which is a big concern for the industry. More importantly, we pointed out that some algorithmic improvements are not equal to system performance improvements.
+You may think the contribution of our work lies in the implementation part. However, "implementation issues, parallelization, software platforms, hardware” are indeed included in the relevant topics of this conference (ICLR 2019).
+Thanks again for your comments.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

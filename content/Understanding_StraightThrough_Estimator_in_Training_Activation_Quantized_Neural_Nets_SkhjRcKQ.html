@@ -1,0 +1,375 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Understanding Straight-Through Estimator in Training Activation Quantized Neural Nets | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Understanding Straight-Through Estimator in Training Activation Quantized Neural Nets" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Skh4jRcKQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Understanding Straight-Through Estimator in Training Activation..." />
+      <meta name="og:description" content="Training activation quantized neural networks involves minimizing a piecewise constant training loss whose gradient vanishes almost everywhere, which is undesirable for the standard..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Skh4jRcKQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Understanding Straight-Through Estimator in Training Activation Quantized Neural Nets</a> <a class="note_content_pdf" href="/pdf?id=Skh4jRcKQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019understanding,    &#10;title={Understanding Straight-Through Estimator in Training Activation Quantized Neural Nets},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=Skh4jRcKQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=Skh4jRcKQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Training activation quantized neural networks involves minimizing a piecewise constant training loss whose gradient vanishes almost everywhere, which is undesirable for the standard back-propagation or chain rule. An empirical way around this issue is to use a straight-through estimator (STE) (Bengio et al., 2013) in the backward pass, so that the ````“gradient” through the modified chain rule} becomes non-trivial. Since this unusual ``“gradient” is certainly not the gradient of training loss function, the following question arises naturally: why searching in its negative direction minimizes the training loss? In this paper, we provide the theoretical justification of the concept of STE by answering this question. We consider the problem of learning a two-linear-layer network with binarized ReLU activation and Gaussian input data. We shall refer to the unusual ``gradient" given by the STE-modifed chain rule as coarse gradient. Apparently, the choice of STE is not unique. We prove that if the STE is properly chosen, the expected coarse gradient correlates positively with underlying true gradient (not available for the training), and its negation is a descent direction for minimizing the population loss. We further show the associated coarse gradient descent algorithm converges to a local minimum (more rigorously, a critical point) of the population loss minimization problem. Moreover, we show that a relatively poor choice of STE may lead to instability of the training algorithm near certain local minima, which is also observed in our CIFAR-10 experiments.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">straight-through estimator, quantized activation, binary neuron</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We make the first theoretical justification for the concept of straight-through estimator.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">9 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rJg9up5R67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revisions and Clarifications</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Skh4jRcKQ&amp;noteId=rJg9up5R67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper33 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper33 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear reviewers, 
+
+Thank you for your constructive comments. We have revised our paper to discuss relevant references that we overlooked. We highlighted the major changes in red text. The other major changes include
+
+1. We revised the summary of our contributions, and compared our work with the prior works using identity STE (the perceptron algorithm (Rosenblatt 1958) and Convertron algorithm (Goel et al. 2018).) 
+
+2. We included the analysis of clipped ReLU STE as suggested by Reviewers 1&amp;2 (Lemmas 7&amp;8). 
+
+3. We proved the convergence to the true weights (global min) using vanilla and clipped ReLU STE with proper initialization (Theorem 2 in the end of Appendix). For random initialization, this is not guaranteed because there exist spurious local min.
+
+Hereby we would like to make some clarifications on the contributions of our paper, since Reviewers 2 &amp; 3 have raised the points that the prior works perceptron algorithm and Convertron algorithm used an identity STE and also have theoretical guarantees.
+
+1. Our model has a second *trainable* linear layer, which results in a more complicated loss function. Perceptron has one linear layer with binary output. While also called one-hidden-layer network, Convertron considers one trainable layer, and the weights in the second linear layer are known and fixed to be 1. Moreover, it uses Leaky ReLU activation, but not the binarized ReLU which does not have a valid derivative.
+
+2. Both perceptron and Convertron algorithms use identity STE. While the identity STE works well for networks with one trainable linear layer, we theoretically prove that identity STE is not good for training two-linear-layer networks, and empirically demonstrate that it is not good for benchmark classifications with quantized ReLU either. 
+
+3. Besides the identity STE, we analyze more useful STEs such as derivatives of vanilla and clipped ReLUs in the revised paper (as suggested by Reviewers 1&amp;2). We prove the descent property of coarse gradient descent using vanilla and clipped ReLU STEs. We discover the instability issue in the training using identity STE in theoretical analysis, which is also observed in our CIFAR-10 4-bit activation experiments reported in section 4.2.
+
+In light of our responses to the reviewers' concerns, we hope that you will reconsider our current scores. We believe our work proposes a novel theoretical framework to analyze general STE, and provides a deeper understanding towards the use of STE in training activation quantized DNNs. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rkey8cX9hm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting approach to correlate STE updates with true loss however implications are weak and assumptions are strong</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Skh4jRcKQ&amp;noteId=rkey8cX9hm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper33 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper33 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper examines the use of STE for learning simple one-layer convolutional networks with binary activations and non overlapping patches. In this setting, the gradients are 0 almost everywhere (gradient of sign(x)) hence it is not clear how to use gradient descent. The approach studied here is to instead use the gradient of an alternative function such as ReLU or identity which is not always 0. The authors prove that if the ReLU's gradient is used then under gaussian distribution, the algorithm will converge to the local minimas/saddle points of the expected squared loss. they also show that the same does not hold for the identity's gradient.
+
+The proof technique is interesting and the results do show the validity of the STE approach. The fact that the loss is provably monotonically decreasing is a strong validation. The paper is clearly written. However, I do have the following concerns/questions:
+- The authors claim that their analysis is the first to analyze STE however I would like to point out that [1] studies the same setting (they allow overlapping patches and other distributions) with ReLU activation and show convergence guarantees to the global optima with using identity gradient instead of the ReLu gradient. Also for a single binary output case, using STE as identity equals the perceptron algorithm which is very well studied in literature.
+- Restrictive setting: gaussian input, no label noise, non-overlapping architecture. Not clear what the motivation for this setting is. Also binary activations are rarely used in practice. Analysis also seems tied to the gaussian distribution.
+- Infinite sample assumption is strong.
+- No guarantees for convergence to the optimal solution unlike prior work.
+- Assumptions on the weights being lower and upper bounded by a constant at each iteration seems strong unless an explicit projection step is used. Could the authors explain why this is a valid assumption to make?
+- In the experimental section, momentum is used whereas it is not mentioned in the analysis. Does the STE perform well without the momentum? It is unclear why quantized ReLU is used.
+
+[1] Surbhi Goel, Adam Klivans, and Raghu Meka. "Learning One Convolutional Layer with Overlapping Patches." ICML 2018.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hklnz95R67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Skh4jRcKQ&amp;noteId=Hklnz95R67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper33 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper33 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the time and insightful comments.
+
+1. The authors claim that their analysis is the first to analyze STE however I would like to point out that [1] studies the same setting (they allow overlapping patches and other distributions) with ReLU activation and show convergence guarantees to the global optima with using identity gradient instead of the ReLu gradient. Also for a single binary output case, using STE as identity equals the perceptron algorithm which is very well studied in literature.
+
+Reply: Thank you for bringing to our attention the relevant Convertron paper [1] and perceptron algorithm which use the identity STE. We discussed them in details in the revision. We would like to point out that these two models (perceptron and Convertron) only has one trainable linear layer, whereas ours has two. So our model is more challenging to analyze. Moreover, as the reviewer pointed out, we proved that the loss is descending by using STE in the training, which is meaningful as people observe this in benchmark experiments. Moreover, our framework allows us to analyze general STEs such as the derivatives of ReLU and clipped ReLU (in the revision). It is not clear if the analyses from the prior works can do the same thing.
+
+2. Restrictive setting: gaussian input, no label noise, non-overlapping architecture. Not clear what the motivation for this setting is. Also binary activations are rarely used in practice. Analysis also seems tied to the gaussian distribution.
+
+Reply: We agree that our assumptions are stronger than that in [1]. But our model is more complicated, and [1] considers Leaky ReLU, not the binarzed ReLU which does not have a valid derivative. In light of the new analysis of clipped ReLU STE in the revised version, we believe the Gaussian distribution of input data can be relaxed into any rotation-invariant distribution. People use binarized or general quantized ReLU because this speed ups the prediction of DNNs at inference time, which promotes the energy efficiency. 
+
+3. Infinite sample assumption is strong.
+
+Reply: The reason why we consider infinite sample assumption is that we find the population loss function becomes Lipchitz smooth in this case, which is a surprising fact. To extend our results to the setting with finite training samples, one needs to use probabilistic tools such as concentration inequalities, and figure out the minimal number of samples in order to get a reasonably good solution quality. This requires much more additional technical efforts, and we think it is too much to include all these results in a single paper. Therefore, we plan to do this in our future work.
+
+4. No guarantees for convergence to the optimal solution unlike prior work.
+
+Reply: In the revision, we prove that for proper initializations (Theorem 2 in the end of appendix), the convergence to global min is guaranteed. No guarantee for convergence to the optimal solution from *random* initialization is not due to the incompetence of the analysis, but because of the presence of spurious local min. The prior works with convergence guarantees to global min do not have a second *trainable* linear layer of the model like ours.
+
+5. Assumptions on the weights being lower and upper bounded by a constant at each iteration seems strong unless an explicit projection step is used. Could the authors explain why this is a valid assumption to make?
+
+Reply: You are correct, one can use a projection step to avoid the boundedness assumption. For example, we can impose $w$ to be unit-normed (but there is no need to impose upper-bound on $v$ then). In real experiments, the weight vector is typically bounded and away from the zero.
+
+6. In the experimental section, momentum is used whereas it is not mentioned in the analysis. Does the STE perform well without the momentum? 
+
+Reply: This is a good point. Momentum is widely used in benchmarks, which accelerates the training. Just like regular gradient descent, STE needs the help of momentum to achieve the best empirical performance. We did not include it in the analysis because our main interest is study the correlation between the STE and loss function.
+
+7. It is unclear why quantized ReLU is used.
+
+Reply: People care about quantized ReLU because it speeds up the prediction of DNNs at inference time. We refer the reviewer to the introduction section (the first paragraph) for the background of quantized DNNs. 
+
+[1] Surbhi Goel, Adam Klivans, and Raghu Meka. "Learning One Convolutional Layer with Overlapping Patches." ICML 2018.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_B1eJB_xK2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting paper with some serious but fixable flaws</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Skh4jRcKQ&amp;noteId=B1eJB_xK2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper33 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper33 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary:
+The paper presents an analysis of training single-layer hard-threshold (binary activation) networks for regression with a mean-squared loss function using two different straight-through estimators: the original identity-function STE and a ReLU-based STE. The paper demonstrates that training with the latter against the population loss is guaranteed to converge to a critical point, whereas using the former can cause instability in the training.
+
+    Pros:
+        - Interesting analysis that provides a novel method for determining which gradient estimators are effective for training single-layer binarized networks and which are not.
+        - The paper is fairly clear, despite being quite technical; however, I did find myself jumping around a lot to refer back to previous results or definitions so the ordering and layout could definitely be improved.
+
+    Cons:
+        - Related work is missing and some claims in the paper are wrong as a result.
+        - A single-layer binarized network is essentially just a perceptron, which we know how to learn already, so it’s not clear how this analysis will benefit analysis of multi-layer binarized networks (however, since it seems like a novel analysis approach, it’s possible that it can be extended). This connection is not made in the paper.
+        - The paper does not analyze the most common and successful straight-through estimator: the saturated straight-through estimator, which uses the derivative of the hard_tanh activation (e.g., see [2]) and is a shifted and scaled version of the clipped ReLU STE.
+
+Overall, I like the paper but it has too many issues currently for me to give it a high score. However, if my questions and comments are addressed sufficiently, I would be happy to improve my score.
+
+
+Detailed questions and comments:
+
+1.	The claim that “we make the first theoretical justification for the concept of STE” is wrong and should be significantly toned down and clarified. Bengio et al. (2013), which this paper cites, provides some theoretical justification already, as do papers on target propagation, such as [1] and [2]. These, as well as additional papers cited in [2] are quite relevant and should also be cited and discussed.
+
+2.	The claim that “it is not the gradient of any function” is also wrong. Each STE is the gradient of a particular function, but is not the gradient of the function used in the forward pass. Please clarify.
+
+3.	The single-layer binarized network architecture studied in this paper can equivalently be framed as a linear function of a collection of single-layer perceptrons with shared weights. Obviously, much work has been done on analyzing the perceptron architecture. Why is none of it discussed in this paper? How does that work relate to the work done in this paper? How does the convolutional layer used here change the results of that related work? 
+
+4.	(a) Is there an intuition for why the derivative of the ReLU performs better (i.e., converges) better than the identity? Why does clipping the bottom make it work better? I do not see this explained in the text anywhere and it would be helpful to include this. 
+(b) Further, depending on the reasoning given, it seems that clipping the top may also be useful (as in the clipped ReLU, which is a shifted and scaled version of the saturated STE discussed in Hubara et al. and [2]). Does your analysis extend to this STE? This would be very useful, as the SSTE/clipped ReLU is the most commonly used STE and the most empirically successful (as validated by your own experiments, as well as in previous work on training binary networks). Also, the SSTE/clipped ReLU is an even better approximation of the step function.
+(c) Cai et al. (2017) is not the first use of the clipped ReLU activation function, since it is equivalent to the SSTE when using sign(x) \in {-1, +1} instead of your activation function (\sigma(x) \in {0, 1}) (i.e., you can shift and scale everything to get equivalent results).
+
+5.	In section 3.1, you mention that when using the derivative of the ReLU for the STE then \mu`(x) = \sigma(x). Is this just a coincidence or does this fact help with convergence?
+
+6.	Why did you choose to train your networks initialized with the weights from their full-precision counterparts? When you train using different initializations, does this significantly affect your results?
+
+7.	The improved empirical performance of the clipped ReLU / SSTE is unsurprising but why does the vanilla ReLU STE perform so poorly on CIFAR-10 with ResNet-20 with 2 bit quantization?
+
+8.	In the end, it’s not clear that training single-layer hard-threshold networks is particularly important. Instead, the goal of quantization, etc. is to train multi-layer hard-threshold networks. Can this analysis be extended to such networks? Does it say anything about training such networks currently?
+
+9.	The acknowledgments section is just the text from the style file.
+
+10.	The capitalization is wrong in a number of places in your references.
+
+
+[1] Difference Target Propagation. Lee, Zhang, Fischer, and Bengio. ECML/PKDD (2015).
+
+[2] Deep Learning as a Mixed Convex-Combinatorial Optimization Problem. Friesen and Domingos. ICLR (2018).
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJewEjcCam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2 (1/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Skh4jRcKQ&amp;noteId=SJewEjcCam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper33 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper33 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the time and constructive comments.
+
+1. The claim that “we make the first theoretical justification for the concept of STE” is wrong and should be significantly toned down and clarified. Bengio et al. (2013), which this paper cites, provides some theoretical justification already, as do papers on target propagation, such as [1] and [2]. These, as well as additional papers cited in [2] are quite relevant and should also be cited and discussed.
+
+Reply: We agree that the claim is too strong, because the perceptron algorithm uses identity STE and has the convergence guarantee. In the revision, we include the discussions of [1] and [2] as they provide alternative ways for activation quantization. But we would like to point out that the theoretical justification in Bengio et al. (2013) is not for STE, instead it is for the stochastic neuron approach.
+
+2. The claim that “it is not the gradient of any function” is also wrong. Each STE is the gradient of a particular function, but is not the gradient of the function used in the forward pass. Please clarify.
+
+Reply: Sorry for the confusion. We are not saying that STE is not the gradient of any function. STE is composited in the chain rule which computes the ‘gradient’ of loss function w.r.t. weight variables (which we call coarse gradient in the paper). This coarse gradient is not the gradient of any function including the loss function, because there is a mismatch between backward and forward passes. One main contribution of our paper is to understand why searching in the direction of negative coarse gradient (with proper STE) minimizes the loss function, since this is not the standard gradient descent.
+
+3. The single-layer binarized network architecture studied in this paper can equivalently be framed as a linear function of a collection of single-layer perceptrons with shared weights. Obviously, much work has been done on analyzing the perceptron architecture. Why is none of it discussed in this paper? How does that work relate to the work done in this paper? How does the convolutional layer used here change the results of that related work?
+
+Reply: Thank you for pointing out the perceptron algorithm that we overlooked. We add the discussions of perceptron algorithm in the revision. It is the second *trainable* linear layer in our model that makes the analysis much more complicated. Our model is indeed a linear combination of a collection of perceptrons, but the way they are mixed is unknown.
+
+4. (a) Is there an intuition for why the derivative of the ReLU performs better (i.e., converges) better than the identity? Why does clipping the bottom make it work better? I do not see this explained in the text anywhere and it would be helpful to include this. 
+(b) Further, depending on the reasoning given, it seems that clipping the top may also be useful (as in the clipped ReLU, which is a shifted and scaled version of the saturated STE discussed in Hubara et al. and [2]). Does your analysis extend to this STE? This would be very useful, as the SSTE/clipped ReLU is the most commonly used STE and the most empirically successful (as validated by your own experiments, as well as in previous work on training binary networks). Also, the SSTE/clipped ReLU is an even better approximation of the step function. 
+(c) Cai et al. (2017) is not the first use of the clipped ReLU activation function, since it is equivalent to the SSTE when using sign(x) \in {-1, +1} instead of your activation function (\sigma(x) \in {0, 1}) (i.e., you can shift and scale everything to get equivalent results).
+
+Reply: (a) We think the intuition is that clipped ReLU captures both the minimum and maximum of the original binary function. Or simply put, clipped ReLU is the closest approximation to the binarized ReLU.
+           (b) Thank you for your suggestion. Yes, our analysis now extends to the clipped STE. We added the analysis in the revision.
+           (c) We introduced SSTE as related work in the original paper, but we did not call it SSTE. We mentioned the name SSTE as well in the revision. 
+
+5. In section 3.1, you mention that when using the derivative of the ReLU for the STE then \mu`(x) = \sigma(x). Is this just a coincidence or does this fact help with convergence?
+Reply: We think this is just a coincidence.
+
+6. Why did you choose to train your networks initialized with the weights from their full-precision counterparts? When you train using different initializations, does this significantly affect your results?
+
+Reply: Initializing the weights from full-precision counterparts is better than random initialization. The difference in the accurices can be noticeable sometimes (&gt;1% on CIFAR-10). 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1gwDocR6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2 (2/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Skh4jRcKQ&amp;noteId=H1gwDocR6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper33 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper33 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">7. The improved empirical performance of the clipped ReLU / SSTE is unsurprising but why does the vanilla ReLU STE perform so poorly on CIFAR-10 with ResNet-20 with 2 bit quantization?
+
+Reply: For ResNet-20 with 2 bit quantization, ReLU STE suffers the same instability issue (at good minima) as the identity STE does for 4-bit quantization. We added an experiment to demonstrate this in Appendix C. The reason why ReLU is not as good as clipped ReLU is that it does not match the quantized ReLU on the top part. 
+
+8. In the end, it’s not clear that training single-layer hard-threshold networks is particularly important. Instead, the goal of quantization, etc. is to train multi-layer hard-threshold networks. Can this analysis be extended to such networks? Does it say anything about training such networks currently?
+
+Reply: This is a good question. Theoretically, it is not straightforward to extend our analysis to multi-layer networks. This is the reason why we conduct experiments on LeNet-5, VGG and ResNet architectures in the paper, which complements the theoretical analysis. And in real experiments, we did observe the stability issue of identity STE reported in sec 4.2. This observation is consistent with our theoretical analysis of identity STE for the two-linear-layer model.
+
+9. The acknowledgments section is just the text from the style file.
+Reply: We will revise it after the decision is made.
+
+10. The capitalization is wrong in a number of places in your references.
+Reply: Thank you. We fixed them in the revision.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_HyleRgVE2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting analysis of STE used in activation bianrized networks but not well written.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Skh4jRcKQ&amp;noteId=HyleRgVE2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper33 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper33 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper provides theoretical analysis for two kinds of straight-through estimation (STE) for activation bianrized neural networks. It is theoretically shown that the ReLU STE has better convergence properties the identity STE,  by studying the properties of the orientation and norm of the course gradients for STE.
+
+While the paper presents many theoretical results which might be useful for the community, they are not organized very well.  It is a bit hard for readers to quickly find the most important theoretical results.  Moreover, some symbols are used without definition, e.g. g_{relu} is used before being defined in sec 3.1. The discussions for most theoretical results are very short or not organized well, making the whole paper hard to follow,  e.g., "the key observation ..." after Lemma 4 is actually not about the Lemma 4 above, but Lemma 5 in the next Lemma.  Another major concern is that activation quantization is usually used in combination with weight quantization.  It would be more useful if weight and activation quantizations can be analyzed together.
+
+Clarity in the experiment part can also be further improved. From Table 1, the clipped ReLU STE has the best performance, however, there is no theoretical analysis for it. For ResNet-20 with 2-bit activation, the training loss/accuracy results of vanilla ReLU is much worse than clipped ReLU, is there any explanation for this?  For the discussion in sec 4.2, what information does it want to convey?  What is the "normal schedule of learning rate"? What if the small learning rate 1e-5 is kept after 20 epochs?
+
+Typo: The last sentence on page 3, the definition of y*.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rye0Bh9RpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Skh4jRcKQ&amp;noteId=rye0Bh9RpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper33 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper33 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the time and insightful comments.
+
+
+1. While the paper presents many theoretical results which might be useful for the community, they are not organized very well. It is a bit hard for readers to quickly find the most important theoretical results. Moreover, some symbols are used without definition, e.g. g_{relu} is used before being defined in sec 3.1. The discussions for most theoretical results are very short or not organized well, making the whole paper hard to follow, e.g., "the key observation ..." after Lemma 4 is actually not about the Lemma 4 above, but Lemma 5 in the next Lemma.
+
+Reply: Thanks for your suggestion. In the revision, we improved the presentation of the paper, and we re-summarized our main contributions to make it clearer to the readers.
+
+2. Another major concern is that activation quantization is usually used in combination with weight quantization. It would be more useful if weight and activation quantizations can be analyzed together.
+
+Reply: We did not use weight quantization because our main interest is study training with quantized activations, and because recent work has shown that weights can be quantized with little effect on performance (Hubara et al., 2016; Rastegari et al., 2016; Zhou et al., 2016).
+
+3. Clarity in the experiment part can also be further improved. From Table 1, the clipped ReLU STE has the best performance, however, there is no theoretical analysis for it
+Reply: Thanks for your suggestion. We improved the presentation of the experiment section, and added the theoretical analysis of clipped RELU STE in the revision.
+
+4. For ResNet-20 with 2-bit activation, the training loss/accuracy results of vanilla ReLU is much worse than clipped ReLU, is there any explanation for this?
+Reply: The explanation is that ReLU STE suffers the same instability issue (at good minima) as the identity STE does for 4-bit quantization. We added Figure 4 to demonstrate this point in Appendix C.
+
+5. For the discussion in sec 4.2, what information does it want to convey?
+Reply: The discussion in sec 4.2 explains why the identity STE works poorly for ResNet-20 with 4-bit. This is because the training algorithm using identity STE simply can not converge to a good minimum. If it could converge well, then when we initialize the weights from the good minima achieved by vanilla ReLU STE or clipped ReLU STE and train the neural networks using a tiny learning rate of 1e-5, the algorithm should be stable there. But we observe that it is not stable and escapes from the good minima. 
+
+6. What is the "normal schedule of learning rate”?
+Reply: The normal schedule of learning rate is specified in Table 2 in appendix B.
+
+7. What if the small learning rate 1e-5 is kept after 20 epochs?
+Reply: The behavior of the training algorithm using identity STE in the first 20 epochs already demonstrates its instability at good minima (both the classification error and training loss increases). After leaving the minima, keep using learning rate of 1e-5 will lead to extremely slow convergence (to a different point). 
+
+8. Typo: The last sentence on page 3, the definition of y*.
+Reply: This is not a typo. y* was defined separately from y the beginning of section 2.2.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Hyg6EmKe5Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>No Title</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Skh4jRcKQ&amp;noteId=Hyg6EmKe5Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper33 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">                       </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

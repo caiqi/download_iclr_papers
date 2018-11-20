@@ -1,0 +1,243 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>PA-GAN: Improving GAN Training by Progressive Augmentation | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="PA-GAN: Improving GAN Training by Progressive Augmentation" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=ByeNFoRcK7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="PA-GAN: Improving GAN Training by Progressive Augmentation" />
+      <meta name="og:description" content="Despite recent progress, Generative Adversarial Networks (GANs) still suffer from training instability, requiring careful consideration of architecture design choices and hyper-parameter tuning...." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_ByeNFoRcK7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>PA-GAN: Improving GAN Training by Progressive Augmentation</a> <a class="note_content_pdf" href="/pdf?id=ByeNFoRcK7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019pa-gan:,    &#10;title={PA-GAN: Improving GAN Training by Progressive Augmentation},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=ByeNFoRcK7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Despite recent progress, Generative Adversarial Networks (GANs) still suffer from training instability, requiring careful consideration of architecture design choices and hyper-parameter tuning. The reason for this fragile training behaviour is partially due to the discriminator performing well very quickly; its loss converges to zero, providing no reliable backpropagation signal to the generator. In this work we introduce a new technique - progressive augmentation of GANs (PA-GAN) - that helps to overcome this fundamental limitation and improve the overall stability of GAN training. The key idea is to gradually increase the task difficulty of the discriminator by progressively augmenting its input space, thus enabling continuous learning of the generator. We show that the proposed progressive augmentation preserves the original GAN objective, does not bias the optimality of the discriminator and encourages the healthy competition between the generator and discriminator, leading to a better-performing generator. We experimentally demonstrate the effectiveness of the proposed approach on multiple benchmarks (MNIST, Fashion-MNIST, CIFAR10, CELEBA) for the image generation task.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Deep Learning, GANs, Augmentation, Generative Modelling</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We introduce a new technique - progressive augmentation of GANs (PA-GAN) - that helps to improve the overall stability of GAN training.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BJg7dMla27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea, but lacking theoretical support or sufficient empirical analysis.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ByeNFoRcK7&amp;noteId=BJg7dMla27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper435 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper435 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper modifies the GAN objective by defining the TRUE and FAKE labels in terms of both the training sample, and a newly introduced random variable s. The intuition is that by progressively changing the definition of s, and its effect on the label, we can prevent the discriminator network from immediately learning to separate the two classes. 
+
+The paper doesn't give any strong theoretical support for this intuition. And it I found it a bit surprising that the discriminator doesn't immediately learn the one extra bit of information introduced by every new level of augmentation. However, the results do seem to show that this augmentation has a beneficial effect on two different architectures in different data scenarios, although the increase is not uniform over all settings.
+
+The approach presented in this paper is motivated primarily as a method of increasing stability of training but this is not directly investigated. Figure 3 and Table 2 both suggest that the augmentation does nothing to reduce variance between runs. There is also no direct comparison to other methods of weakening the discriminator, although these are mentioned in the related work. I think the paper would be much improved by a thorough investigation of the method's effect on training stability, to go along with the current set of evaluations.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1lgHRnr2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Some major flaws in the approach</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ByeNFoRcK7&amp;noteId=B1lgHRnr2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper435 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper435 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a new trick to improve the stability of GANs. In particular the authors try to tackle the vanishing gradient problem in GANs, when the discriminator becomes to strong and is able to perfectly separate the distribution early in training, resulting in almost zero gradient for the generator. The authors propose to increase the difficulty of the task during training to avoid the discriminator to become too strong.
+
+The paper is quite well written and clear. However there is several unsupported claims (see below).
+
+A lot of work has been proposed to regularize the discriminator, it's not clear how different this approach is to adding noise to the input or adding dropout to the discriminator.
+
+Pros:
+- The experimental section is quite thorough and the results seem overall good.
+- The paper is quite clear.
+
+Cons:
+- There is a major mistake in the derivation of the proposed method. In eq. (6) &amp; (7), (c) is not an equivalence, minimizing the KL divergence is not the same as minimizing the Jensen-Shannon divergence. The only thing we have is that: KL(p||q) = 0 &lt;=&gt; JSD(p||q) = 0 &lt;=&gt; p=q . The same kind of mistake is made for (d). Note that the KL-divergence can also be approximated with a GAN see [1]. Since the equivalence between (6) and (7) doesn't hold, the equation (11) doesn't hold either.
+
+- The authors say that the discriminator can detect the class of a sample by using checksum, the checksum is quite easy for a neural networks to learn so I don't really see how the method proposed actually increase the difficulty of the task for the discriminator. Especially if the last layer of the discriminator learns to perform a checksum, and the discriminator architecture has residual connections, then it should be straight-forward for the discriminator to solve the new task given it can already solve the previous task. So I'm not sure the method would still works if we use ResNet architecture for the discriminator.
+
+- I believe the approach is really similar to adding noise to the input. I think the method should be compared to this kind of baseline. Indeed the method seems almost equivalent to resetting some of the weights of the first layer of the discriminator when the discriminator becomes too strong, so I think it should also be compared to other regularization such as dropout noise on the discriminator.
+
+- The authors claim that their method doesn't "just memorize the true data distribution". It's not clear to me why this should be the case and this is neither shown theoretically or empirically. I encourage the author to think about some way to support this claim. 
+
+- The authors states that "adding high-dimensional noise introduces significant variance in the parameter estimation, which slows down training", can the author give some references to support that statement ?
+
+- According to the author: "Regularizing the discriminator with the gradient penalty depends on the model distribution, which changes during training and thus results in increased runtime". While I agree that computing the gradient penalty slightly increase the runtime because we need to compute some second order derivatives, I don't see how these increase of runtime is due to change in the model distribution. The authors should clarify what they mean.
+
+Others:
+- It would be very interesting to study when does the level number increase and what happens when it increase ? Also what is the final number of level at the end of training ?
+
+Conclusion:
+The idea has some major flaws that need to be fixed. I believe the idea has similar effect to adding dropout on the first layer of the discriminator. I don't think the paper should be accepted unless those major concerns are resolved.
+
+References:
+[1] Nowozin, S., Cseke, B., &amp; Tomioka, R. (2016). f-gan: Training generative neural samplers using variational divergence minimization. NIPS</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1eXZ7a43Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Provide an additional bitstring to the discriminator which can swap the label for observed and generated samples.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ByeNFoRcK7&amp;noteId=B1eXZ7a43Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper435 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper435 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Authors argue that the main issue with stability in GANs is due to the discriminator becoming too powerful too quickly. To address this issue they propose to make the task progressively more difficult: Instead of providing only the samples to the discriminator, an additional (processed) bitstring is provided. The idea is that the bitstring in combination with the sample determines whether the sample should be considered true or fake. This in turn requires the decision boundary of the discriminator to become more complicated for increasing lengths of the bitstring. In a limited set of experiments the authors show that the proposed approach can improve the FID scores.
+
+Pro:
+- A simple idea to make the problem progressively more difficult.
+- The writing is relatively easy to follow.
+- Standardized experimental setup.
+
+Con:
+- Ablation study of the training tricks is missing: (1) How does the proposed approach perform when no progressive scheduling is used? (2) How does it perform without the linear model for increasing p? (3) How does the learning rate of G impact the quality? Does one need all of these tricks? Arguably, if one includes the FID/KID to modify the learning rates in the competing approaches, one could find a good setup which yields improved results. This is my major issue with this approach.
+- Clarity can be improved: several pages of theory can really be summarized into “learning the joint distribution implies that the marginals are also correctly learned’ (similar to ALI/BIGAN). This would leave much more space to perform necessary ablation studies. 
+- Comparison to [1] is missing: In that model, it seems that the same effect can be achieved and strongly improves the FID. Namely, they introduce a model in which observed samples pass through a "lens" before being revealed to the discriminator thus balancing the generator and discriminator by gradually revealing more detailed features.
+- Can you provide more convincing arguments that the strength of the discriminator is a major factor we should be fixing? In some approaches such as Wasserstein GAN, we should train the discriminator to optimality in each round. Why is the proposed approach more practical then approaches such as [2]?
+
+[1] <a href="http://proceedings.mlr.press/v80/sajjadi18a.html" target="_blank" rel="nofollow">http://proceedings.mlr.press/v80/sajjadi18a.html</a>
+[2] https://arxiv.org/abs/1706.08500</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

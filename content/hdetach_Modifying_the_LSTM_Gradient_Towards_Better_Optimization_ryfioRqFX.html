@@ -1,0 +1,290 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>h-detach: Modifying the LSTM Gradient Towards Better Optimization | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="h-detach: Modifying the LSTM Gradient Towards Better Optimization" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=ryf7ioRqFX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="h-detach: Modifying the LSTM Gradient Towards Better Optimization" />
+      <meta name="og:description" content="Recurrent neural networks are known for their notorious exploding and vanishing gradient problem (EVGP). This problem becomes more evident in tasks where the information needed to correctly solve..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_ryf7ioRqFX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>h-detach: Modifying the LSTM Gradient Towards Better Optimization</a> <a class="note_content_pdf" href="/pdf?id=ryf7ioRqFX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019h-detach:,    &#10;title={h-detach: Modifying the LSTM Gradient Towards Better Optimization},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=ryf7ioRqFX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=ryf7ioRqFX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Recurrent neural networks are known for their notorious exploding and vanishing gradient problem (EVGP). This problem becomes more evident in tasks where the information needed to correctly solve them exist over long time scales, because EVGP prevents important gradient components from being back-propagated adequately over a large number of steps. We introduce a simple stochastic algorithm (\textit{h}-detach) that is specific to LSTM optimization and targeted towards addressing this problem. Specifically, we show that when the LSTM weights are large, the gradient components through the linear path (cell state) in the LSTM computational graph get suppressed. Based on the hypothesis that these components carry information about long term dependencies (which we show empirically), their suppression can prevent LSTMs from capturing them. Our algorithm prevents gradients flowing through this path from getting suppressed, thus allowing the LSTM to capture such dependencies better. We show significant improvements over vanilla LSTM gradient based training in terms of convergence speed, robustness to seed and learning rate, and generalization using our modification of LSTM gradient on various benchmark datasets.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">LSTM, Optimization, Long term dependencies, Back-propagation through time</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">A simple algorithm to improve optimization and handling of long term dependencies in LSTM</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BygbhKulp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting but there are some technical details missing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryf7ioRqFX&amp;noteId=BygbhKulp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper609 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper609 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The author introduces a simple stochastic algorithm (h-detach) that is specific to LSTM optimization and targeted towards addressing this problem. Specifically, the authors show that when the LSTM weights are large, the gradient components through the linear path (cell state) in the LSTM computational graph get suppressed. Based on the hypothesis that these components carry information about long term dependencies (which we show empirically), their suppression can prevent the LSTM from capturing them. Our algorithm prevents the gradients flowing through this path from getting suppressed, thus allowing the LSTM to capture such dependencies better. The experimental results show that the proposed algorithm appears to be effective. Some detailed comments are listed as follows, 
+
+1 The h-detach algorithm seems to be the dropout technology. However, the authors did not discuss the relation or difference between the proposed h-detach algorithm and the dropout technology. 
+
+2 The proposed method can transfer the positive knowledge. However, for the transfer learning, one concerned and important issue is that some negative knowledge information can be also transferred. So how to avoid the negative transferring? Some necessary discussions about this should be given in the manuscript.
+
+2 There are many grammar errors in the current manuscript. The authors are suggested to improve the English writing.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkexWojBpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Rebuttal</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryf7ioRqFX&amp;noteId=rkexWojBpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper609 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018 (modified: 12 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper609 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comments.
+
+Given the superficial similarity, we agree that it warrants a discussion between dropout and our proposed method. The two methods are fundamentally different. Dropout randomly masks the hidden units of a network during the forward pass. Therefore, a common view of dropout is training an ensemble of networks. On the other hand, our method does not mask the hidden units during the forward pass. It instead randomly blocks the gradient component through the h-states (and not cell state, so we block a specific component instead of randomly choosing any component) of the LSTM only during the backward pass and our method does not change the output of the network during forward pass. Our theoretical analysis shows the precise behavior of our method: the effect of this operation is that it changes the update direction used for descent which prevents the gradient components through the cell state path from being suppressed (which we show are important for tasks involving longer term dependencies). We have added this discussion in the revised version in section 5.
+
+Transfer copy task is a commonly used benchmark task for evaluating how good a recurrent model is at retaining information over large time scales. Therefore we report numbers on this task purely for this reason. Our goal and the proposed method has nothing to do with transfer learning otherwise.
+
+We would also like to point out that the main benefits of our algorithm which modifies the LSTM update direction (for which we provide theoretical analysis) are that it leads to improvements in convergence speed, robustness to seed and learning rate, and generalization compared to the usual LSTM updates.
+
+We have revised our manuscript. We hope to have addressed your concerns.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1g48OS5h7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryf7ioRqFX&amp;noteId=H1g48OS5h7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper609 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper609 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors propose a simple modification to the training process of the LSTM. The goal is to facilitate gradient propagation along cell states, or the "linear temporal path". It blocks the gradient propagation of hidden states with a probability of $1-p$ independently. The proposed method is evaluated on the copying task, sequential MNIST task, and image captioning tasks. The performance is sightly boosted on those tasks.
+
+The paper is well-written. The h-detach method is very simple and easy to implement. It seems novel in dealing with the trainability issue with recurrent networks. Since LSTM is very commonly used, if the method is proved to be effective on other tasks, it will potentially benefit a large portion of the community. However, the reviewer thinks the paper is not sufficiently motivated and the quality of the paper could be further improved by conducting a more thorough analysis of the proposed method, and discussing the connection with other existing methods.
+
+As the motivation of the work, the authors seem to claim that if the magnitude of $B_t$ is much bigger that $A_t$, then the backpropagation will be problematic. Is there any theoretical or empirical support of this claim?
+
+In order to damp the gradient component of $B_t$, it does not have to be stochastic. Can we simply multiply the matrix $B_t$ by a constant factor $p$ during backpropagation? Or regularize the weights $W_{*h}$ to be small so that $\phi_t$ and $\tilde\phi_t$ are small?
+
+It would be interesting to study the effect of the probability $p$ and to suggest an "optimal" choice of $p$, either theoretically or empirically. Is it still possible to train the model with a very small $p$?
+
+The h-detach method seems to have a flavor of dropout, but the "dropout" only happens during backpropagation. The design goal also resembles the peephole LSTM, that is to disentangle the cell state and the hidden state. Is there any possible connections between the proposed method and the dropout and peephole LSTM?
+
+The reviewer understands that a one percent difference in the accuracy on MNIST is probably not very meaningful, but it seems that the SOTA performance on pMNIST is at least 94.1% [1].
+
+[1] Scott Wisdom, Thomas Powers, John Hershey, Jonathan Le Roux, and Les Atlas. Full-capacity unitary recurrent neural networks. NIPS, 2016.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1xTkqsS6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Rebuttal</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryf7ioRqFX&amp;noteId=B1xTkqsS6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper609 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper609 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank you for your insightful comments.
+
+We provided a theoretical analysis showing that the gradient through the cell state (A_t) gets suppressed when the gradient through the h-states (B_t) are larger in magnitude (theorem 1 and 2 and the discussions around them).
+We indeed have provided empirical support for this claim. In ablation studies, we show that blocking the gradients through the cell states result in extremely poor performance of LSTMs on both pixel MNIST and copying task. On the other hand, the use of our method on these tasks which stochastically blocks the gradients through the h-states of the LSTM results in faster convergence. In the former case, the theory guarantees that B_t overwhelms A_t, while in the latter case A_t becomes comparable to B_t.
+
+Your insights are perfectly correct. In order to damp the gradient components of B_t, we can indeed multiply B_t by a constant factor during back propagation or regularize the weights of the h-state path to be small. We have added these remarks as future work in the revised paper in section 5.
+
+For MNIST task, when training a model with a very small p=0.001, the convergence was quite slow and the final model was worse than baseline. Further, in our internal experiments, we tried detach probability p with values 0.1, 0.25, 0.4, 0.5, 0.75 and 0.9. We found that the values between 0.25 and 0.5 usually had best performance and so we used values in this interval for our hyper-parameter search.
+
+Peephole LSTM makes all the gates depend on previous cell state in addition to h-state and the current input. The computational graph of peephole LSTM will have an edge pointing from C(t-1) to h(t) in Fig. 1 of our paper. Hence at least intuitively, we believe it will not be able to prevent the gradient component through the cell state path from being suppressed because the gradient component through the other paths will still grow polynomially as the magnitude of recurrent weights grow.
+
+Regarding the improvement in SOTA, we believe that the main benefit of our method is improvement in training stability, convergence and robustness to seed for tasks where the cell states carry important information about the task. For instance, it has been shown that recurrent networks are sensitive to the randomness in initialization ("seed" in coding terminology) [1]. In our paper, we reported experiments on various seeds and learning rate showing these aforementioned benefits (Fig. 2,3,4,6,8 in the revised version). Additionally, our goal was not to compete with existing SOTA algorithms which we believe may also benefit from our method when used in conjunction. Our goal was to rather to investigate and alleviate the source of the problem that makes the training of LSTMs unstable and sensitive to seed when training on tasks where the cell states carry important information (such as tasks involving long term dependencies).
+
+[1] On the State of the Art of Evaluation in Neural Language Models</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Syliw--DnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Intriguing results. But don't similar methods achieve similar things with similar mechanisms?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryf7ioRqFX&amp;noteId=Syliw--DnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper609 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper609 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The results are intriguing. However, similar methods like BN-LSTM [3] and Variational RNNs [4] achieve arguably the same with very similar mechanisms. We do not think they can be considered as orthogonal. This should be addressed by the authors. Also, hard long-term experiments like sequentially predicting pixels (like through MDLSTM-based PixelRNN) or language modelling should be favoured over short sentence image captions. 
+
+It is possible that we will improve our ratings once our concerns are addressed.
+
+Paper Summary:
+
+The authors claim that the gradient along the computational path that goes through the cell state (the linear temporal path or A gradient) of an LSTM carries information about long-term dependencies. Those gradients can be corrupted by the gradient of all other computational paths (i.e. the B gradient). They claim that this makes it hard to learn long-term dependencies and has, therefore, significant negative effects on the convergence speed, training stability, and generalisation performance. They propose a method called h-detach and run experiments on the delayed copy task, sequential MNIST, permuted sequential MNIST (pMNIST), and caption generation on the MS COCO dataset. All show either somewhat improved performance or much more stable learning curves. At every step, h-detach randomly drops all gradients that flow through the h of the standard LSTM, the B gradients, and only keeps the ones from the linear temporal path, the A gradients. Experiments also suggest that the A gradients carry more long-term information than B gradients and that LSTMs with h-detach do not need gradient clipping for successful training.
+
+Positive:
+
+The paper is written clearly. It is well structured and well motivated. H-detach is simple, effective, and somewhat novel (see below). Experiments indicate that its main benefit is training stability as well as minor performance improvements.
+
+Negative:
+
+We are not sure how significant these results are for the following reasons:
+
+- MS COCO image caption generation is the only more challenging dataset, but it seems a bit misplaced as it has very short sentences, while the authors motivate their work through a focus on long-term dependencies. Why not apply h-detach to a language model such as [1] with official online implementations, e.g., [2]. A setting with PixelRNN [6] based on MD-LSTM [7] would also be a great testbed for h-detach.
+
+- The purpose of h-detach is to scale down the B gradients. However, methods which apply e.g. BatchNorm to the hidden state learn a scale parameter which could be learned by the network explicitly. For the backward pass, this has the effect of scaling down the B gradient. Consider e.g. [3] which also achieves similar training stability on sequential MNIST and pMNIST with little overhead. 
+
+- Another very related method is [4] which properly applies a random dropout mask over the recurrent inputs that is shared across timesteps of an RNN. We think that h-detach is essentially achieving the same in a similar way.
+
+Problems with Introduction and Related Work Section:
+
+- The vanishing gradient problem was first described by Hochreiter in 1991 [5] (not by Bengio in 1994). 
+
+- Intro mentions GRU as if it was separate from LSTM. Clarify that GRU is essentially a variant of vanilla LSTM with forget gates [8]. Since one gate is missing, GRU is less powerful than the original LSTM [9]. 
+
+[1] Zaremba et al. "Recurrent neural network regularization." arXiv:1409.2329 (2014).
+[2] <a href="https://www.tensorflow.org/tutorials/sequences/recurrent" target="_blank" rel="nofollow">https://www.tensorflow.org/tutorials/sequences/recurrent</a>
+[3] Cooijmans et al. "Recurrent batch normalization." arXiv:1603.09025 (2016).
+[4] Gal et al. "A theoretically grounded application of dropout in recurrent neural networks." NIPS 2016.
+[5] Hochreiter, Sepp. "Untersuchungen zu dynamischen neuronalen Netzen." Diploma thesis, TUM (1991)
+[6] Oord et al. "Pixel recurrent neural networks." arXiv preprint arXiv:1601.06759 (2016).
+[7] Graves et al. "Multi-Dimensional Recurrent Neural Networks" arXiv preprint arXiv:0705.2011 (2011).
+[8] Gers et al. “Learning to Forget: Continual Prediction with LSTM.“ Neural Computation, 12(10):2451-2471, 2000. 
+[9] Weiss et al. On the Practical Computational Power of Finite Precision RNNs for Language Recognition. arXiv:1805.04908.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkxqBUoHpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Rebuttal</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryf7ioRqFX&amp;noteId=rkxqBUoHpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper609 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018 (modified: 13 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper609 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We highly appreciate your constructive comments and the missing citations you provided.
+
+Thank you for bringing up the point that image captioning does not fit the profile of a task involving long term dependencies. We believe the reason why our method leads to improvements for the image captioning task is that the gradient components from the cell state path are important for this task. As our theoretical analysis of h-detach shows, it prevents these components from getting suppressed compared with the gradient components from the h-state paths. Since the obvious target for our method were tasks involving long term dependencies, we use it as our main pitch. We have revised the paper with these comments.
+Also, we did try our method on language modeling tasks but we did not find any benefit in these cases. We have added this detail in the discussion section 5 of the revised version.
+
+Recurrent batch normalization is indeed beneficial for training LSTMs. However, as the reviewer pointed out, it adds computation overhead and its implementation is quite involved (and also adds dependence on mini-batch statistics). Our method on the other hand reduces computation needed for vanilla LSTM and is very simple to implement while improving the convergence speed and robustness over traditional LSTM updates.
+
+For a discussion on difference between dropout and h-detach, please see our reply to AnonReviewer 2. We understand that the version of dropout referred by the reviewer is different from the original dropout technique. But the difference we have stated applies to this version of dropout as well.
+
+We thank the reviewer for point out the earlier manuscript that noticed the vanishing gradient problem. We, the main authors of the paper, were not aware of this, especially given the manuscript is not in English. We have cited the thesis at all places in the paper when referring to vanishing gradients in the revised version (introduction and related work sections).
+
+We have changed the sentence saying GRU is a variant of LSTM with forget gates. We have also pointed out that LSTMs are more powerful compared with GRUs along with the citation mentioned by the reviewer. These changes have been added in the introduction section of the revised version.
+
+Finally, we would like to point out that the main benefits of our simple algorithm for modifying the LSTM update direction (for which we provide theoretical analysis) are that it leads to improvements in convergence speed, robustness to seed and learning rate, and generalization as shown in Fig. 2,3 and 6.
+
+We hope we have addressed your concerns.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

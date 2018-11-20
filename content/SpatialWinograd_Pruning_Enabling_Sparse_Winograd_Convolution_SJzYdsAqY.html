@@ -1,0 +1,385 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Spatial-Winograd Pruning Enabling Sparse Winograd Convolution | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Spatial-Winograd Pruning Enabling Sparse Winograd Convolution" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SJzYdsAqY7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Spatial-Winograd Pruning Enabling Sparse Winograd Convolution" />
+      <meta name="og:description" content="Deep convolutional neural networks (CNNs) are deployed in various applications but demand immense computational requirements. Pruning techniques and Winograd convolution are two typical methods to..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SJzYdsAqY7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Spatial-Winograd Pruning Enabling Sparse Winograd Convolution</a> <a class="note_content_pdf" href="/pdf?id=SJzYdsAqY7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019spatial-winograd,    &#10;title={Spatial-Winograd Pruning Enabling Sparse Winograd Convolution},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SJzYdsAqY7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Deep convolutional neural networks (CNNs) are deployed in various applications but demand immense computational requirements. Pruning techniques and Winograd convolution are two typical methods to reduce the CNN computation. However, they cannot be directly combined because Winograd transformation fills in the sparsity resulting from pruning. Li et al. (2017) propose sparse Winograd convolution in which weights are directly pruned in the Winograd domain, but this technique is not very practical because Winograd-domain retraining requires low learning rates and hence significantly longer training time. Besides, Liu et al. (2018) move the ReLU function into the Winograd domain, which can help increase the weight sparsity but requires changes in the network structure. To achieve a high Winograd-domain weight sparsity without changing network structures, we propose a new pruning method, spatial-Winograd pruning. As the first step, spatial-domain weights are pruned in a structured way, which efficiently transfers the spatial-domain sparsity into the Winograd domain and avoids Winograd-domain retraining. For the next step, we also perform pruning and retraining directly in the Winograd domain but propose to use an importance factor matrix to adjust weight importance and weight gradients. This adjustment makes it possible to effectively retrain the pruned Winograd-domain network without changing the network structure. For the three models on the datasets of CIFAR-10, CIFAR-100, and ImageNet, our proposed method can achieve the Winograd-domain sparsities of 63%, 50%, and 74%, respectively.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">deep learning, convolutional neural network, pruning, Winograd convolution</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">To accelerate the computation of convolutional neural networks, we propose a new two-step pruning technique which achieves a higher Winograd-domain weight sparsity without changing the network structure.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_B1x8ypt0nQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>spatial-Winograd pruning</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJzYdsAqY7&amp;noteId=B1x8ypt0nQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper373 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper373 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors propose a spatial-Winograd pruning framework, consisting of spatial structured pruning and Winograd direct pruning.  First, spatial structured pruning allows the pruned weight in the spatial domain to be kept in the Winograd domain. Then, Winograd direct pruning can further improve the sparsity in the Winograd domain. The organization of paper is OK.  The main concern is about the practical part. In the experiment, the advantage of propose framework is marginal, compared to the relevant approaches.  More comparisons with the state-of-the-art approaches should be investigated, such as light-weight design (MobileNet, ShuffleNet).  </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1g1k7LKpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJzYdsAqY7&amp;noteId=B1g1k7LKpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper373 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper373 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewers for their feedback and valuable time. Please see our response below.
+
+
+(1) Marginal improvements?
+Although our proposed method does not achieve a much higher sparsity than the baseline [1], the expected performance improvement is considerable. With the sparse Winograd convolution, the execution time of the convolutional layer is proportional to the density of the weights. Therefore, as an example, with &lt;0.1% top-1 accuracy loss on the ResNet-18 model, our technique can increase the sparsity from 70% to 74%. The expected execution time reduction is 100% - (100%-74%)/(100%-70%) = 13%.
+
+Also, our proposed technique can help avoid changing the network structure.
+
+In the future work, for the baseline Winograd-ReLU pruning [1], we will test whether adjusting the gradients with our proposed importance factor matrix can help further increase the Winograd-domain sparsity on certain networks.
+
+
+(2) Comparison with the light-weight designs?
+In the following table, we list the numbers of the required parameters and computation for various light-weight designs, Xception and also our pruned ResNet-18 model (74% Winograd-domain sparsity) for the ImageNet challenge.
+
+==============================================
+Networks                             | Top1   | Params |  MAdds 
+-------------------------------------------------------------------------
+MobileNetV1 [2]                  |  70.6   |   4.2M    |   575M
+ShuffleNet [3] (1.5*)           |  71.5   |   3.4M    |   292M
+ShuffleNet (x2)                    |  73.7   |   5.4M    |   524M
+MobileNetV2 [4] (0.7)         |  69.8   |   2.6M    |   209M
+MobileNetV2                        |  72.0   |   3.4M    |   300M
+MobileNetV2 (1.4)               |  74.7   |   6.9M    |   585M
+Xception [5]                          |  79.0   |  22.8M   |  8484M
+-------------------------------------------------------------------------
+Pruned ResNet-18 (ours)   | 70.0    |  11.7M   |  262M
+==============================================
+* For the networks, inside the parentheses is the multiplier for layer size
+
+For our pruned ResNet-18 model, the remaining parameters and MAdds (multiply-add) are comparable with those light-weight designs. One thing needs to be mentioned is that the first convolutional layer (which is not pruned) in our ResNet-18 model costs 118M MAdds which is 118M/262M = 45% of the total computation.
+
+However, our pruned model performs sparse computation which is less efficient than the conventional dense computation. Therefore, in the future work, we will work on implementing an efficient sparse Winograd convolution library. Also, it is promising to investigate combining the light-weight designs and our proposed spatial-Winograd pruning technique. This combination may help further reduce the computation required for achieving a certain accuracy.
+
+---------------------------------------------------------
+[1] Liu, Xingyu, Jeff Pool, Song Han, and William J. Dally. "Efficient sparse-winograd convolutional neural networks." arXiv preprint arXiv:1802.06367 (2018).   <a href="https://arxiv.org/abs/1802.06367" target="_blank" rel="nofollow">https://arxiv.org/abs/1802.06367</a>
+[2] Howard, Andrew G., Menglong Zhu, Bo Chen, Dmitry Kalenichenko, Weijun Wang, Tobias Weyand, Marco Andreetto, and Hartwig Adam. "Mobilenets: Efficient convolutional neural networks for mobile vision applications." arXiv preprint arXiv:1704.04861 (2017). https://arxiv.org/abs/1704.04861
+[3] Zhang, Xiangyu, Xinyu Zhou, Mengxiao Lin, and Jian Sun. "ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices." https://arxiv.org/abs/1707.01083
+[4] Sandler, Mark, Andrew Howard, Menglong Zhu, Andrey Zhmoginov, and Liang-Chieh Chen. "Inverted residuals and linear bottlenecks: Mobile networks for classification, detection and segmentation." arXiv preprint arXiv:1801.04381 (2018). https://arxiv.org/abs/1801.04381
+[5] Chollet, François. "Xception: Deep learning with depthwise separable convolutions." arXiv preprint (2017): 1610-02357. https://arxiv.org/abs/1610.02357
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Syl7K_eS37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Official Review of Spatial-Winograd Pruning</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJzYdsAqY7&amp;noteId=Syl7K_eS37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper373 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper373 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Review of Spatial-Winograd Pruning Enabling Sparse Winograd Convolution
+
+Summary:
+In this submission, the authors propose a new method for pruning weights in the presence in CNNs in which the convolution is expressed as a CNN. The goal of the project is to demonstrate that they can achieve a network which contains fewer weights (and runs faster) then the original network with minimal sacrifice in network performance and without altering the network architecture.
+
+Major Comments:
+My largest comments and concerns revolve around the degree to which the proposed pruning methods results in a model that is applicable for real world devices.
+
+1. At the minimum, the authors should provide a table with the number of parameters in the (a) original networks, (b) network with baseline pruning method and (c) network with their pruning methods. (Are the savings entirely in convolutional filters or are there savings from fully connected layers?)
+
+2. If the authors are indeed arguing that a goal of network pruning is to perform faster inference, then results must be shown to justify this -- as it is not obvious that speed-ups could be achieved by just pruning weights. In the case of other methods, speed-ups may be achieved by selectively pruning channel filters (as opposed to spatial positions in the convolutional filter) or pruning fully connected layers (in fact, for VGG and AlexNet, a majority of the reduction in parameters due to pruning were found in these layers).
+
+3. Are these levels of sparsity useable in a real-world system? Often the degree of sparsity in "vanilla" CNNs are at levels (e.g. in AlexNet, 30-50% sparsity in higher layers) not high enough to be harnessed for a fast implementation. Selectively zero-ing out individual spatial components of a filter might reduce the parameter count but not achieve any speed up gains. That is, the sparsity must be structured in such a way as to permit a faster implementation [e.g. 1]
+
+4. Considering that one of the baselines changes the network architecture itself [2], I would be curious to understand how effective this method is versus other, simple baselines that change the network architecture such as (1) decreasing the number of filter, (2) decreasing the kernel sizes, (3) swapping a convolutional filter for a separable convolution [3, 4]. All of these baselines are simple to train and experiment with and a practitioner would probably consider in many situations where speed or # parameters are a constraint.
+
+Minor Comments:
+
+- It is unclear from the presentation whether both proposed pruning methods may be trained in tandem or in series. Please clarify in the manuscript.
+
+- Why does Figure 3a, 3b focus on maintaining 20% sparsity on the 1st layer of the network systematically all other layers in sparsity? What is special about the first layer?
+
+- Why do the authors explore a different range of sparsities in Figure 3a and Figure 3b?
+
+- The authors should discuss the source of the variability (and non-monotonicity) in the plots in Figure 3 and 4 for their proposed method. How are we to interpret this? Naively, it would be appear that the method is somewhat unpredictable in performance across a range of sparsity.
+
+- Why do the blue and purple curves in Figure 4 not space the entire range of sparsities?
+
+- Figure 5b. What is the relative accuracy measured with respect to? The baseline model at that particular epoch or at final asymptotic performance?
+
+[1] Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer
+<a href="https://openreview.net/forum?id=B1ckMDqlg" target="_blank" rel="nofollow">https://openreview.net/forum?id=B1ckMDqlg</a>
+
+[2] Efficient sparse-winograd convolutional neural networks.
+Xingyu Liu, Jeff Pool, Song Han, and William J Dally.
+
+[3] MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
+Andrew G. Howard, Menglong Zhu, Bo Chen, Dmitry Kalenichenko, Weijun Wang, Tobias Weyand, Marco Andreetto, Hartwig Adam
+https://arxiv.org/abs/1704.04861
+
+[4] Xception: Deep Learning with Depthwise Separable Convolutions
+François Chollet
+https://arxiv.org/abs/1610.02357
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJxFpDUtp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2 for the Major Comments (Part 1/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJzYdsAqY7&amp;noteId=SJxFpDUtp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper373 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper373 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewers for their feedback and valuable time. Please see our response below.
+
+Response for the major comments:
+
+(1) The number of parameters?
+As the reviewer comments, the goal of our technique is for faster inferences. Since Winograd convolution only applies to convolutional layers, all the saving shown in this paper is from the convolutional layers.
+
+
+(2/3) Faster inference in a real-world system?
+The goal of our technique is for faster inferences.
+
+For the layers with 3x3 kernels in AlexNet, the previous sparse Winograd convolution technique [1] can help achieve an up to 5.4x speedup compared with the spatial convolution on Intel Xeon processors. The baseline used in our paper, Winograd-ReLU pruning [2], can already achieve a higher sparsity than the sparse Winograd convolution. Therefore, we expect our technique to achieve a similar or higher speedup.
+
+In networks like ResNet-18, our proposed method can achieve a sparsity of around 70%. As the reviewer comments, it is difficult to utilize this level of sparsity for speedup. Therefore, in Appendix B, we try only pruning the second convolutional layer in each residual block (8 convolutional layers in total). As the results show, we can achieve an average sparsity of 87.6% across the pruned layers, which reaches a level of usable sparsity. We are currently working on implementing the sparse Winograd convolution kernel. In the future work, we will also try pruning channel filters for the other unpruned layers to test the highest speedup we can get for the entire network.
+
+Our work focuses on Winograd convolution. Therefore, as the same with the baseline [2], we are not pruning fully-connected layers but only the convolutional layers. Other pruning techniques applicable to fully-connected layers can be combined with our technique for further acceleration.
+
+
+(4) Comparison with methods changing the network architecture.
+Directly decreasing the number of filters or the kernel sizes usually leads to an accuracy drop while our technique can help accelerate the computation and maintain the same level of accuracy.
+
+In the following table, we list the numbers of the required parameters and computation for various light-weight designs, Xception and also our pruned ResNet-18 model (74% Winograd-domain sparsity) for the ImageNet challenge.
+
+==============================================
+Networks                             | Top1   | Params |  MAdds 
+-------------------------------------------------------------------------
+MobileNetV1 [3]                  |  70.6   |   4.2M    |   575M
+ShuffleNet [4] (1.5*)           |  71.5   |   3.4M    |   292M
+ShuffleNet (x2)                    |  73.7   |   5.4M    |   524M
+MobileNetV2 [5] (0.7)         |  69.8   |   2.6M    |   209M
+MobileNetV2                        |  72.0   |   3.4M    |   300M
+MobileNetV2 (1.4)               |  74.7   |   6.9M    |   585M
+Xception [6]                          |  79.0   |  22.8M   |  8484M
+-------------------------------------------------------------------------
+Pruned ResNet-18 (ours)   | 70.0    |  11.7M   |  262M
+==============================================
+* For the networks, inside the parentheses is the multiplier for the layer size
+
+For our pruned ResNet-18 model, the remaining parameters and MAdds (multiply-add) are comparable with those light-weight designs. One thing needs to be mentioned is that the first convolutional layer (which is not pruned) in our ResNet-18 model costs 118M MAdds which is 118M/262M = 45% of the total computation.
+
+However, our pruned model performs sparse computation which is less efficient than the conventional dense computation. Therefore, in the future work, we will work on implementing an efficient sparse Winograd convolution library. Also, it is promising to investigate combining the light-weight designs and our proposed spatial-Winograd pruning technique. This combination may help further reduce the computation required for achieving a certain accuracy.
+
+---------------------------------------------------------
+For the references, please check the next part.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HklodPUF6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2 for the Minor Comments (Part 2/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJzYdsAqY7&amp;noteId=HklodPUF6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper373 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper373 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Response for the minor comments:
+
+(1) Whether trained in tandem or in series?
+We do not start Winograd-domain pruning until we finish spatial structured pruning because the retrained Winograd-domain weights cannot be transformed back into the spatial domain. In both pruning techniques, each pruning+retraining iteration is working on the pruned model generated by the previous iteration.
+
+(2) 20% sparsity in the first layer?
+To make a fair comparison with the baseline [2], we use the same setting that prunes the first layer with a sparsity of 20% (density of 100%-20%=80%). For conventional DNN models, the first layer has much less redundancy than other layers. Without an accuracy loss, we cannot achieve a high sparsity in the first layer. Therefore, for the goal of speedup, we usually do not prune the first layer.
+
+(3) Different range of sparsities in Figure 3a and Figure 3b?
+All figures in Figure 3 and Figure 4 show the results until we lose around 1.0% accuracy. Since only &lt;0.1% accuracy loss is allowed for the experiments, we do not show results for the sparsities beyond 60% in Figure 3b.
+
+(4) The variability of sparsity?
+We hope to answer this question thoroughly. There are two variabilities/non-monotonicity in the plots:
+    A. For either spatial structured pruning or Winograd direct pruning, the accuracy may first go up and then go down. This is because, in the beginning, pruning can reduce overfitting and help achieve higher accuracy. Then with more weights get pruned, the network capacity is reduced and the accuracy goes down. This tendency has been explored in the previous work [7].
+    B. For Winograd direct pruning, we may achieve higher accuracy than the spatial-domain model. This is because the Winograd transformation will increase the number of weight parameters. Also, when directly retraining the Winograd-domain network, we do not need to keep the one-to-one correspondence between the spatial-domain and Winograd-domain weight filters. Each Winograd-domain weight can be trained independently. Therefore, the retrained Winograd-domain network has a higher capability than the spatial-domain network and can achieve higher accuracy.
+
+We agree with the reviewer that the performance (prediction accuracy) across a range of sparsity is unpredictable. However, this is a common problem for the pruning techniques. Due to the lack of mathematical explanations of DNN models, it is difficult to predict the achievable accuracy with a certain sparsity.
+
+(5) Blue and purple curves in Figure 4 not spacing the entire range of sparsities?
+As discussed in response (3) for the minor comments, in the evaluation, we only allow a &lt;0.1% accuracy loss. The endpoints of the blue and purple curves already have a much higher accuracy loss.
+
+(6) What is the relative accuracy measured with respect to?
+The relative accuracy is measured with respect to the baseline accuracy of the original unpruned model (top-1/top-5 prediction accuracy of 69.82%/89.55%).
+
+---------------------------------------------------------
+[1] Li, Sheng, Jongsoo Park, and Ping Tak Peter Tang. "Enabling sparse Winograd convolution by native pruning." arXiv preprint arXiv:1702.08597 (2017). <a href="https://arxiv.org/abs/1702.08597" target="_blank" rel="nofollow">https://arxiv.org/abs/1702.08597</a>
+[2] Liu, Xingyu, Jeff Pool, Song Han, and William J. Dally. "Efficient sparse-winograd convolutional neural networks." arXiv preprint arXiv:1802.06367 (2018).  https://arxiv.org/abs/1802.06367
+[3] Howard, Andrew G., Menglong Zhu, Bo Chen, Dmitry Kalenichenko, Weijun Wang, Tobias Weyand, Marco Andreetto, and Hartwig Adam. "Mobilenets: Efficient convolutional neural networks for mobile vision applications." arXiv preprint arXiv:1704.04861 (2017). https://arxiv.org/abs/1704.04861
+[4] Zhang, Xiangyu, Xinyu Zhou, Mengxiao Lin, and Jian Sun. "ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices." https://arxiv.org/abs/1707.01083
+[5] Sandler, Mark, Andrew Howard, Menglong Zhu, Andrey Zhmoginov, and Liang-Chieh Chen. "Inverted residuals and linear bottlenecks: Mobile networks for classification, detection and segmentation." arXiv preprint arXiv:1801.04381 (2018). https://arxiv.org/abs/1801.04381
+[6] Chollet, François. "Xception: Deep learning with depthwise separable convolutions." arXiv preprint (2017): 1610-02357. https://arxiv.org/abs/1610.02357
+[7] Song Han, Jeff Pool, John Tran, and William J. Dally. “Learning both weights and connections for efficient neural networks.” In NIPS, 2015. https://arxiv.org/abs/1506.02626</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Bygy2gmWhX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Winograd-aware pruning of convolutions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJzYdsAqY7&amp;noteId=Bygy2gmWhX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper373 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper373 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a technique (well, two) to prune convolutional layers to reduce the required amount of computation when  the convolutions are done using the winograd algorithm. Winograd convolutions first transform the image and the filter, apply a multiplication in the transformed space, and then retransform the image back to the intended image space. The transformation of the filter, however, means that sparsity in the regular domain does not translate to sparsity in the winograd domain.
+
+This paper presents two techniques to achieve sparsity in the winograd domain: approximating winograd sparsity based on sparsity in the regular domain (thereby pruning with a non uniform cost model) and pruning in winograd space directly. The actual implementation alternates the first pruning technique and retraining the network with fixed sparsity followed by alternating winograd-space pruning and retraining. The tricky part is retraining in winograd space, which seems to require fine tuned per coordinate learning rates.
+
+My main concern is that the method feels fairly fragile and hyperparameter-heavy: tuning all the learning rates and sparsity rates for all these iterated levels of pruning doesn't seem easy. Similarly, it's unclear why the first stage of pruning is even needed if it's possible to prune and fine tune in winograd space directly. It's unclear from reading the paper how, given a computational budget, to decide the time spent in each phase of the process.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJlqPc8KTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJzYdsAqY7&amp;noteId=SJlqPc8KTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper373 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper373 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewers for their feedback and valuable time. Please see our response below.
+
+(1) Tuning the learning rate and sparsity?
+We follow these simple rules for choosing the hyperparameters:
+
+        (A) Learning rate:
+                (a) Spatial structured pruning: Assume for training the original model, the lowest learning rate is β. Then the pruned network is retrained with the learning rates of 10*β and then β.
+                (b) Winograd direct pruning: For all the retraining process, we use a fixed learning rate of 1e-6.
+
+        (B) Sparsity rate:
+                (a) Spatial structured pruning: In our evaluation, the sparsity rates used for the iterated levels are mainly based on the settings in the baseline Winograd-ReLU pruning [1]. For practical usage, we can start the pruning with a sparsity of 20%. Then for each iterated level, the sparsity is increased by 10% until the retraining step cannot regain the original accuracy. After this, the sparsity is increased by 5% for every iteration.
+                (b) Winograd direct pruning: In our evaluation, we manually choose the sparsity rate for each iteration. For practical usage, we can use the same strategy as in spatial structure pruning. In the beginning, for each iterated level, the sparsity is increased by 5% until the retraining step cannot regain the required accuracy. After this, the sparsity is increased by 2%/3% for every iteration.
+
+
+(2) Why the first stage is needed?
+Although we make the Winograd-domain retraining more effective, Winograd direct pruning still makes the prediction accuracy drop much faster than spatial structured pruning. Therefore, applying only Winograd direct pruning cannot achieve the same sparsity level as the current two-step pruning strategy.
+
+
+(3) Time spent in each phase?
+In this paper, we are assuming the computational budget is not limited and focusing on how to improve the Winograd-domain sparsity. We will explore how to distribute a limited computational budget in the future work.
+
+Also, we will try to combine our method with the dynamic network surgery [2] to reduce the computation requirement.  Our current strategy is based on Han et al.’s method [3] in which we generate the pruning mask and then retrain the pruned network. Dynamic network surgery prunes and retrains the network dynamically, which can help reduce the required computation for the pruning process.
+
+---------------------------------------------------------
+[1] Liu, Xingyu, Jeff Pool, Song Han, and William J. Dally. "Efficient sparse-winograd convolutional neural networks." arXiv preprint arXiv:1802.06367 (2018). <a href="https://arxiv.org/abs/1802.06367" target="_blank" rel="nofollow">https://arxiv.org/abs/1802.06367</a>
+[2] Guo, Yiwen, Anbang Yao, and Yurong Chen. "Dynamic network surgery for efficient dnns." Advances In Neural Information Processing Systems. 2016. https://arxiv.org/abs/1608.04493
+[3] Song Han, Jeff Pool, John Tran, and William J. Dally. “Learning both weights and connections for efficient neural networks.” In NIPS, 2015. https://arxiv.org/abs/1506.02626</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJxqlOulAX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJzYdsAqY7&amp;noteId=rJxqlOulAX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper373 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper373 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Overall this still seems of limited applicability to me, after reading the reviewer response. Clarifying the details of the learning rates used in the pruning and the tradeoffs involved still makes this seem fairly convoluted and unlikely to generalize to different architectures / models.
+
+A more comprehensive discussion of the kinds of speedups (not just sparsity levels but end-to-end speedups) enabled by this and the accuracy tradeoffs we're looking at would help make a future version of this paper more compelling.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>MCTSBug: Generating Adversarial Text Sequences via Monte Carlo Tree Search and Homoglyph Attack | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="MCTSBug: Generating Adversarial Text Sequences via Monte Carlo Tree Search and Homoglyph Attack" />
+        <meta name="citation_author" content="Ji Gao" />
+        <meta name="citation_author" content="Jack Lanchantin" />
+        <meta name="citation_author" content="Yanjun Qi" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SJxiHnCqKQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="MCTSBug: Generating Adversarial Text Sequences via Monte Carlo Tree..." />
+      <meta name="og:description" content="Crafting adversarial examples on discrete inputs like text sequences is fundamentally different from generating such examples for continuous inputs like images. This paper tries to answer the..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SJxiHnCqKQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>MCTSBug: Generating Adversarial Text Sequences via Monte Carlo Tree Search and Homoglyph Attack</a> <a class="note_content_pdf" href="/pdf?id=SJxiHnCqKQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures"><a href="/profile?email=jg6yd%40virginia.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="jg6yd@virginia.edu">Ji Gao</a>, <a href="/profile?email=jjl5sw%40virginia.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="jjl5sw@virginia.edu">Jack Lanchantin</a>, <a href="/profile?email=yanjun%40virginia.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="yanjun@virginia.edu">Yanjun Qi</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Withdrawn Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Crafting adversarial examples on discrete inputs like text sequences is fundamentally different from generating such examples for continuous inputs like images. This paper tries to answer the question: under a black-box setting, can we create adversarial examples automatically to effectively fool deep learning classifiers on texts by making imperceptible changes? Our answer is a firm yes. Previous efforts mostly replied on using gradient evidence, and they are less effective either due to finding the nearest neighbor word (wrt meaning) automatically is difficult or relying heavily on hand-crafted linguistic rules. We, instead, use Monte Carlo tree search (MCTS) for finding the most important few words to perturb and perform homoglyph attack by replacing one character in each selected word with a symbol of identical shape.  Our novel algorithm, we call MCTSBug, is black-box and extremely effective at the same time. Our experimental results indicate that MCTSBug can fool deep learning classifiers at the success rates of 95% on seven large-scale benchmark datasets, by perturbing only a few characters.  Surprisingly, MCTSBug, without relying on gradient information at all, is more effective than the gradient-based white-box baseline. Thanks to the nature of homoglyph attack, the generated adversarial perturbations are almost imperceptible to human eyes. </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Adversarial sample, Text, Black-box, MCTS, Homoglyph</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Use Monte carlo Tree Search and Homoglyphs to generate indistinguishable adversarial samples on text data</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">4 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_B1eemzIyTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Submission Withdrawn by the Authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJxiHnCqKQ&amp;noteId=B1eemzIyTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1571 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1571 Withdraw Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Withdrawal confirmation: </span><span class="note_content_value">I have read and agree with the withdrawal statement on behalf of myself and my co-authors.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rJgQaWIi27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>these aren't adversarial examples?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJxiHnCqKQ&amp;noteId=rJgQaWIi27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1571 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1571 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper describes a black-box attack on text classification systems by replacing some of the characters with homoglyphs (similar looking characters). The proposed approach is simple: important words are identified through MCTS, and one random character in each of these important words is modified to create an "adversarial" input. Homoglyphs have been an important issue in computer security, and it's great to see its first(?) application to NLP. That said, I have major concerns about the paper which prevent me from recommending its acceptance.
+
+comments:
+- The paper has serious presentation issues. It contains a lot of irrelevant and repeated information, and several important sections of the paper (e.g., explanations about the datasets and models) are only provided in the appendix. 
+
+- My main criticism of this paper is that the proposed method is really only "adversarial" to one particular NLP pipeline. As the authors mention, the perturbed words will likely be certainly be converted to UNK tokens during preprocessing. If important words are converted to UNKs, the downstream classification task is meaningless, so we'd expect a poor result (e.g., "this is a good movie" ---&gt; "this is a &lt;unk&gt; movie"). I'm not sure how you can call this an adversarial example, as to the neural network the label of the input could have actually *changed* as a result of the perturbation.  It seems that we can easily fix this issue by using character-level models (or word representations generated by a contextualized embedding such as ELMo). If we can't, then the authors need to provide experiments that show character-level models are also fooled by homoglyphs. In sum, I don't know what this paper adds to the existing body of work on adversarial example generation in NLP (much of which is not cited in the paper).  
+
+- The algorithm used to find important words assumes access to the probability distribution produced by the black box system, but this may not be true for many (most?) commercial systems.
+
+- More details about the MCTS would have been nice. Could you have simply tried all possible perturbations for a given input? If not, how many forward passes on average does the network need to converge to a good policy? 
+
+- Is the greedy baseline using homoglyph perturbations? It seems to just be doing random character replacements....</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJxvEFFdaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Existing body of work on adversarial example generation in NLP (much of which is not cited in the paper)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJxiHnCqKQ&amp;noteId=BJxvEFFdaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1571 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1571 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Do you mind to share some works not cited in the paper from the existing body of work on adversarial example generation in NLP? Thanks a lot!</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_B1lD3fK5n7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting ideas but I would have liked to see more analyses and discussion</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJxiHnCqKQ&amp;noteId=B1lD3fK5n7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1571 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1571 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper makes two main contributions:
+- homoglyph attacks in adversarial examples (changing a character into another character of similar visual shape),
+- the use of Monte Carlo Tree Search (MTCS) for determining the "important" words to perturb (the ones that are more likely to change a classifier prediction).
+
+Clarity:
+The paper has detailed background information and is overall clear. A few parts are hard to read though, including the description of the MTCS algorithm (the main contribution).
+
+Originality:
+This work is, as far as I can tell, original work. Both contributions are extensions of previous work (instead of 1: flipping random characters, 2: simpler greedy search algorithms).
+
+Significance of contribution 1:
+Homoglyph attacks are well-known in security, e.g., making someone follow a malicious URL visually looking like a legitimate one. The authors note that this kind of attack can also be used for generating adversarial samples. It is good for the ML community to be aware of these attacks. 
+The authors draw a connection with adversarial images, in that they are also similar to natural images and providing compelling examples (replacing ascii characters by similar cyrillic characters in English). On second thought, I think the connection is partially misleading: it is hard to detect whether an image is adversarial (although there is some recent research on that). With text, it is possible to ensure all characters are in a given alphabet; other characters can be removed, or transliterated, or stripped of diacritics, .... The adversarial samples may fool humans, but may have a harder time fooling a defensive algorithm. Of course, attackers have the upper hand being able to forge more and more complex examples, at the expense of being less and less visually similar. The algorithm then becomes more similar to existing algorithms flipping random characters. This is a point that would have been worth discussing.
+Also, the research community is now well-aware of adversarial examples and has been reacting. One response is the use of sub-word models (bytes, characters, ...), which are much more robust than word-based models, in that there are very few OOV items. The authors pointed out that re-training with adversarial examples does not make the model much more robust. This is clear for word-based models, less so for sub-word models. I would have liked to see this point at least mentioned.
+
+Significance of contribution 2:
+When generating adversarial examples, attacks should be focused on "important" words, the ones that have the most influence on the classifier's prediction. The authors use MCTS to find the most important subsets of words, extending previous greedy strategies focusing on a singleword (Gao et al). The authors show that extending the search space in this way improves the rate of successful attacks over the SOTA. I think this is the more substantial contribution of this paper. But this comes at a price: using a more elaborate search strategy will increase the number of calls to the classifier. The paper does not discuss that trade-off; theoretical and/or experimental analyses would have been nice.
+
+Overall, the paper introduces two interesting ideas to the problem of black-box adversarial example generation for text classifiers. However, the paper does little to discuss trade-offs or potential downsides of the proposed approaches. I also feel the two ideas could be published in separate papers, leaving more space to move some of the interesting results from the appendices into the main articles.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

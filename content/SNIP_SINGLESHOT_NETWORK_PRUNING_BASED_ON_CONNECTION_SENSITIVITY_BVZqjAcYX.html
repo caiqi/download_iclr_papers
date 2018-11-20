@@ -1,0 +1,342 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>SNIP: SINGLE-SHOT NETWORK PRUNING BASED ON CONNECTION SENSITIVITY | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="SNIP: SINGLE-SHOT NETWORK PRUNING BASED ON CONNECTION SENSITIVITY" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=B1VZqjAcYX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="SNIP: SINGLE-SHOT NETWORK PRUNING BASED ON CONNECTION SENSITIVITY" />
+      <meta name="og:description" content="Pruning large neural networks while maintaining the performance is often highly desirable due to the reduced space and time complexity. In existing methods, pruning is incorporated within an..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_B1VZqjAcYX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>SNIP: SINGLE-SHOT NETWORK PRUNING BASED ON CONNECTION SENSITIVITY</a> <a class="note_content_pdf" href="/pdf?id=B1VZqjAcYX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019snip:,    &#10;title={SNIP: SINGLE-SHOT NETWORK PRUNING BASED ON CONNECTION SENSITIVITY},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=B1VZqjAcYX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Pruning large neural networks while maintaining the performance is often highly desirable due to the reduced space and time complexity. In existing methods, pruning is incorporated within an iterative optimization procedure with either heuristically designed pruning schedules or additional hyperparameters, undermining their utility. In this work, we present a new approach that prunes a given network once at initialization. Specifically, we introduce a saliency criterion based on connection sensitivity that identifies structurally important connections in the network for the given task even before training. This eliminates the need for both pretraining as well as the complex pruning schedule while making it robust to architecture variations. After pruning, the sparse network is trained in the standard way. Our method obtains extremely sparse networks with virtually the same accuracy as the reference network on image classification tasks and is broadly applicable to various architectures including convolutional, residual and recurrent networks. Unlike existing methods, our approach enables us to demonstrate that the retained connections are indeed relevant to the given task.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">neural network pruning, connection sensitivity</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We present a new approach, SNIP, that is simple, versatile and interpretable; it prunes irrelevant connections for a given task at single-shot prior to training and is applicable to a variety of neural network models without modifications.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">13 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1ecBMxwTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Intriguing method to discover salient weights in an untrained neural network</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=r1ecBMxwTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper512 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper512 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper presents an intriguing result in which a salient, small subset of weights can be selected even in untrained networks given sensible initialization defaults are used. This result is surprising - the usual network pruning procedure assumed that a network is pretrained, and only then important connections are removed.
+
+The contributions of the paper are two-fold:
+1) it reintroduces a multiplicative sensitivity measure similar to the Breiman garotte
+2) and shows which other design choices are needed to make it work on untrained networks, which is surprising.
+
+While the main idea of the paper is clear and easy to intuitively understand, the details are not. My main concern is that paper differentiates between weights and connections (both terms are introduced on page iv to differentiate from earlier work). However, it is not clear what are the authors referring to:
+- a conv layer has many repeated applications of the same weight. Am I correct to assume that a conv layer has many more connections, than weights? Furthermore, are the dramatic sparsities demonstrated over connections counted in this manner? This is important - on MNIST each digit has a constant zero border, all connections to the border are not needed and can be trivially removed (one can crop the images to remove them for similar results). Thus we can trivially remove connections, without removing weights.
+- in paragraph 5.5 different weight initialization schemes are used for the purpose of saliency estimation, but the paragraph then says "Note that for training VS-X initialization is used in all the cases." Does it mean that first a set of random weights is sampled, then the sensitivities are computed, then a salient set of connections is established and the weights are REINITIALIZED from a distribution possibly different than the one used to compute the sensitivity? The fact that it works is very surprising and again suggests that the method identifies constant background pixels rather than important weights.
+- on the other hand, if there is a one-to-one correspondence between connections and weights, then the differentiation from Karnin (1990) at the bottom of p. iv is misleading.
+
+I would also be cautious about extrapolating results from MNIST to other vision datasets. MNIST has dark backgrounds. Let f(w,c) = 0*w*c. Trivially, df/dw = df/dc = 0. Thus the proposed sensitivity measure picks non-background pixels, which is also demonstrated in figure 2. However, this is a property of the dataset (which encodes background with 0) and not of the method! This should be further investigated - a quick check is to invert MNIST (make the images black-on-white, not white-on-black) and see if the method still works. Fashion MNIST behaves in a similar way. Thus the only non-trvial experiments are the ones on CIFAR10 (Table 2), but the majority of the analysis is conducted on white-on-black MNIST and Fashion-MNIST.
+
+Finally, no experiment shows the benefit of introducing the variables "c", rather than using the gradient with respect to the weights. let f be the function computed by the network. Then:
+- df/d(cw) is the gradient passed to the weights if the "c" variables were not introduced
+- df/dw = df/d(cw) d(cw)/dw = df/d(cw) * c = df/d(cw)
+- df/dc = df/d(cw) d(cw)/dc = df/d(cw) * w
+
+Thus the proposed change seems to favor a combination of weight magnitude and the regular df/dw magnitude. I'd like to see how using the regular df/dw criterion would fare in single-shot pruning. In particular, I expect using the plain gradient to lead to similar selections to those in Figure 2, because for constant  pixels 0 = df/d(cw) = df/dc = df/dw.
+
+Suggested corrections:
+In related work (sec. 2) it is pointed that Hessian-based methods are unpractical due to the size od the Hessian. In fact OBD uses a diagonal approximation to the hessian, which is computed with complexity similar to the gradient, although it is typically not supported by deep learning toolkits. Please correct.
+
+The description of weight initialization schemes should also be corrected (sec. 4.2). The sentence "Note that initializing neural networks is a random process, typically done using normal distribution with zero mean and a fixed variance." is wrong and artificially inflates the paper's contribution.  Variance normalizing schemes had been known since the nineties (see efficient backprop) and are the default in many toolkits, e.g. Pytorch uses the Kaiming rule which sets the standard deviation according to the fan-in: <a href="https://github.com/pytorch/pytorch/blob/master/torch/nn/modules/linear.py#L56." target="_blank" rel="nofollow">https://github.com/pytorch/pytorch/blob/master/torch/nn/modules/linear.py#L56.</a>
+
+Please enumerate the datasets (MNIST, Fashion-MNIST, CIFAR10) in the abstract, rather than saying "vision datasets", because MNIST in particular is not representative of vision datasets due to the constant zero padding, as explained before.
+
+Missing references:
+- Efficient Backprop http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf discusses variance scaling initialization, and approximations to the hessian. Since both are mentioned in the text this should be cited as well.
+- the Breiman non-negative garotte (https://www.jstor.org/stable/1269730) is a similar well-known technique in statistics
+
+
+Finally, I liked the paper and wanted to give it a higher score, but reduced it because of the occurrence of many broad claims made in the paper, such as: 1) method works on MNIST =&gt; abstract claims it generally works on vision datasets 2) paper states "typically used is fixed variance init", but the popular toolkits (pytorch, keras) actually use the variance scaling one by default 3) the badly explained distinction between connection and weight and the relation that it implies to prior work. I will revise the score if these claims are corrected.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Bygrtyec3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thorough experimental evaluation of a simple method to prune neural networks before training. The same idea seems to have been already proposed in the literature.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=Bygrtyec3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper512 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper512 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This work introduces SNIP, a simple way to prune neural network weights before training according to a specific criterion. SNIP identifies prunable weights by the normalised gradient of the loss w.r.t. an implicit multiplicative factor “c” on the weights, denoted as the “sensitivity”. Essentially, this criterion takes two factors into account when determining the relevance of each weight; the scale of the gradient and the scale of the actual weight. The authors then rank the weights according to their sensitivity and remove the ones that are not in the top-k. They then proceed to train the surviving weights as normal on the task at hand. In experiments they show that this method can offer competitive results while being much simpler to implement than other methods in the literature.
+
+This paper is well written and explains the main idea in a clear and effective manner. The method seems to offer a viable tradeoff between simplicity of implementation and effective sparse models. The experiments done are also extensive, as they cover a broad range of tasks: MNIST / CIFAR 10 classification with various architectures, ablation studies on the effects of different initialisations, visualisations of the pruning patterns and exploration of regularisation effects on a task involving fitting random labels.
+
+However, this work has also an, I believe important, omission w.r.t. prior work. The idea of using that particular gradient as a guide to selecting which parameters to prune is actually not new and has been previously proposed at [1]. The authors of [1] considered unit pruning but the modification for weight pruning is trivial. It is worth pointing out that [1] is also discussed in one of the other citations of this work, namely [2]. For this reason, I believe that the main contribution of this paper is more on the thorough experimental evaluation of an existing idea rather than the proposed sensitivity metric.
+
+
+As for other general comments:
+
+- The authors argue that SNIP can offer training time speedups by only optimising the remaining parameters. In this spirit, the authors might also want to discuss about other works that seem relevant to this task, e.g.  [3, 4]. They also allow for pruned and sparse networks during training (thus speeding it up), without needing to conform to a specific sparsity pattern. 
+
+- SNIP seems to be a good candidate for applying it to randomly initialised networks; nevertheless, a lot of times we are also interested in pruning pre-trained networks. Given that SNIP is relying on the magnitude of the gradient to determine relevance, how good does it handle this particular case (given that the magnitude of the gradients is close to zero at convergence)?
+
+- Why is the normalisation of the magnitude of the gradients necessary? The normalisation doesn’t change the relative ordering so we could simply just rank according to |g_j(w; D)|.
+
+- While the experiment at section 5.6 is interesting, the result is still dependent on the a-priori chosen cut-off point “k”. For this reason it might be worthwhile to plot the behaviour of the network as a function of “k”. Furthermore, the authors should also refer to [5] as they originally did the same experiment and showed that they can obtain the same behaviour without any hyper parameters.
+
+[1] Skeletonization: A Technique for Trimming the Fat from a Network via Relevance Assessment.
+[2] A Simple Procedure for Pruning Back-Propagation Trained Neural Networks.
+[3] Learning Sparse Neural Networks through L_0 Regularization.
+[4] Generalized Dropout.
+[5] Variational Dropout Sparsifies Deep Neural Networks.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJlJlW6g6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>SNIP idea is not the same as [1], and [1] has been cited already in the submission.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=SJlJlW6g6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper512 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper512 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the positive and constructive feedback. We appreciate that the reviewer finds that SNIP is clearly explained, viable and thoroughly evaluated.
+
+In this reply, we clarify the reviewer’s conjecture about the similarity between SNIP and the early work [1] (Skeletonization). Meanwhile, responses to the other comments will be provided in a succeeding reply.
+
+# Summary
+- It is incorrect to conclude that the idea behind SNIP is the same as the one presented in [1]. The differences are as follows.
+
+# SNIP vs. Skeletonization [1]
+- The fundamental idea behind [1] (also [2], OBD and OBS) is to identify elements (e.g. neurons, weights) that least degrade the performance when removed. Specifically, the saliency criterion in [1] is defined as $-dL/d\alpha$ (note the sign), which prunes elements that least increase the loss when removed. This means that this criterion, in fact, depends on the loss value before pruning, hence it requires the network to be pre-trained. Furthermore, to ensure minimal loss in performance, an iterative pruning scheme is employed in [1], leading to expensive prune -- retrain cycles.
+
+- In contrast, the saliency criterion in SNIP ($|dL/dc|$) is designed to measure the “sensitivity”, defined as how much influence an element has on the loss function regardless of whether it is positive or negative. This criterion alleviates the dependency on the value of the loss, thereby eliminating the need for pre-training. This is a fundamental conceptual difference of our approach. Consequently, the network can be pruned at single-shot prior to training. Moreover, we would like to point out that this aspect of SNIP allows us to interpret the retained connections (Section 5.4). Notice, such an experiment is not plausible (if not impossible) in previous works including [1].
+
+- Furthermore, in [1], robust auxiliary loss function ($L_1$) and exponentially decaying moving average (within the learning process) are required to suppress noise in the saliency score which is not the case in SNIP.
+
+- These conceptual and significant differences in the saliency criterion between SNIP and [1] result in fundamentally different pruning algorithms.
+
+# Citation of [1]
+- We would like to point out that we did not omit [1] and have cited [1] already in our submission (Sections 1 and 2).</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BylnY5EPTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Similarity is important, further discussion in the submission is appropriate </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=BylnY5EPTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper512 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper512 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the detailed response on the differences between the two methods. Judging from your response, the main difference between the metric of [1] and SNIP is that SNIP considers the absolute value of the same gradient. This similarity seems important, and for this reason I believe that it is worthwhile to include this particular discussion in the main submission, especially when introducing the metric at section 4.1. Furthermore, I believe that the details about the way that each respective criterion is employed in practice (e.g. single-shot vs prune-retrain cycles, moving average of the metric etc.) are orthogonal to this discussion, as these concern specific choices rather than the core metric idea.
+
+I will wait for the authors to address all of the other points before I update my score. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_Hkx-JZ3vh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=Hkx-JZ3vh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper512 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper512 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary
+The paper focuses on pruning neural networks. They propose to identify the nodes to be pruned even before training the whole network (conventionally, it is done as a separate step after the nn was trained and involves a number of iterations of retraining pruned nn). This initial step that identifies the connections to be pruned works off a mini-batch of data.
+
+Authors introduce  a criterion to be used for identifying important parts of the network (connection sensitivity), that does not depend on the magnitude of the weights for neurons: they start by introducing a set of binary weights (one per a weight from a neuron) that indicate whether the connection is on or off and can be removed. Reformulating the optimization problem and relaxing the constraints on the binary weights, they approximate the sensitivity of the loss with respect to these indicator variables via the gradient. Then the normalized magnitude of these gradients is used to chose the connections to keep (keeping top k connections)
+
+Clarity:
+Well written, easy to follow
+
+Detailed comments
+Overall, very interesting. Seemingly very simple idea that seem to work well. 
+Table 2 does look impressive and it seems that it also reduces the overfiting, and the experiment with random labels on mnist seem to demonstrate that the method indeed preserves only connections relevant to the real labels, simplifying the architecture to a point when it cant just memorize the data
+
+Several questions/critiques:
+- When you relax the binary constraints, it becomes an approximation to an optimization problem, any indication of how far you are off solving it this way? 
+- For the initialization method of the weights, you seem to state that VS-H is the one to use. I wonder if it actually task dependent and architecture dependent. If yes, then the propose method still has a hyperparameter - how to initialize the weights initially
+- How does it compare with just randomly dropping the connections or dropping them based on the magnitude of the initial weights.  It seems that the meat comes from the fact that you are able to use the label and good initial values, i wonder if just doing a couple of iterations of forward-backprop and then dropping the weights based on their magnitude can give you comparable results 
+- How does it compare to a distillation - it does not involve many cycles of retraining and can speed up inference time too
+-Can it replace the architecture search - initialize a large architecture, use the method to prune the connections and here you go. Did you try that instead of using already pre-tuned architectures like AlexNet.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">9: Top 15% of accepted papers, strong accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1e1b9pz3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Relationship to Fisher pruning</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=H1e1b9pz3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018</span><span class="item">ICLR 2019 Conference Paper512 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">A very interesting paper!
+
+I wanted to better understand the connection between SNIP and Fisher pruning (as described in abs/1801.05787).
+
+Specifically, Fisher pruning would repeatedly: (1) train the network for some time and (2) remove the least important parameter. Let's say we modify Fisher pruning as follows:
+
+* reduce the amount of training to just a single batch;
+* remove all the parameters we want to remove at once (rather than one by one);
+* when determining parameter importance, use absolute value instead of squared gradient;
+* use variance-scaled initial weights.
+
+How close to SNIP algorithm would this get us?
+
+Also, another question: do you think SNIP will work if it's adapted to prune entire feature maps, i.e., channels (as discussed in the paper I quoted)? The rationale is that the CNN FLOPs cost is not affected much unless an entire channel is removed.
+
+Thanks!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJxr7w6B3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The modified Fisher pruning is different from SNIP and it is unclear whether it would lead to effective pruning.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=SJxr7w6B3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper512 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018</span><span class="item">ICLR 2019 Conference Paper512 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the interest in our work.
+
+# SNIP vs. modified Fisher pruning
+- The main idea behind Fisher or in general Hessian based pruning methods (e.g. OBS, OBD) is to remove parameters that least affect the loss at a local minimum based on second-order information. However, if we modify Fisher pruning as mentioned above, it does not satisfy the local minimum assumption or use second-order information. Therefore it is not clear whether this modified criterion would lead to effective pruning.
+- Furthermore, this resulting pruning criterion would be $|dL/dw|$ which is different from SNIP criterion ($|dL/dc|$) and does not measure the connection sensitivity as discussed at the end of Section 4.1.
+
+# SNIP for channel pruning
+- We believe that extending SNIP to channel pruning is surely feasible (e.g. by measuring connection sensitivities over channels). This can further save computational complexity and is an interesting direction to pursue for future work.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BketXC-xnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Details of Pruning Algorithm</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=BketXC-xnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018</span><span class="item">ICLR 2019 Conference Paper512 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I'm unclear on the specifics of your pruning procedure. When you select weights to prune, do you:
+
+1) Compute the sensitivities of all parameters globally (without considering which layer the parameters come from) and remove the k% of smallest-sensitivity parameters?
+
+2) Compute the sensitivities of all parameters, normalize by layer, and then remove the k% of smallest-sensitivity parameters globally?
+
+3) Remove the k% of smallest-sensitivity parameters in each layer?
+
+4) Something else?
+
+Thank you so much for the help!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Bye48Fieh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The answer is 1.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=Bye48Fieh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper512 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018</span><span class="item">ICLR 2019 Conference Paper512 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the question, and the answer is 1.
+The connection sensitivity is computed for all parameters globally and only top-k parameters are retained. Please refer to Equations (6) and (7) (also Lines 3 and 5 in Algorithm 1) where $m$ denotes the total number of parameters in the network.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SylwYaFoom" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interpretability on More Complex Data</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=SylwYaFoom"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">23 Oct 2018</span><span class="item">ICLR 2019 Conference Paper512 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the interesting paper. On both MNIST and Fashion-MNIST, the object of interest is centered and the entire background of the image is black. Given you are using gradient information to select which connections should be removed, it seems obvious that the patterns you show in section 5.4 would occur.
+
+Did you try this experiment on CIFAR? If so, would you be willing to share what you observed? It feels like this method could be duped by a dataset where the object of interest is not necessarily the brightest part of the image. More generally it feels like this technique would regress to the quality of random pruning on more complex datasets where the initial connection gradient is not informative.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJe3n82hs7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Random pruning does not compare to SNIP, either for interpretation or for performing the task on any dataset.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=BJe3n82hs7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper512 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">23 Oct 2018</span><span class="item">ICLR 2019 Conference Paper512 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the interest in our work. We address your comments below.
+
+# Black background in (Fashion-)MNIST
+- Both datasets are normalized before passing into the network, meaning that the black region is not zero valued. Thus, gradients are not zero and do exist regardless of the intensity or region of the image.
+- Furthermore, we conducted the same experiment, but with reversed data (i.e. bright and dark regions are swapped), and this led to the same results as in Fig. 2: SNIP retains the same connections as it does with non-reverse data. This clearly indicates that there is no direct correlation between the image intensity (or brightness) and the connection sensitivity.
+
+# Visualization and interpretation of retained connections in the first layer (c_{l=1}) on CIFAR
+- The same experiment is not feasible with CIFAR, because the first layer in all tested networks is not fully connected. Hence, there is no one-to-one correspondence between the input and connectivity parameters c.
+- We can surely visualize convolutional parameters c, however, it will only reveal the level of sparsity rather than verifying the validity of the retained connections, which is not the purpose of this experiment.
+
+# Quality of random pruning against SNIP
+- In terms of interpretability, random pruning results in c that is completely random, on both (Fashion-)MNIST and CIFAR. Even though SNIP may not have the “reconstruction effect” on more complex data, it is likely to prune connections that are less important to perform the task - in case of image classification, it could be the background region. We believe that this is still far more meaningful than completely random patterns obtained by random pruning.
+- In terms of performance, random pruning fails to perform the task for all networks and datasets (see our response to Thomas Pfeil’s comment below), whereas SNIP achieves extremely sparse networks that are able to perform the task while maintaining the accuracy (see Table 2 for results on CIFAR).
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HkeTWJWqcQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Comparison to random pruning</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=HkeTWJWqcQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Thomas_Pfeil1" class="profile-link">Thomas Pfeil</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Oct 2018</span><span class="item">ICLR 2019 Conference Paper512 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for this interesting article. How does your method compare to random pruning using the same pruning rates?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJe3mWK5qX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Randomly pruned networks are unable to learn to perform the task.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VZqjAcYX&amp;noteId=HJe3mWK5qX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper512 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Oct 2018</span><span class="item">ICLR 2019 Conference Paper512 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the interest in our work.
+
+We have tested random pruning for all models used in the paper for the same extreme sparsity levels. We also checked for a few relaxed sparsity levels (e.g. 70%).
+
+As expected, none of the randomly pruned sparse models is able to learn properly (the loss does not decrease). All of them record accuracies around 10%, which is the case of random guessing for the 10-way classification task.
+
+This implies that the randomly pruned sparse network does not have enough capacity to learn to perform the task. One potential reason would be that random pruning does not ensure the basic connectivity in the network, which can hinder the flow of activations in the forward pass as well as the gradients in the backward pass. In the worst case, all connections between two layers can be pruned away resulting in a completely disconnected network.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

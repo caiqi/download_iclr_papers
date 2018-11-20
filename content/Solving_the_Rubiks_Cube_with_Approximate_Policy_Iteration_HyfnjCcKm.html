@@ -1,0 +1,214 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Solving the Rubik's Cube with Approximate Policy Iteration | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Solving the Rubik's Cube with Approximate Policy Iteration" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Hyfn2jCcKm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Solving the Rubik's Cube with Approximate Policy Iteration" />
+      <meta name="og:description" content="Recently, Approximate Policy Iteration (API) algorithms have achieved super-human proficiency in two-player zero-sum games such as Go, Chess, and Shogi without human data. These API algorithms..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Hyfn2jCcKm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Solving the Rubik's Cube with Approximate Policy Iteration</a> <a class="note_content_pdf" href="/pdf?id=Hyfn2jCcKm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019solving,    &#10;title={Solving the Rubik's Cube with Approximate Policy Iteration},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=Hyfn2jCcKm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Recently, Approximate Policy Iteration (API) algorithms have achieved super-human proficiency in two-player zero-sum games such as Go, Chess, and Shogi without human data. These API algorithms iterate between two policies: a slow policy (tree search), and a fast policy (a neural network). In these two-player games, a reward is always received at the end of the game. However, the Rubik’s Cube has only a single solved state, and episodes are not guaranteed to terminate. This poses a major problem for these API algorithms since they rely on the reward received at the end of the game. We introduce Autodidactic Iteration: an API algorithm that overcomes the problem of sparse rewards by training on a distribution of states that allows the reward to propagate from the goal state to states farther away. Autodidactic Iteration is able to learn how to solve the Rubik’s Cube and the 15-puzzle without relying on human data. Our algorithm is able to solve 100% of randomly scrambled cubes while achieving a median solve length of 30 moves — less than or equal to solvers that employ human domain knowledge</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">reinforcement learning, Rubik's Cube, approximate policy iteration, deep learning, deep reinforcement learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We solve the Rubik's Cube with pure reinforcement learning</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Bye2VTcq27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A good paper </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyfn2jCcKm&amp;noteId=Bye2VTcq27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper750 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper750 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors provide a good idea to solve Rubik’s Cube using an approximate policy iteration method, which they call it as Autodidactic iteration. The method overcomes the problem of sparse rewards by creating its own rewards system. Autodidactic iteration starts with solved cube and then propagate backwards to the state. 
+
+The testing results are very impressive. Their algorithm solves 100% of randomly scrambled(1000 times) cubes and has a median solve length of 30 moves. The God’s number is 26 in the quarter turn metric, while their median moves 30 is only 4 hands away from the God’s number. I appreciate the non-human domain knowledge part most because a more general algorithm can be used to other area without  enough pre-knowledges. 
+
+The training conception to design rewards by starting from solved state to expanded status is smart, but I am not very clear how to assign the rewards based on the stored states? Only pure reinforcement learning method applied sounds simple, but performance is great. The results are good enough with the neural network none-random search guidance. Do you have solving time comparison  between your method and other approximate methods? 
+
+Pros: -  solved nearly 100% problems with reasonable  moves.
+          -  a more general algorithm solving unknown states value problems.
+
+Cons: - the Rubik’s cube problem has been solved with other optimal approaches in the past. This method is not as competitive as other optimal solution solver within similar running time for this particular game.
+           - to solve more dimension cubes, this method might be out of time.  
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SJx3iUcc27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Nice idea but little study</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyfn2jCcKm&amp;noteId=SJx3iUcc27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper750 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper750 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors show how to solve the Rubik cube using reinforcement learning (RL) with Monte-Carlo tree search (MCTS). As common in recent applications like AlphaZero, the RL part learns a deep network for policy and a value function that reduce the breadth (policy) and depth (value function) of the tree searched in MCTS. This basic idea without extensions fails when trying to solve the Rubik cube because there is only one final success state so the early random policies and value functions never reach it. The solution proposed by the authors, called autodidactic iteration (ADI) is to start from the final state, construct a few previous states, and learn value function on this data where in a few moves a good state is reached. The distance to the final state is then increased and the value function learn more and more. This is an interesting idea that solves the Rubik cube, but the paper lacks a more detailed study. What other problems can be solved like this? Would a single successful trajectory be enough to use it in a wider context (as in <a href="https://blog.openai.com/learning-montezumas-revenge-from-a-single-demonstration/)" target="_blank" rel="nofollow">https://blog.openai.com/learning-montezumas-revenge-from-a-single-demonstration/)</a> ? Is the method to increase distance from final state specific to Rubik cube or general? Is the training stable with respect to this or is it critical to get it right? The lack of analysis and ablations makes the paper weaker.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJlaAp7wn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>interesting deep-RL tweaks to solve problem with sparse reward</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hyfn2jCcKm&amp;noteId=HJlaAp7wn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper750 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper750 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper introduces a deep RL algorithm to solve the Rubik's cube. The particularity of this algorithm is to handle the huge state space and very sparse reward of the Rubik's cube. To do so, a) it ensures each training batch contains states close to the reward by scrambling the solution; b) it computes an approximate value and policy for that state using the current model and c) it weights data points based by the inverse of the number of random moves from the solution used to generate that training point. The resulting model is compared to two non-ML algorithms and shown to be competitive either on computational speed or on the quality of the solution.  
+
+This paper is well written and clear. To the best of my knowledge, this is the first RL-based approach to handle the Rubik's cube problem so well. The specificities of this problem make it interesting. While the idea of starting from the solution seemed straightforward at first, the paper describes more advanced tricks claimed to be necessary to make the algorithm work. The algorithm seems to be quite successful and competitive with expert algorithms, which I find very nice. Overall, I found the proposed approach interesting and sparsity of reward is an important problem so I would rather be in favor of accepting this paper. 
+
+On the negative side, I am slightly disappointed that the paper does not link to a repository with the code. Is this something the authors are considering in the future? While it does not seem difficult to code, it is still nice to have the experimental setup.
+
+There has been (unsuccessful) attempts to solve the Rubik's cube using deep RL before. I found some of them here: <a href="https://github.com/jasonrute/puzzle_cube" target="_blank" rel="nofollow">https://github.com/jasonrute/puzzle_cube</a> . I am not sure whether these can be considered prior art as I could not find associated accepted papers but some are quite detailed. Some could also provide additional baselines for the proposed methods and highlight the challenges of the Rubik's cube.
+
+I am also curious whether/how redundant positions are handled by the proposed approach and wished this would be discussed a bit. Considering the nature of the state space and the dynamics, I would have expected this to be a significant problem, unlike in Go or chess. Does the algorithm forbid the reverse of the last action? Is the learned value/policy function good enough that backwards moves are seldom explored? Since the paper mention that BFS is interesting to remove cycles, I assume identical states are not duplicated. Is this correct?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

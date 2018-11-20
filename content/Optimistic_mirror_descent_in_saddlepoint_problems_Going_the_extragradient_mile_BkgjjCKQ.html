@@ -1,0 +1,275 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Optimistic mirror descent in saddle-point problems: Going the extra(-gradient) mile | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Optimistic mirror descent in saddle-point problems: Going the extra(-gradient) mile" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Bkg8jjC9KQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Optimistic mirror descent in saddle-point problems: Going the..." />
+      <meta name="og:description" content="Owing to their connection with generative adversarial networks (GANs), saddle-point problems have recently attracted considerable interest in machine learning and beyond. By necessity, most..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Bkg8jjC9KQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Optimistic mirror descent in saddle-point problems: Going the extra(-gradient) mile</a> <a class="note_content_pdf" href="/pdf?id=Bkg8jjC9KQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019optimistic,    &#10;title={Optimistic mirror descent in saddle-point problems: Going the extra(-gradient) mile},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=Bkg8jjC9KQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=Bkg8jjC9KQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Owing to their connection with generative adversarial networks (GANs), saddle-point problems have recently attracted considerable interest in machine learning and beyond. By necessity, most theoretical guarantees revolve around convex-concave (or even linear) problems; however, making theoretical inroads towards efficient GAN training depends crucially on moving beyond this classic framework. To make piecemeal progress along these lines, we analyze the behavior of mirror descent (MD) in a class of non-monotone problems whose solutions coincide with those of a naturally associated variational inequality – a property which we call coherence. We first show that ordinary, “vanilla” MD converges under a strict version of this condition, but not otherwise; in particular, it may fail to converge even in bilinear models with a unique solution. We then show that this deficiency is mitigated by optimism: by taking an “extra-gradient” step, optimistic mirror descent (OMD) converges in all coherent problems. Our analysis generalizes and extends the results of Daskalakis et al. [2018] for optimistic gradient descent (OGD) in bilinear problems, and makes concrete headway for provable convergence beyond convex-concave games. We also provide stochastic analogues of these results, and we validate our analysis by numerical experiments in a wide array of GAN models (including Gaussian mixture models, and the CelebA and CIFAR-10 datasets).</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Mirror descent, extra-gradient, generative adversarial networks, saddle-point problems</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We show how the inclusion of an extra-gradient step in first-order GAN training methods can improve stability and lead to improved convergence results.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HkxnI7tn3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A good paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Bkg8jjC9KQ&amp;noteId=HkxnI7tn3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper626 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper626 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper is trying to find a saddle-point of a Lagrangian using mirror descent. Mirror descent based methods use Bregman divergence to encode the convexity and smoothness of objective function beyond the euclidean structure. The main contribution of this paper is adding an extra gradient step to the standard MD, i.e., step 5 in Algorithm 2 as well as stochastic versions. Numerical experiments support their results.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkxF31vKpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for the feedback!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Bkg8jjC9KQ&amp;noteId=SkxF31vKpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper626 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper626 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their positive and encouraging feedback! We also feel that the inclusion of an extra-gradient step can greatly enhance the stability of GAN training methods, and can provide further key insights.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1xUfVr9hX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A first step to handle non-convexity in saddle point optimization</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Bkg8jjC9KQ&amp;noteId=H1xUfVr9hX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper626 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper626 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This work provides the converge proof of the last iterates of two stochastic methods (almost surely) that the author called  mirror descent and optimistic mirror descent under an assumption weaker than monotonicity called coherence. 
+Roughly, the definition of coherence is the equivalence between being a  saddle point and the solution of the Minty variational inequality. 
+
+Overall, I think that this paper try to tackle an interesting problem which is to prove convergence of saddle point algorithms under weaker assumption than monotonicity of the operator.
+
+However, I have some concerns: 
+
+- I think that the properties of coherent saddle point could be more investigated. For instance is the set of coherent saddle point connected ? It would be very relevant for GANs. You claim that "neither strict, nor null coherence imply a unique solution to (SP)," but I do not see any proof of that statement (both provided examples have a unique SP). I agree that you can set $g$ to $0$ in some directions to get an affine space a of saddle points but is there examples where the set of solution is not an affine space (intersected with the constraints) ? 
+- First of all the results are only asymptotic. (I agree that it can be mitigated saying that there is (almost) no results on non-monotone VI and it is a first step to try to handle non-convexity of the objective functions.)
+- One big pro of this work might have been new proof techniques to handle non-monotonicity in variational inequalities but the coherence assumption looks like to be the weakest condition to use the standard proof technique of convergence of the (MD) and (OMD). Nevertheless, this work is still interesting since it handles in a subtle way stochasticity (I did not have time to check Theorem 2.18 [Hall &amp; Heyde 1980], I would be good to repeat it in the appendix for self-completeness)
+- This work could be easily extended to non zero-sum games which is crucial in practice since most of the state of the art GANs (such as WGAN with gradient penalty or non saturating GAN) are non zero-sum games. 
+- Are you sure of the use of the denomination Optimistic mirror descent ? What you are presenting is the extragradient method. These two methods are slightly different, If you look at (5) in (Daskalaki et al., 2018) you'll notice that the updates are slightly different from you (OMD), particularly (OMD) require two gradient computations per iteration whereas (5) in (Daskalaki et al., 2018) requires only one. (it just requires to memorize the previous gradient)
+
+Minor comment: 
+- For saddle point (and more generally variational inequalities) Mirror descent is no longer a descent algorithm. The name used by the literature is mirror-prox method (see Juditsky's paper) 
+- in (C.1) U_n is not defined anywhere but I guess it is $\hat g_n - g(X_n)$.
+- Some cited paper are published paper but cited as arXiv paper. 
+- Lemma D.1 could be extended to the case (\sigma \neq 0) but the additional noise term might be hard to handle to get a result similar as Thm 4.1
+for $\sigma \neq 0$.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1lVGZvtTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for the feedback!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Bkg8jjC9KQ&amp;noteId=r1lVGZvtTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper626 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper626 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their in-depth remarks and positive evaluation! We reply point-by-point below:
+
+
+1.	Regarding the structure of the solution set of a coherent problem: we agree that this structural question can be investigated further but, given space constraints, we are concerned that this might potentially dilute the focus of the paper. Nevertheless, we would like to take advantage of the openreview format to answer in detail the referee's questions regarding the solution set of a coherent problem:
+- As the referee already points out, uniqueness can be easily taken care of by considering the constant function: the solution set of this problem is the entire feasible region, though the problem is null coherent [and vacuously strictly coherent if we interpret Definition 2.1 to hold for the empty set in the case of strict coherence.] More interesting examples with a zeroed-out direction also exist: for instance, the problem f(x_1,x_2) = x_1^2 is strictly coherent, but its solution set is an affine space.
+- Whether the solution set is an affine space intersected with the set of constraints: in the current formulation, it can be shown that the solution set of a coherent problem is a convex space, though not necessarily one obtained as the intersection of an affine set with the feasible region. [We can provide a concrete example if the referee finds this useful]
+- However, as we state in the paper, the definition of coherence can be weakened substantially, and our results still go through. Specifically, consider the following definition of "weak coherence":
+
+Definition: We say that f is weakly coherent if:
+(i) There exists a solution p of (SP) that satisfies (VI).
+(ii) Every solution x* of (SP) satisfies (VI) locally, i.e., g(x) (x - x*) ≥ 0 for all x sufficiently close to x*.
+
+Under this *weaker* definition of coherence, the solution set of (SP) need no longer be convex! To see this, consider a very simple optimization example where Player 1 controls x,y in [-1,1], and the objective function is f(x,y) = x^2 y^2 (i.e., Player 2 has no impact in the game, just for simplicity). In this case, the solution set of the problem is the cross-shaped set X* = {(x,y) : x=0 or y=0}, which is non-convex!
+
+We chose to focus on the case where the solutions of (SP) and (VI) coincide for simplicity and clarity of presentation; however, we will update our manuscript accordingly as soon as possible to make this change!
+
+
+2.	Indeed, the results are only asymptotic - but, as the reviewer states, we know of virtually no other results at this level of generality, and the analysis has to start somewhere. We agree that getting rates is an important problem, but we believe that all this cannot be addressed within a single paper.
+
+
+3.	Regarding the similarity of proof techniques with MD/OMD: we would like to point out that conventional MD/OMD proof techniques are typically quite different as they focus on the convergence of the so-called "ergodic average" of the sequence of iterates (see e.g., the cited literature by Nemirovski, Nesterov, Juditski et al., and many others). Averaging techniques rely crucially on the problem being convex-concave and cannot be used in a non-monotone setting; as a result, we took a completely different approach relying on a quasi-Fejér analysis inspired by recent work on Bregman proximal methods in operator theory.
+
+
+4.	We concur that our results can be extended to non-zero-sum games, this is a great observation! Again, we did not make this link explicit in our paper for simplicity, but we will definitely update our manuscript accordingly.
+
+
+5.	Regarding the name "optimistic mirror descent". In the original NIPS 2013 paper of Rakhlin and Sridharan, the authors present two variants of OMD: one is essentially the mirror-prox algorithm of Nemirovski (2004), and the other is a "momentum"-like variant which was further studied by Daskalakis et al. in their recent 2018 ICLR paper. Regrettably, there is a fair bit of confusion in the literature regarding what "optimistic" descent is: personally, we have a strong preference for the original "mirror-prox" terminology of Nemirovski (after all, in saddle-point problems, the method is *not* a descent method). However, we used the OMD terminology of Rakhlin and Sridharan because it seems to be more easily recognizable in the GAN community.
+
+
+6. Minor comments: We will take care of those, thanks!</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SyeTm7oIhm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Coherent condition is highly related to the pseudo-monotone property in operator theory. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Bkg8jjC9KQ&amp;noteId=SyeTm7oIhm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper626 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper626 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Prons: 
+This paper provides an optimistic mirror descent algorithm to solving minmax optimization problem. Its global convergence is guaranteed under the coherence property. The experimental results are promising.
+
+Cons: 
+1.	The coherence property is still a strong assumption. The sufficient conditions provided in Corollary 3.2 and 3.3 to guarantee coherence property are too specific to cover existing GAN models.         
+
+2.	The current theoretical contribution seems incrementally. From the perspective of operator theory, the coherence property is highly related to the pseudo-monotone property. Extragradient method to solve the pseudo-monotone VIP has already existed in the literature [1]. The proposed OMD can be simply regarded a stochastic extension of [1] and simultaneously generalize the European distance in [1] to Bregman distance. 
+
+3.	The integrating of Adam and OMD in the experiments is very interesting. To match the experiments, we highly recommend the authors to show the convergence of OMD + Adam with or without coherence condition, rather than requiring a diminishing learning rate.
+
+[1] Noor, Muhammad Aslam, et al. "Extragradient methods for solving nonconvex variational inequalities." Journal of Computational and Applied Mathematics 235.9 (2011): 3104-3108.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkxGKGDY6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for the feedback! (see below why pseudo-monotonicity is quite different)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Bkg8jjC9KQ&amp;noteId=rkxGKGDY6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper626 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper626 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their constructive remarks! We reply point-by-point below:
+
+1.	To be sure, coherence does not cover all GAN problems: GANs can be so complex that we feel that any endeavor to account for all problems would be chimeric (at least, given our current level of understanding of the GAN landscape). Being fully aware of this, our goal in this paper was simply to provide concrete theoretical evidence that the inclusion of an extra-gradient step can help resolve many of the problems that arise in practice (and, in particular, cycling and oscillatory mode collapses). In this regard, our paper tackles a significantly wider framework than the 2018 ICLR paper of Daskalakis et al. which only addressed bilinear models.
+
+Furthermore, we would like to point out that Corollaries 3.2 and 3.3 are only *sufficient* conditions for coherence. To make an analogy with convex analysis, in practice, when trying to determine whether a given function is convex, one of the standard techniques is to show that its Hessian matrix is diagonally dominant - and, hence, positive-semidefinite. Obviously, this is just a sufficient condition, but it is still useful in practice. We view Corollaries 3.2 and 3.2 in a similar light: they show that our results cover a wide array of cases of practical (and theoretical) interest, without attempting to be exhaustive.
+
+
+2.	Regarding the relation with pseudo-monotonicity: despite any formal similarities, we would like to point out that coherence and pseudo-monotonicity can be quite different. As an example, take the objective function (2.2) in our paper: for x_1 = 1/2, we get f(1/2,x_2) = (x_2^2 - 2)^2 (4 + 5x_2^2) / 16, which has *two* well-separated maximizers, i.e. it is not even quasi-concave - implying in turn that (2.2) is not pseudo-monotone (it is, in fact, multi-modal in x_2).
+
+Moreover, as we pointed in our reply to Reviewer 2, the version of coherence that we presented was the simplest possible one (and we did so for reasons of clarity and ease of presentation). Our definition can be weakened substantially by considering the following definition of "weak coherence":
+
+Definition: We say that f is weakly coherent if:
+(i) There exists a solution p of (SP) that satisfies (VI).
+(ii) Every solution x* of (SP) satisfies (VI) locally, i.e., g(x) (x - x*) ≥ 0 for all x sufficiently close to x*.
+
+As we pointed out in our reply to Reviewer 2, under this *weaker* definition of coherence, the solution set of (SP) need no longer be convex, thus making the difference with pseudo-monotone problems even more pronounced. As a very simple example, consider the case where Player 1 controls x,y in [-1,1], and the objective function is f(x,y) = x^2 y^2, i.e., Player 2 has no impact in the game (just for simplicity). In this case, the solution set of the problem is the cross-shaped set X* = {(x,y) : x=0 or y=0}, which is non-convex - in stark contrast to the convex structure of the solution set of pseudo-monotone problems.
+
+We will update our manuscript accordingly as soon as possible to make this change!
+
+We will also include a detailed discussion of the paper by Noor et al. - we were not aware of it, and we thank the reviewer for bringing it to our attention.
+
+
+3.	Regarding the integration of Adam in our proof technique: we agree with the reviewer that this is a worthwhile extension, but not one that can be properly undertaken without completely changing the structure of the paper and its focus. Adam has a very specific update structure and requires the introduction of significant machinery to handle theoretically, so we do not see how it can be done without greatly shifting the scope and balance of our treatment and analysis.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Reduced-Gate Convolutional LSTM Design Using Predictive Coding for Next-Frame Video Prediction | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Reduced-Gate Convolutional LSTM Design Using Predictive Coding for Next-Frame Video Prediction" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rJEyrjRqYX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Reduced-Gate Convolutional LSTM Design Using Predictive Coding for..." />
+      <meta name="og:description" content="Spatiotemporal sequence prediction is an important problem in deep learning. We&#10;  study next-frame video prediction using a deep-learning-based predictive coding&#10;  framework that uses convolutional..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rJEyrjRqYX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reduced-Gate Convolutional LSTM Design Using Predictive Coding for Next-Frame Video Prediction</a> <a class="note_content_pdf" href="/pdf?id=rJEyrjRqYX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 18 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019reduced-gate,    &#10;title={Reduced-Gate Convolutional LSTM Design Using Predictive Coding for Next-Frame Video Prediction},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rJEyrjRqYX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=rJEyrjRqYX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Spatiotemporal sequence prediction is an important problem in deep learning. We
+study next-frame video prediction using a deep-learning-based predictive coding
+framework that uses convolutional, long short-term memory (convLSTM) modules.
+We introduce a novel reduced-gate convolutional LSTM architecture. Our
+reduced-gate model achieves better next-frame prediction accuracy than the original
+convolutional LSTM while using a smaller parameter budget, thereby reducing
+training time. We tested our reduced gate modules within a predictive coding architecture
+on the moving MNIST and KITTI datasets. We found that our reduced-gate
+model has a significant reduction of approximately 40 percent of the total
+number of training parameters and training time in comparison with the standard
+LSTM model which makes it attractive for hardware implementation especially
+on small devices.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">rgcLSTM, convolutional LSTM, unsupervised learning, predictive coding, video prediction, moving MNIST, KITTI datasets, deep learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">A novel reduced-gate convolutional LSTM design using predictive coding for next-frame video prediction</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_ryx7mFSq3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting paper but with incremental contributions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJEyrjRqYX&amp;noteId=ryx7mFSq3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper53 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper53 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This manuscript proposes replacing the three gates in the standard LSTM with one gate to reduce the number of parameters and the computation time. The proposed reduce-gate convolutional LSTM is applied in PredNet to predict next frames of a video. 
+
+The main contribution of this paper is proposing an efficient convolutional LSTM. Although the number of the parameters and the training time in the experiments support this statement, the description in the paper is very confusing. 
+
+1) In the standard LSTM, the cell state c^{t-1} is not an input for the computation of the three gates and the cell state's candidate. That is, in Eq(15) 2\kappa and 2n should be \kappa and n. Compared to Eq(14), it may not show that the standard LSTM has more parameters than rgcLSTM.
+
+2) Eq(5) and Eq(6) are not consistent. If I_g = I_f, the coefficient before \kappa should be 2; otherwise, the input update shouldn't include c^{t-1}. 
+
+3) The intuition of having one gate instead of three is not very clear in the paper. Mixing all the functions, i.e., input, forget, and output filters, does provide freedom for learning but also introduces the learning complexity. Decoupling a complex function into a couple of simpler functions is a common way to narrow down the searching space. This is exactly what the standard LSTM does. The authors may want to provide reasonable arguments to explain intuitively why using one gate is better. 
+
+The model performance comparison in the experiments would be fairer if let the models converge. Perhaps, the standard LSTM is just suffering the gradient-vanishing issue and using ResNet design, for example, might improve the performance. Similarly, the rgcLSTM has fewer parameters as shown in the experiments. A possible explanation for its demonstrated better performance could be that it's less suffering the vanishing gradient. But, this doesn't indicate it's better than the standard LSTM. In summary, experimental results are good to verify the goodness of a model, but the theoretical support or intuitions are more important to understand the benefits that we can gain by making this change to the standard LSTM. This part is not clear from the paper. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJlt-pOAp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>response to AnonReviewer2 comments and suggestions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJEyrjRqYX&amp;noteId=BJlt-pOAp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper53 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper53 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1. The description in the paper is very confusing.
+Response: We have improved the clarity of figure 2. We have also added an appendix giving many more details of the model architecture. The main purpose of the appendix is to spell out how the parameter counts were performed but a side-effect is to offer a quite detailed specification of the architecture. We have also put the source code on github and listed the link in Section 4 of the paper.
+
+2. Something is wrong with Eqns. 14 and 15.
+Response: We have been continuing work on the project since our initial submission to ICLR and have found these errors. We have corrected these parameter count equations in the revision.
+
+3. Eqns 5 and 6 are not consistent.
+Response: The inconsistency was due to an error in Eqn 6. We have corrected this.
+
+4. The intuition of having one gate instead of three is not clear. Mixing all the functions, i.e., input, forget, and output filters, does provide freedom for learning but also introduces learning complexity. Decoupling a complex function into a couple of simpler functions is a common way to narrow down the search space. This is what the standard LSTM does. The authors should provide reasonable arguments to explain intuitively why using one gate is better.
+Response: The decoupling advice of the referee is very persuasive. We weren't fully cognizant of this at the start of the project. Our main inspiration comes from the paper of Greff et al (2017) which concludes on the basis of a vast number of empirical studies that the LSTM variant with three gates and no peephole connections gives the best overall performance. They also note that the forget gate is the most important gate in the LSTM. Inspired by the GRU and the MGU, we just tried to see what would happen if we used one gate for all three functions. Since this was a convolutional LSTM, we also decided to replace the original peephole connections that were implemented by an elementwise multiply in the Shi et al model with a convolutional operation. This seemed far more appropriate for image processing. We tried various alternatives and had the most success with the model proposed in our paper.
+
+5. The experimental performance comparisons would be fairer if we let the models converge.
+Response: For the KITTI dataset, we used the initialization and number of epochs (150) used by the original PredNet authors. In this sense, we were fair to the model. For the moving MNIST dataset, the original authors didn't do an experiment using it. However, the models converged in one epoch. This can be seen in the MSE and SSIM values. When using three epochs, these values were approximately the same.
+
+6. The rgcLSTM may be performing better, despite the use of fewer parameters, because the LSTM may be suffering from the vanishing gradient problem but this doesn't indicate that the rgcLSTM is better than the standard LSTM.
+Response: This point is well taken and we don't have an answer at the present time. We've amended the conclusions to admit this possibility. We definitely have to examine this possibility in future work, include the ResNet idea suggested by the referee.
+
+7. Summary: experimental results are good to verify the goodness of a model, but the theoretical support or intuitions are more important to understand the benefits that we can gain by making this change to the standard LSTM. This part is not clear from the paper.
+Response: We've added subsection 4.1 to the paper which enhances the theory
+and provides intuitions. Unfortunately, we acknowledge that we probably have not
+completely address this concern.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1gT4QZc3m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Flawed ConvLSTM variant, poor writing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJEyrjRqYX&amp;noteId=S1gT4QZc3m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper53 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper53 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors propose a variant to convLSTMs with convolutional peephole units (as opposed to the original Hadamard product) and tied gates. The writing is poor, the paper seems to indicate a lack of understanding of the SOTA, basing on which the authors propose a variant of the convLSTM with serious flaws.
+
+The analysis of the SOTA in the first two sections is mostly incorrect, e.g., the update gate in GRU does not combine input gate, forget gate and memory unit of LSTMS - if anything, the reset gate in GRUs is similar to the forget gate in LSTMs. Also, the term “vanilla” is normally used as a synonym to “original”. Vanilla LSTM refers then to the original 1997 implementation, not to Greff et Al.’s work in 2017 as suggested by the authors. It is also obviously false that removing an LSTM gate does not incur in a reduction of trainable parameters, etc, ..
+
+The model description is difficult to follow, but from what I can gather the model depiction is flawed. In particular, the proposed model bases on the idea to use tied gates to reduce the number of parameters. f^{(t)}, i.e., the value that governs the input, forger and output gates, is derived via a sigmoid. When the sigmoid is zero, the network will hence set all the gates to zero, ignoring the input, forgetting the memory and suppressing the output, which is hardly a behaviour one could ever want. Unfortunately, almost half of the sigmoid spectrum will lead to such behavior. This seems to be a pretty poor modeling decision. 
+
+The nodes in Figure 1 seem to suggest that two consecutive non-linearities are applied in a row, if W_fc is clamped to zero, as reported by the authors, there is no reason to specify it, the corresponding part of the equation can be removed and the narrative simplified. In sec3, the meaning of “net input image” and “network gate image value” is unclear. Also the description of the equation is hard to follow, e.g., the square bracket notation is eventually explained only after 8 lines of text.
+
+At the beginning of Sec4 err_1 and err_2 are defined as the difference between the predicted frame and the target frame, and vice versa. This error is then fed to the “rgcLSTM input arranger unit and to the next higher layer”. By my understanding the error of one layer is fed in the next as an input. I wonder if such error is provided also at inference time, giving a clear guidance to the network to produce the correct output exploiting privileged information. This could also explain why the training process was completed in only one epoch.
+
+- Typos:
+*Intro: More important → more importantly
+* page5: ReL -&gt; ReLu</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">2: Strong rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1eJYyFC6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>response to AnonReviewer3 comments and suggestions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJEyrjRqYX&amp;noteId=r1eJYyFC6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper53 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper53 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1. Criticism: Update gate in GRU does not combine input gate, forget gate, and memory gate and memory unit of LSTMs.
+Response: We quote below from the following paper as our source, which we cited in our paper, and of which Schmidhuber is a co-author.
+
+. . . Gated Recurrent Unit (GRU). They used neither peephole connections
+nor output activation functions, and coupled the input and the forget gate
+into an update gate. Finally, their output gate (called reset gate) . . .
+
+The above is from the last paragraph in Section III of the paper by Greff, Srivastava, Koutnik, Steunebrink, and Schmidhuber \LSTM: A Search Space Odyssey," Transactions on Neural Networks and Learning Systems, 2017, axXiv:1503:04069v2.
+Please reread the last paragraph of page 2 of our paper and then look at the above quotation.
+
+
+2. The term vanilla is \normally" used as a synonym to \original." Vanilla refers to the
+original 1997 implementation not to Greff et al.'s work . . .
+Response: We stand by our use of the term \vanilla." This term comes from a Cambridge ice-cream shop which was frequented in the 1970's by the developers of the first Lisp-based object-oriented system known as Flavors. It referred to the base class in an object-oriented system. To see if the meaning changed or evolved over the
+decades, I searched for a definition on the web. It still means "plain" or "basic," not "original."
+
+More to the point, the original (1997) LSTM of Hochreiter &amp; Schmidhuber does not have a forget gate and all modern "basic" LSTMs do have forget gates. This gate wasn't added until the (2000) publication that we cite in our submitted paper. All modern LSTMs use a forget gate and it has since become known that the forget gate is the most important gate as stated in Greff et al (2017). Schmidhuber, an inventor of the LSTM, is the senior author on that (2017) paper cited above in point 1 which designated that the LSTM with all three gates and no peephole connections is the
+"vanilla" LSTM. Section II of the Greff et al paper is titled Vanilla LSTM. We followed their lead.
+
+3. "It is obviously false that removing an LSTM gate does not incur a reduction in parameters."
+Response: Either the above is a misstatment, or we agree with the referee and never stated otherwise.
+Each gate has a set of associated incoming weights (parameters). Removing a gate removes the associated weights. We've added an appendix showing how the parameters were counted to remove any doubt about the parameter reduction.
+
+4. When the sigmoid is zero, the network will hence set all the gates to zero, ignoring the input, forgetting the memory and suppressing the output, which is hardly the behavior once could ever want.
+Response: Yes, the gate value must stay in a functional range. We have added a subsection 4.1 titled "Keeping the gate output within a functional range" to explain how this is addressed in our application.
+The referee asked why there where two consecutive non-linearities (tanh) in a row. The positioning of the second tanh forces both c and h stay within the range (0; 1), and since they are both input to the network gate, this improves the likelihood of the network gate value staying in a functional range.
+
+5. In sec3, the meaning of "net input image" and "network gate image value" is unclear.
+Response: The confusion seems to come from use of the word "image." We've added a sentence at the beginning of Sec3 after the introduction of Figure 1 which states that "Since this is a convolutional LSTM, the information on each wire is a multi-channel image." We have also removed the word "image" from the above mentioned phrases.
+
+6. The square bracket notation is eventually explained only after 8 lines of text.
+Response: We moved the square bracket sentence forward to just after the equation where the notation is first used and revised the sentence to be more explicit: "The square brackets indicate that multi-channel images or filters with compatible dimensions are stacked on top of each other."
+
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_B1gC5rSPnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A new LSTM architecture that demonstrates some improvements over other LSTM modules</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJEyrjRqYX&amp;noteId=B1gC5rSPnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper53 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper53 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Authors present a new LSTM architecture, i.e. reduced gate convolutional LSTM. Authors use only one trainable gate, i.e. the forget gate which leads to less trainable parameters. They demonstrate the superiority of ti in two datasets, the moving MNIST and KITTI. Their results show that their architecture performs better than others in more accurately predicting next-frame. The paper is clearly written and the evaluation is based on other proposed similar architectures. For the moving MNIST they compared their model against the vanilla convLSTM with three gates and no peephole connections, based on previous work which has shown that it exceeds the accuracy performance of other LSTM based approaches. 
+The results show that the training time is reduced and the standard error alike. The only limitations is that more databases could have been used to demonstrate the enhancement in performance.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1eLNxt0Tm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>response to AnonReviewer1 comments and suggestions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJEyrjRqYX&amp;noteId=B1eLNxt0Tm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper53 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper53 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1. More datasets could be used to demonstrate the enhancement in performance.
+Response: This is a helpful suggestion which, because of practical limitations, we will reserve for future work. We have added this point to the conclusions.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

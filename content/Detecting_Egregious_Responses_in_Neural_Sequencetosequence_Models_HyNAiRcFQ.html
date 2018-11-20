@@ -1,0 +1,324 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Detecting Egregious Responses in Neural Sequence-to-sequence Models | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Detecting Egregious Responses in Neural Sequence-to-sequence Models" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HyNA5iRcFQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Detecting Egregious Responses in Neural Sequence-to-sequence Models" />
+      <meta name="og:description" content="In this work, we attempt to answer a critical question: whether there exists some input sequence that will cause a well-trained discrete-space neural network sequence-to-sequence (seq2seq)  model..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HyNA5iRcFQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Detecting Egregious Responses in Neural Sequence-to-sequence Models</a> <a class="note_content_pdf" href="/pdf?id=HyNA5iRcFQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 14 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019detecting,    &#10;title={Detecting Egregious Responses in Neural Sequence-to-sequence Models},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HyNA5iRcFQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=HyNA5iRcFQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">In this work, we attempt to answer a critical question: whether there exists some input sequence that will cause a well-trained discrete-space neural network sequence-to-sequence (seq2seq)  model to generate egregious outputs (aggressive, malicious, attacking, etc.). And if such inputs exist, how to find them efficiently. We adopt an empirical methodology, in which we first create lists of egregious output sequences, and then design a discrete optimization algorithm to find input sequences that will cause the model to generate them. Moreover, the optimization algorithm is enhanced for large vocabulary search and constrained to search for input sequences that are likely to be input by real-world users. In our experiments, we apply this approach to  dialogue response generation models trained on three real-world dialogue data-sets: Ubuntu, Switchboard and OpenSubtitles, testing whether the model can generate malicious responses. We demonstrate that given the trigger inputs our algorithm finds, a significant number of malicious sentences are assigned large probability by the model, which reveals an undesirable consequence of standard seq2seq training. </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Deep Learning, Natural Language Processing, Adversarial Attacks, Dialogue Response Generation</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">This paper aims to provide an empirical answer to the question of whether well-trained dialogue response model can output malicious responses.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BklKQvMAnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting exploration of an important problem using a novel method, results are somewhat inconclusive</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyNA5iRcFQ&amp;noteId=BklKQvMAnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper582 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper582 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper explores the task of finding discrete adversarial examples for (current) dialog models in a post hoc manner (i.e., once models are trained). In particular, the authors propose an optimization procedure for crafting inputs (utterances) that trigger trained dialog models to respond in an egregious manner.
+
+This line of research is interesting as it relates to real-world problems that our models face before they can be safely deployed. The paper is easy to read, nicely written, and the proposed optimization method seems reasonable. The study also seems clear and the results are fairly robust across three datasets. It was also interesting to study datasets which, a priori, seem like they would not contain much egregious content (e.g., Ubuntu "help desk" conversations).
+
+My main question is that after reading the paper, I'm not sure that one has an answer to the question that the authors set out to answer. In particular, are our current seq2seq models for dialogs prone to generating egregious responses? On one hand, it seems like models can assign higher-than-average probability to egregious responses. On the other, it is unclear what this means. For example, it seems like the possibility that such a model outputs such an answer in a conversation might still be very small. Quantifying this would be worthwhile.   
+
+Further, one would imagine that a complete dialog system pipeline would contain a collection of different models including a seq2seq model but also others. In that context, is it clear that it's the role of the seq2seq model to limit egregious responses? 
+
+A related aspect is that it would have been interesting to explore a bit more the reasons that cause the generation of such egregious responses. It is unclear how representative is the example that is detailed ("I will kill you" in Section 5.3). Are other examples using words in other contexts? Also, it seems reasonable that if one wants to avoid such answers, countermeasures (e.g., in designing the loss or in adding common sense knowledge) have to be considered.
+
+
+Other comments:
+
+- I am not sure of the value of Section 3. In particular, it seems like the presentation of the paper would be as effective if this section was summarized in a short paragraph (and perhaps detailed in an appendix).
+  
+- Section 3.1, "continuous relaxation of the input embedding", what does that mean since the embedding already lives in continuous space?
+  
+- I understand that your study only considers (when optimizing for egregious responses)) dialogs that are 1-turn long. I wonder if you could increase hit rates by crafting multiple inputs at once.
+  
+- In Section 4.3, you fix G (size of the word search space) to 100. Have you tried different values? Do you know if larger Gs could have an impact of reported hit metrics?
+
+- In Table 3, results from the first column (normal, o-greedy) seem interesting. Wouldn't one expect that the model can actually generate (almost) all normal responses? Your results indicate that for Ubuntu models can only generate between 65% and 82% of actual (test) responses. Do you know what in the Ubuntu corpus leads to such a result?
+  
+- In Section 5.3, you seem to say that the lack of diversity of greedy-decoded sentences is related to the low performance of the "o-greedy" metric. Could this result simply be explained because the model is unlikely to generate sentences that it has never seen before? 
+
+ You could try changing the temperature of the decoding distribution, that should improve diversity and you could then check whether or not that also increases the hit rate of the o-greedy metric.
+
+- Perhaps tailoring the mal lists to each specific dataset would make sense (I understand that there is already some differences in between the mal lists of the different datasets but perhaps building the lists with a particular dataset in mind would yield "better" results).   
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1epDSZtaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The review shows good understanding of our work and is helpful. Reply partI</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyNA5iRcFQ&amp;noteId=H1epDSZtaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper582 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper582 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the detailed review, here’s responses to the advice and questions:
+
+1) My main question is that after reading the paper, I'm not sure that one has an answer to the question that the authors set out to answer. In particular, are our current seq2seq models for dialogs prone to generating egregious responses? On one hand, it seems like models can assign higher-than-average probability to egregious responses. On the other, it is unclear what this means. For example, it seems like the possibility that such a model outputs such an answer in a conversation might still be very small. Quantifying this would be worthwhile.   
+
+One clear observation that can be made from the experiments regarding greedy decoding is that the model is very robust against egregious outputs, at least those used in the experiments.  Unless one is using data-sets like Opensubtitles.  With regards to sampling, the reviewer is correct, but, since we are dealing with large vocabulary seq2seq models, the actual probability assigned to any sequence will be very small.   We believe that a very natural and desirable quality of the model is that “the probability assigned to a bad sentence should not be larger than the probability of a good(reference) sentence.”  Unfortunately, our experiments clearly show that this is not the case, which is alarming.
+
+2) Further, one would imagine that a complete dialog system pipeline would contain a collection of different models including a seq2seq model but also others. In that context, is it clear that it's the role of the seq2seq model to limit egregious responses? 
+
+This is a good question but we believe that it is slightly out of the scope of this paper because we are examining End-to-End seq2seq models (in part because they have gained increasing popularity in recent years).  The reviewer is correct that one can have additional modules in the pipeline to prevent bad responses from by the system, but we also believe that, ideally, the seq2seq models should be robust against egregious behavior by themselves.
+
+3) A related aspect is that it would have been interesting to explore a bit more the reasons that cause the generation of such egregious responses. It is unclear how representative is the example that is detailed ("I will kill you" in Section 5.3). Are other examples using words in other contexts? Also, it seems reasonable that if one wants to avoid such answers, countermeasures (e.g., in designing the loss or in adding common sense knowledge) have to be considered.
+
+To the first question, “I will kill you” is just one example, and we can do this for many alternatives. The key is that we believe the model is doing a good job of generalizing, but it does not know that some sentences are not proper to generate. For example, people talk about “hating something”, and “you” is a noun, so the model could generalize to “I hate you”.   People also talk about “passwords”, but the model doesn’t know one should not ask “What’s your password?”  
+
+As to the second question, we believe the reviewer is suggesting future work, and we agree that these are exciting directions to pursue in the future.
+
+4) I am not sure of the value of Section 3. In particular, it seems like the presentation of the paper would be as effective if this section was summarized in a short paragraph (and perhaps detailed in an appendix).  Section 3.1, "continuous relaxation of the input embedding", what does that mean since the embedding already lives in continuous space?
+
+To the first question, we agree with the suggestion that Section 3 can be shortened. The reason we put emphasis on the continuous relaxation experiment is that we believe this is the first approach researchers will try in order to find trigger inputs for some target sequence.  We thought that pointing out that this doesn’t work served as a useful motivation to turn to a enumeration based algorithm, such as gibbs-enum.
+
+For the second (clarifying) question, it’s true that the embedding lives in continuous space, but they are constrained to be one of the columns in the embedding matrix E^{enc} in the trained model. By “continuous relaxation of the input embedding” we mean that we remove the column constraint, and allow the vector to be any continuous vector. We’ll add the explanation to the paper.
+
+5) I understand that your study only considers (when optimizing for egregious responses)) dialogs that are 1-turn long. I wonder if you could increase hit rates by crafting multiple inputs at once.
+
+
+One of the points of our work is that even if you just manipulate a 1-turn history, it is enough to trigger egregious outputs. Examining multi-turn histories will be a good subject for future work.  For us, it will involve re-implementing code and re-running experiments.  Our current expectation is that when you manipulate multi-turn history, that the hit rates will increase, but not significantly.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SygNarWt6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>partII</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyNA5iRcFQ&amp;noteId=SygNarWt6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper582 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper582 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">6) In Table 3, results from the first column (normal, o-greedy) seem interesting. Wouldn't one expect that the model can actually generate (almost) all normal responses? Your results indicate that for Ubuntu models can only generate between 65% and 82% of actual (test) responses. Do you know what in the Ubuntu corpus leads to such a result?
+
+This is a good question.  If our algorithm is perfect, the result should be 100%. This result shows that there still remains room for (maybe big) improvements for the trigger input search algorithm. That is also a good future research direction.  We believe that the Ubuntu result is somewhat special in that, as we tried to explain, due to the “generic response” situation we see in both the Switchboard and Opensubtitles data, we switch to sampling for the normal list. Thus, the reason could be that a greedy-hit is a stronger constraint than sample-hit, and it is more difficult to find trigger inputs for that.
+
+7) In Section 5.3, you seem to say that the lack of diversity of greedy-decoded sentences is related to the low performance of the "o-greedy" metric. Could this result simply be explained because the model is unlikely to generate sentences that it has never seen before? 
+
+That is a plausible explanation but we believe this problem is somewhat special due to the dialogue response setting.  When doing greedy decoding, the model tends to give very common outputs.  For other tasks like machine translation, from greedy decoding you will get very good outputs (things never seen in the data).
+
+8) You could try changing the temperature of the decoding distribution, that should improve diversity and you could then check whether or not that also increases the hit rate of the o-greedy metric.
+
+
+That is a good suggestion, and could indeed improve diversity.  It is less clear to us whether that will change the greedy decoding behavior however, because changing the temperature should not change which element is the maximum.  Do you agree?
+
+9) Perhaps tailoring the mal lists to each specific dataset would make sense (I understand that there is already some differences in between the mal lists of the different datasets but perhaps building the lists with a particular dataset in mind would yield "better" results).   
+
+This is also good advice, and could make the “attack” more powerful.  Since that approach is more time consuming, for our initial effort we tried to create general malicious targets that should be applicable to a wide range of dialogue data.
+
+Thanks for the review!
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_SklZWlF9nm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyNA5iRcFQ&amp;noteId=SklZWlF9nm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper582 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper582 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Main contribution: devising and evaluating an algorithm to find inputs that trigger arbitrary "egregious" outputs ("I will kill you") in vanilla sequence-to-sequence models, as a white-box attack on NLG models.
+
+Clarity:
+The paper is overall clear. I found some of the appendices (esp. B and C) to be important for understanding the paper and believe these should be in the main paper. Moving parts of Appendix A in the main text would also add to the clarity.
+
+Originality:
+The work looks original. It is an extension of previous attacks on seq2seq models, such as the targeted-keyword-attack from (Cheng et al., 2018) in which the model is made to produce a keyword chosen by the attacker.
+
+Significance of contribution:
+The lack of control over the outputs of seq2seq is a major roadblock towards their broader adoption. The authors propose two algorithms for trying to find inputs creating given outputs, a simple one relying on continuous optimization this is shown not to work (breaking when projecting back into words), and another based relying on discrete optimization. The authors found that the task is hard when using greedy decoding, but often doable using sampled decoding (note that in this case, the model will generate a different output every time). My take-aways are that the task is hard and the results highlight that vanilla seq2seq models are pretty hard to manipulate; however it is interesting to see that with sampling, models may sometimes be tricked into producing really bad outputs.
+This white-box attack applicable to any chatbot. As the authors noted, an egregious output for one application ("go to hell" for customer service) may not be egregious for another one ("go to hell" in MT).
+
+Overall, the authors ask an interesting question: how easy is it to craft an input for a seq2seq model that will make it produce a "very bad" output. The work is novel, several algorithms are introduced to try to solve the problem and a comprehensive analysis of the results is presented. The attack is still of limited practicality, but this paper feels like a nice step towards more natural adversarial attacks in NLG.
+
+One last thing: the title seems a bit misleading, the work is not about "detecting" egregious outputs.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJgV-LWK6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The review shows good understanding of our work and is helpful.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyNA5iRcFQ&amp;noteId=BJgV-LWK6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper582 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper582 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the detailed review, here’s responses to the advice and questions:
+
+1) I found some of the appendices (esp. B and C) to be important for understanding the paper and believe these should be in the main paper. Moving parts of Appendix A in the main text would also add to the clarity.
+
+Thanks for reading the appendices!  We agree that it would be our preference to move them into the main body of the paper, but we were constrained by the 10 page limit.  
+
+2) The lack of control over the outputs of seq2seq is a major roadblock towards their broader adoption. The authors propose two algorithms for trying to find inputs creating given outputs, a simple one relying on continuous optimization this is shown not to work (breaking when projecting back into words), and another based relying on discrete optimization. The authors found that the task is hard when using greedy decoding, but often doable using sampled decoding (note that in this case, the model will generate a different output every time). My take-aways are that the task is hard and the results highlight that vanilla seq2seq models are pretty hard to manipulate; however it is interesting to see that with sampling, models may sometimes be tricked into producing really bad outputs.
+This white-box attack applicable to any chatbot. As the authors noted, an egregious output for one application ("go to hell" for customer service) may not be egregious for another one ("go to hell" in MT).
+Overall, the authors ask an interesting question: how easy is it to craft an input for a seq2seq model that will make it produce a "very bad" output. The work is novel, several algorithms are introduced to try to solve the problem and a comprehensive analysis of the results is presented. The attack is still of limited practicality, but this paper feels like a nice step towards more natural adversarial attacks in NLG.
+
+Your understanding about the conclusions and limitations of the this work is correct.  These are the main ideas we try to convey in the paper.
+
+3) One last thing: the title seems a bit misleading, the work is not about "detecting" egregious outputs.
+
+It is true, that we are looking for trigger inputs that would cause the model to output egregious targets in a given list.  Thus we agree that  “detecting” could be a bit misleading…. But we don’t have better word choice for now.  Any suggestions are welcome!
+
+Thanks for the review!
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJgy7QFK37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting study of an overlooked problem</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyNA5iRcFQ&amp;noteId=SJgy7QFK37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper582 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper582 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value"># Positive aspects of this submission
+
+- This submission explores a very interesting problem that is often overlooked in sequence-to-sequence models research.
+
+- The methodology in Sections 4 and 5 is very thorough and useful.
+
+- Good comparison of last-h with attention representations, which gives good insight about the robustness of each architecture against adversarial attacks.
+
+# Criticism
+
+- In Section 3, even if the "l1 + projection" experiments seem to show that generating egregious outputs with greedy decoding is very unlikely, it doesn't definitely prove so. It could be that your discrete optimization algorithm is suboptimal, especially given that other works on adversarial attacks for seq2seq models use different methods such as gradient regularization (Cheng et al. 2018).
+Similarly, the brute-force results on a simplified task in Appendix B are useful, but it's hard to tell whether the conclusions of this experiment can be extrapolated to the original dialog task.
+Given that you also study "o-greedy-hit" in more detail with a different algorithm in Sections 4 and 5, I would consider removing Section 3 or moving it to the Appendix for consistency.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1erS8ZYpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The review shows good understanding of our work and is helpful.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyNA5iRcFQ&amp;noteId=H1erS8ZYpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper582 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper582 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the detailed review, here’s responses to the questions:
+
+1) In Section 3, even if the "l1 + projection" experiments seem to show that generating egregious outputs with greedy decoding is very unlikely, it doesn't definitely prove so. It could be that your discrete optimization algorithm is suboptimal, especially given that other works on adversarial attacks for seq2seq models use different methods such as gradient regularization (Cheng et al. 2018).
+Similarly, the brute-force results on a simplified task in Appendix B are useful, but it's hard to tell whether the conclusions of this experiment can be extrapolated to the original dialog task.
+
+We agree that our approach is not a proof for the robustness for greedy decoding, but in this work we provide several empirical experiments from different angles (the main result, continuous relaxation and brute-force enumeration) to support that claim.  
+
+And you’re right in that our algorithm is not perfect (since the hit rate for the normal list is not 100%, there is room for improvement in the search algorithm). We are aware that the algorithm in (Cheng et al. 2018), in also applicable in our setting. However, the main contribution of our work is not about determining which algorithm is the best.  We proposed a simple and effective gibbs-enum algorithm, and more importantly used it to demonstrate that the “egregious output” problem exists in standard seq2seq model training.
+
+2) Given that you also study "o-greedy-hit" in more detail with a different algorithm in Sections 4 and 5, I would consider removing Section 3 or moving it to the Appendix for consistency.
+
+The reason we put emphasis on the continuous relaxation experiment in Section 3 is that we believe this is the first natural approach researchers will try in order to find trigger inputs for some target sequence.  We felt that by demonstrating that this doesn’t work, motivated the enumeration based algorithm, such as gibbs-enum.   
+
+Thanks for the review!
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

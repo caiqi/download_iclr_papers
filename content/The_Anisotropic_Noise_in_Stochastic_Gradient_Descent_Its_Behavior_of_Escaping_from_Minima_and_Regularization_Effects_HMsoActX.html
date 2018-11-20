@@ -1,0 +1,235 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>The Anisotropic Noise in Stochastic Gradient Descent: Its Behavior of Escaping from Minima and Regularization Effects | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="The Anisotropic Noise in Stochastic Gradient Descent: Its Behavior of Escaping from Minima and Regularization Effects" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=H1M7soActX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="The Anisotropic Noise in Stochastic Gradient Descent: Its Behavior..." />
+      <meta name="og:description" content="Understanding the behavior of  stochastic gradient descent (SGD) in the context of deep neural networks has raised lots of concerns recently. Along this line, we theoretically study a general form..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_H1M7soActX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The Anisotropic Noise in Stochastic Gradient Descent: Its Behavior of Escaping from Minima and Regularization Effects</a> <a class="note_content_pdf" href="/pdf?id=H1M7soActX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019the,    &#10;title={The Anisotropic Noise in Stochastic Gradient Descent: Its Behavior of Escaping from Minima and Regularization Effects},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=H1M7soActX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Understanding the behavior of  stochastic gradient descent (SGD) in the context of deep neural networks has raised lots of concerns recently. Along this line, we theoretically study a general form of gradient based optimization dynamics with unbiased noise, which unifies SGD and standard Langevin dynamics. Through investigating this general optimization dynamics, we analyze the behavior of SGD on escaping from minima and its regularization effects. A novel indicator is derived to characterize the efficiency of escaping from minima through measuring the alignment of noise covariance and the curvature of loss function. Based on this indicator, two conditions are established to show which type of noise structure is superior to isotropic noise in term of escaping efficiency. We further show that the anisotropic noise in SGD satisfies the two conditions, and thus helps to  escape from sharp and poor minima effectively, towards more stable and flat minima that typically generalize well. We verify our understanding through comparing
+this anisotropic diffusion with full gradient descent plus isotropic diffusion (i.e. Langevin dynamics) and other types of position-dependent noise.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Stochastic gradient descent, anisotropic noise, regularization</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We provide theoretical and empirical analysis on the role of anisotropic noise introduced by stochastic gradient on escaping from minima.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BJgWpYA53Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>needs more work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1M7soActX&amp;noteId=BJgWpYA53Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper608 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper608 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper studies the effort of anisotropic noise in stochastic optimization algorithms. The goal is to show that SGD escapes from sharp minima due to such noise. The paper provides preliminary empirical results using different kinds of noise to suggest that anisotropic noise is effective for generalization of deep networks.
+
+Detailed comments:
+
+1. I have concerns about the novelty of the paper: It builds heavily upon previous work on modeling SGD as a stochastic differential equation to understand its noise characteristics. The theoretical development of this manuscript is straightforward until simplistic assumptions such as the Ornstein-Uhlenbeck process (which amounts to a local analysis of SGD near a critical point) and a neural network with one hidden layer. Similar results have also been in the the literature before in a number of places, e.g., <a href="https://arxiv.org/abs/1704.04289" target="_blank" rel="nofollow">https://arxiv.org/abs/1704.04289</a> and references therein.
+
+2. Proposition 4 looks incorrect. If the neural network is non-convex, how can the positive semi-definite Fisher information matrix F sandwich the Hessian which may have strictly negative eigenvalues at places?
+
+3. Section 5 contains toy experiments on a 2D problem, a one layer neural network and a 1000-image subset of the FashionMNIST dataset. It is hard to validate the claims of the paper using these experiments, they need to be more thorough. The Appendix contains highly preliminary experiments on CIFAR-10 using VGG-11.
+
+4. A rigorous theoretical understanding of SGD with isotropic noise or convergence properties of Lagevin dynamics has been developed in the literature previously, it’d be beneficial to analyze SGD with anisotropic noise in a similar vein.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ByxZzQI9hX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A paper analyzing effect of anisotropic noise on SGD dynamics</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1M7soActX&amp;noteId=ByxZzQI9hX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper608 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper608 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors studied the effect of the anisotropic noise of SGD on the algorithm’s ability to escape from local optima. To this end, the authors depart from the established approximation of SGD in the vicinity of an optimum as a continuous-time Ornstein-Uhlenbeck process. Furthermore, the authors argue that in certain deep learning models, the anisotropic noise indeed leads to a good escaping from local optima.
+
+Proposition 3 (2) seems to assume that the eigenvectors of the noise-covariance of SGD are aligned with the eigenvectors of the Hessian. Did I understand this correctly and is this sufficient? Maybe this is actually not even necessary, since the stationary distribution for the multivariate Ornstein-Uhlenbeck process can always be calculated (Gardiner; Mandt, Hoffman, and Blei 2015–2017)
+
+I think this is a decent contribution.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1lJasFPnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting but lacks clarity</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1M7soActX&amp;noteId=H1lJasFPnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper608 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper608 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper studies the benefit of an anisotropic gradient covariance matrix in SGD optimization for training deep network in terms of escaping sharp minima (which has been discussed to correlate with poor generalization in recent literature). 
+
+In order to do so, SGD is studied as a discrete approximation of stochastic differential equation (SDE). To analyze the benefits of anisotropic nature and remove the confounding effect from scale of noise, the scale of noise in the SDE is considered fixed during the analysis. The authors identify the expected loss around a minimum as the efficient of escaping the minimum and show its relation with the hessian and gradient covariance at the minimum. It is then shown that when all the positive eigenvalues of the covariance matrix concentrate along the top eigenvector and this eigenvector is aligned with the top eigenvector of the Hessian of the loss w.r.t. the parameters, SGD is most efficient at escaping sharp minima. These characteristics are analytically shown to hold true for a 1 hidden layer network and experiments are conducted on toy and real datasets to verify the theoretical predictions.
+
+Comments:
+
+I find the main claim of the paper intuitive-- at any particular minimum, if noise in SGD is more aligned with the direction along which loss surface has a large curvature (thus the minimum is sharp along this direction), SGD will escape this minimum more efficiently. On the other hand, isotropic noise will be wasteful because a sample from isotropic noise distribution may point along flat directions of the loss even though there may exist other directions along which the loss curvature is large. However, I have several concerns which I find difficult to point out because *many equations are not numbered*. 
+
+1. In proposition 2, it is assumed under the argument of no loss of generality that both the loss at the minimum L_0=0 and the corresponding theta_0 =0. Can the authors clarify how both can be simultaneously true without any loss of generality?
+2. A number of steps in proposition 2 are missing which makes it difficult to verify. When applying Ito's lemma and taking the integral from 0 to t, it is not mentioned that both sides are also multiplied with the inverse of exp(Ht).
+3. In proposition 2, when computing E[L(theta_t)] on page 12, the equalities after line 3 are not clear how they are derived. Please clarify or update the proof with sufficient details.
+4. It is mentioned below proposition 2 that the maximum of Tr(H. Sigma) under constraint (6) is achieved when Sigma* = Tr(Sigma). lambda_1 u1.u1^T, where lambda_1 is the top eigenvalue of H. How is lambda_1 a factor in Sigma*? I think Sigma* should be Tr(Sigma). u1.u1^T because this way the sum of eigenvalues of Sigma remains unchanged which is what constraint (6) states.
+5. The proof of proposition 5 is highly unclear.Where did the inequality ||g_0(theta)||^2 &lt;= delta.u^TFu + o(|delta|) come from? Also, the inequality right below it involves the assumption that u^Tg_0 g_0u &lt;= ||g_0||^2 and no justification has been provided behind this assumption.
+
+
+Regarding experiments, the toy experiment in section 5.1 is interesting, but it is not mentioned what network architecture is used in this experiment. I found the experiments in section 5.3 and specifically Fig 4 and Fig 7 insightful. I do have a concern regarding this experiment though. In the experiment on FashionMNIST in Fig 4, it can be seen that both SGD and GLD 1st eigvec escapes sharp minimum, and this is coherrent with the theory. However, for the experiment on CIFAR-10 in Fig 7, experiment with GLD 1st eigvec is missing. Can the authors show the result for GLD 1st eigvec on CIFAR-10? I think it is an important verification of the theory and CIFAR-10 is a more realistic dataset compared with FashionMNIST.
+
+A few minor points:
+
+1. In the last paragraph of page 3, it is mentioned that the probability of escaping can be controlled by the expected loss around minimum due to Markov's inequality. This statement is inaccurate. A large expected loss upper bounds the escaping probability, it does not control it.
+2. Section 4 is titled "The anisotropic noise of SGD in deep networks", but the sections analyses a 1 hidden layes network. This seems inappropriate.
+3. In the conclusion section, it is mentioned that the theory in the paper unifies various existing optimization mentods. Please clarify.
+
+Overall, I found the argument of the paper somewhat interesting but I am not fully convinced because of the concerns mentioned above.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

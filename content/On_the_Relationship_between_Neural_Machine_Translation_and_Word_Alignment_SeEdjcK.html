@@ -1,0 +1,428 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>On the Relationship between Neural Machine Translation and Word Alignment | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="On the Relationship between Neural Machine Translation and Word Alignment" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=S1eEdj0cK7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="On the Relationship between Neural Machine Translation and Word..." />
+      <meta name="og:description" content="Prior researches suggest that attentional neural machine translation (NMT) is able to capture word alignment by attention, however, to our surprise, it almost fails for NMT models with multiple..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_S1eEdj0cK7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>On the Relationship between Neural Machine Translation and Word Alignment</a> <a class="note_content_pdf" href="/pdf?id=S1eEdj0cK7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 16 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019on,    &#10;title={On the Relationship between Neural Machine Translation and Word Alignment},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=S1eEdj0cK7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=S1eEdj0cK7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Prior researches suggest that attentional neural machine translation (NMT) is able to capture word alignment by attention, however, to our surprise, it almost fails for NMT models with multiple attentional layers except for those with a single layer. This paper introduce two methods to induce word alignment from general neural machine translation models. Experiments verify that both methods obtain much better word alignment than the method by attention.  Furthermore, based on one of the proposed method, we design a criterion to divide target words into two categories (i.e. those mostly contributed from source "CFS" words and the other words mostly contributed from target "CFT" words), and analyze word alignment under these two categories in depth. We find that although NMT models are difficult to capture word alignment for CFT words but these words do not sacrifice translation quality significantly, which provides an explanation why NMT is more successful for translation yet worse for word alignment compared to statistical machine translation. We further demonstrate that word alignment errors for CFS words are responsible for translation errors in some extent by measuring the correlation between word alignment and translation for several NMT systems.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Neural Machine Translation, Word Alignment, Neural Network, Pointwise Mutual Information</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">It proposes methods to induce word alignment for neural machine translation (NMT) and uses them to interpret the relationship between NMT and word alignment.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">10 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_B1ez_-YeC7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reviewers: Please consider author response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eEdj0cK7&amp;noteId=B1ez_-YeC7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper344 Area Chair1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper344 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hello Reviewers! The authors have made a response that clarify some concerns with more experimental results. Would you be able to take another look and see if this alleviates concerns?</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rkefoTRt2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Sorry I don't fully appreciate the motivation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eEdj0cK7&amp;noteId=rkefoTRt2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper344 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 09 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper344 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=rkefoTRt2X" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper empirically evaluates whether NMT can predict word alignment. This is done by measuring the alignment error rate between silver-data generated from FastAlign and various methods to extract alignment from NMT. The conclusions are that NMT attention does not predict alignment well, and the proposed method of training an additional alignment extraction model performs better. 
+
+Unfortunately, I do not appreciate the motivation of the work. Attention is not alignment. Yes, we can try to extract alignment from attention or other parts of the model. But we should really not expect attention to do alignment, because it was simply not designed to do so. 
+
+So I am not surprised by the first result that AER for attention-based alignment is bad. I am also not suprised by the second result where training an explicit word alignment model (Eq 6) gets better AER, because that is what the model is designed for. 
+
+I do understand that probing alignments might increase our ability to understand and interpret these NMT models. I also thought the CFS and CFT analysis was interesting. But unfortunately I don't think the overall problem attacked by this paper is sufficiently well-motivated for a full paper at ICLR. I do think this will be suitable at, for example, a workshop on visualizing/interpreting neural networks in applications. 
+
+Additional note: Please be more specific whether the AER results in Sec 4.2-4.4 are based on scoring on gold alignments in the NIST2015 data, or silver alignments from FastAlign. The former is fine, but the latter might make the results biased for the explicit alignment model trained on the same alignments. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJgr2AK96X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to the surprising point of this paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eEdj0cK7&amp;noteId=HJgr2AK96X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper344 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper344 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your feedback. We address your concerns below.
+
+You mentioned you are not surprised by the bad attention-based alignment. Yes,
+you are right, and several previous papers [1,2,3] also addressed
+attention-based alignment is not good enough. However, as far as we know,
+inducing alignment from attention has being the most mainly method to
+investigate the alignment performance of a NMT model in previous researches,
+and several previous works [4,5,6] tried to improve attention-based alignment
+to improve the translation quality. In addition, we were trying to emphasize
+that attention-base alignment may be not only bad but also surprisingly
+terrible. In Table 1, alignment inducing from 6-layers Transformer is even
+worse compared with alignment inducing from PMI. As PMI measures the intrinsic
+alignment from the bilingual training data, this indicates attention-based
+alignment sometimes does not even achieve the amount of alignment information
+from the bilingual data. Therefore, we claim that the inducing alignment from
+attention cannot be regarded as a proper alignment model in general. However,
+NMT indeed can learn alignment from translation as it can be induced by
+prediction difference in spite of not by attention.
+
+You also mentioned you are not surprised by the better alignment inducing from
+explicit model, because you think the model is trained for achieving better
+AER. Yes, you are definitely right, but this is only one of the reasons why
+explicit model achieve better AER. Actually, we investigated the AER of
+explicit model over different pre-trained translation models. We found a bad
+translation model generally also hard to generate good alignment with only
+optimizing the bridge matrix in explicit model. For example, a six layer
+transformer can achieve around 47 BLEU points, and a single layer transformer
+can only achieve around 37 BLEU points. When we train the bridge of explicit
+model over each initialization, the six layer transformer's AER is around 39,
+but the single layer transformer's AER is only around 54. This means training
+an explicit model over a translation model is to unearth the potential of
+inducing a good alignment from the translation model. In other words, if a
+translation model does not possess enough information of a good alignment, it
+is also hard to get a good AER by explicit model.
+
+Finally, thank you for your concerning of the reference alignment. Throughout
+this paper, we evaluate AER by golden alignment labeled by experts.
+
+Reference
+1. Modeling coverage for neural machine translation
+2. What does Attention in Neural Machine Translation Pay Attention to?
+3. Six challenges for neural machine translation
+4. Guided alignment training for topic-aware neural machine translation
+5. Supervised attentions for neural machine translation
+6. Neural machine translation with supervised attention</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJxkBrOipm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>explicit model on different transformer/rnns</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eEdj0cK7&amp;noteId=BJxkBrOipm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper344 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper344 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Regarding your second paragraph in the response: "Actually, we investigated the AER of explicit model over different pre-trained translation models." I think this would be an interesting result but is it in the paper? I couldn't find it. I may have missed it, though. My understanding is that both the explicit alignment and difference prediction method was only applied to Transformer-L6 in the paper (e.g. Table 2 and 3). To really show this point, it would be interesting to compare more comprehensively a variety of MT models with different BLEU/AER characteristics, and then apply the explicit alignment to see how those numbers change. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1l-APxhTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>New manuscript with more experimental results has been uploaded</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eEdj0cK7&amp;noteId=B1l-APxhTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper344 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper344 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the constructive suggestion.
+
+We have added the experiments to compare the alignment performance on different
+translation models in section 4.3. Because training multiple-layers RNN is too
+slow, we investigate Transformer with layers ranging from 1 to 6 in this
+experiment. As shown in the following Table, with the same amount of
+supervision from silver alignment data, Transformer-L1 generates much worse
+alignment than Transformer-L6 and it is only comparable to PMI (fast-align) in
+AER. This suggests that supervision is not enough to obtain good alignment and
+the hidden units learned by a translation model indeed implicitly capture
+alignment knowledge.
+
+
+Transformer | L1    | L2    | L3    | L4    | L5    | L6    | PMI (FastAlign)
+--          | --    | --    | --    | --    | --    | --    | --
+BLEU        | 36.51 | 44.83 | 45.63 | 47.19 | 46.35 | 46.95 | 60.18
+AER         | 54.50 | 47.94 | 40.47 | 38.40 | 38.80 | 38.88 | N/A</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_rylolAUKn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Need more convincing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eEdj0cK7&amp;noteId=rylolAUKn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper344 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper344 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors study various NMT models and show that most of them do not learn a good alignment model but still achieve good translation. They suggest that the translated output contains two types of words (i) contributed from source (CFS) and (ii) contributed from target (CFT) and hypothesize that even if the alignment is not good the CFT words contribute to the the better quality of translation (as these are not dependent on alignment).
+
+I have a few questions for the authors:
+
+1) Section 3 is titled "Proposed Methods for Inducing Word Alignment". This gives an impression that you are proposing some methods. However, the methods listed in  section 3.2 is from existing work (as you have already acknowledged by citing them correctly). I request you to rename the section or make this more explicit.
+
+2) I am not very convinced about the idea of using a 0 vector to dropout a particular word. Did you try any other options for this ?
+
+3) R_0 and R depend on the model. I mean these scores are as good as the model itself. Therefore I am not sure if it is correct to use these scores to determine CFT and CFS words. Ideally, CFT and CFS words should be a global phenomenon irrespective of the model being used. For example, while translating from a language which does not use articles (a, an, the) to a language which uses such articles, all articles in the target language would be CFT words, irrespective of the model being used. However, this is not the case in your definitions (the definitions are tied to the model scores).
+
+4) Shouldn't you also consider a certain margin  in Equation 11. I mean shouldn't the LHS be greater than the RHS by a certain margin for the word to be classified as CFS. 
+
+5) Conceptually, I don't agree with the idea that a word is either CFS or CFT. What about words which require both source and target information? Equation 11 does not completely account for it because the quantity on the LHS does depend on the target words and the quantity on the RHS does dependent on the source words. It is difficult to isolate of effect on source/target.
+
+6) Can you comment on the quality of the silver alignments as the analysis presented in the paper will depend on the quality of these alignments.  
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HkxSe15qTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>New manuscript with more experimental results has been uploaded</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eEdj0cK7&amp;noteId=HkxSe15qTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper344 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018 (modified: 16 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper344 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your the thoughtful review with interesting suggestions. We address
+your concerns below.
+
+(1) About the title of section 3, it is meant to the new methods for inducing
+alignment, although the methods in section 3.2 is inspired by Zintgraf, who use
+similar method to visualize CNN for image classification.  However, different
+from Zintgraf's sampling method, we purpose a deterministic method. We have
+updated the method descriptions in section 3.2 supported by experiments in
+Table 3. And we have also modified the title to "Methods for Inducing Word
+Alignment". Thanks for motivating us to differentiate our method from
+Zintgraf's sampling method.
+
+(2) Using 0 vector is a deterministic method to approximate the expectation in
+equation 8. We also use the Monte Carlo approach to approximate the
+expectation. Specifically, we sample several words from vocabulary, and use
+their embedding instead of 0 vector to approximate the expectation. As shown in
+the following table, the alignment performance is improving as growing of the
+sample size when using Monte Carlo Method. Fortunately, the result of
+deterministic method, namely using a 0 vector, is very close to the result of
+using Monte Carlo approach with enough sample size. In particular, the
+deterministic method is one order of magnitude faster than the sampling method
+with the best configuration in Table 3, while maintaining comparable AER.
+
+Methods           |                    Sampling PD |||||               | Deterministic PD
+--                | --    | --     | --     | --     | --     | --     | --
+Sample size       | 1     | 2      | 4      | 10     | 20     | 50     | N/A
+AER               | 44.92 | 43.30  | 42.42  | 41.95  | 41.83  | 41.73  | 41.77
+Variance          | 0.004 | &lt; 1e−5 | &lt; 1e−5 | &lt; 1e−5 | &lt; 1e−5 | &lt; 1e−5 | N/A
+Speed (Words/Sec) | 114   | 58     | 27     | 12     | 5      | 2      | 115
+
+(3) You thought CFT and CFS words are global and independent on context.
+Mostly, you are right. At the beginning, we also believe CFT words should be
+very similar with functional words. However, it is hard to define the border
+between CFS and CFT words. For example, we can call higher frequent words CFT
+words and lower frequent words CFS words. But this definition has many
+problems. In addition, some words are polysemous such as "being", which can
+either be a part of "human being" and "having being". Obviously, the meaning of
+this word should be determined by the context. The original partition of CFS
+and CFT words are relevant to a specific model, because it is used to interpret
+the model's prediction. When comparing different models, we also purpose a
+partition of CFS and CFT based on PMI, which is independent on a model being
+used.
+
+(4-5) You thought there should be a probability margin when dividing CFS and
+CFT words. We have generalised the definition of CFS and CFT words in equation
+11 by introducing a margin. The results of different margin as shown in the
+following table. As shown in this table, different margin generate the
+different partitions of CFS and CFT words. As growing of the margin, the
+partition of CFS and CFT words becomes more confident. And the more confident
+CFS words can achieve better alignment performance and translation performance.
+But the translation recall is still similar between CFS and CFT words, despite
+the big gap of AER between CFS and CFT words. Besides, Contributing From Source
+or Target means where the most contribution comes from, but not means the
+contributions only come from source or target.
+
+Margin | Target Words | AER   | Translation Recall | Proportion
+--     | --           | --    | --                 | --
+1e-4   | CFS          | 31.64 | 65.54              | 65.61%
+       | CFT          | 62.91 | 66.39              | 24.66%
+1e-3   | CFS          | 30.33 | 67.82              | 60.40%
+       | CFT          | 63.29 | 69.40              | 22.04%
+1e-2   | CFS          | 28.26 | 71.56              | 51.53%
+       | CFT          | 64.22 | 73.76              | 17.56%
+1e-1   | CFS          | 22.87 | 78.59              | 34.85%
+       | CFT          | 64.13 | 78.33              | 10.39%
+
+(6) You mentioned the relationship between the quality of the sliver alignments
+and the analysis in this paper. Firstly, the only analysis relying on sliver
+alignments are the results of explicit model. The better silver alignments will
+only lead the explicit model perform better. And we would like to convey the
+explicit model has achieved enough alignment performance to indicate the
+translation model processes the information of a good alignment.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SkxwFxnu2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting interpretability work cast as bilingual word alignment.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eEdj0cK7&amp;noteId=SkxwFxnu2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper344 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper344 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper sets out to build good bilingual word alignments from the information in an NMT system (both Transformer and RNN), where the goal is to match human-generated word-alignments as measured by AER. At least that’s how it starts. They contribute two aligners: one supervised aligner that uses NMT source and target representations as features and is trained on silver data generated by FastAlign, and one interpretability-based aligner that scores the affinity of a source-target word-pair by deleting the source word (replacing its embedding with a 0-vector) and measuring the impact on the probability of the target word. These are both shown to outperform directly extracting alignments from attention matrices by large margins. Despite the supervised aligner getting better AER, the authors proceed to quickly discard it as they dive deep on the interpretability approach, applying it also to target-target word pairs, and drawing somewhat interesting conclusions about two classes of target words: those that depend most of source context and those that depend most on target context.
+
+Ultimately, this paper’s main contribution is its subtraction-based method for doing model interpretation. Its secondary contributions are the idea of evaluating this interpretation method empirically using human-aligned sentence pairs, and the idea of using the subtraction method on target-target pairs. The conclusion does a good job of emphasizing these contributions, but the abstract and front-matter do not. Much of the rest of the paper feels like a distraction. Overall, I believe the contributions listed above are valuable, novel and worth publishing. I can imagine using this paper’s techniques and ideas in my own research.
+
+Specific concerns:
+
+The front-matter mentions ‘multiple attention layers’. It would probably be a good idea to define this term carefully, as there are lots of things that could fit: multiple decoder layers with distinct attentions, multi-headed attention, etc.
+
+In contrast to what is said in the introduction, GNMT as described in the Wu et al. 2016 paper only calculates attention once, based on the top encoder layer and the bottom decoder layer, so it doesn’t fit any definition of multiple attention layers.
+
+Equation (1) and the following text use the variable L without defining it.
+
+‘dominative’ -&gt; ‘dominant’
+
+Is there any way to generate a null alignment with Equation 3? That is, a target word that has no aligned source words? If not, that is a major advantage for FastAlign.
+
+Similarly, what exactly are you evaluating when you evaluate FastAlign? Are you doing the standard tricks from the phrase-based days, and generating source-&gt;target and target-&gt;source models, and combining their alignments with grow-diag-final? If so, you could apply the same tricks to the NMT system to help even the playing field. Maybe this isn’t that important since the paper didn’t win up being about how to build the best possible word aligner from NMT (which I think is for the best).
+
+I found Equations (7) and (8) to be confusing and distracting. I understand that you were inspired by Zintgraf’s method, but the subtraction-based method you landed on doesn’t seem to have much to do with the original Zintgraf et al. approach (and your method is much easier to the understand in the context of NMT than theirs). Likewise, I do not understand why you state, “we take the uniform distribution as P(x) regarding equation 8 for simplicity” - equation 9 completely redefines the LHS of equation 8, with no sum over x and no uniform distribution in sight.
+
+The Data section of 4.1 never describes the NIST 2005 hand-aligned dataset.
+
+The conclusions drawn at the end of 4.4 based on ‘translation recall’ are too strong. What we see is that the Transformer outperforms Moses by 2.8 onCFS, and by 3.7 on CFT. This hardly seems to support a claim that CFT words are the reason why Transformer yields better translation.
+
+4.5 paragraph 1: there is no way to sample 12000 datasets without replacement from NIST 2005 and have the samples be the same size as NIST 2005. You must mean “with replacement”?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkeFI1596X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>New manuscript with more clear descriptions has been uploaded</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eEdj0cK7&amp;noteId=rkeFI1596X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper344 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper344 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your review and constructive comments. We address your concerns
+below.
+
+You mentioned "multiple attention layers", which might be the reason of
+terrible AER of attention-based alignment. As shown in Table 1, an acceptable
+alignment can be induced form a single layer multi-head attention, but cannot
+from a multi-layer multi-head attention. Therefore, we ascribe the degradation
+of alignment quality to "multiple attention layers" rather than "the forms of
+attention". The reason behind is multi-layer attention disrupt the order of
+source annotations in higher layer computing.
+
+About GNMT in the introduction, we thank you for the scrupulous correction. We
+have deleted it from the paper.
+
+In equation 1, s_i^L is defined in the following text, and the specific meaning
+of variable L is defined in the end of the following text and equation 2.
+
+You concerned Equation 3 forbid a null alignment, which is indeed an advantage
+for FastAlign compared with NMT. This definition is located in the section
+called preliminaries, because previous researches of alignment on NMT is such
+defined. Effective null alignment can definitely improve the alignment
+precision. However, this is not trivial, and there is not effective methods to
+generate null alignment. With our methods, the null alignment can be generated
+according to CFT words. Unfortunately, the AER becomes 44.84 with null
+alignment, which is worse than 41.77 without null alignment. The reason is null
+alignment can not only increase the precision, but also decrease the recall.
+Although null alignment may helpful, it is hard to determine which target word
+should be aligned to null. In addition, comparing AER of CFS words in Table 3,
+FastAlign is still better but with smaller gap than overall words. This means
+except the advantage of null alignment, FastAlign is indeed better.
+
+Thank you for mention the tricks for achieving better alignment. In our
+training, we do not use any of these tricks for both FastAlign and NMT models.
+
+Sorry for confusing you about the description of prediction difference method,
+and we have revised the description in section 3.2. Equation 7 and 8 are
+probabilistic definition of the prediction difference, where an expectation has
+to be approximated by Monte Carlo approach, but equation 9 is a deterministic
+approximation of the expectation. And we have verified the deterministic method
+can achieve the similar performance as the Monte Carlo sampling method with
+enough samples, but only need the same computation as sample size equals one in
+sampling method.
+
+Throughout out this paper, we report AER on NIST 2005 test set, whose reference
+alignment was manually annotated by experts. And we have added this description
+in section 4.1.
+
+You mentioned "translation recall" in the section 4.4. In this section, we
+investigate the performance of alignment and translation based on AER and
+translation recall, which is related to the 1-gram BLEU in some sense. We agree
+your concerning, and we have modified the last sentence in section 4.4 a weaker
+tone.
+
+About the typo of "with replacement" in section 4.5, we have revised it in the
+paper. Thank you very much!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rylCpWWiaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eEdj0cK7&amp;noteId=rylCpWWiaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper344 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper344 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your updated paper, and your response to my review. The new 3.2, supported by the experiments in Table 3, greatly helps to clarify the connection between your method and Zintgraf et al.’s method.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

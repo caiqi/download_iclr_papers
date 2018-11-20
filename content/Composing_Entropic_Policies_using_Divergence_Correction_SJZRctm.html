@@ -1,0 +1,440 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Composing Entropic Policies using Divergence Correction | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Composing Entropic Policies using Divergence Correction" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SJ4Z72Rctm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Composing Entropic Policies using Divergence Correction" />
+      <meta name="og:description" content="Deep reinforcement learning (RL) algorithms have made great strides in recent years. An important remaining challenge is the ability to quickly transfer existing skills to novel tasks, and to..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SJ4Z72Rctm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Composing Entropic Policies using Divergence Correction</a> <a class="note_content_pdf" href="/pdf?id=SJ4Z72Rctm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 18 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019composing,    &#10;title={Composing Entropic Policies using Divergence Correction},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SJ4Z72Rctm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=SJ4Z72Rctm" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Deep reinforcement learning (RL) algorithms have made great strides in recent years. An important remaining challenge is the ability to quickly transfer existing skills to novel tasks, and to combine existing skills with newly acquired ones. In domains where tasks are solved by composing skills this capacity holds the promise of dramatically reducing the data requirements of deep RL algorithms, and hence increasing their applicability. Recent work has studied ways of composing behaviors represented in the form of action-value functions. We analyze these methods to highlight their strengths and weaknesses, and point out situations where each of them is susceptible to poor performance. To perform this analysis we extend generalized policy improvement to the max-entropy framework and introduce a method for the practical implementation of successor features in continuous action spaces. Then we propose a novel approach which, in principle, recovers the optimal policy during transfer. This method works by explicitly learning the (discounted, future) divergence between policies. We study this approach in the  tabular case and propose a scalable variant that is applicable in multi-dimensional continuous action spaces.
+We compare our approach with existing ones on a range of non-trivial continuous control problems with compositional structure, and demonstrate qualitatively better performance despite not requiring simultaneous observation of all task rewards.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">maximum entropy RL, policy composition, deep rl</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Two new methods for combining entropic policies: maximum entropy generalized policy improvement, and divergence correction.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BkgRW5786Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Need clearer motivation for algorithm. Lots of little issues need fixing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJ4Z72Rctm&amp;noteId=BkgRW5786Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1333 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1333 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors introduce Divergence Correction (DC) for the problem of transfer learning by composing policies. There approach builds on GPI with a maximum entropy objective. They also prove that DC solves for the max-entropy optimal interpolation between two policies and derive a practical approximation for this algorithm. They provide experimental results in a gridworld problem and study their approximate algorithm in two continuous control problems.
+
+While this paper has some interesting ideas (combining GPI with a Max-Entropy objective and DC), these ideas are not properly motivated. The main problem seems to be clarity. One big problem is that the paper never defines the notion of a notion of optimality (or near-optimality). Also, considering that the DC algorithm is one of the main contributions of the paper it is barely motivated. Theorem 3.2 is presented with almost no explanation about how DC was derived. Why do the authors believe that DC is a good idea on a conceptual level? It's very interesting that the paper presents cases where previous approaches (Optimistic and GPI) don't perform well. But the authors don't explain why they believe DC should perform well in these cases. 
+
+The authors make the unjustified claim in the abstract that their approach has "near-optimal performance and requires less information". I say this is unjustified because they only try this approach on three benchmarks. In addition, there should be situations where DC also performs poorly since there are known hardness results for solving MDPs. Admittedly, those results may not apply if the authors are making assumptions that are not being clearly discussed in the paper.
+
+Minor Comments:
+1. In the abstract, "requiring less information" is very imprecise. Are you referring to sample complexity?
+2. In the introduction, "can consistently achieve good performance" is imprecise. What is the notion of near-optimality? What does consistent mean? Having experimental results on 3 tasks doesn't seem to be enough to me to justify this claim.
+3. In the introduction (and rest of the paper), please don't call Haarnoja et al.'s approach optimistic. Optimism already has another widely used meaning in RL literature. Maybe call it "Uncorrected".
+4. In section 2.2, the authors introduce \pi_1, \pi_2, ... , \pi_n but never actually use that notation. This section does not clearly explain how GPI works.
+5. In Theorem 3.1, the authors should introduce Q^1, Q^2, ... , Q^n and define the policies in terms of the action-value functions. Also, the statement of this theorem is not self contained, what is the reward function of the MDP? The proof below should be called a proof sketch.
+6. The paper mentions that extending to multiple tasks is possible. Is it trivial? What is the basic idea? It seems straightforward but it might be helpful to explicitly state the idea.
+7. In Theorem 3.2, how was C derived? Please add some commentary explaining the conceptual idea.
+8. In Table 1, what is f(s, a|b)? I don't see where this was defined?
+9. CondQ is usually referred to as UVFA in the literature.
+10. Section 3 really needs a conclusion statement.
+11. Section 4 is very unclear and hard to follow.
+12. In figure 1f, what is LTD? It's never defined. I'm guessing it's DC.
+13. All of the figures are too small and some are not clear in black and white.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byl3o8kR6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer4 minor comments (b)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJ4Z72Rctm&amp;noteId=Byl3o8kR6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1333 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1333 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">&gt; 5. In Theorem 3.1, the authors should introduce Q^1, Q^2, ... , Q^n and define the
+&gt; policies in terms of the action-value functions. Also, the statement of this theorem is not self
+&gt; contained, what is the reward function of the MDP? The proof below should be
+&gt; called a proof sketch.
+
+In this theorem, all policies and action-values Q are for the same MDP (i.e. all action-values are for the same reward function but different policies). In this theorem, the policies are not, in general, defined by their action-values Q (e.g. its not required that the policies are Boltzmann policies). The action-values do need to be the true action-values, so they are defined by their corresponding policies. We’ve tried to add a clarifying note before the theorem (note this statement of the GPI theorem is isomorphic to the standard RL GPI theorem in Barreto et al., 2017). There is no other constraints on the MDP, any valid reward function for an MDP will be valid.
+
+Could you explain why the proof for theorem 3.1 (max-ent GPI) is merely a sketch?. As referenced in the main text, the proof is in appendix A, and 1.5 pages long. Is there a particular step you feel is unclear or missing? We do make use of standard definitions and Soft Q iteration without explanation, but we reference prior work that defines these.
+
+&gt; 6. The paper mentions that extending to multiple tasks is possible. Is it trivial?
+&gt; What is the basic idea? It seems straightforward but it might be helpful to explicitly
+&gt; state the idea.
+
+Max-Ent GPI can be extended to multiple policies straightforwardly as is. The theorem is given for n policies. However, in the original submission we derived the divergence correction only for pairs of base policies.
+
+As suggested by reviewer 2, we have now also added a derivation of the DC term for n policies. Deriving the correction term for more than 2 policies is straightforward, but it may become more difficult to learn for large n. This is one advantage of GPI (no additional complexity is required to make use of n policies) over DC. We had included a discussion of this point in an earlier draft of the paper but we had to remove it due to space constraints. We’ve now added a brief discussion in the appendix where we derive the n-policy DC term.
+
+&gt; 7. In Theorem 3.2, how was C derived? Please add some commentary explaining the
+&gt; conceptual idea.
+
+We address this above. We have re-structured and edited the text to motivate theorem 3.1 prior to introducing it.
+
+&gt; 8. In Table 1, what is f(s, a|b)? I don't see where this was defined?
+
+This notation is only used for the label and is explained in the caption. We’ve modified the caption to explicitly denote this f(s, a|b) to make this clearer. This refers to fact that CondQ and DC both require learning some function that is conditional on b (in DC this is C^\infty_b, in CondQ this is just directly Q(s, a|b).
+
+&gt; 9. CondQ is usually referred to as UVFA in the literature.
+
+We debated whether to refer to this approach as CondQ or UVFA, when we introduce the term CondQ (a contraction of conditional Q) we cite Schaul et al (i.e. the source of the UVFA terminology). However, we felt that many people would understand UVFA’s to refer to a specific architecture (with a dot-product between the task embedding and state embedding to compute value), and the idea of conditioning the value function on a task variable predates UVFAs, so we felt that CondQ was a more neutral  term in this context. We certainly acknowledge UVFAs as a recent demonstration of the scalability of this idea and cite them.
+
+&gt; 10. Section 3 really needs a conclusion statement.
+
+We have added a conclusion statement.
+
+&gt; 11. Section 4 is very unclear and hard to follow.
+
+We agree. We have revised this section substantially. We welcome further of feedback.
+
+&gt; 12. In figure 1f, what is LTD? It's never defined. I'm guessing it's DC.
+
+That is correct. We originally referred to this method as LTD. We have now fixed this. Apologies.
+
+&gt; 13. All of the figures are too small and some are not clear in black and white.
+
+It has been challenging to fit the figures and display all the results concisely. In order allow for discussion we have uploaded a new version of this work, but we will continue to iterate on making the figures clearer.
+
+We thank the reviewer for their time and extensive feedback. We hope we have addressed many of your concerns in this response and revision, and clarified many points of this work. We hope in light of these clarifications you may consider amending your rating.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rJgcmIkRaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer4 minor comments (a)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJ4Z72Rctm&amp;noteId=rJgcmIkRaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1333 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1333 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Firstly, we apologize for the lengthy response, but we wanted to ensure we addressed all of your comments.
+
+&gt; Minor Comments:
+&gt; 1. In the abstract, "requiring less information" is very imprecise.
+&gt; Are you referring to sample complexity?
+
+This is addressed in the section of the response above to the major concerns.
+
+&gt; 2. In the introduction, "can consistently achieve good performance" is imprecise.
+&gt; What is the notion of near-optimality? What does consistent mean?
+&gt; Having experimental results on 3 tasks doesn't seem to be enough to me to justify this claim.
+
+We have clarified above that we are using the standard notion of optimality in RL, but during the transfer task. We’ve also edited the text to make this clearer. Our claims regarding performance are based on two items: as discussed above, our theoretical results show that DC recovers the optimal policy (if all terms are known exactly). Our empirical results show on 6 (original submission 5) tasks DC performing well.
+
+For our empirical evaluation on continuous control tasks we further focused experiments on the case that emerged as the most difficult in the theoretical analysis and the tabular domains, namely the case when the desired transfer behavior is distinct from that of any of the base policies.
+
+Besides the “tricky” tasks there are two other extremes we considered in the tabular case.
+
+DC method is a correction term to CO, so in the case where CO performs well this implies the correction term to DC is negligible, and we’d expect DC to perform well too (as outlined above, our theoretical results prove DC is optimal on the transfer task with the assumption that all components are exact, so here we mean practical performance with function approximators).
+
+The other extreme is where the two tasks are completely incompatible. In the tabular case, as expected, DC performs well but, one could imagine this task could be challenging for DC in practice, since it implies that the correction term must be large, and potentially challenging to learn. To address this we have added an additional task to the appendix (supplementary figure 5), examining this situation. We find that DC performs as well as GPI, slightly better than CondQ and still much better than CO in this situation.
+
+We use the term “near optimal” in the control tasks to indicate that DC transfer policy trajectories are qualitatively different from the other approaches on the tricky task (i.e. they go towards the optimal joint solution to the task). We’ve now restated this as ``qualitatively better performance,’’ to be more precise, since we don’t have access to the true optimal solution.
+
+In conclusion, Our theoretical analysis demonstrates  that DC recovers the optimal policy during transfer (under the strong assumption that the underlying action-value functions, and of C are known exactly; this analysis is supported by the tabular results). Empirically we have demonstrated that  across the most challenging form of transfers tasks (``tricky’’) in a variety of bodies, DC recover qualitatively different and better policies than other approaches. Finally, our new addition shows in another type of transfer situation (incompatible) tasks, DC performs as well as GPI, and better than CondQ and OC.
+
+&gt; 3. In the introduction (and rest of the paper), please don't call Haarnoja et al.'s
+&gt; approach optimistic. Optimism already has another widely used meaning in
+&gt; RL literature. Maybe call it "Uncorrected".
+
+Thank you for pointing out optimism has another, related, meaning in RL. We do like the term optimism for this approach as it implies the sign of the ‘’uncorrected’ Q (i.e. it always over-estimates the value). For clarity we have now termed this ‘Compositional Optimism’ and used CO throughout, which will hopefully avoid confusion with optimism in the exploration sense.
+
+&gt; 4. In section 2.2, the authors introduce \pi_1, \pi_2, ... , \pi_n but never actually use
+&gt; that notation. This section does not clearly explain how GPI works.
+
+Unfortunately we are limited by the page limit. We have attempted to clarify this somewhat within the space constraints. The set of policies $\pi_1, …$ are used to define the action-values in eq (2). We also try and show in section 3 how we are making use of max-ent GPI in our setup (and of course rely on reference to Barreto et al., for a fuller explanation).
+
+GPI assumes that for a given reward function we have access to the action value functions associated with policies a set pi_1, pi_2, .... In this case we could act according to any of the policies (and would achieve the reward indicated by the associated action value function), but GPI suggests that we can achieve a higher value in all states by acting according to the GPI policy which performs a max over the individual policies' value functions.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1lgxSkATX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer 4 major concerns</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJ4Z72Rctm&amp;noteId=B1lgxSkATX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1333 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1333 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">&gt; their approximate algorithm in two continuous control problems.
+
+To clarify: our submission included results for 4 continuous control tasks: 2-D point mass, 5 DOF planar manipulator, 3 DOF jumping ball and 8 DOF ant. We have now added an additional ant task in the appendix (see response later).
+
+&gt; While this paper has some interesting ideas … these ideas are not properly motivated.
+&gt; The main problem seems to be clarity. One big problem is that the paper never
+&gt; defines the notion of a notion of optimality (or near-optimality).
+
+We are interested in 0-shot transfer where we combine existing policies trained on other tasks to provide a solution for a new task. Our notion of optimality is hence with respect to the performance of the optimal policy for the new task. In that sense a policy composition for the transfer task is optimal if it achieved the same performance as the optimal policy for the transfer task. When we say near-optimal, we simply mean the return is nearly that of an optimal policy. We have tried to clarify this notion in our formalism of the transfer problem (section 2.1).
+
+For the tabular tasks we can solve exactly (within numerical precision) for the optimal policy. For the control tasks, we do not have access to the true optimal policy, so we compare the returns of different compositional approaches with one another. We do, however, know roughly the optimal trajectory (i.e. in the “tricky” tasks this corresponds to heading towards the upper right square). We have edited the text to try and clarify these claims.
+
+&gt; … considering that the DC algorithm is one of the main contributions of the paper
+&gt; it is barely motivated.
+
+&gt; Theorem 3.2 is presented with almost no explanation about how DC was derived...
+&gt; why they believe DC should perform well in these cases. 
+
+We have added a motivating paragraph before the introduction of DC and have edited this section to provide an intuitive notation of DC before introducing it formally. In short, we want a method that is, in principle (if all components are known exactly) optimal.
+
+Theorem 3.2 is our basis for believing that DC should perform well. It shows that, if all of the terms of Q^{DC} are known exactly, the resulting policy is the optimal policy on the transfer task. 
+
+The intuition is that the correction term to (compositional optimism) CO is (roughly) the expected divergences between policies along their trajectories. If the two policies have low-divergences, the CO assumption is approximately correct. If they have high-divergences, this means the policies don’t agree about what actions to take, and thus cannot both achieve their expected returns simultaneously.
+
+&gt; The authors make the unjustified claim in the abstract that their approach has "near-optimal
+&gt; performance and requires less information"...
+
+Firstly, we agree the claim regarding ‘less information’ was ambiguous. The information was not data efficiency (all methods here are trained using the same data). We do not refer here to sample complexity (all methods are trained on the same amount of data, and tested on 0-shot transfer). What is meant by information here is that, under the formalism for transfer used here, GPI and CondQ/UVFA’s require that, while learning policies for each task i, the rewards on all tasks be observed (i.e. \phi is observable). Compositional Optimism and DC do not require access to this information, hence the claim of less information. We have now modified the abstract to explicitly state ``despite not requiring simultaneous observation of all task rewards.’’
+
+As discussed in our response above, we have edited the text to clarify the notion of optimality, which is the standard RL definition (a policy is optimal if it has an expected return the same as the optimal policy for task), but on the compositional transfer task.
+
+The DC theorem, like many RL results, makes the claim of optimality when the components are known exactly. That is, we state in the theorem conditions that $Q^i$, $Q^j$ are the action-value functions of the optimal policies of the base tasks and the correction term C_b^\infty is the solution to the given fixed point. Thus, in some sense, the known hardness results are inside this assumption that we known optimal solutions to the base tasks and the need to know C everywhere. Again, we want to highlight that prior methods do not recover the optimal transfer policy, even when assuming all of their components are known exactly. In the tabular case, where we can (within numerical precision) compute all the components, we do indeed see DC recovers the optimal policy in all tasks we considered.
+
+Practically, our experimental results show that DC does generate better transfer policies than GPI and CO. In these experiments, as with almost all DeepRL, of course we do not have access to the exact action-value’s, but that approximating the DC correction term can result in qualitatively better transfer policies.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rkxl5ZFc2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good Paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJ4Z72Rctm&amp;noteId=rkxl5ZFc2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1333 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1333 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes using Divergence Correction to compose max ent policies. Based on successor features, this method corrects the optimistic bias of Haarnoja 2018. The motivation for composing policies is sound. This paper addresses the problem statement where policies must accomplish different linear combinations of different reward functions. This method does not require observation the reward weights.
+
+As shown in the experiments, this method outperforms or equally performs past work in both tabular and continuous  environments. The paper is well written and discusses prior work in an informative manner. The tabular examples provide good visualizations of why the methods perform differently.
+
+Minor:
+- Figure 1.e: Why does the Optimistic transfer have high regret when the caption says that "on the LU task, optimistic transfers well"
+- Figure 1.i states "Neither GPI nor the optimistic policies (j shows GPI, by the Optimistic policy is similar)" but Figure1.j is labeled DC T, is this a typo?
+- Figure 2: Many typos:  "(b) Finger position at the en (of the trajectoriesstard ting from randomly sampled start states)"
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyeAsTCaam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJ4Z72Rctm&amp;noteId=SyeAsTCaam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1333 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1333 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their time and feedback. We address the minor corrections below.
+
+&gt;- Figure 1.e: Why does the Optimistic transfer have high regret when the caption says that "on the LU task, optimistic transfers well"
+
+Optimistic transfers much better than GPI on this task. The regret scale is logarithmic, so while Optimistic (red) does not recover the optimal policy, it has a regret approximately 10^4 lower than GPI (blue). We’ve edited the caption to make this clearer. Note in response to another reviewer we have renamed Optimistic to Compositional Optimism (CO) to avoid confusion.
+
+&gt;- Figure 1.i states "Neither GPI nor the optimistic policies (j shows GPI, by the Optimistic policy is similar)" but Figure1.j is labeled DC T, is this a typo?
+
+Apologies, that is indeed a typo. We’ve now reworded this caption.
+
+&gt;- Figure 2: Many typos:  "(b) Finger position at the en (of the trajectoriesstard ting from randomly sampled start states)"
+
+Thank you for pointing this out, this has been fixed.
+
+In general, we made a number of minor edits throughout, and particularly revised section 4 to improve the readability of the paper.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1l45Kv92X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting work, but need further improvement</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJ4Z72Rctm&amp;noteId=r1l45Kv92X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1333 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1333 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+-- Contribution, Originality, and Quality --
+
+This paper has presented two approaches for transfer learning in the reinforcement learning (RL) setting: max-ent GPI (Section 3.1) and DC (Section 3.2). The authors have also established some theoretical results for these two approaches (Theorem 3.1 and 3.2), and also demonstrated some experiment results (Section 5).
+
+These two developed approaches are interesting. However, based on existing literature (Barreto et al. 2017; 2018, Haarnoja et al. 2018a), neither of them seems to contain *significant* novelty. The derivations of the theoretical results (Theorem 3.1 and 3.2) are also relatively straightforward. The experiment results in Section 5 are interesting.
+
+-- Clarity --
+
+I have two major complaints about the clarity of this paper. 
+
+1) Section 4 of the paper is not well written and is hard to follow.
+
+2) Some notations in the paper are not well defined. For instance
+
+2a) In page 3, the notation \delta has not been defined.
+2b) In page 6, both notation V_{\theta'_V} and V'_{\theta_V} have been used. I do not think either of them has been defined. 
+
+-- Pros and Cons --
+
+Pros:
+
+1) The proposed approaches and the experiment results are interesting.
+
+Cons:
+
+1) Neither the algorithm design nor the analysis has sufficient novelty, compared to the typical standard of a top-tier conference.
+
+2) The paper is not very well written, especially Section 4.
+
+3) For Theorem 3.2, why not prove a variant of it for the general multi-task case?
+
+4) It would be better to provide the pseudocode of the proposed algorithm in the main body of the paper.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJgmOxy0am" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to anon reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJ4Z72Rctm&amp;noteId=BJgmOxy0am"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1333 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1333 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">&gt; ... neither of them seems to contain *significant* novelty. The derivations of the theoretical results
+&gt; (Theorem 3.1 and 3.2) are also relatively straightforward. The experiment results in Section 5 are interesting.
+
+While we acknowledge that our results build on prior work we feel that the reviewer’s assessment undervalues our contributions. To clarify: 
+
+Successor Representations/Features have only ever been used in small, discrete action spaces. To the best of our knowledge, we are the first to provide a method for using successor features in continuous action spaces.
+The extension of the GPI theorem to the max-ent RL objective is a non-trivial extension. This brings an important and general idea on value iteration to a new, and important RL framework. It shows that there is a simple, principled way to combine max-ent policies in a way that ensures the result composition at worst retains the performance of the best policy.
+
+The derivation of theorem 3.2 is, as we state in the paper, similar to the approach used in Haarnoja et al., 2018. However, there is an important conceptual leap to show that this term can be practically learned and used to improve performance. Indeed the final lines of Haarnoja are “An interesting avenue for future work would be to further study the implications of this bound on compositionality. For example, can we derive a correction that can be applied to the composed Q-function to reduce bias? Answering such questions would make it more practical to construct new robotic skills out of previously trained building blocks, making it easier to endow robots with large repertoires of behaviors learned via reinforcement learning.” We have taken a first step in this direction and demonstrated that this correction term can be learned in a practical manner.
+
+Additionally, we introduced a very simple heuristic, DC-Cheap. In many cases, this heuristic suffices to get similar performance to DC.
+
+Finally, we also introduce an algorithm for practically using these methods, including, to our knowledge the first example of online zero-shot transfer (in the context defined here) in continuous action spaces. The only other work we are aware of that does this (Haarnoja et al., 2018), requires an offline retraining of the sampler.
+
+&gt;1) Section 4 of the paper is not well written and is hard to follow.
+
+We have re-written section 4. Hopefully it is clearer now. We have also edited the rest of the paper to improve readability. We welcome additional feedback.
+
+&gt; 2a) ... notation \delta has not been defined.
+
+This was the Dirac delta to communicate the GPI policy is deterministic (in this prior work). We have modified this to simplify the notation by explicitly stating the policy is deterministic.
+
+&gt;2b) ... notation V_{\theta'_V} and V'_{\theta_V} have been used. I do not think 
+&gt;either of them has been defined. 
+
+V_{\theta’_V} is the target network for V_{\theta_V}. This was defined in the paragraph below eq 14. We have now re-phrased this to make it more clear this is the definition. V’_{\theta_V} was a notational mistake, it should have been V_{\theta’_V}. Thank you for pointing that out.
+
+&gt;Pros:
+
+&gt;1) The proposed approaches and the experiment results are interesting.
+
+&gt;Cons:
+
+&gt;1) Neither the algorithm design nor the analysis has sufficient novelty, compared to the typical standard
+&gt; of a top-tier conference.
+
+We addressed this point in detail above, where we enumerated what we believe are the contributions of this work. At the risk of belaboring the point: many papers are simply a more scalable algorithm, or novel theoretical ideas. Here we introduced 2 new theoretical ideas, and a new practical algorithm, is to the best of our knowledge the first demonstration of online zero-shot transfer for task composition in continuous action spaces.
+
+&gt;2) The paper is not very well written, especially Section 4.
+
+We have edited the paper throughout to provide additional clarify and substantially revised section 4 and are happy to make further revisions. Our paper builds upon and extends several lines of work and it has been a challenge to introduce and discuss all relevant concepts in the limited space available. 
+
+&gt;3) For Theorem 3.2, why not prove a variant of it for the general multi-task case?
+
+Thank you for the suggestion. We have added a proof in the appendix for the n-policy case of Theorem 3.2. Due to space constraints we have included this in the appendix. he derivation is very similar to the two policy case which we discuss in the main text..
+
+&gt;4) It would be better to provide the pseudocode of the proposed algorithm in the main body of &gt; the paper.
+
+As part of our revision of section 4, we have moved this algorithm into the main text (and modified it to include all the losses.
+
+We thank the reviewer for their time and feedback. We hope we have been able to address many of your concerns and you may reconsider your rating in light of our changes. We welcome additional feedback.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

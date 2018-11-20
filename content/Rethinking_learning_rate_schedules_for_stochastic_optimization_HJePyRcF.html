@@ -1,0 +1,288 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Rethinking learning rate schedules for stochastic optimization | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Rethinking learning rate schedules for stochastic optimization" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HJePy3RcF7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Rethinking learning rate schedules for stochastic optimization" />
+      <meta name="og:description" content="There is a stark disparity between the learning rate schedules used in the practice of large scale machine learning and what are considered admissible learning rate schedules prescribed in the..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HJePy3RcF7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Rethinking learning rate schedules for stochastic optimization</a> <a class="note_content_pdf" href="/pdf?id=HJePy3RcF7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019rethinking,    &#10;title={Rethinking learning rate schedules for stochastic optimization},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HJePy3RcF7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">There is a stark disparity between the learning rate schedules used in the practice of large scale machine learning and what are considered admissible learning rate schedules prescribed in the theory of stochastic approximation. Recent results, such as in the 'super-convergence' methods which use oscillating learning rates, serve to emphasize this point even more.
+One plausible explanation is that non-convex neural network training procedures are better suited to the use of fundamentally different learning rate  schedules, such as the ``cut the learning rate every constant number of epochs'' method (which more closely resembles an exponentially decaying learning rate schedule); note that this widely used schedule is in stark contrast to the polynomial decay schemes prescribed in the stochastic approximation literature, which are indeed shown to be (worst case) optimal for classes of convex optimization problems.
+
+The main contribution of this work shows that the picture is far more nuanced, where we do not even need to move to non-convex optimization to show other learning rate schemes can be far more effective. In fact, even for the simple case of stochastic linear regression with a fixed time horizon, the rate achieved by any polynomial decay scheme is sub-optimal compared to the statistical minimax rate (by a factor of condition number); in contrast the ```''cut the learning rate every constant number of epochs'' provides an exponential improvement (depending only logarithmically on the condition number) compared to any polynomial decay scheme.  Finally, it is important to ask if our theoretical insights are somehow fundamentally tied to quadratic loss minimization (where we have circumvented minimax lower bounds for more general convex optimization problems)? Here, we conjecture that recent results which make the gradient norm small at a near optimal rate, for both convex and non-convex optimization, may also provide more insights into learning rate schedules used in practice.
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">SGD, learning rate, step size schedules, stochastic approximation, stochastic optimization, deep learning, non-convex optimization, stochastic gradient descent</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">This paper presents a rigorous study of why practically used learning rate schedules (for a given computational budget) offer significant advantages even though these schemes are not advocated by the classical theory of Stochastic Approximation.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BylBHVDuT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Well written, some parts require clarification</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJePy3RcF7&amp;noteId=BylBHVDuT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper991 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper991 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a theoretical study of different learning rate schedules. Its main result are statistical minimax lower bounds for both polynomial and constant-and-cut schemes.
+
+I enjoyed reading the paper and I think the contributions in it shed some light in step size schedules that have shown to be useful in practice. I do have however some concerns that I hope the authors can address in their rebuttal. My initial rating is marginally below acceptance but I will gladly increase this rating if my concerns are addressed.
+
+
+# Pros
+
+* The paper is written in a way that's both clear and accessible.
+
+* The Theoretical contributions are important, as they address the choice of step size in one of the most used optimization methods machine learning and are novel to the best of my knowledge.
+
+* Due to time constraints, I only skimmed through the proofs, but results seem correct.
+
+
+# Concerns
+
+
+My biggest concern is that its unclear how realistic is their noise model. The authors assume that the noise in the stochastic gradients e verifies E[e e^T ] = \sigma H. While they claim that this is verified for problems like least squares, it is not clear to me that this is indeed the case. Related work like (Moulines and Bach, 2013) and (Flammarion and Bach, 2015) take the same setting but can only assume that the covariance of the noise is _bounded_ by a matrix of sigma times H. How do the authors obtain a much stronger condition on the noise covariance with the same assumption? I would be much more convinced with a proof in appendix clearly showing that the assumptions in footnote 8 imply the aforementioned covariance of the noise and a paragraph comparing their noise model with that of related literature like the aforementioned references (I'm not affiliated with any of that work). 
+
+Also, the authors claim that their results hold for an arbitrary noise covariance matrix but the proofs are all done with the specific \sigma H matrix. I don't think its OK to say "our results hold for a more general setting" without proof. If they do hold for a more general setting then the proofs should be done in the general setting. If not, it should only be mentioned as future work. Please edit that remark accordingly.
+
+* The paper does not compare or discuss against constant step size with averaging, which has been shown to be theoretically optimal in some scenarios (see aforementioned papers). This should at least be mentioned, and ideally also included in experiments.
+
+
+# Presentation issues
+
+Clarity of the proofs can be improved. For example, in Theorem 1, the formula for v_T(1) and v_T(d) follow from a recurrence that is stated _below_ the formula, needing several passes to understand. The proofs could benefit from a pass on them to improve the flow.
+
+
+It is never clear whether expectations are taken with respect to the full randomness of the algorithm or conditioned on previous randomness. The E in Eq. just-before-section-4 (please add equation numbers) is a full expectation while the E[e] should be conditioned on previous randomness. The expectation in footnote 8 is also unclear if its wrt to the stochasticity of the algorithm or the randomness in the data generating process.
+
+
+No equation numbers  makes it difficult to reference equations. Please add equation numbers so that reviewing is not more difficult than it should (and others can reference your work more precisely).
+
+Other minor presentation issues include:
+
+  * Page 1: Why l-BFGS and not L-BFGS? the lowercase l makes it look like a 1.
+  * Page 2: There important -&gt; There *are* important.
+  * Page 2: In fact, at least ... (missing parenthesis around Omega tilde).
+  * Page 4: "a stochastic gradient oracle which gives us" the second w should also be boldface.
+  * Page 4: I would have appreciated
+
+  * Page 11: "variance in the i-th" direction. It would be more correct to say in the i-th coordinate as otherwise it can be mistaken with the i-th update direction.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Byg6z7GqhX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>neat technical results, but misleading narrative</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJePy3RcF7&amp;noteId=Byg6z7GqhX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper991 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper991 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper studies the effect of learning-rate choices for stochastic optimization, focusing on least-mean-squares with decaying stepsizes. The main result is showing that exponentially decaying stepsizes can yield improved rates of convergence of the final iterate in terms of dependence on the condition number. The proposed learning rate schedule depends on the condition number and the number of iterations. This positive result is complemented by showing that without prior knowledge of the time horizon, any stepsize sequence will frequently yield suboptimal solutions.
+
+I have mixed feelings about the paper. On the positive side, the particular observation that exponential learning-rate schedules lead to faster convergence for SGD in linear least-squares problems indeed seems to be a novel result, and the lower bound also appears to be new and interesting. The analysis seems to be technically correct as well. 
+
+On the other hand, I have several concerns about the presentation of the results:
+
+- The abstract and the introduction sets up a misleading narrative around the results: the authors seem to suggest that their work somehow explains why certain learning-rate schedules work better than others for deep learning applications / non-convex optimization, although the actual results exclusively concern the classical problem of linear least-squares regression. This presentation is completely uncalled for as the authors themselves admit that it is unclear how the results would generalize to other convex optimization settings, let alone non-convex optimization. Also, I think that this presentation style is rather harmful as it suggests that learning-theory results concerning classical setups are somehow embarrassing, so they need to be sold through some made-up connections to trendy topics in deep learning. I would suggest that the authors completely "rethink" the presentation of the paper and write it in a style that is consistent with the actual results: as a learning theory paper, without the irrelevant deep learning experiments (that only show well-known phenomena anyway).
+
+- The paper misrepresents a large body of work on stochastic/online optimization. Specifically, the authors suggest that the stochastic optimization literature exclusively suggests the use of polynomially decaying stepsizes. This picture is grossly inaccurate for multiple reasons:
+*** It has been known for a while that the de facto optimal tuning of SGD for least squares involves a large constant stepsize and iterate averaging (see, e.g., Bach and Moulines, NIPS 2013). This approach is only mentioned in passing without any discussion, even though it yields convergence rates that do not involve *any* dependence on the condition number in the leading term---thus achieving a much more significant improvement than the learning-rate schedule studied in this paper. In light of these results, learning-rate schedules are already being "re-thought" as we speak, and studying the behavior of the last iterate has received less attention in the past couple of years. If anything, the present paper only provides further evidence (through the negative result) that the individual iterates are ill-behaved in general and it is better to average the iterates instead. I would consider this negative result as an interesting addition to the stochastic-optimization literature, had it been presented in a completely different narrative (e.g., augmenting the discussion in "Stochastic gradient descent for non-smooth optimization: Convergence results and optimal averaging schemes" by Shamir and Zhang, 2013).
+*** Exponentially decaying (or "constant-and-cut", as they are called here) schedules have actually been studied before in the paper "Beyond the Regret Minimization Barrier: Optimal Algorithms for Stochastic Strongly-Convex Optimization" by Hazan and Kale (JMLR 2014). This significantly weakens the main intended selling point of the paper which was being the first-ever study of such learning-rate schedules. The results in said paper are of a somewhat different nature, but they have arguably as little to do with deep learning as the results of the present paper has. Notably, both the present paper and the cited work rely on *strong convexity* of the objective (through assuming prior knowledge of the condition number), so I would expect that none of these results would explain anything in the context of deep learning.
+
+On the technical side, the proofs appear to be correct but presented somewhat sloppily, with most of the notation appearing without proper definitions. For instance, the proof of Theorem 2 seems to import notation from the proof of Theorem 1, although without explicitly mentioning that the covariance matrix is assumed to be diagonal(ized). The proof of Theorem 3 then seems to again replace this previously (non-)established notation by another one (e.g., v becomes err and \eta becomes \gamma). The proofs also involve long sequences of inequalities without explanation, and only bound the variances (w_k-w^*_k)^2 without mentioning how this quantity is related to the excess risk. (The relation is well-known but not obvious at all for first-time readers of such proofs.)
+
+One technical limitation of the results is that they assume a simple additive-noise model for the gradients, which the authors conveniently call "fairly natural" and incorrectly claim to hold for linear regression with well-specified models (footnote 8). In reality, the gradient noise in this setting also depends on the current iterate w_t, which makes analysis significantly harder. (To see the difference, just compare the complexity of the proofs of Lemma 1 and Theorem 2 that correspond to these different settings in "Harder, Better, Faster, Stronger Convergence Rates for Least-Squares Regression" by Dieleveut, Flammarion and Bach, 2017.)
+
+Overall, I don't think that this paper is fit for publication in its present form. Once again, I would suggest that in a future version, the authors focus solely on discussing the actual results without attempting to draw disproportionate conclusions from them.
+
+Detailed comments
+=================
+- pp.1, abstract: the first half of the abstract is completely irrelevant to the rest of the paper, so I'd suggest removing it.
+- pp.1, "learning-rate schedules for SGD is a rather enigmatic topic"---"enigmatic" feels like a bit of a strong adjective here, given that there are many aspects of learning-rate tuning that are actually pretty well-understood.
+- pp.2: The second paragraph on page 2 is again irrelevant to the actual technical content of the paper.
+- pp.2, "all the works in stochastic approximation try to bound the error of each iterate of SGD"---This is simply not true, given the growing literature concerning the behavior of the *averaged iterates*.
+- pp.4, first display: poor typesetting.
+- pp.6, Eqs. 1--3: ditto.
+- pp.8, last paragraph: Singling out the particular setting of gradient-norm minimization feels arbitrary and poorly justified.
+- pp.11: the first and second displays should be switched for better readability (otherwise the first one comes without explanation). Also note that this form is not just due to the algorithm design, but also to the simplified noise model.
+- pp.12, App B: 
+*** It appears that you forgot to mention here that you're working in the coordinate system induced by the eigenvectors, and also forgot to define the eigenvalues, etc. 
+*** The indices (1) and (k) are incoherent in the first display. 
+*** Although you promise you'll prove the inequality in the second display, you eventually prove something else.
+*** It is not very clear on first sight that \ell^* actually exists and falls within the scope of \ell---you should explain that it exists due to the choice of the number of phases. (Which, by the way, should be rounded up to allow this property?)
+*** The sequence of inequalities in the last display seems correct but unnecessarily hard to verify due to the lack of explanations.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Hke6PaYLnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting work. Can benefit from better experiments.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJePy3RcF7&amp;noteId=Hke6PaYLnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper991 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper991 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This work provides theoretical insights on recent learning rate proposals such as Cyclical Learning Rates (Smith et al.). The authors focus on stochastic approximation i.e. how large is the SGD loss as a function of condition number and horizon. The critical contribution is the theoretical benefit of oscillating learning rates over more traditional learning rate schemes. Authors provide novel upper/lower bounds to establish benefit of oscillating LR, support their theory with experiments and provide insights on finite horizon learning rate selection. An important drawback is that results only apply to linear regression which is a fairly simple setup.
+
+I have two important comments regarding this work:
+1) I believe proof of Theorem 3 has a bug. In the proof, authors use the inequality
+(1-gamma_t lambda^k)^2 &lt; exp(-2lambda^k gamma_t).
+Obviously this can only be correct for gamma_t lambda^k&lt;1. However, checking the setup of the problem, it can be seen that for largest eigenvalue and gamma_0, ignoring log factors:
+
+gamma_0L = L/(mu T_e)=kappa / T_e=kappa/T.
+
+Since, no restriction is imposed on T, gamma_0L can be as large as O(kappa) and invalidates the above inequality. So T should be T&gt;O(kappa). I am not sure if this affects the overall statement or the remaining argument.
+
+2) The paper can benefit from more detailed experiments (e.g. Figs 1 and 2). Arguably the most obvious baseline is "constant learning rate". However, authors compare to 1/T or 1/sqrt(T) learning rates. It is not at all clear from current experiments, if the proposed approach beats a good constant LR choice.
+
+I am happy to increase my score if the comments above are addressed.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

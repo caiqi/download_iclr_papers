@@ -1,0 +1,315 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Unsupervised Learning of the Set of Local Maxima | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Unsupervised Learning of the Set of Local Maxima" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=H1lqZhRcFm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Unsupervised Learning of the Set of Local Maxima" />
+      <meta name="og:description" content="This paper describes a new form of unsupervised learning, whose input is a set of unlabeled points that are assumed to be local maxima of an unknown value function $v$ in an unknown subset of the..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_H1lqZhRcFm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Unsupervised Learning of the Set of Local Maxima</a> <a class="note_content_pdf" href="/pdf?id=H1lqZhRcFm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 14 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019unsupervised,    &#10;title={Unsupervised Learning of the Set of Local Maxima},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=H1lqZhRcFm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=H1lqZhRcFm" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">This paper describes a new form of unsupervised learning, whose input is a set of unlabeled points that are assumed to be local maxima of an unknown value function $v$ in an unknown subset of the vector space. Two functions are learned: (i) a set indicator $c$, which is a binary classifier, and (ii) a comparator function $h$ that given two nearby samples, predicts which sample has the higher value of the unknown function $v$. Loss terms are used to ensure that all training samples $\vx$ are a local maxima of $v$, according to $h$ and satisfy $c(\vx)=1$. Therefore, $c$ and $h$ provide training signals to each other: a point $\vx'$ in the vicinity of $\vx$ satisfies $c(\vx)=-1$ or is deemed by $h$ to be lower in value than $\vx$. We present an algorithm, show an example where it is more efficient to use local maxima as an indicator function than to employ conventional classification, and derive a suitable generalization bound. Our experiments show that the method is able to outperform one-class classification algorithms in the task of anomaly detection and also provide an additional signal that is extracted in a completely unsupervised way.
+</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">10 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rJl3jlGJ6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Unsupervised Learning of the Set of Local Maxima</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1lqZhRcFm&amp;noteId=rJl3jlGJ6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1198 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1198 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=rJl3jlGJ6X" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors focus on the task of learning the value function and the constraints in unsupervised case. Different from the conventional classification-based approach, the proposed algorithm uses local maxima as an indicator function. The functions c and h and two corresponding generators are trained in an adversarial way. Besides, the authors analyzed that the proposed algorithm is more efficient than the conventional classification-based approach, and a suitable generalization bound is given. Overall, this work is theoretically complete and experimentally sufficient.
+1.	The trained c and h give different predictions in most cases. As a unsupervised method, how to deal with them?
+2.	In Table3, why can h achieve better results when adding noise?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1lMMR0W6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for your comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1lqZhRcFm&amp;noteId=S1lMMR0W6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1198 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1198 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you very much for your comments. 
+
+It is true that c and h are trained concurrently and that the training algorithm, presented as Algorithm 1, is almost symmetric between the two. However, the two networks differ for multiple reasons: (i) The structure of the two functions is different: c has one input, and h has two, and (ii) The loss is different: G_h, which is the network that generates negative points for h, generates points G_h(x) that are in the vicinity of point x.
+
+These two differences are enough to ensure that h and c take different roles: c is, what AnonReviewer2 calls a characteristic function (does x belong to the set), and h is a comparator of nearby points.
+
+When there are multiple aspects that define the given set of input points, e.g., class membership and quality, c and h would assume the role that fits their structure, and not a random role. 
+
+In addition, due to their loss, h and c strive to become anti-correlated, which further pushes them to take different roles. As mentioned, these roles are not arbitrary but depend on the structure of the two functions
+
+In the revision we uploaded earlier today, we put an additional emphasis on this asymmetry.
+
+To your questions #1:
+
+We use either c or h based on our goal. If, for the image experiments, our goal is to detect out-of-class samples, we use c. If our goal is to detect low quality images, we use h. In the cancer dataset experiment, h is more suitable for predicting the continuous value of survival we are interested with. A hypothetical scenario in which h and c play a different role in drug discovery is mentioned, for illustration, at the end of the discussion section.
+
+To your questions #2:  
+
+The results in Tab. 3 are reported for multiple experiments, which are given side by side for brevity. In the columns of the experiment “(i) class membership” we evaluate the typical one-class classification scenario, for which c is suitable. 
+
+In the other two scenarios, we test images from the training class vs. noisy images. In the experiment “(ii) Noise in-class” we evaluate the ability of each learned method to discriminate between images that are similar to those in the training set and images that are noisy versions of it. In this task, which is based on image quality, h, as a comparator, is more suitable. 
+
+To see why this is the case, consider the training of h, during which points x are compared with generated points x’ in the vicinity of x. Since the training points x are obtained from a set of real-world training images, they are likely to be of higher quality than the generated nearby points.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJgPwCiuhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea of casting one-class classification/set beloning problem onto 4 player game</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1lqZhRcFm&amp;noteId=BJgPwCiuhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1198 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1198 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=BJgPwCiuhQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper describes a new form of one-class/set beloning learning, based on definition of 4 player game:
+- Classifier player (c), which is a typical one-class classifier model
+- Comparator player (h), which given two instances answers if first is "not smaller" (wrt. set belonging) than the other
+- Classifier adversary player (Gc), which tries to produce hard to distinguish samples for (c)
+- Comparator adversary player (Gh), which tries to produce hard to classify samples for (h)
+This way authors end up with cooperative-competitive game, where c and h act cooperatively to solve the problem, while Gc and Gh constantly try to "beat" them. 
+
+Overall I find this paper to be interesting and worth presenting, however I strongly encourage authors to rethink the way story is presented so that it is more approachable by people who do not have much experience with viewing typical classification problems as games. In particular, one could completely avoid talking about "sets of local maxima" and just talk about the density estimation problem, with c being characteristic function (of belonging to the support) and h being comparator of the pdf.
+
+Strong points:
+- Novel, multi-agent in nature, approach to one-class classification
+- Proposed method build a complex system, which can be used in much wider class of problems than just classification (due to joint optimisation of classifier and comparator)
+- Extensive evaluation on 4 problems
+- Nice ablation study showing that most of the benefits come from pure c/Gc game (on average 68.8% acc vs 65.2% of just c, and 69.8% of entire system) but that h/Gh players do indeed still improve (an extra 1%). It might be interesting to investigate what exactly changed in c due to existance of h in training. Are there any identifiable properties of the model that can now be analysed?
+
+Weak points:
+In general I believe that theoretical analysis is the weakest part of the paper, and while interesting - it is actually a minor point, and shows interesting properties, but not the ones that would guarantee anything in "practical setup". I would suggest "downplaying" this part of the paper, maybe moving most of it to the appendix. 
+To be more specific:
+- Theorem 1 shows that representation can be more compact, however existance of compactness does not rely imply that this particular solution can ever be learned or that it is a good thing (number of parameters is not correlated with generalisation capabilities of the model).
+- Lemma 1 seems a bit redundant for the story. While it is nice to be able to show generalisation bounds in general, this paper is not really introducing new class of models (since in the end c is going to be used for actual classification), but rather training regime, and generalisations bounds do not tell us anything about the emerging dynamical system. The fact that adding v does not constrain c too much seems quite obvious, and as a result I would suggest moving this section to appendix.
+Instead, if possible, the actual tricky mathematical bit for methods like this would be, in reviewers opinion, any analysis of learning dynamics of the system like this. Multi-agent systems cannot be optimised with independent gradient descent in general (convergence guarantees are lost). Consequently many papers focus on methods that bring these properties back (e.g. Consensus Optimisation or Symplectic Gradient Ascent). It would be beneficial for the reader to spend some time discussing stability of the system proposed, even if only empirically and on small problems.
+
+Other remarks:
+- eq. (1) is missing \cdot
+- it could be useful to include explicit parameters dependences in (1) and (2) so that one sees how losses really define asymmetric game between the players
+- why do we need 4 players and not just 3, with Gc and Gh being a single player/neural network? can we consider this as another ablation?
+- given small performance gaps in Table 1 can we get error estimates/confidence intervals there? Deep SVDD paper includes error estimates of the baseline methods
+- since training is performed in mini batch (it does not have to be decomposible over samples) shouldn't equations be based on expectations rather than sums?
+
+- </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryxp2idFpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for your support and the insightful comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1lqZhRcFm&amp;noteId=ryxp2idFpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1198 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1198 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you very much for the supportive and very detailed review.
+
+You suggest to reposition the paper as a density estimation problem. After much consideration we decided that a more conservative approach, in which we leave the current presentation and add the new viewpoint, would serve us better at this point. Your exciting perspective is now added to the introduction and we already received a positive feedback on it from AnonReviewer3. 
+
+Following your suggestion, we have moved the theoretical part to the appendix. One small remark -- going forward, and applying the dual model beyond unsupervised learning, we expect h to become more dominant than c. For example, we are exploring an event detection model where the events occur at the local maxima of h, in regions that are defined by c. 
+
+Reviewer: Multi-agent systems cannot be optimized with independent gradient descent in general (convergence guarantees are lost). Consequently many papers focus on methods that bring these properties back (e.g. Consensus Optimization or Symplectic Gradient Ascent). It would be beneficial for the reader to spend some time discussing stability of the system proposed, even if only empirically and on small problems.
+
+
+Answer: Following the review, we became familiar with the field of convergence of multi-agent systems. Thank you for pointing us in this direction. Our method could benefit in the future from the increased stability and theoretical guarantees one can obtain with these emerging methods.
+
+As requested, we tried to evaluate this empirically. We took the example from [1] of a mixture of 16 Gaussians that are placed on a 4x4 grid and applied our method, as well as variations in which we trained only c or only h. Since our method is meant to model local maxima and not entire high-probability regions, we take a standard deviation that is ten times smaller than previous work. These results, which can be found in the latest revised version, indicate that when jointly training c and h, the former captures all the 16 modes, and h is also informative. When training each alone, training results with mode hopping.
+
+[1] D. Balduzzi, S. Racaniere, J. Martens, J. Foerster, K. Tuyls, and T. Graepel. The Mechanics of n-Player Differentiable Games. ICML, 2018.
+
+To the other comments:
+
+1. The \cdot was added to Eq. 1
+
+2. Trying to add the parameters dependencies in Eq. 1 and 2 resulted in a cumbersome formulation. We therefore choose address the dependencies with added text.  Please let us know if you still prefer that we separate the equations.
+
+3. A three player game is explored in two ways in the ablation of Tab.2: (i) In the lines that say “with G_c only” we use only G_c to generate negative points to both c and h and report results for both of these functions, and (ii) Same for “with G_h only”, where G_h was used to generate negative points to both networks. We altered the text to better reflect this.
+
+4. We have added standard deviations to Tab. 1, similarly to the paper from which the baselines were taken. The results reported were already averaged over multiple runs.
+
+5. Expectations rather than sums -- Following the suggestion, we have replaced the sum with averages. Writing the equations as expectations would require the addition of slightly more terminology and we wish to avoid this. Note that while SGD is indeed used, every step of Alg. 1 is over the entire samples of the training set (since the training sets are small). </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1xnM_vyAX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for revision</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1lqZhRcFm&amp;noteId=B1xnM_vyAX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1198 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1198 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for updating the paper and providing missing information. Wrt. point 2, I am  fine with current formulation. I find the empirical results of lack of mode hopping intriguing, and would strongly suggest taking a deeper look into this phenomenon in the future. For the time being, I am increasing the score to 8, as the paper presentation (and results) significantly improved, and I believe it is a really solid work.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_S1gaKy9P37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>hard to follow</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1lqZhRcFm&amp;noteId=S1gaKy9P37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1198 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 13 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1198 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=S1gaKy9P37" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The reviewer feels that the paper is hard to follow. The abstract is confusing enough and raises a number of questions.  The paper talks about `"local maxima" without defining an optimization problem. What is the optimization problem are we talking about? Is it a maximization problem or minimization problem? If we are dealing with a minimization problem, why do we care about maxima?
+
+The first several paragraphs did not make the problem of interest clearer. But at least the fourth paragraph starts talking about training networks (the reviewer guesses this "network" refers to neural network, not other types network (e.g., Bayesian network) arising in machine learning). This paragraph talks about random initialization for minimizing a loss function, does this mean we are considering a minimization problem's local maxima? In addition, random initialization-based neural network training algorithms like back propagation cannot guarantee giving local maxima or local minima of the problem of interest (which is the loss function for training). It is even not clear if a stationary point can be achieved. So if the method in this paper wishes to work with local maxima of an optimization problem, this may not be a proper example.
+
+The next paragraph brings out a notion of value function, which is hard to follow what it is. A suggestion is to give a much more concrete example to enlighten the readers.
+
+The next two paragraphs seem to be very disconnected. It is not properly defined what is x and how to obtain it. If they are local maxima of a problem, please give us an example: what is the optimization problem, and why this is an interesting setup?
+
+Since the problem setup of this paper is very hard to decode, it is also very hard to appreciate why the papers in the "related work" section are really related.
+
+The motivation and intuition behind the formulations in (1) and (2) are hard to follow, perhaps because the goal and objective of the paper is unclear.
+
+Overall, there is no formal problem definition or statement, and the notions and terminologies in this paper are not properly defined or introduced. This makes evaluating this work very hard.
+
+
+========= after author feedback =======
+After discussing with the authors through OpenReview, the reviewer feels that a lot of things have been clarified. The paper is interesting in its setting, and seems to be useful in different applications.  The clarity can still be improved, but this might be more of a style matter.  The analysis part is a bit heavy and overwhelming and not very insightful at this moment. Overall, the reviewer appreciate the effort for improving the readability of the paper and would like to change the recommendation to ````   accept.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJe4X2ykpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>definitions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1lqZhRcFm&amp;noteId=BJe4X2ykpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1198 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1198 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">It is always the authors’ responsibility that the readers understand their work. To maximize the probability that our work would be well understood, we have collected feedback from quite a few readers. Yet it seems that there is still room for improvement. 
+
+While taking responsibility for this, we respectfully disagree with the claim of the reviewer that “there is no formal problem definition or statement, and the notions and terminologies in this paper are not properly defined or introduced.“  As can be seen, we define the problem we study multiple times: (i) it is defined clearly in the abstract (input, goal, which functions are learned, why, and how). (ii) it is defined again at the end of the introduction in the first three paragraphs of page 2. (iii) it is redefined again at the beginning of Sec. 3, since we were worried that some readers would skip the abstract and the introduction.
+
+Paragraphs 1-4 motivate our methods, by showing sample sets that arise in biology, man-made constructs, and weights of neural networks. The underlying value function in each case is explained: fitness or energetic efficiency in biology, an implicit value function in architecture (we mention a few possible factors), and an engineered loss in machine learning. 
+
+It seems that the reviewer was confused by the last example since it discusses machine learning. However, the paragraph merely describes a process that generates unsupervised samples that are the result of a local optimization process.  The implication is that similarly to the other examples, viewing the learned weights of each random initialization as points in a vector space, this set of vectors is a suitable input to our method. 
+
+It is emphasized in the abstract and then in the introduction that the value function is learned and that the local maxima are of that unlearned function. The paper starts with “[the] input is a set of unlabeled points that are assumed to be *local maxima of an unknown value function* in an unknown subset of the vector space”. 
+
+The reviewer states that we discuss local maxima without stating the optimization problem. However, the local maxima we consider are of a function we seek to learn, not of an optimization problem. The notion of local maxima is discussed in the abstract, as it is actually applied: we learn a function h that compares the value of two points and a local maxima is a point x such that every point x’ in the vicinity of x satisfies c(x’) = -1 or is deemed by h to be lower in value than x.
+
+The notion of local maxima is also clearly defined in the intro: “In addition, we also consider a value function v, and for every point x', such that ||x' −x|| &lt; eps, for a sufficiently small  eps &gt; 0, we have: v(x0) &lt; v(x)”. In practice, as mentioned early on in Sec. 3, and is well motivated by the ambiguity of v, we learn a comparator function h and not v.
+
+The reviewer says that “It is not properly defined what is x and how to obtain it”. The points x are the training samples and the definition of x is also given multiple times: 
+(1)  The abstract says “all training samples x”. 
+(2)  The introduction says that the points x are in the set S, which is defined as “Let S be the set of such samples from a space X”. The word “such” clearly refers in this context to unlabeled training samples. 
+(3) This is repeated one paragraph below, at the beginning of Sec. 2, “The input to our method is a set of unlabeled points.” 
+(4) As mentioned, we redefine x and the other concepts as soon as Sec. 3 starts, to make sure that all readers are aware of the setting. “Recall that S is the set of unlabeled training samples, and that we seek two functions c and v such that for all x \in S it holds that: (i) c(x) = 1, and (ii) x is a local maxima of v.” By “seek” we mean learn, but since it is not the first time this is stated in the paper (even the previous paragraph mentions that the value function is learned), we used a different word.
+
+The reviewer says that “The motivation and intuition behind the formulations in (1) and (2) are hard to follow, perhaps because the goal and objective of the paper is unclear. “. However, the terms of both equations are discussed one by one below them. These explanations are directly tied to the goals and objectives that appear earlier in the paper:
+(1) In the abstract: “Loss terms are used to ensure that all training samples x are a local maxima, according to h and satisfy c(x) = 1. Therefore, c and h provide training signals to each other: a point x’ in the vicinity of x satisfies c(x’) = −1 or is deemed by h to be lower in value than x. “
+(2) In the intro: “This structure leads to a co-training of v and c, such that every point x’ in the vicinity of x can be used either to apply the constraint v(x’) &lt; v(x) on v, or as a negative training sample for c. Which constraint to apply, depends on the other function: if c(x’) = 1, then the first constraint applies; if v(x’) &gt;= v(x), then x’ is a negative sample for c”.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJxVv2ykaX" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1lqZhRcFm&amp;noteId=HJxVv2ykaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper1198 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

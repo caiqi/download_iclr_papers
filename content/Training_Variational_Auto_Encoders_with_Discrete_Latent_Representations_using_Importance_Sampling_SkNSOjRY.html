@@ -1,0 +1,267 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Training Variational Auto Encoders with Discrete Latent Representations using Importance Sampling | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Training Variational Auto Encoders with Discrete Latent Representations using Importance Sampling" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SkNSOjR9Y7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Training Variational Auto Encoders with Discrete Latent..." />
+      <meta name="og:description" content="The Variational Auto Encoder (VAE) is a popular generative &#10;  latent variable model that is often &#10;  applied for representation learning.&#10;  Standard VAEs assume continuous valued &#10;  latent variables and..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SkNSOjR9Y7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Training Variational Auto Encoders with Discrete Latent Representations using Importance Sampling</a> <a class="note_content_pdf" href="/pdf?id=SkNSOjR9Y7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019training,    &#10;title={Training Variational Auto Encoders with Discrete Latent Representations using Importance Sampling},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SkNSOjR9Y7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">The Variational Auto Encoder (VAE) is a popular generative 
+latent variable model that is often 
+applied for representation learning.
+Standard VAEs assume continuous valued 
+latent variables and are trained by maximization
+of the evidence lower bound (ELBO). Conventional methods obtain a 
+differentiable estimate of the ELBO with reparametrized sampling and
+optimize it with Stochastic Gradient Descend (SGD). However, this is not possible if 
+we want to train VAEs with discrete valued latent variables, 
+since reparametrized sampling is not possible. Till now, there
+exist no simple solutions to circumvent this problem.
+In this paper, we propose an easy method to train VAEs 
+with binary or categorically valued latent representations. Therefore, we use a differentiable
+estimator for the ELBO which is based on importance sampling. In experiments, we verify the approach and
+train two different VAEs architectures with Bernoulli and 
+Categorically distributed latent representations on two different benchmark
+datasets.	</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Variational Auto Encoder, Importance Sampling, Discrete latent representation</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We propose an easy method to train Variational Auto Encoders (VAE) with discrete latent representations, using importance sampling</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BJxYsjJchQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A potentially nice idea that needs more thorough evaluation and discussion of related work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkNSOjR9Y7&amp;noteId=BJxYsjJchQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper354 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper354 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In computing the gradient of the ELBO, the main challenge lies in computing the gradient of the reconstruction loss with respect to the encoder parameters. VAEs traditionally rely on reparameterization in order to obtain a low-variance estimate, but there are a number of other gradient estimators that one can apply. The authors here proprose to use a trick that is known, but perhaps not widely known: If we introduce an importance sampling distribution, then we can use samples from this distribution to compute an importance-weighted estimate of the gradient. The idea is now that we can compute the gradient w.r.t. the encoder parameters as a simple importance-sampling estimate, which obviates then need for reparameterization, or likelihood-ratio estimators. The authors then apply this trick to train VAEs with discrete latent variables.
+
+While I think that the idea that the authors present in this paper is worth further exploration, the paper in its current form is not sufficiently mature to appear at ICLR. The two areas where this paper would benefit from improvement are
+
+1. Discussion of related work. 
+
+While the authors seem to suggest that there has been no work on VAEs with discrete latent variables, there has in fact been quite a lot of work, including work on VAEs that contain both discrete and continuous variables (e.g. [8-10], but I'm almost certainly missing further references). There has also been a large body of work on continuous relaxations of discrete variables that are amenable to reparameterization (e.g. [6-7], and references therein). There has also been a line of work relating importance sampling to variational objectives (see [1-3] as key references). Finally, there is also related work on reweighted-wake-sleep style objectives (see [4]) which similarly don't require reparameterization. From what I can tell, none of these references are cited or discussed as related work. In order to place this work in context, I would rewrite 2 to discuss approaches to gradient estimation in this space, which then makes it much easier to explain how this approach differs. 
+
+2. Empirical evaluation.
+
+The authors only evaluate on MNIST and F-MNIST, and don't compare to any existing approaches. More than a couple of reconstructions, what I would like to see is an analysis of gradient variances, asymptotic ELBO estimates. I would also like to see a larger set of problems. Finally I would like to see a clear comparison to other methods based on, e.g., continuous relaxations. 
+
+
+References
+
+[1] Y. Burda, R. Grosse, and R. Salakhutdinov, “Importance Weighted Autoencoders,” arXiv:1509.00519 [cs, stat], Sep. 2015.
+
+[2] T. Rainforth et al., “Tighter Variational Bounds are Not Necessarily Better,” arXiv:1802.04537 [cs, stat], Feb. 2018.
+
+[3] G. Tucker, D. Lawson, S. Gu, and C. J. Maddison, “Doubly Reparameterized Gradient Estimators for Monte Carlo Objectives,” arXiv:1810.04152 [cs, stat], Oct. 2018.
+
+[4] T. A. Le, A. R. Kosiorek, N. Siddharth, Y. W. Teh, and F. Wood, “Revisiting Reweighted Wake-Sleep,” arXiv:1805.10469 [cs, stat], May 2018.
+
+[5] A. Mnih and D. J. Rezende, “Variational inference for Monte Carlo objectives,” arXiv:1602.06725 [cs, stat], Feb. 2016.
+
+[6] G. Tucker, A. Mnih, C. J. Maddison, J. Lawson, and J. Sohl-Dickstein, “REBAR: Low-variance, unbiased gradient estimates for discrete latent variable models,” in Advances in Neural Information Processing Systems, 2017, pp. 2624–2633.
+
+[7] W. Grathwohl, D. Choi, Y. Wu, G. Roeder, and D. Duvenaud, “Backpropagation through the Void: Optimizing control variates for black-box gradient estimation,” arXiv preprint arXiv:1711.00123, 2017.
+
+[8] J. T. Rolfe, “Discrete Variational Autoencoders,” arXiv:1609.02200 [cs, stat], Sep. 2016.
+
+[9] E. Dupont, “Learning Disentangled Joint Continuous and Discrete Representations,” arXiv:1804.00104 [cs, stat], Mar. 2018.
+
+[10] B. Esmaeili et al., “Structured Disentangled Representations,” arXiv:1804.02086 [cs, stat], Apr. 2018.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SkxYMKKu2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>It is a simple and trivial  extension of VAE with important sampling</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkNSOjR9Y7&amp;noteId=SkxYMKKu2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper354 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper354 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper propose to use important sampling to optimize VAE with discrete latent variables. Basically, the methods proposed by this paper is rather simple and trivial. There are some discussions on why important sampling is not a good choice for VAE. Please refer: <a href="https://stats.stackexchange.com/q/255756" target="_blank" rel="nofollow">https://stats.stackexchange.com/q/255756</a>
+
+Moreover, if you focus on VAE with discrete latent variable, you should compare at least with Gumbel-Softmax: https://arxiv.org/abs/1611.01144
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">1: Trivial or wrong</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ryejpQThsX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Rederivation of REINFORCE Estimator</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkNSOjR9Y7&amp;noteId=ryejpQThsX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper354 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">23 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper354 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary:
+This paper proposes training VAEs with discrete latent variables by importance sampling the expected log likelihood (ELL) term in the ELBO, which is the problematic term since it is not amenable to reparametrization gradients.  For the importance sampling distribution, they choose the variational distribution itself, making the ELL gradient E[(d q(z|x) / d \theta) \log p(x|z) / q(z|x)].  Experiments are reported for MNIST and Fashion-MNIST using Bernoulli and categorical latent variables.
+
+Critique:
+The gradient estimator the paper proposes is the REINFORCE estimator [Williams, ML 1992] re-derived through importance sampling.  The equivalence can be seen just by expanding the derivative of log q in REINFORCE: E[log p(x|z) d log q(z|x)] = E[ (log p(x|z) / q(z|x)) d q(z|x) ], which is the exact estimator the paper proposes.  REINFORCE has been previously used for variational inference [Paisley et al., ICML 2012; Ranganath et al, AISTATS 2014] and deep generative models [Mnih &amp; Gregor; ICML 2014] and recently extended for various control variates [Tucker et al., NIPS 2017].   The equivalence would not be exact if the authors chose the importance distribution to be different than the variational approximation q(z|x), so there still may be room for novelty in their proposal, but in the current draft only q(z|x) is considered.  
+
+Conclusion: Due to lack of novelty, I recommend rejection.
+
+
+Miscellaneous points:
+“...there exist no simple solutions to circumvent this problem.”  The Gumbel-softmax trick is fairly simple (although an approximation) [Jang et al., ICLR 2017; Maddison et al., ICLR 2017]. 
+
+“...after training q(z|x) is a very good approximation to the true posterior p(z|x).”  That’s not necessarily true.  
+
+Equation #2 should be just equal to Equation #1.
+
+“Kingma &amp; Welling (2013) proposed to minimize L(\theta) using stochastic gradient descent on a training set...”. First uses of stochastic gradient for VI were [Sato, NC 2001; Platt et al., NIPS 2008; Hoffman et al., JMLR 2013].  Kingma &amp; Welling [ICLR  2014] were the first to introduce reparameterized stochastic gradients.
+
+Before Equation #11, the reference to Equation #4 should be to Equation #5.
+
+“...the weighting...depends only on \theta_D and not on \theta_E” (p 4). D and E should be switched.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

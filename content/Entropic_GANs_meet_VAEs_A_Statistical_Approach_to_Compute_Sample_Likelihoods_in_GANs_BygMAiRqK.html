@@ -1,0 +1,269 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Entropic GANs meet VAEs: A Statistical Approach to Compute Sample Likelihoods in GANs | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Entropic GANs meet VAEs: A Statistical Approach to Compute Sample Likelihoods in GANs" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BygMAiRqK7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Entropic GANs meet VAEs: A Statistical Approach to Compute Sample..." />
+      <meta name="og:description" content="Building on the success of deep learning, two modern approaches to learn a probability model of the observed data are Generative Adversarial Networks (GANs) and Variational AutoEncoders (VAEs)...." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BygMAiRqK7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Entropic GANs meet VAEs: A Statistical Approach to Compute Sample Likelihoods in GANs</a> <a class="note_content_pdf" href="/pdf?id=BygMAiRqK7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 13 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019entropic,    &#10;title={Entropic GANs meet VAEs: A Statistical Approach to Compute Sample Likelihoods in GANs},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BygMAiRqK7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=BygMAiRqK7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Building on the success of deep learning, two modern approaches to learn a probability model of the observed data are Generative Adversarial Networks (GANs) and Variational AutoEncoders (VAEs). VAEs consider an explicit probability model for the data and compute a generative distribution by maximizing a variational lower-bound on the log-likelihood function. GANs, however, compute a generative model by minimizing a distance between observed and generated probability distributions without considering an explicit model for the observed data. The lack of having explicit probability models in GANs prohibits computation of sample likelihoods in their frameworks and limits their use in statistical inference problems. In this work, we show that an optimal transport GAN with the entropy regularization can be viewed as a generative model that maximizes a lower-bound on average sample likelihoods, an approach that VAEs are based on. In particular, our proof constructs an explicit probability model for GANs that can be used to compute likelihood statistics within GAN's framework. Our numerical results on several datasets demonstrate consistent trends with the proposed theory. </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">GAN, VAE, likelihood estimation, statistical inference</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">A statistical approach to compute sample likelihoods in Generative Adversarial Networks</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SJeUt8H62X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting connection, but lacks clarity</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BygMAiRqK7&amp;noteId=SJeUt8H62X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper873 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper873 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary
+The authors notice that entropy regularized optimal transport produce an upper bound of a certain model likelihood. Then, the authors claim it is possible to leverage that upper bound to come up with a measure of 'sample likelihood', the probability of a certain sample under the model.
+
+Evaluation
+The idea is certainly interesting and novel, as it allows to bridge two distinct worlds (VAE and GANs). However, I am concerned about the message (or lack of thereof) that is conveyed in the paper. Particularly, the following two points makes me be reluctant to recommend an acceptance:
+
+1)There is no measure on the tightness of the lower bound. How can we tell if this bound isnt tight? All results are dependent on the bound being close to the true value. No comments about this are given.
+2)The sample likelihoods are dependent on a certain "model". Here the nomenclature is confusing because I thought GANS were a probabilistic model, but now there is an additional model regarding a function f. How these two relate? What happens if I change f? to which extent the results depend on f?
+3)related to 2): the histograms in figure 2 are interesting, but they are not conclusive that the measure that is being proposed is a 'bona fide' sample likelihood.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJlPLdvdaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BygMAiRqK7&amp;noteId=SJlPLdvdaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper873 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper873 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the valuable comments. We have addressed them in the revised version of the paper. Below, we provide point to point responses to the comments:
+
+(1)	Tightness of the entropic GAN lower bound: in Theorem 1, we showed that the Entropic GAN objective provides a lower-bound on the average sample log-likelihoods. This result is in the same flavor of variational lower bounds used in VAEs, thus providing a principled connection between GANs and VAEs. One drawback of VAEs (which has been echoed in reviewer’s comment 1) is about the lack of the tightness analysis of the employed variational lower bound. 
+To address this comment, we have empirically analyzed the tightness of the entropic GAN lower bound for some simple generative models. We have explained our results in detail in a new Appendix Section (Appendix B) which includes a table (Table 1) and a figure (Figure 4). Briefly, our result in Corollary 2 indicates that the approximation gap can be quantified as the KL divergence between P_{X|Y=\by} (the latent variable distribution resulted from the entropic GAN optimization) and f_{X|Y=\by} (the latent variable distribution according to the true model of the data). We evaluate this approximation gap for a linear generative model and a quadratic loss function. Our empirical results show that the approximation gap is orders of magnitudes smaller than the log-likelihood values (see Table 1 and Figure 4). This approach can potentially be used in the tightness analysis of VAEs as well.
+
+(2)	Thank you for your comment. Let us explain our result and the data model a bit further. A classical approach to compute a generative model using some observed samples is to consider a parametric family of density functions (referred to as f(.), the data model) and optimize its parameters using maximum likelihood. VAEs are approximations of this approach. GANs, however, seemingly do not take this traditional approach to the generative problem. GANs compute a generative distribution $G^*(X)$ that minimizes a distance (such as the optimal transport distance) to the observed distribution. However, GANs do not make any density assignments to the points outside of the range of G^* and that is the key issue because after training a GAN, if we observe a new point y^{test}, it is very likely that this point does not lie exactly on the range of G^*. Thus, GANs are unable to assign a reasonable probability to this point. Intuitively, we can imagine that if this point is ‘close’ to G^*(X), it is more likely to be generated from this model. Our result provides a theoretically justified way to define what we mean by being ‘close’ to G^*.
+
+Our key idea is to consider an explicit model for the data in GAN’s framework so that we can compute sample likelihoods. Similar to VAEs, f(.) in our model is the underlying data distribution. We assume that the data is generated as per Eq. 2.4 using a ground truth (and unknown) function G. This is a reasonable model for the data since G can be a complex function. By training the entropic GAN, we essentially estimate this function using the generator network of GANs. We have added further explanations about this to the introduction of the paper.
+
+(3)	The histograms are plotted using the likelihood estimator presented in Corollary 2. As mentioned in Corollary 2, the proposed estimator of sample likelihood approaches true likelihoods when the KL divergence term approaches 0. The newly included Appendix B section presents empirical evidence that the approximation error is orders of magnitude smaller than the likelihood values for linear models. Also, in the real image datasets where computing true likelihoods are difficult, our proposed estimator exhibits sensible trends indicating that the proposed estimator is a good estimator of sample likelihoods.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HygcBfTO2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea, but need more polishing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BygMAiRqK7&amp;noteId=HygcBfTO2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper873 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper873 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+1. The assumption made by the authors that "generator is injective" is problematic or even wrong, as it is well known that GAN suffers from mode collapsing problem. 
+
+2. It is very confusing when the authors mentioned the negative Shannon entropy. Because the equation the authors wrote is the Shannon entropy, not the negative version.
+
+3. In the 5th paragraph in the  introduction section, the paper (Cuturi, 2013) has nothing to do with "improve computational aspect of GAN", maybe the authors want to cite this paper "Learning Generative Models with Sinkhorn Divergences".
+
+4. The authors failed to discuss their paper with "ON THE QUANTITATIVE ANALYSIS OF DECODERBASED GENERATIVE MODELS", which uses AIS to estimate the likelihood.
+
+Suggestion:
+1. Please use \cdot instead of , i.e. F(\cdot) instead of F(.)
+2. Typo: in Appendix ?? and ??, in section 4</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1esAdwu6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BygMAiRqK7&amp;noteId=H1esAdwu6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper873 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper873 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the valuable comments. We have addressed them in the revised version of the paper. Below, we provide point to point responses to the comments:
+
+(1)	Thank you for this comment. We agree that having an injective G was a strong assumption. Fortunately, we do not need this assumption at all. In the revised version of the paper, we show that our results hold without this assumption. In order to do this, we use the data-processing inequality from Information Theory which indicates that for a random variable X, the entropy of G(X) is always less or equal to the entropy of X. For more details, please see equation A.5 and Section 4 in the revised paper. 
+ 
+(2)	You are right about the definition of the Shannon entropy. What we meant in that phrase was that the strongly-convex regularization term is the negative Shannon entropy, i.e. -H(P_{Y,\hY}) (because the Shannon entropy is a concave function and we need convexity in minimization). We have clarified this in the revised version of the paper.
+
+(3)	Thank you for pointing out this typo. We have updated the paper accordingly.
+
+(4)	Thank you for pointing out this relevant reference. We have added a discussion about it to the introduction of the revised version of the paper. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Hkleh_K_3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting attempt on theory of entropic GANs </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BygMAiRqK7&amp;noteId=Hkleh_K_3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper873 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper873 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The contribution of the paper is to show that WGAN with entropic regularization maximize a lower bound on the likelihood of the observed data distribution. While the WGAN formulation minimizes the Wasserstein distance of the transformed latent distribution and the empirical distribution which is already a nice measure of "progress", having a bound on the likelihood can be interesting.
+
+Pros:
++ I like the entropic GAN formulation and believe it is very interesting as it gives access to the joint distribution of latent and observed variables. 
++ While there are some doubtful statements, overall the paper is well written and easy to read.
+
+Cons:
+- The assumption of injectivity of the generator could be problematic, as it might not be fulfilled due to mode collapse.
+- I feel the theory is not very deep. Since one has a closed form of the transportation map (Eq. 3.7), the likelihood of the data is obtained by marginalizing out the latent space. However, this assumes that the inner dual maximization problem is solved to stationarity so that Eq 3.7 holds, which is not the case in practice (5 discriminator updates).
+- Thus in Sec. 4.1 for the likelihood at various points in training it is not clear what is actually happening.
+- Sec 4.3 for unregularized GANs might be problematic. In general, the transportation plan is not a density function, so I'm not certain whether Theorem 1 / Corollary 2 still hold. Furthermore, the heuristic for "inverting" G^* is very crude. 
+
+- There are also some minor problematic statements in the paper. While they can be easily fixed, they give me doubts:
+  * The original VAE paper is not cited in the introduction for VAEs
+  * The 2013 paper by Cuturi cited on page 2 has nothing to do with "computational aspects of GANs". It is about fast computation of approximate OT between two discrete prob. measures. 
+  * First-order / second-order Wasserstein distance is I think a bit unusual name for W_1, W_2
+  * On pg. 4, the point of the entropy term is to make the objective strongly convex. Strict convexity has no computational benefits.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SklzmcPOTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BygMAiRqK7&amp;noteId=SklzmcPOTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper873 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper873 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the valuable comments. We have addressed them in the revised version of the paper. Below, we provide point to point responses to the comments:
+
+Pros: 
+Thank you for these comments.
+
+Cons:
+(1) Assumption of injectivity: Thank you for this comment. We agree that having an injective G was a strong assumption. Fortunately, we do not need this assumption at all. In the revised version of the paper, we show that our results hold without this assumption. In order to do this, we use the data-processing inequality from Information Theory which indicates that for a random variable X, the entropy of G(X) is always less or equal to the entropy of X. For more details, please see equation A.5 and Section 4 in the revised paper.
+
+(2) Stationarity of inner dual problem: Thanks for the comments. First, the likelihood surrogate is computed using Corollary 2 which has three terms visualized in Fig. 1. Marginalizing the transportation map of Eq. 3.7 is a necessary step to compute the likelihood surrogate (this part corresponds to the encoder part in VAE formulations).
+
+We compute the surrogate likelihoods only after the generative model is trained. In our approach, Entropic GANs are trained using Algorithm 1 of (Sanjabi et al, NIPS 2018) (as mentioned in Appendix E). It has been shown in Theorem 4.2 of that paper that Algorithm 1 leads to a close approximation of stationary solutions of the Entropic GAN objective. We have added further explanations about this to the revised paper.
+
+(3) Likelihood computation at intermediate iterations: We thank the reviewer for pointing out that the stationarity assumption will not be satisfied at the intermediate iterations of training, and hence likelihood computations may not be accurate. To fix this, we re-ran the discriminator updates for 100 steps before computing the surrogate likelihoods at intermediate iterations. We obtained almost the same behavior in likelihoods. We have updated plots in the revised version of the paper and have added further explanations about this experiment.
+
+(4)	Unregularized GANs: Thank you for the comment. First note that the coupling P_X|y (i.e. the transportation map) is always a valid density function. Second note that our results in Theorem 1 and Corollary 2 hold for a general GAN formulation (not just the entropic GAN). However, for a general GAN, it may not be easy to compute P_X|y using GAN’s dual formulation. For the entropic GAN, eq 3.7 gives a closed form relationship between GAN’s dual solutions and P_X|y. For un-regularized GANs, in some special cases that we discuss in Appendix C, such a closed-form relationship exists (but not in general). In experiments of Section 4.3, we ‘approximate’ P_X|y with a delta function spiked on the closest latent sample generating y. The heuristic used in this section imitates eq 3.7 by taking into account both the likelihood of the latent variable as well as the distance between y and the model. In general, understanding the behavior of the optimal coupling P_X|y using GAN’s dual solutions is an interesting direction for the future work. 
+
+(5) Minor comments: Thank you for pointing out these typos. We have modified the paper accordingly. The names used for W_1 and W_2 (the first and second order Wasserstein distances) are common names used in the optimal transport literature. For example, see Villani’s book titled “Optimal transport: old and new”. However, we agree that in the machine learning literature, these names are less common. For example, WGAN (Wasserstein GAN) is in fact using the first-order Wasserstein distance in its formulation. We have added further explanations about these names to the revised version of the paper.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Nesterov's method is the discretization of a differential equation with Hessian damping | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Nesterov's method is the discretization of a differential equation with Hessian damping" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HJMINj05tQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Nesterov's method is the discretization of a differential equation..." />
+      <meta name="og:description" content="Su-Boyd-Candes (2014) made a connection between Nesterov's method and an ordinary differential equation (ODE).  We show if a Hessian damping term is added to the ODE from Su-Boyd-Candes (2014)..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HJMINj05tQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Nesterov's method is the discretization of a differential equation with Hessian damping</a> <a class="note_content_pdf" href="/pdf?id=HJMINj05tQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019nesterov's,    &#10;title={Nesterov's method is the discretization of a differential equation with Hessian damping},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HJMINj05tQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Su-Boyd-Candes (2014) made a connection between Nesterov's method and an ordinary differential equation (ODE).  We show if a Hessian damping term is added to the ODE from Su-Boyd-Candes (2014), then Nesterov's method arises as a straightforward discretization of the modified ODE. Analogously,  in the strongly convex case, a Hessian damping term is added to Polyak's ODE, which is then discretized to yield Nesterov's method for strongly convex functions.   Despite the Hessian term, both second order ODEs can be represented as first order systems.
+
+Established Liapunov analysis is used to recover the accelerated rates of convergence in both continuous and discrete time.  Moreover, the Liapunov analysis can be extended to the case of stochastic gradients which allows the full gradient case to be considered as a special case of the stochastic case.  The result is a unified approach to convex acceleration in both continuous and discrete time and in  both the stochastic and full gradient cases. 
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Nesterov's method, convex optimization, first-order methods, stochastic gradient descent, differential equations, Liapunov's method</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We derive Nesterov's method arises as a straightforward discretization of an ODE different from the one in Su-Boyd-Candes and prove acceleration the stochastic case</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">9 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BkgWpWiZCQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Submission Withdrawn by the Authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJMINj05tQ&amp;noteId=BkgWpWiZCQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper5 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper5 Withdraw Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Withdrawal confirmation: </span><span class="note_content_value">I have read and agree with the withdrawal statement on behalf of myself and my co-authors.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rkeAyyG02m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Misleading claims and unjustified assumptions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJMINj05tQ&amp;noteId=rkeAyyG02m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper5 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper5 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors proposed a family of ODEs and claim the ODEs’ straightforward discretization generates Nesterov’s AGD method. They also claim to prove convergence with discrete Lyapunov equations. The continuous ODE design seems interesting but it is not clear to me how it could be useful/insightful.
+
+One broken link in the paper's argument is that the discretized algorithms provided in the paper are not straight-forward discretization of the continuous ODEs. For example, at the top of page 4, the (FE-SC) algorithm is not a discretization of (1st-ODE-SC) because the usage of variable y as an interpolation between v and x. However, no discretization scheme would make such a choice. Hence, such discretization is not straightforward without back engineering from Nesterov’s method and do coefficient matching. Further, it’s not clear whether the continuous limit of the discretized algorithm corresponds to the original ODE. Same argument applies to all cases.
+
+Another problem is that the Lyapunov type of proof is not generalizable. In other word, it’s not easier to come up with them compared to known proof techniques (e.g. estimated sequence, Ashia’s Lyapunov paper, Gupta’s potential function approach). Consequently, the significance of proving a known theory in this particular way is not clear to me.
+
+Last, the stochastic algorithms proved in this paper assumes that the gradient noise go to zero. It might make sense to prove that gradient noise go to zero (by noise proporitional to sub optimality/distance to optimal etc) and use that as a lemma in proving main theorem. However, simply assuming noise go to zero basically means any convergent deterministic algorithm will converge.
+
+In summary, this paper has some interesting point, but I failed to understand the significance/impact provided by these claims.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1lLH1bcnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting approach but an important question about why acceleration occurs is missing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJMINj05tQ&amp;noteId=H1lLH1bcnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper5 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper5 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper introduces an ordinary differential equation (ODE) with a term involving the Hessian and shows that Nesterov's method can be derived from a direct discretization of the proposed ODE. The perspective of connecting Nesterov's method and ODE is not new, but to the best of my knowledge, this is the first work where Nesterov's method can be derived directly from the given ODE. 
+
+The proposed approach is interesting but I find the contribution a bit weak. A large part of the paper is devoted to deriving Nesterov's method from the proposed ODE, which is basically applying Euler method. However, the intuition behind the ODE is missing. In particular, it will be interesting to explain why acceleration is attained from discretizing the given ODE. 
+
+I agree that the acceleration is followed by the convergence analysis, but the convergence analysis in the paper is not new, which follows the standard proof of Nesterov's method using Lyapunov functions. The inexact version is not new neither, which can be viewed as a direct application of inexact accelerated gradient method in [1]. As a result, it will be important to discuss why the proposed framework intuitively provides acceleration, which is missing in the current version. 
+
+Overall, I find the approach interesting, but a large portion of the paper is spent to reformulate existing result in accelerated gradient descent literature instead of explaining why the proposed ODE helps understanding acceleration. 
+
+[1] M. Schmidt,  N. Roux, and F. Bach, Convergence rates of inexact proximal-gradient methods for convex optimization
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJgVlqFm27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A nice exposition, but without novel results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJMINj05tQ&amp;noteId=HJgVlqFm27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper5 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper5 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In convex optimisation, Su et al. (2014) made a connection between Nesterov’s acceleration and a particular ordinary differential equation (ODE). Subsequently 280+ papers used and extended the technique, including the present paper. The present paper, however, does not cite most of the recent related work; there are only two citations to papers from the past two years. For example, a dozen of papers by Lessard et al:
+<a href="https://dblp.uni-trier.de/pers/hd/l/Lessard:Laurent" target="_blank" rel="nofollow">https://dblp.uni-trier.de/pers/hd/l/Lessard:Laurent</a>
+are not cited at all. Similarly for the work of Recht et al, e.g.:
+https://arxiv.org/abs/1611.02635
+The work of Scieur et al:
+https://scholar.google.fr/citations?user=hNscQzgAAAAJ&amp;hl=fr
+is cited as a single pre-print, while the actual work encompasses two NIPS papers and some pre-prints. Assuming that the authors did not know about the related work is consistent with the fact that the authors reprove (very elegantly!) results of those papers (e.g. Lessard et al and Scieur et al for the acceleration, Recht et  al for the Polyak's method, etc). While I find the subject important, I like the writeup, and find the proofs elegant, I find it hard to justify acceptance. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BkgkYlj-cX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Question about (H-ODE)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJMINj05tQ&amp;noteId=BkgkYlj-cX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Yiping_Lu1" class="profile-link">Yiping Lu</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Oct 2018</span><span class="item">ICLR 2019 Conference Paper5 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I think (H-ODE) is just the modify equation (which is a famous concept in numerical ODE) for the step-size pap
+
+Why the modify equation is a good approximation? It's more complicated in the case using the modify equation(You should prove at given time, the error between ODE and its numerical scheme, again your ODE have a parameter of stepsize which will make the problem harder to analysis.) and I guess you need more assumptions on the objective function when you  using modify equation.[As an example, you ODE have Hessian and if you want to ODE have some regularity there must have some assumption on third order gradient.]  []</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1lnK4qzqX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Focus on the results in the stochastic case: this is new</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJMINj05tQ&amp;noteId=r1lnK4qzqX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper5 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Oct 2018</span><span class="item">ICLR 2019 Conference Paper5 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I was motivated writing this article by trying to understand why Nesterov's method works in the stochastic case.  The answer comes from studying the stability of the first order system, which converges at a faster rate
+
+the usual version of Nesterov's method which is applied in deep learning comes from Nesterov's algorithm in the strongly convex case.  It is applied in the stochastic case, to a nonconvex function, however, in practice, it still gives empirical acceleration, in the sense that it is faster than the usual SGD.
+
+We provide a direct proof that Nesterov's method in the stochastic case converges at an accelerated rate, with an interpretation coming from ODEs.
+
+We show that the first order system: (1st-ODE-SC) is discretized to give Nesterov's method.  This system has only gradients.   It is an interesting fact, that the system is equivalent to (H-ODE-SC) which has a Hessian damping term, because you can obtain a Hessian damping term using only first order derivatives.  But you don't need to study the second order ODE at all: the analysis is done for the 1st order system.
+
+What we do differently in the convex case from Su-Boyd-Candes, is that we discretize the 1st order system to get Nesterov.  (We also study the strongly convex case and the stochastic case). 
+
+Most readers may not be familiar with the concept of a "modified equation" which comes from numerical ODEs, <a href="https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations" target="_blank" rel="nofollow">https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations</a> and can be found in for example https://www.sciencedirect.com/science/article/pii/0021999174900114 
+
+I did not immediately see if our ODE is the modified equation for Nesterov's method.  If it is, it would be a more accurate ODE approximation of Nesterov's method.  However, what we do show, is that for a range of time steps, we have a discretization of the ODE - when you take the largest time step allowed then you get Nesterov's method, for both our ODEs and Su-Boyd-Candes'
+
+There is no need for higher order derivatives for the ODE system: there is extensive work by Attouch and coauthors which we cite, which shows that you can even consider non-smooth function, and the generelize the ODE to the infinite dimensional case. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HyxFMrt3YQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Something that can be clearer</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJMINj05tQ&amp;noteId=HyxFMrt3YQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Sep 2018</span><span class="item">ICLR 2019 Conference Paper5 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This is not a criticism. But could you explain a little bit about the following sentence "However Su et al. (2014) did not show that Nesterov’s method arises as a discretization of (A-ODE)"? I guess if you take d^2x/dt^2=x_{t+1}-2x_t+x_{t-1} and dx/dt=x_t-x_{t-1} you can discretize Nesterov as (A-ODE), and they do have Lyapunov analysis for both continuous and discrete systems. Here your interpretation (H-ODE) is also a legit discretization. And it might be clearer to readers if you can emphasize the advantage of (H-ODE) over (A-ODE). 
+
+BTW you have a typo in the name "Lyapunov".</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJlit8BWqm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We provide: (i) a first order ODE system which leads to Nesterov's method (ii) a proof of the rate for accelerated stochastic gradient descent using  a unified Liapunov approach</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJMINj05tQ&amp;noteId=rJlit8BWqm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper5 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Oct 2018</span><span class="item">ICLR 2019 Conference Paper5 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your comment.  
+
+Indeed, you are correct, Su et al (2014) did show that Nesterov's method arises as a discretization of (A-ODE).   What we do is show that it also arises as a discretization of a first order system,  (1st-ODE) on page 2.  Interestingly, this system is equivalent to (H-ODE) which has a second order Hessian term, and is a perturbation of (A-ODE).
+
+Our paper provides: (i) a new first order ODE system which can be discretized to obtain Nesterov's method.  We argue that the first order system is more natural,since Nesterov's method is written with as a system involving gradients (no second derivatives).
+
+(ii) a unified perspective on the Liapunov approach to proving convergence rates, in both the convex case as well as the strongly convex case, including a proof of the stochastic case.  In fact the accelerated full gradient case can be interpreted as a special case of the stochastic case.   Thus we provide a unified perspective on accelerated stochastic and (full) gradient descent.  In addition, our analysis provides a rate of decrease of the errors, which can be interpreted as a minibatch schedule for accelerated SGD.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ByxwsIs3KQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>"His surname is sometimes romanized as Ljapunov, Liapunov, Liapounoff or Ljapunow."</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJMINj05tQ&amp;noteId=ByxwsIs3KQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Sep 2018</span><span class="item">ICLR 2019 Conference Paper5 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">see wiki Aleksandr Lyapunov</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

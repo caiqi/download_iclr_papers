@@ -1,0 +1,353 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Learning a Meta-Solver for Syntax-Guided Program Synthesis | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Learning a Meta-Solver for Syntax-Guided Program Synthesis" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Syl8Sn0cK7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Learning a Meta-Solver for Syntax-Guided Program Synthesis" />
+      <meta name="og:description" content="We study a general formulation of program synthesis called syntax-guided synthesis(SyGuS) that concerns synthesizing a program that follows a given grammar and satisfies a given logical..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Syl8Sn0cK7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Learning a Meta-Solver for Syntax-Guided Program Synthesis</a> <a class="note_content_pdf" href="/pdf?id=Syl8Sn0cK7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019learning,    &#10;title={Learning a Meta-Solver for Syntax-Guided Program Synthesis},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=Syl8Sn0cK7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=Syl8Sn0cK7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We study a general formulation of program synthesis called syntax-guided synthesis(SyGuS) that concerns synthesizing a program that follows a given grammar and satisfies a given logical specification. Both the logical specification and the grammar have complex structures and can vary from task to task, posing significant challenges for learning across different tasks. Furthermore, training data is often unavailable for domain specific synthesis tasks. To address these challenges, we propose a meta-learning framework that learns a transferable policy from only weak supervision. Our framework consists of three components: 1) an encoder, which embeds both the logical specification and grammar at the same time using a graph neural network; 2) a grammar adaptive policy network which enables learning a transferable policy; and 3) a reinforcement learning algorithm that jointly trains the specification and grammar embedding and adaptive policy. We evaluate the framework on 214 cryptographic circuit synthesis tasks. It solves 141 of them in the out-of-box solver setting, significantly outperforming a similar search-based approach but without learning, which solves only 31. The result is comparable to two state-of-the-art classical synthesis engines, which solve 129 and 153 respectively. In the meta-solver setting, the framework can efficiently adapt to unseen tasks and achieves speedup ranging from 2x up to 100x.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Syntax-guided Synthesis, Context Free Grammar, Logical Specification, Representation Learning, Meta Learning, Reinforcement Learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We propose a meta-learning framework that learns a transferable policy from only weak supervision to solve synthesis tasks with different logical specifications and grammars.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_S1xZNmeeCX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Paper revision 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syl8Sn0cK7&amp;noteId=S1xZNmeeCX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1543 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1543 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We updated our paper with the following changes: 
+
+- We fixed typos in Figure-1, improved Figure-2 and updated sec tion3.2 to clarify confusions about the graph representation. 
+- We added an evaluation of EUSolver at the reviewers' suggestion in section 5.
+- We included a brief discussion about the recent DREAMCODER work in section 6.
+- We also fixed a few other minor typos.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rJlT6Ucq27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syl8Sn0cK7&amp;noteId=rJlT6Ucq27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1543 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1543 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a (meta-)solver for particular program synthesis problems, where the model has access to a (logic) specification of the program to be synthesized, and a grammar that can change from one task instance to another. The presented model is an RL-based model that jointly trains 1) the joint graph-based embedding of the specification and the grammar, and 2) a policy able to operate on different (from instance to instance) grammars. Interestingly, not only can the model operate as a stand-alone solver, but it can be run as a meta-solver - trained on a subset of tasks, and applied (with tuning) on a new task. Experiments show that the model outperforms two baselines (one being a (near-to-)SOTA model) in the stand-alone setting and that the model successfully transfers knowledge (considers fewer candidates) in the meta-solving mode.
+
+First, I enjoyed reading the paper. I think the problem is interesting, particularly due to the model being able to train and operate on various grammars (from task to task), and not on a single, pre-specified grammar. The additional bonus is that the problem the paper solves does not require program as supervision, but an external verifier.
+The evaluation shows that this approach not only makes sense but (significantly) outperforms, under same conditions, specialized program synthesis programs. However, there’s one issue here, and that’s what the comparison hasn’t been done to SOTA model but to a less performant model (see issues). 
+The particular approach of jointly training a specification+grammar graph embedding and learning a policy that acts on different grammars seems original and significant enough for publication.
+The paper is well (with a few kinks) written, and mostly clear. There are still some issues in the paper.
+
+Issues:
+- The dataset used is 210 cryptographic circuit synthesis tasks from SyGuS 2017. Why only this particular subset of all the tasks, and not the other tasks/categories (there is 569 of them in total, no)?
+- Alur et al mention 214 examples in the said tasks, yet the paper says 210. Why?
+- The SyGuS results paper <a href="https://arxiv.org/abs/1711.11438" target="_blank" rel="nofollow">https://arxiv.org/abs/1711.11438</a> mentions EUSolver as the SOTA model, solving 152 tasks (out of 214). Why didn’t you compare your model to EUSolver?
+- The same paper reports CVC4 solving 117 tasks (out of 214), as opposed to 129 (out of 210) reported in your paper. Could you comment on the (possible) differences in the experimentation protocol?
+- you mention global graph embedding, but you never describe how you calculate it
+- abstract mentions outperforming two SOTA engines, but later you say ESymbolic is a baseline (which it seems by description)
+
+Questions:
+- W for different edge types and different propagation steps t? Why is there a need for such a large number of parameters? What is the number of propagation steps?
+- In the extreme case where all inputs can be enumerated - how often does this happen in the tasks you solve?
+- figure 2 is not clear. There is too much information on one side (grammar) and too little on the other (what is the meaning of \tau^(t-1)?)? Is the tree on the right a generated subtree?
+- details of the state s are unclear - it is tracked by an LSTM? Is there a concrete training signal for s, or is it a part of the architecture and everything is end-to-end trainable from the final reward? The same for s0=MLP(h(G)) - is that also trained in the same way?
+- can you provide some intuition on why you chose that particular architecture (state-tracking LSTM,  s0 as such, instead of something simpler?)
+- can you provide details on the state value estimator MLP architecture, as well as the s0 MLP, and the state-tracking LSTM?
+- the probability of each action (..) is defined as ….H_\alpha^(i) - what does the i stand for? Was that supposed to be the t or \alpha_t was supposed to be \alpha_i?
+
+Minor stuff:
+- Figure 5a is referred to as Table 5a in the text
+- out-of-out-solver
+- global graph embedding, figure 1 - G(phi, G), figure 2 - h(G)
+- a figure of the policy architecture would be beneficial
+- Figure 1
+  - d_1 -&gt;X OR Y in the graph is d1T, why isn’t it d1_OR, and connected to the OR node?
+  - why isn’t d1_OR connected to OR node?
+  - AST edge - but grammar is a DAG - (well, multigraph)
+  - what are the reversed links? e.g. if A-&gt;B, reversed link is B-&gt;A ?
+  - what is the meaning of the concrete figures in ‘one step’?
+- consider relating to ‘DREAMCODER: Bootstrapping Domain-Specific Languages for Neurally-Guided Bayesian Program Learning’ (https://uclmr.github.io/nampi/extended_abstracts/ellis.pdf), as it’s another model that steps away from the fixed-DSL story</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJltos1eAQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syl8Sn0cK7&amp;noteId=SJltos1eAQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1543 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1543 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We appreciate your effort in providing detailed and helpful reviews. We address the concerns and questions as follows:
+
+&gt;&gt; Cryptographic circuit synthesis tasks should consist of 214 tasks.
+We ignored 4 tasks that contain integer arithmetic operations (e.g. +), because circuit should only have logical operators.  To avoid confusion, we have now updated it to 214.
+
+&gt;&gt; How about other categories in SyGus competition? 
+The other categories are not included in our evaluation due to two reasons. First, they have a very few number of tasks, most of which is around 30 or even fewer. Second, most tasks only have a few input/output example pairs, rather than a logical formal specification that is necessary for our approach to draw counterexamples.
+
+&gt;&gt; What is the setup difference from SyGus competition?
+The actual hardware and timeout limit are different. For each task, SyGus competition gives each solver 4-core 2.4GHz Intel processors with 128 GB memory and wallclock time limit of 1 hour. Our evaluation uses AMD Opteron 6220 processor, and assigns each solver a single core with 32 GB memory. We run each solver for 6 hours on each task. While our framework could take advantage of massively parallel hardware like GPUs, however, our evaluation does not use such hardware.
+
+&gt;&gt; Is ESymbolic a baseline? 
+ 
+ESymbolic is a reasonable baseline because both ESymbolic and our framework use a top-down search based approach. ESymbolic expands a partial program by enumerating grammar rules in a fixed order, relies on the validity check of partially generated program by leveraging 2QBF (Quantified Boolean Formula), and backtracks immediately when the check fails.  However, our framework prioritizes grammar rules in the partial tree expansion based on the learned policy. 
+
+&gt;&gt; Can you elaborate your choice for the state-of-the-art solver? EUSolver seems to the state-of-the-art. 
+In terms of comparison with the state-of-the-art, we chose CVC4 solver over EUSolver, because CVC4 is a general SMT solver, whereas EUSolver is designed as a collection of specialized heuristics (e.g. indistinguishability and unification) for each benchmark category of the SyGuS competition, and (to our best knowledge) its design and implementation are guided and heavily tuned according to the SyGuS benchmarks. Our framework is also a general solver without requiring specialized heuristics for each domain. The speciality of EUSolver motivated us to develop a more general solver as baseline, namely ESymbolic, by replacing domain-specific heuristics used in EUSolver with a more general heuristic (i.e. partial program pruning with QBF). 
+
+At the reviewer’s suggestion, we ran EUSolver with the same setup used in our evaluation. It solves 153 tasks (1 more task is solved in contrast with the SyGus 2017 report). These solved tasks are strictly a superset of those solved by CVC4 and ESymbolic. But EUSolver fails to solve 4 tasks solved by our framework. In terms of the absolute number of solved tasks, our framework is not yet as good as EUSolver, but it provides a new and complementary way to solve SyGuS tasks. We have incorporated this discussion in our revision.
+
+&gt;&gt; Can you describe how to calculate global graph embedding?
+Thanks for pointing this out. We simply sum over all the node embeddings to get the global graph embedding. We have clarified this in the revision.
+
+&gt;&gt; W for different edge types and different propagation steps t? Why is there a need for such a large number of parameters? What is the number of propagation steps?
+This is a general form of the Graph Neural Network. Since the #parameters is not the bottleneck in our task, we choose the most expressive parameterization. One could certainly choose to tie the weights in different layers. We use t=20 in all the experiments. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkgf_2Je0Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2 (continue)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syl8Sn0cK7&amp;noteId=rkgf_2Je0Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1543 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1543 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">&gt;&gt; In the extreme case where all inputs can be enumerated - how often does this happen in the tasks you solve?
+We randomly sample 100 inputs upfront for each task, which enumerates all inputs for 20 tasks with 6 (or less) variables, and a large fraction of inputs for 57 tasks with 7 variables. For the remaining tasks, we collect a new input (i.e. counter-example) and a few interpolated nearby inputs only when all current inputs have passed, which does not happen very often, and thus we do not end up enumerating all inputs for tasks with 8 or more variables.
+
+&gt;&gt; What is the meaning of \tau^(t-1) in figure-2? Is the tree on the right a generated subtree?
+\tau^(t-1) is the partially generated program (\tau^(0) is the start symbol), which may contain non-terminals. The tree on the right shows the best rule that is going to be used to expand a particular non-terminal according to the current policy. 
+
+&gt;&gt; Can you provide some intuition and details on state-tracking and state value estimator?
+We use LSTM to track states throughout each episode starting from s0. S0 here is an embedding vector obtained from the graph embedding module that encodes the entire original program. For each RL step, we perform the following: (1) get the current state from LSTM; (2) use the current state to generate action and modify program tree; (3) use the embedding of the action to update LSTM; repeat until episode ends. When training using A2C, the error will back-prop end-to-end through both LSTM and graph embedder. The intuition to use LSTM to track the state is that we want the policy to be aware of its current context, i.e. how much progress on the tree has been made so far and this is reflected by the action taken so far. The value estimator is standard MLP with 128 nonlinear hidden units and linear outputs that takes the current state and outputs the estimated state value, which is used in A2C training.
+
+
+&gt;&gt; the probability of each action (..) is defined as ….H_\alpha^(i) - what does the i stand for? Was that supposed to be the t or \alpha_t was supposed to be \alpha_i?
+t and i are two different notions. \alpha_t here stands for the non-terminal node to be expanded at timestep t. For non-terminal node \alpha_t,  there are n_{\alpha_t} possible ways to expand. 
+For example, consider expand non-terminal s (s -&gt; d1 OR d1 | d1 AND d1), then \alpha_t refers to s, and n_{\alpha_t} is 2. We define each of the expansions as the action and is associated with a embedding which is H_{\alpha_t}^{(i)}, so i here stands for the ith action among the n_{\alpha_t} possible ones.
+
+&gt;&gt; minor stuff 
+We apologize for certain unclear presentations and typos, which we have fixed in the revision. 
+For figure-1,   “d_1 -&gt; X OR Y”  is meant to be “d_1 -&gt; X | Y”. And yes, d1_OR should be connected to the global OR node. Each concrete sub-figure in “one step” shows a particular node sending/collecting messages to its neighbour nodes. Also, we will include DREAMCODER in our related work.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_HkgUk7O5hm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting technique for a challenging synthesis domain, but some details are not clear</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syl8Sn0cK7&amp;noteId=HkgUk7O5hm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1543 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1543 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a reinforcement learning based approach to learn a search strategy to search for programs in the generic syntax-guided synthesis (SyGuS) formulation. Unlike previous neural program synthesis approaches, where the DSL grammar is fixed or the specification is in the form of input-output examples only, the SyGuS formulation considers different grammars for different synthesis problems and the specification format is also more general. The main idea of the approach is to first learn a joint representation of the specification and grammar using a graph neural network model, and then train a policy using reinforcement learning to guide the search with a grammar adaptive policy network that is conditioned on the joint representation. Since the specifications considered here are richer logical expressions, it uses a SAT solver for checking the validity of the proposed solution and to also obtain counterexamples for future rewards. The technique is evaluated on 210 SyGuS benchmarks coming from the cryptographic circuit synthesis domain, and shows significant improvements in terms of number of instances solved compared to CVC4 and ESymbolic baseline search techniques from the formal methods community. Moreover, the learnt policy is also showed to generalize beyond the benchmarks on which it is trained and the meta-solver performs reasonably well compared to the per-task out-of-box solver.
+
+Overall, this paper tackles a more challenging synthesis problem than the ones typically considered in recent neural synthesis approaches. The previous synthesis approaches have mostly focused on learning programs in a fixed grammar (DSL) and with specifications that are typically based on either input-output examples or natural language descriptions. In the SyGuS formulation, each task has a different grammar and moreover, the specifications are much richer as they can be arbitrary logical expressions on program variables. The overall approach of using graph neural networks to learn a joint representation of grammars with the corresponding logical specifications, and then using reinforcement learning to learn a search policy over the grammar is quite interesting and novel. The empirical results on the cryptographic benchmarks compare favorably to state of the art CVC4 synthesis solver.
+
+However, there were some details in the model description and evaluation that were not very clear in the current presentation.
+
+First, the paper mentions that it uses the idea of Static Single Assignment (SSA) form for the graph representation. What is the SSA form of a grammar and of a specification? 
+
+It was also not very clear how the graphs are constructed from the grammar. For example, for the rule d1 -&gt; X OR Y | d2 OR d2 in Figure 1, are there two d_OR nodes or a single node d_OR shared by both the rules? Similarly, what is the d_T node in the figure? It would be good to have a formal description of the nodes and edges in the graph constructed from the spec and grammar.
+
+Since the embedding matrix H_d can be of variable size (different sizes of expansion rules), it wasn’t clear how the policy learns a conditional distribution over the variable number of actions. Is there some form of padding of the matrix and then masking being used?
+
+For the reward design, the choice of using additional examples in the set B_\phi was quite interesting. But there was no discussion about how the interpolation technique works to generate more examples around a counterexample. Can you provide some more details on how the interpolation is being performed? 
+
+Also, how many examples were typically used in the experiments? It might be interesting to explore whether different number of examples lead to different results. How does the learning perform in the absence of these examples with the simple binary 0/1 reward?
+
+From last year’s SyGuS competition, it seems that the EUSolver solves 152 problems from the set of 214 benchmarks (Table 4 in <a href="http://sygus.seas.upenn.edu/files/SyGuSComp2017.pdf)." target="_blank" rel="nofollow">http://sygus.seas.upenn.edu/files/SyGuSComp2017.pdf).</a> For the evaluation, is ESymbolic baseline solver different that the EUSolver? Would it be possible to evaluate the EUSolver on the same hardware and timeout to see how well it performs on the 210 benchmarks? 
+
+The current transfer results are only limited to the cryptographic benchmarks. Since SyGuS also has benchmarks in many other domains, would it be interesting to evaluate the policy transfer to some other non-cryptographic benchmark domain?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BygXD6yl0X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syl8Sn0cK7&amp;noteId=BygXD6yl0X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1543 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1543 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We appreciate your effort in providing detailed and helpful reviews. We address the concerns and questions as follows:
+
+&gt;&gt; Could you clarify the SSA form for graph representation?
+The graph representation is roughly inspired by the so-called static single assignment: though the same variable is assigned and used at many places, they can be distinguished by attaching a subscript at each place it is assigned. We view the same logical operator used in different grammar rules as slightly different ones, but they do have the same semantic meaning. So we create separate nodes for the same logical operator in different grammar rules, but also introduce a corresponding global node, which is intended to summarize its effects in different rules.  Given that SSA is simply an analogy rather than a formal notion for grammar and specification, we would like to give more intuitive names (e.g. global node and global link) for the current SSA node and SSA link in the graph representation.
+
+&gt;&gt; Typos in figure-1.
+Thanks for pointing this out, and we apologize for the typos in figure-1.  The rule d1 -&gt; X OR Y | d2 OR d2  is meant to be d1 -&gt; X | Y | d2 OR d2. In the case where two OR derivations are indeed given, there would be two d_OR nodes.  And, d_T is used to indicate that X and Y are terminals. 
+
+&gt;&gt; How the policy learns a conditional distribution over the variable number of actions. Is there some form of padding of the matrix and then masking being used?
+When choosing the action, we perform dot product between the state vector and each row of the H_{\alpha_t}, which yields a n_{\alpha_t}-dimensional vector, where n_{\alpha_t} is the number of possible expansions. Then we take the softmax over this vector, which gives the multinomial over actions. This is similar to an attention mechanism. Therefore, no additional parameter or padding is needed to handle the variable number of actions.
+
+&gt;&gt; How is the interpolation being performed? Also, how many examples were typically used in the experiments? It might be interesting to explore whether different number of examples lead to different results. How does the learning perform in the absence of these examples with the simple binary 0/1 reward?
+Interpolation is more straightforward in the domain where numerical values are involved. For the domain in our evaluation, which contains only Boolean values, by interpolation we mean randomly flipping the truth value of some variable of an example to get a new example. We view interpolation as an approximation to the exhaustive enumeration; reward obtained with more interpolated samples will certainly be more reliable than that obtained with less samples. One extreme case is to keep a single sample at a time, which is essentially the simple binary 0/1 reward. We ran the experiment as the reviewer suggested, and out-of-box solver with 0/1 reward can solve 122 tasks.  In terms of the number of examples, typically, 200 (or less) examples are used for each task.
+
+&gt;&gt; Can you please run EUSolver using your setup? 
+As suggested by the reviewer, we have run EUSolver with the same setup used in our evaluation. It solves 153 tasks (1 more task is solved in contrast with the SyGus 2017 report). These solved tasks are strictly a superset of tasks solved by CVC4 and ESymbolic. But EUSolver fails to solve 4 tasks solved by our framework. In terms of absolute number of solved tasks, our framework is not yet as good as EUSolver, but it provides a new and complementary way to SyGus tasks. We have incorporated this discussion in our revision.
+
+In terms of comparison with the state-of-the-art, we favored CVC4 solver rather than EUSolver, because CVC4 is a general SMT solver, while EUSolver is designed as a collection of specialized heuristics (e.g. indistinguishability and unification) for each benchmark category of SyGus competition, and (to our best knowledge) its design and implementation are guided and heavily tuned according to SyGus benchmarks. Our framework is also a general solver without requirement for specialized heuristics for each domain. The speciality of EUSolver motivates us to develop a more general solver as baseline, namely ESymbolic, by replacing domain-specific heuristics used in EUSolver with a more general heuristic (i.e. partial program pruning with QBF). 
+
+&gt;&gt; How about other categories in SyGus competition? 
+The other categories are not included in our evaluation due to two reasons. First, they have a very few number of tasks, most of which is around 30 or even less. Second, most tasks only have a few input/output example pairs, rather than a logical formal specification that is necessary for our approach to draw counterexamples.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HyeXDiav3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Generating (syntactic and functional) specification-satisfying programs via Reinforcement Learning</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syl8Sn0cK7&amp;noteId=HyeXDiav3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1543 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1543 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors design a program synthesizer that tries to satisfy per-instance specific syntactic and functional constraints,
+based on sampling trajectories from an RL agent that at each time-step expands a partial-program.
+
+The agent is trained with policy gradients with a reward shaped as the ratio of input/output examples that the synthesized program satisfies.
+
+With the 'out-of-box' evaluation, the authors show that their agent can explore more efficiently the harder problems than their non-learning alternatives even from scratch.
+(My intuition is that the agent learns to generate the most promising programs)
+It would be good to have a Monte Carlo Tree Search baseline on the'out-of-box' evaluation, to detect exploration exploitation trade-offs.
+
+The authors show with the 'meta-solver' approach that the agent can generalize to and also speed up unseen (albeit easy-ish in the authors words) instances.
+
+Clarity: Paper is clear and nicely written.
+
+Significance: Imagine a single program synthesizer that could generate C++/Java/Python/DSLs  programs and learn from all its successes and failures! This is a step towards that.
+
+Pros:
++ Generating spec-following programs for different grammars.
++ partial tree expansion takes care of syntactic constraints.
+Neutral
+· The grammar and specification diversity may be too low to feel impressive.
+· It would have been nicer by computing likelihood for unseen instances with unique and known solutions (that is, without finetuning).
+Cons:
+- No Tree Search baseline.
+- No results on programs with control flow/internal state.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hklw2Tke07" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syl8Sn0cK7&amp;noteId=Hklw2Tke07"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1543 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1543 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We appreciate your insightful review comments. We address the concerns and questions as follows:
+
+&gt;&gt; Have you considered any tree search baseline, for example, Monte-Carlo Tree Search? 
+
+In our evaluation, the ESymbolic baseline is a tree search method, except that it expands the nonterminals in a deterministic depth-first fashion and does pruning using constraint solving (e.g. 2QBF) along the way. For the proposed method, however, while the generated program that our model operates on indeed can be represented by a tree, the RL algorithm we use is essentially model-free, i.e. it is agnostic to the transition dynamics. We agree with the reviewer that this approach can be further improved with a model-based approach such as MCTS, since we can track the dynamics easily, and presumably yields better performance than the current purely model-free approach. On the other hand, as one of the main motivations of our work is to study how to cast the classical problem into a learning task, we have been focused on the comparison between learning and non-learning methods, instead of model-free and model-based methods. However, it would be definitely interesting to explore more on the model-based methods for program synthesis, and we leave this to our future work.
+
+&gt;&gt;  How about generalization without fine-tuning? 
+
+Indeed, it would be great to generalize to unseen programs even without fine-tuning, but in the meta-learning setting, it is typically very hard as it requires a lot of samples not only in the data space but also in the task space, for which we only have around 200 tasks. We did test the performance of the learner without fine-tuning, and, with no surprise, it turns out to perform worse than the out-of-the-box version.  
+
+On the other hand, this train-and-finetune fashion is becoming widely accepted by a number of recent works on meta-reinforcement-learning, for instance, “Recasting Gradient-Based Meta-Learning as Hierarchical Bayes”.
+
+&gt;&gt; Programs seems too low level and lacks of control flow/internal state, which are common features in general programming language like C, Java, Python, etc.
+
+This is a great suggestion for our future work. We believe learning programs from logical specifications in a general programming language is an important direction in artificial intelligence, and our work is a step towards this direction.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

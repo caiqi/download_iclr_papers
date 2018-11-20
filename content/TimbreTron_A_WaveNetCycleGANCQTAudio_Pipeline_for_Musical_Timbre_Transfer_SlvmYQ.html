@@ -1,0 +1,378 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>TimbreTron: A WaveNet(CycleGAN(CQT(Audio))) Pipeline for Musical Timbre Transfer | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="TimbreTron: A WaveNet(CycleGAN(CQT(Audio))) Pipeline for Musical Timbre Transfer" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=S1lvm305YQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="TimbreTron: A WaveNet(CycleGAN(CQT(Audio))) Pipeline for Musical..." />
+      <meta name="og:description" content="In this work, we address the problem of musical timbre transfer, where the goal is to manipulate the timbre of a sound sample from one instrument to match another instrument while preserving other..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_S1lvm305YQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>TimbreTron: A WaveNet(CycleGAN(CQT(Audio))) Pipeline for Musical Timbre Transfer</a> <a class="note_content_pdf" href="/pdf?id=S1lvm305YQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019timbretron:,    &#10;title={TimbreTron: A WaveNet(CycleGAN(CQT(Audio))) Pipeline for Musical Timbre Transfer},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=S1lvm305YQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=S1lvm305YQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">In this work, we address the problem of musical timbre transfer, where the goal is to manipulate the timbre of a sound sample from one instrument to match another instrument while preserving other musical content, such as pitch, rhythm, and loudness. In principle, one could apply image-based style transfer techniques to a time-frequency representation of an audio signal, but this depends on having a representation that allows independent manipulation of timbre as well as high-quality waveform generation. We introduce TimbreTron, a method for musical timbre transfer which applies “image” domain style transfer to a time-frequency representation of the audio signal, and then produces a high-quality waveform using a conditional WaveNet synthesizer. We show that the Constant Q Transform (CQT) representation is particularly well-suited to convolutional architectures due to its approximate pitch equivariance. Based on human perceptual evaluations, we confirmed that TimbreTron recognizably transferred the timbre while otherwise preserving the musical content, for both monophonic and polyphonic samples. We made an accompanying demo video here:<a href="https://youtu.be/2ypcAZRYZJg" target="_blank" rel="nofollow">https://youtu.be/2ypcAZRYZJg</a> which we strongly encourage you to watch before reading the paper.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Generative models, Timbre Transfer, Wavenet, CycleGAN</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We present the TimbreTron, a pipeline for perfoming high-quality timbre transfer on musicalwaveforms using CQT-domain style transfer.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">11 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Bkx0mGhxRX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>General updates to reviewers</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1lvm305YQ&amp;noteId=Bkx0mGhxRX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1370 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1370 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+1.	We included more samples that were generated by TimbreTron but without any beam search here: <a href="https://1drv.ms/f/s!ApC93lRyk9iagZ5M91jko9nSAiYMiA" target="_blank" rel="nofollow">https://1drv.ms/f/s!ApC93lRyk9iagZ5M91jko9nSAiYMiA</a>
+
+2.	We included samples reconstructed by WaveNet that were not transferred by CycleGAN in order to show that without phase information, our WaveNet can reconstruct waveform from CQT pretty well (i.e, WaveNet(CQT(source audio))). The samples can be found here:https://1drv.ms/f/s!ApC93lRyk9iagZ5NBNV_ERqOJFK_3w
+
+3.	We are in progress of making a project page so that all audio samples will be more organized in the camera-ready version.
+
+4.	We added the original user interface of our AMT experiments and they can be found here:https://1drv.ms/f/s!ApC93lRyk9iagZ0ndQIYdJBAqYDlDA
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1g0p_-ChX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>interesting idea, but weak experimental validation, and too much of combining black-boxes</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1lvm305YQ&amp;noteId=H1g0p_-ChX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1370 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1370 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a method for converting recordings of a specific musical instrument to another. The proposed approach is apply CycleGAN, which was developed for image style transfer, to transfer spectrograms. The synthesis is done using WaveNet.
+
+The paper is interesting in the core idea. It demonstrates that this combination of building blocks can indeed map recordings while achieving certain characteristics of the target instrument.
+
+The paper correctly describes "timbre" as a catch-all term for characterizing instruments besides pitch and volume. The success of the method should be judged along two dimensions, which are both very subjective:
+ - Does the method transfer "enough" of the target instrument's characteristics?
+ - Is the resulting audio quality sufficient?
+
+The paper is easy to follow for someone with background in signal processing. I believe it is sufficiently easy to follow for readers with general computer-science and machine-learning background.
+
+The paper focusses a lot on the choice of spectral representation. It compares short-term Fourier transform (STFT), which is the generic standard, and Constant-Q Transforms (CQT), a variant of STFT that uses a logarithmic frequency axis. To someone with signal-processing background, the choice of CQT seems logical and not something that would be challenged strongly as long as a simple comparison to STFT confirms that it works a bit better. I find the comparison between the two too dominant in the paper, and distracting from the other issues that I feel are more important (see below). For example, Section 6.2 states "We demonstrate that the aforementioned translation does indeed result in a perceivable pitch shift when fed to our conditional WaveNet." But that is trivial: Since changing the playback sample rate by a few half steps does not fundamentally alter the perceived timbre of an instrument, and such a change will, by construction of CQT, shift the CQT representation, and since the WaveNet has seen examples of the source instrument for all notes, shifting the CQT respresentation must necessarily result in a perceived pitch change in the re-synthesized wveform that does not fundamentally change its timbre. The real question here is whether the reconstructed signal is of the same quality as, for example, a simple PSOLA-based pitch change would be.
+
+A larger problem of the paper is that the result section seems to only test two instrument mappings, violin to flute, and piano to harpsichord. One notes that these instrument pairs mostly differ in spectral envelope, while they are rather similar in longer-term temporal variations, such as what is sometimes characterized as the ADSR curve (attack-decay-sustain-release) and vibrato. These, in my view, are very important aspects of a musical instrument's characteristics, which are not addressed by the paper. (Whether they are considered part of "timbre" is not clear, but without mapping these, one cannot meaningfully speak of mapping instruments, which is the end goal of this paper.)
+
+Another big problem in my view is that the audio quality is just not good. I hear a lot of musical-noise artifacts and local timbre modulations. Also it is not clear why the source material is of poor quality (sounds quite noisy, most likely in part due to mu-law 8-bit encoding, and they sound like 11 kHz recordings), for which there is no justification in 2018.
+
+Lastly, I am not happy with the "beam-search" approach. That approach is used to post-correct imperfections in the WaveNet synthesis. It samples multiple generation hypotheses, and re-weights hypotheses by how well they match the original CQT when converted back. The need for this indicates a fundamental flaw in the WaveNet synthesizer. The authors explicitly say they did not want to fix the WaveNet algorithm itself. In my view, this is what should have been done.
+
+The authors should focus much more on how to achieve sufficient WaveNet synthesis quality. This should be the main bulk of the paper, and would be a requirement for me to accept the paper.
+
+So overall, the paper feels a little too much of combining black boxes.
+
+In terms of significance, I would not think that this paper is getting near solving this problem, hence I rate it of less significance in the current state of results.
+
+Pros:
+ - interesting idea
+ - reasonable approach by combining existing building blocks
+
+Cons:
+ - too much focus on STFT vs. CQT
+ - too little focus on getting WaveNet synthesis right
+ - too limited experimental validation (too restricted choice of instruments)
+ - poor resulting audio quality
+ - feels too much of combining black boxes
+
+As a result I rate the paper "not good enough" in its current form.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Skx38gheCm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to R2. Thank you for your review, which allowed us to improve our work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1lvm305YQ&amp;noteId=Skx38gheCm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1370 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1370 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We would like to thank Reviewer2 for the insightful, high quality and clear review! It has allowed us to greatly improve our work and our paper. We hope the revised draft of the paper with the clarifications and improvements made below serve to increase your rating of our work.
+ 
+1.	In choosing a CQT rather than STFT representation, we agree that, devoid of any other context, such a choice might indeed not be contentious, especially from a signal processing perspective. But the context here is that we are not just using this for discrimination or analysis purposes, but optimizing reconstruction is also essential: since Griffin-Lim is not possible for CQT, then in this case, switching from STFT to CQT means that we need to fundamentally change the pipeline. Furthermore, STFT and Grifflin-Lim is still widely used in state of the art speech and music research, for example in Tacotron 2 by Shen et al.(2018) and Deep Voice 3 by Ping et al.(2018).  Hence, we needed to demonstrate that the improvement from CQT in this context is significant enough to justify the added complexity of the WaveNet synthesizer.
+
+2.	In advance of our experiments, it would certainly be a reasonable conjecture that the spectrogram-shifting trick would work for pitch shifting. But we don’t think this was so “obvious” as to not require experimental confirmation.
+
+3.	Thank you for suggesting the comparison of our pitch shifted samples with PSOLA-based pitch change. We did some PSOLA experiments for baseline to address your concern. The results can be found here: <a href="https://1drv.ms/f/s!ApC93lRyk9iagZ5pKpRLdBcdJ1xJbw" target="_blank" rel="nofollow">https://1drv.ms/f/s!ApC93lRyk9iagZ5pKpRLdBcdJ1xJbw</a> As you can see, PSOLA performs well on simple samples, like notes_shifted.wav However, it completely fails on more complicated monophonic samples. We think that’s due to the fact that for PSOLA to work well, fundamental frequency needs to be precisely detected, which itself is not a trivial task for a complex monophonic musical piece. We haven’t put this in the paper yet because we are not sure this is a proper baseline and we are still working on better baseline comparison, and will add the comparison on to paper later.  
+
+4.	We did in fact run more than two instrument pairs, and we encourage you to take a look at the example outputs we provided in the OneDrive folder, as well as our final demo video(https://www.youtube.com/watch?v=aT4D4mTITko). In the OneDrive folder Section 7 (which corresponds to the Section 7. Conclusion of the paper), we also included Violin to Flute and Piano to Violin in our original submission. (The main obstacle to reporting more instrument pairs was simply the computational cost of training additional CycleGANs; our computational resources were much more limited than some prominent groups publishing on deep learning for music.) The idea of this work is not to develop a commercial level product for artists, but rather we are only aiming at empirically verifying that our methodology is a practical approach to the problem of Timbre Transfer, a proof of concept. But we agree that the more instrument pairs the better, thus in this folder: https://1drv.ms/f/s!ApC93lRyk9iagZ5M91jko9nSAiYMiA, we also included some samples of Violin -&gt; Piano(Sample 19) and Harpsichord -&gt; Piano(Samples 16 and 18) and Piano -&gt; Flute(sample 17). The latter is a particularly interesting failure case where TimbreTron dreamed up all the “piano vibrato” from the long notes in the source flute sample.  We will gradually add more instruments and translation directions, including both successes and other failure cases as well.
+
+5.	Thank you for bringing up ADSR and vibrato. These are indeed interesting cases where it’s ambiguous what the “correct” mapping is. Because TimbreTron does not simulate the physics of the instruments, it sometimes transfers effects that would be impossible or unusual for the target instrument. We highlighted two such examples in our demo video: a crescendo on a sustained piano note, and a string ensemble pausing to breathe. In the context of TimbreTron, we consider these to be interesting artifacts. If one wants to build a commercial system to produce convincing instrument samples, one would want to somehow remove these artifacts. (On the other hand, they might be beneficial, insofar as they enable a broader range of expression in the target instrument, as was the case for our generated harpsichord for the Moonlight Sonata.) 
+
+(due to characters limit, more response will follow in the next post)
+...</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1x8JZ2lA7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Continued Response to R2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1lvm305YQ&amp;noteId=H1x8JZ2lA7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1370 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1370 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+...
+
+6.	For the poor audio quality in the source material, could you point us to some specific samples? We used 16kHz as our raw source audio and we chose that because even in 2018, the significant majority of audio-related ML research is done with 16 kHz audio, (For example, in recent research on audio superresolution, <a href="https://kuleshov.github.io/audio-super-res/" target="_blank" rel="nofollow">https://kuleshov.github.io/audio-super-res/</a> , the authors describe their 16kHz samples as their high-quality dataset) and perceptually it was clear enough to tell details of timbre. Furthermore, the focus of this research is to get timbre transferred correctly while preserving other musical content. Audio quality is part of musical content and is not within the problem we’re trying to solve. For example, we are not trying to do super resolution on audio, and I think it’s fair to say 16 kHz is the standard resolution, corresponding to the 256x256 resolution used in preprocessed ImageNet in CV research. So far we haven’t found any sample that’s 11kHz as you suggested, but we’ll make sure all source audio in the updated paper will be the standard 16kHz resolution. 
+
+7.	Due to potential copyright issue, we didn’t find enough samples in other instrument online that we are absolutely certain won’t have any copyright issue, so we recorded our own samples, thus didn’t have a lot of them. 
+
+8.	As for the beam search, we are aware that beam search should not be a key component on which the entire model relies in order to work (and if that were the case, then we agree that that would be problematic). However, the system does not rely on it: the improvement is only subtle and our results are still acceptable without it. As shown in the original paper, the AMT results we’ve shown are actually done without beam search. We only included it in the paper because it can still marginally improve the generated audio quality. We added some samples generated by TimbreTron without any beam search and they can be found here: https://1drv.ms/f/s!ApC93lRyk9iagZ5M91jko9nSAiYMiA
+
+9.	Due to the commercial success of WaveNet, well-resourced company labs are already working hard on improving it, and we look forward to being able to integrate such improvements into our pipeline. Hence, improving WaveNet itself wasn’t a major focus of our work. Instead, we gave two simple methods which adapted WaveNet to our task and pipeline -- beam search and reverse generation -- and we expect these tricks would apply equally well to future improved WaveNet-like models. We added some samples that were reconstructed by WaveNet from source audio with and without beam search and they can be found here: https://1drv.ms/f/s!ApC93lRyk9iagZ5NBNV_ERqOJFK_3w.  We are in progress of adding more detailed ablation study on the wavenet component that, hopefully, will show the impact of reverse generation, data augmentation and beam search. 
+
+10.	We are in progress of making a project page so that all audio samples can be more organized in the camera ready version.
+
+Again, we sincerely appreciate such a detailed and insightful critique of our work. Please let us know of any other changes that would improve our work. Thanks!
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_Skx4CYgj3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Timbre can be tranferred pretty well using a constant-Q transform for features, followed by a CycleGAN to do the transfer, followed by a Wavenet to resynthesize it to audio.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1lvm305YQ&amp;noteId=Skx4CYgj3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1370 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1370 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Main Idea: The authors use multiple techniques/tools to enable neural timbre transfer (converting music from one instrument to another, ex: violin to flute) without paired training examples. The authors are inspired by the success of CycleGANs for image style transfer, and by the success of Wavenet for generating realistic audio waveforms. Even without the CycleGAN, the use of CQT-&gt;WaveNet for time stretching and pitch shifting of a single piece is an interesting and valuable contribution.
+
+Methodology: Figure 1 captures the overall timbre-conversion methodology concisely. In general the details of the methodology look sound. The lengthy appendices offer additional implementation details, but without access to a source code repository, it is hard to say if the results are perfectly reproducible.
+
+Experiment and Results: Measuring the quality of generated audio is challenging.  To do so, subjective listening tests are conducted on Amazon mechanical turk, but without a comparison to a baseline system except for another performance of the target piece. Note that there are few published timbre-transfer methods (see Similar Work).
+
+One issue with the AMT survey is that the total number of workers is not reported, and as such the significance of the results can be questioned.
+
+Significance: In my mind, the paper offers validation of the three techniques used. CycleGANs, originally designed for images,  are shown to work for style transfers on audio spectrograms. Wavenet's claim to be a generic technique for audio generation is tested and validated for this domain (CQT spectrogram to audio). That CQT outperforms STFT on musical data seems to be a well established result already, but this offers further validation.
+
+This paper also offers practical advice for adapting the techniques/tools (Wavenet, CycleGAN, CQT) to the timbre-transfer task.
+
+
+Similar Work:
+
+I have only found 2 papers dedicated to timbre transfer in the field of Learning Representations.
+
+Bitton, Adrien, Philippe Esling, and Axel Chemla-Romeu-Santos. "Modulated Variational auto-Encoders for many-to-many musical timbre transfer." arXiv preprint arXiv:1810.00222 (2018).
+
+which was published on sept 29th 2018, so less than 30 days ago, which is fine according to the reviewer guidelines.
+
+
+Verma, Prateek, and Julius O. Smith. "Neural style transfer for audio spectograms." arXiv preprint arXiv:1801.01589 (2018).
+
+which is a short 2 page exploratory paper.
+
+ 
+It could be useful to cite:
+
+Shuqi Dai, Zheng Zhang, Gus G. Xia.  "Music Style Transfer: A Position Paper." arXiv preprint arXiv:1803.06841 (2018)
+
+
+Writing Quality
+
+Overall the paper is written well with clear sentences.
+
+Certain key information would be useful to move from the appendices to the main body of the paper.  This includes the number of AMT workers, the size of the CQT frame/hop over which they are summarized, and the set of instruments that are being used in the experiments.
+
+
+Some minor nitpicks: 
+
+section 6.3, sentence 2 needs to be reworked. ('After moving on to real world data, we noticed that real world data is harder to learn because compared to MIDI data it’s more irregular and more noisy, thus makes it a more challenging task.') 
+
+section 3.2 sub-section 'Reverse Generation', sentence 1 uses the word 'attacks' for the first time. Please explain this for those not familiar.
+
+section 3.1, sentence 3 has a typo, 'Thanks' is wrongly capitalized.
+
+table 1 (and other tables in appendix), 'Percentage' (top left) does not add anything to the table.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1eiwWnxRm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to R3. Thank you for your review, which allowed us to improve our work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1lvm305YQ&amp;noteId=H1eiwWnxRm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1370 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1370 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We would like to thank Reviewer3 for the helpful and high quality review! It has enabled us to add some missing information to our paper and improve the writing quality. 
+
+As for the repo, we are currently working on cleaning up the code and will release once we finish. As for the baseline comparison of our work, we did include a detailed ablation study comparing our final model with various baseline and “partial” models(subtracting a modification each time)
+
+Thanks for bringing up three papers that are related to ours. We indeed cited work by Verma. et al in our original paper. We now cite work done by Dai. et al and Bitton. et al in the updated paper. Thanks!  
+
+As for the detailed information on the number of AMT workers (30 workers per questionnaire, but number of questions per questionnaire varies, for example, we asked 8 question per worker for comparing STFT and CQT experiment, thus in total we have 240 data points. See more details in the paper), the size of the CQT frame/hop over which they are summarized(16ms frame hop (256 time steps under 16kHz)), and the set of instruments(Piano, Violin, Flute, Harpsichord) that are being used in the experiments, they are updated in the main body of the paper.
+
+Section 6.3, sentence 2 was reworked.
+
+Attack is now explained in section 3.2 as the onset characteristics of an instrument in which it reaches a large amplitude quickly.  
+
+Thanks for catching the “thanks” typo. It’s now fixed.
+
+Thanks for bringing up the percentage being meaningless, it’s now removed.  
+
+Again, thanks for your very constructive comments which allowed us to improve our paper! 
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1gf_Og53X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Compelling results on timbre transfer, backed up by human evaluation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1lvm305YQ&amp;noteId=r1gf_Og53X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1370 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1370 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary
+-------
+This paper describes a model for musical timbre transfer.
+The proposed method uses constant-Q transform magnitudes as the input representation, transfers between domains (timbres) by a CycleGAN-like architecture, and resynthesizes the generated CQT representation by a modified WaveNET-like decoder. The system is evaluated by human (mechanical turk) listening studies, and the results indicate that the proposed system is effective for pitch and tempo transfer, as well as timbre adaptation.
+
+
+High-level comments
+-------------------
+
+This paper is extremely well written, and the authors clearly have a great attention to detail in both the audio processing and machine learning domains.  Each of the modifications to prior work was well motivated, and the ablation study at the end, while briefly presented, provides a good sense of the contributions of each piece.
+
+I was unable to listen to the examples provided by the link in section 6, which requires a Microsoft OneDrive login to access.  However, the youtube link provided in the ICLR comments gave a reasonable sample of the results of the system.  Overall, the outputs sound compelling, and match my expectations given the reported results of the listening studies.
+
+On the quantitative side, it would have been nice to see a measurement of phase retrieval of the decoder component, which could be done in isolation from the transfer components by feeding in original CQT magnitudes.  This might help give a sense of how well the model can be expected to perform, particular as it breaks down along target timbres.  I would expect some timbres to be easier to model than others, and having a quantitative handle on that could help put the listener study in a bit more perspective.
+
+Detailed comments
+-----------------
+
+The paper contains numerous typos and grammatical quirks, e.g.:
+    - page 5: "GP can stable GAN training"
+    - page 7: "CQT is equivalent to pitch"
+
+
+The reverse-generation trick in section 3.2 was clever!
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJeIRWhgAX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to R1. Thank you for your review, which allowed us to improve our work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1lvm305YQ&amp;noteId=rJeIRWhgAX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1370 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1370 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for catching the typos! They are now fixed. GP means Gradient Penalty; sorry for not writing down the abbreviation in the first place, it is now fixed. 
+
+As for quantitative measurement of phase retrieval of the decoder component, we will include qualitative comparison of rainbowgram(which encodes phase information with color) of the source audio and the wavenet reconstruction (wavenet(CQT(source audio)) and you can find the samples here:<a href="https://1drv.ms/f/s!ApC93lRyk9iagZ5NBNV_ERqOJFK_3w." target="_blank" rel="nofollow">https://1drv.ms/f/s!ApC93lRyk9iagZ5NBNV_ERqOJFK_3w.</a> The reason why we don’t think in our particular case that quantitative measurement can provide much insight in this regard is because phase retrieval is neither the focus nor a sub-goal of our work: so if, for example, our system produces an output that's shifted by some number of time steps, it would be a perfectly good output, even though the phases are all completely wrong.  
+
+We apologize for the complexity of listening to samples via OneDrive… In testing it anonymously in advance, we did not have any of these errors, so we did not anticipate such a problem. We are glad you were able to access the youtube link, and we are in the progress of making a project page for our camera ready version, and by then it should be easier to go through all the samples.  
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJgsgqXK2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Demo Video</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1lvm305YQ&amp;noteId=SJgsgqXK2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1370 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1370 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We made a demo video for this work, and we strongly encourage you to watch it as it will give you a general and intuitive idea about this work. You can find it here:  <a href="https://youtu.be/2ypcAZRYZJg" target="_blank" rel="nofollow">https://youtu.be/2ypcAZRYZJg</a></span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HkgRLhKU97" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Some details of the system are missing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1lvm305YQ&amp;noteId=HkgRLhKU97"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Keunwoo_Choi1" class="profile-link">Keunwoo Choi</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1370 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the work. I'd expect more details of the system. For example, what's the kernel sizes and number of channels of the WaveNet? With only the number of layers and their dilation rates it's not possible to understand/reproduce the proposed system. Details of the discriminator should be provided as well.
+
+I'd also appreciate more details of the datasets, e.g. who are the composers, what kind of music it is (more than simply 'classical music'), etc. One important information would be if they are polyphonic. 
+
+Finally, the OneDrive link does not work at the moment. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HyeAAbiq57" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for the comment!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1lvm305YQ&amp;noteId=HyeAAbiq57"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1370 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1370 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi Keunwoo, thanks for the comment! 
+
+For WaveNet, we used kernel size of 3 for all the dilated convolution layers and the initial causal convolution. The residual connections and the skip connections all have width of 256 for all the residual blocks. The initial causal convolution maps from a channel size of 1 to 256. The dilated convolutions map from a channel size of 256 to 512 before going through the gated activation unit. In addition, we also added a constant shift to the spectrogram before feeding it into the WaveNet as the local conditioning signal; this shift of +2 was chosen to achieve a mean of approximately zero. These details will be updated in the paper.
+
+In terms of the discriminator, we adopted the original discriminator architecture from the original CycleGAN paper except that we ran it on the full signal rather than random patches, as was discussed in section 4. 
+
+The dataset we used for training both the CycleGAN and the wavenet consists of real world recordings that contain only a single timbre, collected from YouTube. We have not filtered the samples based on whether they are polyphonic or not - for instruments that support polyphony (such as piano and harpsichord), the majority of the recordings are polyphonic. You can see the full list of the recordings we used in our experiments here: 
+<a href="https://docs.google.com/document/d/1M0wiJoj4o3qEvLiYZw5dT9utHnyx4V_aMEN3P5OTVcs/edit?usp=sharing" target="_blank" rel="nofollow">https://docs.google.com/document/d/1M0wiJoj4o3qEvLiYZw5dT9utHnyx4V_aMEN3P5OTVcs/edit?usp=sharing</a>
+
+
+As for the OneDrive link, there seems to be an issue with the OpenReview redirection. However if you copy the link and paste it in your browser then it should work. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

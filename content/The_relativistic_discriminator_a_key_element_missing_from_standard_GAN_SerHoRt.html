@@ -1,0 +1,283 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title> The relativistic discriminator: a key element missing from standard GAN | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content=" The relativistic discriminator: a key element missing from standard GAN" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=S1erHoR5t7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content=" The relativistic discriminator: a key element missing from..." />
+      <meta name="og:description" content="In standard generative adversarial network (SGAN), the discriminator estimates the probability that the input data is real. The generator is trained to increase the probability that fake data is..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_S1erHoR5t7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a> The relativistic discriminator: a key element missing from standard GAN</a> <a class="note_content_pdf" href="/pdf?id=S1erHoR5t7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 14 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019,    &#10;title={ The relativistic discriminator: a key element missing from standard GAN},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=S1erHoR5t7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=S1erHoR5t7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">In standard generative adversarial network (SGAN), the discriminator estimates the probability that the input data is real. The generator is trained to increase the probability that fake data is real. We argue that it should also simultaneously decrease the probability that real data is real because 1) this would account for a priori knowledge that half of the data in the mini-batch is fake, 2) this would be observed with divergence minimization, and 3) in optimal settings, SGAN would be equivalent to integral probability metric (IPM) GANs. 
+
+We show that this property can be induced by using a relativistic discriminator which estimate the probability that the given real data is more realistic than a randomly sampled fake data. We also present a variant in which the discriminator estimate the probability that the given real data is more realistic than fake data, on average. We generalize both approaches to non-standard GAN loss functions and we refer to them respectively as Relativistic GANs (RGANs) and Relativistic average GANs (RaGANs). We show that IPM-based GANs are a subset of RGANs which use the identity function. 
+
+Empirically, we observe that 1) RGANs and RaGANs are significantly more stable and generate higher quality data samples than their non-relativistic counterparts, 2) Standard RaGAN with gradient penalty generate data of better quality than WGAN-GP while only requiring a single discriminator update per generator update (reducing the time taken for reaching the state-of-the-art by 400%), and 3) RaGANs are able to generate plausible high resolutions images (256x256) from a very small sample (N=2011), while GAN and LSGAN cannot; these images are of significantly better quality than the ones generated by WGAN-GP and SGAN with spectral normalization.</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Improving the quality and stability of GANs using a relativistic discriminator; IPM GANs (such as WGAN-GP) are a special case.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">AI, deep learning, generative models, GAN</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SkxVOxiLpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Does (average) relativistic really matters?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1erHoR5t7&amp;noteId=SkxVOxiLpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper87 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I was attracted by your works since you put your paper on Arxiv (and codes on github).
+One primary concern: although you presented quite a lot experiments around relativistic loss functions, it seems hard to prove that relativistic helps generally.
+
+As shown in Tab. 1, with the 1st hyper-parameters (which seems less stable than the 2nd ones), RSGAN+GP&gt;LSGAN&gt;RaLSGAN&gt;RaSGAN&gt;RSGAN&gt;RaHingeGAN&gt;SGAN&gt;HingeGAN&gt;WGAN+GP&gt;RaSGAN+GP, it only demonstrated that R/Ra sometimes work well but sometimes don't, and when to apply average to loss function is really a mystery.
+In a set of more stable hyper-parameters, you get a totally different order (where WGAN+GP is the best one).
+
+It seems R/Ra is very sensitive to hyper-parameters, hence in my reproducibility training of RGAN/RaGAN is very unstable and the results are worse than standard GAN(s).</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Bkl-U0WwT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Yes, "(average) relativistic really matters"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1erHoR5t7&amp;noteId=Bkl-U0WwT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper87 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper87 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This comment appears to be written in bad faith to influence negatively the reviewers. Even your title is a fake question suggesting that relativistic GANs are not useful. If it wasn't your intention, then this shows a lack of judgment, as you could have sent me (the first author) an email as everyone does. I will answer you, but only once.
+
+First, the results as you even show, point out that relativistic average variants are almost always better than their non-relativistic counterparts.
+
+Both sets of hyper-parameters are stable, set 1 is DCGAN hyper-parameters and it what most people use. What differentiate the second set of hyper-parameters is that it use 5 Discriminator update per generator update (n_d = 5). These settings are needed to make WGAN-GP perform properly. However, in practice, very few people use n_d = 5 because it would take forever to train. Considering researchers and AI engineers want to apply GANs to real-world hard problems in high dimensions, they cannot afford to wait 3 times longer (instead of 1 D update and 1 G update, we have 5 D updates and 1 G update; 3 times more) for the model to finish training and not even necessarily reach better results. This is why Self-attention GANs and BigGANs use Hinge loss with n_d = 1 or 2.
+
+You fail to mention that our approach reached better results than WGAN-GP while using only n_d = 1 (thus 3 times faster).
+
+The only scenario where we could not show better results when using relativistic GANs where in the challenging experiments with extremely unstable hyper-parameters (that no one uses in practice; see Appendix) in which Relativistic GANs didn't seem to perform better or worse on average.
+
+However, in very realistic and meaningful scenarios where one has high-resolution images and a small sample size (as companies generally do), Relativistic GANs perform amazingly well when non-relativistic GANs cannot even train past generating pure noise. Which is why we were told by many engineers and practitioners that without relativistic GANs, they could have been able to achieve their goals. See for example ESRGAN (<a href="https://github.com/xinntao/ESRGAN)" target="_blank" rel="nofollow">https://github.com/xinntao/ESRGAN)</a> which won a competition because of the use of Relativistic GANs. 
+
+This shows that yes, "(average) relativistic really matter".</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HyxBUhUonX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Tweak on the Standard GAN</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1erHoR5t7&amp;noteId=HyxBUhUonX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper87 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper87 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper describes an interesting tweak of the standard GAN model (inspired by IPM based GANs) where both the generator and the discriminator optimize relative realness (and fakeness) of the (real, fake) image pairs. The authors give some intuition for this tweak and ran experiments with CIFAR10 and CAT datasets. Different variants of the standard GAN and the new tweak were compared under the FID metric. The experimental setup and details are provided; and the code is made publicly available. 
+
+The results are good and their tweak seems to help in most of the cases. The paper, however, is not very well written and is not of publication quality.  All the insights given in Section 3 are wrong, incomplete and unsatisfying. For example, in Section 3.4, the authors suggest that gradient dynamics of the tweaked model (with some unrealistic and infeasible assumptions) is same as that of an IPM-GAN and contribute to stability. This is wrong. Similar dynamics (even under the unrealistic assumption), does not imply similar performance. In fact, if one is trying to move towards IPM dynamics, then one should try to tweak an IPM model directly. Section 3.2 also seems wrong from my understanding of GAN training. Section 3.3 could also be improved. In fact, any explanations based on minimizing JS divergence is incomplete without answering as to why JS divergence minimizing is the best thing to do. 
+
+The author should have provided more comparison images to rule out the fact that the tweak is not overfitting for the FID metric. The benchmarks are also weak and more experiments need to be done (Eg, CelebA). </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJxZFCitTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1erHoR5t7&amp;noteId=HJxZFCitTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper87 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper87 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Reviewer 1,
+
+Thank you for your comments. 
+
+We hope that this message will find you well. We really took the time to review all your comments and in doing so we significantly improved the paper. As you suggested, one aspect (the gradient argument) was relying on unrealistic assumptions (that G would be trained to optimality). We believe that we were able to make the paper of much higher quality so please consider this response in your assessment of the paper.
+
+You mention that the paper is “not well written” and a lot of your emphasis is on Section 3. To remedy your concerns, we spent a lot of time to rewrite parts of it in a way that is much clearer. Also, as suggested by Reviewer 3, we reviewed corrected spelling mistakes and removed contractions to make it less familiar.
+
+Note that we removed section 3.1 since it was not a real subsection.
+
+Regarding Section 3.2 (which is now section 3.1), we rewrote it because it was somewhat unclear after we removed so much text to fit the 8 pages limit.
+
+Regarding Section (3.3, which is now section 3.2), we clarified that JSD is not the only divergence where we see something like Figure 1a, this is true for most divergences. Thus, our explanation is not incomplete. See below:
+“Note that although specific to the JSD, similar dynamics are true for other divergences; when the divergence is maximal, D(x_r) and D(x_f) are very far from one another, but they converge to the same value as the divergence approach zero. Thus, this argument applies to other divergences.”
+
+Regarding Section (3.4, which is now section 3.3), we agree that one assumption was unrealistic. The problematic assumption was assuming that both D and G are trained to optimality. In practice, certain GANs (mostly IPM-based GANs) train D multiple times. However, no GANs to our knowledge train G multiple times since GANs do not converge when doing so. G can only take a small step at a time; otherwise, the generator will collapse early on. Note that Reviewer 3 suggested that we do some experiments regarding the gradient argument and we did (the full experiment described below is in Appendix E). We observed that we do not reach D(x_r)=0 using relativistic GANs when n_G = 1 (the number of generator update per critic’s updates). If using n_G = 2, it does sometimes happen that D(x_r)=0. Either way, we have that RSGAN significantly increase the proportion of low D(x_r) even if it rarely reaches 0. Thus, although we cannot make SGAN equivalent to IPM-based GANs, we can make them more similar. We rectify this in p4.
+
+To respond to your comments about IPMs, we seek to find a GAN with a similar dynamic to IPM-based GANs without actually using IPMs. We want this because IPM-based GANs have an important drawback: they tend to be very computationally demanding (not always, but more often than not). In the introduction, we now mention that IPM-based GANs tend to be longer to train. Thus, finding an approach with similar stability, but which requires less training time would be useful.
+The added paragraph is:
+" Note that although powerful, IPM-based GANs tend to more computationally demanding than other GANs. Certain IPM-based GANs use a gradient penalty (e.g. WGAN-GP, Sobolev GAN) which is very computationally costly and most IPM-based GANs need more than one discriminator update per generator update (WGAN-GP requires at least 5 \citep{WGAN-GP}). Assuming equal training time for D and G, every additional discriminator update increase training time by a significant 50\%.”
+
+We do provide more comparison images in the linked GitHub. However, the link (the footnote on p18) is hidden to retain anonymity for the review process. We transferred the GitHub to an anonymous version for the reviewers. Here are the full minibatch for the models generating 256x256 cats:
+<a href="https://github.com/anonymousconference/RGAN/tree/master/images/full_minibatch." target="_blank" rel="nofollow">https://github.com/anonymousconference/RGAN/tree/master/images/full_minibatch.</a>
+
+We would like to note that we ran additional stability analyses for CIFAR-10 in the appendix. We will consider doing using more benchmarks next time. We are very limited in our computing capability, thus we decided to only use CIFAR-10 and CAT. Next time, we will consider using CAT and CelebA instead.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryeqtnJonQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1erHoR5t7&amp;noteId=ryeqtnJonQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper87 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper87 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a “relativistic discriminator” which has the property that the probability of real data being real decreases as the probability of fake data being real increases. 
+
+The paper is very well-written. I particularly liked Section 3 which motivates the key idea through multiple viewpoints. The experiments show that the relativistic discriminator helps in some settings, although it does seem a bit sensitive to hyperparameters, architectures and datasets.
+
+I found the argument about connections to IPM-GANs a bit confusing. In a couple of places in Section 4, the relativistic loss is motivated by showing that the relativistic discriminator makes SGANs more like IPM-GANs. However, not all IPM-GANs are the same, e.g. the experiments show performance gaps between RSGAN, RaSGAN, and WGAN-GP, which suggests there could be other confounding factors. 
+
+Could you devise experiments on synthetic datasets where the different hypotheses in Section 3 might lead to different solutions? Would be very interesting to see which hypothesis best explains why relativistic discriminator helps!
+
+Section 4.3: How do you justify the averaging? While the relativistic GAN is well-explained, section 4.3 only briefly mentions the averaging idea. Given that averaging seems to help a lot in some of the experiments, it’d be great to see further discussion of why this helps.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJxS-DnO6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reviewer 2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1erHoR5t7&amp;noteId=BJxS-DnO6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper87 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper87 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Reviewer 2, 
+
+Thank you for your comments.
+
+We are in agreement about the fact that IPM-based GANs are different from Relativistic GANs. They are similar, but yet different enough that they are not of the same class. Although our paper mentioned the similarity, it did not mention the difference which could lead to readers thinking that IPM-Based GANs are a subset of Relativistic GANs (and we talked to people who thought this was the case after reading our paper). In section 4.2 p5, we now highlight better the differences and similarities:
+“If one use the identity function (i.e., f_1(y)=g_2(y)=-y, f_2(y)=g_1(y)=y), this results in a degenerate case since there is no supremum/maximum. However, if one adds a constraint so that C(x_r)-C(x_f) is bounded, then there is a supremum and one arrives at IPM-based GANs. Thus, although different, IPM-based GANs share a very similar loss function focused on the difference in critics.”
+
+As you suggested, we ran some additional experiments focused on testing the gradient argument (see Appendix E, p13-14). Although the gradient argument applies if we train G to optimality; in practice, we do not train G to optimality. Thus, we observed that RSGAN/RaSGAN are not equivalent to IPM-based GANs in real-world scenarios. However, they act in a way that is somewhere in-between the dynamics of SGAN and IPM-based GANs. In addition to Appendix E, we now also mention that training G to optimality is an unrealistic assumption in Section 3.3 p4.
+
+The main intuition that led to Relativistic average GANs was actually in our initial paper version, but it was removed due to space constraints (8 pages max). Given your comment, we decided to relay it to the Appendix rather than completely removing it; it is now in Appendix B p11-12. Additionally, we added the following sentence at the beginning of section 4.3 p5:
+“The discriminator has a very different interpretation in SGAN compared to RSGAN. In SGAN, D(x) estimates the probability that x is real, while in RGANs, D(x_r,x_f) estimates the probability that x_r is more realistic than x_f. As a middle ground, we developed an alternative to the Relativistic Discriminator, which retains approximately the same interpretation as the discriminator in SGAN while still being relativistic.”
+
+This explains why we created RaGANs, but it does not explain why they generally perform better than RGANs. We are still uncertain as to why RGANs perform less well than RaGANs, given that both approaches improve stability.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJxhZqNKn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>  Review: The relativistic Discriminator: A key element missing from standard GAN</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1erHoR5t7&amp;noteId=SJxhZqNKn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper87 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper87 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+In this work, the authors considers a variation of GAN by consider simultaneously decrease the probability that real data is real for the generator. To include such a property, the authors propose a relativistic discriminator which estimate the probability that the given real data is more realistic than the fake data. Numerical results are performed to show that the proposed methods are effective, and the resulting GANs are relatively more stable and generate higher quality data samples than their non-relativistic counterparts.
+
+Overall the paper is well written and the rationale behind the proposed modification is clear. In particular, the authors use three different perspective, (the prior knowledge, the divergence minimization, and the gradient expressions), to explain what they thought is missing in the state-of-the-art. By proposing to utilize the information about both real and fake data in the discriminator definition, the authors’ have (to some extent) alleviated the above shortcoming of the state-of-the-art.  Unfortunately, like almost all papers related to the field,  there has been no rigorously justification behind the proposed methods. 
+
+The English of the paper has to be significantly improved. For example, grammar errors like “this mean….”, “didn’t converge, …”
+
+Unfortunately, the codes of the paper is not released, I will encourage the authors to do so. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJej_y3d6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1erHoR5t7&amp;noteId=HJej_y3d6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper87 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper87 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Reviewer 3, 
+
+Thank you for your comments.
+
+We reviewed the paper to correct for spelling mistakes and to make it less familiar (by removing contractions). According to Reviewer 1 suggestions, we also revised Section 3 to improve the wording and explanations.
+
+The code has already been released through GitHub. To retain anonymity, we re-uploaded the GitHub repository without any information relating to the authors: <a href="https://github.com/anonymousconference/RGAN." target="_blank" rel="nofollow">https://github.com/anonymousconference/RGAN.</a>
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

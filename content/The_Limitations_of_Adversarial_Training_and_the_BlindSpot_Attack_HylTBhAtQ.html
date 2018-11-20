@@ -1,0 +1,285 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>The Limitations of Adversarial Training and the Blind-Spot Attack | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="The Limitations of Adversarial Training and the Blind-Spot Attack" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HylTBhA5tQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="The Limitations of Adversarial Training and the Blind-Spot Attack" />
+      <meta name="og:description" content="The adversarial training procedure proposed by Madry et. al. is one of the most effective methods to defend against adversarial examples on deep neuron networks (DNNs). Despite being very effective..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HylTBhA5tQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The Limitations of Adversarial Training and the Blind-Spot Attack</a> <a class="note_content_pdf" href="/pdf?id=HylTBhA5tQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019the,    &#10;title={The Limitations of Adversarial Training and the Blind-Spot Attack},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HylTBhA5tQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=HylTBhA5tQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">The adversarial training procedure proposed by Madry et. al. is one of the most effective methods to defend against adversarial examples on deep neuron networks (DNNs). Despite being very effective on MNIST, adversarial training on larger datasets like CIFAR and ImageNet achieves much worse results. In our paper, we shed some lights on the practicality and hardness of adversarial training by first showing that the effectiveness of adversarial training procedure on test set has a strong correlation with the distance between the test point and the manifold of training data. The test examples that are relatively far away from the distribution of training dataset are more likely to be vulnerable to adversarial examples. Consequentially, adversarial training based defense is susceptible to a new class of attacks (“blind-spot attack”) where the input image resides in a “blind-spot” in the empirical distribution of training data but is still on the ground-truth data manifold. For MNIST, we found that these blind-spots can be easily found by simply scaling and shifting image pixel values. Most importantly, for large datasets with high dimensional and complex data manifold (CIFAR, ImageNet, etc), the existence of blind-spots in adversarial training makes the defense on any valid test examples almost impossible due to the curse of dimensionality.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Adversarial Examples, Adversarial Training, Blind-Spot Attack</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We show that one the strongest adversarial training methods cannot defend against adversarial examples crafted on slightly scaled and shifted test images.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rkeMtGiyCQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to All Reviewers</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylTBhA5tQ&amp;noteId=rkeMtGiyCQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1584 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1584 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">During the rebuttal period, we further enhanced our experiments by conducting blind-spot attacks on two certified, state-of-the-art adversarial training methods, including (Wong &amp; Kolter 2018) and (Singha et al. 2018). Surprisingly, although they can provably increase robustness on the training set, they still suffer from blind-spot attacks by slightly transforming the test set images. See Tables 4, and 5 in the Appendix. The attack success rates go significantly higher after a slight scale and shift on both MNIST and Fashion MNIST test sets, for both two defense models.
+
+Additionally, we also add results for a relatively larger dataset, GTS (german traffic sign) in Appendix (Section 6.2). The results (in histograms) we observed are similar to the ones we observed on CIFAR.
+
+With these new results, our conclusion is not limited to the adversarial training method proposed by (Madry et al. 2018). Our paper uncovers the weakness of many state-of-the-art adversarial training methods, even including those with theoretical guarantees on the training dataset. By identifying a new class of adversarial attacks, even in its simplest form (small shift + scale), many good defense methods become vulnerable again. 
+
+In conclusion, we show that many state-of-the-art strong adversarial defense methods, even including those with robustness certificates on training datasets, cannot well generalize their robustness on unseen test data from a very slightly changed domain. This partially explains the difficulty in applying adversarial training on larger datasets like CIFAR and ImageNet. We believe that our results are significant. We also think these experiments are important to further understanding adversarial examples and proposing better defenses.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Hygsieas2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting paper analyzing the effect of the distance between training and test set on robustness of adversarial training</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylTBhA5tQ&amp;noteId=Hygsieas2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1584 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1584 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper provides some insights on influence of data distribution on robustness of adversarial training. The paper demonstrates through a number of analysis that the distance between the training an test data sets plays an important role on the effectiveness of adversarial training. To show the latter, the paper proposes an approach to measure the distance between the two data sets using combination of nonlinear projection (e.g. t-SNE), KDE, and K-L divergence. The paper also shows that under simple transformation to the test dataset (e.g. scaling), performance of adversarial training reduces significantly due to the large gap between training and test data set. This tends to impact high dimensional data sets more than low dimensional data sets since it is much harder to cover the whole ground truth data distribution in the training dataset.
+
+Pros:
+- Provides insights on why adversarial training is less effective on some datasets.
+- Proposes a metric that seems to strongly correlate with the effectiveness of adversarial training.
+
+Cons:
+- Lack of theoretical analysis. It could have been nice if the authors could show the observed phenomenon analytically on some simple distribution.
+- The marketing phrase "the blind-spot attach" falls short in delivering what one may expect from the paper after reading it. The paper would read much better if the authors better describe the phenomena based on the gap between the two distribution than using bling-spot. For some dataset, this is beyond a spot, it could actually be huge portion of the input space!
+
+Minor comments:
+- I believe one should not compare the distance shown between the left and right columns of Figure 3 as they are obtained from two different models. Though the paper is not suggesting that, it would help to clarify it in the paper. Furthermore, it would help if the paper elaborates why the distance between the test and training dataset is smaller in an adversarially trained network compared to a naturally trained network.
+- Are the results in Table 1 for an adversarially trained network or a naturally trained network? Either way, it could be also interesting to see the average K-L divergence between an adversarially and a naturally trained network on the same dataset.
+- Please provide more visualization similarly to those shown in Fig 4.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkxhfWj1C7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for the questions! We have updated our paper and answered your questions below. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylTBhA5tQ&amp;noteId=rkxhfWj1C7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1584 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1584 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your insightful comments to help us improve our paper. First of all, we would like to mention that we add more experiments on two additional state-of-the-art strong and certified defense methods, and observe that they are also vulnerable to our proposed attacks. Please see our reply to all reviewers.
+
+Here are our responses to your concerns in “Cons” and “Minor comments”.
+
+Although we were not able to provide theoretical analysis in this paper, our proposed attacks are very effective on state-of-the-art adversarial training methods, and we believe our conclusions
+Currently, there is relatively few theoretical analysis in this field in general, and many analysis makes unpractical assumptions. We believe our results can inspire other researcher’s theoretical research.
+
+Regarding the “blind-spot attack” phrase, we are open to suggestions from the reviewers. Other phrases we considered including “evasion attack”, “generalization gap attack” and “scaling attack”. Which one do you think is a better option?
+
+Regarding the distances in Figure 3:
+Thanks for raising this concern. We have added a note to clarify this issue. The difference in distance can be partially explained by the sparsity in an adversarially trained model. As suggested in [1], the adversarially trained model by Madry et al. tends to find sparse features (see Figure 5 in [1]), where many components are zero. Thus, the distances tend to be overall smaller.
+
+Regarding the results in Table 1:
+In our old version, we only used the adversarially trained network. In our revision, we added K-L divergence computed from both adversarially trained and naturally trained networks. Additionally, we also add a new distance metric proposed by AnonReviewer1. The K-L divergences by both networks, as well as the newly added distance metric, show similar observations.
+
+Regarding adding more visualizations:
+We added some more visualizations in Fig 10 in the appendix. It is worth noting that the Linf distortion metric used in adversarial training is sometimes not a good metric to reflect visual differences. However, the test images under our proposed attack indeed have much smaller Linf distortions.
+
+We hope that we have answered all your questions, and we are glad to discuss with you if you have any further concerns about our paper.
+
+[1] Tsipras, Dimitris, et al. "Robustness may be at odds with accuracy." arXiv preprint arXiv:1805.12152 (2018).
+
+Thank you!
+Paper 1584 Authors</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJe1e3jj3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clear and simple idea, insightful experiments.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylTBhA5tQ&amp;noteId=rJe1e3jj3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1584 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1584 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper is well written and the main contribution, a methodology to find “blind-spot attacks” well motivated and differences to prior work stated clearly.
+
+The empirical results presented in Figure 1 and 2 are very convincing. The gain of using a sufficiently more complicated approach to assess the overall distance between the test and training dataset is not clear, comparing it to the very insightful histograms. Why for example not using a simple score based on the histogram, or even the mean distance? Of course providing a single measure would allow to leverage that information during training. However, in its current form this seems rather complicated and computationally expensive (KL-based). As stated later in the paper the histograms themselves are not informative enough to detect such blind-spot transformation. Intuitively this makes a lot of sense given that the distance is based on the network embedding and is therefore also susceptible to this kind of data. However, it is not further discussed how the overall KL-based data similarity measure would help in this case since it seems likely that it would also exhibit the same issue.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJlit-i1Rm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for the questions! We have updated our paper and answered your questions below.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylTBhA5tQ&amp;noteId=BJlit-i1Rm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1584 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1584 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the encouraging comments. First of all, we would like to mention that we add more experiments on two additional state-of-the-art strong and certified defense methods, and observe that they are also vulnerable to blind-spot attacks. Please see our reply to all reviewers.
+
+We agree that the K-L based method is complicated and computationally extensive. Fortunately, we only need to compute it once per dataset. To the best of our knowledge, currently, there is no perfect metric to measure the distance between a training set and a test set. Ordinary statistical methods (like kernel two-sample tests) do not work well due to the high dimensionality and the complex nature of image data. So the measurement we proposed is a best-effort attempt that can hopefully give us some insights into this problem. 
+
+As suggested by the reviewer, we added a new metric based on the mean of \ell_2 distance on the histogram in Section 4.3. The results are shown in Table 1 (under column “Avg. normalized l2 Distance”). The results align well with our conclusion: the dataset with significant better attack success rates has noticeably larger distance. It further supports the conclusion of our paper and indicates that our conclusion is distance metric agnostic.
+
+We hope that we have made everything clear, and we again appreciate your comments. Let us know if you have any additional questions.
+
+Thank you!
+Paper 1584 Authors
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1gVYFVS3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reviewer's summery: interesting idea/findings but with questions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylTBhA5tQ&amp;noteId=H1gVYFVS3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1584 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1584 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors associated with the generalization gap of robust adversarial training with the distance between the test point and the manifold of training data. A so-called 'blind-spot attack' is proposed to show the weakness of robust adversarial training.  Although the paper contains interesting ideas and empirical results, I have several concerns about the current version. 
+
+a) In the paper, the authors mentioned that "This simple metric is non-parametric and we found that the results are not sensitive to the selection of k". Can authors provide more details, e.g., empirical results, about it? What is its rationale?
+
+b) In the paper, "We find that these blind-spots are prevalent and can be easily found without resorting to complex
+generative models like in Song et al. (2018). For the MNIST dataset which Madry et al. (2018) demonstrate the strongest defense results so far, we propose a simple transformation to find the blind-spots in this model." Can authors provide empirical comparison between blind-spot attacks and the work by Song et al. (2018), e.g., attack success rate &amp; distortion? 
+
+c) The linear transformation x^\prime = \alpha x + \beta yields a blind-spot attack which can defeat robust adversarial training. However, given the linear transformation, one can further modify the inner maximization (adv. example generation) in robust training framework so that the $\ell_infty$ attack satisfies  max_{\alpha, \beta} f(\alpha x + \beta) subject to \| \alpha x + \beta \|\leq \epsilon. In this case, robust training framework can defend blind-spot attacks, right? I agree with the authors that the generalization error is due to the mismatch between training data and test data distribution, however, I am not convinced that blind-spot attacks are effective enough to robust training. 
+
+d) "Because we scale the image by a factor of \alpha, we also set a stricter criterion of success, ..., perturbation must be less
+than \alpha \epsilon to be counted as a successful attack." I did not get the point. Even if you have a scaling factor in x^\prime = \alpha x + \beta, the universal perturbation rule should still be | x - x^\prime  |_\infty \leq \epsilon. The metric the authors used would result in a higher attack success rate, right? 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BylRCJCM6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for the questions! We have updated our paper and answered your questions below.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylTBhA5tQ&amp;noteId=BylRCJCM6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1584 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1584 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer3,
+
+Thank you for your insightful questions. They are very helpful for us to improve the paper. We would like to answer your 4 questions as below.
+
+a) We added more figures with k=10, 100, 1000 in the appendix (in main text, we used k=5). Our main conclusion does not change regardless the value of k: there is a strong correlation between attack success rate and the distance between test examples to training dataset. A larger distance usually implies a higher attack success rate. The rational to use this metric is that it is simple, and nearest neighbour based methods are usually robust to hyper-parameter selection. We don’t want our observations depend on hyper-parameters during distance measurement.
+
+b) Song et al. (2018) does not have ordinary metrics like distortion or (ordinary) attack success rates to compare with. In their attack, the input is a random noise for GAN, and they generate  adversarial images from scratch. In typical adversarial attacks, people start from a specific reference (natural) image x and add adversarial distortion to obtain x_adv. In their paper, adversarial images are generated by GANs directly and there is no reference images at all, so distortion cannot be calculated (see definitions 1 and 2 in their paper). They have to conduct user study to determine what is the true class label for a generated image, and see if the model will misclassify it. The success rate is the model’s misclassification rate from user study.
+
+In our paper, our attacks first conduct slight transformations on a natural test image x to obtain x’, and then run ordinary gradient based adversarial attacks on x’ to obtain x’_adv. We have a reference image x’, so we can compute the distortion between x’ and x’_adv, and determine the success by a certain criterion on distortion. This setting is different from Song et al. (2018) so we cannot directly compare distortion and success rates with them.
+
+c) We want to emphasize that the “blind-spot attack” is a class of attacks, which exploits the gap between training and test data distributions (see our definition in Section 3.3). The linear transformation used in our paper is one of the simplest attacks in this class. If we know the details of this specific attack before training, it is possible defend against this specific simple attack. However, it is always possible to find some different blind-spot attacks (for example, by using a generative model). Rather than starting a new arm race between attacks and defenses, our argument here is to show the fundamental limitations of adversarial training -- it is hard to cover all the blind-spots during training time because it is impossible to eliminate the gap between training and test data especially when data dimension is high. 
+
+d) The stricter criterion actually makes our attack success rates *lower* rather than higher. Finding adversarial examples with smaller distortions is harder than finding adversarial examples with large distortions. As an extreme case, if the criterion is distortion&lt;=0, the attack success rate will always be zero, since we cannot fool the model using unmodified natural images. In Table 2, the success rates under the column 0.27 are strictly lower than the numbers under the column 0.3. We consider this additional stricter criterion because images after scaling are within a smaller range, so we also restrict the noise to be smaller, to keep the same signal-to-noise ratio and make an absolutely fair comparison. If we don’t use this stricter criterion, our attack success rates will look even better.
+
+
+In our updated revision, we also include additional experiments on GTS dataset, as long as two other state-of-the-art adversarial training methods by Wong et al. and Sinha et al.. We observe very similar results on all these methods and datasets, further confirming the conclusion of our paper.
+
+We hope our answers resolve all the doubts you had with our paper. We would like to further discuss with you if you have any unclear things or additional questions, and hope you can reconsider the rating of our paper. 
+
+Thank you!
+Paper 1584 Authors
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

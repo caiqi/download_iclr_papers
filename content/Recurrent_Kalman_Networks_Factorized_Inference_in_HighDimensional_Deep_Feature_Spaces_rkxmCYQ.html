@@ -1,0 +1,238 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Recurrent Kalman Networks: Factorized Inference in High-Dimensional Deep Feature Spaces | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Recurrent Kalman Networks: Factorized Inference in High-Dimensional Deep Feature Spaces" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rkx1m2C5YQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Recurrent Kalman Networks: Factorized Inference in High-Dimensional..." />
+      <meta name="og:description" content="State estimation together with state prediction is a crucial task for many applications. Typically, sensory observations give only partial and noisy information about the state of the environment...." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rkx1m2C5YQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Recurrent Kalman Networks: Factorized Inference in High-Dimensional Deep Feature Spaces</a> <a class="note_content_pdf" href="/pdf?id=rkx1m2C5YQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019recurrent,    &#10;title={Recurrent Kalman Networks: Factorized Inference in High-Dimensional Deep Feature Spaces},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rkx1m2C5YQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">State estimation together with state prediction is a crucial task for many applications. Typically, sensory observations give only partial and noisy information about the state of the environment. A well-known tool for performing state estimation under these conditions is the Kalman filter (Kalman et al., 1960). However, the Kalman filter is limited to problems with known, linear models and good estimates about the system noise. Recent deep learning approaches integrate a non-linear encoder into the KF equations that maps the high-dimensional observation to the typically low-dimensional state of the system (Haarnoja et al., 2016). However, these approaches are still limited to systems with known dynamics that
+are either linear or it requires approximations such as an extended Kalman filter. In contrast, our approach does not use a pre-defined state representation but learns a high-dimensional factorized representation that is used for inference us-
+ing locally linear models. While our locally linear modelling and factorization assumptions are in general not true for the original low-dimensional state space of the system, the network finds a high-dimensional latent space where these as-
+sumptions hold to perform efficient inference. This state representation is learned jointly with the transition and noise models by backpropagation. The resulting network architecture, which we call Recurrent Kalman Network (RKN), can be
+used for any time-series data, similar to a LSTM (Hochreiter and Schmidhuber, 1997) but uses an explicit representation of uncertainty. As shown by our experiments, the RKN obtains much more accurate uncertainty estimates than an LSTM
+or Gated Recurrent Units (GRUs) (Cho et al., 2014) while also showing a slightly improved prediction performance.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">state estimation, recurrent neural networks, Kalman Filter, deep learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Kalman Filter based recurrent model for efficient state estimation,  principled uncertainty handling and end to end learning of dynamic models in high dimensional spaces.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Syg1qfyRn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting model needs more context</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkx1m2C5YQ&amp;noteId=Syg1qfyRn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1319 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1319 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a particular architecture for a probabilistic recurrent neural network that is based on ideas from Kalman filtering. Whereas Kalman filters are used to infer the state of a known generative model (a linear-Gaussian dynamical system), here, the authors jointly learn a recursive filter without explicitly formulating a generative model of the data.
+
+The paper deals with an important problem and the approach has many appealing characteristics: it learns a state representation and its associated transition dynamics, it learns nonlinear filter that can be used online and it learns encoders/decoders from high-dimensional observations to the state.
+
+The article does not provide any probability density (even though learning happens by maximizing a likelihood) and there are no connections to probabilistic generative models. In my opinion this is a pity since this would shed more light into the characteristics of the proposed approach. 
+
+I believe that the model could be presented more clearly. For example, the Preliminaries section uses formulas before defining them. Also, explicitly writing the high-level chain of computations from o_t and z_{t-1}^+ to o_t^+ and s_t^+ would be extremely useful. Even more than Fig. 1, in my opinion.
+
+All in all, I have found this an interesting architecture for a RNN but would have appreciated more insight into its relationships with the large body of generative probabilistic state-space models and the methods to perform inference on them.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BklzonzohX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea, but insufficient comparison to existing work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkx1m2C5YQ&amp;noteId=BklzonzohX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1319 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1319 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">PAPER SUMMARY
+-------------
+This paper proposes a method for inferring the latent state and making predictions based on a sequence of observations. The idea is to map the observation to a latent space where the relation to the latent state is linear, and the dynamics of the latent state are locally linear. Therefore, in this latent space a Kalman filter can be applied to infer the current state and predict the next state, including uncertainty estimates. Finally, the predicted latent state is mapped to a prediction for the observation or some other variable of interest.
+
+The experiments show that the proposed approach slightly outperform LSTM and a GRU based approaches.
+
+
+POSITIVE ASPECTS
+----------------
+- The idea of applying a Kalman filter in a latent space is interesting.
+- The experimental results show that the proposed approach outperforms LSTM and a GRU based approaches.
+- The paper is well written.
+
+NEGATIVE ASPECTS
+----------------
+- The observation noise sigma^obs is a function of the observation itself. This seems strange, since typically the observation does not contain itself the information about how much it has been corrupted by noise. This choice should be discussed in more detail, especially what kind of assumptions this implies about the underlying process.
+- I believe that a more detailed comparison to existing approaches finding a latent space from a sequence of observations would be necessary, both on a technical as well as on an experimental level. For instance, a technical comparison to the approach from Watter et al. 2015 would be appropriate, since it is similar in the sense that the latent space is optimized to have locally linear dynamics. 
+Furthermore, an experimental comparison to Watter et al. 2015 and [1] would be relevant.
+
+
+
+[1] Wahlström et al. 2015 - From Pixels to Torques - Policy Learning with Deep Dynamical Models
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Syx2wN5c37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Nice work but misses some significant work from the literature </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkx1m2C5YQ&amp;noteId=Syx2wN5c37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1319 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1319 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes, Recurrent Kalman Network, a modified Kaman filter in which the latent dynamics is projected into a higher dimensional space; efficient inference in this high-dimensional latent space is possible due to the space being locally linear. The state representation, transition, and observation models are learned jointly by backpropagation.  
+The paper is well written and the model is clearly explained; I also like the simplicity of the idea that uses the same machinery of Kalman filter.  However, I believe the authors can improve the presentation of the model and empirical evaluation. 
+
+In terms of model presentation, the authors can compare the model with a large set of deep recurrent models that have recently been proposed for modeling time series with nonlinear latent dynamics (e.g. Variational Sequential Monte Carlo, Structured inference networks for nonlinear state space models, Black box variational inference for state space models, Composing graphical models with neural networks for structured representations and fast inference, etc.). For instance, a table of some of these models with their pros and cons can be helpful for guiding the reader.
+
+In terms of model evaluation, the paper needs a better evaluation section specifically on the generative models (see examples above) that are much  more suitable for modeling uncertainty compared to LSTM/GRU. More specifically, another approach for alleviating the limitations of Kalman filter would be to use non-linear transitions based on some non-linear functions approximation. This approach has been proposed in deep Kaman filter (Krishnan 2015) and it would be interesting to see how well your model performs compared to that for modeling uncertainty and computing predictive log-likelihood. 
+
+In conclusion, I think the paper presents a nice idea but it requires more work in order to pass the ICLR acceptance threshold. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>CNNSAT: Fast, Accurate Boolean Satisfiability using Convolutional Neural Networks | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="CNNSAT: Fast, Accurate Boolean Satisfiability using Convolutional Neural Networks" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=ryxhynC9KX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="CNNSAT: Fast, Accurate Boolean Satisfiability using Convolutional..." />
+      <meta name="og:description" content="Boolean satisfiability (SAT) is one of the most well-known NP-complete&#10;  problems and has been extensively studied.  State-of-the-art solvers&#10;  exist and have found a wide range of applications...." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_ryxhynC9KX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>CNNSAT: Fast, Accurate Boolean Satisfiability using Convolutional Neural Networks</a> <a class="note_content_pdf" href="/pdf?id=ryxhynC9KX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019cnnsat:,    &#10;title={CNNSAT: Fast, Accurate Boolean Satisfiability using Convolutional Neural Networks},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=ryxhynC9KX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Boolean satisfiability (SAT) is one of the most well-known NP-complete
+problems and has been extensively studied.  State-of-the-art solvers
+exist and have found a wide range of applications. However, they still
+do not scale well to formulas with hundreds of variables. To tackle
+this fundamental scalability challenge, we introduce CNNSAT, a fast
+and accurate statistical decision procedure for SAT based on
+convolutional neural networks. CNNSAT's effectiveness is due to a
+precise and compact representation of Boolean
+formulas. On both real and synthetic formulas, CNNSAT is highly
+  accurate and orders of magnitude faster than the
+state-of-the-art solver Z3.  We also describe how to extend CNNSAT to
+predict satisfying assignments when it predicts a formula to be
+satisfiable.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Convolutional Neural Networks, Boolean satisfiability problem, Satisfiability modulo theories</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We introduce CNNSAT, a fast and accurate statistical decision procedure for SAT based on convolutional neural networks.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">4 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HkgK8jD53X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting problem &amp; method, but misleading presentation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxhynC9KX&amp;noteId=HkgK8jD53X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1022 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1022 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors present CNNSAT, a CNN-based approach to predict the satisfiability of SAT instances.
+The problem is very relevant, and the approach is interesting, but unfortunately, the presentation is very misleading (see details below). In terms of methods, the main innovation appears to be the use of CNNs for predicting the solubility of SAT instances, but because of the exchangeability I don't actually see the intuition for this (see details below). Overall, because of these issues, I do not think this paper is ready for publication.
+
+Misleading parts:
+=================
+
+1. Already in the abstract the authors make an utterly wrong statement about SAT solvers: 
+"State-of-the-art solvers exist and have found a wide range of applications.  However, they still do not scale well to formulas with hundreds of variables."
+The same sentiment is repeated in the introduction; I'm puzzled why the authors would believe this. SAT solvers nowadays are routinely used on instances with hundreds of thousands of variables and millions of clauses (just see any of the recent SAT competitions (<a href="https://satcompetition.org/)" target="_blank" rel="nofollow">https://satcompetition.org/)</a> for examples).
+
+2. Z3 is *not* a good solver for random instances, far from state-of-the-art. It is not the right baseline.
+
+3. The authors' approach implicitly makes use of PicoSAT, so their experiments are really implicitly comparing PicoSAT vs. Z3.
+
+4. Comparing the prediction time of CNNSAT with the solving time of Z3 does not make much sense to me, since it does not solve every instance.  
+
+5. No comparison of CNNSAT (internally using PicoSAT) vs. PicoSAT is given.
+
+6. The paper did *not* demonstrate that CNNSAT is competitive in practice. It is only faster than Z3 on random instances, which are not of practical interest. Demonstrating practical usefulness would require competitive performance on the SAT competition instances. By the way, CNNSAT would be disqualified in any SAT competition for falsely returning UNSAT for some satisfiable instances. Algorithm 1 should instead return UNKNOWN when it cannot find a solution.
+
+7. Taken out of context, the predictive quality the authors achieve looks great: between 96% and 99% for random 3-SAT instances. However, this is misleading since the instances are not sampled at the phase transition and may thus be very easy to classify. Usually, for uniform random 3-SAT, the phase transition happens when the number of clauses for a number of variables v exceeds c = 4.258 * v +58.26 * v^{−2/3} (see [1]), although I do not remember whether this is for clauses being generated with and without replacement. (I looked into the documentation of CNFGEN, and for random k-cnf, it samples clauses without replacement.) It would be very useful to see the classification accuracy of classifying every formula with &gt;= the number of clauses c from that formula as unsatisfiable and every formula with &lt; that many clauses as satisfiable. Could the authors please report this number during the author response period?
+
+The authors are also missing an additional related paper: [2] used simple models to obtain better-than-chance predictions at the phase transition.
+
+
+
+Exchangeability and the use of CNNs:
+====================================
+Due to the exchangeability property, we do *not* care about spatial correlation in the adjacency matrix. I am really missing the details on how to achieve the fixed-size 100x100 matrices. This approach sounds like it would lose a lot of information!
+
+I do not find the experiment studying exchangeability to be convincing. The experiment I would like to see is shuffling all variables, and/or negating half the variables, rather than swapping a single pair of variables. Even then, the experiment should optimally measure differences in individual predictions rather than differences in aggregate performance statistics.
+
+
+One more question:
+- How was N chosen? I only saw the statement "We choose to determine N dynamically based on the dataset."
+
+[1] Crawford and Auton: Experimental results on the crossover point in random 3SAT. In Artificial Intelligence Journal, 1996.
+[2] Xu, Hoos, and Leyton-Brown: Predicting Satisfiability at the Phase Transition. In AAAI 2012.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rJxd44Xt27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea, impressive results for a first paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxhynC9KX&amp;noteId=rJxd44Xt27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1022 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1022 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">[Summary] The authors propose a method of using convolutional neural networks to determine whether large boolean formulas (containing hundreds of variables and thousands of clauses) are satisfiable. The resulting models are accurate (correctly distinguishing between satisfiable and unsatisfiable formulas more between 90% and 99% of the time, depending on the dataset) while taking 10x - 100x less time than an off-the-shelf solver (Z3), offering slightly better quality on some problems and slightly worse quality on others. In addition to determining whether formulas are satisfiable, the authors propose and evaluate a method for finding satisfying assignments. They also evaluate their system on SMT benchmarks, where it also shows 10x-100x speed-ups, albeit with somewhat lower accuracy (e.g., 73% - 92% accuracy; I couldn't find baselines for these experiments).
+
+[Key Comments] Unless I'm missing something major, I'd prefer to accept this paper, since the problem appears novel and the experimental results seem very promising for a first paper on a new problem.
+
+[Pro 1] The paper seems polished and well-written. I generally found it well-motivated and easy to follow.
+
+[Pro 2] To the best of my knowledge, the problem domain (machine learning for satisfiability problems that are so large that they are difficult to solve using conventional methods) is both novel and well-motivated.
+
+[Pro 3] Algorithms seem conceptually straightforward (but might be a bit challenging to implement in practice due to the large input size), and yield excellent results. The magnitude of speed-ups reported in the paper (10x - 100x) is large enough to be exciting from a research perspective, and also seems like it should be large enough to have significant practical applications.
+
+[Pro 4] Results are evaluated on a variety of different boolean satisfiability and SMT problems.
+
+[Con 1] To improve reproducibility, it would be helpful if the authors could provide more details about their model training setup. Figure 2 is a good start, but adding details about the layer sizes, types of pooling layers used, and the model training setup would help clarify the experiments.
+
+[Con 2] It seems like a significant number of labeled training examples (i.e., examples that are already known to be satisfiable or unsatisfiable) are needed in order to train a neural network. This seems like it could present a bootstrapping problem for certain domains: it may be computationally expensive to generate ground-truth labels for training examples, but a significant number of labels are needed to train a good prediction model. I'd be very interested to see a study of how well trained models transfer across domains: how well do models trained on one domain (e.g., a synthetic problem where labeled training data is cheap to generate) transfer to a different domain (e.g., a real-world problem where training labels are expensive to compute)? However, this is a minor point for a first paper on a new problem, and I think the paper is interesting enough to merit acceptance without such an analysis.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SygnL1qDhX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Promising neural SAT solver, though limited contributions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxhynC9KX&amp;noteId=SygnL1qDhX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1022 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1022 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The aim of this paper is to solve SAT instances using a CNN architecture. SAT instances are represented using an efficient encoding of boolean matrices. The overall idea is to decompose an input SAT instance into simpler ones, and to train the neural model on simpler instances using an existing solver for labeling these instances. Based on satisfaction probabilities induced from simpler formulas, the architecture predicts a partial assignment which is fed to the existing solver for deriving the satisfiability result.
+
+Arguably, the topic of “learning to solve SAT instances” is very interesting, by coupling results from neural networks and SAT solvers. This work is inspired from the landmark paper on NeuroSAT, and the experimental results look promising. 
+
+However, since the framework is focused on solving random SAT problems (especially random 3-SAT instances), the paper is missing a detailed description of this active research topic in AI and the SAT community (see e.g. [1,2]). Notably, the problem of generating realistic random k-SAT instances has long been considered as one of the most important challenges in SAT research [3]. Importantly, modern random k-SAT instances are not only characterized by their number of variables, and their ratio  #clauses / #variables, but with an additional “structure” which mimics real-world, industrial instances (see e.g. [4]). 
+
+Furthermore, I had some trouble understanding how a SAT instance is solved using algorithm 1. Specifically the text in Section 3.3 that explains Algorithm 1 is a bit confusing. How do “we choose a specific number of assignments based on prediction probabilities”? Unless I missed something, the output of the CNN architecture is a probability value that the input formula is SAT, so I don’t really see how this can be related to prediction probabilities of assignments. This should be explained in detail since Line 15 is the main output of the algorithm, which is fed (Line 16) to an existing solver for completing the assignment. The example at the end of section 3.3 is not very helpful: namely, the CNF formula $(x_2) \land (\neg x_2)$ is clearly unsatisfiable, so how can the model predict that it is satisfiable with 80% probability? And, if we try here $x_2 = 1$, we immediately get $\bot$ (the unsat CNF), but not $x_1$ (which was already assigned to $0$).
+
+Finally, the CNN architecture should be compared with modern SAT solvers which have been participating to SAT competitions. The Z3 solver is mainly focused on solving SMT instances [5], not random k-SAT instances which, by the way, is a common track in annual SAT competitions (see e.g. [6]). To this point, generic SAT solvers such as MiniSAT [7] and Glucose [8] are able to solve in few seconds some random 3-SAT instances with thousands of variables and tens of thousands of clauses (see e.g. [4]). So, the motivating assertion “[...] state-of-the-art solvers do not yet scale to large, difficult formulas, such as ones with hundreds of variables and thousands of clauses” in the introduction of the paper, is not totally correct. To sum up, I would recommend to compare the CNNSAT architecture with well-known SAT solvers such as MinSAT, Glucose, March, or Dimetheus [9] which has been one of the strongest solvers in recent years for tackling random instances. Also, as mentioned above, it would be interesting to incorporate some structures (such as, for example, community attachments or popularity-similarities) in SAT instances, in order to estimate whether CNNSAT could handle pseudo-industrial problems.
+
+[1] D. Mitchell, B. Selman, H. Levesque, Hard and easy distributions of SAT problems, in: Proceedings of the 10th National Conference on Artificial Intelligence, AAAI’92, 1992, pp. 459–465.
+
+[2] Nudelman, E., Leyton-Brown, K., Hoos, H. H., Devkar, A., &amp; Shoham, Y. Understanding random SAT: Beyond the clauses-to-variables ratio. In 10th International Conference on Principles and Practice of Constraint Programming (CP’04), pp. 438–452.
+
+[3] B. Selman, H.A. Kautz, D.A. McAllester, Ten challenges in propositional reasoning and search, in: Proceedings of the 15th International Joint Conference on Artificial Intelligence, IJCAI’97, 1997, pp. 50–54.
+
+[4] J. Giráldez-Cru and J. Levy. Generating sat instances with community structure. Artificial Intelligence, 238:119 – 134, 2016. 
+
+[5] The 2014 SMT Competition <a href="https://satassociation.org/jsat/index.php/jsat/article/download/122/114" target="_blank" rel="nofollow">https://satassociation.org/jsat/index.php/jsat/article/download/122/114</a>
+
+[6] The 2018 SAT Competition
+http://sat2018.forsyte.tuwien.ac.at/index.php?cat=results
+
+[7] N. Eén, N. Sörensson, An extensible SAT-solver, in: Proceedings of the 6th International Conference on Theory and Applications of Satisfiability Testing, SAT’03, 2003, pp. 502–518.
+
+[8] ] G. Audemard, L. Simon, Predicting learnt clauses quality in modern SAT solvers, in: Proceedings of the 21st International Joint Conference on Artificial Intelligence, IJCAI’09, 2009, pp. 399–404
+
+[9] Dimetheus
+https://www.gableske.net/dimetheus
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

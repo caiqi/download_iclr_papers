@@ -1,0 +1,353 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>EnGAN: Latent Space MCMC and Maximum Entropy Generators for Energy-based Models | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="EnGAN: Latent Space MCMC and Maximum Entropy Generators for Energy-based Models" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HJlmhs05tm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="EnGAN: Latent Space MCMC and Maximum Entropy Generators for..." />
+      <meta name="og:description" content="Unsupervised learning is about capturing dependencies between variables and is driven by the contrast between the probable vs improbable configurations of these variables, often either via a..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HJlmhs05tm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>EnGAN: Latent Space MCMC and Maximum Entropy Generators for Energy-based Models</a> <a class="note_content_pdf" href="/pdf?id=HJlmhs05tm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019engan:,    &#10;title={EnGAN: Latent Space MCMC and Maximum Entropy Generators for Energy-based Models},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HJlmhs05tm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Unsupervised learning is about capturing dependencies between variables and is driven by the contrast between the probable vs improbable configurations of these variables, often either via a generative model which only samples probable ones or with an energy function (unnormalized log-density) which is low for probable ones and high for improbable ones. Here we consider learning both an energy function and  an efficient approximate sampling mechanism for the corresponding distribution. Whereas the critic (or discriminator) in generative adversarial networks (GANs) learns to separate data and generator samples, introducing an entropy maximization regularizer on the generator can turn the interpretation of the critic into an energy function, which separates the training distribution from everything else, and thus can be used for tasks like anomaly or novelty detection. 
+
+This paper is motivated by the older idea of sampling in latent space rather than data space because running a Monte-Carlo Markov Chain (MCMC) in latent space has been found to be easier and more efficient, and because a GAN-like generator can convert latent space samples to data space samples. For this purpose, we show how a Markov chain can be run in latent space whose samples can be mapped to data space, producing better samples. These samples are also used for the negative phase gradient required to estimate the log-likelihood gradient of the data space energy function. To maximize entropy at the output of the generator, we take advantage of recently introduced neural estimators of mutual information. We find that in addition to producing a useful scoring function for anomaly detection, the resulting approach produces sharp samples (like GANs) while covering the modes well, leading to high Inception and Fréchet scores.
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Energy based model, Generative models, MCMC, GANs</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We introduced entropy maximization to GANs, leading to a reinterpretation of the critic as an energy function.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">13 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1xZNcnCh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting combination of the recently developed techniques for a better algorithm</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=r1xZNcnCh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper695 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper695 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+In this paper, the authors extend the framework proposed by Kim&amp;Bengio 2016 and Dai et.al. 2017, which introduce an extra step to fit a generator to approximate the current model for estimating the deep energy model. Specifically, the generator is fitted by reverse KL divergence. To bypass the difficulty in handling the entropy term, the authors exploit the Deep INFOMAX formulation, which introduces one more discriminator. Finally, to obtain better samples, the authors inject the Metropolis-adjusted Langevin algorithm within the learned generator to generate samples in latent space. They demonstrate the better performances of the proposed algorithms in both synthetic and real-world datasets, and apply the learned model for anomaly detection task.
+
+The paper is well-written and does a quite good job in combining several existing algorithms to obtain the ultimate algorithm. The algorithm achieves quite good empirical performances. However, the major problem of this paper is the novelty. The algorithm is basically an extension of the Kim&amp;Bengio 2016 and Dai et.al. 2017, with other existing learning technique. Maybe the only novel part is combining the MCMC with the learned generator for generating samples. However, the benefits of such combination is not well justified empirically. Based the figure 4, it seems the MCMC does not provide better samples, comparing to directly generate samples from G_z. It will be better if the authors can justify the motivation of using MCMC step. 
+
+Secondly, it is reasonable that the authors introduce the gradient norm as the regularization to the objective for training stability. However, it will be better if the effect of the regularization for the energy model estimation can be discussed. 
+
+Minor:
+The loss function for potential in Eq(3) is incorrect and inconsistent with the Algorithm 1. I think the formulation in the Algorithm box is correct.  
+
+In sum, I personally like the paper as a nice combination of recently developed techniques to improve the algorithm for solving the remaining problem in statistics. The paper can be better if the above mentioned issues can be addressed
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJe6b_7Y6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarifying technical questions and providing justification</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=BJe6b_7Y6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper695 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper695 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their time and feedback. We hope to address concerns the reviewer has here.
+
+* “However, the major problem of this paper is the novelty. The algorithm is basically an extension of the Kim&amp;Bengio 2016 and Dai et.al. 2017, with other existing learning technique”
+
+We strongly believe this paper goes well beyond Kim &amp; Bengio 2016. First, a major issue of Kim &amp; Bengio 2016 is that it used covariance to maximize entropy. When we tried reproducing the results in that paper, even with the help of the authors, we could not get stable results. Entropy maximization using a mutual information estimator is much more robust compared to covariance maximization. But that alone was not enough and we got strong improvements by using the gradient norm regularizer (see (3) below) which helped stabilize the training as well. Finally, we show a successful form of MCMC exploiting the generator latent space composed with the energy function and we show new and successful empirical results on anomaly detection and sharp image generation, something which had not been done earlier for an energy-based model (and certainly not by Kim &amp; Bengio). We also direct the reviewer towards our strong empirical results on discrete mode collapse where we show our model naturally covers all the modes in that data (in the expanded, 10^4 mode StackedMNIST dataset) and also better matches the mode count distribution as evidenced by the very low KL divergence scores.
+
+
+* “Maybe the only novel part is combining the MCMC with the learned generator for generating samples. However, the benefits of such combination is not well justified empirically. Based the figure 4, it seems the MCMC does not provide better samples, comparing to directly generate samples from G_z. It will be better if the authors can justify the motivation of using MCMC step.”
+
+Our contribution is also to enforce entropy maximization on the discriminator and using a regularizer on the energy-function to stabilize training. This specific combination was instrumental in obtaining our empirical result: (1) Covering all modes in our discrete mode collapse experiment where our model matches the mode count distribution of the data significantly better than WGAN-GP as pointed out in Section 5.2 and Table 1. (2) Using the learned energy function to perform anomaly detection, beating the previous SOTA energy-based model (DSEBM) by a large margin (as mentioned in Section 5.4 Table 3) and comparable to the SOTA anomaly detection method (DAGMM) which is purely designed for anomaly detection and not generative modeling (3) Natural image generation, where our energy-based method performs comparable to a strong WGAN-GP baseline in perceptual quality and doesn’t exhibit the common blurriness issue in standard maximum-likelihood trained EBMs (Section 5.3 Table 2).
+
+Regarding the justification of latent space MCMC: Note that the MCMC on the energy function in data space did not give good results, while doing it in the latent space worked. (Refer Figure 5 for data-space MCMC samples). We hypothesize that the reason for this is (a) walking on the data manifold is much easier in the latent space, as shown earlier by Bengio et al 2013 and (b) composing the generator with the energy function gets rid of spurious modes of the energy which the generator cannot represent (if it did, then the negative samples from the generator would have made the energy function learn to get rid of these spurious modes).
+
+* “Secondly, it is reasonable that the authors introduce the gradient norm as the regularization to the objective for training stability. However, it will be better if the effect of the regularization for the energy model estimation can be discussed.”
+
+Effect of the regularization of the energy function: the regularizer ||dEnergy(x)/dx||^2 is not just a smoothness regularizer but it also makes data points x energy minima (because ||dEnergy(x)/dx|| should be 0 at data points). This thus helps to learn a better energy function. Note that this is similar in spirit to score matching, which also carves the energy function so that it has local minima at the training points (i.e it is helping to make data points as an energy minima). The regularizer also stabilizes the temperature (scale) of the energy function, making training stable.
+
+* “The loss function for potential in Eq(3) is incorrect and inconsistent with the Algorithm 1. I think the formulation in the Algorithm box is correct.”
+
+Indeed there was a typo in eqn 3. The LHS should have been the gradient of L_E wrt theta, and Omega on the RHS should have been dOmega/dtheta.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rklO0eJC27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>There are some unclear issues, regarding correctness and significance</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=rklO0eJC27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper695 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper695 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">It is well known that energy-based model training requires sampling from the current model.
+This paper aims to develop an energy-based generative model with a generator that produces approximate samples.
+For this purpose, this paper combines a number of existing techniques, including sampling in latent space, using a GAN-like technique to maximize the entropy of the generator distribution.
+Evaluation experiments are conducted on toy 2D data, unsupervised anomaly detection, image generation.
+
+The proposed method is interesting, but there are some unclear issues, which hurts the quality of this paper.
+
+1. Correctness
+
+The justification of adding a gradient norm regularizer in Eq. (3) for turning a GAN discriminator into an energy function is not clear.
+
+Sampling in latent space and then converting to data space samples to approximate the sampling from p_theta is operationally possible. There are three distributions - the generator distribution p_G, the distribution p_comp implicitly defined by the latent-space energy obtained by composing the generator and the data-space energy, and the energy-based model p_E.
+p_G is trained to approximate p_E, since we minimize KL(p_G||p_E). Does latent space sampling necessarily imply that p_comp leads to be closer to p_E ?
+
+2. Significance
+
+In my view, the paper is an extension of Kim&amp;Bengio 2016.
+Two extensions -  providing a new manner to calculate the entropy term, and using sampling in latent space. In this regard, Section 3 is unnecessarily obscure.
+
+The results of image generation in Table 2 on CIFAR-10 are worse than WGAN-GP, which is now in fact only moderately performed GANs. In a concurrent ICLR submission - "Learning Neural Random Fields with Inclusive Auxiliary Generators", energy-based models trained with their method are shown to significantly outperform WGAN-GP.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hke-_uQKpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your feedback . Paper goes well beyond Kim &amp; Bengio 2016</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=Hke-_uQKpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper695 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper695 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their time and feedback. We  hope to address concerns the reviewer has here.
+
+* “The justification of adding a gradient norm regularizer in Eq. (3) for turning a GAN discriminator into an energy function is not clear.”
+
+Gradient norm regularizer in Eq. (3): the regularizer ||dEnergy(x)/dx||^2 is not just a smoothness regularizer but it also makes data points x energy minima (because ||dEnergy(x)/dx|| should be 0 at data points). This thus helps to learn a better energy function. Note that this is similar in spirit to score matching, which also carves the energy function so that it has local minima at the training points. The regularizer also stabilizes the temperature (scale) of the energy function, making training stable.
+
+* “In my view, the paper is an extension of Kim&amp;Bengio 2016”
+
+We strongly believe this paper goes well beyond Kim &amp; Bengio 2016. First, a major issue of Kim &amp; Bengio 2016 is that it used covariance to maximize entropy. When we tried reproducing the results in that paper, even with the help of the authors, we could not get stable results. Entropy maximization using a mutual information estimator is much more robust compared to covariance maximization. But that alone was not enough and we got strong improvements by using the gradient norm regularizer (see (3) below) which helped stabilize the training as well. Finally, we show a successful form of MCMC exploiting the generator latent space composed with the energy function and we show new and successful empirical results on anomaly detection and sharp image generation, something which had not been done earlier for an energy-based model (and certainly not by Kim &amp; Bengio). We also direct the reviewer towards our empirical results on discrete mode collapse where we show our model naturally covers all the modes in that data (in the expanded, 10^4 mode StackedMNIST dataset) and also better matches the mode count distribution as evidenced by the very low KL divergence scores.
+
+* “Sampling in latent space and then converting to data space samples to approximate the sampling from p_theta is operationally possible. There are three distributions - the generator distribution p_G, the distribution p_comp implicitly defined by the latent-space energy obtained by composing the generator and the data-space energy, and the energy-based model p_E., p_G is trained to approximate p_E, since we minimize KL(p_G||p_E). Does latent space sampling necessarily imply that p_comp leads to be closer to p_E ?”
+
+MCMC on the energy function p_E in data space did not give good results, while doing it in the latent space worked. We hypothesize that the reason for this is (a) walking on the data manifold is much easier in the latent space, as shown earlier by Bengio et al 2013 (because the data manifold has been somewhat flattened when represented in the latent space) and (b) composing the generator with the energy function gets rid of spurious modes of the energy which the generator cannot represent (if it did, then the negative samples from the generator would have made the energy function learn to get rid of these spurious modes, via the 2nd term of eqn 3 when training the energy function).
+
+* “The results of image generation in Table 2 on CIFAR-10 are worse than WGAN-GP, which is now in fact only moderately performed GANs. In a concurrent ICLR submission - "Learning Neural Random Fields with Inclusive Auxiliary Generators", energy-based models trained with their method are shown to significantly outperform WGAN-GP”
+
+The objective was not to beat the best GANs (which do not provide an energy function) but to show that it was possible to have both an energy function and good samples by appropriately fixing issues with the Kim &amp; Bengio setup  (and we clearly did not know about the concurrent ICLR submissions on energy-based models).
+
+
+Please let us know if anything is unclear here or if there is any other comparison that would be helpful in clarifying things more. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1xdBXjg3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting approach, but not fully justified</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=H1xdBXjg3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper695 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper695 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Thank you for an interesting read.
+
+The paper proposes an approximate training technique for energy-based models (EBMs). More specifically, the samples used negative phase gradient in EBM training is approximated by samples from another generator. This "approximate generator" is a composition of a decoder (which, with a Gaussian prior on latent variable z, is trained to approximate the data distribution) and another EBM in latent space. The authors show connections to WGAN training, thus the name EnGAN. Experiments on natural image generation and anomaly detection show promising improvements, although not very significant.
+
+From my understanding of the paper, the main contribution of the paper comes from section 4, which proposes a latent-space MCMC scheme to improve sample quality. I have seen several papers fusing EBMs and GAN training together and to the best of my knowledge section 4 is novel (but with problems, see below). Section 3's recipe is quite standard, e.g. as seen in Kim and Bengio (2017), and in principle contrastive divergence also uses the same idea. The idea of estimating of the entropy term for the implicit distribution p_G with adversarial mutual information estimation is something new, although quite straight-forward.
+
+Although I do agree that MCMC mixing in x space can be much harder than MCMC mixing in z space, since I don't think the proposed latent-space MCMC scheme is exact (apart from finite-time simulation, rejection...), I don't see theoretically why the method works.
+
+1. The MCMC method essentially samples z from another EBM, where that EBM(z) has energy function -E_{\theta}(G(z)), and then generate x = G(z). Note here EBM(z) != p(z). The key issue is, even when p_G(x) = p_{\theta}(x), there is no guarantee that the proposed latent-space MCMC method would return x samples according to distribution p_{\theta}(x). You can easily work out a counter example by considering G is an invertible transformation. Therefore I don't understand why doing MCMC on this latent-space EBM can help improve sample quality in x space.
+
+2. Continuing point 1, with Algorithm 1 that only fits p_G(x) towards p_{\theta}(x), I am confident that the negative phase gradient is still quite biased. Why not just use the latent-space MCMC sampler composited with G as the generator, and use these MCMC samples to train both the decoder G and the mutual information estimator?
+
+3. I am not exactly sure why the gradient norm regulariser in (3) make sense here? True that it would be helpful to correct the bias of the negative phase, but why this particular form? We are not doing WGAN here and in general we don't usually put a Lipschitz constraint on the energy function. I've seem several GAN papers arguing that gradient penalty helps in cases beyond WGAN, but most of them are just empirical observations...
+Also the Omega regulariser is computed on which x? On data? Do you know whether the energy is guaranteed to be minimized at data locations? In this is that appropriate to call Omega a regulariser?
+
+The presentation is overall clear, although I think there are a few typos and confusing equations:
+
+1. There should be a negative sign on the LHS of equation 2.
+2. Equation 3 is inconsistent with the energy update equation in Algorithm 1. The latter one makes more sense.
+3. Where is the ratio between the transition kernels in the acceptance ratio equation? In general for Langevin dynamics the transition kernel is not symmetric.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkxyPcXtTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Addressing concern about latent-space MCMC not sampling from p_theta (2/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=SkxyPcXtTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper695 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper695 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">** In general, we agree that the proposed MCMC sampling procedure is not sampling from p_theta and the energy function (see (1) why this is actually a good thing). But consider the special case (not enforced here) where G is invertible, i.e., there exists only one z such that G(z)=x for all x in the regions of interest. Let p_{EG}(x) be the density in x-space corresponding to x=G(z) and z sampled following the composed energy function E(G(z)). Then
+
+p_{EG}(x) = \propto \int 1_{G(z)=x} exp(-E(G(z)) dz 
+                = exp(-E(x)) \int 1_{G(z)=x} dz 
+                = exp(-E(x)) 
+
+where the first line (with 1_{} indicating a dirac delta function) comes from considering all the z's which could give rise to the given x and weighing their probability by exp(-E(G(z)) (and ignoring the partition function as we only care about the relative probabilities here), the second line comes from the observation that G(z)=x for all the non-zero integrands so we can take the exponential out of the integral at G(z)=x, and the 3rd line from integrating a dirac when there is only one point z which satisfies the condition, i.e., G is invertible. 
+
+Ongoing work is investigating how to make G approximately invertible using a reconstruction loss in z-space, although an alternative would be to structure G so that it is invertible by construction, as in NICE / real NVP. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1xh8rOKpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The explanation is problematic :(</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=B1xh8rOKpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper695 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper695 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for following up my biggest concern. 
+
+Unfortunately I don't think you can easily go away from this issue just by doing integrals. Otherwise all previous developments on normalising flows will be problematic! More specifically, they (e.g. NICE/real NVP/IAF/MAF) considered the following model:
+p_z(z) = N(0, I), x = G(z), G is invertible
+And you can see all of them clearly wrote p_x(x) = p_z(G^{-1}(x)) |dz/dx|.
+
+I would suggest reading the following relevant paper which might be helpful to clear your confusions.
+
+<a href="https://arxiv.org/abs/1708.01529" target="_blank" rel="nofollow">https://arxiv.org/abs/1708.01529</a>
+
+Best,</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJe1WpEj6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Further clarification</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=SJe1WpEj6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper695 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper695 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We agree that the first line of the equations above is incorrect. Thanks for pointing it out. It works in the discrete case but in the continuous case it needs an extra factor for the determinant of G'. Note that this discussion is about future work to extend the submitted paper, so indeed, in order to encourage the density matching property we would need a regularizer (or a hard constraint) to make G not just invertible but also with G' having singular values as close to 1 as possible to preserve volume. We could use a NICE/NVP-like parametrization but the surprising thing is that experimentally the proposed method works without that hard constraining in the various settings we tried. One interesting hypothesis towards explaining this observation is that to first approximation the data density for images is almost discrete, in the sense that what matters to get good images is whether you are pretty much on the data manifold (with a very small tolerance for noise) or off of it, and not so much the relative density on the manifold. This is simply a consequence of the manifold hypothesis stating that probability mass concentrates on the manifold.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_Hklnlcmtp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for the constructive feedback, composing the generator with the energy function gets rid of spurious modes (1/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=Hklnlcmtp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper695 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper695 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the positive and constructive feedback. We appreciate that the reviewer finds that our method is clearly explained.
+
+* “1. The MCMC method essentially samples z from another EBM, where that EBM(z) has energy function -E_{\theta}(G(z)), and then generate x = G(z). Note here EBM(z) != p(z). The key issue is, even when p_G(x) = p_{\theta}(x), there is no guarantee that the proposed latent-space MCMC method would return x samples according to distribution p_{\theta}(x). You can easily work out a counter example by considering G is an invertible transformation. Therefore I don't understand why doing MCMC on this latent-space EBM can help improve sample quality in x space.”
+
+Our hypothesis is the following: composing the generator with the energy function gets rid of spurious modes of the energy which the generator cannot represent. If the generator did sample from these spurious modes, then the negative samples from the generator would have made the energy function learn to get rid of these spurious modes, via the 2nd term of eqn 3 when training the energy function. Hence we get a cleaned-up version of the energy function. Spurious modes of the energy function which have not been eliminated via training through eqn 3 are thus erased by this composition of G with E. Now there may be a price to pay for this, i.e., G may also be missing some modes (as usual with GANs). However, because we have the entropy maximization term (eqn 4), we at least train in a way that attempts to minimize this problem. We agree that the composed energy function is different from E. The other good thing about MCMC in the composed energy function is that it seems to also be easier, following the observations of Bengio et al 2013, because the data manifold has been somewhat flattened in the latent space of the generator.
+
+* “2. Continuing point 1, with Algorithm 1 that only fits p_G(x) towards p_{\theta}(x), I am confident that the negative phase gradient is still quite biased. Why not just use the latent-space MCMC sampler composited with G as the generator, and use these MCMC samples to train both the decoder G and the mutual information estimator?”
+
+This is a good idea, which we did not execute yet because it would slow down training 10-fold, but it is an interesting direction to follow-up with.
+
+* “3. I am not exactly sure why the gradient norm regularizer in (3) make sense here? True that it would be helpful to correct the bias of the negative phase, but why this particular form? We are not doing WGAN here and in general we don't usually put a Lipschitz constraint on the energy function. I've seem several GAN papers arguing that gradient penalty helps in cases beyond WGAN, but most of them are just empirical observations...
+Also the Omega regularizer is computed on which x? On data? Do you know whether the energy is guaranteed to be minimized at data locations? In this is that appropriate to call Omega a regularizer?”
+
+The regularizer ||dEnergy(x)/dx||^2 is not just a smoothness regularizer but it also makes data points x energy minima (because ||dEnergy(x)/dx|| should be 0 at data points). This thus helps to learn a better energy function. Note that this is similar in spirit to score matching, which also carves the energy function so that it has local minima at the training points. The regularizer also stabilizes the temperature (scale) of the energy function, making training stable (avoiding continued growth of precision, inverse temperature, as training continues).
+
+* “2. Equation 3 is inconsistent with the energy update equation in Algorithm 1. The latter one makes more sense.”
+
+Sorry for the typo in eqn 3. The LHS should have been the gradient of L_E wrt theta, and Omega on the RHS should have been dOmega/dtheta.
+
+* “3. Where is the ratio between the transition kernels in the acceptance ratio equation? In general for Langevin dynamics the transition kernel is not symmetric.”
+
+The correction term to be added to -E(G(z'))+E(G(z))  (where z' = new z, and z = old z) would be:
+
+log (q(z|z')/q(z|z')) = 0.5 ( ||eps||^2 - ||eps - sqrt(alpha/2)(E'(z) - E'(z'))||^2 )
+
+where q is the proposal distribution producing z' from z and E' = gradient of E. We tried using the full formula but that it did not seem to make a discernible difference.
+
+Please let us know if anything is unclear here or if there is any other comparison that would be helpful in clarifying things more. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJeKYRtx97" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Some questions on the details</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=BJeKYRtx97"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper695 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This paper proposed an interesting idea on combining the GANs and energy based models. 
+I have following questions on the details of this paper:
+1) In Equation (3), there is a regularization item added to avoid the "numerical problems". It looks very similar to the Gradient Penalty item  in WGAN-GP[Gulrajani et al., 2017]. In WGAN-GP, the gradient norm regularizer is utilized on the linear interpolation space of P_D and P_G. While in algorithm 1 of this paper, I find the regularizer only penalized the point on real data distribution, and second term in Equation(3) can be infinity as  there is no constraint on P_G.  I think that this will still cause unstable training and numerical problems.
+
+2) To make P_\theta and P_G match, the authors selected to minimize a KL divergence. As illustrated in [Arjovsky et al., 2017], KL divergence will behave poorly when the two distribution is without overlapping. I am curious about whether the KL divergence is suitable to estimate the difference on P_\theta and P_G,  especially when the distribution is high dimensional.
+
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyxC8mgZ5Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarifications on the details</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=SyxC8mgZ5Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper695 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper695 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your questions.
+1.) Yes, as you point out, we noticed as well that our score norm penalty is similar to the WGAN-GP regularizer. Our intuition behind using the score penalty regularizer in our case is to have 0 score norm for training points because that corresponds to a minimum of the energy (and we want to carve the energy function to have minima at data points). That is, there shouldn't be any gradient with respect to the input for true data (or equivalently, 0 reconstruction error). This, in practice was sufficient to fix the temperature explosion issue as mentioned in Section 3. We also noticed that in practice, the absence of constraint on P_G (fake samples) does not cause unstable training or any numerical problems.
+
+2.) Yes, it is right to point out that if the distributions of P_\theta and P_G do not have overlapping support, the KL divergence will be infinite and there will be no gradient signal to align the 2 distributions. However, our intuition is that this is less likely to happen since the entropy maximization term arising from the KL divergence will help align the supports of the 2 distributions and hence provide gradient signal to match the 2 distributions. Also, the KL gradient on P_G is basically doing two reasonable things: putting more probability mass where the energy is low and increasing entropy (otherwise all the mass could be concentrated in one point). Note how the latter term will prevent p_G to be too concentrated.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rkeYbXIjtX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good paper with insightful ideas</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=rkeYbXIjtX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Xiaojian_Ma1" class="profile-link">Xiaojian Ma</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 03 Oct 2018)</span><span class="item">ICLR 2019 Conference Paper695 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Previously I've read a NIPS workshop paper[Finn et.al., 2016] that try to reveal the inherent connection between training an energy-based model and a generative adversarial net. The main contribution of that paper is providing a full derivation of the equivalence of $L_G \leftrightarrow KL(p_G || p_\theta)$ and $L_D \leftrightarrow \mathbb{E}_{x \sim p_{data}}\left[-\log{p_\theta(x)}\right]$. However, in that paper, this equivalence only holds when D takes the form of $\frac{p_\theta(x)}{p_\theta(x) + p_G(x)}$, and this is so-called the "optimal discriminator" mentioned in [Goodfellow et.al., 2014]. But the problem is the discriminator actually cannot always hold such form during gradient descent, which implies that it's basically not appropriate to directly cast the training of original GAN as training an EBM as what [Finn et.al.,2016] claimed.
+
+In this paper, the authors alternatively choose to optimize $KL(p_G || p_\theta)$ in Eq.4 by explicitly maximizing the entropy of G with DIM estimator, such techniques eliminate the dependency of the optimal discriminator in [Finn et.al.,2016] while the equivalence to the EBM objective could still be retained. On the other hand, although the proposed method still relies on MCMC, sampling with learned energy could be an essence to optimizing strictly with the EBM objective in this generator-discriminator architecture, and the authors do report promising results compared with original GAN and WGAN-GP.
+([Finn et.al., 2016] tries to prove that the original GAN training procedure implicitly contains the MCMC step for estimating the partition function, but such conclusions depend on the optimal discriminator form).
+
+One minor suggestion, Is there a typo in Sec.3? I think KL(p_||p_\theta) = H[p_G] - E_{p_G}[log pθ(x)] should be KL(p_||p_\theta) = -H[p_G] - E_{p_G}[log pθ(x)], a minus is missing.
+
+[Finn et.al., 2016] A Connection between Generative Adversarial Networks, Inverse Reinforcement Learning, and Energy-Based Models, in NIPS Workshop, 2016, <a href="https://arxiv.org/abs/1611.03852" target="_blank" rel="nofollow">https://arxiv.org/abs/1611.03852</a>
+[Goodfellow et.al., 2014] Generative Adversarial Nets, in NIPS, 2014</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJgXAUSCtm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for the feedback and spotting the typo</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlmhs05tm&amp;noteId=rJgXAUSCtm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper695 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Sep 2018</span><span class="item">ICLR 2019 Conference Paper695 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Jeasine, thanks for the feedback and spotting the sign typo! We will add the very relevant Finn et al 2016 reference.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Exploring Curvature Noise in Large-Batch Stochastic Optimization | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Exploring Curvature Noise in Large-Batch Stochastic Optimization" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=S1eB3sRqtm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Exploring Curvature Noise in Large-Batch Stochastic Optimization" />
+      <meta name="og:description" content="Using stochastic gradient descent (SGD) with large batch-sizes to train deep neural networks is an increasingly popular technique. By doing so, one can improve parallelization by scaling to..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_S1eB3sRqtm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Exploring Curvature Noise in Large-Batch Stochastic Optimization</a> <a class="note_content_pdf" href="/pdf?id=S1eB3sRqtm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019exploring,    &#10;title={Exploring Curvature Noise in Large-Batch Stochastic Optimization},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=S1eB3sRqtm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Using stochastic gradient descent (SGD) with large batch-sizes to train deep neural networks is an increasingly popular technique. By doing so, one can improve parallelization by scaling to multiple workers (GPUs) and hence leading to significant reductions in training time. Unfortunately, a major drawback is the so-called generalization gap: large-batch training typically leads to a degradation in generalization performance of the model as compared to small-batch training. In this paper, we propose to correct this generalization gap by adding diagonal Fisher curvature noise to large-batch gradient updates. We provide a theoretical analysis of our method in the convex quadratic setting. Our empirical study with state-of-the-art deep learning models shows that our method not only improves the generalization performance in large-batch training but furthermore, does so in a way where the training convergence remains desirable and the training duration is not elongated. We additionally connect our method to recent works on loss surface landscape in the experimental section. </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">optimization, large-batch training, generalization, noise covariance</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Engineer large-batch training such that we retain fast training while achieving better generalization.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HJxOq24cnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>curvature noise for large batch training in DNNs</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eB3sRqtm&amp;noteId=HJxOq24cnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper705 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper705 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors propose a method to close the generalization gap that arises in training DNNs with large batch. The author reasons about the effectiveness in SGD small batch training by looking at the curvature structure of the noise. Instead of using the naïve empirical fisher matrix, the authors propose to use diagonal fisher noise for large batch SGD training for DNNs. The proposed method is shown empirically to achieve both comparable generalization and the training speedup compared to small batch training. A convergence analysis is provided for the proposed method under convex quadratic setting. 
+
+The idea of exploring the curvature information in the noise in SGD has been studied in (Hoffer et al. 2017). The difference between this approach and the proposed method in the paper is the use of diagonal fisher instead of the empirical fisher. Although there is convergence analysis provided under convex quadratic setting, I feel that the motivation behind using diagonal fisher for faster convergence is not clear to me, although in the experiment part, the comparison of some of the statistics of diagonal fisher appear similar to the small batch SGD. The intuition of using diagonal fisher for faster convergence in generalization performance is still missing from my perspective. 
+
+In the convergence analysis, as there is a difference between the full fisher and diagonal fisher in the Tr(C’AC) term. It would be interesting to see the effect of how this term play on convergence rate, and also how this term scale with batch size. But this is more of a minor issue as we are mostly caring about its generalization performance which is different from optimization error convergence. 
+
+In the experiments section, the authors claim that noise structure is only important for the first 50 epochs. But it would be better if the authors could show experimental results of using the same training method all the way during the experiment. The experiments are conducted on MNIST and CIFAR10 and 100, which I feel is a bit insufficient for a paper that deals with generalization gap in large batch. As in large batch training, we care more about bigger dataset such as ImageNet, and hence I would expect results reported on various models on ImageNet. Another interesting thing to show would be the generalization error over epochs for different methods, which could give a more detailed characterization of the behavior of different methods.
+
+Overall, I feel the motivation and intuition behind the proposed method is not clear enough and experimental studies are not sufficient for understanding the behavior of the proposed method as an empirical paper.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ryg_FtoF2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Algorithm derivation is reasonable and interesting</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eB3sRqtm&amp;noteId=ryg_FtoF2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper705 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper705 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary: 
+This paper proposes the method which improves the generalization performance of large-batch SGD by adding the diagonal Fisher matrix noise.
+In the theoretical analysis, it is shown that gradient descent with the diagonal noise is faster than it with the full-matrix noise on positive-quadratic problems.
+Moreover, the effectiveness of the method is verified in several experiments.
+
+Comments:
+The idea of the proposed method is based on the following observations and assumptions:
+
+- Stochastic gradient methods with small-batch can be regarded as a gradient method with Fisher matrix noise.
+- The generalization ability is comparable between diagonal Fisher and full Fisher matrix.
+- Gradient method with diagonal Fisher is faster than that with full Fisher matrix.
+This conjecture is theoretically validated for the case of quadratic problems.
+
+In short, the algorithm derivation seems to be reasonable and the derived algorithm is executable.
+Moreover, experiments are well conducted and the results are also good.
+
+
+Minor comment:
+- There is a typo in the next line of Eq. (2):
+\nabla_{M_L} (\theta_k)} -&gt; \nabla_{M_L} L(\theta_k)}
+
+In addition, the notation "l_i" is not defined at this time.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJx0hZqPnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting and insightful theory but weak experimental setup</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eB3sRqtm&amp;noteId=HJx0hZqPnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper705 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper705 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">It has previously been observed that training deep networks using large batch-sizes leads to a larger generalization gap compared to the gap when training with a relatively small batch-size. This paper proposes to add noise sampled from diagonal "empirical" Fisher matrix to the large batch gradient as a method for closing the generalization gap. The authors motivate the use of empirical Fisher for sampling noise by arguing that the covariance of gradients from small batch-sizes can be seen as approximately equal to a scaled version of the Fisher matrix. It is then pointed out that using the Fisher matrix directly to sample noise could in principle close the generalization gap but would lead to slow converegence similar to SGD with a small batch-size. The authors then claim that the convergence speed is better when noise is sampled from the diagonal Fisher matrix instead of the full Fisher matrix. This claim is proven in theory for a convex quadratic loss surface and experiments are conducted to empirically verify this claim both in the quadratic setting are for realistic deep networks. Finally an efficient method for sampling noise from the diagonal empirical Fisher matrix is proposed.
+
+Comments:
+I think the paper is very well written and the results are presented clearly. In terms of novelty, I found the argument about convergence using diagonal Fisher being faster compared with full Fisher quite interesting, and its application for large batch training to be insightful. 
+
+As a minor comment, for motivating theorem 3.1, it is pointed out by the authors that the diagonal Fisher acts as an approximation of the full Fisher and hence their regularization effects should be similar while convergence should be faster for diagonal Fisher. As a caveat, I think the authors should also point out that the convergence rate would be best when C is set to 0 in the result of the theorem. This implies no noise is used during SGD updates. However, this would imply the regularization effect from the noise will also vanish which would lead to poor generalization. 
+
+
+However, there is a crucial detail that makes the main argument of the paper weak. In the main experiments in section 4.3, for the proposed large batch training method, the authors mention that they use a small batch-size of 128 for the first 50 epochs similar to Smith et al (2017) and then switch to the large batch-size of 4096, at which point, the learning rate is linearly scaled proportional to the large batch-size with a warmup scheme similar to Goyal et al (2017) and ghost batch normalization is used similar to Hoffer et al (2017). The former two tricks have individually been shown on their own to close the generalization gap for large batch-size training on large datasets like ImageNet. This paper combines these tricks and adds noise sampled from the diagonal Fisher matrix on top when switching to large batch-size after epoch 50 and reports experiments on smaller datasets-- MNIST, Fashion MNIST and the CIFAR datasets. Finally, the accuracy numbers for the proposed method is only marginally better than the baseline where isotropic noise is added to the large batch-size gradient. For these reasons, I do not consider the proposed method a significant improvement over existing techniques for closing the generalization gap for large batch training.
+
+There is also a statement in the paper that is problematic but can be fixed by re-writing. In the paper, empirical Fisher matrix, as termed by the authors in the paper, refers to the Fisher matrix where the target values in the dataset is used as the output of the model rather than sampling it from the model itself as done for computing the true Fisher matrix. This empirical (diagonal) Fisher matrix is used to sample noise which is added to the large batch gradient in the proposed method. It is mentioned that the covariance of the noise in small batch SGD is exactly same as the empirical Fisher matrix. This claim is premised on the argument that the expected gradient (over dataset) is unconditionally roughly 0, i.e., throughout the training. This is absolutely false. If this was the case, gradient descent (using full dataset) should not be able to find minima and this is far from the truth. Even if we compare the scale of expected gradient to the mini-batch gradient (for small batch-size), the scale of these two gradients at any point during training (using say small batch-size SGD) is of the same order. I am saying the latter statement from my personal experience. The authors can verify this as well.
+
+Overall, while I found the theoretical argument of the paper to be mostly interesting, I was dissapointed by the experimental details as they make the gains from the proposed method questionable when considered in isolation from the existing methods that close the generalization gap for large batch training.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJlPbhPypm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarifying experimental setup in Sec. 4.3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eB3sRqtm&amp;noteId=rJlPbhPypm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper705 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018 (modified: 09 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper705 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We apologize for the confusion in writing in Section 4.3 and the issues that stemmed from it. We clarify our experimental setup here. All of the results concerning LB=4096, the last three columns presented in Table 1 are strictly LB during the entire training process. We did not use SB=128 for the first 50 epochs of training. 
+
+We did perform an initial experiment where we used SB for first 50 epochs and LB for 150 epochs to suggest that the noise is relevant in the early stages of training. The results of this particular experiment are reported as “BatchChange” in Appendix F. We iterate that this is not a preferred solution; it is not strictly LB training during the entire process and hence it sacrifices the benefits of LB training in the early stages of training. 
+
+In upcoming versions of this paper, we will modify Section 4.3 along with other sections of the paper to improve clarity and presentation of the paper. We will address your other comments and concerns in later rebuttals. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJlX9S0bpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: Clarifying experimental setup in Sec. 4.3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eB3sRqtm&amp;noteId=HJlX9S0bpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper705 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper705 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I see. But there were still two other tricks used-- the linear scaling scheme for learning rate and ghost batch-normalization, and the former has been shown to close the generalization gap on its own (Goyal et al 2017). Could you also report the improvement using diagonal Fisher conditioning but without the linear learning rate scaling scheme (may be on CIFAR-100)? I think it should not take long to run. According to the claim, the Fisher noise that is being added to the large batch gradient should lead to similar generalization as the base case, while improving convergence as pointed out by theory. So I am curious about where most of the gain is coming from-- the linear learning rate scaling scheme or the proposed Fisher noise.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1gCwCJzaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>About the linear scaling scheme and gbn</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eB3sRqtm&amp;noteId=B1gCwCJzaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper705 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper705 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">In the table1 where we reported for the baseline (LB+GBN), we also used the linear scaling scheme. It shows that the linear scaling scheme can't close the generalization gap on its own, at least without other tricks used in (Goyal et al 2017). The only difference between the baseline in our work and the (LB+GBN) in (Hoffer et al 2017) is the learning rate scheme (linear scaling vs. square root scaling). Hence, the gain from the linear learning rate scaling can be observed from the improvement of our numbers and theirs. But we still think it is interesting to see how diagonal Fisher works without the linear learning rate scaling scheme. We can report it in the upcoming revision.
+
+As for the GBN, it was shown in the (Hoffer et al 2017) that it needs more iterations to close the generalization gap on its own, which is against the motivation of LB training. We reported the numbers of (LB+gbn+noise) because it produces the best results without training longer but we think the gain from curvature noise is still clear and more importantly consistent with the convergence analysis.
+
+Another detail is the Isotropic noise in table1 is scaled by the Fisher trace norm so it is still curvature noise because it depends on the network parameters.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJehhkWGpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: About the linear scaling scheme and gbn</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1eB3sRqtm&amp;noteId=SJehhkWGpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper705 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper705 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I agree about GBN and the extended training regime that it is against the goal of training faster using large batch size. But at least it does show from a research point of view that the generalization gap can be closed when using large batch-size. However I find the baseline reported in Hoffer et al to be slightly weak compared to what I have seen in my experience. So I believe the gap is still present even when using their tricks and the problem is completely solved yet.
+
+I will wait for your experiments using diagonal Fisher without linear learning rate scheme.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

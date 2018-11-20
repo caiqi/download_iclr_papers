@@ -1,0 +1,236 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Off-Policy Evaluation and Learning from Logged Bandit Feedback: Error Reduction via Surrogate Policy | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Off-Policy Evaluation and Learning from Logged Bandit Feedback: Error Reduction via Surrogate Policy" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HklKui0ct7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Off-Policy Evaluation and Learning from Logged Bandit Feedback:..." />
+      <meta name="og:description" content=" When learning from a batch of logged bandit feedback, the discrepancy between the policy to be learned and the off-policy training data imposes statistical and computational challenges. Unlike..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HklKui0ct7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Off-Policy Evaluation and Learning from Logged Bandit Feedback: Error Reduction via Surrogate Policy</a> <a class="note_content_pdf" href="/pdf?id=HklKui0ct7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019off-policy,    &#10;title={Off-Policy Evaluation and Learning from Logged Bandit Feedback: Error Reduction via Surrogate Policy},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HklKui0ct7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value"> When learning from a batch of logged bandit feedback, the discrepancy between the policy to be learned and the off-policy training data imposes statistical and computational challenges. Unlike classical supervised learning and online learning settings, in batch contextual bandit learning, one only has access to a collection of logged feedback from the actions taken by a historical policy, and expect to learn a policy that takes good actions in possibly unseen contexts. Such a batch learning setting is ubiquitous in online and interactive systems, such as ad platforms and recommendation systems. Existing approaches based on inverse propensity weights, such as Inverse Propensity Scoring (IPS) and Policy Optimizer for Exponential Models (POEM), enjoy unbiasedness but often suffer from large mean squared error. In this work, we introduce a new approach named Maximum Likelihood Inverse Propensity Scoring (MLIPS) for batch learning from logged bandit feedback. Instead of using the given historical policy as the proposal in inverse propensity weights, we estimate a maximum likelihood surrogate policy based on the logged action-context pairs, and then use this surrogate policy as the proposal. We prove that MLIPS is asymptotically unbiased, and moreover, has a smaller nonasymptotic mean squared error than IPS. Such an error reduction phenomenon is somewhat surprising as the estimated surrogate policy is less accurate than the given historical policy. Results on multi-label classification problems and a large-scale ad placement dataset demonstrate the empirical effectiveness of MLIPS. Furthermore, the proposed surrogate policy technique is complementary to existing error reduction techniques, and when combined, is able to consistently boost the performance of several widely used approaches.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Causal inference, Policy Optimization, Non-asymptotic analysis</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_H1eGHjd5hX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting approach to improve off-policy optimization in bandit settings by estimating the logging policy that generated the data</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HklKui0ct7&amp;noteId=H1eGHjd5hX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper375 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper375 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes to fit a model of the logging policy that generates bandit feedback data, and use this model's propensities when performing off-policy optimization. When the model is well-specified (i.e. the logging policy indeed lies within the parametric class of models we are fitting), and we use maximum likelihood estimation to fit the model, this approach can yield a lower error when evaluating a policy's performance using off-policy data. The paper then shows how this improved off-policy estimation can also yield better off-policy optimization, and demonstrate this in semi-synthetic experiments.
+
+Specific Comments:
+Eq2.4: Lambda is overloaded (context distribution vs. regularization hyper-parameter).
+Eq3.3: E[.] is used before defining it (i.e., E[.] should be interpreted as E_(x,a)~mu(.|beta*) [.])
+Eq3.5: I^-1(beta*) makes sense, but the second term E[ d/d beta (S(x,a; beta*)) ] uses a notation that needs to be introduced (you mean || (E[ d/d beta (S(x,a; beta)) ] |_at beta=beta* )^-1 ||).
+
+After Eq3.7: It will be instructive to specify some examples of logging policies mu which satisfy these assumptions (and how big the O(.) constants are for those examples).
+Section 3.2: In practical considerations, expected a discussion of how robust things are when the logging policy class is mis-specified (i.e. assuming there is a beta* such that mu(.|beta*) created the data is unlikely to be true).
+For ML- approaches, was a clipping constant M still used? If so, was it crucial and why?
+Lemma D.1: The lemmas in appendix should be accompanied by a proof. E.g. what is C_beta? I don't immediately see why D.3 suggests that the inverse of the Fisher matrix has bounded norm (for instance, if x=0 the inverse is undefined).
+
+General Comments:
+Clarity: Good. The paper is easy to follow. Some examples from the Appendix can be moved to the main text (especially to provide a firm grounding for the constants appearing in Section3.1)
+Correctness: I did not step through Appendix A-C. In Appendix D, there was a questionable claim. The stated theorems in the main text are believable [not surprising that asymptotic bias vanishes when the logging policy model is well-specified].
+Originality: This builds on several previous works on off-policy optimization in bandit settings, and proposes a simple addition to improve performance.
+Significance: The paper seems to have missed an opportunity; it can be substantially stronger with a more careful study of when fitting the logging policy will help vs. hurt, and what kinds of regularization or alternatives to maximum likelihood estimation can yield similar improvements (e.g. regularizing propensities close to uniform, ensure no small propensities). </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJxF1VhYhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A variance reduction technique for learning from logged bandit feedback. Proposes a surrogate policy that can be used on top of IPS and POEM.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HklKui0ct7&amp;noteId=HJxF1VhYhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper375 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper375 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary:
+The paper considers the problem of learning from logged bandit feedback, and focuses on the problem of the ratio of the target policy and the logged policy (the basis of algorithms such as inverse propensity scoring). The paper proposes a surrogate policy to replace the logged policy with known parametrization, with a policy obtained by maximum likelihood estimation on the observed data. The authors present theoretical arguments that the variance of the value function estimate is reduced. Empirical experiments show that the surrogate policy can be used to improve IPS and POEM, and also works when the logging policy is unknown.
+
+The paper analyses an important and interesting problem which is critical to many practical applications today. The proposed solution is modular, and the empirical experiments point to its usefulness. The theoretical analysis, while not fully explaining the proposed approach, provides comfort that there is reduced variance when using the maximum likelihood surrogate.
+
+Overall comments:
+- page 3, Section 3: It is unclear why the assumption that we know the logging policy, as well as its optimal parameter is a sensible one. In particular, the first paragraph seems to indicate that the surrogate policy some somehow the same parameterization and $\hat{\beta}$ is in the same space as $\beta^*$, and just a different parameter. On one hand the authors seem to indicate that they know everything about the logging. On the other hand they seem to want to claim that not knowing the logging policy is ok. What happens when there is a model mismatch between the logging policy and the surrogate policy? Please expand on these two assumptions.
+- page 4, Section 3.1: It might be useful to have a toy example which exactly matches the requirements of Theorem 3.9, such that you can present empirical intuition about the terms in (3.13). In particular: what is the effect of assuming a deterministic reward? How does (3.14) grow? Why is the reduction of MSE greater than $\xi(n)$?
+- Theorem 3.9: Please present the result that MLIPS is asympotically unbiased explicitly. Furthermore, the current proof of this main theorem should be structured better, so that it can be properly checked.
+
+Minor issues/typos:
+- page 3, above (3.1): In specific, we --&gt; In particular, we
+- Figure 1: the legend is very confusing, making it totally unclear what the text is talking about. Please match text, caption and legend.
+- Section 4.3: please say that the data is the multilabel datasets of Swaminathan and Joachims in Table 1.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ByxKCFcOhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting idea with promising empirical results and a somewhat disappointing theoretical analysis.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HklKui0ct7&amp;noteId=ByxKCFcOhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper375 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper375 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This work is concerned with the problem of batch contextual bandits, in which a target contextual bandit policy is optimized on the data generated by a different logging policy. The main problem is to come up with a low-variance low-bias estimator for the value of the target policy. Many of the known techniques are based on an unbiased estimator known as inverse propensity scoring (IPS), which uses the distribution over actions of the logging policy, conditioned on the observed contexts. However, IPS suffers from large variance. The paper's idea is to do a maximum likelihood fit of a simple surrogate policy to the logged data, and then use the conditional distribution over actions of the surrogate policy to compute inverse propensity scores.
+The theoretical results show that the bias of this estimator vanishes asymptotically, whereas the variance is smaller than IPS. Experiments using known/unknown logging policies on artificial/real-world bandit data show that the IPS scores computed with the proposed technique are empirically better than those computed directly using the logging policy. Moreover, the advantage increases when the distribution extracted from the surrogate policy is used to compute more sophisticated estimators than IPS.
+
+The off-policy evaluation in contextual bandits is an important problem, and this paper appears to make some progress. However, the theoretical analysis is a bit disappointing, as it does not shed much light on the reasons why using a surrogate policy should help. Some additional discussion would add value to the paper.
+
+The result about the decrease in variance depends on assumptions that are not clearly justified, and is expressed in terms of abstract quantities that hard to connect to concrete scenarios. In the end, one does not get many new insights from the theory.
+
+In Assumptions 3.3-3-4, what is the variable w.r.t the asymptotic notations are understood? By that I mean, the variable n such that f(n) = O(g(n)).
+
+The experiments are competent and quite elaborated. However, the statistical significance of the improvements in Table 1 is unclear.
+
+The evaluation criterion for the Criteo experiment is unclear. As a consequence it is hard to appreciate the significance of the improvements in this case.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

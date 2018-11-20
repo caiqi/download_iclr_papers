@@ -1,0 +1,411 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Discriminator-Actor-Critic: Addressing Sample Inefficiency and Reward Bias in Adversarial Imitation Learning | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Discriminator-Actor-Critic: Addressing Sample Inefficiency and Reward Bias in Adversarial Imitation Learning" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Hk4fpoA5Km" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Discriminator-Actor-Critic: Addressing Sample Inefficiency and..." />
+      <meta name="og:description" content="We identify two issues with the family of algorithms based on the Adversarial Imitation Learning framework. The first problem is implicit bias present in the reward functions used in these..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Hk4fpoA5Km" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Discriminator-Actor-Critic: Addressing Sample Inefficiency and Reward Bias in Adversarial Imitation Learning</a> <a class="note_content_pdf" href="/pdf?id=Hk4fpoA5Km" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019discriminator-actor-critic:,    &#10;title={Discriminator-Actor-Critic: Addressing Sample Inefficiency and Reward Bias in Adversarial Imitation Learning},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=Hk4fpoA5Km},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=Hk4fpoA5Km" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We identify two issues with the family of algorithms based on the Adversarial Imitation Learning framework. The first problem is implicit bias present in the reward functions used in these algorithms. While these biases might work well for some environments, they can also lead to sub-optimal behavior in others. Secondly, even though these algorithms can learn from few expert demonstrations, they require a prohibitively large number of interactions with the environment in order to imitate the expert for many real-world applications. In order to address these issues, we propose a new algorithm called Discriminator-Actor-Critic that uses off-policy Reinforcement Learning to reduce policy-environment interaction sample complexity by an average factor of 10. Furthermore, since our reward function is designed to be unbiased, we can apply our algorithm to many problems without making any task-specific adjustments. </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">deep learning, reinforcement learning, imitation learning, adversarial learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We address sample inefficiency and reward bias in adversarial imitation learning algorithms such as GAIL and AIRL.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">21 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rJePR4gGT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Question about Details of Algorithm and ablation study</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=rJePR4gGT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I enjoyed reading your submission, and I am now trying to add absorbing state to AIRL.
+I have 3 questions. First and second questions are about how to learn Q_theta(s_a,・) and third is about ablation study.
+
+Three questions are below.
+
+1.  I think that the target of Q_theta(s_a, ・) is logD(s_a,・)-log(1-D(s_a,・)) +  γQ_theta(s_a,・). Is this right?
+
+2. What did you use as action at absorbing states for calculating D(s_a,・) or Q_theta(s_a,・)? You use random value?
+
+3. Did you investigate the effect of only absorbing states on on-policy GAIL or AIRL ? Did GAIL+absorbing states or AIRL + absorbing states work better than GAIL or AIRL?
+
+Thank you!!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SygDehUmpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=SygDehUmpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comments.
+
+1. Yes, that’s correct (using TD3 algorithm). For the target part it’s s’ and action is produced by the action target network:  ||logD(s_a,・)-log(1-D(s_a,・)) +  γQ_theta_target(s’, A_target(s’),・)　-Q_theta(s, a,・) ||**2.
+2. We used zero actions for the absorbing states.
+3. No, we investigated it only with off-policy case. For the off-policy version of your second question, see Figures 6 and 7. However, the part related to absorbing states is independent of off-policy training.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJgH5Yg0h7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A Review on Adversarial Inference by Matching Priors and Conditionals Discriminator-Actor-Critic: Addressing Sample Inefficiency and Reward Bias in Adversarial Imitation Learning</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=rJgH5Yg0h7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper784 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors find 2 issues with Adversarial Imitation Learning-style algorithms: I) implicit bias in the reward functions and II) despite abilities of coping with little data, high interaction with the environment is required. The authors suggest "Discriminator-Actor-Critic" - an off-policy Reinforcement Learning reducing complexity up to 10 and being unbiased, hence very flexible. 
+
+Several standard tasks, a robotic, and a VR task are used to show-case the effectiveness by a working implementation in TensorFlow Eager.
+
+The paper is well written, and there is practically no criticism.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJgV29zq67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=rJgV29zq67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the feedback and appreciate the strong recommendation.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BJxqUpTA3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Question on expertise of the reviewer in this domain</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=BJxqUpTA3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">It doesn't seem that the reviewer has put any efforts in appreciating or criticising the paper and has merely summarised the paper in a few lines.
+Please provide proper analysis for your acceptance decision and rating
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ByeHNeho37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Practical Details for Reproducing Results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=ByeHNeho37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I enjoyed reading your submission and was trying to reproduce some of your results. I am using Soft Actor-Critic with somewhat different model sizes than yours and had some practical questions that could help me be more effective. I was wondering:
+
+- What is the batch size you use for the updates? How large is your replay buffer size (do you store all previous trajectories)?
+- In your algorithm box, in the update section, it says "for i = 1, ..., |\tau|". Does this mean that for example for halfcheetah environment you do 1000 updates every time you generate a trajectory?
+- Would you be able to also include the numeric reward value your experts achieve on the tasks?
+- Could you elaborate on the specific form of gradient penalty you use and the coefficient of the gradient penalty term?
+
+And, one separate question: Have you also tried simultaneously updating the discriminator and policy instead of the alternating scheme shown in the algorithm box?
+
+Thank you!
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HyebhMXa2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=HyebhMXa2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comments!
+
+Since our algorithm uses TD3 (<a href="https://arxiv.org/pdf/1802.09477.pdf)," target="_blank" rel="nofollow">https://arxiv.org/pdf/1802.09477.pdf),</a> we highly recommend to use the original implementation of the algorithm (https://github.com/sfujim/TD3). Our reimplementation of TD3 reproduces the results reported in the original paper. Reproducing results with SAC might be harder since SAC requires tuning a temperature hyperparameter that might require additional efforts in combination with reward learning.
+
+1) We used the batch size equal to 100. We kept all transitions in the replay buffer.
+2) That’s correct. For HalfCheetah, after performing 1K updates of the discriminator we performed 1K updates of TD3. During early stage of development we tried the aforementioned suggestion of simultaneously updating the discriminator and policy, and it produced worse results.
+3) Yes, we will include it in  the appendix.
+4) We used gradient penalty described in https://arxiv.org/abs/1704.00028 and implemented in TensorFlow https://www.tensorflow.org/api_docs/python/tf/contrib/gan/losses/wargs/wasserstein_gradient_penalty with a coefficient equal to 10.
+
+An additional note regarding reproducing results. Please take into account, that depending on when you subsample trajectories to match the original GAIL setup, you need to use importance weights. Specifically, if you first subsample expert trajectories taking every Nth transition, and then add absorbing states to the subsampled trajectories, you will need to use importance weight 1/N for the expert absorbing states while training the discriminator. We will explicitly mention this detail in next version of the submission.
+
+We would like to emphasize that upon publishing the paper we are going to open source our implementation.
+
+Feel free to request any additional information. We will be glad to provide everything to help you to reproduce our results.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1gpuXlih7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Sound and effective approach with little novelty, insufficient analysis of reward bias</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=S1gpuXlih7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper784 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper suggests to use TD3 to compute an off-policy update instead of the TRPO/PPO updates in GAIL/AIRL in order to increase sample efficiency.
+The paper further discusses the problem of implicit step penalties and survival bias caused by absorbing states, when using the upper-bounded/lower-bounded reward functions log(D) and -(1-log(D)) respectively. To tackle these problem, the paper proposes to explicit add a unique absorbing state at the end of each trajectory, such that its rewards can be learned as well.
+
+Pro:
+The paper is well written and clearly presented. 
+
+Using a more sample efficient RL method for the policy update is sensible and turned out effective in the experiments.
+
+Properly handling simulator resets in MDPs is a well known problem in reinforcement learning that I think is insufficiently discussed in the context of IRL.
+
+
+Cons:
+The contributions seem rather small.
+a) Replacing the policy update is trivial, since the rl methods are used as black-box modules for the discussed AIL methods. 
+
+b) Using importance weighting to reuse old trajectories for the discriminator update hardly counts as a contribution either--especially when the importance weights are simply omitted in practice. I also think that the reported problems due to the high variance have not been sufficiently investigated. There should be a better solution than just pretending that the replay buffer corresponds to roll-outs of the current policy. Would it maybe help to use self-normalized importance weights? The paper does also not analyze how such assumption/approximation affects the theoretical guarantees.
+
+c) The problem with absorbing states is in my opinion the most interesting contribution of the paper. However, the discussion is rather shallow and I do not think that the illustrative example is very convincing. Section 4.1.1. argues that for the given policy roll-out, the discriminator reward puts more reward on the policy trajectory than the expert trajectory. However, it is neither surprising nor problematic that the discriminator reward does not produce the desired behavior during learning. By assigning more cumulative reward for s2_a1-&gt;s1 than for s2_a2-&gt;g, the policy would (after a few more updates) choose the latter action much less frequently than with probability 0.5 and the corresponding reward would grow towards infinity until at some point Q(s2,a2) &gt; Q(s2,a1)--when the policy would match the expert exactly. The illustrative example also uses more policy-labeled transitions than agent-labeled ones for learning the classifier, which may also be problematic. The paper further argues that a strictly positive reward function always rewards a policy for avoiding absorbing states, which I think is not true in general. A strictly positive reward function can still produce arbitrary large reward for any action that reaches an absorbing state. Hence, the immediate reward for choosing such action can be made larger than the discounted future reward when not ending the episode (for any gamma &lt; 1). Even for state-only reward functions the problem does not persist when reseting the environment after reaching the absorbing state such that the training trajectories contain states that are only reached if the simulator gets reset. Hence, I am not convinced that adding a special absorbing state to the trajectory is necessary if the simulation reset is correctly implemented. This may be different for resets due to time limits that can not be predicted by the last state-action tuple. However, issues relating to time limits are not addressed in the paper. I also think that it is strange that the direct way of computing the return for the terminal state is much less stable than recursively computing it and think that the paper should include a convincing explanation.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byebk4m5Tm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=Byebk4m5Tm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the detailed and constructive feedback. We address the above mentioned points and add some additional experiments, as detailed below.
+
+c) “By assigning more cumulative reward for s2_a1-&gt;s1 than for s2_a2-&gt;g, the policy would (after a few more updates) choose the latter action much less frequently than with probability 0.5 and the corresponding reward would grow towards infinity until at some point Q(s2,a2) &gt; Q(s2,a1)--when the policy would match the expert exactly.”
+“The paper further argues that a strictly positive reward function always rewards a policy for avoiding absorbing states, which I think is not true in general. A strictly positive reward function can still produce arbitrary large reward for any action that reaches an absorbing state.”
+
+&gt; This is a good point, and we will discuss this situation in more detail in the final paper. However, we do not believe that this directly applies to adversarial learning algorithms, such as the ones studied in our paper. We provide discussion as well as a numerical example below, which will be included in the paper.  
+
+The aforementioned situation can only happen in the limit, but the next discriminator update will return the policy to the previous state, in which it is more advantageous to take a loop, according to the GAIL reward definition. Therefore, the original formulation of the algorithm does not converge in this case. In contrast, learning rewards for the absorbing states will resolve this issue. 
+
+Moreover, the example provided by the reviewer assumes that we can fix the reward function at some point of training and then train the policy to optimality according to this reward function; while devising a scheme to early terminate learning of the reward function is possible, it is not specified by the dynamic reward learning mechanisms of the GAIL algorithm, which alternates updates between the policy and the discriminator. Please see a simple script that illustrates the example (anonymous link):
+<a href="https://colab.research.google.com/drive/1gV56NLik367nslwK7iJzs8WTe5tD-BO5" target="_blank" rel="nofollow">https://colab.research.google.com/drive/1gV56NLik367nslwK7iJzs8WTe5tD-BO5</a>
+
+This specific toy example will be included into our open source release.
+
+“Hence, I am not convinced that adding a special absorbing state to the trajectory is necessary if the simulation reset is correctly implemented.”
+
+&gt;  Could you please clarify what do you mean by a correct implementation of simulation resets?
+
+“I also think that it is strange that the direct way of computing the return for the terminal state is much less stable than recursively computing it and think that the paper should include a convincing explanation.”
+
+&gt; We think that it is less stable to analytically compute the returns for absorbing states as it introduces a high variance for TD updates of the value network due to the fact that we bootstrapped for all states. The issue is well known and usually solved by using target networks (see https://www.nature.com/articles/nature14236).
+
+“This may be different for resets due to time limits that can not be predicted by the last state-action tuple. However, issues relating to time limits are not addressed in the paper”
+
+&gt; Although some of the benchmark tasks do have an episodic time limit, an off-policy RL algorithm can still calculate a (discounted) target value at the last time step in such environments, which is what our implementation of TD3 actually does. Please see the original implementation of TD3 for more details:
+https://github.com/sfujim/TD3/blob/master/main.py#L123
+
+a) We note that this does make a substantial difference in terms of sample efficiency over prior work on adversarial IL, as shown in Figure 4 -- we believe that such substantial improvements in efficiency are of interest to the ICLR community, though it is not the sole contribution of our paper.
+
+b) We did use normalized importance weights, but unfortunately did not find that the resulting method performed well, while simply omitted importance weights achieved good performance. We think that the naive way of estimating importance weights increases variance of updates. We will analyze this further in the final version, but for now we would emphasize that this is not the primary contribution of the work, but only a technical detail that we discussed for completeness.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1gGZfAq6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Why I think that the random resets are incorrectly implemented</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=B1gGZfAq6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Let me elaborate on why I think that the failure of the existing methods to match the expert is caused solely by an incorrect implementation of the MDP and are not shortcomings of the actual algorithms.
+
+Roll-outs in an MDPs either have a fixed length (finite horizon) or an infinite length (infinite horizon). Variable length trajectory can be simulated by introducing absorbing states in a finite horizon formulation as mentions in section 3.1. of the submission. The infinite horizon case can be approximated using a large horizon and a time-dependent reward function for the discounting. However, in either case the absorbing states need to be treated in the same way as any other state in the MDP. Importantly, these states do not end the episode prematurely but just prevent the agent from entering any non-absorbing state and yield the same value for each policy. In reinforcement learning, we can typically stop the episode and return the Q-Value (which happens to equal the immediate reward, if the constant rewards of absorbing is assumed to be zero) which allows for more efficient implementations. However, it is important to note that the reward function is then only evaluated on the non-absorbing states and the rewards for absorbing states are implicitly assumed to be zero. Hence, when implementing policy roll-outs with a "break" one needs to be aware that the specified reward function does not correspond to the actual reward function of the MDP but affects only a subset of the possible state-action pairs (as those states of the MDP that we call "absorbing" will not be affected). This is well known in reinforcement learning, and even exploited by specifying constant offsets in the reward function for survival bonus / time penalty which would be useless if the specified reward function would be the actual reward function of the MDP.
+
+Using such implementation of an environment which is targeted at reinforcement learning and using it for inverse reinforcement learning  
+is incorrect, because IRL algorithms are typically derived for learning the reward function for the whole MDP and not for a subset of the MDP. How can we expect an algorithm to learn the correct constant offset of a reward function (which does affect the optimal policy in the given implementation) using a formulation that implies that an offset does not affect the optimal behaviour? 
+
+To summarize: The failure of GAIL and AIRL of matching expert demonstrations for some RL toolkits with absorbing states is caused by implementation hacks that are fine for RL problems and specific reward functions, but not for IRL. Indeed, the convergence problem of the code example can be solved simply by implementing the MDP in the way it is defined in section 3.1.--using a (discounted) fixed horizon and absorbing states. My code can be found at <a href="https://colab.research.google.com/drive/11w0McKxg7AA6ueTQNbfTtYAyVrSKgU2z" target="_blank" rel="nofollow">https://colab.research.google.com/drive/11w0McKxg7AA6ueTQNbfTtYAyVrSKgU2z</a>
+The only changes were
+- adding the missing state (s_g) and transition (sg-&gt;sg) to the MDP
+- removing the break in the roll-out
+- using a full expert trajectory as demonstration (including absorbing transitions) 
+- solving some numerical issues when both expert and agent have probability 0 for choosing a given action.
+The algorithm converges reliably to a policy that produces average trajectory lengths of 2.0
+
+Of course, the solution of the paper is a bit more elegant since it avoids to simulate the whole trajectory, but the effect should be the same. It is important to raise awareness of such pitfalls, but I do not think that it is enough to write an ICLR paper about--especially if it is discussed as an algorithmic improvement, when the algorithms are just fine. 
+
+Also in conjunction with the other minor contributions (using all trajectories for training the discriminator--without any theoretical justification, and using a more sample efficient policy update), I don't think that the contributions of the submission are sufficient.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJeQPruhpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Additional response to AnonReviewer2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=SJeQPruhpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your detailed response. We generally agree with the technical side of your description: MDPs with absorbing states require the absorbing states to be handled properly for IRL. This is in essence the point of this portion of our paper. We also agree that addressing this is not so much a new algorithm as it is a fix to the MDP. We have edited the paper to reflect this and clarify this point, please see the difference between the last revision and original submission (the abstract, sections 3.1 and 4). The fact that we test our solution by extending two different prior methods (GAIL and AIRL) reflects the generality of the solution.
+
+However, we respectfully disagree that this solution is obvious or trivial. Environments with absorbing states in the MuJoCo locomotion benchmark tasks have been used as benchmarks for imitation learning and IRL in one form or another for over two years. In this time, no one has corrected this issue, or even noted that this issue exists, and numerous works incorrectly treat absorbing states, resulting in results that are not an accurate reflection of the performance of these algorithms, as detailed in Section 5.2 and Figures 5,6 and 7 of our paper. This issue is severe, it is making it difficult to evaluate IRL and imitation algorithms, and as far as we can tell, most of the community is unaware of it. We believe that our paper will raise awareness of this issue and facilitate the development and evaluation of better IRL algorithms in the future. With your help, we have clarified this point further in our current paper. The purpose of a research paper is to communicate an idea that is relevant and important to a large subset of the community, and we believe that our paper does this.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkgkROElAm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revised version is still very misleading 1/2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=BkgkROElAm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I agree that communicating an idea that is relevant and important for a large subset of the community can justify publishing a research paper--even if the technical contribution is marginal. However the submission communicates an idea that in my opinion is just wrong. Namely, the submission communicates the idea that existing methods for IRL can not handle absorbing states and that learning reward functions that are always positive/negative can lead to an implicit bias. This is plain wrong and not helping the research community at all. Communicating this idea is not important but can be very harmful, especially when it is published at a conference like ICLR. I don't want to review papers next year that propose fixed offsets in order to enable their reward functions to produce both signs (and the like). I know that we need to sell our stuff and I'm fine with calling a TD3 replacement an all new algorithm. But, discussing a fix for a hack in a toolbox as an algorithmic enhancement just can not work out. The initial submission did not even give a hint that the bias is only caused by hacky implementations of the MDP, but pretended that it results from shortcomings of the algorithms. I agree that the the revised version is much better by admitting that it only applies to specific implementations. However, in order to clearly communicate the actual idea it is not sufficient to add one small paragraph, because the original, harmful narrative pervades the whole paper. I propose a number of modification (split over two comments due to character limits) to the paper, that I think are necessary to communicate to the reader how the improved performance was reached. The contribution of the revised version could be just enough to push it over the acceptance threshold.
+
+Introduction:
+"[...] 2) bias in the reward function formulation and improper handling of environment terminal states introduces implicit rewards priors that can either improve
+or degrade policy performance."
+- This still makes the impression that both AIL methods are biased and can not handle absorbing states correctly.
+ 
+"In this work we will also illustrate how the specific form of AIL reward function used has a large
+impact on agent performance for episodic environments.  For instance, as we will show, a strictly
+positive reward function prevents the agent from solving tasks in a minimal number of steps and a
+strictly negative reward function is not able to emulate a survival bonus.  Therefore, one must have
+some knowledge of the true environment reward and incorporate such priors to choose a suitable
+reward function for successful application of GAIL and AIRL. We will discuss these issues in formal
+detail, and present a simple - yet effective - solution that drastically improves policy performance
+for episodic environments; we explicitly handle absorbing state transitions by learning the reward
+associated with these states"
+- This paragraph needs to be completely rewritten. The form of the reward function (whether it is strictly positive or negative) does in theory not matter at all. It is completely fine to learn a reward function that only produces positive/negative values. Don't make the impression, that IRL researchers should start looking for ways to learn reward functions that can produce both signs. Furthermore, from a theoretical perspective GAIL and AIRL already explicitly learn rewards associated with absorbing states. This paragraph should clearly state that commonly used implementations of the roll-outs are not in line with the MDP-formulation which may be fine for RL but can lead to problems with IRL approaches. You may already want to point to the "break"-statement and state that it prevents the learned reward function from being applied to absorbing states. Although it is interesting to show how strictly positive/negative reward functions are affected by such implementations and it is nice to discuss these effects in the paper (maybe not in the introduction) and confirm them in the experiment, don't discuss the sign of the reward as the central problem. Also make sure to state, that you propose a different way of implementing the MDPs that allows early termination while fixing this problem. It is in my opinion crucial to discuss the problem and the solution in the context of implementing policy roll-outs / absorbing states. Make sure to show that this is a relevant problem that affects multiple toolboxes and that algorithms were incorrectly evaluated due to this issue - put in some references to undermine your claim that numerous work treat absorbing states incorrectly.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1gEMY4eAQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revised version is stell very misleading 2/2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=H1gEMY4eAQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">"We propose a new algorithm, which we call Discriminator-Actor-Critic (DAC) (see Figure 1), that is
+compatible with both the popular GAIL and AIRL frameworks, incorporates explicit terminal state
+handling, an off-policy discriminator and an off-policy actor-critic reinforcement learning algorithm"
+- Don't say that DAC incorporates terminal state handling. Rather write something like
+
+"We propose a new algorithm, which we call Discriminator-Actor-Critic (DAC) (see Figure 1), that extends GAIL and AIRL by replacing the policy update by the more sample efficient TD3 algorithm. Furthermore, our implementation of DAC includes a proper handling of terminal states that can be straightforwardly transferred to other inverse reinforcement learning algorithms. We show in ablative experiments, that our off-policy inverse reinforcement learning approach requires approximately an order of magnitude fewer policy roll-outs than the state of the art, and that proper handling of terminal states is crucial for matching expert demonstrations in the presence of absorbing states."
+
+End of Introduction:
+"• Identify, and propose solutions for the problem of bias in discriminator-based reward estimation in imitation learning."
+- As far as I can tell, there is no bias is discriminator-based reward estimation. I don't think that the proposed solution has to do with discriminators at all, but would affect any IRL algorithm and all those IL algorithm that use RL in the loop. Change this point to something like "Identify early termination of policy roll-outs in commonly used reinforcement learning toolboxes as cause of reward bias in the context of inverse reinforcement learning and propose a solution that allows to correctly match expert demonstrations in the presence of absorbing states."
+
+Related work should discuss prior work related to incorrectly handling absorbing states (in RL or IRL). However, I don't think that there is much published literature about fixing implementation hacks. 
+I'm aware of a paper at last ICML [1] (that was previously rejected for ICLR due to lack of novelty), that discussed problems relating to time-limits in infinite horizon formulations which might be worth mentioning. 
+
+Section 3 needs to explain how exactly the baselines implementation breaks IRL algorithms for absorbing states. The last paragraph of section 3.1. is not at all sufficient to communicate the root of the problem to the reader. Explain why the break in the roll-out violates the MDP formulation (which is assumed by the discussed algorithm) and that the learned reward function is thus not applied to the MDP. Add a new section (after 3.1 or 3.2) that is at least as detailed as my last comment.
+
+Section 4.1. also needs to be rewritten completely. There is no bias for the different reward formulations. Rather, applying IRL/IL algorithms without sufficient care to rl toolboxes that use hacky implementations can lead to different problems for different reward formulations.
+
+Also section 4.1.1. still discusses the problem as if there was an inherent bias depending on reward formulation. Furthermore, I already pointed out several problems and errors related to the illustrative example (e.g. analysing an intermediate state of the algorithm, rather than a fixed-point). Maybe you could prove for your code example that AIRL does not converge and show a plot that compares the averages trajectory length for the buggy implementation with my naive fix.
+
+Section 4.2. seems like the main technical contribution. The last paragraph still looks fishy to me and the reported problem of using the analytically derived return seems to result from an assumed infinite horizon formulation. I think that the MDP formulation used for handling absorbing states seems to assume (potentially very large) finite horizons and hence, R_T should at least theoretically depend on the current time step. Given that both equations are analytically equivalent, one equation can not be more stable than the other. When, however, the explicit summation is performed until a given horizon is reached, whereas the closed form solution assumes an infinite horizon, the returned values differ and the closed form solution is simply not sound.
+
+[1] Time Limits in Reinforcement Learning, Fabio Pardo, Arash Tavakoli, Vitaly Levdik, Petar Kormushev,
+Proceedings of the 35th International Conference on Machine Learning, PMLR 80:4045-4054, 2018. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_S1gzKHFunm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting paper on the challenges of GAIL</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=S1gzKHFunm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper784 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper investigates two issues regarding Adversarial Imitation Learning. They identify a bias in commonly used reward functions and provide a solution to this. Furthermore they suggest to improve sample efficiency by introducing a off-policy algorithm dubbed "Discriminator-Actor-Critic". They key point here being that they propose a replay buffer to sample transitions from. 
+
+It is well written and easy to follow. The authors are able to position their work well into the existing literature and pointing the differences out. 
+
+Pros:
+	* Well written
+	* Motivation is clear
+	* Example on biased reward functions 
+	* Experiments are carefully designed and thorough
+Cons:
+	* The analysis of the results in section 5.1 is a bit short
+
+Questions:
+	* You provide a pseudo code of you method in the appendix where you give the loss function. I assume this corresponds to Eq. 2. Did you omit the entropy penalty or did you not use that termin during learning?
+
+	* What's the point of plotting the reward of a random policy? It seems your using it as a lower bound making it zero. I think it would benefit the plots if you just mention it instead of plotting the line and having an extra legend
+
+	* In Fig. 4 you show results for DAC, TRPO, and PPO for the HalfCheetah environment in 25M steps. Could you also provide this for the remaining environments?
+
+	* Is it possible to show results of the effect of absorbing states on the Mujoco environments?
+
+Minor suggestions:
+In Eq. (1) it is not clear what is meant by pi_E. From context we can assume that E stands for expert policy. Maybe add that. Figures 1 and 2 are not referenced in the text and their respective caption is very short. Please reference them accordingly and maybe add a bit of information. In section 4.1.1 you reference figure 4.1 but i think your talking about figure 3.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkeAEjMcT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=rkeAEjMcT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the positive and constructive feedback.
+
+We have extended the section 5.1 of the manuscript as suggested by the reviewer.
+
+Below are detailed answers for the reviewer’s concerns: 
+
+1) To simplify the exposition we omitted the entropy penalty as it does not contribute meaningfully to the algorithm performance in our experimentation. Similar findings were observed in the GAIL paper, where the authors disregarded the entropy coefficient for every tested environment, except for the Reacher environment.
+
+2) We added the performance of a random policy to the graph to be consistent with the original GAIL paper. We believe that it improves readability of the plot by providing necessary scaling.
+
+3) We already started working on additional experimentation as requested. We will update the manuscript as soon as we gather these results.
+
+4) We observed the same effect of having absorbing states in the Kuka arm tasks (Fig. 6), as in the MuJoCo environments. Also, we evaluated absorbing states within the AIRL framework for Walker-2D and Hopper environments (Fig. 7). We demonstrate that proper handling of absorbing states is critical for effectively imitating the expert policy. 
+
+In addition, we updated the paper to accommodate the minor suggestions proposed by the reviewer.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BkxfyEhmhm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Another paper with off policy imitation learning</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=BkxfyEhmhm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 03 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper784 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">There is another paper which has also combined off-policy training with imitation learning. 
+The only significant contribution of this paper then seems to be unbiased rewards. 
+I think the authors should provide more rigorous analysis of what exact effects the absorbing state introduces.
+<a href="https://arxiv.org/pdf/1809.02064.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1809.02064.pdf</a>
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1gOUczL3m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>RE: Another paper with off policy imitation learning  </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=S1gOUczL3m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for sharing the link. The arxiv paper linked is concurrent work. As such our off-policy algorithm was novel at time of release and remains a primary contribution of this work. We will add this paper to the related work section as a concurrent work in the next update.
+
+The requested ablation study is already presented in Fig. 6 and Fig.7 where we compare adversarial imitation learning approaches with and without the absorbing states. Due to the bias present in the original reward, the baseline without absorbing state information fails to learn a good policy. We derive why this happens in Section 4.1. 
+
+Also, we would like to emphasize that our paper is not limited to off-policy training but also addresses other issues of adversarial imitation learning algorithms. We first identify the problem of biased rewards, which we then experimentally validate across GAIL and AIRL (note that the other paper is centered around GAIL, and not adversarial imitation learning in general). Following that we introduce absorbing states as a fix for this issue, while empirically validating that our proposed solution solves tasks which are unsolvable by AIRL.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Byl5uav0oX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Some comments on the persuasion and sufficiency of experiments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=Byl5uav0oX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">25 Oct 2018</span><span class="item">ICLR 2019 Conference Paper784 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I found there is a significant gap between the performances of GAIL reported by the authors and stated in the original GAIL paper(<a href="https://papers.nips.cc/paper/6391-generative-adversarial-imitation-learning-supplemental.zip)." target="_blank" rel="nofollow">https://papers.nips.cc/paper/6391-generative-adversarial-imitation-learning-supplemental.zip).</a> Since the authors emphasized that they use the original implementation(https://www.github.com/openai/imitation), such empirical results could be doubtful. Can the authors comment on that?
+
+Another comment is about the sufficiency on experiments. Since DAC is a combination of an improved adversarial reward learning mechanism and off-policy training,  evaluations on ablations are needed to clarify which part actually accounts for the improvement on performance or training efficiency. Moreover, I think GAIL with off-policy training should also be a baseline to further validate that whether the unbiased reward learning introduced by the authors could eliminate the sub-optimality.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1l_dvkgn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Original GAIL results and ablation experiments </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=B1l_dvkgn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comments.
+
+At the moment, we plot results only for 1 million steps. In the original implementation of GAIL, the authors use 25M steps to report the results. With 25M steps we are able to replicate results reported in the original GAIL paper. We do have one example of how the methods compare to each other when trained for 25M steps in our submission. This can be seen in the top left sub-plot in Figure 4. We will add the plots with 25M steps in the next update of the paper.
+
+We perform ablation experiments and visualize the results in Figure 6. The ‘no absorbing’ baseline corresponds to off-policy GAIL while the red line corresponds to DAC. Thanks for pointing this out. We will add a clarification in the text to make the comparison clearer.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BygoS4eHnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=BygoS4eHnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018</span><span class="item">ICLR 2019 Conference Paper784 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I appreciate the authors' response to the comments, and it did address some of my concerns. However, I still have some questions:
+
+1. Could the authors provide the comparisons among DAC, GAIL w/ PPO, and GAIL w/ TRPO for 25M steps for all the 5 tasks (in Fig.4)?
+
+2. Why the authors only evaluate such no absorbing experiments on KUKA tasks? Could the authors provide the results of this baseline on the 5 tasks used in Fig.4? </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1xlBqzU2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>RE: Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hk4fpoA5Km&amp;noteId=H1xlBqzU2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper784 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018</span><span class="item">ICLR 2019 Conference Paper784 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you again for your comments.
+
+1. We did not have sufficient time to collate these results before the deadline, but we will add them to the appendix for a future revision.
+
+2. In Fig. 7, we run the absorbing state versus non-absorbing state experiments on the more standard Hopper and Walker2D environments. We understand those experiments are with AIRL algorithm and it will be more comprehensive if we ran the same experiment with GAIL algorithm and environments from Fig. 4. However, we were constrained by the page limits and chose to show how our fix to the reward bias not only works across different adversarial algorithms (GAIL in Fig. 6 and AIRL in Fig. 7) but also works on demonstrations collected from humans on a Kuka arm. We will add the figures for the experiments you mentioned in the comment to the next version of the paper.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

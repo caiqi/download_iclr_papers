@@ -1,0 +1,404 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>An Efficient and Margin-Approaching Zero-Confidence Adversarial Attack | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="An Efficient and Margin-Approaching Zero-Confidence Adversarial Attack" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=B1gHjoRqYQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="An Efficient and Margin-Approaching Zero-Confidence Adversarial Attack" />
+      <meta name="og:description" content="There are two major paradigms of white-box adversarial attacks that attempt to impose input perturbations.  The first paradigm, called the fix-perturbation attack, crafts adversarial samples within..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_B1gHjoRqYQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An Efficient and Margin-Approaching Zero-Confidence Adversarial Attack</a> <a class="note_content_pdf" href="/pdf?id=B1gHjoRqYQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019an,    &#10;title={An Efficient and Margin-Approaching Zero-Confidence Adversarial Attack},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=B1gHjoRqYQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">There are two major paradigms of white-box adversarial attacks that attempt to impose input perturbations.  The first paradigm, called the fix-perturbation attack, crafts adversarial samples within a given perturbation level.  The second paradigm, called the zero-confidence attack, finds the smallest perturbation needed to cause misclassification, also known as the margin of an input feature.  While the former paradigm is well-resolved, the latter is not.  Existing zero-confidence attacks either introduce significant approximation errors, or are too time-consuming.  We therefore propose MarginAttack, a zero-confidence attack framework that is able to compute the margin with improved accuracy and efficiency.  Our experiments show that MarginAttack is able to compute a smaller margin than the state-of-the-art zero-confidence attacks, and matches the state-of-the-art fix-perturbation attacks.  In addition, it runs significantly faster than the Carlini-Wagner attack, currently the most accurate zero-confidence attack algorithm.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">adversarial attack, zero-confidence attack</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">This paper introduces MarginAttack, a stronger and faster zero-confidence adversarial attack.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">21 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_B1xOut6DpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>I cannot see why the proposed method is better than CW attack</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=B1xOut6DpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes an efficient zero-confidence attack algorithm, MARGINATTACK, which uses the modified Rosen's algorithm to optimize the same objective as CW attack. Under a set of conditions, the authors proved convergence of the proposed attack algorithm. My main concern about this paper is why this algorithm has a better performance than CW attack? I would suggest comparing with CW attack under different sets of hyper-parameters.
+
+Minor comment:
+The theoretical proof depends on the convexity assumption, I would also suggest comparing the proposed attack with CW and other benchmarks on some simple models that satisfy the assumptions.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1loX4IlA7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Comparison with CW &amp; We did not assume convexity</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=S1loX4IlA7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Regarding your first concern on the comparison with CW: In short, MarginAttack is able to achieve a higher attack success rate than CW AND a shorter running time. The paper may not make this point obvious enough probably because the curves are too thick to reveal the difference. To show this point clearly, we would like to refer you to the results in our response to reviewer 3, where we scanned through the number of binary search steps and measure the success rate and running time.
+
+As can be seen, MarginAttack has a higher success rate than all the versions of CW. There is a success-rate-efficiency tradeoff in CW, as a smaller binary search step number leads to a lower success rate. However, even with 10 binary search steps, CW is still unable to outperform MarginAttack in terms of success rate. On the other hand, with very small numbers of binary search steps, CW still runs slower than MarginAttack. Hope these results will clarify your major concern.
+
+Regarding your minor concern:
+
+In the theorem, we did not assume convexity. The assumption with the name 'convexity' is saying that the constraint set should not be 'too concave'. Please check the following figure where we listed what decision boundaries are permitted by our theorem and what not.
+
+<a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/anon181018/iclr2019_rebuttal/master/figure2.pdf" target="_blank" rel="nofollow">https://docs.google.com/viewer?url=https://raw.githubusercontent.com/anon181018/iclr2019_rebuttal/master/figure2.pdf</a>
+
+As can be seen, the convexity assumption permits a wide variety of decision boundaries. Among the few cases that it does not permit is the case where the decision boundary bends more than the L2 ball does. In this case, the critical point becomes a local maximum rather than a local minimum.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SygnM6x5aQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Working on figuring out what's different</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=SygnM6x5aQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Nicholas_Carlini1" class="profile-link">Nicholas Carlini</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper619 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This review seems to focus mainly on one graph in Figure 3. While I agree that this is confusing, I suspect that it's just a problem with how the authors are running the attack on ImageNet. The proposed attack still does better than DeepFool by the same margin as on CIFAR-10 and MNIST. This is supported by the reproduction script from ( <a href="https://github.com/tensorflow/cleverhans/issues/813" target="_blank" rel="nofollow">https://github.com/tensorflow/cleverhans/issues/813</a> ), which produces an improved curve that is nearly identical to the authors attack.
+
+So I probably wouldn't look unfavorably on the paper for that reason alone. This is something that can be probably explained and/or fixed. I'm trying to look at the code that's provided on the github issue to see if I can figure out what's going on. 
+
+[I am intentionally avoiding commenting on the content of the paper in other way.]</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ByxzpzkyT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Claims to be significantly faster than the CW attack, but I have some questions about the experiments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=ByxzpzkyT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper619 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors propose a new method for constructing adversarial examples called MarginAttack. The method is inspired by Rosen's algorithm, a classical algorithm in constrained optimization. At its core, Rosen's algorithm (instantiated for adversarial examples) alternates between moving towards the set of misclassified points and moving towards the original data point (while ensuring that we do not move too far away from the set of misclassified points). The authors provide theoretical guarantees (local convergence) and a broad set of experiments. The experiments show that MarginAttack finds adversarial examples with small distortion (as good as the baselines or slightly better), and that the algorithm runs faster than the Carlini-Wagner (CW) baseline (but slower than other methods).
+
+The authors make a distinction between "fixed perturbation" attacks and "zero confidence" attacks. The former finds the strongest attack within a given constrained set, while the latter finds the smallest perturbation that leads to a misclassification. Method such as projected gradient descent fall into the "fixed perturbation" category, while MarginAttack and CW belong to the "zero confidence" category. The authors claim that zero confidence attacks pose a harder problem and hence mainly compare their experimental results to the CW attack. Indeed, their results show that MarginAttack is 3x - 5x faster than CW and sometimes achieves smaller perturbations.
+
+First of all, I would like to emphasize that the authors conducted a thorough experimental study on multiple datasets using multiple baseline algorithms. Unfortunately, the comparison to CW and PGD still leaves some questions in my opinion:
+
+- The authors state that CW does an internal binary search over the Lagrangian multiplier, and that this search goes for up to 10 steps. As a result, it is not clear whether the running time benchmarks are a fair comparison since MarginAttack does not automatically tune its parameters. To the best of my knowledge, the CW implementation in Cleverhans is specifically set up so that the user does not need to tune a large number of hyperparameters (the implementation accepts a running time overhead to achieve this). Since MarginAttack also contains multiple hyperparameters (see Table 4), it would be interesting to see how the running time of MarginAttack compares to that of a tuned CW implementation without the binary search.
+
+- The authors explicitly state that the step sizes for CW were tuned for best performance, but do not mention this for PGD. For a fair comparison, the step sizes used for PGD should also be (approximately) tuned. Moreover, it is not clear why PGD is only used for an l_inf comparison and not a l_2 comparison.
+
+- In the introduction, the authors emphasize the distinction between fixed perturbation attacks and zero confidence attacks. However, from an optimization point of view, these two notions are clearly related and a fixed perturbation attack can be converted to a small perturbation / zero confidence attack via a binary search over the perturbation size. While one would indeed expect an overhead due to the binary search, it is not clear a priori how large this overhead needs to be to achieve a competitive zero confidence attack with PGD (especially with a tuned step size for PGD, see above).
+
+I would be grateful if the authors could provide their view on these points. Until then, I will assign a rating of 5 since tuning the parameters of optimization algorithms is crucial for a fair comparison.
+
+
+Additional comments:
+
+- In the introduction, the authors equate white-box attacks with access to gradient information. But generally a white-box attack is understood as an attack that has arbitrary access to the target network. It may be helpful for the reader to clarify this.
+
+- In the second paragraph of the introduction, the authors claim that fixed perturbation attacks and zero confidence attacks differ significantly. But as pointed out above, it is possible to convert a fixed perturbation attack to a zero confidence attack via a binary search. So it is not clear that there is a large gap in difficulty. Moreover, the authors state that fixed perturbation attacks often come with theoretical guarantees. But to the best of my knowledge, there is no comprehensive theory that describes when a fixed perturbation attack should be expected to succeed in attacking a commonly used neural network.
+
+- On top of Page 2, the authors claim that zero-confidence attacks are a more realistic attack setting. Why is that?
+
+- The authors state that JSMA (Papernot et al., 2016) is one of the earliest works that use gradient information for constructing adversarial examples. However, L-BFGS as employed by Szegedy et al., 2013 also uses gradient information. Moreover, the authors may want to cite the work of Biggio et al. from 2013 (see the survey <a href="https://arxiv.org/abs/1712.03141)." target="_blank" rel="nofollow">https://arxiv.org/abs/1712.03141).</a>
+
+- Since all distances referred to by d(x, y) seem to be norms (and the paper relies on the existence of dual norms), it may be more clear for the reader to use the norm notation || . || from the beginning.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyxZ5bIxRX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Updated results on CiFAR10</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=SyxZ5bIxRX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks to the hyperparameter tuning suggestions, we are able to achieve a set of better results on CiFAR10. The updated results are as follows:
+
+Attack success rate:
+
+Perturb. Lev.	MarginAttack	CW bin10	CW bin5	        CW bin3	       CW bin1
+8		        24.27			24.04		23.99		23.89             15.14
+15		        46.37			45.56		45.39		45.21             20.53
+25		        73.82			71.80		71.66		71.56             20.57
+40		        93.29			92.10		91.86		91.49             20.57
+
+Running time:
+MarginAttack	CW bin10	CW bin5	        CW bin3	        CW bin1
+51.03			350.10		168.88		100.10             24.30
+
+Compared to the previous results posted, the attack success rate of CWbin10 is almost the same, but the results of CW with fewer binary steps are improved. The basic conclusions do not change though. Notice that increasing the number of binary search steps does help to improve the success rate, but even compared with 10 binary search steps, MarginAttack still maintains a higher success rate at all levels. In the meantime, MarginAttack has a much lower running time, and thus strikes a better success-rate-balance-tradeoff.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJlyTzMqpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Regarding comparison with CW attack</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=HJlyTzMqpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for bringing up the binary search issue. We would like to clarify that the binary search is an integral part of the CW attack and that it cannot be replaced with hyperparameter tuning beforehand. This is because the purpose of the binary search is to find the Lagrange multiplier for the Lagrangian, which is specific to *each individual token*. In other words, each different input sample comes with a different optimal Lagrange multiplier. Therefore, it is impossible to tune a universal Lagrange multiplier and remove the binary search. The CW algorithm can be regarded as a two-way optimization problem. For each sample, it first optimizes over the Lagrange multiplier via binary search, and then optimizes over the adversarial sample via gradient descent. In short, the Lagrange multiplier is technically not a hyperparameter, but an optimization variable just like the adversarial sample itself.
+
+The CW implementation does come with a set of hyperparameters that it asks the users to tune, including the initial Lagrange multiplier guess and the initial step size, both of which are already tuned to its best performance.
+
+Nevertheless, although the binary search cannot be removed, we are interested to see what will happen is it is reduced. For this we perform an additional experiment where the number of binary search steps is reduced to 5 (named CW bin5), 3 (named CW bin3) and 1(named CW bin1) on MNIST and CIFAR10. Below are the attack success rates under different perturbation levels.
+
+MNIST:
+
+Perturb. Lev.	MarginAttack	CW bin10	CW bin5	        CW bin3	       CW bin1
+1		        25.69			24.86		24.82		24.63		9.94
+1.41		        66.34			63.23		63.11		62.72		9.98
+1.73		        88.40			85.94		85.90		85.66		9.99
+2		        97.11			95.42		95.36		95.25		9.99
+
+CIFAR10:
+
+Perturb. Lev.	MarginAttack	CW bin10	CW bin5	        CW bin3
+8		        24.27			24.11		24.02		9.93
+15		        46.37			45.52		45.22		13.95
+25		        73.82			71.76		70.92		22.26
+40		        93.29			91.61		90.65		34.48
+
+Below is the attack time.
+
+MNIST:
+
+MarginAttack	CW bin10	CW bin5	CW bin3	CW bin1
+3.01			        16.02		8.99		5.77		1.37
+
+CIFAR10:
+
+MarginAttack	CW bin10	CW bin5	        CW bin3
+51.03			234.75		102.68		33.98
+
+As can be seen, the performance does drop as the number binary search steps decreases. In particular, the algorithm completely fails when the binary search step number drops below a certain threshold (1 for MNIST and 3 for CIFAR10). Upon failure threshold, there is an unproportional drop in running time, which is probably due to the early stop mechanism in CW. We conjecture that the threshold is higher when the dataset has greater variations. These results provide more complete evidence on how MarginAttack is able to achieve a much better accuracy-efficiency tradeoff than CW. We will add these results to the paper.
+
+Hope this clarification helps.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryxVfwf567" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Selecting the number of binary search steps</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=ryxVfwf567"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Nicholas_Carlini1" class="profile-link">Nicholas Carlini</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper619 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Just a quick comment on selecting the number of binary search steps: if you make your initial guess reasonable, then usually you don't need more than two or three steps. I have no theoretical basis for these numbers, but 1.0 for MNIST and 0.1 for CIFAR typically works well when using a range of [0,1] for the input image. 
+
+If you're using [0,255] then you'll want to change your initial guess to be something that fits that range.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryl9jbfcpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Regarding the comparison with PGD</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=ryl9jbfcpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">First we would like to clarify that the learning rate of PGD is tuned the same way as for CW. We somehow missed this statement in the paper. We will add this statement back to the paper.
+
+Second, yes it is entirely possible to convert PGD to a zero-confident attack. In our response to another reviewer, we estimated the computational overhead. We will copy the analysis here. Consider, for example, the CIFAR-10 dataset. Since for our model, most margins fall within 10, so let’s assume the binary search range is 10 (for adversarially trained models this number will be much higher). If we want to achieve an accuracy of 0.1, then we need at least 7 binary search steps. In other words, the computation complexity increases by 7 times. The above discussion is not saying that it is impossible to convert PGD to a zero-confidence attack efficiently, but it at least provides a perspective on why the complexity reduction as well as accuracy improvement of MarginAttack is valuable.
+
+Finally, we would like to point out that while PGD is a state-of-the-art in L-infinity attack. It is not in L2 attack. One of the reasons is that PGD alternatively projects onto the constraint box and L2 ball, which is not equivalent to projecting onto the intersect of both. In L-infinity attack they are equivalent. The following link is a figure that provides an illustration on this.
+
+<a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/anon181018/iclr2019_rebuttal/master/figure3.pdf" target="_blank" rel="nofollow">https://docs.google.com/viewer?url=https://raw.githubusercontent.com/anon181018/iclr2019_rebuttal/master/figure3.pdf</a>
+
+That is the reason why we did not incorporate PGD L2 in our comparison. However, we would like to provide the results here.
+
+MNIST:
+
+Perturb. Lev.	MarginAttack	PGD L2
+1		        25.69			12.53
+1.41		        66.34			37.11
+1.73		        88.40			64.13
+2		        97.11			81.68
+
+CIFAR10:
+
+Perturb. Lev.	MarginAttack	PGD L2
+8		        24.27			12.94
+15		        46.37			25.30
+25		        73.82			46.90
+40		        93.29			57.13
+
+IMAGENET:
+
+Perturb. Lev.	MarginAttack	PGD L2
+10		        40.42			29.45
+32		        60.59			40.73
+50		        74.89			50.80
+80		        89.73			66.35
+
+Hope the above clarifications help.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SkxZXWf9pm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Regarding your other reviews</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=SkxZXWf9pm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">First, regarding the white box attack definition. Yes, the white box attack is understood as having access to all network information, including structure and parameters. So it is possible to compute gradient information. Black box attacks only have access to logits or only decision, so it is not possible to accurately compute the gradient information. We will make this distinction clearer.
+
+Second, the PGD convergence guarantee we meant is only about local convergence. Under mild assumptions, PGD is able to converge to a critical point of the PGD loss function, where no feasible direction can increase the loss function. We will clarify this in our updated version.
+
+Third, by a ‘more realistic attack’, we meant that under a true attack setting, an attacker would not confine himself to a fix perturbation, but is more likely to keep attacking until success, while minimizing perturbation.
+
+Fourth, we will correct our statement about the earliest work that incorporates gradient information into adversarial attack.
+
+Finally, we will change the norm notation.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1xcRXhFnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Unclear problem statement; mixed results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=S1xcRXhFnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper619 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The purpose of this paper is presumably to approximate the margin of a sample as accurately as possible. This is clearly an intractable problem. Thus all attacks make some kind of approximation, including this paper. I am still a bit confused about the difference between "zero-confidence attacks" and those that don't fall into that category such as PGD. Since all of these are approximations, and we cannot know how far we are from the true margin, I don't see why these categories help. The authors spend two paragraphs in the introduction trying to draw a distinction but I am still not convinced. 
+
+The proofs provided by the authors assume that convexity and many assumptions, which makes it not very useful for the real world case. What would have been helpful is to show the accuracy of their margin for simple binary toy 2D problems, where the true margin and their approximation can be visualized. This was not done. This reduces the paper to an empirical exercise rather than a true understanding of their method's advantages and limitations.
+
+Finally, the experimental results do not show any significant advantage over PGD, either in running time (they are slower) or norm perturbation. Thus their novelty rests on the definition of zero confidence attack, and of the importance of such a attack. So clarifying the above question will help to judge the paper's novelty.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1ljclMcpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Regarding the theorem assumptions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=B1ljclMcpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Although this is not the major focus of your comment, we would like to revisit the theorem assumptions. While there are nine assumptions, these assumptions are in fact more realistic than expected. Take the convexity assumption, which you mentioned in your review, as an example. This assumption does not say that the constraint has to be convex. It only says that the constraint should not be ‘too concave’. In particular, the curvature of the of the decision should not exceed that of the L2 or L-infinity ball. For better illustration, we plotted some decision boundaries that are allowed by the assumption, and some that are not.
+
+Please check the following link:
+
+<a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/anon181018/iclr2019_rebuttal/master/figure2.pdf" target="_blank" rel="nofollow">https://docs.google.com/viewer?url=https://raw.githubusercontent.com/anon181018/iclr2019_rebuttal/master/figure2.pdf</a>
+
+As can be seen, the convexity assumption permits a wide variety of decision boundaries. Among the few cases that it does not permit is the case where the decision boundary bends more than the L2 ball does. In this case, the critical point becomes a local maximum rather than a local minimum.
+
+The other assumptions are also more realistic than their names sound. The differentiability assumption does not stipulate that the constraint has to be differentiable. It actually permits countably infinite jump discontinuities. The Lipchitz continuous assumption does not assume Lipchitz continuity everywhere, but only at x*. We are not saying that the assumptions are very loose, but they are realistic enough to shed some light on the actual convergence property of MarginAttack. Nevertheless, we are considering adding a 2D toy example as you suggested. We will post further responses if there are further updates.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1eYIxfqT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Zero-Confidence vs Fix-Perturbation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=r1eYIxfqT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The following link is a figure that explains the difference between zero-confidence attack and fix-perturbation attack.
+
+<a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/anon181018/iclr2019_rebuttal/master/figure1.pdf" target="_blank" rel="nofollow">https://docs.google.com/viewer?url=https://raw.githubusercontent.com/anon181018/iclr2019_rebuttal/master/figure1.pdf</a>
+
+As can be seen, the zero-confidence attack finds the closest point on the decision boundary; while fix perturbation-attack finds adversarial samples within a fix perturbation. Both attacks are equivalent if we only want to compute the attack success rate under a given perturbation level. However, we will be better off with zero-confidence attacks if we want to
+
+1) Compute the margin of each individual example; and
+2) Probe and study the decision boundary of a classifier
+
+Of course, we can also measure the margin of each example using a fix-perturbation attack, for example PGD, by binary searching over the perturbation levels. However, the computation cost will significantly increase. Consider, for example, the CIFAR-10 dataset. Since for our model, most margins fall within 10, so let’s assume the binary search range is 10 (for adversarially trained models this number will be much higher). If we want to achieve a accuracy of 0.1, then we need at least 7 binary search steps. In other words, the computation complexity increases by 7 times. In fact, CW applies a similar binary search idea to achieve zero-confidence attack, and that is why its computation cost is high. The above discussion is not saying that it is impossible to convert PGD to a zero-confidence attack efficiently, but it at least provides a perspective on why zero-confidence attack is challenging, and why the complexity reduction as well as accuracy improvement of MarginAttack is valuable.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJldNGLl07" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks - reading through these</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=SJldNGLl07"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for posting all these detailed results and explanations. I have a much better understanding of the motivations and am reading through all your responses at present.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_SJxJd84T9m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Minor comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=SJxJd84T9m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Oct 2018</span><span class="item">ICLR 2019 Conference Paper619 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This is a very nice attack. It appears simple to implement and is formally well-justified.
+
+A few minor questions and comments
+
+The attack approach seems related to the Decision Attack (<a href="https://openreview.net/forum?id=SyZI0GWCZ" target="_blank" rel="nofollow">https://openreview.net/forum?id=SyZI0GWCZ</a> from ICLR last year), am I right in this understanding?
+
+Do you know why CW performs worse than DeepFool on Imagenet (Figure 3 upper right)? The Decision Attack paper finds that CW performs better than DeepFool on ImageNet (as does the original CW attack paper).
+
+Table 3 is mildly deceptive that the the "Ours" row is on the bottom but it is not the fastest, whereas in Table 2 it is in the correct (ordered) position.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkgEYamC5m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Regarding your comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=SkgEYamC5m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Oct 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your interests in our work! Regarding your comments:
+
+1. Yes, the idea of 'crawling along the decision boundary' is related to the L2 version of MarginAttack (Eq. (8)), and serves as a good reference if a black-box version of MarginAttack is to be developed. So we will add this paper to our reference. Partly because it is a white-box attack, MarginAttack does not have to wait until it reaches the decision boundary before it moves along the decision boundary, which is shown to significantly improve convergence both empirically and theoretically. Also, MarginAttack encompasses much richer attack schemes, because the L-infinity version of MarginAttack (Eq. (10)), as well as other valid settings of a_k and b_k, follows a different projection move direction from along the decision boundary. Nevertheless, we appreciate that you point out this relevant paper, and we will update our reference list accordingly.
+
+2. In fact, the decision attack paper also finds that CW performs worse than DeepFool on ImageNet. In the table at the bottom of page 6, CW gets larger median perturbation norms than DeepFool does for all of the three architectures on ImageNet. In particular, for the ResNet50 architecture (which we also used), the median perturbation norm of CW is 2.2e-7, and that of DeepFool is 7.5e-8.
+
+The original paper of CW attack may shed some light on this. According to the paper, CW does perform better than DeepFool on ImageNet (Table V), but that is for the best case only, which refers to choosing 100 randomly chosen adversarial classes to perform the targeted attack, and then finding the easiest case. We can also try this for CW, but considering the computation cost of CW is so high already, multiplying it by 100 would really make this accuracy-efficiency tradeoff not worthwhile. On the other hand, as our paper intends to show, MarginAttack does a much better accuracy-efficiency tradeoff.
+
+3. Thank you for pointing out the ordering issue in table 3. It is not meant to create any false perceptions -- the differences in the numbers are quite distinct. But you are right, for better formality, we will adjust it in our updated version.
+
+Thank you again for your comments!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJxqX98Ccm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Still unsure about CW ImageNet results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=SJxqX98Ccm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Oct 2018</span><span class="item">ICLR 2019 Conference Paper619 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for explaining the difference.
+
+It still surprises me that 100+ iterations of gradient descent with CW will do worse than DeepFool. Are you performing CW untargeted, to compare to DeepFool? On ImageNet with a ResNet50 I can reach 95% adversarial success with a L2 distortion of 150 (when on a scale of 0-255) with 100 iterations of CW. Can you clarify how you are getting "2.2e-7"? The numbers in the paper are between 0 and 200.
+
+Sorry to be picky about this, but given that your curve matches CW exactly for MNIST and CIFAR and is significantly better on ImageNet, I would like to make sure this is accurate.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1gn4AtA5Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>CW settings</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=S1gn4AtA5Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Oct 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">No worries. We appreciate your comments and would like to ensure our results are right.
+
+Before we discuss the CW settings, we would like to first clarify that the '2.2e-7' I mentioned is not our results. It is the results reported in the decision attack paper (<a href="https://openreview.net/forum?id=SyZI0GWCZ" target="_blank" rel="nofollow">https://openreview.net/forum?id=SyZI0GWCZ</a> from ICLR last year) that you previously mentioned. They also find CW performs worse than DeepFool. According to my understanding and guess, this should be the per-pixel squared distance and the pixel range is [0, 1]. Therefore converting it to the regular L2 distortion should yield around 50. Again, this is only our interpretation of their results. We would need to consult the authors of that paper to confirm it.
+
+We are interested in your CW results and would like to know more about how you configured the attack. Did you use CleverHans? If yes, how did you set the configuration parameters?
+
+To be transparent, here are our CleverHans settings for CW:
+
+cw_params = {'binary_search_steps': 10,
+                         'y': l,
+                         'max_iterations': 2000,
+                         'learning_rate': 0.01 (also tried 0.001, 0.05 and 0.1),
+                         'batch_size': 100,
+                         'initial_const': 0.1 (also tried 0.01),
+                         'clip_min': 0,
+                         'clip_max': 255,
+                         'abort_early': False (also tried True)}
+
+We scanned over the candidate settings and the results we reported were the best. Please let us know if you find anything problematic. We will be happy to make it right.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Bkgn9VnC5Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>... one more thing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=Bkgn9VnC5Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Oct 2018</span><span class="item">ICLR 2019 Conference Paper619 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">One final check: did you run CW on the pre-softmax logits of the ResNet? This takes a few extra lines of code for Keras to do, because by default the ResNet50 gives a post-softmax probability distribution. You will have to remove the softmax operation from the resnet, or as a quick check you can add a tf.log() around the output of the model.
+
+CW is known to perform very poorly on the post-softmax probability outputs. On my code, if I incorrectly use the post-softmax probability values instead, I can reproduce similar (higher distortion) results to yours and the prior paper.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkgN7aTzjQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We used pre-softmax logits</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=BkgN7aTzjQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Oct 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the reminder! Upon checking we confirm that we used the pre-softmax logits.
+
+We will keep on our efforts to ensure the results are right. If you would like to share your configuration details at any time, it is always welcomed. Thanks again for initiating the discussion!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1x5mtzSiX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Releasing Code for CW ImageNet</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=r1x5mtzSiX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Oct 2018</span><span class="item">ICLR 2019 Conference Paper619 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Raised a github issue on CleverHans to see what's going wrong. My code is given there which does 2-3x better than your figure on ImageNet.
+
+<a href="https://github.com/tensorflow/cleverhans/issues/813" target="_blank" rel="nofollow">https://github.com/tensorflow/cleverhans/issues/813</a>
+
+It would be helpful to see your code if you could share it anonymously.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1lSn2GUjm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Code posted</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1gHjoRqYQ&amp;noteId=r1lSn2GUjm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper619 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Oct 2018</span><span class="item">ICLR 2019 Conference Paper619 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Just posted the code in the issue.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

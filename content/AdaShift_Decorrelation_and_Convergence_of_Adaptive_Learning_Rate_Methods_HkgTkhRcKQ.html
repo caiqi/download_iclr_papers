@@ -1,0 +1,305 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>AdaShift: Decorrelation and Convergence of Adaptive Learning Rate Methods | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="AdaShift: Decorrelation and Convergence of Adaptive Learning Rate Methods" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HkgTkhRcKQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="AdaShift: Decorrelation and Convergence of Adaptive Learning Rate..." />
+      <meta name="og:description" content="Adam is shown not being able to converge to the optimal solution in certain cases. Researchers recently propose several algorithms to avoid the issue of non-convergence of Adam, but their..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HkgTkhRcKQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>AdaShift: Decorrelation and Convergence of Adaptive Learning Rate Methods</a> <a class="note_content_pdf" href="/pdf?id=HkgTkhRcKQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 18 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019adashift:,    &#10;title={AdaShift: Decorrelation and Convergence of Adaptive Learning Rate Methods},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HkgTkhRcKQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=HkgTkhRcKQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Adam is shown not being able to converge to the optimal solution in certain cases. Researchers recently propose several algorithms to avoid the issue of non-convergence of Adam, but their efficiency turns out to be unsatisfactory in practice. In this paper, we provide a new insight into the non-convergence issue of Adam as well as other adaptive learning rate methods. We argue that there exists an inappropriate correlation between gradient $g_t$ and the second moment term $v_t$ in Adam ($t$ is the timestep), which results in that a large gradient is likely to have small step size while a small gradient may have a large step size. We demonstrate that such unbalanced step sizes are the fundamental cause of non-convergence of Adam, and we further prove that decorrelating $v_t$ and $g_t$ will lead to unbiased step size for each gradient, thus solving the non-convergence problem of Adam. Finally, we propose AdaShift, a novel adaptive learning rate method that decorrelates $v_t$ and $g_t$ by temporal shifting, i.e., using temporally shifted gradient $g_{t-n}$ to calculate $v_t$. The experiment results demonstrate that AdaShift is able to address the non-convergence issue of Adam, while still maintaining a competitive performance with Adam in terms of both training speed and generalization. </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">optimizer, Adam, convergence, decorrelation</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We analysis and solve the non-convergence issue of Adam.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">9 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1gzGyM5hX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Original contribution to stochastic optimizers, with presentation to be rearranged</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgTkhRcKQ&amp;noteId=r1gzGyM5hX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1028 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1028 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary
+------
+
+Based on an extensive argument acoordig to which Adam potential failures are due to the positive correlation between gradient and moment estimation, the authors propose Adashift, a method in which temporal shift (and more surprisingly 'spatial' shift, ie mixing of parameters) is used to ensure that moment estimation is less correlated with gradient, ensuring convergence of Adashift in pathological cases, without the efficiency cost of simpler method such as AMSGrad. An extensive analysis of a pathological counter example, introduced in Reddi et al. 2018 is analysed, before the algorithm presentation and experimental validation. Experiments shows that the algorithm has equivalent speed as Adam and sometimes false local minima, resulting in better training error, and potentially better test error.
+
+Review
+-------
+
+The decorrelation idea is original and well motivated by an extensive analysis of a pathological examples. The experimental validation is thorough and convincing, and the paper is overall well written. 
+
+Regarding content, the reviewer is quite dubious about the spatial decorrelation idea. ASsuming shared moment estimation for blocks of parameters is definitely meaningful from an information perspective, and has indeed been used before, but it seems to have little to do with the 'decorrelation' idea. The reviewer would be curious to see a comparison with temporal-only adashift in the experiment, as the block / max operator \phi, to isolate the temporal and 'spatial' effect.
+
+Regarding presentation, the reviewer's opinion is that the paper is too long. Too much space is spent discussing an interesting yet limited counterexample, on which 5 theorems (that are simple analytical derivations) are stated. This should be summarized (and its interesting argument stated more concisely), to the benefit of the actual algorithm presentation, that should appear in the main text (algorithm 3). The spatial decorrelation method, that remains unclear to the reviewer, should be discussed more and validated more extensively. The current size of the paper is 10 pages, which is much above the ICLR average length.
+
+However, due to the novelty of the algorithm, the reviewer is in favor of accepting the paper, provided the authors can address the comments above.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1gWBeDCpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1 </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgTkhRcKQ&amp;noteId=S1gWBeDCpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1028 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1028 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your constructive feedback. 
+
+Q: Regarding content, the reviewer is quite dubious about the spatial decorrelation idea. Assuming shared moment estimation for blocks of parameters is definitely meaningful from an information perspective, and has indeed been used before, but it seems to have little to do with the 'decorrelation' idea. 
+
+&gt;&gt; In our proposed algorithm, only the spatial elements of temporally-shifted gradient g_{t-n} are involved in the calculation of v_t. Based on the temporal independence assumption, g_{t-n} is independent of g_t, which naturally implies that all elements in g_{t-n} are independent of the elements in g_t. Thus, using the spatial elements in g_{t-n} does not break the independence assumption. We have revised the related sections and avoided the term ‘‘spatial independence’’ that is indeed confusing. 
+
+Q: Regarding presentation, the reviewer's opinion is that the paper is too long. Too much space is spent discussing an interesting yet limited counterexample, on which 5 theorems (that are simple analytical derivations) are stated. This should be summarized (and its interesting argument stated more concisely), to the benefit of the actual algorithm presentation, that should appear in the main text (Algorithm 3). The spatial decorrelation method, that remains unclear to the reviewer, should be discussed more and validated more extensively. The current size of the paper is 10 pages, which is much above the ICLR average length. 
+
+&gt;&gt; Thanks a lot for these constructive suggestions. We have rewritten related sections accordingly. The main changes are: (i) we have renamed the analytical derivations as lemmas and removed unnecessary details; (ii) we have reorganized the analysis section to make it more concise and clear; (iii) we have removed Algorithms 1 and 2, and directly presented Algorithm 3; (iv) we have made the arguments on the validity of using spatial elements much more clear. 
+
+Q: The reviewer would be curious to see a comparison with temporal-only AdaShift in the experiment, as the block/max operator \phi, to isolate the temporal and 'spatial' effect. 
+
+&gt;&gt; We have added experiments on temporal-only AdaShift and spatial-only AdaShift. Some experiments on temporal-only AdaShift can be found in Figure 2 and Figure 3 in the experiments Section, and more results are included in Appendix J and K. 
+
+&gt;&gt; Temporal-only AdaShift is actually not as stable as AdaShift. It works well in simple tasks, but it suffers from explosive gradient in complex systems: a neuron recovering from a vanishing gradient state is the typical failure case, where v_t is nearly zero. AdaShift with spatial operation, in contrast, does not suffer from this problem: the gradients of an entire block is relatively stable and won’t vanish. 
+
+&gt;&gt; Spatial-only AdaShift turns out not to fit our assumption, but it is indeed a very interesting extension of Adam. Therefore, we have also conducted a set of experiments on spatial-only AdaShift. According to our initial investigations, ‘‘spatial-only AdaShift’’ shares a similar performance to Adam. Details are presented in Appendix J and K. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SkxDrCgdnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Another fix of non-convergence of Adam -- AdaShift</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgTkhRcKQ&amp;noteId=SkxDrCgdnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1028 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1028 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors found that decorrelating $v_t$ and $g_t$ fixes the non-convergence issue of Adam. Motivated by that, AdaShift that uses a temporal decorrelation technique is proposed. Empirical results demonstrate the superior performance of AdaShift compared to Adam and AMSGrad. My detailed comments are listed as below. 
+
+1) Theorem 2-4 provides interesting insights on Adam. However, the obtained theoretical results rely on specific toy problems (6) and (13). In the paper, the authors mentioned that "... apply the net update factor to study the behaviors of Adam using Equation 6 as an example. The argument will be extended to the stochastic online optimization problem and general cases." What did authors mean the general cases?
+
+2) The order of presenting Algorithm 1, 2 and Eq. (17) should be changed. I suggest to first present AdaShift (i.e., Eq. (17) or Algorithm 3 with both modified adaptive learning rate and moving average), and then elaborate on temporal decorrelation and others. AdaShift should be presented as a new Algorithm 1.  In experiments, is there any result associated with the current Algorithm 1 and 2? If no, why not compare in experiments? One can think that Algorithm 1 and 2 are adaptive learning rate methods against adaptive gradient methods (e.g., Adam, AMSGrad). 
+
+3) Is there any convergence rate analysis of AdamShift even in the convex setting?
+
+4) The empirical performance of AdamShift is impressive. Can authors mention more details on how to set the hyperparameters for AdamShift, AMSGrad, Adam, e.g., learning rate, \beta 1, and \beta 2? 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJe4vgwCaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgTkhRcKQ&amp;noteId=BJe4vgwCaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1028 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1028 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your constructive feedback. 
+
+Q: However, the obtained theoretical results rely on specific toy problems (6) and (13). In the paper, the authors mentioned that "... apply the net update factor to study the behaviors of Adam using Equation 6 as an example. The argument will be extended to the stochastic online optimization problem and general cases." What did the authors mean the general cases? 
+
+&gt;&gt; We are sorry for the confusion. We mixed the general arguments and the counterexample-specific arguments together. According to the reviewers’ feedback, we have reorganized the analysis section, and now the analysis on counterexamples and the general arguments on the non-convergence of Adam are separated. We would appreciate if you could have a check on these reorganized arguments (Section 3.3). The general arguments are actually very sound. 
+
+Q: The empirical performance of AdaShift is impressive. Can authors mention more details on how to set the hyperparameters for AdaShift, AMSGrad, Adam, e.g., learning rate, \beta 1, and \beta 2? 
+
+&gt;&gt; In the revision, we have listed hyperparameter settings in each experiment in Appendix. We have also conducted a set of experiments on hyperparameter sensitivities of AdaShift, which are also included in Appendix. Please check these details in Appendix I of the new version of our paper. 
+
+Q: I suggest to first present AdaShift (i.e., Eq. (17) or Algorithm 3 with both modified adaptive learning rate and moving average), and then elaborate on temporal decorrelation and others. AdaShift should be presented as a new Algorithm 1. 
+
+&gt;&gt; Thanks a lot for this valuable suggestion. We have tried your suggestion and it looks much better. Please check it in the revised version. 
+
+Q: Is there any convergence rate analysis of AdaShift even in the convex setting? 
+
+&gt;&gt; Currently, we do not have convergence rate analysis for AdaShift. We will work on it and hope it will appear soon. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1guRoZwhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Analyses and fixes one problem of ADAM that could be specific or general</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgTkhRcKQ&amp;noteId=S1guRoZwhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1028 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1028 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This manuscript contributes a new online gradient descent algorithm with adaptation to local curvature, in the style of the Adam optimizer, ie with a diagonal reweighting of the gradient that serves as an adaptive step size. First the authors identify a limitation of Adam: the adaptive step size decreases with the gradient magnitude. The paper is well written.
+
+The strengths of the paper are a interesting theoretical analysis of convergence difficulties in ADAM, a proposal for an improvement, and nice empirical results that shows good benefits. In my eyes, the limitations of the paper are that the example studied is a bit contrived and as a results, I am not sure how general the improvements.
+
+# Specific comments and suggestions
+
+Under the ambitious term "theorem", the results of theorem 2 and 3 limited to the example of failure given in eq 6. I would have been more humble, and called such analyses "lemma". Similarly, theorem 4 is an extension of this example to stochastic online settings. More generally, I am worried that the theoretical results and the intuitions backing the improvements are built only on one pathological example. Are there arguments to claim that this example is a prototype for a more general behavior?
+
+
+Ali Rahimi presented a very simple example of poor perform of the Adam optimizer in his test-of-time award speech at NIPS this year (<a href="https://www.youtube.com/watch?v=Qi1Yry33TQE):" target="_blank" rel="nofollow">https://www.youtube.com/watch?v=Qi1Yry33TQE):</a> a very ill-conditioned factorized linear model (product of two matrices that correspond to two different layers) with a square loss. It seems like an excellent test for any optimizer that tries to be robust to ill-conditioning (as with Adam), though I suspect that the problem solved here is a different one than the problem raised by Rahimi's example.
+
+
+With regards to the solution proposed, temporal decorrelation, I wonder how it interacts with mini-batch side. With only a light understanding of the problem, it seems to me that large mini-batches will decrease the variance of the gradient estimates and hence increase the correlation of successive samples, breaking the assumptions of the method.
+
+
+Using a shared scalar across the multiple dimensions implies that the direction of the step is now the same as that of the gradient. This is a strong departure compared to ADAM. It would be interesting to illustrate the two behaviors to optimize an ill-conditioned quadratic function, for which the gradient direction is not a very good choice.
+
+
+The performance gain compared to ADAM seems consistent. It would have been interesting to see Nadam in the comparisons.
+
+
+
+I would like to congratulate the authors for sharing code.
+
+There is a typo on the y label of figure 4 right.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">9: Top 15% of accepted papers, strong accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1gToxwR6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2 </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgTkhRcKQ&amp;noteId=r1gToxwR6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1028 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1028 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your constructive feedback. 
+
+Q: In my eyes, the limitations of the paper are that the example studied is a bit contrived and as a result, I am not sure how general the improvements. More generally, I am worried that the theoretical results and the intuitions backing the improvements are built only on one pathological example. Are there arguments to claim that this example is a prototype for a more general behavior? 
+
+&gt;&gt; We mixed the general arguments for the non-convergence of Adam into these analyses of counterexamples. According to the reviewers' feedback, we realize that it is indeed confusing. We thus have reorganized the analysis section, and clearly separated the analysis on counterexamples and the general arguments on the non-convergence issue of Adam. Actually, ‘‘assigning relatively small step-size to large gradient and assigning relatively large step-size to small gradient’’ is the general behavior of Adam and traditional adaptive learning rate methods. Sometimes it causes non-convergence, and more generally, it just hampers the convergence. Please see the reorganized arguments in Section 3.3 for details. 
+
+Q: With regards to the solution proposed, temporal decorrelation, I wonder how it interacts with the mini-batch side. With only a light understanding of the problem, it seems to me that large mini-batches will decrease the variance of the gradient estimates and hence increase the correlation of successive samples, breaking the assumptions of the method. 
+
+&gt;&gt; The argument is thought-provoking. But it seems that, though decreasing the variance makes the difference between samples smaller, it does not change the independence. Assume that the gradients are independently sampled from a standard Gaussian N(0, 1). If the Gaussian is squeezed to N(0, 0.1), gradients sampled from the squeezed Gaussian are still independent of each other. Using our argument in the paper, we still reach the same conclusion: assuming the loss function is fixed, as long as these mini-batches are independently sampled, no matter the mini-batch size is large or small, their gradients are always independent. 
+
+Q: The performance gain compared to Adam seems consistent. It would have been interesting to see Nadam in the comparisons. 
+
+&gt;&gt; We have conducted a set of experiments for Nadam. The results are presented in Appendix K. Generally, we found Nadam shows quite similar performance as Adam. Please check Appendix K for details. 
+
+Q: Ali Rahimi presented a very simple example of the poor performance of the Adam optimizer in his test-of-time award speech at NIPS this year. It seems like an excellent test for any optimizer that tries to be robust to ill-conditioning (as with Adam), though I suspect that the problem solved here is a different one than the problem raised by Rahimi's example. 
+
+&gt;&gt; It is an interesting test and we have tested our algorithm with the code they provided. Our finding is somewhat weird: as long as the training is sufficiently long, SGD, Adam, and AdaShift basically converge in this problem, though the final performance of SGD is significantly better than Adam and AdaShift. 
+
+&gt;&gt; We tend to believe this is a general issue of adaptive learning rate method when comparing with vanilla SGD. Because these adaptive learning rate methods are generally scale-invariance, i.e., the step-size in terms of g_t/sqrt(v_t) is basically around 1, which makes it hard to converge very well in such an ill-conditioning quadratic problem. SGD, in contrast, has a step-size g_t. As the training converges, SGD would have a decreasing step-size, making it much easier to converge better. To confirm our analysis, we train the same task with a decreasing learning rate, and we found that at the end of the training, Adam and AdaShfit both converge satisfactorily. 
+
+&gt;&gt; Levenberg-Marquardt, which minimizes $(\delta W_1, \delta W_2)$ by solving least-squares, shows the fastest convergence. It indicates the possibility of better alternatives to gradient descent (backpropagation) based optimization, which deserves further investigations. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1eEIQx-9Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>There is nothing in the code you provided</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgTkhRcKQ&amp;noteId=S1eEIQx-9Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1028 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">You claim that "The anonymous code is provided at <a href="http://bit.ly/2NDXX6x" ,"="" target="_blank" rel="nofollow">http://bit.ly/2NDXX6x",</a> but there is nothing there.
+It has been almost a week since the submission was closed. Do you plan to upload the code some days later but before the official reviewers start reading your paper? I don't like this behavior.
+
+Seriously, it should be regarded as some kinds of "cheating". You can successfully pretend that you had done everything before the submission if no one notices that. Reviewers may think that you've done more than others. It is unfair to other authors that honestly admit they haven't managed/refactored the code yet.
+
+I don't think whether you publish the code in the review period can strongly affect the result of acceptance. Honestly admitting that you haven't made your code really is much better than "cheating".</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byg39Xum9Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The code is now accessible.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgTkhRcKQ&amp;noteId=Byg39Xum9Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1028 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1028 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your interest in our paper and sorry for not releasing the code in time. The code is now accessible from the provided link. 
+
+We think publicizing the code should be done before the review process, rather than after paper acceptance. And from our perspective, releasing the code bears no relation to contribution, but the authors'  duty. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1gOA4Dc57" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgTkhRcKQ&amp;noteId=H1gOA4Dc57"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1028 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your kind reply! I think my tone might be too serious before. Your paper is good and I just want to say you don't need that kind of little "tricks". :) Hope you can have a good result.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

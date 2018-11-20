@@ -1,0 +1,264 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Learning Localized Generative Models for 3D Point Clouds via Graph Convolution | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Learning Localized Generative Models for 3D Point Clouds via Graph Convolution" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SJeXSo09FQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Learning Localized Generative Models for 3D Point Clouds via Graph..." />
+      <meta name="og:description" content="Point clouds are an important type of geometric data and have widespread use in computer graphics and vision. However, learning representations for point clouds is particularly challenging due to..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SJeXSo09FQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Learning Localized Generative Models for 3D Point Clouds via Graph Convolution</a> <a class="note_content_pdf" href="/pdf?id=SJeXSo09FQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 14 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019learning,    &#10;title={Learning Localized Generative Models for 3D Point Clouds via Graph Convolution},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SJeXSo09FQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=SJeXSo09FQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Point clouds are an important type of geometric data and have widespread use in computer graphics and vision. However, learning representations for point clouds is particularly challenging due to their nature as being an unordered collection of points irregularly distributed in 3D space. Graph convolution, a generalization of the convolution operation for data defined over graphs, has been recently shown to be very successful at extracting localized features from point clouds in supervised or semi-supervised tasks such as classification or segmentation. This paper studies the unsupervised problem of a generative model exploiting graph convolution. We focus on the generator of a GAN and define methods for graph convolution when the graph is not known in advance as it is the very output of the generator. The proposed architecture learns to generate localized features that approximate graph embeddings of the output geometry. We also study the problem of defining an upsampling layer in the graph-convolutional generator, such that it learns to exploit a self-similarity prior on the data distribution to sample more effectively.</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">A GAN using graph convolution operations with dynamically computed graphs from hidden features</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">GAN, graph convolution, point clouds</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HygP3M9rnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The first work that proposes localized, graph-concolutional GANs for irregular 3D point clouds: fun ideas and exciting to read.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeXSo09FQ&amp;noteId=HygP3M9rnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper76 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper76 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes graph-convolutional GANs for irregular 3D point clouds that learn domain (the graph structure) and features at the same time. In addition, a method for upsampling at the GAN generator is introduced. The paper is very well written, addresses a relevant problem (classification of 3D point clouds with arbitrary, a priori unknown graph structure) in an original way, and supports the presented ideas with convincing experiments. It aggregates the latest developments in the field, the Wasserstein GAN, edge-conditional convolutions into a concise framework and designs a novel GAN generator. I have only some minor concerns:
+
+1)	My only serious concern is the degree of novelty with respect to (Achlioptas et al., 2017). The discriminator is the same and although the generator is a fully connected network in that paper, it would be good to highlight conceptual improvements as well as quantitative advantages of the paper at hand more thoroughly. Similarly, expanding a bit more on the differences and improvements over (Grover et al., 2018) would improve the paper. 
+
+2)	P3, second to last line of 2.1: reference needs to be fixed "…Grover et al. (Grover et al., 2018)"
+
+3)	It would be helpful to highlight the usefulness of artificially generating irregular 3D point clouds from an application perspective, too. While GANs have various applications if applied to images it is not obvious how artificially created irregular 3D point clouds can be useful. Although the theoretical insights presented in the paper are exciting, a more high-level motivation would further improve its quality.
+
+4)	A discussion of shortcomings of the presented method seems missing. While it is understandable that emphasis is put on novelty and its advantages, it would be interesting to see where the authors see room for improvement. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">9: Top 15% of accepted papers, strong accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJxK98vY6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for your comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeXSo09FQ&amp;noteId=HJxK98vY6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper76 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper76 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the comments. With respect to (Achiloptas et al., 2017) our focus is the study of a novel generator architecture that can produce localized features. The main result is that, by estimating a graph from the feature vectors of the hidden layers and aggregating neighbors, the network learns to successively approximate the geometry of the final point clouds. This locality of the representation helps the network to generate higher quality outputs as can be seen by the quantitative results. The reason why the discriminator is kept the same as in (Achiloptas et al., 2017) is to have a fair comparison highlighting that the gain is due to the higher descriptive power of the generator. The work in Grover et al. has a quite different objective, i.e. estimating the adjancency matrix of a graph, and also the technique used is a VAE instead of a GAN. 
+
+Points clouds are more and more relevant in practical applications as they can be generated by instruments such as LiDARs or time of flight cameras. Generative models can be useful for many tasks that range from data augmentation to shape completion or inpainting partial data thanks to the features learned by the model. We improved this description in the revised text.
+
+We expanded the discussion on the proposed method. The main drawback is the relatively high complexity of the graph convolution (in part this is due to non-optimized implementations of such operation in the current deep learning frameworks). More work is needed on the upsampling layer since this is important to exploit priors such compositionality or multiresolution scalability. Upsampling also helps reducing the complexity but it is not clear how to perform it in the high dimensional latent spaces while preserving feature locality.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HylKKUQB3m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>might be an interesting idea; the writing quality is not great; clearly insufficient evaluation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeXSo09FQ&amp;noteId=HylKKUQB3m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper76 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper76 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a version of GANs specifically designed for generating point clouds. The core contribution of the work is the upsampling operation: in short, it takes as an input N points, and produces N more points (one per input) by applying a graph convolution-like operation.
+
+Pros:
++ The problem of making scalable generative models for point clouds is clearly important, and using local operations in that context makes a lot of sense.
+
+Cons:
+- The paper is not particularly well-written, is often hard to follow, and contains a couple of confusing statements (see a non-exhaustive list of remarks below).
+- The experimental evaluation seems insufficient: clearly it is possible to come up with more baselines. Even a comparison to other types of generative models would be useful (e.g. variants of VAEs, other types of GANs). There also alternative local graph-convolution-like operations (e.g. tangent convolutions) that are designed for point clouds. In addition, it is quite strange that results are reported not for all the classes in the dataset.
+
+Various remarks:
+p.1, “whereby it learns to exploit a self-similarity prior to sample the data distribution”: this is a confusing statement.
+p.2, “(GANs) have been shown on images to provide better approximations of the data distribution than other generative models”: This statement is earthier too strong (all other models) or does not say much (some other models)
+p.2, “However, this means that they are unable to learn localized features or exploit weight sharing.”: I see the point about no weight sharing in the generator, but feature learning 
+p.3, “the key difference with the work in this paper is that PointNet and PointNet++ are not
+generative models, but are used in supervised problems such as classification or segmentation.”: Yet, the kind of operation that is used in the pointnet++ is quite similar to what you propose?
+p.4: “because the high dimensionality of the feature vectors makes the gridding approach unfeasible.”: but you are actually dealing with the point clouds where each point is 3D?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJxTaLDKpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for your comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeXSo09FQ&amp;noteId=rJxTaLDKpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper76 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper76 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the comments. We agree that the main strength of the paper is the study of scalable and localized generative models for irregular data like point clouds. However, we want to clarify some aspects of our contribution. In particular, the main focus is on how to use localized operators such as graph convolution when the graph is not known in advance. This problem is specific to GAN generators because the input is a random vector and the 3D point cloud is the output of the network. This is a significant difference with respect to the PointNet and PointNet++ or, in general, supervised problems where the point cloud is the input to the network and therefore it is used to construct the graph. While the actual operations may appear similar as they end up being weighted aggreations of points, the key difference in this work is the non-trivial emergence of localized features, meaning that points that are nearby in the output point cloud are represented in the hidden layers as feature vectors that are "nearby" in this high-dimensional latent space. So, despite the graph not being available as input as in the supervised setting, the training process is able to successively approximate it producing a hierarchy of graph embeddings.
+
+Concerning the experimental evaluation, the focus of the paper is not to provide an extensive comparison of different types of graph convolution or generative models, but rather showing 1) the emergence of localized features; 2) the study of the properties of such features such as being approximate graph embeddings, and the fact that the proposed upsampling operation can exploit self-similarities in the latent representation of the data; 3) the effectiveness of such construction with respect to some baselines for which a straighforward comparison can be made. In this sense the results of comparisons with the baseline models shown in Table 2 (r-GAN-dense and r-GAN-conv) allow to state that the improvement in performance is clearly due to the use of localized operations in the generator and not to some other design choice (e.g. a VAE instead a GAN, or the specific definition of convolution). Only some classes from the Shapenet dataset are reported due to lack of space. These classes are the most commonly used and among the ones with more data samples. 
+
+More in detail on the other remarks:
+
+"p.1, “whereby it learns to exploit a self-similarity prior to sample the data distribution”: this is a confusing statement.
+p.2, “(GANs) have been shown on images to provide better approximations of the data distribution than other generative models”: This statement is earthier too strong (all other models) or does not say much (some other models)":
+We improved the wording of these parts in the revised text. The statement about GANs refers to the body of literature on images where it is observed that GANs can generated sharper images than VAEs. 
+
+"p.2, “However, this means that they are unable to learn localized features or exploit weight sharing.”: I see the point about no weight sharing in the generator, but feature learning ": 
+We are not sure to completely understand this comment (perhaps there is a missing part?). Anyway, the importance of localized features is to exploit a compositionality prior in the data, where the representation of the whole can be constructed from the representations of its parts. Therefore having localized features enables us to have representations of local parts that can be successfully combined using multiple layers.
+
+"p.4: “because the high dimensionality of the feature vectors makes the gridding approach unfeasible.”: but you are actually dealing with the point clouds where each point is 3D?: 
+The 3D points are only available at the output of the generator, while hidden layers have a high-dimensional feature vector for each of the points (up to 48 dimensions as shown in Table 1). For this reason the upsampling operation is not trivial and we say that it is infeasible to define a grid over such high dimensional space.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJeoI89NnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Nice contribution within the focus of ICLR</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeXSo09FQ&amp;noteId=rJeoI89NnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper76 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper76 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors present a method for generating points clouds with the help of graph convolution and a novel upsampling scheme. The proposed method exploits the pairwise distances between node features to build a NN-graph. The upsampling scheme generates new points via a slimmed down graph convolution, which are then concatenated to the initial node features. The proposed method is evaluated on four categories of the ShapeNet dataset. Resulting point clouds are evaluated via a qualitative and quantitative comparison to r-GAN.
+
+As far as I know, the paper introduces an overall novel and interesting idea to generate point clouds with localized operations.
+
+
+The following questions could be addressed by the authors in a revised manuscript:
+
+* The upsampling operation is not well motivated, e.g., neighboring node features are weighted independently, but root node features are not. What is the intuition besides reducing the number of parameters? Are there significant differences when not using diagonal weight matrices?
+* As computation of pairwise node feature distances and graph generation based on nearest neighbors are expensive tasks, more details on the practical running time and theoretical complexity should be provided. Can the complexity be reduced by rebuilding graphs only after upsampling layers? How would this impact the performance of the proposed model?
+* Although the evaluation on four categories is reported, Table 2 only gives results for two categories.
+* How is the method related to GANs which generates graphs, such as GraphGAN or NetGAN?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1g6gDPFTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for your comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeXSo09FQ&amp;noteId=B1g6gDPFTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper76 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper76 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the comments. 
+
+*"The upsampling operation is not well motivated, e.g., neighboring node features are weighted independently, but root node features are not. What is the intuition besides reducing the number of parameters? Are there significant differences when not using diagonal weight matrices?":
+We thank the reviewer for spotting this issue. There is a typo in the manuscript. The root node is not weighted by a dense matrix but by a diagonal matrix to be consistent with the operation on its neighbors. Anyway, we also experimented with dense matrices and using independent features performed slightly better. The intuition behind this definition of upsampling is that we want to generate a new point in the same space of the original points (hence not mixing the features) with scaling and translation operations. Notice that if we are generating two points starting from two root points sharing the same neighborhoord, the operation will perform something like adding a "residual" to the root point that depends on the neighborhood and since both points share the neighborhood this residual will be similar, thus approximately preserving the structure of the neighborhood in the position in the space. This allows to exploit the self-similarity prior as confirmed by the experiments. 
+
+
+* "As computation of pairwise node feature distances and graph generation based on nearest neighbors are expensive tasks, more details on the practical running time and theoretical complexity should be provided. Can the complexity be reduced by rebuilding graphs only after upsampling layers? How would this impact the performance of the proposed model?":
+As explained in the response to reviewer 1, complexity is one of the main issues of the proposed method. The computation of pairwise distances at each layer contributes to increase the complexity with respect to classical convolutional methods. However, we already partially addressed it in two ways: 1) by developing an upsampling scheme, which allows to reduce the number of points in the first layers; 2) the graph constructed from the upsampled output can already reuse the distances computed from the input and only computes the ones with the new points. We have added a comment on the complexity and the running time to train the model for 1000 epochs in the revised paper.
+We have not investigated using a single graph for both convolution and upsampling as suggested by the reviewer since every graph convolution operation should provide a better graph embedding at its output, thereby improving the perfomance of the upsampling layer. The dynamic update of the graph at every layer is what enables the network to learn graph embeddings, so modifications to this architecture should be studied carefully. One option for future work could be limiting the neighbor search window for each point to a subset of the available points.
+
+* "Although the evaluation on four categories is reported, Table 2 only gives results for two categories":
+We incorrectly reported four categories, but they are actually three (airplane, chair, sofa). Table 2 reports only two for reasons of space, but figures show all of them and the full table can be found in the appendix.
+
+* "How is the method related to GANs which generates graphs, such as GraphGAN or NetGAN?" :
+Graph generation has the objective of approximating the adjancency matrix, which means predicting the edges, for a class of graphs. The generation of point clouds can be seen as an extension of this problem where every node is associated to a signal, i.e. a vector, such as the x,y,z coordinates or a color, and the network has to learn to reproduce both the adjacency matrix and the signal. A special case for point clouds without color information is that the adjacency matrix is derived from Euclidean neighbors using the signal. This is quite different from predicting arbitrary graphs having no signal on the nodes, as the generative model must learn to produce the x,y,z coordinates and not just predict whether two points should be neighbors.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

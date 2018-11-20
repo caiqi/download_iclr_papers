@@ -1,0 +1,263 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rJl-b3RcF7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural..." />
+      <meta name="og:description" content="Neural network pruning techniques can reduce the parameter counts of trained networks by over 90%, decreasing storage requirements and improving computational performance of inference without..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rJl-b3RcF7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks</a> <a class="note_content_pdf" href="/pdf?id=rJl-b3RcF7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019the,    &#10;title={The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rJl-b3RcF7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Neural network pruning techniques can reduce the parameter counts of trained networks by over 90%, decreasing storage requirements and improving computational performance of inference without compromising accuracy. However, contemporary experience is that the sparse architectures produced by pruning are difficult to train from the start, which would similarly improve training performance.
+
+We find that a standard technique for pruning weights naturally uncovers subnetworks whose initializations made them capable of training effectively. Based on these results, we articulate the "lottery ticket hypothesis:" unpruned, randomly-initialized feed-forward networks contain subnetworks ("winning tickets") that---when trained in isolation---converge in a comparable number of iterations to comparable generalization accuracy. The winning tickets we find have won the initialization lottery: their connections have initial weights that make training particularly effective.
+
+We present an algorithm to identify winning tickets and a series of experiments that support the lottery ticket hypothesis and the importance of these fortuitous initializations.  We consistently find winning tickets that are less than 10\% of the size of several fully-connected and convolutional feed-forward architectures for MNIST and CIFAR10. Furthermore, the winning tickets we find above that size converge faster than the original network and exhibit higher test accuracy.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Neural networks, sparsity, pruning, compression, performance, architecture search</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Feedforward neural networks that can have weights pruned after training could have had the same weights pruned before training</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">4 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HkeNaXRFaQ" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl-b3RcF7&amp;noteId=HkeNaXRFaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper1146 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJeDy85anQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>interesting conjecture, needs experiments on larger dataset and better presentation and explanation about the result</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl-b3RcF7&amp;noteId=HJeDy85anQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1146 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1146 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">It was believed that sparse architectures generated by pruning are difficult to train from scratch. The authors show that there exist sparse subnetworks that can be trained from scratch with good generalization performance. To explain the difficulty of training pruned networks from scratch or why training needs the overparameterized networks that make pruning necessary,  the authors propose a lottery ticket hypothesis: unpruned, randomly initialized NNs contain subnetworks that can be trained from scratch with similar generalization accuracy.  They also present an algorithm to identify the winning tickets.
+
+The conjecture is interesting and it is still a open question for whether a pruned network can reach the same accuracy when trained from scratch. It may helps to explain why bigger networks are easier to train due to “having more possible subnetworks from which training can recover a winning ticket”. It also shows the importance of both the pruned architecture and the initialization value. Actually another submission (<a href="https://openreview.net/forum?id=rJlnB3C5Ym)" target="_blank" rel="nofollow">https://openreview.net/forum?id=rJlnB3C5Ym)</a> made the opposite conclusions.
+
+The limitations of this paper are several folds:
+
+- The paper seems a bit preliminary and unfinished.  A lot of notations seems confusing, such as “when pruned to 21%”. The author defines a winning lottery ticket as a sparse subnetwork that can reaching the same performance of the original network when trained from scratch with the “original initialization”. It is quite confusing as there is no definition anywhere about the “original initialization”. It would be clearer if the author can use some math notations.
+
+- As identified by the authors themself, lacking of supporting experiments on large-scale dataset and real-world models. Only MNIST/CIFAR-10 and toy networks like LeNet, Conv2/Conv4/Conv6 are used. The author has done experiments on resnet, I would be better to move it to the main paper.
+
+- There is no explanation about why the “lottery ticket” can perform well when trained with the “original initialization” but not with random initialization. Is it because the original initialization is not far from the pruned solution? Then this is a kind of overting to the obtained solution.
+
+- The other problem is that the implications are not clearly useful without showing any applications. The paper could be stronger if the authors can provide more results to support the applications of this conjecture.
+
+- The authors only explore the sparse networks. Model compression by sparsification has good compression rate, especially for networks with large FC layers. However, the acceleration relies on specific hardware/libraries. It would be more complete if the author can provide experiments on structurally pruned networks, especially for CNNs.
+
+- The x-axis of pruning ratios in Figure 1/4/5 could be uniformly sampled and make the figure easier to read.
+
+Questions:
+- Does the winning tickets always exist?
+- What is the size of winning tickets for a very thin network? Would it also be less than 10%?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BylPD1gKT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re. "original initialization"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl-b3RcF7&amp;noteId=BylPD1gKT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1146 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I share many of this reviewer's concerns and hope they can be addressed by the authors.
+
+However, I found the point about "original initialization" to be rather pedantic. The majority of the audience will understand "original initialization" to be the values of the weights before any optimization.
+
+While it is possible that some light verbiage would be helpful to clarify, I do not think that "math notations" will help a bit (and in fact may serve to further confuse).
+
+I am not affiliated with the authors in any way.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Bkg5UpU52m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Highly thought provoking!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl-b3RcF7&amp;noteId=Bkg5UpU52m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1146 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1146 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">==== Summary ====
+
+It is widely known that large neural networks can typically be compressed into smaller networks that perform as well as the original network while directly training small networks can be complicated. This paper proposes a conjecture to explain this phenomenon that the authors call “The Lottery Ticket Hypothesis”:  large networks that can be trained successfully contain at initialization time small sub-networks — which are defined by both connectivity and the initial weights that the authors call “winning tickets” — that if trained separately for similar number of iterations could reach the same performance as the large network. The paper follows by proposing a method to find these winning tickets by pruning methods, which are typically used for compressing networks, and then proceed to test this hypothesis on several architectures and tasks. The paper also conjectures that the reason large networks are more straightforward to train is that when randomly initialized large networks have more combinations for subnetworks which makes have a winning ticket more likely.
+
+==== Detailed Review ====
+
+I have found the hypothesis that the paper puts forth to be very appealing, as it articulates the essence of many ideas that have been floating around for quite a while.  For example, the notion that having a large network makes it more probable for some of the initialized weights to be in the “right” direction for the beginning of the training, as mentioned in [1] that was cited in this submission. Given our lack of understanding of the optimization and generalization properties of neural networks, as well as how these two interact, then any insight into this process, like this paper suggests, could have a significant impact on both theory and practice. To that effect, I generally found the experiments in support of the hypothesis to be pretty convincing, or at the very least that there is some truth to it. Most importantly, the hypothesis and experiments presented in this paper gave me a new perspective on both the generalization and optimization problem, which as a theoretician gave me new ideas on how to approach analyzing them rigorously — and that is why I strongly vote for the acceptance of this paper.
+
+Though I have very much enjoyed reading this submission, which for the most part is very well written, it does have some issues:
+
+1. Though this is an empirical paper about an observed phenomenon, it should contain a bit more background and discussion on the theoretical implications of its subject. For example, see [2] which is also an empirical work about a theoretical hypothesis, but still includes the right theoretical context that helps the reader judge the meaning of their results. The same should be done here. For instance, there is a growing interest in the link between compression and generalization that is relevant to this work [3,4], and the effect of winning ticket leading to better generalization could be explained via other works which link structure to inductive bias [5,6].
+2. The lottery ticket hypothesis is described in the paper as being both about optimization (faster “convergence”) and about generalization (better “generalization accuracy”). However, there is a slight issue with how these terms are treated in the paper. First, “convergence” is defined as the point at which the test accuracy reaches to a minimum and before it begins to rise again, but it does not mean (and most likely not) that it is the point at which the optimization algorithm converged to its minimum — it is better to write that early stopping regularization was used in this case. Second, the convergence point is chosen according to the test set which is bad methodology, because the test set cannot be used for choosing the final model (only the training and validation sets). Third, the training accuracies are not reported in the paper, and without them, it is difficult to judge if a given model fails to generalize is simply fails to converge to 100% accuracy on the training set. As a minor note, “generalization accuracy” as a term is not that common and might be a bit confusing, so it is better to write “test accuracy”.
+
+To conclude, even though I urge the authors to address the above issues, which could significantly improve its quality and clarity, I think that this article thought-provoking and highly deserving of being accepted to ICLR.
+
+[1] Bengio et al. Convex neural networks. NIPS 2006.
+[2] Zhang et al. Understanding deep learning requires rethinking generalization. ICLR 2017.
+[3] Arora et al. Stronger generalization bounds for deep nets via a compression approach. ICML 2018.
+[4] Zhou et al. Compressibility and Generalization in Large-Scale Deep Learning. Arxiv preprint 2018.
+[5] Cohen et al. Inductive Bias of Deep Convolutional Networks through Pooling Geometry. ICLR 2017.
+[6] Levine et al. Deep Learning and Quantum Entanglement: Fundamental Connections with Implications to Network Design. ICLR 2018. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ryemP68v2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Intriguing results that challenge the common understanding of how neural network training works</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl-b3RcF7&amp;noteId=ryemP68v2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1146 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1146 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper examines the hypothesis that randomly initialized (feed-forward) neural networks contain sub-networks that train well in the sense that they converge equally fast or faster and reach the same or better classification accuracy. Interestingly, such sub-networks can be identified by simple, magnitude-based pruning. It is crucial that these sub-networks are initialized with their original initialization values, otherwise they typically fail to be trained, implying that it is not purely the structure of the sub-networks that matters. The paper thoroughly investigates the existence of such “winning-tickets” on MNIST and CIFAR-10 on both, fully connected but also convolutional neural networks. Winning-tickets are found across networks, various optimizers, at different pruning-levels and across various other hyper-parameters. The experiments also show that iterative pruning (with re-starts) is more effective at finding winning-tickets.
+
+The paper adds a novel and interesting angle to the question of why neural networks apparently need to be heavily over-parameterized for training. This question is intriguing and of high importance to further the understanding of how neural networks train. Additionally, the findings might have practical relevance as they might help avoid unnecessary over-parameterization which, in turn, might save use of computational resources and energy. The main idea is simple (which is good) and can be tested with relatively simple experiments (also good). The experiments conducted in the paper are clean (averaging over multiple runs, controlling for a lot of factors) and should allow for easy reproduction but also for clean comparison against future experiments. The experimental section is well executed, the writing is clear and good and related work is taken into account to a sufficient degree. The paper touches upon a very intriguing “feature” of neural networks and, in my opinion, should be relevant to theorists and practitioners across many sub-fields of deep learning research. I therefore vote and argue for accepting the paper for presentation at the conference. The following comments are suggestions to the authors on how to further improve the paper. I do not expect all issues to be addressed in the camera-ready version.
+
+1) The main “weakness” of the paper might be that, while the amount of experiments and controls is impressive, the generality of the lottery ticket hypothesis remains somewhat open. Even when restricting the statement to feed-forward networks only, the networks investigated in the paper are relatively “small” and MNIST and CIFAR-10 bear the risk of finding patterns that do not hold when scaling to larger-scale networks and tasks. I acknowledge and support the author’s decision to have thorough and clean experiments on these small models and tasks, rather than having half-baked results on ImageNet, etc. The downside of this is that the experiments are thus not sufficient to claim (with reasonable certainty) that the lottery ticket hypothesis holds “in general”. The paper would be stronger, if the existence of winning tickets on larger-scale experiments or tasks other than classification were shown - even if these experiments did not have a large number of control experiments/ablation studies.
+
+2)  While the paper shows the existence of winning tickets robustly and convincingly on the networks/tasks investigated, the next important question would be how to systematically and reliably “break” the existence of lottery tickets. Can they be attributed to a few fundamental factors? Are they a consequence of batch-wise, gradient-based optimization, or an inherent feature of neural networks, or is it the loss functions commonly used, …? On page 2, second paragraph, the paper states: ”When randomly reinitialized, our winning tickets no longer match the performance of the original network, explaining the difficulty of training pruned networks from scratch”. I don’t fully agree - the paper certainly sheds some light on the issue, but an actual explanation would result in a testable hypothesis. My comment here is intended to be constructive criticism, I think that the paper has enough “juice” and novelty for being accepted - I am merely pointing out that the overall story is not yet conclusive (and I am aware that it might need several more publications to find these answers).
+
+3) Do the winning tickets generalize across hyper-parameters or even tasks. I.e. if a winning ticket is found with one set of hyper-parameters, but then Optimizer/learning-rate/etc. are changed, does the winning-ticket still lead to improved convergence and accuracy? Same question for data-sets: do winning-tickets found on CIFAR-100 also work for CIFAR-10 and vice versa? If winning-tickets turn out to generalize well, in the extreme this could allow “shipping” each network architecture with a few good winning-tickets, thus making it unnecessary to apply expensive iterative pruning every time. I would not expect generalization across data-sets, but it would be highly interesting to see if winning tickets generalize in any way (after all I am still surprised by how well adversarial examples generalize and transfer).
+
+4) Some things that would be interesting to try:
+4a) Is there anything special about the pruned/non-pruned weights at the time of initialization? Did they start out with very small values already or are they all “behind” some (dead) downstream neuron? Is there anything that might essentially block gradient signal from updating the pruned neurons? This could perhaps be checked by recording weights’ “trajectories” during training to see if there is a correlation between the “distance weights traveled” and whether or not they end up in the winning ticket.
+4b) Do ARD-style/Bayesian approaches or second-order methods to pruning identify (roughly) the same neurons for pruning?
+
+5) Typo (should be through): “we find winning tickets though a principled search process”
+
+6) For the standard ConvNets I assume you did not use batchnorm. Does batchnorm interfere in any way with the existence of winning tickets? (at least on ResNet they seem to exist with batchnorm as well)
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

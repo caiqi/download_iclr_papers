@@ -1,0 +1,357 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Understanding the Effectiveness of Lipschitz-Continuity in Generative Adversarial Nets | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Understanding the Effectiveness of Lipschitz-Continuity in Generative Adversarial Nets" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=r1zOg309tX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Understanding the Effectiveness of Lipschitz-Continuity in..." />
+      <meta name="og:description" content="In this paper, we investigate the underlying factor that leads to the failure and success in training of GANs. Specifically, we study the property of the optimal discriminative function $f^*(x)$..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_r1zOg309tX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Understanding the Effectiveness of Lipschitz-Continuity in Generative Adversarial Nets</a> <a class="note_content_pdf" href="/pdf?id=r1zOg309tX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019understanding,    &#10;title={Understanding the Effectiveness of Lipschitz-Continuity in Generative Adversarial Nets},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=r1zOg309tX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=r1zOg309tX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">In this paper, we investigate the underlying factor that leads to the failure and success in training of GANs. Specifically, we study the property of the optimal discriminative function $f^*(x)$ and show that $f^*(x)$ in most GANs can only reflect the local densities at $x$, which means the value of $f^*(x)$ for points in the fake distribution ($P_g$) does not contain any information useful about the location of other points in the real distribution ($P_r$). Given that the supports of the real and fake distributions are usually disjoint, we argue that such a $f^*(x)$ and its gradient tell nothing about "how to pull $P_g$ to $P_r$", which turns out to be the fundamental cause of failure in training of GANs. We further demonstrate that a well-defined distance metric (including the dual form of Wasserstein distance with a compacted constraint) does not necessarily ensure the convergence of GANs. Finally, we propose Lipschitz-continuity condition as a general solution and show that in a large family of GAN objectives, Lipschitz condition is capable of connecting $P_g$ and $P_r$ through $f^*(x)$ such that the gradient $\nabla_{\!x}f^*(x)$ at each sample $x \sim P_g$ points towards some real sample $y \sim P_r$.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">GANs, Lipschitz-continuity, convergence</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We disclose the fundamental cause of failure in training of GANs, and demonstrate that Lipschitz-continuity is a general solution to this issue.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">10 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1eWYF9s6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We have provided the proof on the new dual form of Wasserstein distance. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1zOg309tX&amp;noteId=r1eWYF9s6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1091 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1091 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear reviewers,
+
+We have provided detailed proofs of our new dual form of Wasserstein distance (in Appendix I). We hope the proofs and the associated detailed explanations can address the concern about “the possible wrong in our key arguments”. 
+
+According to the reviewers’ feedback, we have extensively revised the paper. The arguments are much more clear now. In particular, we have revised all statements about the failure of Wasserstein distance to make them strictly refer to the new dual form. We have also made the relationship among Lipschitz condition, Wasserstein distance, and the new dual form more clear. We believe there is no confusion in our statements now. 
+
+The key points are summarized as follows: (i) the dual form of Wasserstein distance can be written in a more compact manner, where the constraint is looser than Lipschitz condition. (ii) if using Wasserstein distance with the new dual form, it suffers from the convergence issue, where \nabla_x f*(x) is ill-behaving. (iii) the above observations indicate that a well-defined distance metric does not necessarily guarantee the convergence of GANs. (iv) we prove that Lipschitz condition is a general key to solve the non-convergence problem of GANs, which works with a family of GAN objectives (detailed in Eq. 12) and is not limited to Wasserstein distance. 
+
+Detailed comments from each reviewer have been addressed individually. Thanks a lot for these constructive feedbacks. And special thanks to AnonReviewer3 who have meticulously checked our notations and formulations and provided detailed feedback, which helps us a lot in improving this manuscript. 
+
+If the reviewers have further concerns, we would appreciate further discussions. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ByldHOC33m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Lipschitzness of the discriminator is more critical than the choice of the divergence</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1zOg309tX&amp;noteId=ByldHOC33m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1091 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1091 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors study the fundamental problems with GAN training. By performing a gradient analysis of the value surface of the optimal discriminator, the authors identify several key issues. 
+
+In particular, for a fixed GAN objective they consider the optimal discriminator f* and analyze the gradients of f* at points x ~ P_g and x~P_d. The gradient decouples into the magnitude and direction terms. In previous work, the gradient vanishing issue was identified and the authors show that it is fundamentally only controlling the magnitude. Furthermore, controlling the magnitude doesn’t suffice as the gradient direction itself might be non-informative to move P_g to P_d. The authors proceed to analyze two cases: (1) No overlap between P_g and P_d where they show that the original GAN formulation, as well as the Wasserstein GAN will suffer from this issue, unless Lipschitzness is enforced. (2) For the case where P_g and P_d have overlap, the gradients will be locally useful which the authors identify as the fundamental source of mode collapse. 
+
+The main theoretical result suggests that (1) penalizing the discriminator proportionally to the square of the Lipschitz constant is the key -- the choice of divergence is not. This readily implies that pure Wasserstein divergence may fail to provide useful gradients, as well as that other divergences combined with Lipschitz penalties (precise technical details in the paper) might succeed. Furthermore, it also implies that one can mix and match the components of the objective function for the discriminator, as long as the penalty is present, giving rise to many objectives which are not necessarily proper divergences. Finally, one can explain the recent success of many methods in practice: While the degenerate examples showing deficiencies of current methods can be derived, in practice we implement discriminators as some deep neural networks which induce relatively smooth value surfaces which in turn make the gradients more meaningful.
+
+Pro:
+- Clear setup and analysis of the considered cases. Interesting discussion from the perspective of the optimal discriminator and divergence minimization. The experiments on the toy data are definitely interesting and confirm some of the theoretical results. 
+- A convincing discussion of why Wasserstein distance is not the key, but rather it is the Lipschitz constant. This brings some light on why the gradient penalty or spectral normalization help even for the non-saturating loss [2]. 
+- Discussion on why 1-Lip is sufficient, but might be too strong. The authors suggest that instead of requiring 1-Lip on the entire space, it suffices to require Lipschitz continuity in the blending region of the marginal distributions. 
+
+Con:
+- Practical considerations: I appreciate the theoretical implications of this work. However, how can we exploit this knowledge in practice? As stated by the authors, many of these issues are sidestepped by our current inductive biases in neural architectures.
+-  Can you provide more detail on your main theorem, in particular property (d). Doesn't it imply that the discriminator is constant?
+- Which currently known objectives do not satisfy the assumptions of the theorem?
+- The work would benefit from a polishing pass.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SygATc9s6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1zOg309tX&amp;noteId=SygATc9s6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1091 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1091 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your constructive feedback. 
+
+Q: How can we exploit this knowledge in practice? As stated by the authors, many of these issues are sidestepped by our current inductive biases in neural architectures. 
+
+&gt;&gt; Although fine-tuning the neural architectures could possibly make GANs work, it is also the fundamental reason why GANs are hard to train and easily broken. Investigating theoretically-sound GAN formulation is thus important from our perspective. 
+
+&gt;&gt; Our work actually has a few practical implications. For example, we tested a few new objectives which are also sound according to our theorems. And we found that, compared with W-distance, the outputs of the discriminator with some new objectives are more stable and the final qualities of generated samples are also consistently higher than those produced by W-distance. 
+
+Q: Can you provide more detail on your main theorem, in particular, property (d). Doesn't it imply that the discriminator is constant?
+
+&gt;&gt; The main theorem describes the properties of the optimal discriminative function under Lipschitz constraint. In a nutshell, the discriminator would stretch the value surface by adjusting the value of f(x) for each x (from P_g and P_r) till |f(x)-f(y)|=|x-y| for some y. The key insight behind the properties is that at optimum, for every x, f*(x) must hold a zero gradient with respect to the objective or it is bounded by the Lipschitz constraint. 
+
+&gt;&gt; Property-(d) states that at the only Nash Equilibrium, it holds P_g = P_r. And it can also be proved that at the Nash Equilibrium state, k(f*) must be zero. k(f*)=0 means the discriminative function is constant, but it only appears at the converged state P_g = P_r. Constant discriminative function at convergence is actually a good/desired property, where the generator receives zero gradients and hence will not shift from the convergence point. 
+
+Q: Which currently known objectives do not satisfy the assumptions of the theorem?
+
+&gt;&gt; There exists a few practically used instances of GAN objectives that do not satisfy the assumptions of the theorem. For example, the objective of Least-Square GAN and the hinge loss used in [1][2][3]. More generally, any objective that ‘‘holds a zero gradient at certain point’’ does not satisfy the assumptions of the theorem (check Eq. 12). 
+
+[1] Geometric GAN
+[2] Energy-based Generative Adversarial Network
+[3] Spectral Normalization for Generative Adversarial Networks</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJxOhIWq3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review for "Understanding the Effectiveness of Lipschitz-Continuity in Generative Adversarial Nets"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1zOg309tX&amp;noteId=BJxOhIWq3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1091 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1091 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors try to claim that Lipschitz continuity of the discriminator is a fundamental solution of GANs, and that current methods do not satisfy this approach in principle.
+
+There are several false statements in this paper. In particular, sections 2.3 and 4.4 are wrong (and most of the paper is based on statements made there). The necessary constraint for the Wasserstein distance is NOT f(x) - f(y) &lt;= d(x, y) for all x ~ Pr, y ~ Pg. It has to actually be 1-Lipschitz in the entire space. See Chapters 5 and 6 of [1], for example remark 6.4 or particular cases 5.16 and 5.4. Indeed, this is how it is written in all of the literature this reviewer is aware off, and it's a fact well used in the literature. Indeed, all the smoothness results for optimal transport in [1] heavily exploit the fact that the gradient of the critic is in the direction of the optimal transport map, which wouldn't be the case in the situation the authors try to claim of 'f not being defined outside of the support of Pr or Pg'.
+
+Furthermore, the relationship between Lipschitz continuity and having a gradient is elaborated in [2] <a href="https://arxiv.org/abs/1701.07875" target="_blank" rel="nofollow">https://arxiv.org/abs/1701.07875</a> , for example figure 2 clearly show this. Furthermore, and contrary to what section 4.5 tries to claim, the idea that most conclusions of wgan hold *without* the Wasserstein distance, but with Lipschitz continuity are already elaborated in the wgan paper. See in fact, appendix G.1 [3], where this is described in detail.
+
+[1]: http://cedricvillani.org/wp-content/uploads/2012/08/preprint-1.pdf
+[2]: http://proceedings.mlr.press/v70/arjovsky17a/arjovsky17a.pdf
+[3]: http://proceedings.mlr.press/v70/arjovsky17a/arjovsky17a-supp.pdf</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">1: Trivial or wrong</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJeLkh9s6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2 (1/2) </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1zOg309tX&amp;noteId=rJeLkh9s6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1091 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1091 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your constructive feedback.
+
+Q: There are several false statements in this paper. In particular, sections 2.3 and 4.4 are wrong. The necessary constraint for the Wasserstein distance is NOT f(x) - f(y) &lt;= d(x, y) for all x ~ Pr, y ~ Pg. It has to actually be 1-Lipschitz in the entire space. Indeed, this is how it is written in all of the literature this reviewer is aware off, and it's a fact well used in the literature. 
+
+&gt;&gt; We are sorry for not providing a formal proof of this in the paper. Please see Appendix I.1 in the newly uploaded version of our paper where we strictly prove that the new dual form of Wasserstein distance is valid. 
+
+&gt;&gt; We have carefully checked a few related materials and their proofs on the Kantorovich duality. And we realize that they basically assume the supports of the two distribution are the entire space (or they just ignore the things about support). But the fact is that once you handle the supports of distributions delicately, you will get a looser constraint. See Appendix I.2 for details. 
+
+&gt;&gt; We would also like to provide an intuitive explanation on why “f(x) - f(y) &lt;= d(x, y) for all x ~ Pr, y ~ Pg” is enough. Taking “Pr and Pg are both delta distributions with the support being a simple point x0 and y0, respectively” as the instance would make it much clear. Given f(x0)-f(y0)&lt;=|x0-y0| is enough to get the Wasserstein distance |x0-y0|. Generally, “f(x) - f(y) &lt;= d(x, y) for all x ~ Pr, y ~ Pg”, comparing with 1-Lipschitz in the entire space, only eliminates these “f(x) - f(y) &lt;= d(x, y)” that involve x not in Pr or y not in Pg. These constraints are redundant and do not affect the final solution. 
+
+&gt;&gt; We have rewritten section 2.3, section 4.4 and all related parts in the paper. Now it should have more strictly stated our observation, which will be less confusing. 
+
+Q: All the smoothness results for optimal transport in [1] heavily exploit the fact that the gradient of the critic is in the direction of the optimal transport map, which wouldn't be the case in the situation the authors try to claim of 'f not being defined outside of the support of Pr or Pg'. 
+
+&gt;&gt; Yeah. We knew that theorem. Recent GAN paper [4] also highlighted this property in its Proposition 1. And we have also mentioned this theorem in our paper in Section 3.1 stated in Eq. 11. 
+
+&gt;&gt; The thing is that: these theorems all use the 1-Lipschitz as the constraint, therefore, f* and its gradient is well-defined. We actually argued that there exists a dual form of Wasserstein distance where the constraint is looser than 1-Lipschitz; and when the compacted constraint is applied (not 1-Lipschitz), f* is not defined outside the supports of Pg and Pr, and its gradient is also likely to be ill-behaving. We have made these arguments more strict in the revised version. 
+
+Q: Furthermore, the relationship between Lipschitz continuity and having a gradient is elaborated in [2].  
+
+&gt;&gt; Our theorem is a more general version of the theorem you mentioned, where we no longer restrict the objective to be Wasserstein distance and state the general properties of optimal discriminative function f* under Lipschitz-continuity condition. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJelpj5j6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2 (2/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1zOg309tX&amp;noteId=HJelpj5j6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1091 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1091 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your constructive feedback.
+
+Q: The idea that most conclusions of WGAN hold *without* the Wasserstein distance, but with Lipschitz continuity are already elaborated in the WGAN paper. See in fact, Appendix G.1 [3], where this is described in detail. 
+
+&gt;&gt; Given Wasserstein GAN is one of the most important papers in GAN community and we have realized that its argument in the main text does not hold very well, we believe it is necessary to highlight the point. Currently, most people tend to believe that a good distance metric is the key to the convergence or stability of GANs. One contribution of our paper is that it thoroughly expounded that: the property of the gradient in terms of \nabla_x f*(x) is substantially different from the property of a distance metric; and to ensure the convergence of GANs or design new formulation for GANs, one should carefully check whether the gradient \nabla_x f*(x) is reliable. 
+
+&gt;&gt; Regarding Appendix G.1 [3], although it states that Lipschitz might be generally applicable, the discussion there is far from enough: (i) the discussion in Appendix G.1 is limited to the objective of the original GAN; our theorem, in contrast, elaborated a family of GAN objectives and characterized the necessary condition where Lipschitz condition ensures the convergence. (ii) the discussion in Appendix G.1 ignores the $\log$ term in the objective of original GAN; our theorem is, however, directly applicable to the whole objective of the original GAN.* (iii) according to our theorem, for any objective other than W-distance, it is theoretically necessary to penalize the Lipschitz constant k(f) to ensure the convergence; though Appendix G.1 mentioned that to avoid the saturation, k need to be small, it fails to cover the other fold that ‘‘\nabla_x f*(x)=0 for all x’’ might also happen even if there is no saturation region or saturation region is not touched.** 
+
+[1]: Optimal transport, old and new
+[2]: <a href="http://proceedings.mlr.press/v70/arjovsky17a/arjovsky17a.pdf" target="_blank" rel="nofollow">http://proceedings.mlr.press/v70/arjovsky17a/arjovsky17a.pdf</a> 
+[3]: http://proceedings.mlr.press/v70/arjovsky17a/arjovsky17a-supp.pdf 
+[4]: Improved Training of Wasserstein GANs 
+
+* In Appendix G.1, it discusses the properties of f with bounded value-range (to simulate a classifier), while in our paper, f is assumed to have unbounded value range and loss metrics are applied to the unbounded f. Therefore, the arguments are actually quite different. 
+
+** That is to say, small k is not enough to guarantee the convergence, and penalizing/decreasing the Lipschitz constant is necessary. Given a fixed Lipschitz constant k, according to our analysis, the following state is possible: ‘‘Pg!=Pr’’ and  ‘‘for each x, f*(x) is optimal’’, but there does not exist two points x,y such that |f(x)-f(y)|&gt;k|x-y|. In this case, ‘‘\nabla_x f*(x)=0 for all x’’ and the generator stop learning, however, Pg does not equal to Pr. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJxy5mxdhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Although the proposed general formulation is itself interesting, some of the arguments are not sound, and the proposed scheme is somehow similar to the gradient-penalty-based formulation in Gulrajani et al. (2017).</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1zOg309tX&amp;noteId=BJxy5mxdhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1091 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1091 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+[pros]
+- It proposes a general formulation of GAN-type adversarial learning as in (1), which includes the original GAN, WGAN, and IPM-type metrics as special cases.
+- It also proposes use of the penalty term in terms of the Lipschitz constant  of the discriminative function.
+
+[cons]
+- Some of the arguments on the Wasserstein distance and on WGAN are not sound.
+- Theorem 3 does not make sense.
+- The proposed scheme is eventually similar to the gradient-penalty-based formulation in Gulrajani et al. (2017).
+
+[Quality]
+I found some weaknesses in this paper, so that I judge the quality of this paper not to be high. For example, the criticisms on the Wasserstein distance in Section 2.3 and in Section 4.4, as well as the argument on WGAN at the end of Section 3.1, is not sound. The claim in Theorem 3 does not make sense, if we literally take its statement. All these points are detailed below.
+
+[Clarity]
+The main paper is clearly written, whereas in the appendices I noticed several grammatical and spelling errors as well as unclear descriptions.
+
+[Originality]
+Despite that the arguments in this paper are interesting, the proposed scheme is somehow eventually similar to the gradient-penalty-based formulation in Gulrajani et al. (2017), with differences being introduction of loss metrics $\phi,\varphi,\psi$ and the form of the gradient penalty, $\max \|\nabla f(x)\|_2^2$ in this paper versus $E[(\|\nabla f(x)\|_2-1)^2]$ in Gulrajani et al. (2017). This fact has made me to think that the originality of this paper is marginal.
+
+[Significance]
+This paper is significant in that it would stimulate empirical studies on what objective functions and what types of gradient penalty are efficient in GAN-type adversarial learning.
+
+Detailed comments:
+
+In Section 2.3, the authors criticize use of the Wasserstein distance as the distance function of GANs, but their criticism is off the point. It is indeed a problem not of the Wasserstein distance itself, but of its dual formulation.
+
+It is true mathematically that $f$ in equation (8) does not have to be defined outside the supports of $P_g$ and $P_r$ because it does not affect the expectations in (8). In practice, however, one may regard that $f$ satisfies the condition $f(x)-f(y)\le d(x,y)$ not only on the supports of $P_g$ and $P_r$ but throughout the entire space $\mathbb{R}^n$. It is equivalent to requiring $f$ to satisfy the 1-Lipschitz condition on $\mathbb{R}^n$, and is what WGAN (Arjovsky et al., 2017) tries to do in its implementation of the "critic" $f$ via a multilayer neural network with weight clipping.
+
+One can also argue that, if one defines $f$ only on the supports of $P_g$ and $P_r$, then it should trivially be impossible to obtain gradient information which can change the support of $P_g$. The common practice of requiring the Lipschitz condition throughout $\mathbb{R}^n$ is thus reasonable from this viewpoint. This is therefore not the problem of the Wasserstein distance itself, but the problem regarding how the dual problem is implemented in learning of GANs. In this regard, the discussion in this section, as well as that in Section 4.4, is misleading.
+
+On optimizing $k$, I do not agree with the authors's claim at the end of Section 3.1 that WGAN may not have zero gradient with respect to $f$ even when $P_g=P_r$. Indeed, when $P_g=P_r$, for any measurable function $f$ one trivially has $J_D[f]=E_{x\sim P_g}[f(x)]-E_{x\sim P_r}[f(x)]=0$, so that the functional derivative of $J_D$ with respect to $f$ does vanish identically. 
+
+I do not understand the claim of Theorem 3. I think that the assumption is too strong. If one literally takes "$\forall x \not= y$", then one can exchange $x$ and $y$ in the condition $f(y)-f(x)=k\|x-y\|$ to obtain $f(x)-f(y)=k\|y-x\|$, which together would imply $k=0$, and consequently $f$ is constant. One would be able to prove that if there exists $(x,y)$ with $x \not= y$ such that $f(y)-f(x)=k\|x-y\|$ holds then the gradient of $f$ at $x_t$ is equal to $k(y-x)/\|x-y\|$ under the Lipschitz condition.
+
+Appendix G: Some notations should be made more precise. For example, in the definition of J_D the variable of integration $x$ has been integrated out, so that $J_D$ no longer has $x$ as its variable. The expression $\partial J_D/\partial x$ does not make any sense. Also, $J_D^*(k)$ is defined as "arg min" of $J_D$, implying as if $J_D^*(k)$ were a $k$-Lipschitz function.
+
+Page 5, line 36: $J_D(x)$ appears without explicit definition.
+
+Page 23, lines 34 and 38: Cluttered expression $\frac{\partial [}{\partial 2}]$ makes the statements not understandable. It also appears on page 24 several times.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJggS2qspm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1zOg309tX&amp;noteId=BJggS2qspm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1091 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1091 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your constructive feedback.
+
+Q: In Section 2.3, the authors criticize the use of the Wasserstein distance as the distance function of GANs, but their criticism is off the point. This is not the problem of the Wasserstein distance itself, but the problem regarding how the dual problem is implemented in learning of GANs. In practice, however, one may regard that $f$ satisfies the condition $f(x)-f(y)\le d(x,y)$ not only on the supports of $P_g$ and $P_r$ but throughout the entire space $\mathbb{R}^n$. 
+
+&gt;&gt; We have refined our statements to make it more rigorous. We argued that Wasserstein distance in the dual form with compacted constraint will fail to provide valid gradients. We have revised related sections. It is much clearer now. 
+
+&gt;&gt; The practical solution of WGAN, which usually involves Lipschitz constraint, is sound. What we want to emphasize is that the explanation on the underlining working mechanism in the Wasserstein GAN paper does not hold very well. It is not Wasserstein distance which can properly measure the distance that makes it work, but the Lipschitz constraint. As we showed in the paper, in the compact dual form (without Lipschitz) of Wasserstein distance, $\nabla_x f*(x)$ may also fail to provide a meaningful gradient; and with Lipschitz, lots of GAN objectives can guarantee a meaningful gradient in terms of $\nabla_x f*(x)$, not limited to Wasserstein distance.
+
+Q: The claim in Theorem 3 does not make sense. If we literally take its statement, it would imply $k=0$, and consequently, $f$ is constant. One would be able to prove that if there exists $(x,y)$ with $x \not= y$ such that $f(y)-f(x)=k\|x-y\|$ holds then the gradient of $f$ at $x_t$ is equal to $k(y-x)/\|x-y\|$ under the Lipschitz condition.
+
+&gt;&gt; Sorry, this is a typo. We indeed mean “$\forall x \not= y$, if $f(y)-f(x)=k\|x-y\|$” as what you have guessed, but it was miswritten as “if $f(y)-f(x)=k\|x-y\|$, $\forall x \neq y$”. We have revised it in our new version.
+
+Q: On optimizing $k$, I do not agree with the authors' claim at the end of Section 3.1 that WGAN may not have zero gradient with respect to $f$ even when $P_g=P_r$. Indeed, when $P_g=P_r$, for any measurable function $f$ one trivially has $J_D[f]=E_{x\sim P_g}[f(x)]-E_{x\sim P_r}[f(x)]=0$, so that the functional derivative of $J_D$ with respect to $f$ does vanish identically. 
+
+&gt;&gt; Sorry for the typo. It should be ‘‘$\nabla_x f*(x)$ may not be zero’’. We have miswritten it as $\nabla_f*$. For WGAN, when $P_g=P_r$, f* can be arbitrary, so $\nabla_x f*(x)$ may not be zero. We have revised it in our new version.
+
+----- Minor Points -----
+
+Q: Page 5, line 36: $J_D(x)$ appears without explicit definition. 
+
+&gt;&gt; Thanks for pointing this out. We have added the definition for $J_D(x)$ in the revised version. 
+
+Q: Appendix G: Some notations should be made more precise. For example, in the definition of $J_D$ the variable of integration $x$ has been integrated out so that $J_D$ no longer has $x$ as its variable. The expression $\partial J_D/\partial x$ does not make any sense. 
+
+&gt;&gt; By $\partial J_D/\partial x$, we want to refer to the term that is being integrated over $x$. In the current form, it is analogous to the gradient of indefinite integral. i.e., F = \int_x f(x) dx and F’ = f(x). We have replaced the confusing derivative form with a simple notation. 
+
+Q: Appendix G: $J_D^*(k)$ is defined as "arg min" of $J_D$, implying as if $J_D^*(k)$ were a $k$-Lipschitz function. 
+
+&gt;&gt; $J_D^*(k)$ should be defined as the min value, not arg min. We have corrected it. 
+
+Q: Page 23, lines 34 and 38: cluttered expression $\frac{\partial [}{\partial 2}]$ makes the statements not understandable. It also appears on page 24 several times. 
+
+&gt;&gt; The $\frac{\partial [}{\partial 2}]$ comes from a breaking \newcommand for second-order derivation in latex. We have fixed it. 
+
+Thanks a lot for the careful reading of our paper and the detailed comments, which are very helpful. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

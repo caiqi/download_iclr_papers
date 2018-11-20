@@ -1,0 +1,288 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BJfvknCqFQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="A Rotation and a Translation Suffice: Fooling CNNs with Simple..." />
+      <meta name="og:description" content="We show that simple spatial transformations, namely translations and rotations alone, suffice to fool neural networks on a significant fraction of their inputs in multiple image classification..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BJfvknCqFQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations</a> <a class="note_content_pdf" href="/pdf?id=BJfvknCqFQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019a,    &#10;title={A Rotation and a Translation Suffice: Fooling CNNs with Simple Transformations},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BJfvknCqFQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We show that simple spatial transformations, namely translations and rotations alone, suffice to fool neural networks on a significant fraction of their inputs in multiple image classification tasks. Our results are in sharp contrast to previous work in adversarial robustness that relied on more complicated optimization ap- proaches unlikely to appear outside a truly adversarial context. Moreover, the misclassifying rotations and translations are easy to find and require only a few black-box queries to the target model. Overall, our findings emphasize the need to design robust classifiers even for natural input transformations in benign settings.
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">robustness, spatial transformations, invariance, rotations, data augmentation, robust optimization</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We show that CNNs are not robust to simple rotations and translation and explore methods of improving this.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_B1lYTQkR3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Solid experimental study of approximate worst and average case input image rotation and translation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJfvknCqFQ&amp;noteId=B1lYTQkR3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper993 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper993 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary:
+Standard CNN models for MNIST, CIFAR10 and ImageNet are vulnerable with regard
+to (adversarial) rotation and translation of images.
+The paper experimentally examines different ways of formulating attacks
+(gradient descent, grid search and sampling) and defenses
+(random augmentation, worst-case out of sample robust training,
+aggregated classification) for this class of image transformation.
+
+The main results are:
+- Gradient descent is not effective at generating worst-case rotations /
+translations due to nonconcavity of the adversarial objective
+- Grid search is very effective due to low parameter space
+- Sampling and pick the worst is also effective and cheap, for similar reasons
+- L infinity ball pixel perturbation robustness is orthogonal to the examined
+transformations and does not provide good defense mechanism
+- Just augmenting data with random translation / rotations is not a strong
+defense
+- Using a worst-case out of sample of 10 for training with an approximation of
+a robust optimization objective combined with an aggregated result for
+classification is a stronger defense
+
+Recommendation:
+The paper presents a comprehensive study of a relevant class of adversarial
+image perturbations for state-of-the-art neural network models.
+The results are a useful pointer towards future research directions and for
+building more robust systems in practice.
+I recommend to accept the paper.
+
+Strong points:
+- The paper is well written, has clear structure and is technically easy to
+understand.
+- The question of padding and cropping comes up naturally and is then answered.
+
+Open questions (things that could potentially be of interest when added):
+- Loss landscapes look like most of the nonconcavity is along the translation
+parameter. Any idea why?
+- What mechanisms within CNN models do or do not learn (generalize) rotation
+and translation from provided data (including augmentation)?
+
+Specific:
+- Page 2: perturbrbations (Typo)
+- Page 3: witho (Typo)
+- Page 3: Constrained optimization problems typically written as
+max_{...} \mathcal L(x', y) s.t. x' = T(...)
+(s.t. for subject to instead of for) but that's matter of taste I guess
+- Page 4: first order -&gt; first-order (consistency)
+- Page 4: tyipcally (Typo)
+- Page 4: occurs most common(ly)
+
+I am not sufficiently knowledgable about the previous literature to ensure that
+the claimed novelty of the paper is truly as novel.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rJgdkwO6nQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>some interesting observations</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJfvknCqFQ&amp;noteId=rJgdkwO6nQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper993 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper993 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper states that basic transformation (translation and rotation) can easily fool a neural network in image classification tasks. Thus, image classification models are actually more vulnerable than people thought. The message conveyed by the paper is clear and easy to get. The experiments are natural and interesting. Some interesting points:
+  --The model trained with data augmentation that covers the attack space does not alleviate the problem sufficiently.
+  --Gradient descent does not provide strong attack, but grid search does. This may be due to the high non-concavity, compared to the small perturbation case.
+
+One possible question is the novelty, as this idea is so simple that probably many people have observed similar phenomenon--but have not experimented that extensively. 
+Also, there are some related works that also show the vulnerability under spatial transformations. But some are concurrent works to 1st version of the paper (though published), so I tend to not to judge it by those works.  
+
+Other comments: 
+1. page 3 in the paragraph starting with ‘We implement …’, the author chooses a differentiable bilinear interpolation routine. However, the interpolation method is not shown or explained. 
+2. In term of transformation, scaling and reflecting are also transformations. It should be straightforward to check the robustness with respect to them. Comments? 
+3. Header in tables is vague. Like ‘Natural’ or ‘Original’, etc. More description of the Header under tables is helpful.
+4. For CIFAR10 and especially for ImageNet dataset, Aug30 and Aug40 models showed lower accuracy than No Crop model on Nat test set. This is little strange because data augmentation (such as random rotation) is commonly used strategy to improve test accuracy. I think this might mean that the model is not trained enough and underfitted, maybe because excessive data augmentation lowered the training speed.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BJeJep8gn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting approach but not yet matured enough. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJfvknCqFQ&amp;noteId=BJeJep8gn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper993 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper993 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary
+The authors study robustness of neural networks for image recognition tasks with respect to geometric transformations in input space. The question is posed in an adversarial setting, where the authors exploit that Conv/ResNets are not fully translation and rotation invariant. The authors propose three untargeted attacks to increase the classification error of the network: a first-order method, an attack involving random transformations and a grid search of allowed transformations. For the random and grid search the worst prediction is considered the outcome of the attack. The authors observe that first-order attacks are not very successful in fooling the network compared to the grid search. Data augmentation as a counter measure is found to be not sufficient and adversarial (robust) training with respect to the random search attack is proposed in addition.
+
+Evaluation
+The paper is well written and particularly the empirical part is interesting. However, novelty is limited, the best approach boils down to a grid search that tests multiple hypotheses instead of a single one. There are some conceptual problems and important aspects like confidences of the classification are not addressed.
+
+Novelty:
+Many claims and observations appear trivial and well-known. E.g.,
+- the research question has already been addressed by related work, leaving the proposed attacks trivial given that the attack space (allowed transformations) is specified ad hoc and without a proper measure.
+- that data augmentation and training with the adversarial loss function (i.e. with the attack scheme in mind) is helpful is straight forward and not surprising
+
+Detailed comments:
+The authors study whether neural networks are robust to transformations in input space and resort to a benign adversarial setting. I'm wondering whether this allows for an answer regarding general robustness? That is, the experiments are conducted wrt the worst case, while the training does not account for an attack setting. E.g, it is unclear why the classifier would not involve a pre-processing step to counter transformations in input space, see Rowley et al. (1998).
+
+Translation and rotation invariance of neural networks has been addressed by many authors, e.g., see Jaderberg et al. (2015) and Marcos et al. (2017).
+
+Adversarial examples are defined to be similar and misclassified with high confidence.
+The similarity of the transformation is not addressed properly. E.g., if the goal of the adversary is to force errors, why not allow for rotations of 180 degrees? Pixel-based attacks (Goodfellow et al., 2014) are more rigorous in this regard while the cited transformation-based attacks (Kanbak et al. 2017; Xiao et al., 2018) are virtually indistinguishable from the real test cases.
+
+The effectiveness of the grid search attack seems to be connected to performing $5 * 5 * 31 = 775$ individual tests for each test case where only the worst outcome would count. The sheer number should render a misclassification more likely compared to the competitors. This is supported by empirical findings showing that only a small subset of transformations per test case accounts for the misclassification on CIFAR10 and ImageNet (Fig. 10 in the Appendix).
+
+Regarding the padding experiments, I wonder whether the network architecture is appropriate for the new input. Here, more experimentation is necessary. The conclusion with respect to the first-order method remains a conjecture.
+
+References:
+- Ian J. Goodfellow, Jonathon Shlens, and Christian Szegedy. Explaining and harnessing adversarial examples. arXiv preprint arXiv:1412.6572, 2014.
+- Max Jaderberg, Karen Simonyan, and Andrew Zisserman. Spatial transformer networks. In Advances in neural information processing systems, pp. 2017–2025, 2015.
+- Can Kanbak, Seyed-Mohsen Moosavi-Dezfooli, and Pascal Frossard. Geometric robustness of deep networks: analysis and improvement. arXiv preprint arXiv:1711.09115, 2017.
+- Diego Marcos, Michele Volpi, Nikos Komodakis, and Devis Tuia. Rotation equivariant vector field networks. In The IEEE International Conference on Computer Vision (ICCV), Oct 2017.
+- Henry Rowley, Shumeet Baluja, and Takeo Kanade. Rotation invariant neural network-based face detection. In Proceedings of IEEE Conference on Computer Vision and Pattern Recognition, pp. 38. sn, 1998.
+- Chaowei Xiao, Jun-Yan Zhu, Bo Li, Warren He, Mingyan Liu, and Dawn Song. Spatially transformed adversarial examples. arXiv preprint arXiv:1801.02612, 2018.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

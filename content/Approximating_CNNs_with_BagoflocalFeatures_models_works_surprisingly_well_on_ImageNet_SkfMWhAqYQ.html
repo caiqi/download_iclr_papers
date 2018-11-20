@@ -1,0 +1,301 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Approximating CNNs with Bag-of-local-Features models works surprisingly well on ImageNet | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Approximating CNNs with Bag-of-local-Features models works surprisingly well on ImageNet" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SkfMWhAqYQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Approximating CNNs with Bag-of-local-Features models works..." />
+      <meta name="og:description" content="Deep Neural Networks (DNNs) excel on many complex perceptual tasks but it has proven notoriously difficult to understand how they reach their decisions. We here introduce a high-performance DNN..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SkfMWhAqYQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Approximating CNNs with Bag-of-local-Features models works surprisingly well on ImageNet</a> <a class="note_content_pdf" href="/pdf?id=SkfMWhAqYQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019approximating,    &#10;title={Approximating CNNs with Bag-of-local-Features models works surprisingly well on ImageNet},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SkfMWhAqYQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Deep Neural Networks (DNNs) excel on many complex perceptual tasks but it has proven notoriously difficult to understand how they reach their decisions. We here introduce a high-performance DNN architecture on ImageNet whose decisions are considerably easier to explain. Our model, a simple variant of the ResNet-50 architecture called BagNet, classifies an image based on the occurrences of small local image features without taking into account their spatial ordering. This strategy is closely related to the bag-of-feature (BoF) models popular before the onset of deep learning and reaches a surprisingly high accuracy on ImageNet (87.6% top-5 for 32 x32 px features and Alexnet performance for 16 x 16 px features). The constraint on local features makes it straight-forward to analyse how exactly each feature of the image influences the classification. Furthermore, the BagNets behave similar to state-of-the art deep neural networks such as VGG-16, ResNet-152 or DenseNet-169 in terms of feature sensitivity, error distribution and interactions between image parts, suggesting that modern DNNs approximately follow a similar bag-of-feature strategy.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">interpretability, representation learning, bag of features, deep learning, object recognition</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Aggregating class evidence from many small image patches suffices to solve ImageNet, yields more interpretable models and can explain aspects of the decision-making of popular DNNs.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">16 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Bkeb0FIa2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Combing Patch-level CNN and BoF model has been done before</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=Bkeb0FIa2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1150 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The idea of image classification based on patch-level deep feature in the BoF model has been done before.  Just list few of them:
+
+Wei et al. HCP: A Flexible CNN Framework for Multi-label Image Classification, IEEE TPAMI 2016
+Tang et al. Deep Patch Learning for Weakly Supervised Object Classification and Discovery, Pattern Recognition 2017
+Tang et al. Deep FisherNet for Object Classification, IEEE TNNLS
+Arandjelović et al. NetVLAD: CNN Architecture for Weakly Supervised Place Recognition, CVPR 2016
+
+The above papers are not cited in this paper.
+
+There are some unique points. This work does not use RoIPooling layer and has results on ImageNet. However, the previous works use RoIPooling layer to save computations and works on scene understanding images, such PASCAL. These differences are not able to make this paper novel. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJgUOUvkpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Another perspective that might help</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=BJgUOUvkpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1150 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Maybe the following perspective also helps: the works you cite use BoF over larger image regions, but the embeddings for each region are still based on conventional, non-interpretable DNNs (like VGG). Our work "opens this blackbox" (to use a very stressed term) and provides a way to compute similar region embeddings in a much more interpretable way as a linear BoF over small patches. In other words, if the works you cite would use BagNets instead of VGG, they would basically use a "stacked BoF" approach: first, small and local patches are combined to yield region embeddings (BagNet), and these region embeddings are used by a second BoF to infer image-level object labels and bounding boxes.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1ep2zJyaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We do cite similar approaches but they use whole-object patches (instead of small parts), barely increase interpretability and do not shed light on decision making in CNNs</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=H1ep2zJyaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1150 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for reviewing our paper. We would like to make a quick clarification right away, which we hope will change your assessment. All works you cite use non-linear BoF encodings on top of pretrained VGG (or AlexNet) features; the effective patch size of individual features is thus large and will generally encompass the whole object of interest. In contrast, our BagNets are constrained to very small image patches (much smaller than the typical object size in ImageNet), use no region proposals (all patches are treated equally) and employ a very simple and transparent average pooling of local features (no non-linear dependence between features and regions). That’s why BagNets (1) substantially increase interpretability of the decision making process (see e.g. heatmaps), (2) highlight what features and length-scales are necessary for object recognition and (3) shed light on the classification strategy followed by modern high performance CNNs. None of the cited papers addresses any of these contributions.
+
+PS: We do cite similar approaches in our paper, see first paragraph of related literature. We will add your references there.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkgfzOmkTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>I still have the previous questions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=SkgfzOmkTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1150 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the authors' response!
+
+What are the similar papers cited in the paper? 
+
+In the previous patch-based deep learning methods, there are multi-scale patches. For example, in PASCAL VOC, the whole image is about 500*600 px and the small patch is 32*32 px; they are not whole-object patches. In fact, it is not impossible to obtain whole-object patches, unless object detection has been perfectly done :)
+
+Regarding the effectiveness of highlighting the useful features/patches to explain CNNs, this also has been done before. Please refer to the papers I mentioned before; there are figures to useful patches. In computer vision, there are many papers working on learning mid-level features, meaningful patterns or deep patterns. You may also refer to them.
+
+In my understanding, methodologically, there is nothing new in the paper. The explanations about the interpretability of deep nets are not deep enough (not inside of the deep net) and there are many works had ready done similar things.
+
+Besides, the time complexity issue of BagNet is not addressed in the paper.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkxKqUBka7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The effective minimum patch size in the cited works is much larger than 32 x 32 pixels</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=rkxKqUBka7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1150 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for taking the time to respond! To be concrete we'll refer to Tang et al. 2017 in our response. 
+
+We believe the statement that "the small patch is 32x32 pixels" is based on a confusion between region proposals (the patches/bounding boxes that you see) and receptive fields. The region proposals spatially crop parts of the highest conv layer activations (e.g. for VLAD encoding, see Figure 4 in Tang et al.). What is shown in visualisations is the image part that corresponds to the cropped part (i.e. if 1/4 of the conv layer is cropped then 1/4th of the image is shown as proposal region). But that is misleading: since each feature vector already sees large parts of the image (212 x 212 pixels in VGG16 to be precise), the effective image region is much larger then the visualised region proposal (minimum is 212 x 212 pixels).
+
+&gt; Besides, the time complexity issue of BagNet is not addressed in the paper.
+
+BagNets have roughly the same runtime as standard ResNet-50's (it's slightly higher because we have less pooling). We will add precise measurements to the paper, thanks for the suggestion.
+
+As for previous work, in the corresponding section we wrote "Predominantly, DNNs were used to replace the previously hand-tuned feature extraction stage in BoF models, often using intermediate or higher layer features of pretrained DNNs" which, as far as we can see, pretty much applies to the paper you cite (all of them are based on high layer features of AlexNet and VGG). The references that we cite are:
+
+[1] Jiewei Cao, Zi Huang, and Heng Tao Shen. Local deep descriptors in bag-of-words for image retrieval. In Proceedings of the on Thematic Workshops of ACM Multimedia 2017
+[2] Jiangfan Feng, Yuanyuan Liu, and Lin Wu. Bag of visual words model with deep spatial features for geographical scene classification. Comp. Int. and Neurosc., 2017:5169675:1–5169675:14, 2017.
+[3] Yunchao Gong, Liwei Wang, Ruiqi Guo, and Svetlana Lazebnik. Multi-scale orderless pooling of deep convolutional activation features.
+[4] Eva Mohedano, Kevin McGuinness, Noel E. O’Connor, Amaia Salvador, Ferran Marques, and Xavier Giro-i Nieto. Bags of local convolutional features for scalable instance search. In Proceedings of the 2016 ACM on International Conference on Multimedia Retrieval, ICMR ’16,
+[5] Joe Yue-Hei Ng, Fan Yang, and Larry S. Davis. Exploiting local features from deep networks for image retrieval. In CVPR Workshops,
+[6] Fahad Shahbaz Khan, Joost van de Weijer, Rao Muhammad Anwer, Andrew D. Bagdanov, Michael Felsberg, and Jorma Laaksonen. Scale coding bag of deep features for human attribute and action recognition. CoRR, abs/1612.04884, 2016.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BkxqZHV1pm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>-</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=BkxqZHV1pm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1150 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">@R2: can you comment on the receptive field size of the final layer of the BagNet versus the works you mentioned?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rken1AAkpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>I agree with the authors that BagNets have the smallest patches and the other papers (Tang et al and the NetVLAD) papers have "large patch" due to the receptive fields.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=rken1AAkpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1150 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I agree with the authors that BagNets have the smallest patches and the other papers (Tang et al and the NetVLAD) papers have "large patch" due to the receptive fields.
+
+The first work in this field [3] uses raw patches and does not have receptive fields.
+
+[3] Yunchao Gong, Liwei Wang, Ruiqi Guo, and Svetlana Lazebnik. Multi-scale orderless pooling of deep convolutional activation features.
+
+However, [3] is not end-to-end trained. 
+
+So the way of combining CNN with BoF is different from the previous works. But it is not fundamentally different. 
+
+If all the rest reviewers are willing to accept the paper, I can give a weak accept.
+
+But, still, I want the authors to give more details about the time complexity and speed. In addition, to make the paper more convincing, the authors should use RoIPooling to compare with [Tang].
+ 
+[Tang] Tang et al. Deep Patch Learning for Weakly Supervised Object Classification and Discovery, Pattern Recognition 2017
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BylpZJNeTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>-</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=BylpZJNeTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1150 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">@R2: "[3]" can you comment on the accuracy of the paper you report?
+
+@R2, "time complexity and speed": Do you think it would be possible to design cuda routines that act in parallel on patches?
+However, I agree the memory use is more tricky, but I'm ok with it; this is not an engineering paper.
+
+@R2: "ROIPooling": could you point us to a paper using it for classification? I'd be very interested to read more about it. Thanks.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJew0I7lpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for the open discussion and further comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=HJew0I7lpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1150 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">First and foremost thanks for this open debate and for reconsidering your decision. We will try to clarify the relation to the works you mentioned in our manuscript. A few more comments from our side:
+
+(1) Reference [3] builds a new feature vector for an image that combines a feature vector of the whole image with feature vectors of 128 x 128 and 64 x 64 pixel patches (in order to increase invariance to image transformations). The resulting classification is thus neither more interpretable nor constrained to small patches.
+
+(2) You mention that we should use RoIPooling to compare with [Tang]. On what metric would you want this comparison to be performed? We do not claim performance advantages in terms of object classification and do not perform object discovery (one of the subgoals of [Tang et al] which is why they use PASCAL VOC). We'd very much appreciate if you could clarify what exact experiment you have in mind.
+
+(3) Time complexity of BagNets: a BagNet-32/16/8 running on a GTX 1080 Ti can process 155 (+- 5) images / second of size 3 x 224 x 224 (in batches of 10). For comparison, a ResNet50 can process 570 images in the same time, so BagNets are around 3 to 4 times slower than standard ResNets. Please remember that BagNets are basically ResNets but with most 3x3 convolutions replaced by 1x1 convolutions, so this timing is roughly expected (we have less spatial dimensionality reduction which explains the increased runtimes).
+
+All in all, the main contributions of this work are (1) a more transparent and interpretable object recognition pipeline (in terms of precisely which object features are being used for classification), (2) the insight that ImageNet can be solved to high accuracy with very small and local image features (so e.g. no shape recognition is required to solve ImageNet) and (3) the insight that standard and widely used ImageNet CNNs seem to use a similar BoF classification strategy. We believe that these insights go way beyond previous work and are not at all addressed in the region proposal literature. Please note that we do not want to claim that our architecture is revolutionary but that we can draw important insights from it about object classification in natural images and what internal decision making process CNNs may use in these tasks (which, given the lack of understanding of current CNN architectures, is dearly needed).</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1eZr6Qxam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>-</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=B1eZr6Qxam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1150 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">@authors: I'm not sure you design a more interpretable CNN: your analysis is purely spatial. I think this should be weakened in the writing because it is misleading. I agree with the other points otherwise.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkxzS7El6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your feedback</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=SkxzS7El6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1150 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your feedback! The word "interpretable" has different meanings for different people and we agree that we should be careful to define exactly what we mean by this term. There is a large body of literature trying to "understand" CNN decisions by means of a post-hoc feature attribution (i.e. which image parts have been important for the decision). So we mean "more interpretable" in the sense that this architecture transparently integrates evidence from different spatial locations and thus lets us precisely track which spatial features have been contributing how much to the final decision. For each individual location, however, the CNN feature extraction is still a black box. In other words, we reduced the complexity (and thus increased interpretability) of CNN decision making by introducing a transparent and interpretable spatial aggregation mechanism on top of a (still blackbox) local feature extraction. We'll update the manuscript to reflect this perspective more clearly and would appreciate your feedback.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_BkxLk4fp3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea and results with some comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=BkxLk4fp3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Seunghyeon_Kim1" class="profile-link">Seunghyeon Kim</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1150 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This paper combines the concept of Bag-of-Feature (BoF) with modern DNN to propose more interpretable neural network framework. Since the proposed method can achieve similar performance to the modern DNN, it can be an alternative to DNN. However, the paper lacks a description of the test phase so it is not clear how many qxq patches are extracted from the full image. As I understand, BagNet extract many small patches from the image, so probably it takes a long time to test one image. In my opinion, it is good to report the test time for the image. 
+
+The most interesting part of this paper is section 4.3  which supports the argument that modern DNN learns similar local features to the BagNet. The four experiments in section 4.3 show that VGG16 acts quite similar to the BagNet. On the other hand, the same experiments clearly show that deeper networks such as ResNet-51, DenseNet act totally different from BagNet. In my opinion, these results seem to be contrary to the contribution of the paper that modern DNN can be explained as BoF framework. 
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rkerSzKq2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>This paper is worth being accepted. The bag-of-words information in the neural network is important for high prediction accuracy. Possibly has high impact in the community and need to be further investigated.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=rkerSzKq2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1150 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper suggests a novel and compact neural network architecture which uses the information within bag-of-words features. The proposed algorithm only uses the patch information independently and performs majority voting using independently classified patches. The proposed method provides the state-of-the-art prediction accuracy unexpectedly, and several additional experiments show the state-of-the-art neural networks mainly learn without association between information in different patches.
+
+The proposed algorithm is simple and does not provide completely new idea, but this paper has a clear contribution connecting the previous main idea of feature extraction, bag-of-words, and the prevailing blackbox algorithm, CNN. The results in the paper are worth to be shared in the community and need further investigated.
+
+The presented experiments look fair and reasonable to show the importance of the independent patch information (without association between them), and the presented experimental results show some state-of-the-art methods also perform with independent patch information. 
+
+Comparison with attention models is necessary to compare the important patches obtained from conventional networks.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJxDPF1t37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting empirical analysis</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=HJxDPF1t37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1150 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This is an experimental paper that investigates how spatial ordering of patches influences the classification performances of CNNs. To do so, the authors design CNNs close to ResNets that almost only consist in a simple cascade of 1x1 convolutions, obtaining relatively small receptive field. It is an interesting read, and I recommend it as a valuable contribution to ICLR, that might lead to nice future works.
+
+I have however several comments and questions, that I would like to be addressed.
+
+1) First I think a reference is missing. Indeed, to my knowledge, it is not the first work to use this kind of techniques. Cf [1]. This does not alterate however the novelty of the approach.
+
+2) « We construct a linear DNN-based BoF » : I do not like this formulation. Here, you assume that you build a ResNet-50 with 1x1 as a representation and have a last final linear layer as a classifier. One could also claim it is a ResNet-48 as a representation followed by 2 layers of 1x1 as a classifier.
+
+3) « our proposed model architecture is simpler » this is very subjective because for instance the FV models are learned in a layer-wise fashion, which makes their learning procedure more interpretable because each layer objective is specified. Furthermore, analyzing these models is now equivalent to analyze a cascade of fully connected layers, which is not simple at all.
+
+4) Again, the interpretability mentioned in Sec. 3  is in term of spatial localization, not mapping. I think it is important to make clear this consideration. Indeed, this work basically leaves the problem of understanding general CNNs to the problem of understanding MLPs.
+
+5) The graphic of the Appendix A is a bit misleading : it seems 13 downsampling are performed whereas it is not the case, because the first element of each group of block is actually only done once.(if I understood correctly)
+
+6) I think the word feature is sometimes mis-used: sometimes it seems it can refer to a patch, sometimes to the code for a patch. (« Surprisingly, feature sizes assmall as 17 × 17 pixels »)
+
+I got also few questions:
+Q1 : I was wondering if you did try manifold learning on the patches ? Do you expect it to work ?
+Q2 : Is there a batch normalization in the FC or a normalization? Did you try to threshold the heat maps before feeding them to the linear layer? I'm wondering indeed if the amplitude of those heatmaps is really key.
+Q3 : do you think it would be easy to exploit the non-overlapping patches for a better parallelization of computations ?
+
+Finally, I find very positive the amount of experiments to test the similarity with standard CNNs. Of course, it’s far from being a formal proof, but I think it is a very nice first step.
+
+[1] Oyallon, Edouard, Eugene Belilovsky, and Sergey Zagoruyko. "Scaling the scattering transform: Deep hybrid networks." International Conference on Computer Vision (ICCV). 2017.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SyghkZtMoX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting work and insights, a potentially related reference</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=SyghkZtMoX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Eugene_Belilovsky1" class="profile-link">Eugene Belilovsky</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1150 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This paper was a nice read. I find the results in this paper quite interesting and it is refreshing to see work revisiting some of the underlying assumptions in our modern computer vision pipelines. I wanted to point out a  related result in our recent work <a href="https://arxiv.org/pdf/1703.08961.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1703.08961.pdf</a> (Sec 2.3,3.1) where we show that using a model localized 16x16 patches can obtain an AlexNet accuracy on imagenet. Specifically we had used a (non-overlapping) local transform with a 16x16 window followed by 3 1x1 convolutions and then an MLP. Indeed, although the MLP could potentially exploit more global spatial information we conjectured this would be quite hard/unlikely, and I believe your result that directly aggregates the predictions of the local encodings reaching nearly the same accuracy confirms this to a degree.  
+
+I was also wondering if you have tested models other than resnet50-like models  as your base, and if so whether those gave substantial differences in the result when varying the actual model  (e.g. shallower/thinner/ or non-residual). One could speculate that models applied to smaller sized patches could require a less complex network than is typically used (a potential advantage of this approach). If I understood your model is already rather small compare to the base resnet-50?
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1xbm8rE2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Architecture search could increase performance and/or efficiency</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkfMWhAqYQ&amp;noteId=S1xbm8rE2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1150 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1150 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Eugene,
+thanks for your comment and the interesting reference! Indeed our results seem to confirm your suspicions regarding integration of spatial information. We'll add your paper into our related work section.
+
+We did not vary our base architecture. For those reasons I'd expect that one can reach even higher performance with a suitable hyperparameter/architecture search or be much more efficient (more shallow/thin architecture) than what we currently use. These could definitely be interesting future directions to pursue.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

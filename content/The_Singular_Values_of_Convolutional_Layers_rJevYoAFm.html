@@ -1,0 +1,379 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>The Singular Values of Convolutional Layers | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="The Singular Values of Convolutional Layers" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rJevYoA9Fm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="The Singular Values of Convolutional Layers" />
+      <meta name="og:description" content="We characterize the singular values of the linear transformation associated with a standard 2D multi-channel convolutional layer, enabling their efficient computation.  This characterization also..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rJevYoA9Fm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The Singular Values of Convolutional Layers</a> <a class="note_content_pdf" href="/pdf?id=rJevYoA9Fm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 09 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019the,    &#10;title={The Singular Values of Convolutional Layers},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rJevYoA9Fm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=rJevYoA9Fm" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We characterize the singular values of the linear transformation associated with a standard 2D multi-channel convolutional layer, enabling their efficient computation.  This characterization also leads to an algorithm for projecting a convolutional layer onto an operator-norm ball. We show that this is an effective regularizer;  for example, it improves the test error of a deep residual network using batch normalization on CIFAR-10 from 6.2\% to 5.3\%. </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">singular values, operator norm, convolutional layers, regularization</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We characterize the singular values of the linear transformation associated with a standard 2D multi-channel convolutional layer, enabling their efficient computation. </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">23 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Skev-7xcTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>what if we just clip the singular values of the filter coefficients matrix K</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=Skev-7xcTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Nice method to calculate the singular values of A. But convolution is just linear transformation, and it is very cheap to calculate the singular values of this linear transformation matrix K. I am curious that why not just clip the singular values of K? Compared with clipping K, what is the benefit of clipping the singular values of the huge circular matrix A? Can the authors compare these two choices in the experiments (clipping K vs A)?</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SJeHanvRhm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Comparison to related work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=SJeHanvRhm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Several recent papers have investigated constraining the Lipschitz constant of neural networks as a means to perform some sort of regularisation:
+
+Takeru Miyato, Toshiki Kataoka, Masanori Koyama, and Yuichi Yoshida. Spectral Normalization for Generative Adversarial Networks. In NIPS 2017.
+
+Yusuke Tsuzuku, Issei Sato, and Masashi Sugiyama. Lipschitz-Margin Training: Scalable Certification of Perturbation Invariance for Deep Neural Networks. In NIPS 2018.
+
+Kevin Scaman and Aladin Virmaux. Lipschitz regularity of deep neural networks: analysis and efficient estimation. In NIPS 2018.
+
+Henry Gouk, Eibe Frank, Bernhard Pfahringer, and Michael Cree. Regularisation of Neural Networks by Enforcing Lipschitz Continuity. arXiv preprint arXiv:1804.04368, 2018.
+
+In particular, all of these methods involve using some modification of the power method specialised for convolutional layers. How do these compare with the proposed approach?
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryexDS9J6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>comparisons</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=ryexDS9J6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We compared with the work on Miyato, et al in our submission.  We have elaborated on this comparison elsewhere in this comment section, including our response to Reviewer 2.  In that response, we demonstrate that there is no reshaping of the kernel tensor whose singular values coincide with the singular values of its linear transform.
+
+In the case of convolutional layers, the paper by Tsuzuku, et al estimates the largest singular value to within a constant factor (see Corollary 1), whereas we characterize the exact values of all of its singular values.  
+
+The paper by Scaman and Virmaux uses a power method for individual layers. In the form they describe, it only gives the largest singular value.  We compared our work with the paper by Gouk, et al in our submission.  They also compute an approximation to the largest singular value.  Proposition 8 in our paper (from earlier work) shows that computing the projection of a matrix onto an operator norm ball may require clipping multiple singular values.  The method of Gouk, et al scales down all of the singular values by the amount needed to bring their estimate of the largest to its desired value - this is not closest matrix in the operator norm ball.  
+
+Our method is the first to feasibly provide access to all of the singular values of convolutional layers for models commonly used in practice.  It thereby enables study of the properties of trained models, such as whether the linear transformations computed by convolutional layers are essentially full rank.  It also opens the door to a variety of regularizers.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJlxzP4epm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=HJlxzP4epm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the detailed response---It has helped to improve my understanding of how this paper fits in with the related work. Being able to compute the full set of singular values sounds very useful!</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_HJe-8Pr93m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>This is an interesting work with huge potential.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=HJe-8Pr93m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper453 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper is dedicated to computation of singular values of convolutional layers. While singular values of convolutional layers represent sufficient interest for researchers, huge computational complexity made it difficult to investigate their properties in the case of layers of deep neural networks. Using the fact that operator matrix of the convolutional layer has a special form (i.e. can be represented as block-matrix, which blocks are doubly block circulant matrices) the authors proposed a more efficient method of computation of singular values. I really enjoyed reading this paper and I think that it opens a lot of interesting applications. As one of the possible applications the authors proposed a regularization method based on bounding of singular values.
+
+The paper from my point of view has two main drawbacks:
+
+1.  Diversity of experiments. While the paper has strong theoretical component, the part dedicated to experiments is not broad enough. It would be interesting to see regularization on other architectures and other datasets.
+
+2.The system of references. I would recommend to add not only references to the sources, but also to the theorem numbers or the chapters. For example, I would recommend to replace ‘Poposition 9 ((Lefkimmiatis et al., 2013))’ with ‘Poposition 9 ((Lefkimmiatis et al., 2013, Proposition 1))’. In pure math papers, it is a standard rule to add such additional information since many papers contain a lot of theorems and it significantly simplifies reading and understanding the paper.
+
+Despite these disadvantages this is a great work with huge potential.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkggfSfzTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>system of references updated</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=BkggfSfzTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your review. We have updated the references in the revised version as you requested.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Hkxjbe6VhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=Hkxjbe6VhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 08 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper453 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=Hkxjbe6VhQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper studies the problem on computing the spectrum of singular values of linear convolutional layers. This is an important problem with abundant applications on regularizing deep neural networks. However, there are several technical issues need to be addressed in its current form. 
+
+First, in the section "Summary of Results", at first read of the paper I found it very confusing why the time complexity of computing the spectrum is a function of n, where n is the size of the input feature map. Intuitively, since the size of the convolutional kernel is m x m x k x k, it is expected that the time complexity is expressed as a function of (m, k). Later I realized that this is due to the unnecessary and redundant 0 padding in section 2.1 that leads to this artifact. I understand that in order to apply the described Fourier transform technique it is necessary to introduce the large nxn filter, which is of the same size as the input, but it also introduces redundant computation. This fact further emerges in the introduction of matrix A in Eq (1). 
+
+More importantly, I think the authors didn't perform a detailed analysis on using the basic definition of convolutional filter to compute its spectrum, and this is the reason why they reached a misleading conclusion that simple SVD takes O(n^6 m^3) time. Specifically, each convolution operation corresponds to a inner product operation, so we can reshape the input 3D tensor with shape m x n x n into a 2D matrix, with shape n^2 x mk^2, denoted as X. Note that this creates a unnecessary redundancy in the input feature map, but it does not create redundant weight for the convolutional kernel. As a comparison, the introduced matrix A in the paper is heavily redundant. Similarly, for m channels, we can reshape the 4D convolutional kernel with shape m x m x k x k into a 2D matrix, with shape mk^2 x m, denoted as K. Then the usual convolution layer can be described as the following linear system: Y = X K, where Y with shape n^2 x m is the output, and can be easily reshaped into size m x n x n. Hence to compute the spectrum of the convolution layer corresponds to computing the singular values of the 2D matrix K with size mk^2 x m. Hence a naive application of SVD directly gives us the solution in time O(m^3 k^2) (Note that the time complexity of SVD for matrix with size a x b is O(min{a^2 b, a b^2})), which is much smaller than the one given in the paper O(m^3 n^2) since k &lt;&lt; n. 
+
+In experiment the authors made unfair comparison between their proposed method and the full matrix method: the full matrix A is fully redundant, due to its circulant pattern. As this implies a highly redundant information, nobody will form and compute matrix A explicitly in practice. So the time improvements demonstrated in the experiment section are meaningless. A valid baseline would be to compare the proposed method with the one introduced above. But in this case I would imagine the proposed method to be worse due to its unnecessary 0 padding leading to the worst time complexity. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJlKQW9JaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>the singular values of the reshaped kernel cannot be correct</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=SJlKQW9JaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">It can be proved that if a kernel of size (k, k, m, m) is applied to an input of size (n, n, m), and the entries of the kernel are chosen from a continuous probability distribution like a Gaussian, then with probability 1, the number of distinct singular values in the linear transformation of its convolutional layer is at least (m n^2)/2.   Repeatedly applying the code on page two of our paper to random inputs has always produced at least this number of distinct singular values.  (We invite the reader to try this.)  Any reshaping of an (k, k, m, m) kernel can produce at most mk singular values, which is not enough to be correct.  The reshaping outlined in your review can have at most m singular values, which is even smaller.
+
+As we noted in our answer to a question during the review period, an example in which the reshaping does not compute even the largest singular value correctly can be obtained by executing the following commands after importing numpy as np and defining SingularValues as in page two of our paper:
+ 
+   kernel = np.array(np.ones(4)).reshape(2,2,1,1)
+   SingularValues(kernel, [4,4])
+   reshaped = kernel.reshape(4,1)
+   np.linalg.svd(reshaped, compute_uv=False)
+
+The correct largest singular value of the convolutional layer is 4. (An all-ones feature map is turned into an all-fours feature map by applying this filter.) The (only) singular value of the reshaping of the kernel, which is (1,1,1,1)^T, is 2.  This is not an isolated instance --- random inputs also produce counterexamples --- we ran our algorithm with m = 1, n = 16, and various values of k. In each case we found 130 unique singular values, with ranges described below. The reshaping method produced 1 singular value in each case:
+k                Range of Singular Values                     Singular Value from reshaping
+4                [0.388872696514, 7.6799308322]        3.76770352
+5                [0.421739253704, 10.7721306924]      5.04019121
+7                [0.165159699404, 14.9556902191]      6.7304902
+7                [0.532454839614, 16.38084538]          7.20513578
+3                [0.4655241798,  6.12218595024]         3.48952531
+6                [0.418950277234, 15.2821360286]      6.1289447
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byeq47sJaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Unclear definition of linear map</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=Byeq47sJaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the response. It seems that the confusion comes from the definition of the linear map and its singular values induced by the convolutional kernel. Let me ask the problem in the following way: what is the actual linear function that being applied to the input tensor in CNNs? Given a 4D convolutional tensor with shape (k, k, m, m), for each fixed slice in the 4th dimension, the linear map is defined by the 3D tensor from the first 3 dimensions, as it is this 3D tensor that is being taken inner product repeatedly with each part of the input 3D tensor. Hence the reshape given in my first comment exactly reflect this fact. 
+
+Put it in another way, the inner product between two matrices of same dimension A, B is defined as Tr(A^TB), but this defines the same Euclidean geometry by saying that Tr(A^T B) = &lt;vec(A), vec(B)&gt;. In the case of CNN we are dealing with 4D tensors, but the actual linear map is of shape mk^2 x m, as the first three dimensions of each slice in the 4th dimension are used to define the linear map. 
+
+The argument of sampling kernel weights from a continuous distribution is irrelevant. As a bottomline, the complexity of computing the spectrum of the linear map (the convolutional kernel) itself shouldn't have anything to do with the input size n.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1efQ83ep7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>analyzing the convolutional layer as a whole</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=r1efQ83ep7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We agree that the reviewer has correctly described the operational implementation of a convolutional layer --- a set of k x k patches is created from the input, and the reshaped convolution matrix is applied to each patch to get the output.  However, the subject of our paper is the computation of the singular values of the (linear) function computed by the convolutional layer as a whole, which determine its potential contribution to exploding and vanishing gradients.  This is a linear map applied to the n^2 m inputs that produces n^2 m outputs, and we compute the singular values of the n^2 m x n^2 m matrix corresponding to this linear map.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryxHyswZpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Not the actual linear map in CNN, essentially reduce to fully-connected layer</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=ryxHyswZpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I appreciate the authors' response, as it makes the whole procedure proposed in the paper much more clear. If my understanding is correct, then basically what being done here is to vectorize both the input and output 3D tensors and then treat them as two fully-connected layers. So the linear map computed in the paper corresponds to the fully connected matrix here, which also explains why there is an input size n in the time complexity of the proposed method. 
+
+But this is not the actual linear map happened in CNNs, as the same convolutional kernel is being applied repeatedly, i.e., the weights are tied. Perhaps what's more problematic is that, although the huge matrix A has the circulant pattern (actually this is not true in practice as well, because the circulant pattern is due to the assumption of wrapping around), when computing the singular values of A, different blocks are treated as independent, but in fact those weights are being tied. In other words, when computing the gradient of this kernel, using this method (by vectorzing both 3D tensors into vectors and compute the gradient of the huge matrix A) will lead to the wrong gradient. The correct one is to re-add different blocks of the gradient w.r.t. A according to the circulant pattern. 
+
+Intuitively, what I am saying is that in CNNs the linear map is unique, and the redundancy comes from the overlapping patches in the input 3D tensor, while what the proposed method computes is the other way around. 
+
+I implemented the proposed method and compared it with the one I gave above, and the results confirm my analysis: 
+
+def SingularValues(kernel, input_shape):
+    transform_coefficients = np.fft.fft2(kernel, input_shape, axes=[0, 1])
+    return np.linalg.svd(transform_coefficients, compute_uv=False)
+
+
+def Reshaped(kernel):
+    matrix = np.reshape(kernel, (-1, kernel.shape[-1]))
+    return np.linalg.svd(matrix, compute_uv=False)
+
+
+def check(m, k):
+    """
+    m = # chanels
+    k = # kernel sizes
+    """
+    # input shape
+    n = 28
+    kernel = np.random.rand(k, k, m, m)
+    start_time = time.time()
+    svs = SingularValues(kernel, (n, n))
+    end_time = time.time()
+    print("Time used by the proposed method: {} seconds".format(end_time - start_time))
+    start_time = time.time()
+    mines = Reshaped(kernel)
+    end_time = time.time()
+    print("Time used by the reshaping method: {} seconds".format(end_time - start_time))
+    print("Shape = {}, Singular Values returned by the proposed method: {}".format(svs.shape, svs))
+    print("Shape = {}, Singular Values computed by reshaping: {}".format(mines.shape, mines))
+
+
+check(64, 5)
+---------------------------------------------------------------------------------------------
+The singular values computed by these two different methods are different, and the proposed method takes around 0.4 second to finish while the reshaping one takes 0.02. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJlab0Efam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>not fully connected</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=rJlab0Efam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the effort and time invested in this review. However it is clear that still quite a few misunderstandings of our work remain.  A convolutional layer applied to an n x n feature map with m input channels and m output channels is a function with n^2 m inputs and n^2 m outputs.  This function is linear.  The standard encoding of a linear function as a matrix has n^2 m rows and n^2 m columns.  The singular values of a linear function are defined to be the singular values of this matrix.  Computing these singular values is the subject of this paper.  The matrix and its singular values are a property of the function computed by the layer, no matter how it is implemented. Due to the special nature of the linear transform induced by the convolution layer, the matrix does indeed have lots of redundancy; we exploit this in computing the singular values efficiently (see Equations (1) and (6)).  We have proved that our method provides the correct singular values, and further verified this with unit tests.  We have also proved, in our first response to your review, that no reshaping of the kernel tensor can possibly provide the correct singular values.  We are therefore not surprised that our method gives different answers than a reshaping of the kernel tensor.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1gPu4eEaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Different from the true linear map</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=r1gPu4eEaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the response. I understand that the linear function studied in this paper is a linear map from n^2m to n^2m, characterized by the matrix A in the paper, and I also understand that the paper proposes to compute the singular values of this matrix A. This is interesting byitself. However, as I described in my last several threads, it is misleading and confusing to call the singular values of this matrix A "the singular values of the convolution layer". The actual linear map computed by a convolution layer is the one obtained by reshaping it to a 2D matrix, and it is the singular values of this matrix that have something to do with gradient vanishing or explosion because the gradient computed by the backpropagation is w.r.t. this 2D matrix (reshaped from the original 4D tensor), NOT the one (the matrix A in this paper) studied in this paper. It is not clear to me why people may be interested in computing the singular values of this redundant matrix A. Furthermore, the complexity of computing the singular values of matrix A is much worse (O(m^3n^2) &gt;&gt; O(m^3k^2)) than that of computing the true singular values of the actual linear map. Given the above two reasons, I will keep my current rating.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byldg4f9pm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The simple circular 1D convolution</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=Byldg4f9pm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018 (modified: 18 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper453 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">As far as I can see, reviewer's 2 main concern is that the singular values of relevance are the ones computed through a direct SVD from the underlying reshape and not the one where structure has been introduced to underlying representation of the linear map.
+
+I would like to ask reviewer 2 about this particular simple example to see his/her opinion.
+
+Consider a 1D filter x to be convolved with a signal y, both of which are of size n. The convolution performed here is a standard circular convolution. Such an operation can be represented as:
+
+z = X * y
+
+where X is a circulant matrix of the filter x. The authors of this paper are directly studying the singular values of this well structured matrix of the filter x. Of course in the setting where X is the underlying matrix that is equivalent to performing a convolutional layer but that is irrelevant in the context of my question.
+
+On the other hand, the same operation can be performed as
+
+z = Y *x
+
+where Y, the input signal, has the circulant structure instead of the filters.
+
+Reviewer 2 is arguing that the singular values of interests for vanishing gradients etc, are the singular values of the vector x. That is the singular values of the filter coming from the reshape without introducing any structure. According to this, there is a single singular value since x is a vector.
+
+However, in the authors perspective the singular values of interest are the ones from the first example. That is the singular values of the structured matrix X which in this case will yield n singular values as opposed to a single singular value.
+
+Is this the fundamental argument of reviewer 2? 
+
+If yes, then this brings a contradiction. This is because if we handle the argument from operator perspective. For a linear operators T:V &gt; V on an n dimensional finite vector space, x is an eigenvector of T if there exsits a \lambda such that T(x) = \lambda * x.
+
+Now, consider the case where the linear operator, T, can have the basis representation of a filter of all ones. Applying this on a signal x of all ones we get, T(x) = n * x. That means, we know that for such a filter n has to be an eigenvalue of the operator T.
+
+Now, following the authors approach, that is z = T(x) = F * x. The eigen values of F which is the matrix representation of T under appropriate basis will be indeed n. This is since F is a circulant matrix of all ones and the eigenvalues are a single n and (n-1) zero eigenvalues. However, according the reviewer, the eigen values of interest are the eigen values of f where T(x) = X * f.  However, the SVD of f (where f is a vector of ones) does not have a singular value of n in general. You can take several counter examples.
+
+Thus, according the definition of eigen decomposition on linear operators on finite dimensional space, the singular values of the structured matrix are the correct singular values of interest. More precisely, the singular values computed in this paper are indeed the singular values of the linear operator described as CNN convolution. I would love to hear back R2's comments and thoughts.
+
+Moreover, may the authors comment more clearly and cite the reference of this claim?
+
+"It can be proved that if a kernel of size (k, k, m, m) is applied to an input of size (n, n, m), and the entries of the kernel are chosen from a continuous probability distribution like a Gaussian, then with probability 1, the number of distinct singular values in the linear transformation of its convolutional layer is at least (m n^2)/2."
+
+As determining the correct number of singular values for a generic linear map (without matrix representation), i.e. without introducing a basis, will support their claims further.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SylOsBC3pX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>uploaded proof of n^2/2 lower bound</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=SylOsBC3pX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We have uploaded a proof that, in the case of a single input channel and a single output channel, for random 2 x 2 filter applied to an n x n signal, with probability 1, the number of singular values in the resulting linear transformation is at least n^2/2.  This proof may be found in the document titled pairs2d.pdf in <a href="https://www.dropbox.com/sh/l8adgttixljdpz5/AADV_n6uxBFSX2q_0B7J2sIza." target="_blank" rel="nofollow">https://www.dropbox.com/sh/l8adgttixljdpz5/AADV_n6uxBFSX2q_0B7J2sIza.</a>
+
+Running the following code after importing numpy as np and defining SingularValues as in page two of our paper may also convince you that there are almost always at least n^2/2 singular values.
+
+for _ in range(20)
+   	kernel = np.random.randn(2,2,1,1)
+         input_shape = [4,4]
+         print np.sort(SingularValues(kernel, input_shape).flatten())
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_rkep8CZXhm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Questions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=rkep8CZXhm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018</span><span class="item">ICLR 2019 Conference Paper453 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear authors, 
+
+interesting work. Allow me to phrase few questions: 
+
+1) The code in page 2 (numpy) is supposed to return the scalar singular values right? Because it seems to return 3D matrices. Are those different singular values than the typical SVD? 
+
+2) In Fig. 4 (Resnet singular values), it seems that only the first layer includes some large singular values. What's the ratio of the singular values, e.g. the first against the rest in every layer? Is it similar across the layers? 
+
+3) What does the x axis (measured in seconds) represent in Fig. 5? Test error during training phases?  Regardless of the axis value, it seems that the final error does not improve much if clipping is performed. What's the take of authors on that?
+
+Thanks in advance for your time. 
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJlsT1A42Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>responses to your questions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=HJlsT1A42Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks very much for your compliment and your careful reading of our paper.  Here are the answers to your questions.
+
+1) The singular values are the components of the tensor output by the code on page 2; flattening it produces them in a list.
+
+2) In Figure 4, while singular values in the first layer are much larger than the rest, many layers have a lot of singular values that are pretty big.  For example, most of the layers have at least 10000 singular values that are at least 1.  As you requested, we have created a plot of the ratios of the singular values in each layer with the largest singular value in that layer.  It can be viewed at <a href="https://www.dropbox.com/s/15ujg0qdr9didr8/resnet_svd_ratios.png?dl=0." target="_blank" rel="nofollow">https://www.dropbox.com/s/15ujg0qdr9didr8/resnet_svd_ratios.png?dl=0.</a>  The effective rank of the convolutional layers is larger closer to the inputs.
+
+3) The x-axis in Figure 5 is wall-clock training time using a GPU.  The y-axis is the test error measured while training.  Applying the clipping reduces the test error at convergence from 6.2% to 5.3%, a significant amount.  
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryl56Hlt3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for the replies</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=ryl56Hlt3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the replies. 
+
+However, question 1 is still not clear. Particularly why your singular values differ from those used in similar works where they reshape the 4D tensor to a 2D matrix. 
+In addition, the some of the singular values with the proposed method seem to be repetitive. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJlhx6b5hm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>repeated singular values, and differences with reshaped filter tensors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=rJlhx6b5hm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 06 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">If we have a 4D tensor of dimensions (a, b, i, o) where i, o are the numbers of input and output channels respectively, and (m, n, i) is the size of the input, then the corresponding linear transformation is a matrix of size imn x mno. Thus we would expect min(mni, mno) singular values.  Except in degenerate cases, this linear transformation has full rank.
+
+In our code, the FFT produces a tensor of dimensions (m, n, i, o) and the second line performs an SVD for the i x o matrix for each value of the first two dimensions. Thus it produces min(i, o) singular values for each on the mn matrices, thus the total number of singular values we produce is mn * min(i, o). So our method produces the correct number of singular values.  
+(In fact, our unit tests verify that our method computes the correct singular values, as proved in the paper.)
+
+Singular values are repeated due to the special structure of the linear transformation. This is true even for a 1-D convolution with only one input-output channel. For instance, consider the filter (a, b, c) applied to a 1-d input of 3 pixels. The matrix encoding its linear transformation is ((a b c), (c a b), (b c a)). Its eigenvalues are a+b+c, a + bω + cω^2, a + bω^2 + cω, where ω = (-1 + sqrt(-3))/2. The singular values are the magnitudes of the eigenvalues, but since |a + bω + cω^2| =  |a + bω^2 + cω| we get repeated singular values.  However, for random inputs, we have seen that the repeated singular values tend to come in pairs, so that there are Omega(mn * min(i, o)) distinct singular values.
+
+It is clear that no reshaping of the 4D tensor of dimensions (a, b, i, o) to a 2D matrix can produce Omega(mn * min(i, o))  singular values.  An example in which the reshaping described in the ICLR’18 paper by Miyato, et al does not compute even the largest singular value correctly can be obtained by executing the following commands after importing numpy as np and defining SingularValues as in page two of our paper:
+ 
+   kernel = np.array(np.ones(4)).reshape(2,2,1,1)
+   SingularValues(kernel, [4,4])
+   reshaped = kernel.reshape(4,1)
+   np.linalg.svd(reshaped, compute_uv=False)
+
+The correct largest singular value of the convolutional layer is 4. (An all-ones feature map is turned into an all-fours feature map by applying this filter.) The (only) singular value of the reshaping of the kernel, which is (1,1,1,1)^T, is 2.  This is not an isolated instance --- random inputs also produce counterexamples except in very rare cases.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1eMklV2nQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=B1eMklV2nQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your detailed reply.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_HJeJYtkB3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>another plot</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=HJeJYtkB3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The first plot that you requested showed that different convolutional layers had significantly different numbers of non-negligible singular values.  We were curious to what extent this was due to the fact that different layers simply were of different sizes, so that the total number of their singular values, tiny or not, was different.  To look into this, instead of plotting the singular value ratios as a function of the rank of the singular values, as in the first plot, we normalized the values on the horizontal axis by dividing by the total number of singular values.  The resulting plot is available at <a href="https://www.dropbox.com/s/m0xun9jdc7kd5ry/resnet_svd_percentile_vs_ratio.png?dl=0." target="_blank" rel="nofollow">https://www.dropbox.com/s/m0xun9jdc7kd5ry/resnet_svd_percentile_vs_ratio.png?dl=0.</a>  
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_rkgEmITAiX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=rkgEmITAiX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">25 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper453 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors derive exact formulas for computing singular values of convolutional layers of deep neural networks. By appealing to fast FFT transformations, they show that computing the singular values can be done much faster than computing the full SVD of the convolution matrix. This obviates the needs to approximate the singular values. They use these results to then devise regularization schemes for DNN layers, and show that employing this regularization helps with model performance. 
+
+They show that the algorithm with the operator norm regularization can be solved via an alternating projection scheme. They also postulate that since this might be expensive and unnecessary, one can also perform just 2 projections after every few SG iterations, and claim that this acts as a 'warm start' for subsequent iterations. Experiments reveal that this does not degrade the performance too much. 
+
+
+The paper is well written and easy to understand. The proofs follow from standard linear algebra methods, and are easy to follow. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Syxj6HcJ6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>thank you</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJevYoA9Fm&amp;noteId=Syxj6HcJ6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper453 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper453 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your kind review.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>INTERPRETING DEEP NEURAL NETWORK: FAST OBJECT LOCALIZATION VIA SENSITIVITY ANALYSIS | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="INTERPRETING DEEP NEURAL NETWORK: FAST OBJECT LOCALIZATION VIA SENSITIVITY ANALYSIS" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rkzUYjCcFm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="INTERPRETING DEEP NEURAL NETWORK: FAST OBJECT LOCALIZATION VIA..." />
+      <meta name="og:description" content="Deep Convolutional Neural Networks (CNNs) have been repeatedly shown to perform well on image classification tasks, successfully recognizing a broad array of objects when given sufficient training..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rkzUYjCcFm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>INTERPRETING DEEP NEURAL NETWORK: FAST OBJECT LOCALIZATION VIA SENSITIVITY ANALYSIS</a> <a class="note_content_pdf" href="/pdf?id=rkzUYjCcFm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019interpreting,    &#10;title={INTERPRETING DEEP NEURAL NETWORK: FAST OBJECT LOCALIZATION VIA SENSITIVITY ANALYSIS},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rkzUYjCcFm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Deep Convolutional Neural Networks (CNNs) have been repeatedly shown to perform well on image classification tasks, successfully recognizing a broad array of objects when given sufficient training data. Methods for object localization, however, are still in need of substantial improvement. Common approaches to this problem involve the use of a sliding window, sometimes at multiple scales, providing input to a deep CNN trained to classify the contents of the window. In general, these approaches are time consuming, requiring many classification calculations. In this paper, we offer a fundamentally different approach to the localization of recognized objects in images. Our method is predicated on the idea that a deep CNN capable of recognizing an object must implicitly contain knowledge about object location in its connection weights. We provide a simple method to interpret classifier weights in the context of individual classified images. This method involves the calculation of the derivative of network generated activation patterns, such as the activation of output class label units, with regard to each in- put pixel, performing a sensitivity analysis that identifies the pixels that, in a local sense, have the greatest influence on internal representations and object recognition. These derivatives can be efficiently computed using a single backward pass through the deep CNN classifier, producing a sensitivity map of the image. We demonstrate that a simple linear mapping can be learned from sensitivity maps to bounding box coordinates, localizing the recognized object. Our experimental results, using real-world data sets for which ground truth localization information is known, reveal competitive accuracy from our fast technique.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Internal Representations, Sensitivity Analysis, Object Detection</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Proposing a novel object localization(detection) approach based on interpreting the deep CNN using internal representation and network's thoughts</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rkxfZezc2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reasonable but more evaluation needed</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkzUYjCcFm&amp;noteId=rkxfZezc2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper449 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper449 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary
+The paper presents a method to perform object localization by computing sensitivity of the network activations with respect to each pixel. The key idea is that the representation for classification implicitly contains object localization information since the object classification is done by detecting features of an object in an image. The localization information is extracted as a form of sensitivity map which indicates each pixel’s contribution to the final classification decision, and is subsequently used for regressing the bounding box. The proposed method outperforms other baseline methods and achieves reasonable performance when compared with slower state-of-the-art deep learning techniques for object localization.
+
+Strengths
+-	For object localization, this technique can provide faster results.
+-	The paper proposes a simple sensitivity measure which works well in identifying the pixels which are important for object classification, and provides relevant information for localization.
+-	The paper suggests a simple linear mapping from sensitivity maps to object bounding box coordinates, which can be learnt from a fairly small ground truth localization data.
+
+Weaknesses
+-	The idea of utilizing back-propagated sensitivity map is not novel for weakly-supervised object localization [1,2], as the proposed method just uses a simpler sensitivity function with linear regression.
+-	The paper mentions the approach being ‘very fast’, but they do not show any quantitative comparisons in fair and similar settings with other techniques. The reviewer strongly suggests to provide testing time measures.
+-	In ImageNet experiment, test data split in the paper is not held out as they use a pre-trained VGG network which is trained on the full ImageNet dataset.
+-	The title claims to interpret deep neural networks, but the proposed approach just uses sensitivity map for object localization task, without any analysis for interpretation. Such interpretations have already been extensively studied in [1,2].
+-	The idea of utilizing classification network for localizing an object is new, but the ideas of weakly-supervised object localization is already explored in [1,2,3,4,5,6]. The reviewer recommends to cite and provide valid comparison with [3,4,5,6].
+-	More detailed experimental results, i.e. accuracy across different categories are required. The reviewer also recommends ablation studies to compare with bounding box heuristics and sensitivity measures as used in [1, 2].
+-	No details about reproduction of results are provided in the paper.
+
+Possible Questions
+-	When computing a sensitivity map from a CNN output vector or an attention map, is the sensitivity calculated with respect to each activation in the output vector? How is a single sensitivity map computed from the attention map, which contains a number of activations?
+
+Minor Comments
+-	In the description of g’(\eta_i), g’(\eta i) should be g’(\eta_i).
+-	“…” around equations should be replaced by “: equation,”.
+
+References
+[1] Bolei Zhou, Aditya Khosla, Agata Lapedriza, Aude Oliva, and Antonio Torralba. Learning deep features for discriminative localization. In CVPR, 2016. 
+[2] Ramprasaath R Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedantam, Devi Parikh, and Dhruv Batra. Grad-CAM: Visual explanations from deep networks via gradient-based localization. See <a href="https://arxiv.org/abs/1610.02391" target="_blank" rel="nofollow">https://arxiv.org/abs/1610.02391</a> v3, 7(8), 2016. 
+[3]  Cho et al., Unsupervised Object Discovery and Localization in the Wild: Part-based Matching with Bottom-up Region Proposals, CVPR 2015
+[4] Yi et al., Soft Proposal Networks for Weakly Supervised Object Localization, ICCV 2017
+[5] Oquab et al., Is object localization for free? – Weakly-supervised learning with convolutional neural networks, CVPR 2015
+[6] Li et al., Weakly Supervised Object Localization with Progressive Domain Adaptation, CVPR 2016
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ryxzjQsrh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>More oriented towards object localization rather than model interpretation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkzUYjCcFm&amp;noteId=ryxzjQsrh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper449 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper449 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value"> 
+===================
+SUMMARY
+===================
+
+The paper proposes a method to extend the output of a network trained for visual object recognition (i.e. image classification) with bounding box coordinates that can serve to localize the recognized object. 
+This process is referred to as "object localization", and it resembles to some extent the object detection task.
+Object localization is achieved by analyzing the absolute values of the gradients in the last convolutional layer (referred to as "attention map" in the paper) with regard to the pixel locations of the input image.
+Then, a linear model is trained in order to predict the bounding box coordinates that serve to localize the recognized object instance. This is different from traditional object detection methods, which learn how to predict bounding boxes directly from image pixels. The paper claims that by learning how to predict bounding boxes from sensitivity maps the amount of needed training data is reduced.
+
+Experiments on the PASCAL VOC'07 and a subset of the ImageNet'12 dataset show the performance of the proposed method.
+
+===================
+REVIEW
+===================
+
+The content of the paper is clear, has a good flow. Moreover, the proposed method is sound and relatively easy to follow. The reported experiments show good performance of the proposed method. In addition, there seems to be hints that the proposed method has a computation speed that makes it suitable for on-the-fly computations.
+
+My main concerns with the manuscript are the following:
+
+The manuscript proposes to analyze the internal spatial activations/gradients of a network trained for object recognition with the goal of exploiting internally encoded cues that can serve for object localization. At the high level, as recognized in the manuscript, this is very similar to the work from Zhou et al.,CVPR'16 with some differences regarding how the attention maps are defined, and if additional components are added to the network.
+In addition, the way in which the proposed object localization problem is formulated bears resemblance to work on weakly-supervised object detection where object detectors are trained by using only image-level annotations (no bounding box annotations are used). 
+Keeping these two groups of work in mind, I find the contribution of the proposed method limited. 
+Perhaps a explicit positioning with respect to this work is required.
+
+Section 2.3 states that there two possibilities, i.e. max or average. to aggregate the sensitivity maps obtained for each of the RGB channels from images. However, in Section 3.2, it is stated that the max operation is used for the Pascal VOC'07 dataset while the average operation was used for ImageNet data. This inconsistency in the way these maps are aggregated makes it hard to observe if there is a difference or trend across these two operations. Is there a reason why different operations were applied to different datasets? I recommend applying both operations on both datasets and discuss observations from the results.
+
+While the proposed method have been evaluated on two datasets, and compared with respect to standard classic baselines, a deeper evaluation analyzing the inner workings of the method is not conducted.
+In this regard, in addition to evaluating the effect of the method to aggregate sensitivity maps accross color channels (previously mentioned), I suggest reporting results by changing the threshold used in intersection over union (IoU) measure used to verify matching (Section 3,1). In addition, I am curious about the performance of the method in the two following scenarios: i) when multiple instances of the recognized object are present in the image, and ii) when instances of other distractor classes are present in the image.
+
+In several parts of the manuscript, e.g. Sec. 1, 3.4, and 4, claims regarding the speed of the proposed method are made. However, there is no evaluation focusing on this aspect that could be used to support this claims. In this regard, either a evaluation focusing on the computation speed of the proposed method should be conducted or claims regarding to computation speed should be toned down.
+  
+Finally, the first title of the manuscript, i.e. "Interpreting Deep Neural Networks", suggests that the manuscript will cover topics regarding model interpretation of DNNs. However, model interpretation as such is never touched wich makes this title somewhat misleading. In fact the main theme of the manuscript is about object localization/detection, hence the second part of its title: "Fast Object Localization via Sensitivity Analysis". 
+If this manuscript is to be accepted, the first part of the title should be removed.
+
+I would appreciate if my main concerns are addressed in the rebuttal.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SkxfZXG43Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Poor readibility, lack of insight and fundamental background knowledge, reject</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkzUYjCcFm&amp;noteId=SkxfZXG43Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper449 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper449 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">summary--
+The paper focuses on improving object localization, though the title highlights "interpreting deep neural network" which is another area. It analyzes the classifier weights for image classification, and compute the derivative of the feature maps from the network for a sensitivity map of the image. Then it learns a simple linear mapping over the sensitivity map for bounding box regression. Experiments report competitive performance.
+
+However, there are several major concerns.
+
+1) The paper appears misleading from multiple claims. For example, [abstract] "common approaches to this problem involve the use of a sliding window,... time consuming". However, current state-of-the-art methods accomplish detection in a fully convolutional manner using CNN, and real-time performance is achieved. the paper claims that "computer vision can be characterized as presenting three main tasks... (1) image classification, (2) image localization and (3) image detection". This appears quite misleading. There are way more topics, from low-level vision to mid-level to high-level, e.g., stereo, boundary detection, optical flow, tracking, grouping, etc. Moreover, just in "localization", this could be object localization, or camera localization. Such misleading claims do not help readers learn from the paper w.r.t related work in the community.
+
+
+2) The approach "is rooted in the assertion that any deep CNN for image classification must contain, implicit in its connection weights, knowledge about the location of recognized object". This assertion does not appear obvious -- an reference should be cited if it is from other work. Otherwise, recent work shows that deep CNN can overfit random training data, in which case it is hard to imagine why the object location can be implicitly captured by the CNN [R1]. Similarly, the paper claims that "once weights are found, the gradient... with regard to X would provide information about the sensitivity of the bounding box loss function with regard to the pixels in the images". This is not obvoius either as recent work show that, rather than the whole object, a part of it may be more discriminative and captured by the network. So at this point, why the gradient can be used for object location without worrying that the model merely captures a part? 
+
+[R1] Chiyuan Zhang, Samy Bengio, Moritz Hardt, Benjamin Recht, Oriol Vinyals, Understanding deep learning requires rethinking generalization, ICLR 2017.
+[R2] Bolei Zhou, Aditya Khosla, Agata Lapedriza, Aude Oliva, Antonio Torralba, Learning deep features for discriminative localization, CVPR 2016.
+
+3) The paper admits in Section 2.2 that "we have not yet done a formal comparison of these two approaches to constructing the sensitivity map". As the two approaches are suggested by the authors, why not comparing in this paper. It makes the paper less self-contained and not ready to publish. A formal comparison in the rebuttal may improve the rating of the paper.
+
+4) In Equation 3, how to represent the bounding box coordinate? Are they any transforms? What does it mean by "bias weights"? Are they different from Cartesian coordinates, or the one used in Equation (2)?
+
+
+5) The experiments are not convincing by merely reporting the metric of IoU&gt;0.5 without any in-depth analysis. Perhaps some visualization and ablation study improve the quality of experiments.
+
+6) In Section 3.2, why using two different aggregation methods for producing the final sensitivity map -- max-pool along the channel for PACAL VOC 2017 dataset and avg-pool for ImageNet dataset, respectively? Are there some considerations?
+
+7) In Table 1, it shows the proposed method outperforms the other methods significantly, achieving 41% better than the second best method. However, there is no in-depth analysis explaining why the proposed method performs so well for this task. Moreover, from Figure 1 and Figure 3, it is straightforward to ask how a saliency detection model performs in object detection given that the images have clean background and objects are mostly centered in the image.
+
+8) What does it mean by "CorLoc (mAP)" in Table 2? As defined in Equation 4, CorLoc acounts the portion of detection whose IoU greater than 0.5 compared to the ground-truth. But mAP accumulates over a range of IoU threshold and precision across classes.
+
+9) As the proposed method is closely related to the CAM method, how does CAM perform on these datasets? This misses an important comparison in the paper.
+
+
+10) The readability of the paper should be improve. There are many typos, for example --
+1. What does "..." mean above and below Equation (2)?
+2. inconsistent notation, like $w_{ki}$ and ${\bf w}_{ki}$ in Equation (2).
+3. conflicted notation, w used in Equation 2 and Equation 3.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

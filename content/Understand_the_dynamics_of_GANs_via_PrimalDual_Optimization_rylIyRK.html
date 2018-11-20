@@ -1,0 +1,273 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Understand the dynamics of GANs via Primal-Dual Optimization | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Understand the dynamics of GANs via Primal-Dual Optimization" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rylIy3R9K7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Understand the dynamics of GANs via Primal-Dual Optimization" />
+      <meta name="og:description" content="Generative adversarial network (GAN) is one of the best known unsupervised learning techniques these days due to its superior ability to learn data distributions. In spite of its great success in..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rylIy3R9K7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Understand the dynamics of GANs via Primal-Dual Optimization</a> <a class="note_content_pdf" href="/pdf?id=rylIy3R9K7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 16 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019understand,    &#10;title={Understand the dynamics of GANs via Primal-Dual Optimization},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rylIy3R9K7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=rylIy3R9K7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Generative adversarial network (GAN) is one of the best known unsupervised learning techniques these days due to its superior ability to learn data distributions. In spite of its great success in applications, GAN is known to be notoriously hard to train. The tremendous amount of time it takes to run the training algorithm and its sensitivity to hyper-parameter tuning have been haunting researchers in this area. To resolve these issues, we need to first understand how GANs work. Herein, we take a step toward this direction by examining the dynamics of GANs. We relate a large class of GANs including the Wasserstein GANs to max-min optimization problems with the coupling term being linear over the discriminator. By developing new primal-dual optimization tools, we show that, with a proper stepsize choice, the widely used first-order iterative algorithm in training GANs would in fact converge to a stationary solution with a sublinear rate. The same framework also applies to multi-task learning and distributional robust learning problems. We verify our analysis on numerical examples with both synthetic and real data sets. We hope our analysis shed light on future studies on the theoretical properties of relevant machine learning problems.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">non-convex optimization, generative adversarial network, primal dual algorithm</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We show that, with a proper stepsize choice, the widely used first-order iterative algorithm in training GANs would in fact converge to a stationary solution with a sublinear rate.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">10 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_ryeU9NyT2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>official review of "Understand the dynamics of GANs via Primal-Dual Optimization" </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylIy3R9K7&amp;noteId=ryeU9NyT2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper987 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper987 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposed a primal-dual optimization framework for GANs and multi-task learning. It also analyzes the convergence rate of models. Some results are conducted on both real and synthetic data.
+
+Here are some concerns for the paper:
+
+1. The idea of the model is pretty similar with Xu et al. [2018] (Training Generative Adversarial Networks via Primal-Dual Subgradient Methods: A Lagrangian Perspective on GAN), especially the primal-dual setting. The author totally ignored it. 
+
+2. The motivation of the paper is not clear. GANs and multi-task learning are two different perspectives. Which one is your focus and what is the connection between them? 
+
+3. The experimental results are not good. The convergence analysis is good. However we also need more empirical evidence to support. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byeb4WVoa7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response of the official review "Understand the dynamics of GANs via Primal-Dual Optimization" </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylIy3R9K7&amp;noteId=Byeb4WVoa7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper987 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper987 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the reviewer’s comments. The response of each point is listed below.
+1, Thanks for bringing to our attention the related works. In Chen et al. (2018), the authors related a class of GANs to constrained convex optimization problems. More specifically, such GANs can be viewed as Lagrangian forms of these convex optimization problems. The optimization variables in their formulation are the probability density of the generator and the function values of the discriminator. Many issues like nonconvexity do not show up. This is essentially a nonparametric model, which doesn’t apply directly to cases when the discriminator and the generator are represented by parametric models. On the other hand, our analysis is carried out on the parametric models directly and we have to deal with the nonconvexity of neural networks.  We have added the comments on this issue in the revised version of the paper and the reference Chen et al (2018) has been cited as part of the literature review. Please see page 2.
+ 
+2, The GANs problem motivates us to study the dynamics of solving the nonconvex min-max saddle point problem. It turns out this formulation is very general, which also covers the problem of multi-task learning models. 
+The connection between these problems is that: the problems of GANs and multi-task learning can be both formulated in the form of eq.13 under some conditions. In the revised manuscript we have added a new example for GAN and moved the multi-task learning section to the supplemental material. Please see page 8.
+ 
+3, The experimental results mainly show that the convergence behavior of the proposed primal-dual algorithm is consistent with the theoretical analysis. Our intention is by no means to show our algorithm generates superior samples than other methods. Instead, due to the linear features used in the discriminator, it is expected that our generated samples are going to be worse in quality for real dataset. In the revised version, we added an example with MNIST data to further support our results. Please see page 8.
+Thanks for the appreciation of our theoretical results. We would like to remark that our goal is to understand the properties of the first-order algorithm in GAN training. Our paper presents a first theoretical result in analyzing the primal-dual algorithm for the nonconvex min-max problem that appears in GAN training.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HJeodzPtnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting theory, advantage over baseline min-max algorithms unclear</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylIy3R9K7&amp;noteId=HJeodzPtnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper987 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper987 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper studies the convergence of a primal-dual algorithm on a certain min-max problem and experimentally shows that it works in GANs and multi-task learning.
+
+This paper is clear and well-written. The convergence guarantee looks neat, and convergence to stationary points is a sensible thing on non convex-concave problems. I am not super familiar with the literature of saddle-point optimization and may not have a good sense about the significance of the theoretical result.
+
+My main concern is that the assumptions in the theory are rather over-restrictive and it’s not clear what intuitions or new messages they bring in for the practice of GANs. The convergence theorem requires the maximization problem (over discriminators) to be strictly concave. On GANs, this assumption is not (near) satisfied beyond the simple case of the LQG setting (PSD quadratic discriminators). On the other hand, the experiments on GANs just seem to say that the algorithm works but not much more beyond that. There is a brief discussion about the improvement in time consumption but it doesn’t have a report a quantitative comparison in the wall time.
+
+On multi-task learning, the proposed algorithm shows improvement over the baseline. However it is also unclear whether it is the *formulation* (12) that brings in the improvement, or it is the actual primal-dual *algorithm*. Perhaps it might be good to try gradient descent on (12) and see if it also works well. 
+
+In general, I would recommend the authors to have a more convincing demonstration of the strength of this algorithm over baseline methods on min-max problems, either theoretical or empirical. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJxd8fVo6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response of "Interesting theory, advantage over baseline min-max algorithms unclear"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylIy3R9K7&amp;noteId=rJxd8fVo6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper987 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper987 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer’s time and effort of reading our work. We would like to emphasize that the theoretical result is one of the most important parts of this paper. To the best of our knowledge, it is the first convergence rate result about nonconvex min-max problems. Further, the convergence rate matches the rate that the ordinary gradient descent achieves for only the minimization problems.  
+ 
+1, We consider Wasserstein GAN or GANs with similar structure. The major assumption we made is that the discriminator is a linear combination of predefined basis functions. We agree that this assumption might be restrictive for general GANs, but in principle, any function can be approximated to an arbitrary precision with large enough bases. Further, we would like to remark that no constraint has been imposed on the generator G; it can be any general neural network. Therefore, by using a sufficiently large set of bases, this GAN model should have the capacity to generate samples in any distribution.  Once assuming the linear structure of the bases, then it is natural to add a convex regularizer, see e.g., Sanjabi et al 2018. Hence, we don’t think strict concavity is a strong assumption. 
+Though our analysis doesn’t apply to the most general framework of GANs, we believe it is big step forward as it allows us to consider general generators which introduce nonconvexity in the resulting optimization problems.
+To the best of our knowledge, all the existing works (e.g., Chen et al [2018]) used the convex-concave primal-dual dynamic to interpret GANs. Under this framework, the problem is convex and the algorithm converges to the global optimal solution of the problem, which deviates from the empirical results observed in the GANs problem. The reason is that this kind of analysis omits the inherent nature of the GANs problem which is nonconvexity. From an optimization viewpoint, our paper is the first result that shows the convergence rate of the primal-dual algorithm for nonconvex min-max problems. This part is independent of applying the primal-dual algorithm in applications of GANs. 
+
+The numerical results verified the effectiveness of the proposed primal-dual algorithm in the sense that the algorithm converges stably under the different size of the regularizers, and also shows that the convergence behavior of the proposed algorithm is consistent with the theoretical analysis. 
+
+
+2, The improvement is due to the formulation of the problem shown eq. 12 which is a harder problem than the traditional minimization problem with fixed weights, in the sense that problem in Eq. 12 basically minimizes the worst case of the original problem. It can also be contributed to the fact that our proposed algorithm is able to solve the formulation well. Note that it is not possible to directly apply gradient descent to solve a min-max problem, where we definitely need some ascent technique to deal with the maximization problem.
+
+ 
+3, There are few works on the nonconvex min-max problems. Prior to our work, the only algorithm that can solve the nonconvex min-max problem is proposed in the reference Sanjabi et al [2018], which can be considered a baseline work. From the theoretical point of view, the primal-dual algorithm solves the problem in an alternating way rather than the baseline method which solves the dual problem up to some high accuracy and then solve the primal problem. The proposed primal-dual algorithm is a different strategy of generating the iterations compared with the baseline work, and it has a significant advantage in terms of computational consumption. In the revised version, we also added the results that compare the proposed primal-dual algorithm with the baseline method in terms of the running time, which shows that the primal-dual method has the similar performance in terms of the number of iterations as the baseline method but uses much less computational time. Please see page 7.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_B1eiAIPInQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting Analysis GANs' Learning Dynamics in a Limited Setting</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylIy3R9K7&amp;noteId=B1eiAIPInQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper987 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper987 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper analyses the learning dynamics of GANs by formulating the problem as a primal-dual optimisation problem. This formulation assumes a limited class of models -- Wasserstein GANs with discriminators using linear combinations of base functions. Although this setting is limited, it advanced our understanding of a central problem related to GANs, and provides intuition for more general cases. The paper further shows the same analysis can be applied to multi-task learning and distributed learning.
+
+Pros:
+
+* The paper is well written and well motivated
+* The theoretical analysis is solid and provide intuition for more complex problems
+
+Cons:
+
+* The primal-dual formulation assumes Wasserstein GANs using linear discriminator. This simplification is understandable, but it would be helpful to at least comment on more general cases.
+
+* Experiments are limited: only results from GANs with LQG setting were presented. Since the assumption of linear discriminator (in basis) is already strong, it would be helpful to show the experimental results from this more general setting.
+
+* The results on multi-task learning were interesting, but the advantage of optimising the mixing weights was unclear compared with the even mixture baseline. This weakens the analysis of the learning dynamics, since learning the mixing did not seem to be important.
+
+It would also be helpful to comment on recently proposed stabilising methods. For example, would spectral normalisation bring learning dynamics closer to the assumed model?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkgeCzEiT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response of "Interesting Analysis GANs' Learning Dynamics in a Limited Setting"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylIy3R9K7&amp;noteId=SkgeCzEiT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper987 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper987 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks sincerely for the positive feedback from the reviewer. We greatly appreciate the time and effort that have been made by the reviewer. 
+
+The general GANs can be formulated as primal-dual optimization problems with both the primal and the dual are nonconvex. Proving the convergence of any algorithm on these problems is extremely challenging. To the best of our knowledge, in these general settings of GANs, the convergence of the algorithms is still an open problem. Herein, we made a reasonable assumption on the structure of the discriminator and obtained significant results under this assumption. 
+The proof we have now doesn’t apply to the general cases directly as our proof relies heavily on the convexity of the inner loop maximization problem. It might be possible to generalize the proof to the general case by modifying the potential functions used in the proof, but the path is not clear at this moment.
+
+We have added one more example with MNIST data (Section 4.2). From this example, we can see the algorithm converge with a proper choice of step-size. The generated samples are not as good as those generated by general GANs. This is expected due to the linear structure of the discriminator. Nevertheless, the samples are reasonable and the quality improves as we increase the number of bases of the discriminator.
+
+The focus of our paper is the dynamics of a first-order iterative algorithm on problem (4), which includes multi-task machine learning as a special case. Our intention is not to show the formulations we adopt are better. We would refer the reviewer to (Qian et al, 2018, Namkoong &amp; Duchi 2016) for more discussions on the advantages of the problem formulations. We have moved the multi-task learning part (including both theory and numerical results) into the supplemental materials as an extension of this work. 
+
+We have commented on the stability issue in the introduction part in the revised version of the paper. We don’t see any direct relation between techniques such as spectral normalization and our assumptions on the discriminator at this moment. It could be an interesting research direction to further unravel the dynamics of GANs.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Skx2YTK0Km" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>related works</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylIy3R9K7&amp;noteId=Skx2YTK0Km"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Oct 2018</span><span class="item">ICLR 2019 Conference Paper987 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This is a very interesting work that analyzes the convergence of GAN.  I would like to point out that the following works also consider GAN via primal-dual optimization:
+  
+Shengjia Zhao, Jiaming Song, Stefano Ermon, "The Information Autoencoding Family: A Lagrangian Perspective on Latent Variable Generative Models", UAI 2018.
+Xu Chen, Jiang Wang, Hao Ge, "Training Generative Adversarial Networks via Primal-Dual Subgradient Methods: A Lagrangian Perspective on GAN", ICLR 2018.
+Farzan Farnia, David Tse, "A Convex Duality Framework for GANs", NIPS 2018.
+
+The authors are encouraged to include these latest related papers in the literature review and point out the differences/contributions of their work.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hyl428xe9X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>response to the comments about "related works"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylIy3R9K7&amp;noteId=Hyl428xe9X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper987 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper987 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the reviewers’ comments. These references will be included in the literature review part of this paper when a revision is allowed. Generally speaking, our response is that the main contributions of the above mentioned papers are not directly related to the those of this paper.
+
+In Zhao et al. (2018), the authors unified several generative models, e.g., VAE, infoGAN, in the Lagrangian framework. The Lagrangian problem they considered is different to ours. For one thing, the dual variable in their problem is a Lagrangian multiplier, while in our problem, it is the discriminator of GAN. Besides, the focus of their paper is not the optimization algorithm. The algorithm design and convergence analysis were not mentioned much. Our main contribution, on the other hand, is a convergence proof of a first-order primal-dual algorithm for GANs.
+
+In Chen et al. (2018), the authors related a class of GANs to constrained convex optimization problems. More specifically, such GANs can be viewed as Lagrangian forms of these convex optimization problems. The optimization variables in their formulation are the probability density of the generator and the function values of the discriminator. Many issues like nonconvexity do not show up. This is essentially a nonparametric model, which doesn’t apply to cases when the discriminator and the generator are represented by parametric models. On the other hand, our analysis is carried out on the parametric models directly and we have to deal with the nonconvexity of neural networks.
+
+We couldn’t find the preprint of Farnia et al. (2018). Based on the abstract on the NIPS website, we believe the primal-dual formulations we considered are similar in the sense that the discriminator is constrained to a convex set. However, the focus of Farnia et al. (2018) is not the convergence properties of optimization algorithms, instead, they investigated the properties of the optimal solutions. We think our convergence analysis of the first-order primal-dual algorithm is complementary to their results.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1xMvWvMhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Related work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylIy3R9K7&amp;noteId=H1xMvWvMhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018</span><span class="item">ICLR 2019 Conference Paper987 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This work is also related to the following paper, which uses prediction steps (which can be primal-dual optimization with extra gradients):
+
+Abhay Yadav, Sohil Shah, Zheng Xu, David Jacobs, Tom Goldstein, "Stabilizing Adversarial Nets with Prediction Methods", ICLR 2018.
+
+The authors are encouraged to cite and discuss the differences/contribution of their work.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJxuNaMj6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The related work is included</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylIy3R9K7&amp;noteId=rJxuNaMj6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper987 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper987 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the comment. Yadav et al. (2018) considered convex-concave primal-dual optimization problems. This is considerably different to our setup where GANs, as they should be, are formulated as nonconvex saddle point problems. We have included this reference in the revised version of this paper.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

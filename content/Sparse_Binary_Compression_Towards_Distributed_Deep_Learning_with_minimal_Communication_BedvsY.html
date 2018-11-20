@@ -1,0 +1,232 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Sparse Binary Compression: Towards Distributed Deep Learning with minimal Communication | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Sparse Binary Compression: Towards Distributed Deep Learning with minimal Communication" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=B1edvs05Y7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Sparse Binary Compression: Towards Distributed Deep Learning with..." />
+      <meta name="og:description" content="Currently, progressively larger deep neural networks are trained on ever growing data corpora. In result, distributed training schemes are becoming increasingly relevant. A major issue in..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_B1edvs05Y7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Sparse Binary Compression: Towards Distributed Deep Learning with minimal Communication</a> <a class="note_content_pdf" href="/pdf?id=B1edvs05Y7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019sparse,    &#10;title={Sparse Binary Compression: Towards Distributed Deep Learning with minimal Communication},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=B1edvs05Y7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Currently, progressively larger deep neural networks are trained on ever growing data corpora. In result, distributed training schemes are becoming increasingly relevant. A major issue in distributed training is the limited communication bandwidth between contributing nodes or prohibitive communication cost in general. 
+%These challenges become even more pressing, as the number of computation nodes increases. 
+To mitigate this problem we propose Sparse Binary Compression (SBC), a compression framework that allows for a drastic reduction of communication cost for distributed training. SBC combines existing techniques of communication delay and gradient sparsification with a novel binarization method and optimal weight update encoding to push compression gains to new limits. By doing so, our method also allows us to smoothly trade-off gradient sparsity and temporal sparsity to adapt to the requirements of the learning task. 
+%We use tools from information theory to reason why SBC can achieve the striking compression rates observed in the experiments.
+Our experiments show, that SBC can reduce the upstream communication on a variety of convolutional and recurrent neural network architectures by more than four orders of magnitude without significantly harming the convergence speed in terms of forward-backward passes. For instance, we can train ResNet50 on ImageNet in the same number of iterations to the baseline accuracy, using $\times 3531$ less bits or train it to a $1\%$ lower accuracy using $\times 37208$ less bits. In the latter case, the total upstream communication required is cut from 125 terabytes to 3.35 gigabytes for every participating client. Our method also achieves state-of-the-art compression rates in a Federated Learning setting with 400 clients.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">5 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rJgh-xo53X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>important problem, limited novelty, significance not clearly established because reporting focuses on means (bit/communication metric) not ends (optimization time)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1edvs05Y7&amp;noteId=rJgh-xo53X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper275 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper275 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Lowering costs for communicating weights between workers is an important intermediate goal for distributed optimization, since presumably it can limit the parallelization achievable once available bandwidth is saturated.  This work reports reasonable approaches to try to overcome this through a mix of techniques, though none in particular seem especially novel or surprising.  For example, the abstract claims a novel binarization method, but what is described in the paper does not seem especially novel (e.g. zero the negative weights and replace positives with their mean, if negative's mean &lt; positive's mean, else vice versa); but more importantly, the experiments don't explore/support why this approach is any better (or when worse) than other schemes.
+
+To its credit, the paper provides experiments data (ImageNet and Cifar, not just MNIST) and models (e.g. ResNet50) that can support reasonable claims of being representative of modern optimization tasks.  What the paper is most lacking, though, is a clear and convincing argument that the large bit compression rates claimed actually lead to significant time speedups of the resulting optimization.  The paper seems to just assume that lowering communication costs is inherently good and this goodness is proportional to the rate of compression.  But as Table 3 shows, there IS some degrading in accuracy for this reduction in communication overhead.  Whether this is worth it depends critically on whether the lower overhead actually allows optimization to speedup significantly, but the time of training seems to not be mentioned anywhere in this paper.  Thus, in its current form, this paper does not clearly establish the significance and limits of their approach.  Given that the novelty does not appear high, the value of this current paper is mainly as an engineering analysis of some design tradeoffs.  And viewed that way, this paper is a bit disappointing in that tradeoffs are not acknowledged/examined much. E.g. readers cannot tell from these experiments when the proposed approach will fail to work well -- the limitations are not clearly established (all results provided are cast in positive light).</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Skgb2YE5n7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>I do not see this paper having enough contribution and novelty to be accepted</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1edvs05Y7&amp;noteId=Skgb2YE5n7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper275 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper275 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper once again looks at the problem of reducing the communication requirement for implementing the distributed optimization techniques, in particular, SGD. This problem has been looked at from multiple angles by many authors. And although there are many unanswered questions in this area, I do not see the authors providing any compelling contribution to answering those questions. A big chunk of the paper is devoted to expressing some shallow theorems, which in some cases I do not even see their importance or connection to the main point of the paper; see my comments below. In terms of the techniques for reducing the communication burden, the authors seem to just put all the other approaches together with minimal novelty.
+
+More detailed comments:
+- I do not really understand what the authors mean by noise damping. I would appreciate it if they could clarify that point. This seems to be a very important point as the model they propose for the noise in the process is basically based on this notion. It is a great failure on the authors' part that such a crucial notion in their paper is not clearly described. 
+- The model that is proposed for noise is too strong and too simplistic. Do you guys have any evidence to back this up?
+- Theorem 2.1 is not a theorem. The result is super shallow and relatively trivial. 
+- In corollary 2.1 it seems that no matter what the randomness in the system is, the algorithm is going to converge to the same solution. This is not true even for the non-strongly convex objectives, let alone the non-convex problems where there are so many stationary solutions and whatnot.
+- With regards to Fig 3 (and other related figures in the appendix) and the discussion on the multiplicative nature of compression: The figure does not seem to suggest multiplicative nature in all the regimes. It seems to hold in high compression/ low-frequency communication regime. But on the other side of the spectrum, it does not seem to hold very strongly.
+- The residual accumulation only applies when all the nodes update in all the iterations. I do not believe this would generalize to the federated learning, where nodes do not participate in all the updates. I do not know if the authors have noted this point in their federated learning experiments.
+- Theorem 3.1 is very poorly stated. Other that than it is shallow and in my opinion irrelevant. What is the argument in favor of the authors' thought that could be built based on the result of Theorem 3.1?
+- One major point that is missing in the experiments (and probably in the experiments in other papers on the same topic) is to see how much do all these compressions affect the speed of learning in different scenarios in realistic scenarios? Note that in realistic scenarios many things other than communication could affect the convergence time.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1gEi0Cxh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Just stack previous techniques</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1edvs05Y7&amp;noteId=S1gEi0Cxh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018</span><span class="item">ICLR 2019 Conference Paper275 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi authors
+     when I read this paper, you just stack several techniques together and present the report. Looks like an experiment report,
+and I don't think this paper is of high novelty. 
+     Or can you point out the technical contribution?
+Thanks</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1lrCrFN3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Answer to Comment</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1edvs05Y7&amp;noteId=B1lrCrFN3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper275 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018</span><span class="item">ICLR 2019 Conference Paper275 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank you for your comment and that you show interest in our paper. We believe that we made an important contribution by demonstrating that the distinction between the two formerly treated as separate worlds of Federated Learning and Parallel Training is somewhat arbitrary and misleading and that better results can be achieved by combining the best approaches from both of these worlds. For instance, contrary to the paradigms suggested in previous literature, communication delay is not a well-suited approach for communication reduction in the Federated Learning setting. Much higher compression gains are achievable if sparsification is applied instead. On the other hand, communication delay can speed-up parallel training as it allows the individual computation devices to perform multiple steps of SGD without interruption. Our proposed method can adapt smoothly to these different settings and achieves much higher compression gains than previously reported (e.g. ×37208 on ImageNet).
+Moreover, it can also adapt to and perform optimally under different constrains that limit the communication structure, such as network bandwidth and latency, (SGD-)computation time, as well as temporal inhomogeneities therein.
+On top of that we propose a novel binarization method and Golomb encoding. Combined they can make up for another ×6 compression on top of what is achieved by communication delay and sparsification alone without harming the convergence speed.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SkeeEbivo7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good results, however, I have questions about the algorithm</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1edvs05Y7&amp;noteId=SkeeEbivo7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper275 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper275 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In the paper, the authors combine the federated method, sparse compression, quantization and propose Sparse Binary Compression method for deep learning optimization.  Beyond previous methods, the method in this paper achieves excellent results in the experiments. The paper is written very clearly and easy to follow. 
+
+The following are my concerns,
+1. In the introduction, the authors emphasize that there is a huge compression in the upstream communication. How about the downstream communication, I think the server should also send gradients to clients. The averaged gradient is not compressed anymore. 
+
+2. I think the method used in the paper is not federated learning. Federated learning averages the models from multiple clients. however, in the paper, the proposed methods are averaging gradients instead. It is called local updates, and is a well-known tradeoff between communication and computation in the convex optimization.
+
+3. I want to point out that the similar local update (federated learning) technique has already explored, and proved not work well. In [1] the authors showed that deploying the local update simply may lead to divergence. Therefore, the iterations of the local update are constrained to be very small. e.g. less than 64.  Otherwise, it leads to divergence. I also got similar results in my experience.  The temporal sparsity in the paper looks very small. I am curious about why it works in this paper.
+
+4. Another issue is the results in the experiments. It is easy to find out that resnet50 can get 76.2% on Imagenet according to [2]. However, the baseline is 73.7% in the paper.  I didn't check the result for resnet18 on cifar10 or resnet34 on cifar 100, because people usually don't use bottleneck block for cifars.
+
+5. In Table 2, Federated average always has worse results than other compared methods. Could you explain the reason?  If using federated average is harmful to the accuracy, it should also affect the result of the proposed method. 
+
+
+[1] Zhang, Sixin, Anna E. Choromanska, and Yann LeCun. "Deep learning with elastic averaging SGD." Advances in Neural Information Processing Systems. 2015
+[2]<a href="https://github.com/D-X-Y/ResNeXt-DenseNet" target="_blank" rel="nofollow">https://github.com/D-X-Y/ResNeXt-DenseNet</a></span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

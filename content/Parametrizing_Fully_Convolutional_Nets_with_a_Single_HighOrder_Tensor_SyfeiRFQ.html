@@ -1,0 +1,254 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Parametrizing Fully Convolutional Nets with a Single High-Order Tensor | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Parametrizing Fully Convolutional Nets with a Single High-Order Tensor" />
+        <meta name="citation_author" content="Jean Kossaifi" />
+        <meta name="citation_author" content="Adrian Bulat" />
+        <meta name="citation_author" content="Georgios Tzimiropoulos" />
+        <meta name="citation_author" content="Maja Pantic" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Syfe2iR5FQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Parametrizing Fully Convolutional Nets with a Single High-Order Tensor" />
+      <meta name="og:description" content="Recent findings indicate that over-parametrization, while crucial to the success of deep learning, also introduces large amounts of redundancy. Tensor methods have the potential to parametrize..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Syfe2iR5FQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Parametrizing Fully Convolutional Nets with a Single High-Order Tensor</a> <a class="note_content_pdf" href="/pdf?id=Syfe2iR5FQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures"><a href="/profile?email=jean.kossaifi%40gmail.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="jean.kossaifi@gmail.com">Jean Kossaifi</a>, <a href="/profile?email=bulat.adrian%40gmail.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="bulat.adrian@gmail.com">Adrian Bulat</a>, <a href="/profile?email=yorgos.tzimiropoulos%40nottingham.ac.uk" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="yorgos.tzimiropoulos@nottingham.ac.uk">Georgios Tzimiropoulos</a>, <a href="/profile?email=maja.pantic%40gmail.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="maja.pantic@gmail.com">Maja Pantic</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Withdrawn Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Recent findings indicate that over-parametrization, while crucial to the success of deep learning, also introduces large amounts of redundancy. Tensor methods have the potential to parametrize over-complete representations in a compact manner by leveraging this redundancy. In this paper, we propose fully parametrizing Convolutional Neural Networks (CNNs) with a single, low-rank tensor. Previous works on network tensorization haved focused on parametrizing individual layers (convolutional or fully connected) only, and perform the tensorization layer-by-layer disjointly. In contrast, we propose to jointly capture the full structure of a CNN by parametrizing it with a single, high-order tensor, the modes of which represent each of the architectural design parameters of the CNN (e.g. number of convolutional blocks, depth, number of stacks, input features, etc). This parametrization allows to regularize the whole network and drastically reduce the number of parameters by imposing a low-rank structure on that tensor. Further, our network is end-to-end trainable from scratch, which has been shown to be challenging in prior work. We study the case of networks with rich structure, namely Fully Convolutional CNNs, which we propose to parametrize them with a single 8-dimensional tensor. We show that our approach can achieve superior performance with small compression rates, and attain high compression rates with negligible drop in accuracy for the challenging task of human pose estimation.
+</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rJxdPmPTaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Submission Withdrawn by the Authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syfe2iR5FQ&amp;noteId=rJxdPmPTaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper679 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper679 Withdraw Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Withdrawal confirmation: </span><span class="note_content_value">I have read and agree with the withdrawal statement on behalf of myself and my co-authors.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ryxII_Vw67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Summary of novelty</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syfe2iR5FQ&amp;noteId=ryxII_Vw67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper679 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper679 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We would like to thank all the reviewers for their feedback. Our paper proposes a new Fully Convolutional architecture, parameterized with a single high-order, low-rank tensor which is not done before. 
+This noverty is recognised by reviewers 1 and 3, while reviewer 2 has some concerns. 
+As we mention in the paper, we are the first to model jointly the whole architecture, which makes our method very different from prior works and makes it possible to leverage the structure in the whole network, resulting in large space-savings (more than 7 times) with no loss in performance. The low-rank constraint acts as an implicit regularisation mechanism and makes it possible to reach superior performance. In addition, our formulation can be used to efficiently reparametrize convolutions for speed.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1gm_pc3hX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The paper is an extension of tensor parametrizing CNN. It is interesting but with limited originality. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syfe2iR5FQ&amp;noteId=r1gm_pc3hX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper679 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper679 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper propose fully parametrizing CNNs with a single, low-rank tensor. As compared to the previous work which parametrizing individual layer by tensor representation, this paper combine all parameters from each layers and model them as one tensor. This allows to regularize the whole network and drastically reduce the number of parameters by imposing a low-rank structure on that tensor. The experiments show higher compression rates with negligible drop in accuracy for human pose estimation. 
+
+The paper is well written by firstly introducing basic tensor decomposition and operations, then presenting how to use them to parametrizing CNN.  However, the concept of using tensor decomposition to parametrize the CNN is known, this paper is an extension by considering all layers together. Therefore, the originality is limited and incremental. 
+
+The parameters from different layers may have very different sizes, which make this method not very practical. Although we can manually use the same size of parameters for all layers, the problem of redundant information will become more severe. 
+
+In general, the parameters in different layers are supposed to be very different and uncorrelated. In this paper, the parameters from different layers are put together and low-rank structure is assumed. Hence, one question of why this will work well is not clear.  Furthermore, there is no theoretical support for the method to obtaining the higher compression. 
+
+The authors claim Tucker is easy to control the rank thus considered as the most flexible compression method. The justification of this claim should be provided, or the detailed experiment comparisons should be given. Why Tucker is more flexible is not clear. 
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1xfeYVD6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Answer to AnonReviewer2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syfe2iR5FQ&amp;noteId=S1xfeYVD6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper679 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper679 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We are glad that the reviewer appreciated the paper and thank them for the feedback.
+
+Regarding the novelty: we detailed the existing work in detail and explicitly detail how ours differs. To summarise, while parameterizing individual convolutional has been the subject of extensive studies, we are the first to propose an architecture which is jointly parametrized by a single, high-order tensor, allowing for large compression ratios, and performance improvements when comparing to both the baseline or previous methods. 
+
+Indeed we impose that all the parametrized layer have the same kernel size, however we also introduce an architecture that satisfies this and obtains state-of-the-art results for body pose estimation. This work can be extended to kernels of different sizes but this is outside the scope of this paper.
+
+The reviewer states that “in general, the parameters in different layers are supposed to be very different and uncorrelated”. This is one of the interesting findings of the paper: there is large amount of redundancy in the network that can be leveraged, as demonstrated by our experimental results. This is in line with recent findings in the literature (Du &amp; Lee, 2018; Soltanolkotabi et al., 2018) that indicate high level of redundancy in the parameters of deep nets, which makes learning possible. High order tensor are ideal for leveraging such redundancy.
+
+About the flexibility of Tucker: this can be readily observed from the mathematical formulation. We are able to control the size of each mode of the core individually, allowing us to fine-tune the low-rank structure. Other decompositions such as Canonical-Polyadic or Matrix-Product-State/Tensor-Train assume some specific structure which can be less flexible (i.e. CP is equivalent to Tucker with a super-diagonal core while MPS/TTrain is composed of third order cores).  We will discuss this in the paper.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rylKhzdv27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>the paper starts with a nice idea, but the development is not clear enough</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syfe2iR5FQ&amp;noteId=rylKhzdv27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper679 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper679 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper starts with a nice and appealing idea --- parametrizing a CNN using just one high-order tensor. The modes of the tensor represent different "coordinates" of the weights of CNN. This sounds very reasonable.
+
+The claimed contributions are also appealing: by doing so, the tensor representation can be used for 1) reducing redundancy and saving memory; 2) accelerating testing; 3) training the CNN from scratch.
+
+The development of the paper is a bit disappointing since the above contributions were not clearly fleshed out. For example, it is very unclear to the reviewer how the parameterization can be used for training the CNN from scratch. This is a very nice and intriguing  point and should be addressed in detail in the paper. It is a little bizarre that the paper starts with a good introduction, and then introduces some preliminaries of tensors, and then directly goes to experiments. 
+Many things claimed in the contributions were not addressed in detail. The reviewer is not sure if these things are considered trivial---but for readers this looks confusing.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1eN-t4vpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Answer to AnonReviewer3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syfe2iR5FQ&amp;noteId=B1eN-t4vpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper679 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper679 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We are glad the reviewer appreciates the idea and thank them for the feedback.
+
+We would like to point out that, as mentioned in the paper, we did train our models from scratch, and observed the same performance as with fine-tuning. Therefore we did the latter for computational efficiency. However, there is no difference in the way gradients are back-propagated either way.
+
+We believe no essential details are missing. If the reviewer can point out to any specific details missing, we will be happy to add them in. Note that section 2.2. introduces in detail our proposed method.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJxOWePQ2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Not enough technical details and missing theory</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syfe2iR5FQ&amp;noteId=BJxOWePQ2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper679 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper679 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors propose to organize all parameters of a multilayer neural network in a higher order tensor (8 dimension) and use low-rank tensor decomposition models (Tucker and TT/MPS formats) to compress it. They applied this approach to a very specific architecture, the stacked hourglass architecture of Newell et all (2016) full convolutional neural network and used in the specific problem of human pose estimation.
+The idea of the paper is simple and technically sounded but unfortunately, I found it not well presented with many important technical details missing. Also, there are not any theoretical justification for the method to work, the results are restricted to a very specific network architecture and only one application, which limits their generalization to a broader class of problems. Below, I provide the main comments about the paper:
+
+Major issues:
+-	The paper claims that, for lower compression rates, the proposed method outperforms the uncompressed version of the network. What is the justification for this behavior? Is it related to a regularization effect? How this effect depends on the number of available samples? I think the authors should provide some theoretical insights about this behavior or, at least, a deeper experimental study.
+-	The authors do not give details on how the tensorized network is optimized/trained. They state that “All models were trained for 110 epochs using RMSprop (Tieleman &amp; Hinton, 2012). The learning rate was varied from from 2.5e-4 to 1e-6 using a Multi-Step fixed scheduler.” But It is not clear if a back-propagation strategy can be still used after tensorization and what are the updating rules for the parameters in the tensor decomposition model. I think this missing information must be included in the paper, at least as an appendix.
+-	The title of section 2.2, “Fully-tensorized architecture” suggests that all design parameters of the network are compressed through a tensor decomposition, however, in the implementation details section, they state that total number of parameters is 15,830,976 where 14,555,776 are in the weights tensor and 1,675,200 (based convolutions) are not considered as part of the tensor decomposition model. It is not clear, why this particular tensorization approach is used.
+-	They compared the results of the compressed approach against an uncompressed architecture but reducing the number of parameters by choosing 64 channels of residual blocks instead of 128 as used in the compressed version. I think this difference in number of parameters prevents from obtaining a fair comparison of the results. Why the authors have chosen fewer parameters in the uncompressed version? If it is because there is a memory size limitation, I would suggest to use 64 channels in the compressed version too, so the results can be fairly compared.
+
+Minor comments:
+-	Tensor notation is a bit strange in this paper. Tensors are usually denoted by capital calligraphic letters or underlined bold capital letters but in this work the authors use calligraphic with tilde, which makes the notation a little bit overcrowded. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkgq6uNw6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Answer to AnonReviewer1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syfe2iR5FQ&amp;noteId=rkgq6uNw6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper679 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper679 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We would like to thank the reviewer for the feedback and are glad to see that they agree that the method is novel and technically sound. We address here all the points raised, which we will also clarify in the paper.
+
+About the theoretical justification: we propose a new model; we do not make any claims (e.g. bounds or convergence properties) which would require any theoretical proof. Our T-Net is a very general network, since it is based on the U-Net which is currently state-of-the-art for a variety of tasks (e.g. segmentation, human pose estimation etc.).
+
+If the reviewer specifies the specific details and technical parts they found missing, we would be happy to include them.
+
+We do not feel that the issues mentioned by the reviewer are major, and hope that the following answers will satisfy the reviewer:
+1- Better performance with lower compression rate: yes, this is in fact one of the advantages of our method. Applying a low-rank structure to the tensor parametrizing the DCNN acts as an additional regularization, as we explicitly state in the abstract, introduction and conclusion of the paper. Low-rank constraints are known to act as regularization methods, and we do provide empirical study of the phenomenon (Table 1). 
+2- Training via back-propagation: we directly optimise the decomposed network, and all operations used have derivatives. As we state in the paper, we obtained similar performance by training from scratch or fine-tuning. Therefore, we decided to fine-tune since it is faster and less computationally demanding. We are happy to write the gradients in the appendix if it is not clear to the reviewer.
+3- The base blocks just correspond to some preprocessing layers and actually could be removed. We included just for the sake of  a fair comparison with existing work. 
+4- The reviewer miss-read the table: we compare with the uncompressed baseline with the same number of features, first line of Table 1 and Table 2. 
+
+About the notation: we will remove the tilde. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

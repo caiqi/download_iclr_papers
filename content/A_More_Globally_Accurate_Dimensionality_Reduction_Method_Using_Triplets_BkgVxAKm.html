@@ -1,0 +1,317 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>A More Globally Accurate Dimensionality Reduction Method Using Triplets | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="A More Globally Accurate Dimensionality Reduction Method Using Triplets" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BkgVx3A9Km" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="A More Globally Accurate Dimensionality Reduction Method Using..." />
+      <meta name="og:description" content="We first show that the commonly used dimensionality reduction (DR) methods such as t-SNE and LargeVis&#10;  poorly capture the global structure of the data in the low dimensional embedding. We show this..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BkgVx3A9Km" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A More Globally Accurate Dimensionality Reduction Method Using Triplets</a> <a class="note_content_pdf" href="/pdf?id=BkgVx3A9Km" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 18 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019a,    &#10;title={A More Globally Accurate Dimensionality Reduction Method Using Triplets},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BkgVx3A9Km},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=BkgVx3A9Km" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We first show that the commonly used dimensionality reduction (DR) methods such as t-SNE and LargeVis
+poorly capture the global structure of the data in the low dimensional embedding. We show this via a number of tests for the DR methods that can be easily applied by any practitioner to the dataset at hand. Surprisingly enough, t-SNE performs the best w.r.t. the commonly used measures that reward the local neighborhood accuracy such as precision-recall while having the worst performance in our tests for global structure. We then contrast the performance of these two DR method
+against our new method called TriMap. The main idea behind TriMap is to capture higher orders of structure with triplet information (instead of pairwise information used by t-SNE and LargeVis), and to minimize a robust loss function for satisfying the chosen triplets. We provide compelling experimental evidence on large natural datasets for the clear advantage of the TriMap DR results. As LargeVis, TriMap is fast and and provides comparable runtime on large datasets.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Dimensionality Reduction, Visualization, Triplets, t-SNE, LargeVis</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">A new dimensionality reduction method using triplets which is significantly faster than t-SNE and provides more accurate results globally</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HygXUL-R6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Detailed Comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgVx3A9Km&amp;noteId=HygXUL-R6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1068 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1068 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Reviewer 1:
+
+Thank you for raising the concerns about sampling triplets. We hope that additional experimental results given in Appendix C addresses some of your questions. In addition, although the triplets are formed using the pairwise distances, they simultaneously take into account the relative similarities (or distances) of three points. Therefore they are somehow more informative than simple pairwise constraints. This has been discussed before in the semi-supervised clustering context: e.g. in "A kernel-learning approach to semi-supervised clustering with relative distance comparisons" by Amid et al. 2015. They showed experimentally that a smaller number of triplet constraints improves the performance of clustering significantly more than pairwise constraints.
+
+
+Reviewer 2:
+
+Although the local properties of the low-dimensional embeddings are highly valuable, we claim that the global properties are sometimes much more important in certain scenarios. For instance, in medical diagnosis, the relative closeness of the clusters of points or detection of bad outliers (e.g. cancerous vs. non-cancerous cells) are highly critical. Our paper brings out this issue and provides a solution for improving the global accuracy. We are hoping that our paper will initiate new research on DR methods that focus on global properties.
+
+Reviewer 3:
+
+Thank you for your suggestion on detecting and removing the outliers. We are planning to add the "zoom feature" to our official release of the code. We would like to enable enhancing the visualization of sub-regions of the embedding by simply zooming into the region and re-evaluating the algorithm on the subset of the points. Since TriMap is rather insensitive to removing portions of data (experimental evidence in Figure 1.2.1a and 1.2.1b), this feature would fit perfectly with method.
+
+The dotted line between the clusters of '0's and '6's is drawn to mainly emphasize that the relative distance between these two clusters (and the rest) before and after removing the odd digits remains almost the same for our method but change significantly when using LargeVis (Figure 5.\star and Figure 2.1.b). This dotted line was unnecessary for Figure 1.2.1a and therefore, we removed it in the updated version.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rJgNfUWCpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Common Concerns (Continued)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgVx3A9Km&amp;noteId=rJgNfUWCpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1068 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1068 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">*** Runtime and Computational Complexity ***
+
+Thank you for noticing the error in the runtime given in Table 1. We corrected the runtime on Fashion MNIST dataset. Note that we used the sklearn implementation of t-SNE on a 2.6 GHz Intel Core i5 machine with 16 GB memory. We used the same machine for running LargeVis and TriMap and we are certain that the results are accurate. One major point we noticed during our experiments was that LargeVis performs very slow on: 1) small datasets (see Table 2), and 2) datasets with large number of dimensions (Table 1, TV News). The former could be an implementation issue while the latter is due the random projection step for nearest neighbor search. Note that we perform PCA as a step in our algorithm to accelerate the nearest neighbor search (also used in t-SNE; please see the original paper and the sklearn implementation details). The error induced by the PCA step is negligible compared to the error of mapping from high-dimension to 2-D or 3-D. We can also accelerate LargeVis on large dimensional datasets by performing the PCA step (although it is not part of the original algorithm). However, the performance on small datasets still remains slow.
+
+Thank you also for correcting our statement about our computational complexity. The nearest neighbor search is indeed the bottleneck of most of the algorithms (t-SNE, LargeVis, UMAP, TriMap, etc.). In some sense, all these algorithms have at least O(n log n) complexity due to the NN seach. However, notice that after the nearest neighbor search step (which is done once), (Barnes-Hut) t-SNE still has O(n log n) complexity while our method scales linearly. We have already corrected the complexity discussion in the current version. We are actively working on improving the runtime of TriMap. Our goal is to achieve a runtime as fast as UMAP.
+
+*** Effect of Weights and Different Triplets ***
+
+We added extra experimental results to show the effect of adding weights to the triplets as well as the effect of different types of triplets (nearest neighbors triplets vs randomly generated triplets). The results are given in Figure 6, 7, and 8. In conclusion, assigning weights to the triplets is a crucial piece in obtaining good low-dimensional embeddings of the data. Without adding weights, we may need much larger number of triplets to achieve similar performance as the weighted case. Additionally we show that using a larger number of nearest neighbors for forming triplets provides more information about the local structure of the data  whereas the global structure is explained by a fewer number
+of distant points. Also a small number of randomly generated triplets improves the global structure of the embedding.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SkxHCrZAam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Common Concerns</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgVx3A9Km&amp;noteId=SkxHCrZAam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1068 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1068 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your thorough reviews.
+We were able to significantly our experimental evaluation based on your suggestions.  
+
+We first address the common concerns raised by reviewers:
+
+*** Comparison to Stochastic Triplet Embedding (van der Maaten and Weinberger, 2012) ***
+In Appendix A, we show that STE (also t-STE) is a special case of our method where the parameters are chosen sub-optimally (in the sense that the loss is not robust) and the triplet weights are set to one. We also added results of the DR tests on t-STE in Appendix B. Also the result in Figure 3 with (t = 1, t' = 2) corresponds to t-STE with the addition of triplet weights. Overall, it is evident from the experiments that t-STE is inferior and provides poor results by introducing
+factitious outliers. Additionally, t-STE fails to reveal the true outliers (See Figure 5.2.2).
+
+*** Quantitative Measures of Local and Global Performance ***
+
+The main reason for including AUC (which is a local measure of DR performance) is to show that the local measure do NOT reflect the global properties of the embedding. This is discussed in our tests for global accuracy in Section 2 of the paper. For instance, in Figure 1.2.3, PCA clearly separates the two copies of MNIST, but has a very low AUC score. We also included the NN classification accuracy in our results and (after fixing a minor bug in our code) updated the AUC scores. The (AUC, NN-Accuracy) values are show on the bottom of each plot in Figure 1 and 5. Again, NN-accuracy fails to reflect these global properties. 
+
+We are not aware of any global measure of DR method that can reflect the properties discussed in our tests. We leave the development of such measures that are tractable for large datasets for future work. We also added DR test results produced by PHATE (Moon et al., 2017) and UMAP (McInnes and Healy, 2018). These two methods also fail at least some of the DR tests. We also performed experiments using Diffusion Map (Coifman and Lafon, 2016). The Diffusion Map method is incredibly slow and we were only able to calculate the results for a subset of 10,000 points from MNIST. Overall, the method has good global properties and is able to detect the artificial outlier and the two copies. However, the quality of the embeddings are much inferior compared to other methods (results available anonymously at: <a href="https://goo.gl/bGJqSD)." target="_blank" rel="nofollow">https://goo.gl/bGJqSD).</a> We were not able to perform the tests on Parametric t-distributed Stochastic Exemplar Centered Embedding (Min et al., 2018). The method requires careful implementation of a neural network and this was not feasible to try in the given timeframe. However, the method is heavily motivated by the pt-SNE (van der Maaten, 2009) method and thus, we conjecture that it also may not be able reflect the global properties. Overall, we are not aware of any competitor method (with comparable runtime and quality of embedding) that can reflect all the global properties discussed in our paper.
+
+We also added experimental results on three datasets with underlying low-dimensional manifolds, namely, 3-D Sphere, Swissroll, and ISOMAP Faces (Figure 9 and 10). TriMap again provides globally accurate results while preserving the continuity of the underlying manifolds. Thus, although the local measures for TriMap are not as high as t-SNE, is still provides locally accurate results.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rJxzobq32m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Novel loss function but experiments are lacking</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgVx3A9Km&amp;noteId=rJxzobq32m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1068 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1068 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Motivated by the observation that most of previous dimensionality reduction methods focus on preserving 
+local pairwise neighboring probabilities and lack in preserving global properties, this paper proposes a 
+method called TriMap to optimize a loss function preserving similarities among triplets of data points. A large 
+number of triplets are sampled either based on nearest neighbor calculations or random sampling. Experimental 
+results on several datasets show that TriMap identifies outliers and preserves global data properties better 
+than previous approaches based on pairwise data point comparisons.
+
+Major:
+
+The idea in this paper is well motivated and the loss function based on probability ratio is novel. However, 
+there are some major concerns about method analyses and experimental evaluations,
+
+1. Data embedding based on triplets has been presented in (van der Maaten and Weinberger, 2012). The authors 
+need to present detailed explanations and formal analysis why the proposed method significantly outperforms the 
+previous one. A recent dimensionality reduction method compares data points only to data cluster centers (Parametric 
+t-distributed stochastic exemplar centered embedding, Min et al., 2018), does it preserve global data properties? Does 
+its trivial combination with standard t-SNE well preserve both local and global data properties?
+
+2. Preserving local pairwise neighborhood structure is often the most important part in high-dimensional data 
+visualization, because only local similarities can be confidently trusted in a high-dimensional space. Even if preserving 
+global data properties is important, the very local neighborhood structure should also be preserved. However, the 
+proposed method TriMap is significantly worse than t-SNE according to AUC under the precision-recall curve. 
+
+3. Standard quantitative evaluations based on 1NN error rate and quality scores (van der Maaten &amp; Hinton 2008, Min 
+et al. 2018) should be added to the experiments. For preserving global data properties, quantitative evaluations on all 
+the datasets will make the experiments much more convincing.
+
+4. In the abstract, the claim that TriMap scales linearly is inaccurate, the triplet sampling requires nearest neighbor 
+calculations, which has computational complexity of at least O(nlogn)
+
+5. This paper proposed two variants of triplet sampling, nearest neighbor triplets and random triplets. Detailed experimental 
+comparisons about them should be provided in the paper.
+
+
+6. The running time comparisons in Table 1 must be wrong or highly biased with improper hyperparameter setting. Based 
+on tree accelerations, t-SNE can produce impressive visualization on MNIST-scale datasets within 15 minutes (please 
+check the experimental details PP. 3235-3238 in van der Maaten, Journal of Machine Learning Research 2014).
+
+7. The authors mentioned partial observation, outliers and subclusters in the global information, but the authors do not specifically define 
+what the global information should be rigorously, and the paper does not theoretically prove or explain via experiments how the global 
+information is kept by TriMap.
+
+8. In the experiments, the authors applied PCA before TriMap to reduce the dimensionality while PCA is not applied in tSNE and LargeVis. The authors do not explain why the settings are different in the three methods.
+
+Minor:
+
+9. In the algorithm, the authors show different equations for different t and t’, but are not evaluated in experiments.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ryeAsHY5hQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>TripMap needs more comparison and validation </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgVx3A9Km&amp;noteId=ryeAsHY5hQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1068 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1068 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors present a novel dimensionality reduction method named TriMap. TriMap attempts to improve upon the widely-adopted t-SNE algorithm by incorporating global distances through the use of triplets, rather than pairwise comparisons. The authors compare to t-SNE, as well as a newer method called LargeVis which also claims to impose a global distances metric. The authors show that their method is more robust to the addition or removal of clusters and outliers and provides a more meaningful global distance relative to the methods against which they compare.
+
+Technical Quality
+The authors’ method is clear and well described and addresses a poignant issue in dimensionality reduction. However, the authors fail to compare their method to a number of relevant dimensionality reduction algorithms which also claim to provide solutions with globally meaningful distances. Such methods include force-directed graph drawing (Fruchterman &amp; Reingold, 1991), diffusion maps (Coifman &amp; Lafon, 2006) and PHATE (Moon et al., 2017). 
+
+Additionally, the handling of outliers is a concern. While the authors claim that the retention of outliers as disconnected from the manifold is a desirable quality of their technique, the presence of many outliers in a dataset (for example, in the Tabula Muris and lyrics datasets) has the potential to mask the interesting portion of the dimensionality reduction. It may be worth commenting on the desirability to identify and remove outliers, and the provision of such a technique in the software upon its release.
+
+Finally, the runtime comparison is of concern. It is common to perform most DR methods on high-dimensional PCA representation of the data, particularly in single-cell genomics (e.g. the Tabula Muris dataset in Part 3.) In this context, both UMAP and PHATE successfully embed the Tabula Muris dataset in less than the reported TriMap time (3.5 and 5 minutes respectively, compared to 15 minutes reported for TriMap.)
+
+Novelty
+The authors’ method appears to provide improved results over the compared alternatives, however, it is worth noting that triplet-based embedding is not novel in its own right (van der Maaten &amp; Weinberger, 2012), though one could argue novelty is warranted here due to claimed substantial improvements of results. In this case, the authors should include a comparison to competing triplet-based methods, at least in the appendix. 
+
+Potential impact
+The authors’ method has the potential to be used widely across many fields, as a direct replacement for t-SNE. Its adoption is contingent on compelling evidence that it produces results substantially better than UMAP (which is currently heralded as an upcoming replacement for t-SNE in some fields) and other competing methods. The authors may find it worthwhile to provide such comparisons, if not in the main body of the paper at least in the appendix. 
+
+Clarity
+The paper is easy to read and makes its point in a reasonably concise manner. Detailed explanation of experiments v) and vi) could be relegated to the appendix. More precise statement of the authors’ tests in Part 2 could be provided by quantifying the results of the tests in a more precise way; it is not clear what the authors seek to achieve by drawing the dotted lines between clusters in Figure 1a, or by providing AUC values in Figure 1.
+
+Detailed Comments
+•	In the definition of Equation 2, it is not until one paragraph later than q_{ij}^{~(t’)} is defined – this is confusing and hard to read.
+•	The captions for Figures 1 and 3 would be substantially clearer with more detail on the dataset analyzed and in Figure 1, some discussion of the purpose of each subplot.
+•	The Figure 3 caption needs a semicolon or period before introducing the bottom panel.
+•	The claim that the authors’ heuristic triplet sampling (nearest-neighbor and random sampling) is sufficient to approximate full triplet sampling should be shown in the appendix.
+•	The collaboration network analyzed in Part 3 is naturally a graph; it would make sense to cluster and visualize this using a graph-based clustering, rather than coercing it to Euclidean coordinates.
+
+References
+Coifman, R. R., &amp; Lafon, S. (2006). Diffusion maps. Applied and computational harmonic analysis, 21(1), 5-30. <a href="https://doi.org/10.1016/j.acha.2006.04.006" target="_blank" rel="nofollow">https://doi.org/10.1016/j.acha.2006.04.006</a>
+Moon, K. R., van Dijk, D., Wang, Z., Burkhardt, D., Chen, W., van den Elzen, A., ... &amp; Krishnaswamy, S. (2017). Visualizing transitions and structure for high dimensional data exploration. bioRxiv, 120378. https://doi.org/10.1101/120378
+Fruchterman, T. M., &amp; Reingold, E. M. (1991). Graph drawing by force‐directed placement. Software: Practice and experience, 21(11), 1129-1164. https://doi.org/10.1002/spe.4380211102
+L. van der Maaten and K. Weinberger. Stochastic triplet embedding. In 2012 IEEE International Workshop on Machine Learning for Signal Processing, pp. 1–6, Sept 2012. doi: 10.1109/MLSP.2012.6349720.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HklpbWfWhX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A More Globally Accurate Dimensionality Reduction Method Using Triplets </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgVx3A9Km&amp;noteId=HklpbWfWhX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1068 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1068 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Authors propose a new method called TriMap, which captures higher orders of structure with triplet information, and minimize a roust loss function for satisfying the chosen triplets.
+ 
+The proposed method is motivated by the misleading selection approach for a dimensionality reduction method using local measurements. And then, authors resort to an evaluation based on visual clues based on a number of transformations. Authors then claim that any DR method preserving the global structure of the data should be able to handle these transformations.  An example on MNIST data illustrate these properties, but it is still not clear what are the visual clues as the criterion to select a good DR method and what are the global structures.
+ 
+Authors discussed the results in Figure 4 for six real-world datasets, but there is no convincing evidence from the corresponding domains or reference researches for the support of the global structure in the learned embedding space.  It will be good to add some convincing evidences for the conclusion.
+ 
+As the method highly depends on the subset of sampled triplets, it is interesting to see how the global structure changes if a different set of triplets is used.  In addition, it is unclear why sampled triplets can achieve a global structure of data instead of pairwise relations. From the experiments, triplets are also sampled according to the pairwise nearest neighbor graph.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

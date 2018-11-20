@@ -1,0 +1,302 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Doubly Sparse: Sparse Mixture of Sparse Experts for Efficient Softmax Inference | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Doubly Sparse: Sparse Mixture of Sparse Experts for Efficient Softmax Inference" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rJl2E3AcF7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Doubly Sparse: Sparse Mixture of Sparse Experts for Efficient..." />
+      <meta name="og:description" content="Computations for the softmax function in neural network models are expensive when the number of output classes is large. This can become a significant issue in both training and inference for such..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rJl2E3AcF7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Doubly Sparse: Sparse Mixture of Sparse Experts for Efficient Softmax Inference</a> <a class="note_content_pdf" href="/pdf?id=rJl2E3AcF7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 15 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019doubly,    &#10;title={Doubly Sparse: Sparse Mixture of Sparse Experts for Efficient Softmax Inference},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rJl2E3AcF7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=rJl2E3AcF7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Computations for the softmax function in neural network models are expensive when the number of output classes is large. This can become a significant issue in both training and inference for such models. In this paper, we present Doubly Sparse Softmax (DS-Softmax), Sparse Mixture of Sparse of Sparse Experts, to improve the efficiency for softmax inference. During training, our method learns a two-level class hierarchy by dividing entire output class space into several partially overlapping experts. Each expert is responsible for a learned subset of the output class space and each output class only belongs to a small number of those experts. During inference, our method quickly locates the most probable expert to compute small-scale softmax. Our method is learning-based and requires no knowledge of the output class partition space a priori. We empirically evaluate our method on several real-world tasks and demonstrate that we can achieve significant computation reductions without loss of performance.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">hierarchical softmax, model compression</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We present doubly sparse softmax, the sparse mixture of sparse of sparse experts, to improve the efficiency for softmax inference through exploiting the two-level overlapping hierarchy. </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HklSWHq3p7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Summary of the revision and key points</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl2E3AcF7&amp;noteId=HklSWHq3p7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1485 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1485 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank reviewers for their time and valuable comments. We have revised our article based on reviewers' suggestions. 
+We want to summarize the key points of this work as follows:
+
+* Our work focuses on speeding up softmax inference given large output dimension and achieved good empirical results on both synthetic and real dataset. For top-k language modeling task on Wiki-2, we can achieve more than 23x without any loss of performance.
+
+* Our method is novel in terms of constructing the two-level overlapping hierarchy of output classes. The hierarchy is captured through the mixture model and group lasso technique. The inference speedup is achieved by such a hierarchy. 
+
+* The key difference between our work and existing methods is that our speedup is achieved by learning a new output embedding while most existing methods relied on approximating the trained/fixed embedding. This means our method is orthogonal with them in principle. One key advantage of our method is speedup without any loss while approximation based methods usually suffer the loss of performance. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1euHOqi37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good empirical results, but only one baseline and poor writing.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl2E3AcF7&amp;noteId=B1euHOqi37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1485 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1485 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The present paper proposes a fast approximation to the softmax computation when the number of classes is very large. This is typically a bottleneck in deep learning architectures. The approximation is a sparse two-layer mixture of experts.
+
+The paper lacks rigor and the writing is of low quality, both in its clarity and its grammar. See a list of typos below.
+
+An example of lack of mathematical rigor is equation 4 in which the same variable name is used to describe the weights before and after pruning, as if it was computer code instead of an equation. Also pervasive is the use of the asterisk to denote multiplication, again as if it was code and not math.
+
+Algorithm 1 does not include mitosis, which may have an effect on the resulting approximation.
+
+How are the lambda and threshold parameters tuned? The authors mention a validation set, are they just exhaustively explored on a 3D grid on the validation set?
+
+The results only compare with Shim et al. Why only this method? Why would it be expected to be faster than all the other alternatives? Wouldn't similar alternatives like the sparsely gated MoE, D-softmax and adaptive-softmax have chances of being faster?
+
+The column "FLOPS" in the result seems to measure the speedup, whereas the actual FLOPS should be less when the speed increases. Also, a "1x" label seems to be missing in for the full softmax, so that the reference is clearly specified.
+
+All in all, the results show that the proposed method provides a significant speedup with respect to Shim et al., but it lacks comparison with other methods in the literature.
+
+A brief list of typos:
+
+"Sparse Mixture of Sparse of Sparse Experts"
+"if we only search right answer"
+"it might also like appear"
+"which is to design to choose the right"
+sparsly
+"will only consists partial"
+"with γ is a lasso threshold"
+"an arbitrarily distance function"
+"each 10 sub classes are belonged to one"
+"is also needed to tune to achieve"</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1e8djk9Tm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Our work focuses on inference speedup, and compares to the best approach (NIPS'17) we were aware of</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl2E3AcF7&amp;noteId=B1e8djk9Tm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1485 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018 (modified: 16 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1485 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Reviewer,
+
+Thank you for your valuable comments. We have revised our writing in the revision, and will further improve its clarity. Please find our response as follows.
+
+- Algorithm 1 does not include mitosis, which may have an effect on the resulting approximation. 
+
+Mitosis training can be considered as executing Algorithm 1 for multiple times with an increasing number of experts and inherited initialization from last round by changing W^e and W^g. Also, training with mitosis achieves similar performance as training without it shown in Appendix B, Figure (a). 
+
+- How are the lambda and threshold parameters tuned? The authors mention a validation set, are they just exhaustively explored on a 3D grid on the validation set? 
+
+The hyper-parameters related to DS-softmax (such as lambda) are tuned according to the performance on a validation dataset. Also, as we mentioned in the paper, only one hyper-parameter (group lasso lambda) needs to be tuned. The heuristic we use to tune group lasso lambda is to increase lambda, starting from a small value, until it hurts the performance. Also threshold and balancing lambda variables are kept fixed as (0.01 and 10). 
+
+- Why would it be expected to be faster than all the other alternatives? Wouldn't similar alternatives like the sparsely gated MoE, D-softmax and adaptive-softmax have chances of being faster? 
+
+In terms of baselines, SVD-softmax (NIPS’17) was chosen since it is a recent method that provides a significant inference speedup for softmax. Other alternatives, such as D-softmax and adaptive-softmax, focus on training instead of inference speedup. Furthermore, as claimed in their papers, they achieve limited speedup (around 5x) in language modeling, which is much worse than ours. With regards to Sparsely Gated MoE, it cannot speed up inference, since they select expert with full softmax.
+
+We would like to emphasize that most existing methods for inference speedup focus on approximating trained softmax layer, which usually suffers a loss on performance. Our model allows the adaptive adjustment of the softmax layer, achieves speedup through capturing the two-level overlapped hierarchy during training, which is novel and does not suffer from the performance loss.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SklHkeMohX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Need to discuss more about how Doubly Sparse is superior to Sparsely-Gated MoE</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl2E3AcF7&amp;noteId=SklHkeMohX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1485 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1485 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes doubly sparse, which is a sparse mixture of sparse experts and learns a two-level class hierarchy, for efficient softmax inference.
+
+[+] It reduces computational cost compared to full softmax.
+[+] Ablation study is done for group lasso, expert lasso and load balancing, which help understand the effect of different components of the proposed
+[-] It seems to me the motivation is similar to that of Sparsely-Gated MoE (Shazeer et al. 2017), but it is not clear how the proposed two-hierarchy method is superior to the Sparsely-Gated MoE. It would be helpful the paper discuss more about this. Besides, in evaluation, the paper only compares Doubly Sparse with full softmax. Why not compare with Sparsely-Gated MoE?
+
+Overall, I think this paper is below the borderline of acceptance due to insufficient comparison with Sparsely-Gated MoE.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJgvmMlBTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarifications: Sparsely-Gated MoE (Shazeer et al. 2017) cannot speed-up softmax inference</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl2E3AcF7&amp;noteId=HJgvmMlBTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1485 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018 (modified: 13 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1485 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear reviewer:
+
+We appreciate your comments but it appears that there is some misunderstanding regarding our contribution in this work. 
+
+Our work is for softmax inference speedup while Sparse-Gated MoE (MoE) was not designed to do so. It was designed to increase the model expressiveness. It cannot achieve speedup because each expert still contains full softmax space as we mentioned in the background section (page 2 line 21st) and method section (page 2 last 4th line). And since it is slower than the standard softmax by definition, we chose not to compare with it in the paper.
+
+Our algorithm addresses speed up in softmax inference. This is fundamentally different from Sparse-gated MoE. We divide the output space into multiple overlapped subsets. To find top-k predictions, we only search a few subsets. While in full softmax or MoE, the complexity is linear with output dimension. Therefore, we did not include a comparison with Sparsely-Gated MoE in our article and only compare with full softmax. 
+
+Just for additional reference, we tested Sparsely-Gated MoE with different experts in PTB dataset; we compared the results to DS-Softmax. As expected, the Sparsely-Gated MoE does not achieve speedup in terms of softmax inference. 
+
+______________________________________________
+Method | Top 1 | Top 5 |Top 10| FLOPs| 
+DS-8       | 0.257 | 0.448 | 0.530 | 2.84x |
+MoE-8    | 0.258 | 0.448 | 0.530 |  1x      |
+DS-16     | 0.258 | 0.450 | 0.529 | 5.13x |
+MoE-16  | 0.258 | 0.449 | 0.530 | 1x       |
+DS-32     | 0.259 | 0.449 | 0.529 | 9.43x |
+MoE-32  | 0.259 | 0.450 | 0.531 | 1x       |
+DS-64     | 0.258 | 0.450 | 0.529 |15.99x|
+MoE-64  | 0.260 | 0.451 | 0.531 | 1x       |
+______________________________________________
+
+* FLOPs means FLOPs reduction (i.e. baseline's FLOPs / target method's FLOPs).</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJxPUFHc3m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>New method for large scale softmax inference</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl2E3AcF7&amp;noteId=rJxPUFHc3m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1485 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1485 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper the authors introduce a new technique for softmax inference. In a multiclass setting, the idea is to take the output of a NN and turn it into a gating function to choose one expert. Then, given the expert, output a particular category. The first level of sparsity comes from the first expert. The second level of sparsity comes from every expert only outputting a limited set of output categories.
+
+The paper is easy to understand but several sections (starting from section 2) could use an english language review (e.g. "search right" -&gt; "search for the right", "predict next word" -&gt; "predict the next word", ...) In section 3, can you be more specific about the gains in training versus inference time? I believe the results all relate to inference but it would be good to get an overview of the impact of training time as well. You motivate some of the work by the fact that the experts have overlapping outputs. Maybe in section 3.7 you can address how often that occurs as well?
+
+Nits:
+- it wasn't clear how the sparsity percentage on page 3 was defined?
+- can you motivate why you are not using perplexity in section 3.2?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJxF95J5aX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for your feedback!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJl2E3AcF7&amp;noteId=HJxF95J5aX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1485 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1485 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Reviewer:
+
+Thank you for your valuable comments. We have addressed typos in the revision accordingly.  And please find our response as follows.
+
+-  Can you be more specific about the gains in training versus inference time?
+
+We would like to emphasize that the our goal is to speed up the inference time for softmax, so we do not include any comparisons in terms of training time. According to our experiments, most speedup can be achieved in few epochs (given all other layers are pre-trained) so that the training time increase is not significant compared to the original one.
+
+- You motivate some of the work by the fact that the experts have overlapping outputs. Maybe in section 3.7 you can address how often that occurs as well? 
+
+Thanks for the suggestion. We demonstrate that ambiguous words are often overlapped between clusters as illustrated in Figure 3(b). We added one more Figure in Appendix B, Figure (b), to demonstrate the distribution of overlapping. 
+
+- It wasn't clear how the sparsity percentage on page 3 was defined? 
+
+Sorry for the possible confusion. The sparsity in page 3 means the percentage of pruned words. We have added more clarifications in the revised version. 
+
+- Can you motivate why you are not using perplexity in section 3.2?
+
+We use top-k accuracy, instead of perplexity, because approximating top-k is required for most inference tasks in practice (see [1]). Perplexity captures the normalized log-likelihood of all possible words, while top-k accuracy is a better measure for inference speedup for top-k retrieval. For example, in some extreme cases, if a word only has a very small probability which makes it unpredictable at all (i.e. couldn’t be retrieved by top-k for any reasonably small k), it could still have a huge impact in terms of perplexity, but has a much smaller impact on top-k accuracy, which seems more reasonable given the goal of top-k retrieval.
+
+[1] Asymmetric LSH (ALSH) for Sublinear Time Maximum Inner Product Search (MIPS), NIPS 2014</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

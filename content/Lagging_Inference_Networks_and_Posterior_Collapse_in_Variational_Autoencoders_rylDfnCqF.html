@@ -1,0 +1,426 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Lagging Inference Networks and Posterior Collapse in Variational Autoencoders | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Lagging Inference Networks and Posterior Collapse in Variational Autoencoders" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rylDfnCqF7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Lagging Inference Networks and Posterior Collapse in Variational..." />
+      <meta name="og:description" content="The variational autoencoder (VAE) is an efficient method to learn probabilistic latent variable models by the use of an inference network, which predicts a distribution over latent variables given..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rylDfnCqF7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Lagging Inference Networks and Posterior Collapse in Variational Autoencoders</a> <a class="note_content_pdf" href="/pdf?id=rylDfnCqF7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019lagging,    &#10;title={Lagging Inference Networks and Posterior Collapse in Variational Autoencoders},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rylDfnCqF7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">The variational autoencoder (VAE) is an efficient method to learn probabilistic latent variable models by the use of an inference network, which predicts a distribution over latent variables given the input. However, VAEs are known to suffer from ``posterior collapse'' when combined with flexible neural autoregressive generators such as LSTMs or PixelCNNs, where the generator tends to ignore the latent variables and the variational posterior collapses to the prior. In this paper, we investigate this problem from the perspective of training dynamics. We find that the approximated posterior distribution lags far behind the model's true posterior in the initial stages of training, which pressures the generator to ignore the latent encoding. To address this issue, we propose an extremely simple training procedure for VAE models that mitigates the lagging issue: aggressively optimizing the inference network with more updates before reverting back to basic VAE training. Despite introducing neither new components nor significant complexity over basic VAEs, our approach is able to circumvent the collapse problem that has plagued a large amount of previous work using VAE-based models.
+Empirically, our approach outperforms strong autoregressive baselines on text and image benchmarks in terms of density estimation, land achieves results competitive to more complicated previous methods. Our method also trains 5x faster on average than the most comparable state-of-the-art method, the semi-amortized VAE.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">variational autoencoders, posterior collapse, generative models</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">To address posterior collapse in VAEs, we propose a simple yet effective training algorithm that aggressively optimizes inference network with more updates</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">12 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HklrzgzJTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Could the variance of the inference network gradients be a problem?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=HklrzgzJTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Artem_Sobolev1" class="profile-link">Artem Sobolev</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1274 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">In "Sticking the Landing: Simple, Lower-Variance Gradient Estimators for Variational Inference" [1] it was shown that a naive differentiation of the ELBO w.r.t. φ (q's parameters) leads to a ∇ log q(z) term which has zero expectation, but contributes significant variance to the gradient estimate. Could the lagging you observed be explained by high variance of the gradients?
+
+[1]: <a href="https://arxiv.org/abs/1703.09194" target="_blank" rel="nofollow">https://arxiv.org/abs/1703.09194</a></span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HkxE8ueK6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=HkxE8ueK6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1274 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1274 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This is a good point, and thanks for sharing the paper with us. In practice we found that using more Monte Carlo samples in our training algorithm helps improve the performance (this is expected because more Monte Carlo samples lead to low-variance gradient estimator that makes the inner-loop encoder optimization better), but using more Monte Carlo samples in standard VAE training is not sufficient to mitigate "lagging", which means lagging may not be explained by the high variance of gradients alone. 
+
+While we do think that high variances of the gradients might partially contribute to the lagging of encoders, at this stage we don't have experimental evidence about if a better gradient estimator (as you mentioned) would suffice to address this problem.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HJlErUNt3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reasonable solution to posterior collapse but needs uncertainty quantification and more effort on baselines and debunking alternative explanations</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=HJlErUNt3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1274 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1274 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Review Summary
+--------------
+
+Overall, I think the paper offers a reasonable story for why its proposed innovation -- an alternative scheduling of parameter-specific updates where encoder parameters are always trained to convergence during early iterations -- might offer a reliable way to avoid posterior collapse that is far faster and easier-to-implement than other options that require some per-example iterations (e.g. semi-amortized VAE). My biggest concerns are that relative performance gains (in bound quality) over alternatives are not too large and hard to judge as significant because no uncertainty in these estimates is quantified. Additionally, I'd like to see more careful evaluation of the KL annealing baseline and more attention to within-model comparisons (do you really need to update until convergence?).
+
+Given the method's simplicity and speed, I think with a satisfactory rebuttal and plan for revision I would lean towards acceptance.
+
+Paper Summary
+-------------
+The paper investigates a common problem known as "posterior collapse" observed when training generative models such as VAEs (Kingma &amp; Welling 2014) with high-capacity neural networks. Posterior collapse occurs when the encoder distribution q(z|x) (parameterized by a NN) becomes indistinguishable from the generative prior on codes p(z), which is often a local optima of the VI ELBO objective. While other better fixed points exist, once this one is reached during optimization it is hard to escape using the typical local gradient steps for VAEs that jointly update the parameters of an encoder and a decoder with each gradient step. 
+
+The proposed solution (presented in Alg. 1) is to avoid joint gradient updates early in training, and instead use an alternating update scheme where after each single-gradient-step decoder parameter update, the encoder is updated with as many gradient steps as are needed to reach convergence. This proposed scheme, which the paper terms "aggressive updates", forces the encoder to better approximate the true posterior p(z|x) at each step.
+
+Experiments study a synthetic task where visualizing the evolution of true posterior mean of p(z|x) side-by-side with approximate q(z|x) is possible in 2D, as well as benchmark comparisons to several other methods that address posterior collapse on text modeling (Yahoo, Yelp15) and image modeling (Omniglot). Studied baselines include annealing the KL term in the VI objective, the \beta VAE (which keeps the KL term fixed with a weight \beta), and semi-amortized VAEs (SA-VAEs, Kim et al. 2018). The presented approach is said to reach better values of the log likelihood while also being ~10x faster to train than the Kim et al. approach on large datasets.
+
+Significance and Originality
+----------------------------
+There exists strong interest in deploying amortized VI to fit sophisticated models efficiently while avoiding posterior collapse, so the topic is definitely relevant to ICLR. Certainly solutions to this issue are welcome, though I worry with the crowded field that performance is starting to saturate and it is becoming hard to identify significant vs. marginal contributions. Thus it's important to interpret results across multiple axes (e.g. speed and heldout likelihood).
+
+The paper does a nice job of highlighting related work on this problem, and I'd rate its methodological contributions as clearly distinct from prior work, even though the eventual procedure is simple.
+
+The closest related works in my view are:
+
+* Krishnan et al. AISTATS 2018, where VAE joint-training algorithms for nonlinear factor analysis problems are shown to be improved by an algorithm that uses the encoder NN as an *initialization* and then doing several standard SVI updates to refine per-example parameters. Encoder parameters are updated via gradient updates, *after* the decoder parameters are updated (not jointly).
+
+* SA-VAEs (Kim et al. ICML 2018) which studies VAEs for deep text models and develops an algorithm that at each a new batch uses the encoder to initialize per-example parameters, updates these via several iterations of SVI, then *backpropagates* through those updates to compute a gradient update of the encoder NN.
+
+Compared to these, the detailed algorithm presented in this work is both distinct and simpler. It does not require any per-example parameter updates, instead it only requires a different scheduling of when encoder and decoder NN updates occur. 
+
+
+Concerns about Technical Quality (prioritized)
+----------------------------------------------
+
+## C1: Without error bars in Table 1 and 3, hard to know which gaps are significant
+
+Are 500 Monte Carlo samples enough to be sure that the numbers reported in Table 1 are precise estimates and not too noisy? How much error is there in the estimation of various quantities like the NLL or the KL if we repeated 500-MC samples 5x or 10x or 25x? My experience is that even with 100 or more samples, evaluations of the ELBO bound for classic VAEs can differ non-trivally. I'd like to see evidence that these quantities are estimated with certainty, or (even better) some direct reporting of the uncertainties across several estimates.
+
+
+## C2: Baseline comparison to KL annealing needs to be more thorough
+
+The current paper dismisses the strategy that annealing the KL term as ineffective in addressing posterior collapse (e.g. VAE + anneal has a 0.0 KL term in Table 1). However, it's not clear that a reasonable annealing schedule was used, or even that any reasonable effort was made to try more than one schedule. For example, if we set the KL term to exactly 0.0 weight, the optimization has no incentive to push q towards the prior, and thus posterior collapse *cannot* occur. It may be that this leads to other problems, but it's unclear to me why a schedule that keeps the KL term weight exactly at 0 for a few updates and then gradually increases the weight should lead to collapse. To me, the KL annealing story is much simpler than the presented approach and I think as a community we should invest in giving it a fair shot. If the answer is that annealing takes too long or the schedule is tough to tune, that's sensible, but I think the claim that annealing still leads to collapse just means the schedule probably wasn't set right.
+
+Notice that "Ours" is improved by "Ours+Annealing" for 2 datasets in Table 1. So annealing *can* be effective. Krishnan et al. 2018's Supplementary Fig. 10 suggests that if annealing is slow enough (unfolding over 100000 updates instead of 10000 updates), then KL annealing will get close to pure SVI in effective, non-collapsed posterior approximation. The present paper's Sec. B.3 indicates that the attempted annealing schedule was 0.1 to 1.0 linearly over 10 epochs with batch size 32 and train set size 100k, which sounds like only 30k updates of annealing were performed. I'd suggest comparing against KL annealing that both starts with a smaller weight (perhaps exactly at 0.0) and grows much slower.
+
+
+## C3: Results do not analyze variability due to random initialization or random minibatch traversal
+
+Many factors can impact the final performance values of a model trained via VI, including the random initialization of its parameters and the random order of minibatches used during gradient updates. Due to local optima, often best practice is to take the best of many separate initializations (see several figures in Bishop's PRML textbook). The present paper doesn't make clear whether it's reporting single runs or the best of many runs. I suggest a revision is needed to clarify. Quantifying robustness to initialization is important.
+
+
+## C4: Results do not analyze relative sensitivity of encoder and decoder to using the same learning rate
+
+One possible explanation for "lagging" might be that the gradient vectors of the encoder and the decoder have different magnitudes, and thus using the same fixed learning rate for both (as seems to be done from a skim of Sec. B) might not be optimal. Perhaps a quick experiment that separately tunes learning rates of encoder and decoder is necessary? If the learning rate for encoder is too small, this could easily explain the lagging when using joint updates.
+
+
+## C5: Is it necessary to update until convergence? Or would a fixed budget of 25 or 100 updates to the encoder suffice?
+
+In Alg. 1, during the "aggressive" phase the encoder is updated until convergence. I'd like to see some coverage of how long this typically takes (10 updates? 100 updates?). I'd also like to know if there are significant time-savings to be had by not going *all* the way to convergence. It's concerning that in Fig. 1 convergence on a toy dataset takes more than 2000 iterations.
+
+
+## C6: Sensitivity to the initialization of the encoder is not discussed and could matter
+
+In the synthetic example figure, it seems the encoder is initialized so that across many examples, the typical encoding will be near the origin and thus favored under the prior. Thus, the *initialization* is in some ways setting optimization up for posterior collapse. I wonder if some more diverse initialization might avoid the problem.
+
+
+
+Presentation comments
+---------------------
+
+Overall the paper reads reasonably. I'd suggest mentioning the KL annealing comparison a bit earlier, but otherwise I have few complaints.
+
+I'm not sure I like the chosen terminology of "aggressive" update. The procedure is more accurately a "repeat-until-convergence" update. There's nothing aggressive about it, it's just repeated.
+
+
+Line-by-line Detailed comments
+------------------------------
+
+Citations for "traditional" VI with per-example parameters should go much further back than 2013. For example, Matthew Beal's thesis, work by Blei in 2003 on LDA, or work by MacKay or M.I. Jordan or others even further back.
+
+Alg 1 Line 12: This update should be to \theta (model parameters), not \phi (approx posterior parameters).
+
+Alg 1: Might consider using notation like g_\theta to denote the grad. of specific parameters, rather than have the same symbol "g" overloaded as the gradient of \theta, \phi, and both in the same Algo.
+
+
+Fig. 3: This is interesting, but I think it's missing something as a visualization of the algorithm. There's nothing obvious visually that indicates the encoder update involves *many* steps, but the decoder update is only one step. I'd suggest at least turning each vertical arrow into *many* short arrows stacked end-to-end, indicating many steps. Also use a different color (not green for both).
+
+Fig. 4: Shows various quantities like KL(q, prior) traced over optimization. This figure would be more illuminating if it also showed the complete ELBO objective and the expected log likelihood term. Then it would be clear why annealing is failing to avoid posterior collapse.
+
+Table 1: How exactly is the negative log likelihood (NLL) computed? Is it the expected value of the data likelihood: -1 * E_q[log p(x|z)]? Or is it the variational lower bound on marginal likelihood? 
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Skxyv5K5pQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response [1/2]</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=Skxyv5K5pQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1274 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1274 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We appreciate your thorough review and detailed comments! Your suggestions will be helpful in improving the paper. We are currently running additional experiments to address some of your questions and comments. This is taking some time and we will submit a revised version once we collect all the results. For now, we will quickly answer some questions, and describe our revision plan to address your concerns. 
+
+## Q1: Uncertainty quantification for random initialization or random minibatch traversal
+
+The reported results in the submitted paper are from single runs. We agree that measuring robustness to initialization is important. We are currently re-running all the models with multiple random seeds. After these experiments finish, we will report the mean and variance across different runs. In our implementation, different random seeds lead to different initialization and minibatch traversal.
+
+
+## Q2: NLL approximation and its uncertainty quantification
+
+We approximated log likelihood with 500 importance weighted samples as in [1], which does yield (an Monte Carlo estimate of) a lower bound on marginal likelihood. We will revise to make this more clear to readers. This lower bound is tighter than ELBO as shown in [1] (we also reported both NLL and ELBO values in Appendix C). To measure the uncertainty in these evaluation metrics due to their Monte Carlo estimates, in the revised version we report variance from repeating evaluation multiple times on each trained model.
+
+[1] Burda, Yuri, Roger Grosse, and Ruslan Salakhutdinov. "Importance weighted autoencoders."
+
+
+## Q3: Baseline comparison to KL annealing
+
+We agree that a more thorough comparison with KL annealing should be included. Past experience with unsuccessful attempts at KL annealing on several practical problems was actually one motivation for the current work. However, in many cases KL annealing does work well when tuned properly. We will be sure to include a more complete comparison with various KL annealing strategies in the revised version -- we have some practical experience here and will describe the tuning procedures in detail in revision. It is worth noting that one strength of the proposed approach in comparison with KL annealing is that it requires far less tuning in practice because it has fewer hyperparameters than annealing strategies do. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BJeOQ5YqTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response [2/2]</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=BJeOQ5YqTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1274 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1274 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">## Q4: Separate learning rates of encoder and decoder
+
+This is a good point! When we first observed the "lagging" behaviour we also found that the gradient of the encoder and decoder had very different magnitudes. We tried doing exactly what you propose: tuning the learning rates for the encoder and decoder separately, as well as experimenting with alternative optimization methods as potential solutions -- but nothing worked. We realize that readers might be curious about this matter, thus we will include further discussion in the paper and additional negative experimental results as support.
+
+
+## Q5: Is it necessary to update until convergence ?
+
+This is a good question! In practice, of course, we never reach *exact* convergence, thus the question is really about how close to convergence is required in the inner loop update. In our current implementation, we break the inner loop when the ELBO objective stays the same or decreases across 10 iterations. Note that we don't perform separate learning rate decay in the inner loop so this convergence condition is not strict, but empirically we found it to be sufficient. Across all four datasets (on synthetic, Yahoo, Yelp, and OMNIGLOT) in practice this yields roughly 30 - 100 updates per inner loop update. We also want to clarify that Fig.2 doesn't imply our approach takes 2000 updates to converge in one single inner loop, the notation "iter" in Figure 2 represents outer loop iterations instead of inner loop iterations (we will clarify this in future revisions -- thank you for pointing out the ambiguity).
+
+In preliminary experiments we tried using a fixed budget of encoder updates, similar to the approach you suggest. While not reported in the current revision, our takeaway from these experiments was the following: (1) Generally speaking, the final model fit is better when the encoder update is near convergence. (2) Performing a sufficient number of updates above some threshold in the inner loop is *critical* for avoiding posterior collapse -- we found that this "sufficient number" is sensitive to dataset and model architecture. (3) We found, empirically, that the minimal fixed budget of inner loop iterations required to avoid posterior collapse was not meaningfully smaller than the number of updates resulting from our proposed approach and implementation. Therefore, we concluded that the fixed budget approach would not lead to worthwhile speedups in practice, and that our simpler proposed approach represents a good tradeoff between performance and speed. We will include this discussion in future revisions.
+
+## Q6: Initialization of encoder
+
+We had also considered whether a different initialization for the encoder might help avoid posterior collapse, but did not conduct experiments to test this hypothesis. Considering your concern, we plan to at least conduct experiments where we initialize all the encoder parameters to positive values (so that the approximate posterior mean is not located at origin upon initialization). We will discuss this point in future revisions and include experimental results if they are interesting. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1xC-qYcTQ" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=S1xC-qYcTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper1274 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HylWdCAO2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=HylWdCAO2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1274 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1274 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This work looks into the phenomenon of posterior collapse, and shows that training the inference network more can reduce this problem, and lead to better optima. The exposition is clear. The proposed training procedure is simple and effective. Experiments were carried out in multiple settings, though I would've liked to see more analysis. Overall, I think this is a nice contribution. I have some concerns which I hope the authors can address.
+
+Comments:
+ - I think [1] should be cited as they first mentioned Eq 5 and also performed similar analysis.
+ - Were you able to form an unbiased estimate for the log of the aggregate posterior which is used extensively in this paper (e.g. MI)? Some recents works also estimate this but they use biased estimators. If your estimator is biased, please add a sentence clarifying this so readers aren't mislead.
+ - Apart from KL and (biased?) MI, a metric I really would've liked to see is the number of active/inactive units as measured in [2]. I think this is a more reliable and very explainable metric for posterior collapse, whereas real-valued information-theoretic quantites can be hard to interpret.
+
+Questions:
+ - Has this approach truly completely solved posterior collapse? (e.g. can you show that the mutual information between z and x is maximal or the number of inactive units is zero?) 
+ - How robust is this approach to the effects of randomness during training such as initialization and use of minibatches? (e.g. can you show some standard deviations of the metrics you report in Table 1?)
+ - (minor) I wasn't able to understand why the top right is optimal, as opposed to anywhere on the dashed line, in Figures 1(b) and 3?
+
+[1] Hoffman, Matthew D., and Matthew J. Johnson. "Elbo surgery: yet another way to carve up the variational evidence lower bound." 
+[2] Burda, Yuri, Roger Grosse, and Ruslan Salakhutdinov. "Importance weighted autoencoders."</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rke9-oK5TX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=rke9-oK5TX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1274 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1274 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comments! Your review is helpful and we are currently running additional experiments based on some of your suggestions. This will take some time and we will submit a revised version once we collect the results. For now we will quickly answer some of your questions, and describe our revision plan given your concerns. 
+
+
+## Q1: Estimator of MI
+
+The estimator we used for MI is biased because the estimator for the log of the aggregate posterior is biased. More specifically, it is a Monte Carlo estimate of an upper bound on MI. In future revisions we will be sure to provide more details and point to related work that uses the same estimate of MI. Thanks for catching the lack of detail here -- this was an oversight on our part. 
+
+## Q2: Active units
+
+Great idea! We are currently re-running experiments and keeping track of active units. In the revised version, we will include this measure for all models in Table 1.
+
+
+## Q3: Robustness to the effects of randomness
+
+We agree that quantifying robustness to initialization is important. We are currently re-running all the models with different random seeds. Once these experiments complete, we will update the draft with mean and variance across random restarts. In our implementation, different random seeds lead to different initialization and minibatch traversal.
+
+## Q4: Presentation suggestions
+
+(1) Thanks for pointing out this related paper [1]. We will be sure cite and include it in the discussion of related work.
+
+(2) Actually, the optimum in this cartoon might be anywhere on the dashed x=y line depending on the data and specific shape of the objective. We intended Figure 1(b) to convey that the global optimum is not located at origin, that the origin is a local optimum, and that the global optimum is somewhere on the dashed x=y line. In Figure 3 we arbitrarily chose to show a point that happens to move to top right, which must had added to the confusion. Thanks for catching this ambiguity. We will clarify the meaning of these figures in future revisions.
+
+[1] Hoffman, Matthew D., and Matthew J. Johnson. "Elbo surgery: yet another way to carve up the variational evidence lower bound." 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Byl9JZ0u27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Neither the objective nor the model but the optimization procedure may be the key to training VAE</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=Byl9JZ0u27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1274 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1274 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">General:
+The paper tackles one of the most important problems of learning VAEs, namely, the posterior collapse. Typically, this problem is attacked by either proposing a new model or modifying the objective. Interestingly, the authors considered a third option, i.e., changing the training procedure only, leaving the model and the objective untouched. Moreover, they show that in fact the modified objective (beta-VAE) could drastically harm training a VAE.
+
+I find the idea very interesting and promising. The proposed algorithm is very easy to be applied, thus, it could be easily reproduced. I believe the paper should be presented at the ICLR 2019.
+
+Pros:
++ The paper is written in a lucid manner. All ideas are clearly presented. I find the toy problem (Figure 2) very illuminating.
++ It might seem that the idea follows from simple if not even trivial remarks. But this impression is fully due to the fashion the authors presented their idea. I am truly impressed by the writing style of the authors.
++ I find the proposed approach very appealing because it requires changes only in the optimization procedure while the model and the objective remain the same. Moreover, the paper formalizes some intuition that could be found in other papers (e.g., (Alemi et al., 2018)).
++ The presented results are fully convincing.
+
+Cons:
+- It would be beneficial to see samples for the same latent variables to verify whether the model utilizes the latent code. Additionally, a latent space interpolation could be also presented.
+- The choice of the stopping criterion seems to be rather arbitrary. Did the authors try other methods? If yes, what were they? If not, why the current stopping criterion is so unique?
+- The proposed approach was applied to the case when the prior is a standard Normal. What would happen if a different prior is considered?
+
+Neutral remark:
+* Another problem, next to the posterior collapse, is the “hole problem” (see Rezende &amp; Viola, “Taming VAEs”, 2018). A natural question is whether the proposed approach also helps to solve this issue? One possible solution to that problem is to take the aggregated posterior as the prior (e.g., (Tomczak &amp; Welling, 2018)) or to ensure that the KL between the aggregated posterior and the prior is small. In Figure 4 it seems it is the case, however, I am really curious about the authors’ opinion on this matter.
+* Can the authors relate the proposed algorithm to the wake-sleep algorithm? Obviously, the motivation is different, however, I find these two approaches a bit similar in spirit.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJgDt_Yq67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=BJgDt_Yq67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1274 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1274 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your encouraging comments and advice! Currently we are running additional experiments to address some of the reviewer comments. This is taking some time and we will submit a revised version once we have collected all the results. For now, we will quickly answer some of your questions. 
+
+## Q1: Latent variable interpretation
+
+We agree that providing samples would be informative. We plan to add these experiments, along with additional analysis aimed at uncovering how the latent codes are used by the generative model.
+
+## Q2: Choice of stopping criterion
+
+In addition to the presented stopping criterion, we first tried switching back to traditional VAE training after a fixed number of epochs -- i.e. early stopping. We found that this approach can also work well, but introduces an additional hyperparameter (number of epochs) that is sensitive to datasets and model architectures. We found that stopping too early hurts the performance, and stopping too late of course hurts speed. This tradeoff needs to be tuned if epochs are specified explicitly.
+
+Intuitively, posterior collapse (and a “lagging” encoder) correspond to a lack of “dependence” between posterior samples and observed data. Based on its use in related literature, we experimented with mutual information (MI) as a simple quantitative surrogate for “dependence”. Stopping the aggressive training phase after MI stops increasing monotonically worked well in practice and avoided the need for data or model dependent tuning. Across multiple settings we found the proposed stopping criterion doesn't sacrifice performance and maintains fast training. We agree that further analysis would be interesting and suspect that similar measurements of dependence and related stopping criteria might also strike a successful balance.
+
+## Q3: Different prior
+
+The effect of our approach under different priors would certainly be interesting to see, but is a bit beyond the scope of the current paper. We may explore this direction in future work.
+
+
+## Q4: Hole problem
+
+Our analysis and empirical results were focused specifically on the problem of posterior collapse. We agree, however, that it would be interesting to explore how the proposed procedure (and related modifications to optimization) might affect other known issues with VAE. We hope to explore this in the future welcome any suggestions for how to do so!
+
+Regarding the “hole” problem: We were not aware of this paper, thank you for sharing it with us. Our current experimental results demonstrate that the proposed approach is able to maintain a relatively small KL(q(z) | p(z)), but this real-valued quantity is hard to interpret. We think that it is necessary to visualize the aggregated posterior and prior (or use another more direct metric) to check if the proposed approach helps solve the "hole problem". 
+
+## Q5: Connection to the wake-sleep algorithm
+
+Good point! The proposed algorithm is similar to the wake-sleep algorithm in the sense that we split encoder and decoder optimization into separate phases. Essentially, both the proposed algorithm and the wake-sleep algorithm are instances of block-coordinate ascent. The decoder update in the proposed method is analogous to the wake phase: the ELBO objective corresponds to the wake phase objective with an additional regularization term from the prior on code z. The encoder update in the proposed method is analogous to the sleep phase where decoder is fixed -- though, here, the ELBO objective is somewhat different from the sleep phase objective which aims to recover hidden code z instead of observations x.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJe0psx69Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>a very nice paper that proposes a simple solution to address posterior collapse</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=SJe0psx69Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Yoon_Kim1" class="profile-link">Yoon Kim</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1274 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi, thanks for this great paper! Addressing posterior collapse in VAEs is an important issue in the field.
+
+I particularly liked the breakdown of posterior collapse into two failure modes: inference collapse (where KL(p(z | x), p(z)) &gt; 0 but KL(q(z | x), p(z)) = 0) and model collapse (where KL(p(z | x), p(z)) = 0). This paper shows that inference collapse happens first during optimization, and proposes a simple yet robust way to mitigate this (update the inference network more aggressively when collapse is happening). 
+
+I had a small question: for Figure 2, I wonder if it is possible to directly estimate the KL's instead of the means?
+i.e. replace the vertical axis with KL(q(z | x), p(z))  and the horizontal axis with KL(p(z | x), p(z)). I could be wrong, but it seems like KL(p(z | x), p(z))  should be estimable by obtaining samples from p(z|x) with MCMC and calculating 
+
+1/M \sum_{m=1}^M log [p(z_m | x)/p(z_m)] = 1/M \sum_{m=1}^M log [p(x|z_m) / p(x)], 
+
+where z_m are samples from p(z|x) and p(x) is estimated with importance samples (from the prior). This estimator would be biased but seems like it would converge a.s. to KL(p(z|x), p(z)) under mild conditions. I would image the plots would remain roughly unchanged, but this might generalize existing plots to consider more than just the first moments.
+
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1l0hU_pcQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your comments and advice, and the KL plots may not be a better choice than the first moments plots</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=r1l0hU_pcQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1274 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1274 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your encouraging comments and advice !
+
+I think you are right that KL(p(z|x), p(z)) is estimable with the sampling method you gave. Also, we agree that plotting with KL terms is able to generalize the plots to consider more than the first moments and even higher dimensions of latent variables. 
+
+However, I think the KL value plots miss to include the distance information between q(z|x) and p(z|x), which is crucial for the analysis in this paper. Two distributions that have similar KL divergence to prior might have very different moments. This distance information is important to convey in posterior space plots since we are emphasizing LAGGING inference distribution compared with true model posterior and the aggressive training of inference net is to make q(z|x) and p(z|x) closer. We cannot really say that q(z|x) and p(z|x) is close given KL(q(z|x), p(z)) and KL(p(z|x), p(z)) are close, which makes the diagonal line in these plots meaningless.
+
+Through Figure 2 and Figure 3 we want to show the moving trajectory of q(z|x) and p(z|x), not only their relationship with prior p(z) (which KL plots can reflect), but also the relationship between themselves (which KL plots cannot reflect). Due to challenge of accurate visualization, we compromized to characterize distribution with the first moments, which we believe is a reasonable approximation given the plots and quantitative results on real dataset in experiments.
+
+It might be worth visualizing both the first moments and KL values. I guess the plots for basic VAE and our approach might remain roughly unchanged, but the plots for other regularization methods like beta-VAE may be very different (we didn’t show this in the paper though). We will consider adding  KL plots in future revisions.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJgNLcqA97" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>good point!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylDfnCqF7&amp;noteId=rJgNLcqA97"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Yoon_Kim1" class="profile-link">Yoon Kim</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1274 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Ah yes, that's a good point. The diagonals in Figure 2 are certainly nice to see :). Thanks for the quick answer!
+
+(Maybe another way to visualize would be to plot KL(q(z | x), p(z)), KL(q(z | x), p(z |x)), and KL(p(z|x), p(z)) averaged over some batch of x's as training progresses. But it seems like Figure 2 shows the phenomenon pretty clearly regardless)
+
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

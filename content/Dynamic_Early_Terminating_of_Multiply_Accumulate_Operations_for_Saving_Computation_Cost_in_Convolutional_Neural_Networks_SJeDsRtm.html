@@ -1,0 +1,400 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Dynamic Early Terminating of Multiply Accumulate Operations for Saving Computation Cost in Convolutional Neural Networks | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Dynamic Early Terminating of Multiply Accumulate Operations for Saving Computation Cost in Convolutional Neural Networks" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SJe8DsR9tm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Dynamic Early Terminating of Multiply Accumulate Operations for..." />
+      <meta name="og:description" content="Deep learning has been attracting enormous attention from academia as well as industry due to its great success in many artificial intelligence applications. As more applications are developed, the..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SJe8DsR9tm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Dynamic Early Terminating of Multiply Accumulate Operations for Saving Computation Cost in Convolutional Neural Networks</a> <a class="note_content_pdf" href="/pdf?id=SJe8DsR9tm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019dynamic,    &#10;title={Dynamic Early Terminating of Multiply Accumulate Operations for Saving Computation Cost in Convolutional Neural Networks},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SJe8DsR9tm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=SJe8DsR9tm" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Deep learning has been attracting enormous attention from academia as well as industry due to its great success in many artificial intelligence applications. As more applications are developed, the need for implementing a complex neural network model on an energy-limited edge device becomes more critical. To this end, this paper proposes a new optimization method to reduce the computation efforts of convolutional neural networks. The method takes advantage of the fact that some convolutional operations are actually wasteful since their outputs are pruned by the following activation or pooling layers. Basically, a convolutional filter conducts a series of multiply-accumulate (MAC) operations. We propose to set a checkpoint in the MAC process to determine whether a filter could terminate early based on the intermediate result. Furthermore, a fine-tuning process is conducted to recover the accuracy drop due to the applied checkpoints. The experimental results show that the proposed method can save approximately 50% MAC operations with less than 1% accuracy drop for CIFAR-10 example model and Network in Network on the CIFAR-10 and CIFAR-100 datasets. Additionally, compared with the state-of- the-art method, the proposed method is more effective on the CIFAR-10 dataset and is competitive on the CIFAR-100 dataset.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Convolutional neural network, Early terminating, Dynamic model optimization</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_H1x3X_mupX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting work but some points need clarification.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJe8DsR9tm&amp;noteId=H1x3X_mupX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper266 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper266 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=H1x3X_mupX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a new method for speeding up convolutional neural networks. Different from previous work, it uses the idea of early terminating the computation of convolutional layers. The method itself is intuitive and easy to understand. By sorting the parameters in a descending order and early stopping the computation in a filter, it can reduce the computation cost (MAC) while preserving accuracy.
+
+1. The networks used in the experiments are very simple. I understand that in the formulation part the assumption is that ReLU layer is put directly after convolutional layer. However, in state-of-the-art network, batch normalization layer is put between convolutional layer and ReLU non-linearity. It would add much value if the authors could justify the use cases of the proposed method on the widely adopted networks such as ResNet. 
+
+2. I notice that there is a process that sort the parameters in the convolutional layers. However, the authors do not give any time complexity analysis about this process. I would like see how weight sorting influences the inference time.
+
+3. The title contains the word “dynamic”. However, I notice that the parameter e used in the paper is predefined (or chosen from a set predefined of values). So i am not sure it is appropriate to use the word “dynamic” here. Correct me if i am wrong here.
+
+4. In the experiment part, the authors choose two baselines: CP [1] and FPEC [2]. However, to my knowledge, their methods are performed on different networks (for [1]: different datasets). Also, the pruned models from their methods are carefully designed using sensitivity analysis. So I am curious how are the baselines designed in your experiments.
+
+Overall this paper is well-written and points a new direction to speeding up neural networks. I like the analysis in section 3.
+
+I will consider revising the score if the authors can address my concerns.
+
+[1] Channel Pruning for Accelerating Very Deep Neural Networks. He et al., ICCV 2017.
+[2] Pruning Filters for Efficient ConvNets. Li et al., ICLR 2017.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJleS7y-0Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author’s response to AnonReviewer4’s comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJe8DsR9tm&amp;noteId=SJleS7y-0Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper266 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper266 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We appreciate the valuable comments and the efforts of the reviewer on this manuscript. The detailed remarks are very helpful for improving the manuscript. We have made necessary changes to respond to all the comments.
+
+Q1: This paper proposes a new method for speeding up convolutional neural networks. ...
+
+A1: We appreciate this comment.
+
+Q2: The networks used in the experiments are very simple. ...
+
+A2: We appreciate this comment. We think that our method could be extended to deal with the mentioned network. Our current method compare the intermediate result at the checkpoint to 0 to determine whether a MAC process should stop or not. If the result is less than 0, we terminate the MAC process. To our understanding, the batch normalization method normalizes the outputs of the convolutional layers according to four learned parameters, mu, sigma, gamma, and beta, and then passes the results to the following activation layers. One possible solution to address the issue is to apply batch normalization to the intermediate result before it is compared to 0. Another possible solution is to compare the intermediate result to a non-zero value. The value is determined according to the four learned parameters, so that when the intermediate result is less than the value, it implies that the normalized intermediate result will be less than 0. Additionally, since the final fine-tuning process updates the four learned parameters, the value to be compared would be updated as well.
+
+Q3: I notice that there is a process that sort the parameters in the convolutional layers. ...
+
+A3: We appreciate this comment. As AnonReviewer1 mentioned, current GPUs have been well optimized for convolution operations. However, to implement the proposed technique, we need to design a new function to replace the Cuda function CuBLAS SGEMM for MACs. Thus, our method actually does not speed up the inference time. In our implementation, we use a look-up table to record the indexes of the sorted weights, so that we only need to sort the weights of a filter once. In addition, we use a counter for checking whether the checkpoint is reached. These extra efforts all cause time overhead. In fact, we think that the main benefit of the proposed method should be that we can turn off the unused GPU nodes or threads to save power/energy consumption. However, since the proposed method is currently executed on a workstation, it is difficult to measure the saved power/energy consumption. Thus, we use MAC operations as the measuring criteria in the experiments.
+We have conducted a simple experiment to demonstrate the time overhead of the proposed method. We used the optimized (ours) and the non-optimized (baseline) C10-Net and NiN to test the CIFAR-10 testing data and recorded the average execution time for a batch of 200 input images. The following table summarizes the results comparing the baseline and ours.
+
+---------------------------------------------
+               |   C10-Net,  |       NiN,     |
+               |   et = 10%  |     et = 5%  |
+---------------------------------------------
+Baseline|116.554 ms|879.404 ms|
+---------------------------------------------
+Ours      |585.659 ms|6141.77 ms |
+---------------------------------------------
+
+Q4: The title contains the word “dynamic”. ...
+
+A4: We appreciate this comment. The parameter et is predefined by the user for trading off inference accuracy and MAC operations. In this paper, we use the word “dynamic” because whether a MAC process early stops or not is conditional and related to the input images. That is, a MAC process may early stop for one input image, but does not for another input image. We have revised the introduction section on Page 2 to clarify the word “dynamic”.
+
+Q5: In the experiment part, the authors choose two baselines: CP [1] and FPEC [2]. ...
+
+A5: We appreciate this comment. The programs of CP [1] and PFEC [2] we used in the experiments were downloaded from the github website [3][4]. They were released by the authors or had been confirmed that they can reproduce the experiments in the original papers [1][2]. Both the CP and the PFEC programs allow a user to determine the ratio of filters to be dropped. Thus, in our experiments, the results of CP and PFEC were obtained by applying several different ratios.
+Furthermore, in the future, we will try to apply our method to more networks and datasets, such as ResNet, to show that our extended method works well for the batch normalization operation and to have a more comprehensive comparison with CP and PFEC.
+
+[1] He, Yihui, et al. "Channel pruning for accelerating very deep neural networks." ICCV. Vol. 2. No. 6. 2017.
+[2] Li, Hao, et al. "Pruning filters for efficient convnets." arXiv:1608.08710. 2016.
+[3] CP: <a href="https://github.com/yihui-he/channel-pruning" target="_blank" rel="nofollow">https://github.com/yihui-he/channel-pruning</a>
+[4] PFEC: https://github.com/slothkong/DNN-Pruning
+
+Q6: Overall this paper is well-written and points a new direction to speeding up neural networks. ...
+
+A6: We appreciate this comment.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rylgW2I53m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Unclear if it will save wall clock time.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJe8DsR9tm&amp;noteId=rylgW2I53m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper266 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper266 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper motivates itself by observing that not all convolutional weights are required to make an accurate prediction. In the introduction the authors envision a system similar to a cascaded classifier [Viola and Jones 2001] (I draw this conclusion not the paper). However the wording of the introduction is not clear or it does not align with what is presented in the paper.
+
+The approach in the paper does not perform early stopping dynamically during the feedforward phase. The approach removes weights which do not impact the accuracy after training has completed and the fine tunes the resulting network.
+
+The clarity of the introduction must be addressed however the work is still interesting. I recommend the authors try to make the introduction as accessible as possible.
+
+
+Also there are very general statements like "The activation layer introduces non-linearity into the system for obtaining better accuracy." which do not contribute to the message of the paper. The paper will be fine without these statements. Shorter is better.
+
+Section 3 is good as a motivating example. However the conclusion “Thus, our focus is to develop an effective method of choosing a good intermediate result for saving more MAC operations with less accuracy drop” is not very clear. More insights written hear would be better.
+
+One major flaw is that no analysis with respect to time of computation was performed. GPUs offer the advantage of being optimized for convolutions so it is possible that there is no speedup. Because of this it is unclear if the method would save time. The results clearly show individual computations (MACs) are reduced but it is not clear how this correlates with wall clock time.
+
+Why do you start with the centre layers? I understand the heuristic you’re using, that the middle layers won’t have high or low-level features, and that they won’t break the other layers as badly if you modify them, but I feel like this is core to your method and it’s not adequately justified. I’d like to see some experiments on that and whether it actually matters to the outcome. Also, you don’t say if you start at the middle then go up a layer, or down a layer. I think this matters since your proposed C10-Net has only 3 convolutional layers.
+
+All the filters in the same layer share a common checkpoint. Is that a good idea? What is the cost of doing this on a per-filter level? What is the cost on a per-layer level? Discussing runtime estimates for the added computation at training would make it more clear what the cost of the method is.
+In section 4.4.3. you mention that the majority of weight distributions in CNNs follow the Gaussian manner. Could you cite something of this? You might also want to move that in Step 1 (section 4.1.), since it seems to be your motivation for selection of checkpoint locations (5% and 32%) and I had no idea why you selected those values at that point.
+
+Typos:
+Typo on page 3: “exploits redundancies inter feature maps to prune filters and feature maps”
+
+Structural:
+Maybe section 4.3 should be part of the description of Section 4. Proposed Method, not its own subsection.
+
+Maybe table 2 should go at the end of section 4.4.1, because you describe it the error and columns in section 4.4.1.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryezAoybCX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author’s response to AnonReviewer1’s comments - 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJe8DsR9tm&amp;noteId=ryezAoybCX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper266 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper266 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Q8: All the filters in the same layer share a common checkpoint. ...
+
+A8: We appreciate this comment. To set a checkpoint, we currently apply all the images in the training data set to check if it is applicable. If there are n layers, in the worst case, we need n*2 (2 possible checkpoint locations) rounds of testing all the training images. However, if we set checkpoints on the per-filter level, we need m*2 rounds, where m is the filter count which is usually far larger than n. For example, the C10-Net has three convolutional layers (n=3) and 128 filters (m=128). We believe that setting checkpoints on the per-filter level should be more effective, because the error tolerance of each filter should be different. However, it is very time-expensive and could be unaffordable for large networks. One possible solution to address the issue is to reduce the applied images in each round, while it may affect the measured accuracy drop. We have clearly stated why determining checkpoints on a per-filter level is very time-expensive on Pages 4 and 5 in the revised paper.
+As for the concern on weight distributions, some works [1-3] claim that the weight distributions in DNNs can be formulated as a Normal/Gaussian distribution. Additionally, the Batch Normalization method [4] uses Gaussian-initialized weights to reinforce DNN training. We also conducted normal test with p-value 10e-3 and found that most weight distributions pass through the hypothesis region. Thus, we believe that the statement that the majority of weight distributions in CNNs follow the Gaussian manner is reasonable.
+Based on the Gaussian distribution of weights, we then use two standard deviation points to determine the checkpoints. Because our method deals with larger-magnitude weights first, we use the second standard deviation point as the first possible checkpoint location (100%-95%=5%). Furthermore, we use the first standard deviation point as the second possible checkpoint location (100%-68% = 32%). 
+Basically, the proposed method is a heuristic and we believe that there must exist other methods (e.g., using other checkpoint locations or more checkpoints) which could be more effective. However, the effectiveness of the heuristic have been demonstrated by the experiments. In the future, we will try to develop a smarter method (maybe a machine learning-based method) to determine the checkpoint locations.
+
+[1] Hinton, Geoffrey E., and Drew Van Camp. "Keeping the neural networks simple by minimizing the description length of the weights." Proceedings of the sixth annual conference on Computational learning theory. ACM, 1993. 
+[2] Salimans, Tim, and Diederik P. Kingma. "Weight normalization: A simple reparameterization to accelerate training of deep neural networks." Advances in Neural Information Processing Systems. 2016.
+[3] Giryes, Raja, Guillermo Sapiro, and Alexander M. Bronstein. "Deep neural networks with random gaussian weights: A universal classification strategy?." IEEE Trans. Signal Processing 64.13 (2016): 3444-3457.
+[4] Ioffe, Sergey, and Christian Szegedy. "Batch normalization: Accelerating deep network training by reducing internal covariate shift." arXiv preprint arXiv:1502.03167 (2015).
+
+Q9: Typo on page 3: “exploits redundancies inter feature maps to prune filters and feature maps”
+
+A9: We appreciate this comment. We have corrected the typo in the revised version.
+
+Q10: Maybe section 4.3 should be part of the description of Section 4. Proposed Method, not its own subsection. 
+
+A10: We appreciate this comment. We will adopt the suggestion to merge Section 4.3 into Section 4.
+
+Q11: Maybe table 2 should go at the end of section 4.4.1, because you describe it the error and columns in section 4.4.1. 
+
+A11: We appreciate this comment. We will move Table 2 to the suggested location.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1ebtiJZC7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author’s response to AnonReviewer1’s comments - 2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJe8DsR9tm&amp;noteId=S1ebtiJZC7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper266 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper266 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Q7: Why do you start with the centre layers? ...
+
+A7: We appreciate this comment. The original heuristic is based on our inference that the convolutional layers near the inputs deal with lower-level features and the convolutional layers near the outputs have larger impacts on the outputs, and thus they usually have a smaller error tolerance. Therefore, we start from the center layer, and then go to the layer near the input and then the layer the output. We have clarified the heuristic on Page 5 in the revised paper.
+To show the effectiveness of the proposed heuristic, we further applied two additional heuristics: one starts from the first layer to the last layer and the other one starts from the last layer to the first layer. The experimental results on the set checkpoint location for each convolutional layer, the network accuracy and the conducted MAC count are shown in the following tables. In the experiments, the parameter et is set to 10% for C10-Net and 5% for NiN, and the benchmark dataset is the CIFAR-10 dataset.
+For C10-Net, the experimental results show that the all the three heuristics lead to the same results. The reason could be that C10-Net is too small, so that the optimization order does not affect the results.
+
+C10-Net, et = 10%
+---------------------------------------------------------------------------------
+                                |Conv1|Conv2|Conv3|Accuracy| MACs |
+---------------------------------------------------------------------------------
+Baseline	                |     -     |      -    |     -     |  86.53% |12.40M|
+---------------------------------------------------------------------------------
+Ours (original)      |  32% |  32%  |   5%   |  85.73%  | 6.17M |
+---------------------------------------------------------------------------------
+Ours (first → last) |  32% |  32%  |   5%   |  85.73%  | 6.17M |
+---------------------------------------------------------------------------------
+Ours (last → first) |  32% |  32%  |   5%   |  85.73%  | 6.17M |
+---------------------------------------------------------------------------------
+
+Furthermore, for NiN, the experimental results show that the optimization order affects the final results. The original method and the heuristic starting from the last layer to the first layer lead to the same results. They also achieve a better trade-off ratio, compared with the heuristic starting from the first layer to the last layer.
+
+NiN, et = 5%
+--------------------------------------------------------------------------------------------------------------------------------------------
+                             |Conv1|Cccp1|Cccp2|Conv2|Cccp3|Cccp4|Conv3|Cccp5|Cccp6|Accuracy |   MACs  |
+--------------------------------------------------------------------------------------------------------------------------------------------
+Baseline               |    -     |     -    |     -     |     -     |     -    |     -    |     -     |    -     |    -     |   90.33%  |223.12M|
+--------------------------------------------------------------------------------------------------------------------------------------------
+Ours (original)    |  32% |  32% |   5%   |  32%  |   5%  |   5%  |   5%   |   5%  |   5%  |   89.92%  |117.29M|
+--------------------------------------------------------------------------------------------------------------------------------------------
+Ours (first→last) |   5%  |  32% |   5%   |  32%  |  32% |  32% |   5%   |   5%  |   5%  |  89.27%  |113.75M|
+--------------------------------------------------------------------------------------------------------------------------------------------
+Ours (last→first) |  32% |  32% |   5%   |  32%  |  5%   |   5%  |   5%   |   5%  |   5%  |  89.92%  |117.29M|
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+We believe that the optimization order is an important factor determining the effectiveness of the proposed method. The current method starting from the center to the outer layers should have some room to improve. Thus, we will keep developing a more  effective method.
+On the other hand, we would like to appreciate AnonReviewer3 who suggests a new heuristic, which starts from the layer that has a highest error tolerance to the layer with the lowest error tolerance. The new method has a pre-process that analyzes the error tolerance of each layer, and then it sets checkpoints starting from the layer with the highest error tolerance. Currently, we are looking for a good method to estimate the error tolerance of a layer and conducting some experiments to show its effectiveness. When the experimental results are ready, we will post the results onto the website. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ryeuPukWRm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author’s response to AnonReviewer1’s comments - 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJe8DsR9tm&amp;noteId=ryeuPukWRm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper266 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper266 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We appreciate the valuable comments and the efforts of the reviewer on this manuscript. The detailed remarks are very helpful for improving the manuscript. We have made necessary changes to respond to all the comments.
+
+Q1: This paper motivates itself by observing that not all convolutional weights are required to make an accurate prediction. ...
+
+A1: We appreciate this comment. In fact, the technique “early terminating” proposed in this paper terminates a MAC process before it completes for saving computation cost. The technique is different from that used in [1][2] which early terminates the whole network and makes a prediction directly at an early layer. We have revised the introduction section on Page 2 to clarify the differences as suggested.
+
+[1] Viola, Paul, and Michael Jones. "Rapid object detection using a boosted cascade of simple features." Computer Vision and Pattern Recognition, 2001. CVPR 2001. Proceedings of the 2001 IEEE Computer Society Conference on. Vol. 1. IEEE, 2001.
+[2] Teerapittayanon, Surat, Bradley McDanel, and H. T. Kung. "Branchynet: Fast inference via early exiting from deep neural networks." Pattern Recognition (ICPR), 2016 23rd International Conference on. IEEE, 2016.
+
+Q2: The approach in the paper does not perform early stopping dynamically during the feedforward phase. ...
+
+A2: We appreciate this comment. We say that the proposed technique is dynamic because whether a MAC process early stops or not is related to the input data. That is, a MAC process may early stop for one input image, but does not for another input image.  In addition, we do not remove weights, because the criticality of a weight differs for different input images. As suggested, we have revised the introduction section on Page 2 to clarify the proposed method.
+
+Q3: The clarity of the introduction must be addressed however the work is still interesting. ...
+
+A3: We appreciate this comment. As suggested, we have revised the introduction section on Page 2 to clarify the proposed method and clearly stated the differences of the proposed method compared with previous methods.
+
+Q4: Also there are very general statements like "The activation layer introduces non-linearity into the system for obtaining better accuracy." ...
+
+A4: We appreciate this comment. We have revised the paper as suggested.
+
+Q5: Section 3 is good as a motivating example. ...
+
+A5: We appreciate this comment. We originally would like to emphasize that the proposed idea is promising, and our next step is to address the issue of how to set good checkpoints which lead to more MAC operation saving with less accuracy drop. We have revised the statements to clarify our intention.
+
+Q6: One major flaw is that no analysis with respect to time of computation was performed. ...
+
+A6: We appreciate this comment. We agree that wall-clock-time is an important performance criteria. However, as the reviewer mentioned, current GPUs have been well optimized for convolution operations. Thus, the proposed method actually does not save execution time, but instead spends more time. In our implementation, we design a new function to replace the Cuda function CuBLAS SGEMM, use a counter for checking whether the checkpoint is reached, and use a look-up table to record the indexes of the sorted weights. These modification and extra effort cause the main time overhead. 
+We think that the main benefit of the proposed method is that we can turn off the unused GPU nodes or threads to save power/energy consumption. Since the proposed method is currently executed on a workstation, it is difficult to measure the saved power/energy consumption. Thus, we use MAC operations as the measuring criteria in the experiments. One possible way to address the issue is to port the programs onto a GPU development board, such as NVIDIA Jetson TX2, so that we are able to measure the consumed power/energy. This will be our future work.
+We have conducted a simple experiment to demonstrate the time overhead of the proposed method. We used the optimized (ours) and the non-optimized (baseline) C10-Net and NiN to test the CIFAR-10 testing data and recorded the average execution time of 200 input images. The following table summarizes the results comparing the baseline and ours.
+
+----------------------------------------------------------------
+               |C10-Net, et = 10%|     NiN, et = 5%     |
+----------------------------------------------------------------
+Baseline|      116.554 ms     |       879.404 ms     |
+----------------------------------------------------------------
+Ours      |       585.659 ms     |       6141.77 ms     |
+----------------------------------------------------------------</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryxtgdYQnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Simple and effective method which might still have room to improve</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJe8DsR9tm&amp;noteId=ryxtgdYQnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper266 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper266 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In convolutional neural networks, a convolutional filter conducts a series of multiply-accumulate (MAC) operations, which is computationally heavy. To save computational cost, this manuscript proposes an algorithm to set a checkpoint in the MAC process to determine whether a filter could terminate early based on the intermediate result. The results empirically demonstrate that the proposed algorithm could save lots of MAC computations without losing too much accuracy.
+
+Significance wise, the results look promising, though it is not always the best method to preserve accuracy while doing the pruning. There are a few experiments where CP is better at preserving accuracy. In addition, it would be great if the manuscript could also compare with other compression methods like low-rank factorization and knowledge distillation. In this manuscript, the best results are roughly 50% MAC savings (which is not equal to the saving of the whole networks) with some accuracy drop. It seems that knowledge distillation could often make the model half size without losing accuracy if properly tuned.
+
+Quality wise, there seems to be some room to improve from a technical point of view. The proposed algorithm always starts from the center layers rather than shallow or deep layers based on the intuition that center layers have minimal influence on final output compared with other layers. This sounds about right, but lacks data support. In addition, even this intuition is correct, it might not be the optimal setting for pruning. We shall start from the layer where the ratio of accuracy drop by reducing one MAC operation is minimal. As a counterexample, if the shallow layer is the most computationally heavy, saving 10% MAC ops might save more computational cost than saving 5% in the center layer while preserving the same accuracy level. 
+
+The above sub-optimality might be further magnified by the fact that the proposed algorithm is greedy because one layer might use up all the accuracy budget before moving on to the next candidate layer as shown in line 7 of Algorithm 1.
+
+The method is quite original, and the manuscript is very well written and easy to follow.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkxRHIDl0X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author’s response to AnonReviewer3’s comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJe8DsR9tm&amp;noteId=SkxRHIDl0X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper266 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper266 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We appreciate the valuable comments and the efforts of the reviewer on this manuscript. The detailed remarks are very helpful for improving the manuscript. We have made necessary changes to respond to all the comments.
+
+Q1: In convolutional neural networks, a convolutional filter conducts a series of multiply-accumulate (MAC) operations, which is computationally heavy. To save computational cost, this manuscript proposes an algorithm to set a checkpoint in the MAC process to determine whether a filter could terminate early based on the intermediate result. The results empirically demonstrate that the proposed algorithm could save lots of MAC computations without losing too much accuracy. 
+
+A1: We appreciate this comment.
+
+Q2: Significance wise, the results look promising, though it is not always the best method to preserve accuracy while doing the pruning. There are a few experiments where CP is better at preserving accuracy. In addition, it would be great if the manuscript could also compare with other compression methods like low-rank factorization and knowledge distillation. In this manuscript, the best results are roughly 50% MAC savings (which is not equal to the saving of the whole networks) with some accuracy drop. It seems that knowledge distillation could often make the model half size without losing accuracy if properly tuned. 
+
+A2: We appreciate this comment. In fact, CP uses low-rank factorization as one of its key techniques. Although we do not compare to a low-rank factorization-based method, our approach should be competitive as well. Furthermore, we do not compare to knowledge distillation, because our approach is compatible with it. They could be combined to achieve better effectiveness.  For example, one can apply our approach to the student network obtained from the knowledge distillation method. We will try to conduct some experiments to see if the combination is promising.
+
+Q3: Quality wise, there seems to be some room to improve from a technical point of view. The proposed algorithm always starts from the center layers rather than shallow or deep layers based on the intuition that center layers have minimal influence on final output compared with other layers. This sounds about right, but lacks data support. In addition, even this intuition is correct, it might not be the optimal setting for pruning. We shall start from the layer where the ratio of accuracy drop by reducing one MAC operation is minimal. As a counterexample, if the shallow layer is the most computationally heavy, saving 10% MAC ops might save more computational cost than saving 5% in the center layer while preserving the same accuracy level. 
+
+A3: We appreciate this comment. We are trying to develop a new method for setting checkpoints based on the suggestion. The new method has a pre-process that analyzes the error tolerance of each layer, and then it sets checkpoints starting from the layer with the highest error tolerance. Currently, we are looking for a good method to estimate the error tolerance of a layer and conducting some experiments to show its effectiveness. When the experimental results are ready, we will post the results onto the website.
+
+Q4: The above sub-optimality might be further magnified by the fact that the proposed algorithm is greedy because one layer might use up all the accuracy budget before moving on to the next candidate layer as shown in line 7 of Algorithm 1. 
+
+A4: We appreciate this comment. We agree with the reviewer that the proposed method for setting checkpoints is greedy and it may suffer from the mentioned issue, although the issue did not happen in the considered cases. We have adopted the reviewer’s suggestion to present a new method. It should be able to mitigate or solve the issue.
+
+Q5: The method is quite original, and the manuscript is very well written and easy to follow.
+
+A5: We appreciate this comment.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>On the Relation Between the Sharpest Directions of DNN Loss and the SGD Step Length | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="On the Relation Between the Sharpest Directions of DNN Loss and the SGD Step Length" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SkgEaj05t7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="On the Relation Between the Sharpest Directions of DNN Loss and the..." />
+      <meta name="og:description" content="Training of deep neural networks with Stochastic Gradient Descent (SGD) typically ends in regions of the weight space, where both the generalization properties and the flatness of the local loss..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SkgEaj05t7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>On the Relation Between the Sharpest Directions of DNN Loss and the SGD Step Length</a> <a class="note_content_pdf" href="/pdf?id=SkgEaj05t7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019on,    &#10;title={On the Relation Between the Sharpest Directions of DNN Loss and the SGD Step Length},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SkgEaj05t7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Training of deep neural networks with Stochastic Gradient Descent (SGD) typically ends in regions of the weight space, where both the generalization properties and the flatness of the local loss curvature depend on the learning rate and the batch size.
+We discover that a related phenomena happens in the early phase of training and study its consequences. Initially, SGD visits increasingly sharp regions of the loss surface, reaching a maximum sharpness determined by both the learning rate and the batch-size of SGD. At this early peak value, an SGD step is on average too large to minimize the loss along the directions corresponding to the largest eigenvalues of the Hessian (i.e. the sharpest directions). To query the importance of this phenomena for training, we study a variant of SGD using a reduced learning rate along the sharpest directions and show that it can improve training speed while finding both sharper and better--generalizing solution, compared to vanilla SGD. Overall, our results show that the SGD dynamics along the sharpest directions influence the regions of the weight space visited, the overall training speed, and generalization ability.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">optimization, generalization, theory of deep learning, SGD, hessian</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">SGD is steered early on in training towards a region in which its step is too large compared to curvature, which impacts the rest of training. </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_S1gZjQ_5nQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good idea. Not convinced about generalizability of results.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkgEaj05t7&amp;noteId=S1gZjQ_5nQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper792 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper792 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper the authors study the relationship between the SGD step size and the curvature of the loss surface, empirically showing that: 1) SGD is guided towards sharp regions of the loss surface at the start especially with a large learning rate or a small batch size. 2) Loss increases on average when taking a SGD step in the sharpest directions. 3) Modifying the SGD step size in the sharp directions (for example removing its component in the sharpest direction), can lead to substantial changes in both the quality and the local landscape of the minima (for the example mentioned, leading to a better and sharper minima). Motivated by these observations, the authors propose a variant of SGD that leads to better performance on the datasets considered.
+
+Deep learning theory is a very important frontier for machine learning and one that’s needed to make the practice be guided more by the foundational principles than incessant tweaks. The paper makes some very interesting observations and uses those insights to improve the widely used SGD. However, I have a few concerns which leave me unconvinced about the impact of the contributions in the paper. My biggest problem is the use of second order information in the algorithm which makes the optimization process computationally cumbersome, and raises the question as to why might this approach be preferable to any other second order approach (the authors touch on Newton method in the appendix but the discussion far from settles the matter). Similar questions arise in considering the merit of the proposed methods in comparison to a host of other well-studied augmentations to SGD like momentum, Adam or AdaGrad. The quality of presentation is also a problem, and both the organization of the main matter as well as of the figures can use some polishing. The latter specifically sometimes lacked legends (Fig. 3 and 4), and some other times had legends covering a quarter of the plot (Fig. 5). Lastly, even though the claims sound theoretical, they are not derived from any set of first principles but come from observations on a few datasets. While this may after all be how SGD behaves in general, currently the paper doesn’t provide any evidence to believe that. 
+
+Minor issues: “withe” (page 2, spelling), “\alpha = 0.5, 1, 2 corresponding to red, green, and blue” (page 4, I believe it should be “blue, green and red”).
+
+In summary, even though I liked what the paper set out to do, I am not convinced on the generalizability of these results and subsequently the rationale for using the proposed method over other competing options. A revised version of the paper with either validation on more datasets or sound theory generalizing the results to some extent would make for a much nicer contribution.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJe6UaoOam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkgEaj05t7&amp;noteId=BJe6UaoOam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper792 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper792 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the valuable comments. The biggest concerns raised are the generalizability of the experimental results and the practical applicability of the analysed SGD variant, NSGD, due to the use of second order information (the top eigenvectors of the Hessian). 
+
+* Proposing a practical optimizer is not the main goal of the paper *
+First we would like to stress that proposing a practical optimizer was not the goal of the paper. Instead, our goal was to study the Hessian of the training loss along the optimization trajectory, and the relation of the SGD step to the sharpest directions. Experiments on NSGD were run to investigate the importance of this relation for optimization and generalization of neural networks. We agree that some of the formulations (like the opening sentence of Sec.4, or part of the abstract) were confusing in this respect, and we will make it more clear in the revised version. 
+
+Based on the remarks we run additional experiments using Adam, different initialization schemes,  and data from  a sentence classification task (including experiments using NSGD). We summarized them in <a href="https://goo.gl/CR2qnU," target="_blank" rel="nofollow">https://goo.gl/CR2qnU,</a> and would be happy to add them to the paper based on the reviewers feedback.
+
+*Generality of results*
+Another key concern raised is about generality of the results. On the whole, our experiments were run on CIFAR-10 and PTB (results shown in the main text), CIFAR-100 and Fashion-MNIST (results shown in the Appendix). We also experimented with 4 models in total (Resnet-32, SimpleCNN, VGG, and LSTM). We however agree that extending the experiments to different datasets, network architectures and training settings is desirable. Based on the remarks we rerun some of the experiments using different initializations, and for a new sentence classification task.
+
+NSGD experiments were conducted on Fashion-MNIST, Cifar-10, Cifar-100 using SimpleCNN and ResNet32 models. The main purpose of these experiments was to show that behavior along sharpest directions can be important for training speed and generalization. We acknowledged in the text that NSGD results might be dataset dependent because the structure of the Hessian is dataset dependent (as shown for instance by Sagun et al, https://arxiv.org/abs/1706.04454). We will make it clearer in the revised version of the manuscript. We also rerun NSGD experiments on a text classification dataset.
+
+Furthermore, related results were observed in concurrent ICLR submissions [1], [2], and [3], which further supports generalizability of the results.  [1] shows that indeed gradient step is highly aligned with the Hessian from the beginning (which is one of the observations discussed in 3.2). [2] shows that indeed a measure of curvature (Fisher Information Metric) closely related to the Hessian grows initially very quickly. Finally, [3] shows a related phenomena that SGD starts to oscillate early on in training, especially for a large batch-size. [2] and [3] are consistent with our results in 3.1.
+
+* NSGD practicality *
+Finally, we agree that NSGD might be an impractical optimizer, because of its use of second order information. Note however, NSGDs overhead incurred by computing the top eigenvectors of the Hessian is comparable to that of methods like K-FAC, which are considered practical. We will clarify the writing. We also run experiments like in Sec. 3.1 with Adam  as an optimizer as a first step towards understanding how the analysis extends to methods adapting to the curvature. 
+
+--
+
+All the aforementioned additional results are summarized in https://goo.gl/CR2qnU. Do you have any other experiments in mind that you would like us to run? 
+
+Thank you again for your comments, and we will update the manuscript shortly. 
+
+[1] Gradient Descent Happens in a Tiny Subspace, https://openreview.net/forum?id=ByeTHsAqtX
+[2] Critical Learning Periods, https://openreview.net/forum?id=BkeStsCcKQ&amp;noteId=BkeStsCcKQ
+[3] A Walk with SGD: How SGD Explores Regions of Deep Network Loss?, https://openreview.net/forum?id=B1l6e3RcF7&amp;noteId=BylzRFgP2Q
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BkenqdEc27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>see review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkgEaj05t7&amp;noteId=BkenqdEc27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper792 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper792 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper discusses connections between the properties of DNN loss surfaces and the step length SGD algorithms take, a timely topic.  On the whole, reasonably well done, with some interesting observations.
+
+It makes several claims, most notably that there is an initial regime where SGD visits increasingly sharp regions of the loss surface, followed by a regime where the loss surface gets smoother.  Useful to know, and characterized moderately well.
+
+A weakness is that the generality of that claim is not made clear.  Like many papers in the area, it is an observation, the realm of which is not clarified.  E.g., what properties of the neural network or data does it depend on.  Also not clarified is how this depends on initialization, etc.
+
+The evaluation should be more systematic, as it is hard to tell how general is the claims of the paper as well as how they depend on implementation details.
+ 
+The discussion of Hessian directions ignores very relevant work by Yao et al (<a href="https://arxiv.org/abs/1802.08241" target="_blank" rel="nofollow">https://arxiv.org/abs/1802.08241</a> and follow up).
+
+The first figure in Fig 1 is probably misleading, and probably not worth having, the latter two are what is measured and thus more interesting.
+
+The obvious conclusion from the poor conditioning is that methods designed to addressed poor conditioning, i.e., second order methods, should be considered.  Those should have a complementary dynamics to what is discussed.  This is what is the elephant in the room when you talk about steering towards or away from regions whose curvature matches the SGD step. 
+
+I don't know what it means to say "Where applicable, the Hessian is estimated with regularization applied"  Is this to speed up computation, why doesn't this change the loss surface, etc.  If you are not measuring Hessian information precisely, then all the claims of the paper fall apart.
+
+Several times claims like "SGD reaches a region in which the SGD step matches ..."  Of course, the energy surface changes with training time, so it is a little unclear what is being said.
+
+The main method Nudged-SGD sounds like a poor-mans second order method.  Why not describe it as such (in more than a footnote and appendix), rather than introducing a new acronym.  I don't know that I believe the "key design principle" in the appendix for second order methods.  Second order methods rotate and stretch to take a locally-correct step length, and this method sounds like it is doing a poor mans version of that.  There is a good question as to whether the "thresholding" into large and small that NSGD is doing causes it to do something very different, but that isn't really evaluated.
+
+Averaging over two random seeds is not a lot.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ByxZp6oupm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkgEaj05t7&amp;noteId=ByxZp6oupm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper792 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018 (modified: 15 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper792 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for his valuable comments. Based on yours and other reviewers’ remarks we run additional experiments using Adam, different initialization schemes  and on data from a sentence classification task. We summarized them in <a href="https://goo.gl/CR2qnU," target="_blank" rel="nofollow">https://goo.gl/CR2qnU,</a> and would be happy to add them to the paper. We will address now each point in order. 
+
+* On generality *
+On the whole, our experiments were run on CIFAR-10 and PTB as described  in the main text, and CIFAR-100 and Fashion-MNIST as descibed in the Appendix. We also experimented with 4 models (Resnet-32, SimpleCNN, VGG, and LSTM). We therefore believe that our main results describing how the Hessian behaves along the optimization trajectory were  supported by a reasonable (compared to similar papers in the domain) set of settings. Please also note that related results were observed in concurrent ICLR submissions [1], [2] and [3]. In particular [2] shows that indeed a measure of curvature (Fisher Information) closely related to the Hessian grows initially very quickly - which confirms some of our observations in 3.1.
+
+Having said that we fully agree that extending the analysis to different initialization and dataset dependence would be desirable. We rerun similar analysis to 3.1 using Adam, different initialization (we compared uniform to normal, with different scaling) and on IMDB (a sentence classification task). These experiment corroborate our main finings.
+
+* Extending results to second order methods *
+We fully agree that investigating second order methods would be very interesting. Based on your remark as the first step towards this direction we rerun some of the experiments using Adam, see https://goo.gl/CR2qnU. On the whole the main focus of the paper is on SGD, and thus a more extensive study perhaps should left for future work.
+
+Hessian and regularization. We apologize for the unclear formulation. We wanted to say, that we used regularization when computing the Hessian (e.g. including L2 terms, or sampling dropout mask) if this was also done for computing the loss  uring optimization. In this sense we get a  more *realistic* estimate and this choice has *no bearing on the computation speed*. We will make this more clear in the revised version of the manuscript. 
+
+What does “SGD matches curvature” mean. Let us clarify what we mean by the phrase that SGD finds a region where its steps matches the curvature. Consider projecting SGD step onto the directions corresponding to the largest eigenvalues of the Hessian. Our claim is that along these directions the projection is too large to reduce the loss. Visually, SGD step crosses the minima in the subspace spanned by the sharpest directions. Please also see Fig.1 for an illustration. We agree that wording is confusing, and we will formulate this in the revised version. 
+
+*NSGD as a poor-mans second order *
+We agree that NSGD is a second order method in the sense that it uses second order information to adapt the step-size. It is different from typical second order methods in that it does not seek to minimize loss along the sharpest directions. Instead, NSGD step typically crosses over the minima along the sharpest direction, just like in the case of SGD (in the sense as depicted in Fig. 1, and as discussed in the last Appendix). To further clarify - the goal of this section was to investigate importance of SGD dynamics along the sharpest directions. We did not seek to prove NSGD is a better optimizer than other second order methods, which is why we were inadvertently brief in the discussion about how it differs from other second order methods.  We will clarify all of this and in particular note that NSGD is a specific form of a second order method. 
+
+* Other points *
+Thank you for pointing us to Yao et al. We will add a discussion of Yao et al. to ‘Related work’.
+
+You mentioned that Fig. 1 is not useful. In general, we would like to keep an intuitive depiction of the main findings. Please let us know if you have any suggestions how to improve Fig. 1. 
+---
+
+Thank you again for your valuable comments, and we will update the manuscript shortly. 
+
+[1] Gradient Descent Happens in a Tiny Subspace, https://openreview.net/forum?id=ByeTHsAqtX
+[2] Critical Learning Periods, https://openreview.net/forum?id=BkeStsCcKQ&amp;noteId=BkeStsCcKQ
+[3] A Walk with SGD: How SGD Explores Regions of Deep Network Loss?, https://openreview.net/forum?id=B1l6e3RcF7&amp;noteId=BylzRFgP2Q
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HylZPuIoi7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Great analyses about the relationship between the convergence/generalization and  the update on largest eigenvectors of Hessian of the empirical loss.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkgEaj05t7&amp;noteId=HylZPuIoi7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper792 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">22 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper792 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper investigates the relationship between the eigenvectors of the Hessian. This paper investigates characteristics of Hessian of the empirical losses of DNNs through comprehensive experiments. These experiments showed many important insights, 1) the top-K eigenvalues become bigger in the early stage, and decrease in later stage. 2) Bigger SGD steps and smaller batch-size leads to smaller and earlier peak of eigenvalues. 3) The sharpest direction update does not contribute to the loss value decrease in the normal step size (or bigger). From these analyses, this paper proposes to decrease the SGD step length on top-K eigenvectors for speeding up the convergence. Experimental results showed that the proposed method could converge to local minima in a fewer epoch and obtain better result, which means higher test accuracy.
+
+This paper is well-written and well-organized. Findings about eigenvalues and these relationship between the SGD step length are very impressive. Although the step length adjustment on the top-K eigenvector directions are not realistic solution for improving the current SGD-based optimization on DNNs due to heavy computational cost, I think these findings and insights are very helpful to ICLR and other ML communities.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HkeS0ToOTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkgEaj05t7&amp;noteId=HkeS0ToOTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper792 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper792 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the positive feedback. We are glad that NSGD experiments were found to be an interesting investigation. Please also find a summary of results of additional experiments we conducted in response to the other reviews here: <a href="https://goo.gl/CR2qnU." target="_blank" rel="nofollow">https://goo.gl/CR2qnU.</a>
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

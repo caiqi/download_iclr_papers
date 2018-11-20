@@ -1,0 +1,259 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>From Hard to Soft: Understanding Deep Network Nonlinearities via Vector Quantization and Statistical Inference | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="From Hard to Soft: Understanding Deep Network Nonlinearities via Vector Quantization and Statistical Inference" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Syxt2jC5FX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="From Hard to Soft: Understanding Deep Network Nonlinearities via..." />
+      <meta name="og:description" content="Nonlinearity is crucial to the performance of a deep (neural) network (DN).&#10;  To date there has been little progress understanding the menagerie of available  nonlinearities, but recently progress..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Syxt2jC5FX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>From Hard to Soft: Understanding Deep Network Nonlinearities via Vector Quantization and Statistical Inference</a> <a class="note_content_pdf" href="/pdf?id=Syxt2jC5FX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 14 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019from,    &#10;title={From Hard to Soft: Understanding Deep Network Nonlinearities via Vector Quantization and Statistical Inference},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=Syxt2jC5FX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=Syxt2jC5FX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Nonlinearity is crucial to the performance of a deep (neural) network (DN).
+To date there has been little progress understanding the menagerie of available  nonlinearities, but recently progress has been made on understanding the r\^{o}le played by piecewise affine and convex nonlinearities like the ReLU and absolute value activation functions and max-pooling.
+In particular, DN layers constructed from these operations can be interpreted as {\em max-affine spline operators} (MASOs) that have an elegant link to vector quantization (VQ) and $K$-means.
+While this is good theoretical progress, the entire MASO approach is predicated on the requirement that the nonlinearities be piecewise affine and convex, which precludes important activation functions like the sigmoid, hyperbolic tangent, and softmax.
+{\em This paper extends the MASO framework to these and an infinitely large class of new nonlinearities by linking deterministic MASOs with probabilistic Gaussian Mixture Models (GMMs).}
+We show that, under a GMM, piecewise affine, convex nonlinearities like ReLU, absolute value, and max-pooling can be interpreted as solutions to certain natural ``hard'' VQ inference problems, while sigmoid, hyperbolic tangent, and softmax can be interpreted as solutions to corresponding ``soft'' VQ inference problems.
+We further extend the framework by hybridizing the hard and soft VQ optimizations to create a $\beta$-VQ inference that interpolates between hard, soft, and linear VQ inference.
+A prime example of a $\beta$-VQ DN nonlinearity is the {\em swish} nonlinearity, which offers state-of-the-art performance in a range of computer vision tasks but was developed ad hoc by experimentation.
+Finally, we validate with experiments an important assertion of our theory, namely that DN performance can be significantly improved by enforcing orthogonality in its linear filters.
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Spline, Vector Quantization, Inference, Nonlinearities, Deep Network</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Reformulate deep networks nonlinearities from a vector quantization scope and bridge most known nonlinearities together.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SJetq0GQ67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Logical continuation of existing work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syxt2jC5FX&amp;noteId=SJetq0GQ67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper732 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper732 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">At the core of this paper is the insight from [1] that a neural network layer constructed from a combination of linear, piecewise affine and convex operators can be interpreted as a max-affine spline operator (MASO). MASOs are directly connected to vector quantization (VQ) and K-means clustering, which means that a deep network implicitly constructs a hierarchical clustering of the training data during learning. This paper now substitutes VQ with probabilistic clustering models (GMMs) and extends the MASO interpretation of a wider range of possible operations in deep neural networks (sigmoidal activation functions, etc.).
+
+Given the detailed treatment of MASOs in [1], this paper is a logical continuation of this approach. As such, it may seem only incremental, but I would consider it as an important piece to ensure a solid foundation of the 'MASO-view' on deep neural networks.
+
+My main criticism is with respect to the quality and clarity of the presentation. Without reading in detail [1] it is very difficult to understand the presented work here. Moreover, compared to [1], a lot of explanatory content is missing, e.g. [1] had nice visualisations of the resulting partitioning on toy data.
+
+Clearly, this work and [1] belong together in a larger form (e.g. a journal article), I hope that this is considered by the authors.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HylVtNN767" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Answer to Reviewer1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syxt2jC5FX&amp;noteId=HylVtNN767"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper732 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper732 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their constructive comments. We agree that our soft-VQ extension is an important piece of the puzzle that is necessary to ensure a solid foundation of the 'MASO-view' of deep neural networks. 
+
+Regarding the clarity of presentation, we agree that our streamlined treatment of the MASO background, while self-contained, is quite terse. The reason is very short page limit allowed for the submission. We hope that the reader will find our new results compelling enough that they will refer to [1] for additional background information and insights.
+
+Regarding the experiments and visualization, we also had to make hard choices due to space limitations. We decided that repeating visualizations from [1] using a Soft-VQ partitioning would be less useful than a detailed derivation and explanation of the internal Hard/Soft/Beta-VQ processes and how they lead to new nonlinearities. We certainly plan to include many more visualizations in our conference presentation, should the paper be accepted.
+
+Finally, we feel that our extension of the deterministic MASO framework is more than incremental, since it opens the door to a range of new applications, improvements, and theoretical questions that go far beyond the scope of [1]. For some examples, please see our reply to Reviewer 3.
+
+[1] Mad Max: Affine Spline Insights into Deep Learning <a href="https://arxiv.org/abs/1805.06576" target="_blank" rel="nofollow">https://arxiv.org/abs/1805.06576</a></span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HkxSzkX767" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Adding cite for [1]</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syxt2jC5FX&amp;noteId=HkxSzkX767"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper732 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper732 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">[1] Mad Max: Affine Spline Insights into Deep Learning <a href="https://arxiv.org/abs/1805.06576" target="_blank" rel="nofollow">https://arxiv.org/abs/1805.06576</a></span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HyebQg_c2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Somewhat incremental work, but well posited and written.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syxt2jC5FX&amp;noteId=HyebQg_c2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper732 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper732 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This work extends the applicability of the spline theory of deep networks explored in previous works of Balestriero/ Baraniuk. The previous works setup DNs as layer-wise max-affine spline operators (MASOs) and recovers several non-linearities practically used as special cases of these MASOs. The previous works already recover RELU variants and some downsampling operators that the current submission characterizes as "hard" quantization.
+
+The major contribution of this work is extending the application to "soft" quantization that recovers several new non-linear activations such as soft-max. It is well-known that the k-means algorithm can be considered as a run of an EM algorithm to recover the mean parameters of a gaussian mixture model. The "hard" to "soft" transformation, and any interpolation in between follows from combining this insight with the previous works. As such there isnt a major technical contribution imho in this work. Furthermore, the presented orthogonalization for easier inference has been used before in many works, some of which this submission also cites, most importantly in the previous work of Balestriero/ Baraniuk that this submission extends. 
+
+Nevertheless there is value in novel results that may follow from previous works in a straightforward but non-trivial fashion, as long as it is well-presented and thoroughly researched and implication well-highlighted. This paper does that adequately, so I will suggest weak accept. Furthermore, this work could spark interesting future works and fruitful discussions at the ICLR. It is well-written and the experimental evaluation is adequate.
+
+I would suggest a couple of ways to possibly improve the exposition. The paper is somewhat notation heavy. When considering single layers, the superscript for the layer could be dropped in favor of clarity. I would suggest moving the definition of MASOs to the main text, and present Proposition 8 in some form in the main text as well. To a reader not familiar with previous works, or with splines, this could be helpful. Use of orthogonalization could be highlighted not just a tool for tractability but also regularization. For inference on GMMs, it corresponds to a type of variational inference, which could be mentioned. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJxaGCDMTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Answer to Reviewer3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syxt2jC5FX&amp;noteId=SJxaGCDMTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper732 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper732 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their constructive comments. We respond to each below in detail.
+
+TECHNICAL CONTRIBUTIONS
+We briefly review our four primary technical contributions.
+[C1] We extend the deterministic max-affine spline operator (MASO) framework for deep networks (DNs) developed in (Balestriero &amp; Baraniuk, ICML2018) to a probabilistic Gaussian mixture model (GMM). 
+[C2] We extend the deterministic vector quantization (VQ) spline partition of the MASO framework to a probabilistic, soft VQ that enables us to derive from first principles and unify most of the known DN nonlinearities, including nonlinear and nonconvex ones such as the softmax and sigmoid gated linear unit.
+[C3] By interpolating between hard and soft inference, we derive a new class of beta-VQ activation functions. In particular, a beta-VQ version of the hard ReLU activation is the “Swish” nonlinearity, which offers state-of-the-art performance in a range of computer vision tasks but was proposed ad hoc through experimentation.
+[C4] We rigorously prove that orthogonal filters endow a DN with an attractive inference capability. Orthogonal filters enable a DN to perform efficient, tractable, jointly optimal VQ inference across all units in a layer. This is in contrast to non-orthogonal DNs, which support optimal VQ only on a per-unit basis. Previous works have studied orthogonality only empirically.
+
+ORTHOGONALIZATION
+As noted in contribution [4] above, orthogonalization has already been applied in deep learning, but it has typically been applied ad hoc with little to no theoretical justification. In our paper, we have justified orthogonalization from the novel point of view of inferring the VQ partition of each of the unit outputs in a DN layer. In a standard DN, each unit output computation is performed independently from the other units. This absence of ‘’lateral connections’’ can lead to two problematic situations: on the one hand redundant information in a feature map or on the other hand incomplete representation of the input. We demonstrate that an elegant solution to both problems is to enforce orthogonality. We have added a statement after Theorem 4 regarding how orthogonalization has potential applications of independent interest outside of deep learning, for example in factorial GMMs and HMMs.
+
+FUTURE DIRECTIONS AND DISCUSSIONS
+We agree with the reviewer that our hard/soft VQ perspective opens up many new directions to both understand and improve DNs. Here are several new directions that we could discuss further in the revised paper or at the conference:
+[F1] VQ penalization: Given our explicit (and differentiable) formulas for the soft VQ, we can derive new kinds of penalties to apply during learning.  For example, we could penalize an overconfident-VQ (as measured by the joint likelihood of the unit VQ representation of the layer input), which is symptomatic of over-fitting.
+[F2] Leaning new activation functions: The state-of-the-art Swish nonlinearity has learnable parameter that enables it to range from ReLU to sigmoid gated linear unit to linear. We can further augment this parametrization to enable us to reach the sigmoid unit as well. This will enable us to use learning experiments to investigate the conjecture that ReLU like nonlinearities are best for early DN layers while sigmoid-like nonlinearities are best for later layers.
+[F3] We can use the VQ and the per-unit VQ-based likelihood to create DNs that detect outliers and perform model selection.
+[F4] Alternative soft-VQ regularization: Replacing the Shannon Entropy regularization in (7) with a different penalty could yield new classes of nonlinear activation functions.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SylBlmHqhX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>This paper extends the max-affine spline operator (MISO) interpretation of a class of deep neural networks to cover a wider class of activation functions, namely the sigmoid, hyperbolic tangent and softmax. The authors also use the formulation to create a family of models that interpolates between hard and soft non-linearities. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syxt2jC5FX&amp;noteId=SylBlmHqhX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper732 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper732 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Interesting work, extending previous work by Balestriero and Baraniuk in a relevant and non-trivial direction. The presentation could be cleaner and clearer, 
+
+The paper contains solid work and contributes to an interesting perspective/interpretation of deep networks. The presentation is reasonably clear, although somewhat cluttered by a large number of subscripts and superscripts, which could be avoided by using a more modular formulation; e.g., in equation (1), when referring to a specific layer l, the superscript l can be dropped as it adds no useful information. By the way, when l is first used, just before equation (1), it is undefined, although the reader can guess what it stands for.
+
+It is not clear why $[\pi^{(l)}]_{k,t}$ is defined after equation (5), as these quantities are not mentioned in Theorem 2. Another confusion issue is that it is not clear if the assumption made in Proposition 1 concerning is only valid there of if it is assued to hold elsewhere in the paper.
+
+Proposition 2 is simply a statement of the well-known relationship between between soft-max (a.k.a. logistic regression) and the maximum entropy principle (see, for example, <a href="http://www.win-vector.com/dfiles/LogisticRegressionMaxEnt.pdf)." target="_blank" rel="nofollow">http://www.win-vector.com/dfiles/LogisticRegressionMaxEnt.pdf).</a>
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HygJDAvzp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Answer to Reviewer2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Syxt2jC5FX&amp;noteId=HygJDAvzp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper732 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper732 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their constructive comments. We have revised the manuscript accordingly.
+
+We have simplified the background (Section 2) by removing the superfluous l (layer) superscript.  This reworking clarifies the definition and operation of the MASO.
+
+We have defined  $[\pi^{(l)}]_{k,t}$ in the early part of Theorem 2 and then derived (5).
+
+The assumption on the bias value needed for Proposition 1 is indeed only needed for that particular result.  We have highlighted this (i) in the second paragraph following Proposition 1 and (ii) in the sentence immediately after Theorem 2.
+
+We have highlighted that Proposition 2 is a standard result (and added references) and motivated its presence in order to unify all the different VQs under a single optimization problem. Adding an Entropy regularization to the original optimization problem then enables us to interpolate between hard,soft and linear VQ.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DHER: Hindsight Experience Replay for Dynamic Goals | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="DHER: Hindsight Experience Replay for Dynamic Goals" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Byf5-30qFX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="DHER: Hindsight Experience Replay for Dynamic Goals" />
+      <meta name="og:description" content="Dealing with sparse rewards is one of the most important challenges in reinforcement learning (RL), especially when a goal is dynamic (e.g., to grasp a moving object). Hindsight experience replay..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Byf5-30qFX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>DHER: Hindsight Experience Replay for Dynamic Goals</a> <a class="note_content_pdf" href="/pdf?id=Byf5-30qFX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 13 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019dher:,    &#10;title={DHER: Hindsight Experience Replay for Dynamic Goals},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=Byf5-30qFX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=Byf5-30qFX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Dealing with sparse rewards is one of the most important challenges in reinforcement learning (RL), especially when a goal is dynamic (e.g., to grasp a moving object). Hindsight experience replay (HER) has been shown an effective solution to handling  sparse rewards with fixed goals. However, it does not account for dynamic goals in its vanilla form and, as a result, even degrades the performance of existing off-policy RL algorithms when the goal is changing over time. 
+
+In this paper, we present  Dynamic Hindsight Experience Replay (DHER), a novel approach for tasks with dynamic goals in the presence of sparse rewards. DHER automatically assembles successful experiences from two relevant failures and can be used to enhance an arbitrary off-policy RL algorithm when the tasks' goals are dynamic. We evaluate DHER on tasks of robotic manipulation and moving object tracking, and transfer the polices from simulation to physical robots. Extensive comparison and ablation studies demonstrate  the superiority of our approach, showing that DHER is a crucial ingredient to enable RL to solve tasks with dynamic goals in manipulation and grid world domains.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Sparse rewards, Dynamic goals, Experience replay</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">10 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_H1xtaCNcnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea but lacking some context and experiments seem to not have any  baselines targeted at the problem</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Byf5-30qFX&amp;noteId=H1xtaCNcnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1200 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1200 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors propose an extension of hindsight replay to settings where the goal is moving. This consists in taking a failed episode and constructing a valid moving goal by searching prior experiences for a compatible goal trajectory. Results are shown on simulated robotic grasping tasks and a toy task introduced by the authors. Authors show improved results compared to other baselines. The authors also show a demonstration of transfering their policies to the real world.
+
+The algorithm appears very specific and not applicable to all cases with dynamic goals. It would be good if the authors discussed when it can and cannot be applied. My understanding is it would be hard to apply this when the environment changes across episodes as there needs to be matching trajectories. It would also be hard to apply  this for the same reason if there are dynamics chaging the environment (besides the goal). If the goal was following more complex dynamics like teleporting from one place it seems it would again be rather hard to adapt this. I am also wondering if for most practical cases one could construct a heuristic for making the goal trajectory a valid one (not necessarily relying on knowing exact dynamics) thus avoiding the matching step.
+
+The literature review and the baselines do not appear to consider any other methods designed for dynamic goals. The paper seems to approach the dynamic goal problem as if it was a fresh problem. It would be good to have a better overview of this field and baselines that address this problem as it has certainly been studied in robotics, computer vision, and reinforcement learning. I find this paper hard to assess without a more appropriate context for this problem besides a recently proposed technique for sparse rewards that the authors might want to adapt to it.  I find it difficult to believe that nobody has studied solutions to this problem and solutions specific to that don’t exist.
+
+The writing is a bit repetitive at times and I do believe the algorithm can be more tersely summarized earlier in the paper. It’s difficult to get the full idea from the Algorithm block.
+
+Overall, I think the paper is borderline. There is several interesting ideas and a new dataset introduced, but I would like to be more convinced that the problems tackled are indeed as hard as the authors claim and to have a better literature review.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1eb4ZDQ67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>There is little work addressing dynamic goals in the sparse reward setting. Update the literature review and add dense reward baselines.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Byf5-30qFX&amp;noteId=r1eb4ZDQ67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1200 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1200 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the comments, and we would like to clarify a few important misconceptions that the reviewer has regarding our work.
+1) We position the paper in the context of RL with sparse rewards. We follow the goal setting of UVFA (Schaul et al., 2015a) and HER (Andrychowicz et al., 2017). The dynamic goal problem is extended from this setting, not all other cases. Please see paragraph 3 in Section 1 (Introduction) and paragraph 1 in Section 3.1 (Dynamic goals) for more descriptions. 
+2) We propose a new experience replay method. The proposed algorithm can be combined with any off-policy RL algorithms, similar to HER, as shown in Figure 1.
+3) The motivation of developing algorithms which can learn from unshaped reward signals is that it does not need domain-specific knowledge and is applicable in situations where we do not know what admissible behaviour may look like. The similar motivation is also mentioned in HER (Andrychowicz et al., 2017). We also added new experimental results about dense rewards. The results show DHER works better. See Figures 3 and 6.
+
+Q1: The algorithm appears very specific and not applicable to all cases with dynamic goals. …
+A1: Please see 1) and 3) above.
+
+Q2: I am also wondering if for most practical cases one could construct a heuristic for making the goal trajectory a valid one (not necessarily relying on knowing exact dynamics) thus avoiding the matching step.
+A2: It is a good idea to take domain heuristics into consideration. However, in our paper, we aim to construct a model-free method for dynamic goals to avoid the complexity of constructing goal trajectories. We agree that your idea worths a try in the future.
+
+Q3: The literature review and the baselines do not appear to consider any other methods designed for dynamic goals. …
+A3: We do not want to claim that the dynamic goal problem is a fresh problem. However, there is little work addressing dynamic goals in the sparse reward setting. As far as we know, there is no open-source RL environments for such problems. (OpenAI Gym Robotics uses fixed goals.) 
+
+Q4:  I find it difficult to believe that nobody has studied solutions to this problem and solutions specific to that don’t exist.
+A4: Our paper focuses on addressing dynamic goals with sparse rewards. This setting has not been addressed probably because it is difficult to learn. For example, the recently developed DDPG and HER failed in our tasks. Moreover, there is no open-source environments for the dynamic goals and sparse rewards, to the best of our knowledge.
+
+Q5: There is several interesting ideas and a new dataset introduced, but I would like to be more convinced that the problems tackled are indeed as hard as the authors claim and to have a better literature review.
+A5: Except for sparse rewards, we also added new experimental results about dense rewards for the dynamic goal setting. We have similar results. Similar to DDPG and DDPG+HER, DDPG(dense) does not work well in our tasks. For the simple Dy-Snake environment, DQN(dense) is better than DQN but not better than DQN+DHER. See Figures 3 and 6.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ByxsM6u76X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The approach appears more problem specific than claimed. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Byf5-30qFX&amp;noteId=ByxsM6u76X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1200 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1200 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your response and clarifications. I would like to comment on this point:
+
+"1) We position the paper in the context of RL with sparse rewards. We follow the goal setting of UVFA (Schaul et al., 2015a) and HER (Andrychowicz et al., 2017). The dynamic goal problem is extended from this setting, not all other cases. Please see paragraph 3 in Section 1 (Introduction) and paragraph 1 in Section 3.1 (Dynamic goals) for more descriptions. 
+2) We propose a new experience replay method. The proposed algorithm can be combined with any off-policy RL algorithms, similar to HER, as shown in Figure 1.
+3) The motivation of developing algorithms which can learn from unshaped reward signals is that it does not need domain-specific knowledge and is applicable in situations where we do not know what admissible behaviour may look like. The similar motivation is also mentioned in HER (Andrychowicz et al., 2017). We also added new experimental results about dense rewards. The results show DHER works better. See Figures 3 and 6.
+
+Q1: The algorithm appears very specific and not applicable to all cases with dynamic goals. …
+A1: Please see 1) and 3) above."
+
+I believe this kind of motivation as a principled approach to RL  with sparse rewards and no domain knowledge is an overclaim. The HER algorithm is a heuristic one and to the best of my understanding requires a domain specific knowledge of how to set fake goals, which is natural in many settings such as grid worlds for example. The moving goal case described here requires even more domain specific knowledge and I am not convinced is truly “model-free” in most cases.  To the best of my understanding the matching phase of your method requires a domain specific understanding of goal similarity. Is it possible to provide a dynamic goal example that is not just a simple and short trajectory in space and makes sense to be applied with DHER? Could the authors for example explain how the algorithm would be applicable in a case of an Atari style game where a goal would teleport or have long trajectories (non-trivial to match without a complex matching heuristic). It seems in this case (a) one would have to obtain precise coordinate positions of the goal (this would mean one can’t just solve the problem based on pure pixels and must rely on domain knowledge) and (b) the matching algorithm itself would need to be heavily crafted with domain specific knowledge. I think the method might be more specific than the authors claim and should be presented as such. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1eDAUxO6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Limitation and that the algorithm is very natural for many manipulation tasks</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Byf5-30qFX&amp;noteId=B1eDAUxO6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1200 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1200 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for discussing the limitation of DHER. Similar to HER, we need to have the definition of goals and know the similarity metric between goals in order to construct “success” from failed experiences. We had provided how to use and define goals in Section 3.1 --- and we made addition revisions to make it more clear. See Sections 1 and 3.1 for the discussions. 
+
+Because we have the same multi-goal assumption as HER, we did not claim our method can be used for every case. However, it still can be applied to many domains if we know how to define the goals and if their trajectories intersect. 
+
+For a game, if its goals can be used as part of the observation and do not affect the environment dynamics, our algorithm will work. Regarding the Atari games, we did find that there is no game satisfying the multi-goal assumption. However, our approach can be potentially used for other games where we know the similarity of goals, for example, hunting for food in a Minecraft-like grid world mini-game. The Dy-Snake game in our work serves as a reference for which types of games our approach can benefit. 
+
+The algorithm is very natural for many manipulation tasks because we can access (sometimes noisy) object positions in manipulation. The starting point of this work is actually for manipulation controls. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_rJgHzRb5hX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Byf5-30qFX&amp;noteId=rJgHzRb5hX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1200 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1200 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a way of extending Hindsight Experience Replay (HER) to dynamic or moving goals. The proposed method (DHER) constructs new successful trajectories from pairs of failed trajectories where the goal accomplished at some point in the first trajectory happens to match the desired goal in the second trajectory. The method is demonstrated to work well in several simulated environments and some qualitative sim2real transfer results to a real robot are also provided.
+
+The paper is well written and is mostly easy to follow. I liked the idea of combining parts of two trajectories and to the best of my knowledge it is new. It is a simple idea that seems to work well in practice. While DHER has some limitations I think the key ideas will lead to interesting future work.
+
+The main shortcoming of the paper is that it does not consider other relevant baselines. For example, since the position of the goal is known, why not use a shaped reward as opposed to a sparse reward? The HER paper showed that using sparse rewards with HER can work better than shaped rewards. These findings may or may not transfer to the dynamic goal case so including a shaped reward baseline would make the paper stronger.
+
+Some questions and suggestions on how to improve the paper:
+- It would be good to be more upfront about the limitations of the method. For example, the results on a real robot probably require accurate localization of the gripper and cup. Making this work for precise manipulation will probably require end-to-end training from vision where it’s not obvious DHER would apply.
+- It would be interesting to see quantitative results for the simulated experiments in section 4.5. 
+- The performance of DHER on Dy-Reaching seems to degrade in later stages of training (Figures 3a and 5). Do you know what is causing it? DQN or DHER?
+
+Overall, I think this a good paper.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkljCMD7a7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Experiments of the shaped reward baselines.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Byf5-30qFX&amp;noteId=BkljCMD7a7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1200 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1200 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your insightful comments and feedback! 
+
+Q1: baselines … shaped rewards…
+A1: We added shaped reward baselines. We use a natural distance related (dense) reward function to train the agent. Figures 3 and 6 in the paper show that the dense rewards do not work well for dynamic goals, though they help at the beginning of the learning.
+
+Q2: - It would be good to be more upfront about the limitations of the method …
+A2: We agree. In the revised paper, we provided more details about the limitations, including the goal assumption, the transfer requirements and so on. See Section 1 and 4.5 for more details.
+
+Q3: It would be interesting to see quantitative results for the simulated experiments in section 4.5. 
+A3: Thanks for your valuable suggestion. In Section 4.5, with the accurate positions, we have 100% success rate for 5 trials.
+
+Q4: The performance of DHER on Dy-Reaching seems to degrade in later stages of training (Figures 3a and 5). Do you know what is causing it? DQN or DHER?
+A4: One reason may be that it is a temporal drop and will recover later. Another reason may be that the policy trained with assembled experiences becomes overfitting to simple cases as such kind of experiences are assembled a lot. The overfitting to simple cases decreases overall performance. The similar pattern also appeared in other papers. See Pusing task in Fig 2 in HER (Andrychowicz et al., 2017). 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_B1lgRLesoX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Simple and nice idea, but very unclear description and some serious flaws</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Byf5-30qFX&amp;noteId=B1lgRLesoX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1200 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">22 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1200 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors extend the HER framework to deal with dynamical goals, i.e. goals that change over time.
+In order to do so, they first need to learn a model of the dynamics of the goal, and then to select in the replay buffer experience reaching the expected value of the goal at the expected time. Empirical results are based on three (or four, see the appendix) experiments with a Mujoco UR10 simulated environment, and one experiment is successfully transfered to a real robot.
+
+Overall, the addressed problem is relevant (the question being how can you efficiently replay experience when the goal is dynamical?), the idea is original and the approach looks sound, but seems to suffer from a fundamental flaw (see below).
+
+Despite some merits, the paper mainly suffers from the fact that the implementation of the approach described above is not explained clearly at all.
+Among other things, after reading the paper twice, it is still unclear to me:
+- how the agent learns of the goal motion (what substrate for such learning, what architecture, how many repetitions of the goal trajectory, how accurate is the learned model...)
+- how the output of this model is taken as input to infer the desired values of the goal in the future: shall the agent address the goal at the next time step or later in time, how does it search in practice in its replay buffer, etc.
+
+These unclarities are partly due to unsufficient structuring of the "methodology" section of the paper, but also to unsufficient mastery of scientific english. At many points it is not easy to get what the authors mean, and the paper would definitely benefit from the help of an experienced scientific writer.
+
+Note that Figure 1 helps getting the overall idea, but another Figure showing an architecture diagram with the main model variables would help further.
+
+In Figures 3a and 5, we can see that performance decreases. The explanation of the authors just before 4.3.1 seem to imply that there is a fundamental flaw in the algorithm, as this may happen with any other experiment. This is an important weakness of the approach.
+
+To me, Section 4.5 about transfer to a real robot does not bring much, as the authors did nothing specific to favor this transfer. They just tried and it happens that it works, but I would like to see a discussion why it works, or that the authors show me with an ablation study that if they change something in their approach, it does not work any more.
+
+In Section 4.6, the fact that DHER can outperform HER+ is weird: how can a learn model do better that a model given by hand, unless that given model is wrong? This needs further investigation and discussion.
+
+In more details, a few further remarks:
+
+In related work, twice: you should not replace an accurate enumeration of papers with "and so on".
+
+p3: In contrary, =&gt; By contrast, 
+
+which is the same to =&gt; same as
+
+compare the above with the static goals =&gt; please rephrase
+
+In Algorithm 1, line 26: this is not the algorithm A that you optimize, this is its critic network.
+
+line 15: you search for a trajectory that matches the desired goal. Do you take the first that matches? Do you take all that match, and select the "best" one? If yes, what is the criterion for being the best?
+
+p5: we find such two failed =&gt; two such failed
+
+that borrows from the Ej =&gt; please rephrase
+
+we assign certain rules to the goals so that they accordingly move =&gt; very unclear. What rules? Specified how? Please give a formal description.
+
+For defining the reward, you use s_{t+1} and g_{t+1}, why not s_t and g_t?
+
+p6: the same cell as the food at a certain time step. Which time step? How do you choose?
+
+The caption of Fig. 6 needs to be improved to be contratsed with Fig. 7.
+
+p8: the performance of DQN and DHER is closed =&gt; close?
+
+DHER quickly acheive(s)
+
+Because the law...environment. =&gt; This is not a sentence.
+
+Mentioning in the appendix a further experiment (dy-sliding) which is not described in the paper is of little use.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BklxR_v7p7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>[1/2] The algorithm does not need to learn the dynamics. It creates success experiences by combining trajectories in the replay buffer.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Byf5-30qFX&amp;noteId=BklxR_v7p7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1200 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1200 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the comments and have revised the paper accordingly. We believe the reviewer has some misunderstandings about our work. We make the following clarifications. 
+1) For the dynamic of goals, our algorithm does not need to learn the dynamics. The algorithm creates new experiences through combining two failed experiences in which their goal trajectories have overlaps at any timestep. Please see paragraph 1 in Section 3.1 (Dynamic goals) for more descriptions.
+2) Our algorithm is about experience replay. The input is the past experiences. The output is new assembled success experiences if exist. We updated Figure 1 to show how DHER works with a RL algorithm.
+3) Regarding the RL environments and the proposed algorithm and transfer solution, we would like to open all of them. All results can be reproduced. We believe the dynamic goal problem manipulation control is also interesting for other researchers. 
+
+
+Q1: In order to do so, they first need to learn a model of the dynamics of the goal, and then to select in the replay buffer experience reaching the expected value of the goal at the expected time.
+A1: Please see S1.
+
+Q2: how the agent learns of the goal motion ...
+A2: Generally speaking, reinforcement learning learns a policy through trial and error. The reinforcement learning agent interacts with an environment and obtains rewards to indicate whether its action is good or not. 
+In our setting, the goal’s motion is a part of environment. This setting is quite normal in real world. See our introduction and HER (Andrychowicz et al., 2017). When a RL algorithm takes an action, it will automatically and latently take the knowledge of the goal’s motion into consideration. 
+However, under this setting, after interacting with the environment for a long time, we still face the problem that we do not have success signals to guide a policy learning. The main difficulty then lies in how to efficiently use the past experiences in the replay buffer to construct the success signals, other than learn the motion of the goal. Our paper then provide a solution to solve the difficulty.
+There are a lot of goal trajectories and they are different to each other. Taking Dy-Reach as an example, as shown in Figure 3(a), we followed openai gym’s training settings. There are 50 epoches in total and each epoch has 100 episodes, i.e,. 100 trajectories. The performance (success rate) of the learned model DDPG+DHER can achieve 0.8. If the velocity of the goal is slower, the performance can achieve 1.0.
+
+Q3: how the output of this model is taken as input to infer the desired values of the goal in the future: ...
+A3: Our model is a kind of experience reply method. The input of our model is the past trajectories. Most of them are failed. The output of our model is assembled experiences. The assembled experiences are success experiences. We followed the goal setting of UVFA (Schaul et al., 2015a) and HER (Andrychowicz et al., 2017). The goals are represented by positions. The model searches the relevant experience according to the positions of goals. If the positions of two goals are overlapped (&lt; tolerance 0.01) at anytime, then they are matched.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BJxeUuD76X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>[2/2] Additional responses to the reviewer’s points.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Byf5-30qFX&amp;noteId=BJxeUuD76X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1200 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1200 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Q4: an architecture diagram
+A4: We updated Figure 1.
+
+Q5: Figures 3a and 5 … performance decreases ...
+A5: One reason may be that it is a temporal drop and will recover later. Another reason may be that the policy trained with assembled experiences becomes overfitting to simple cases as such kind of experiences are assembled a lot. The overfitting to simple cases decreases overall performance. The similar pattern also appeared in other papers. See Pusing task in Fig 2 in HER (Andrychowicz et al., 2017). 
+
+Q6: To me, Section 4.5 about transfer to a real robot does not bring much … 
+A6: The experiments of transferring to a real robot mainly demonstrate dynamic goals are real-world problems and can be solved by our method. At the same time, it shows when DHER uses positions, it is robust to the real-world environment.
+
+Q7: In Section 4.6, the fact that DHER can outperform HER+ is weird … 
+A7: It is indeed a little surprising. It shows DHER is very efficient in some simple environments. In a simple environment, such as Dy-Snake, DHER has better generation than HER+. The reason may be that HER+ uses only one way to modify a trajectory. However, DHER has different ways to create success trajectories because we can find different matching positions given a trajectory from the past experiences. The Dy-Snake environment is so simple that DHER is able to create a lot of success experience in a short time.
+
+Q8: In more details, a few further remarks ...
+A8: We polished the paper.
+
+Q9: in the appendix a further experiment (dy-sliding) … of little use…
+A9: We removed it. We added this before because our open source will contain this environment and our model also works on it successfully.
+
+Q10: In Algorithm 1, line 26: this is not the algorithm A that you optimize, this is its critic network.
+A10: Line 26 indicates a standard update for the RL algorithm A. It is similar to HER. Please see the last several lines of Algorithm 1 in HER (Andrychowicz et al., 2017).
+The key process of DHER is from lines 13 to 23. We had added a marker at the end of Line 20. 
+
+Q11: line 15: you search for a trajectory that matches the desired goal ...
+A11: We use a hash table to store trajectories. We search trajectories in the hash table and return the first that matches.
+
+Q12: we assign certain rules to the goals so that they accordingly move =&gt; very unclear...
+A12: The details are given in the next paragraph. See the second paragraph in Section 4.1. For different environments, the rules are slightly different.
+
+Q13: For defining the reward, you use s_{t+1} and g_{t+1}, why not s_t and g_t?
+A13: They are the same meaning and just corresponding to different timesteps. At time step t, after taking an action, the state turns to s_{t+1} and the goal turns to g_{t+1}. Thus the reward is defined based on s_{t+1} and g_{t+1}. 
+Similarly, if the time step is t - 1 (t &gt; 1), the reward is defined based on s_{t} and g_{t}.
+
+Q14: p6: the same cell as the food at a certain time step. Which time step? How do you choose?
+A14: It means if the snake moves to the same cell as the food at any timestep, the game is over. We only set the maximum timestep for each episode.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

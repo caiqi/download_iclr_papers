@@ -1,0 +1,242 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Deep Denoising: Rate-Optimal Recovery of Structured Signals with a Deep Prior | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Deep Denoising: Rate-Optimal Recovery of Structured Signals with a Deep Prior" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SklcFsAcKX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Deep Denoising: Rate-Optimal Recovery of Structured Signals with a..." />
+      <meta name="og:description" content="Deep neural networks provide state-of-the-art performance for image denoising, where the goal is to recover a near noise-free image from a noisy image.&#10;  The underlying principle is that neural..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SklcFsAcKX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Deep Denoising: Rate-Optimal Recovery of Structured Signals with a Deep Prior</a> <a class="note_content_pdf" href="/pdf?id=SklcFsAcKX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 14 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019deep,    &#10;title={Deep Denoising: Rate-Optimal Recovery of Structured Signals with a Deep Prior},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SklcFsAcKX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=SklcFsAcKX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Deep neural networks provide state-of-the-art performance for image denoising, where the goal is to recover a near noise-free image from a noisy image.
+The underlying principle is that neural networks trained on large datasets have empirically been shown to be able to generate natural images well from a low-dimensional latent representation of the image.
+Given such a generator network, or prior, a noisy image can be denoised by finding the closest image in the range of the prior.
+However, there is little theory to justify this success, let alone to predict the denoising performance as a function of the networks parameters.
+In this paper we consider the problem of denoising an image from additive Gaussian noise, assuming the image is well described by a deep neural network with ReLu activations functions, mapping a k-dimensional latent space to an n-dimensional image.
+We state and analyze a simple gradient-descent-like iterative algorithm that minimizes a non-convex loss function, and provably removes a fraction of (1 - O(k/n)) of the noise energy.
+We also demonstrate in numerical experiments that this denoising performance is, indeed, achieved by generative priors learned from data.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">non-convex optimization, denoising, generative neural network</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">By analyzing an algorithms minimizing a non-convex loss, we show that all but a small fraction of noise can be removed from an image using a deep neural network based generative prior.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SkxQw8EGpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>nice theoretical results but under super strong assumptions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SklcFsAcKX&amp;noteId=SkxQw8EGpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper472 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper472 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper analyzes the recovery accuracy of a "tweaked" gradient descent algorithm for imaging denoising and compressive sensing under deep generative priors. In particular, when assuming Gaussian randomness of the network weights and extremely stringent conditions of network sizes, they demonstrate a specific denoising rate of O(k/n), with k and n being the input and output dimension of the generative network. This is seemingly optimal in terms of the dependence on the latent code dimensionality and the signal dimensionality and is the first result of this kind. 
+
+Two papers are closely related, but are not sufficiently discussed in the introduction. [Bora et al., 2017] does not require Gaussian randomness of the network weights, but achieves only O(1) error bound assuming the empirical risk minimization problem can be solved to optimality.  [Hand &amp; Voroninski, 2018] showed that under same assumptions as in this paper, the nonconvex empirical risk minimization problem exhibits a nice geometric landscape - no spurious stationary points. This implies that virtually anything reasonable would converge to global optimum. Combing both facts, it is not surprising to arrive at the results in this paper.
+
+While the paper makes some novel theoretical contributions, two concerns stand out. First, there is a lack of intuition or justification of the tweak in gradient descent - flipping the sign of the iterate at times.  The author argued that around approximately -x*, the loss function is larger than around the optimum x* . So simple gradient descent is likely to get stuck in this region, so the negation check is needed. I am not so convinced by the argument. There could be other critical points that are not necessarily in the negative regime of true optimal, right?  So why would this be sufficient or necessary for global convergence? Second, even ignoring the unrealistic Gaussian assumption on the network weights, the theorem requires very narrow regimes for the expansivity condition and the noise variance bound. It's hard to verify whether these conditions can be satisfied at all. 
+
+The experiment on denoising with learned prior from MNIST data is interesting, as it suggests that the theoretical assumptions are not necessary in practice to observe the optimal recovery rate. It would be more convincing if more experiments are provided, especially for the compressive sensing application. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1eRyjhF6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SklcFsAcKX&amp;noteId=S1eRyjhF6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper472 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper472 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Discussion of Bora et al. + Hand &amp; Voroninski in introduction: 
+We have significantly increased the discussion of these two papers.  In summary: Bora's paper does not establish that the, in principle NP-hard, optimization problem could be solved to global optimality, and Hand &amp; Voroninski does not provide a specific algorithm or show stability with respect to noise.
+
+Intuition on the tweak: 
+If the network is Gaussians and sufficiently expansive, then there are not critical points other than the global optimizer and a single negative multiple of it.  Intuitively, this is because the random network model in expectation looks like Figure 1, which shows a single spurious critical point (aside from the local max at zero).  That is why checking only a single alternative point at each step of the gradient descent is reasonable for the particular random generative model that we considered.  In the case that the network is non-Gaussian or is not sufficiently expansive, there may be local minima elsewhere in the landscape, but analyzing these cases would require building a more involved analysis.
+
+Can the expansivity conditions be satisfied at all?: 
+Consider the theorem in the case of fixed d.  If epsilon is smaller than a fixed polynomial in d, then a sufficiently expansive network will have each layer grow in width by eps^(-2)log(1/eps) * n log n, where n is the width of the previous layer. By the probability estimate, one can see that the width of each layer should not grow faster than exponentially at each layer.  For such a network, the optimization need only be run a polynomial in d number of iterations, and it receives a point within the noise level plus poly(d)*sqrt(eps) of the underlying original image.
+
+Relevant regime of expansivity condition: 
+While the expansivity regime appears restrictive, it is the weakest assumption under which any efficient algorithm has been proven to approximate an image upon denoising by generative model.  Much weaker assumptions, like Lipschitzness, can lead to some theoretical results, like in Bora et al, but those results do not justify why the nonconvex optimization does not get stuck in local minima.  As in Hand and Voroninski, we assume this stronger model in order to have a reasonable chance at establishing a provably convergent algorithm.  It would indeed be wonderful to extend the theoretical analysis to networks that are less expansive, but it may take significant theoretical advances to do that. For this first result on denoising, we note the significance that all scalings are polynomial instead of exponential in nature, and would also like to point out the the result is optimal in the dependence on the latent parameter, k.
+
+Experiments:  The primary message of this paper is denoising by deep generative priors is provably rate optimal for a random model of generative networks.  The purpose of the numerical experiments is to show that the regime of applicability of the theorem is much broader than the theory demonstrates, and that the conclusions drawn by our analysis also applies to a network that is trained on real data.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_B1l4G17zT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting but very artificial.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SklcFsAcKX&amp;noteId=B1l4G17zT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper472 AnonReviewer5</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper472 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper studies the signal denoting problem. The theoretical results are nice, and supported by numerical experiments. I have the following two major concerns:
+
+(1) Using deep neural network as a prior in signal denoising is definitely an important and also challenging problem, only when the neural network is learnt from data. However, this paper assumes that the weight matrices of the neural network prior are i.i.d. Gaussian ensemble and independent on the signal. This assumption is oversimplified, and makes the theoretical results become quite expected and delicate. One can hardly get any insights of the practical signal denoising.
+
+(2) The paper has a significant overlap with HV:COLT18:"Global Guarantees for Enforcing Deep Generative Priors by Empirical Risk". HV:COLT18 consider a RIP-type linear operator, and this paper considers the identity operator, which is actually easier. Dealing with the additive noise is new, but somehow incremental.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HyeSpphtam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SklcFsAcKX&amp;noteId=HyeSpphtam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper472 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper472 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Oversimplified assumptions and the insights of practical signal denoising:  
+There are several justifications for the theoretical study of Gaussian random networks.  First, some trained networks, such as AlexNet, have been shown to exhibit statistics consistent with Gaussians. Thus, all analysis on random networks is potentially of independent interest.  Second, analysis does have to start somewhere. Weaker assumptions have been made, for example by Bora et al, but they were only able to conclude that a nonconvex optimization's global optimizer is accurate.  As nonconvex optimization is in general NP-hard, it is not clear why a gradient descent algorithm would not get stuck.  The assumptions on this paper are the weakest the authors know that allow the possibility of recovery guarantees.  Weakening these assumptions is a worthwhile and likely challenging task.
+
+Additive noise is incremental:
+The two differences with Hand and Voroninski are that HV did not specifically propose an algorithm that would converge to a neighborhood of the global optimizer, and that HV did not study stability to noise.  Both of these matters are significant because they required additional technical lemmas and additional nontrivial arguments. It is far from obvious that adding noise to each empirical loss term of the objective does not create local minima throughout the search space. This work shows that this is not the case for this network model.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJlH2n1Zh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting theoretical result but very far from practical applicability</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SklcFsAcKX&amp;noteId=SJlH2n1Zh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper472 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper472 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper studies the standard denoising problem under the assumption that the unknown n-dimensional signal can be written as the output of a known d-layer neural network G mapping k dimensions to n dimensions. The paper specifies an algorithm to perform this denoising and the algorithm is based on a variant of the usual gradient method. Then, under additional assumptions on the neural network G, the paper proves that their algorithm produces a denoised signal that achieves a mean squared accuracy of k/n. Because the input signal has "effective" dimensionality k (as it can be written as G(x) for some k-dimensional x), it is nice that it can be recovered at the accuracy k/n by Gradient Descent despite the complicated nature of G. In this respect, the result is quite interesting. However, the underlying assumptions are too strong in my opinion as described below: 
+
+1. It is assumed that the Weights of the neural network G are all Gaussian (and also specific Gaussians with mean zero and variances determined by the layer dimensions). This of course is highly impractical. In practice, these network weights are pre-learned (say based on similar datasets) and there is hardly any reason to believe that they will satisfy the Gaussian assumption. 
+2. It is assumed that the network is expansive in some sense with an expansivity constant \epsilon. This \epsilon then gets into the accuracy bound which basically means that \epsilon has to be set very small. Unfortunately, this leads to the expansivity condition being quite stringent which will further lead to k being very small (especially if d is large). It is unrealistic to believe that real-world signals will come from a neural network with small k. 
+
+Given that there do not seem to be other such results for the accuracy of neural network denoising, the paper might still be considered interesting despite the above shortcomings. However, I believe that the theoretical result has near-zero relevance to a practical neural network denoiser.
+
+Another concern is that the paper seems to borrow quite a lot of ideas from the paper "Global Guarantees for Enforcing Deep Generative Priors by Empirical Risk" by Hand and Voroninski. It will be good if the authors can explain the essential differences between the present paper and this earlier paper. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1lQF03t6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SklcFsAcKX&amp;noteId=S1lQF03t6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper472 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper472 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Gaussian assumption:  
+There are several justifications for the theoretical study of Gaussian random networks.  First, some trained networks, such as AlexNet, have been shown to exhibit statistics consistent with Gaussians. Thus, all analysis on random networks is potentially of independent interest.  Second, analysis does have to start somewhere.  Weaker assumptions have been made, for example by Bora et al, but they were only able to conclude that a nonconvex optimization's global optimizer is accurate.  As nonconvex optimization is in general NP-hard, it is not clear why a gradient descent algorithm would not get stuck.  The assumptions on this paper are the weakest the authors know the allow the possibility recovery guarantees.  Weakening these assumptions is a worthwhile task and likely challenging task.  
+
+k needs to be very small:  
+The empirical experiments demonstrate that the regime of applicability of deep denoising by generative model is significantly larger than what the theorem literally states.  Nonetheless, the theorem statements show that all parameter dependencies are polynomial in nature.  From the perspective of theory, this is a significant development, especially as there is no other result for neural network denoising, and one could have expected the results to have exponential dependencies.  Even with the strong assumptions on expansiveness and Gaussianicity, the proofs of favorable behavior by the neural networks are quite technical.  Extending them to weaker realistic assumption would be a worthwhile task now that the first results on this problem have been established.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

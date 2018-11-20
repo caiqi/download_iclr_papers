@@ -1,0 +1,309 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ProxQuant: Quantized Neural Networks via Proximal Operators | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="ProxQuant: Quantized Neural Networks via Proximal Operators" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HyzMyhCcK7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="ProxQuant: Quantized Neural Networks via Proximal Operators" />
+      <meta name="og:description" content="To make deep neural networks feasible in resource-constrained environments (such as mobile devices), it is beneficial to quantize models by using low-precision weights. One common technique for..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HyzMyhCcK7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>ProxQuant: Quantized Neural Networks via Proximal Operators</a> <a class="note_content_pdf" href="/pdf?id=HyzMyhCcK7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 13 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019proxquant:,    &#10;title={ProxQuant: Quantized Neural Networks via Proximal Operators},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HyzMyhCcK7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=HyzMyhCcK7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">To make deep neural networks feasible in resource-constrained environments (such as mobile devices), it is beneficial to quantize models by using low-precision weights. One common technique for quantizing neural networks is the straight-through gradient method, which enables back-propagation through the quantization mapping. Despite its empirical success, little is understood about why the straight-through gradient method works.
+Building upon a novel observation that the straight-through gradient method is in fact identical to the well-known Nesterov’s dual-averaging algorithm on a quantization constrained optimization problem, we propose a more principled alternative approach, called ProxQuant , that formulates quantized network training as a regularized learning problem instead and optimizes it via the prox-gradient method. ProxQuant does back-propagation on the underlying full-precision vector and applies an efficient prox-operator in between stochastic gradient steps to encourage quantizedness. For quantizing ResNets and LSTMs, ProxQuant outperforms state-of-the-art results on binary quantization and is on par with state-of-the-art on multi-bit quantization. For binary quantization, our analysis shows both theoretically and experimentally that ProxQuant is more stable than the straight-through gradient method (i.e. BinaryConnect), challenging the indispensability of the straight-through gradient method and providing a powerful alternative.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Model quantization, Optimization, Regularization</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">A principled framework for model quantization using the proximal gradient method.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">9 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HJeb-tr93Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting addition to the (large) literature on methods to learn deep networks with quantized weights.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyzMyhCcK7&amp;noteId=HJeb-tr93Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper966 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper966 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a new approach to learning quantized deep neural networks, which overcome some of the drawbacks of previous methods, namely the lack of understanding of why straight-through gradient works and its optimization instability. The core of the proposal is the use of quantization-encouraging regularization, and the derivation of the corresponding proximity operators. Building on that core, the rest of the approach is reasonably standard, based on stochastic proximal gradient descent, with a homotopy scheme.
+
+The experiments on benchmark datasets provide clear evidence that the proposed method doesn't suffer from the drawbacks of  straight-through gradient, does contributing to the state-of-the-art of this class of methods.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJxojtYwpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyzMyhCcK7&amp;noteId=SJxojtYwpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper966 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper966 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you very much for the valuable feedback!</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BklDCt7c37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Limited theoretical contribution and concerns about experiments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyzMyhCcK7&amp;noteId=BklDCt7c37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper966 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper966 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposed ProxQuant method to train neural networks with quantized weights. ProxQuant relax the quantization constraint to a continuous regularizer and then solve the optimization problem with proximal gradient method. The authors argues that previous solvers straight through estimator (STE) in BinaryConnect (Courbariaux et al. 2015) may not converge, and the proposed ProxQuant is better.
+
+ I have concerns about both theoretical and experimental contributions
+
+1. The proposed regularizer for relaxing quantized constraint looks similar to BinaryRelax (Yin et al. 2018 BinaryRelax: A Relaxation Approach For Training Deep Neural Networks With Quantized Weights.), which is not cited. I hope the authors can discuss this work and clarify the novelty of the proposed method. One difference I noticed is that BinaryRelax use lazy prox-graident, while the proposed ProxQuant use non-lazy update. It is unclear which one is better.
+
+2. On page 5, the authors claim ‘’Our proposed method can be viewed as … generalization ...’’ in page 5. It seems inaccurate because unlike proposed method, BinaryConnect use lazy prox-gradient.
+
+3. What’s the purpose of equation (4)? I am confused and did not find it explained in the content.
+
+4. The proposed method introduced more hyper-parameters, like the regularizer parameter \lambda, and the epoch to perform hard quantization. In section 4.2, it is indicated that parameter \lambda is tuned on validation set. I have doubts about the fairness comparing with baseline BinaryConnect. Though BC does not have this parameter, we can still tune learning rate.
+
+5. ProxQuant is fine-tuned based on the pre-trained real-value weights. Is BinaryConnect also fine-tuned? For a CIFAR-10 experiments, 600 epochs are a lot for fine-tuning. As a comparison, training real-value weights usually use less than 300 epochs. BinaryConnect can be trained from scratch using same number of epochs. What does it mean to hard-quantize BinaryConnect? The weights are already quantized after projection step in BinaryConnect.  
+
+6. The authors claim there are no reported results with ResNets on CIFAR-10 for BinaryConnect, which is not true. (Li et al. 2017 Training Quantized Nets: A Deeper Understanding) report results on ResNet-56, which I encourage authors to compare with. 
+
+7. What is the benefit of ProxQuant? Is it faster than BinaryConnect? If yes, please show convergence curves. Does it generate better results? Table 1 and 2 does not look convincing, especially considering the fairness of comparison.
+8. How to interpret Theorem 5.1? For example,  Li et al. 2017 show the real-value weights in BinaryConnect can converge for quadratic function, does it contradict with Theorem 5.1?
+
+9. I would suggest authors to rephrase the last two paragraphs of section 5.2. It first states ‘’one needs to travel further to find a better net’’, and then state ProxQuant find good result nearby, which is confusing. 
+
+10.  The theoretical benefit of ProxQuant is only intuitively explained, it looks to me there lacks a rigorous proof to show ProxQuant will converge to a solution of the original quantization constrained problem.
+
+11. The draft is about 9 pages, which is longer than expected. Though the paper is well written and I generally enjoyed reading, I would appreciate it if the authors could shorten the content. 
+
+My main concerns are novelty of the proposed method, and fairness of experiments. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1gpSKtvam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revision and Responses</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyzMyhCcK7&amp;noteId=r1gpSKtvam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper966 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper966 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the very concrete and thoughtful feedback! We have found the comments very useful and constructive for revising the paper.
+
+We have made some initial revisions to address the comments -- please find our changes as well as our response to the comments below.
+
+Novelty and Fairness of Experiments
+
+Point 1 -- As you have pointed out, the main algorithmic difference between ours and Yin et al. (2018) is that we use a non-lazy, standard prox-gradient method whereas their BinaryRelax is a lazy prox-gradient. 
+
+The further novelty of our paper lies in the new observation that BinaryConnect suffers from more optimization instability, which are both theoretically and empirically justified in our Section 5.
+
+We have addressed Yin et al. (2018) as well as a few other related literature in the Prior Work subsection (within the “Principled Methods” paragraph), comparing them with our work and highlighting our novelty.
+
+Point 5 -- Both BinaryConnect and our ProxQuant are initialized at pre-trained full-precision nets, which are trained with 200 epochs over CIFAR-10.
+
+For quantization, our schedule is essentially 400 epochs training, and the additional 200 epochs after hard quantization is mostly for fine-tuning the BatchNorm layers. Such fine-tuning was found very useful for *both ProxQuant and BinaryConnect*. Indeed, for BinaryConnect, the signed net keeps changing (in a tiny proportion) even at epoch 400, and the BatchNorm layer hesitates around without being optimized towards any fixed binary net. Hard quantizing forces BinaryConnect to stay at a specific binary net, after which the BatchNorm layer can approach this optimal and boosts performance.
+
+We have modified Section 4.1 to clarify this.
+
+Theoretical Results
+
+Point 8 -- Li et al.’s convergence bound involves an additive error O(\Delta) that does not vanish over iterations, where \Delta is the grid size for quantization. Hence, their result is only useful when \Delta is small. In contrast, we consider the original BinaryConnect with \Delta = 1, in which case the error makes Li et al.’s bound vacuous.
+
+We have added a remark after Theorem 5.1 to clarify that.
+
+Point 9 -- We have rephrased the last two paragraphs in Section 5.2 a bit, to first state our finding and then analyze why it shows the power of ProxQuant over BinaryConnect.
+
+Point 10 -- We have added a convergence guarantee for ProxQuant in Appendix D, showing that ProxQuant converges to a stationary point of the regularized loss.
+
+Presentation
+
+Point 2 -- We have added that we are also using the non-lazy prox to highlight our difference from BinaryConnect.
+
+Point 3 -- The Eq (4) was just an expanded formula for the prox-gradient method. As it did not really mean to say anything and the prox operator has been already defined, we have removed it for clarity. 
+
+Point 11 -- We would indeed like to shorten the paper. We will do that once we have a better idea of the potential additional materials that we would present. Please stay tuned.
+
+Additional Experiments
+
+Point 4, 6, 7 -- We will work on some additional experiments to address these points. Please stay tuned and we will let you know once it’s done. 
+
+For Point 6 -- The baseline classification error of Adam + BinaryConnect on ResNet56 in Li et. al  is 8.10%, whereas we already achieve a better error 7.79% on ResNet44. We suspect this is due to the difference in the initializing FP net.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1eLOUDJn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea but novelty may not be enough</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyzMyhCcK7&amp;noteId=S1eLOUDJn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper966 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">25 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper966 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes solving binary nets and it variants using proximal gradient descent. To motivate their method, authors connect lazy projected SGD with straight-through estimator. The connection looks interesting and the paper is well presented. However, the novelty of the submission is limited.
+
+1. My main concern is on the novelty of this paper. While authors find a good story for their method, for example,
+- A Proximal Block Coordinate Descent Algorithm for Deep Neural Network Training
+- Training Ternary Neural Networks with Exact Proximal Operator
+- Loss-aware Binarization of Deep Networks
+
+All above papers are not mentioned in the submission. Thus, from my perspective, the real novelty of this paper is to replace the hard constraint with a soft (penalized) one (section 3.2). 
+
+2. Could authors perform experiments with ImageNet?
+
+3. Could authors show the impact of lambda_t on the final performance? e.g., lambda_t = sqrt(t) lambda, lambda_t = sqrt(t^2 lambda</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJgzFtYvaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyzMyhCcK7&amp;noteId=HJgzFtYvaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper966 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper966 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the valuable feedback! We have made a revision to the paper to address all the comments. We will respond to the specific questions in the following.
+
+Novelty --- We agree that there has been a large literature on replacing the straight-through estimator with prox-type algorithms. Our novelty comes in two aspects:
+
+(1) The proposal of combining non-lazy proximal gradient method with a finite (soft) regularization, as well as principled methods for quantizing to binary, ternary, and multi-bit.
+
+(2) A new challenge to the straight-through gradient estimate in its optimization instability through systematic theoretical and empirical investigations. In particular, we show that the convergence criterion of BinaryConnect is very stringent (Theorem 5.1), while our proposed ProxQuant is guaranteed to converge on smooth problems Theorem D.1). Our sign change experiment in Section 5.2 further shows that BinaryConnect is indeed highly unstable in its optimization, as well as giving a lower-performance solution, compared with ProxQuant.
+
+We have updated the related work section (in particular the “Principled methods” part) to include these citations.
+
+ImageNet experiments --- Due to time constraints, we didn’t have time to perform ImageNet experiments for this submission. We have experimental results on LSTMs (Section 4.2) to be complementary with the CIFAR-10 results. Performing ImageNet experiments will be of our interest as a future direction.
+
+Experiments with \lambda_t --- We have thought about that, but we chose to use the linear scheme \lambda_t = \lambda * t for simplicity and to demonstrate that a simple choice would work well. We suspect that changing the schemes would not boost the performance by a great deal -- but we would like to test it experimentally. Please stay tuned and we would potentially add that in our next revision. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HJ7xolRtX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A highly related paper not cited</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyzMyhCcK7&amp;noteId=HJ7xolRtX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Sep 2018 (modified: 01 Oct 2018)</span><span class="item">ICLR 2019 Conference Paper966 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The authors should have cited the paper by Yin et al., first appeared on arXiv  in Jan 2018: <a href="https://arxiv.org/pdf/1801.06313.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1801.06313.pdf</a>
+
+1. In section 3.1,  the authors propose to replace the hard constraint that imposes the quantization of weights with, for example, a quadratic penalty/regularizer.  The formula of the proximal operator for the quadratic regularizer is derived, which is a weighted average between the weights to be quantized and and the quantized weights as shown in items (1)&amp;(2) below Eq. (11) on page 6.  These contributions are the same as those in section 2.3 of the earlier paper by Yin et al.. Proposition 2.3 in Yin et al.'s paper provided essentially the same proximal operator formula. 
+
+2. The authors observe that BinaryConnect iteration can be nicely expressed by Eq. (1) on page 4. The original BinaryConnect paper did not present it explicitly in this way. Their observation of Eq. (1) is basically the same as Eq. (12) on page 9 in Yin et al.'s paper. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJe9XiOgq7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Will cite &amp; Differences</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyzMyhCcK7&amp;noteId=rJe9XiOgq7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper966 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper966 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for bringing the work by Yin et al. to our attention. We were not aware of this paper and did our work independently. We will carefully address this work in our next revision.
+
+We would like to take this opportunity to point out several major differences between our work and Yin et al.:
+
+(1) While we both arrived at the observation that BinaryConnect has a simple expression (our Eq (1) and Yin et al.’s Eq (12)), Yin et al. did not point out this is exactly the dual-averaging algorithm or the lazy-projected gradient descent with constraint set {-1, 1}^d, which dates back to at least Nesterov (for the convex case):
+
+- Nesterov, Y. (2009). Primal-dual subgradient methods for convex problems. Mathematical programming, 120(1), 221-259.
+
+(2) Our algorithm is in fact *different* from Yin et al.: they used the lazy proximal gradient descent (Eq (10), Yin et al.), whereas we used the standard non-lazy proximal gradient descent (our Eq (5)), which is one step further different from the straight-through gradient method.
+
+(3) We proposed and experimented with (1) non-smooth L1-like regularizers for binary quantization; (2) multi-bit quantization with adaptive levels, both not covered in Yin et al..
+
+(4) Our theoretical insights on BinaryConnect (Figure 1 and Section 5) are novel, and in stark contrast with Yin et al.. Our Theorem 5.1 shows that the actual convergence criterion of BinaryConnect is very stringent. We provide a simple 1-d example of such non-convergence in Figure 1.
+
+Our further experimental evidence (Section 5.2) shows that BinaryConnect indeed fails to converge on CIFAR-10 in every run, demonstrating that the condition in Yin et al.’s convergence theorem are quite unlikely to hold in practice. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rygyZPnvpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Added some references in the revision</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyzMyhCcK7&amp;noteId=rygyZPnvpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper966 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper966 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We have added Yin et al., as well as a couple of other relevant literature, into our related work section.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

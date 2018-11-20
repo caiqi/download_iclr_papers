@@ -1,0 +1,341 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Learning Particle Dynamics for Manipulating Rigid Bodies, Deformable Objects, and Fluids | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Learning Particle Dynamics for Manipulating Rigid Bodies, Deformable Objects, and Fluids" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rJgbSn09Ym" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Learning Particle Dynamics for Manipulating Rigid Bodies..." />
+      <meta name="og:description" content="Real-life control tasks involve matter of various substances---rigid or soft bodies, liquid, gas---each with distinct physical behaviors. This poses challenges to traditional rigid-body physics..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rJgbSn09Ym" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Learning Particle Dynamics for Manipulating Rigid Bodies, Deformable Objects, and Fluids</a> <a class="note_content_pdf" href="/pdf?id=rJgbSn09Ym" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019learning,    &#10;title={Learning Particle Dynamics for Manipulating Rigid Bodies, Deformable Objects, and Fluids},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rJgbSn09Ym},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Real-life control tasks involve matter of various substances---rigid or soft bodies, liquid, gas---each with distinct physical behaviors. This poses challenges to traditional rigid-body physics engines. Particle-based simulators have been developed to model the dynamics of these complex scenes; however, relying on approximation techniques, their simulation often deviates from real world physics, especially in the long term. In this paper, we propose to learn a particle-based simulator for complex control tasks. Combining learning with particle-based systems brings in two major benefits: first, the learned simulator, just like other particle-based systems, acts widely on objects of different materials; second, the particle-based representation poses strong inductive bias for learning: particles of the same type have the same dynamics within. This enables the model to quickly adapt to new environments of unknown dynamics within a few observations. Using the learned simulator, robots have achieved success in complex manipulation tasks, such as manipulating fluids and deformable foam. The effectiveness of our method has also been demonstrated in real world. Our study helps lay the foundation for robot learning of dynamic scenes with particle-based representations.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Dynamics modeling, Control, Particle-Based Representation</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Learning particle dynamics with dynamic interaction graphs for simulating and control rigid bodies, deformable objects, and fluids. </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HylEhDyWAm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>General Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJgbSn09Ym&amp;noteId=HylEhDyWAm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1513 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1513 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We want to thank all the reviewers for their insightful comments. Here, we will explain again the contribution of our paper, address some common concerns, and summarize the changes we intend to include in our revisions.
+
+This paper presents a model for learning particle dynamics using a dynamically-built interaction graph. The model works well in simulating and controlling objects under many different states, including rigid bodies, deformable objects, and fluids, both in simulation and on a real robot. We believe that demonstrating the power of learned particle dynamics models on downstream control tasks is an important contribution to the learning and robotics community that should not be undervalued.
+
+We agree with the reviewers that it’s important to compare our paper with other related papers and clarify their differences. Here, we summarize the three key differences between our paper and earlier works that serve as our inspiration [1, 2]: 
+1) We learn dynamics between particles that are in different physical states (e.g. between rigid bodies and fluids), while other works focused on scenarios where all objects are in the same state, e.g. all soft or rigid bodies (Mrowca et al. [1]), or all fluids (Schenck and Fox [2]). 
+2) While Mrowca et al. [1] used a static graph, our model uses an interaction graph built dynamically. Since maintaining a dynamic graph is crucial for simulating objects undergoing large deformation like fluids, this modification has enabled our model to work better in the more challenging cases mentioned above.
+3) We have applied our model to more challenging control problems, including one on a real-world robot. In the other paper (Mrowca et al. [1]), however, this non-trivial task was not explored at all. 
+
+In our revision by Nov. 26, we will include
+1) A comparison with Mrowca et al. [1] in all four environments we used, contrasting the two models’ capacity in simulating rigid bodies, elastic deformation, and fluids.
+2) Experiments with a unified dynamics model.
+3) Systematic analyses of the sensitivity of the hyperparameters. 
+
+Please don’t hesitate to let us know if there is any additional comment on the intended changes.
+
+[1] Damian Mrowca, Chengxu Zhuang, Elias Wang, Nick Haber, Li Fei-Fei, Joshua B. Tenenbaum, Daniel L. K. Yamins. "Flexible Neural Representation for Physics Prediction." In NIPS, 2018.
+[2] Connor Schenck, Dieter Fox. “SPNets: Differentiable Fluid Dynamics for Deep Neural Networks.” In CoRL 2018.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1gcPWZphX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Little Novelty over Prior Work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJgbSn09Ym&amp;noteId=S1gcPWZphX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1513 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1513 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors present an algorithm for learning the dynamics prediction of deformable and fluid bodies by modeling them as (potentially hierarchical) systems of many interacting particles.  This model applies a shared encoder to the particle states (positions and velocities), a shared relation network to nearby pairs, and a shared propagator network to the summed relation network outputs.  In some cases this process is applied in a multi-scale hierarchical fashion.  The authors demonstrate accurate rollouts of system dynamics and usefulness for manipulative control of deformable objects.
+
+I find the motivation in the introduction persuasive and the algorithmic approach sound.  I also like the application to RL.  However, I do have some concerns, as follows:
+
+1)  The novelty of the method is questionable.  Specifically, the hierarchical interaction network proposed here seems extremely similar to the prior (and cited) paper (Mrowca et al., 2018), which the authors do not directly compare against.  If there is a non-negligible difference between the two algorithms, then the authors should explicitly discuss the difference and empirically compare the two, in order to benefit others in the community who otherwise would not know which to use.
+
+2)  The paper would benefit a lot from a diagram of the model.  Specifically, it would be good to have a diagram of the hierarchical interaction network demonstrating the multiscale propagation.  This could go in Figure 1, perhaps replacing elements (b) and (d) of the current Figure 1, which in my opinion are unnecessary and can be removed.
+
+3)  The paper uses domain-specific hyperparameters, yet does not discuss or analyze the effects of these hyperparameters much.  Specifically, for this method to be useful to others, we would like to know how to choose (i) the propagation step L, (ii) the number of roots, and (iii) the neighborhood distance d.  In the paper, these numbers are chosen differently for the different environments without explanation.  Graphs showing performance on each task over a range of values of these parameters would be good (perhaps in the supplementary material).  Also, using the same hyperparameters for all environments (or at least a common generating function) would help support the generality of this model.
+
+4)  The treatment of rigid bodies seems a bit hand-held.  Specifically, to determine the dynamics of rigid bodies, there is a ground-truth calculation which calculates computes the velocity and angular velocity of the body from the model predictions for its constituent particles.  Furthermore, if I understand correctly, there is a different motion predictor network for those particles in a rigid body than those in the surrounding fluid --- is this correct?  If so, this raises the questions:  (i) What happens if the same motion-predictor network is used for all particles, and (ii) What happens if the ground-truth rigid dynamics calculation is not done, so the model has to do all the work?  It would be interesting to have these as baselines.
+
+5)  It would be nice to see more generalization results.  There is only one generalization experiment, testing for generalization over particle number in FluidShake.  However, the FluidShake model is not hierarchical.  The hierarchical models are a big emphasis in the paper, so showing generalization on BoxBath or RiceGrip would be much more meaningful.
+
+6)  No confidence intervals for the quantitative results.  Confidence intervals would be good to see in the table in Figure 3-a.  Also, the bar graph in Figure 5 really would benefit from errorbars --- it is difficult to determine if the results are significant.
+
+7)  While the text is generally clear and definitely understandable, I have a couple of comments about it:  (i) The last three paragraphs of the introduction are repetitive and I think they can be removed, or at least shortened a lot.  There are also quite a number of grammatical errors throughout the paper, though it is still comprehensible.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkxztqkZR7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJgbSn09Ym&amp;noteId=BkxztqkZR7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1513 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1513 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you so much for the insightful and detailed comments!
+
+1. Novelty and Baselines
+Thanks for the suggestions. Our paper is novel, because it first explores learning particle dynamics among fluids and rigid bodies, with a dynamically-built graph, and because it first applies the learned particle dynamics model for control, in both synthetic environments and on a real robot. Here, we summarize the three key differences between our paper and earlier works that serve as our inspiration [1, 2]: 
+
+1) We learn dynamics between particles that are in different physical states (e.g. between rigid bodies and fluids), while other works focused on scenarios where all objects are in the same state, e.g. all soft or rigid bodies (Mrowca et al. [1]), or all fluids (Schenck and Fox [2]). 
+2) While Mrowca et al. used a static graph, our model uses an interaction graph built dynamically. Since maintaining a dynamic graph is crucial for simulating objects undergoing large deformation like fluids, this modification has enabled our model to work better in the more challenging cases mentioned above.
+3) We have applied our model to more challenging control problems, including one on a real-world robot. In the other paper (Mrowca et al. [1]), however, this non-trivial task was not explored at all. Demonstrating the power of learned particle dynamics models on downstream control tasks is an important contribution to the learning and robotics community. It should not be undervalued.
+
+We agree that it’ll be important to clearly discuss the differences and include additional comparisons. In our revision by Nov. 26, we will compare with Mrowca et al. [1] in all four environments we used, contrasting the two models’ capacity in simulating rigid bodies, elastic deformation, and fluids.
+
+2. Presentation
+Thanks. As suggested, we will update figure 1 to include a diagram of the model demonstrating our key contribution: the joint use of dynamic graphs, hierarchical structure, and multi-step propagation. We’ll add confidence interval and error bars and revise the introduction.
+
+3. Rigid body representation
+State-specific dynamics models perform better and are equally efficient. We use state-specific models because there are only a few states of interest (solids, liquids, and soft bodies), and their physical behaviors are drastically different. We agree with the reviewer that additional comparisons are important: we’ll add experiments with a unified dynamics model.
+
+The motion of a rigid body only has six degrees of freedom. Predicting per-particle movement does not work well, compared with predicting a global rigid motion, because particles will deform and scatter. We will also add a comparison to the revision.
+
+4. Generalization
+We will show more (extrapolate) generalization results in RiceGrip and BoxBath to demonstrate that our method can generalize to novel environments that are larger than the training ones.
+
+5. Hyperparameters
+The hyperparameters used in the paper are not specific to environments. The supplementary material shows that most hyperparameters are kept the same across scenarios. We will provide systematic analyses regarding the sensitivity of the hyperparameters in the revision, for
+1) the propagation step L,
+2) the number of roots in the rigid/deformable bodies, and
+3) the neighborhood distance d.
+
+We have also listed all other planned changes in our general response above. Please don’t hesitate to let us know for any additional comments on the paper or on the planned changes.
+
+[1] Damian Mrowca, Chengxu Zhuang, Elias Wang, Nick Haber, Li Fei-Fei, Joshua B. Tenenbaum, Daniel L. K. Yamins. "Flexible Neural Representation for Physics Prediction." In NIPS, 2018.
+[2] Connor Schenck, Dieter Fox. “SPNets: Differentiable Fluid Dynamics for Deep Neural Networks.” In CoRL 2018.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryehJ1s2n7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Similar to Interaction Networks; Missing Comparisons to Baselines</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJgbSn09Ym&amp;noteId=ryehJ1s2n7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1513 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1513 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=ryehJ1s2n7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">[Paper Summary]
+This paper tackles the problem of learning dynamics of non-rigid objects in a physics simulator. This learned dynamics can then be used for planning later. The non-rigid objects are represented via a particle-based system. The dynamics model is learned using NVIDIA's particle-based simulator "Flex". The main idea is to adapt Interaction Networks [Battaglia, 2016] which was earlier proposed for rigid-body simulators to particle-based simulators. Instead of maintaining interactions at the level of objects as in [Battaglia, 2016], the proposed approach models interaction at the level of particles.
+
+[Paper Strengths]
+The paper is clearly written and tackles an important research problem. The existing literature is presented well.
+
+[Paper Weaknesses]
+=&gt; The introduction and the text in the first two pages seem to be introducing a new way to model "dynamic" interactions between particles for handling non-rigid transformations. However, upon reading the method section, the approach seems to be a direct application of the Interaction Graph Networks (originally applied to the rigid-body simulator) to the particle-based simulator. The only difference is that instead of maintaining a fully-connected graph (memory and computational bottleneck), each particle is only connected to the near-by particles within distance d.
+
+=&gt; One of the major issue with the paper is the experimental section of the paper. Since the proposed method is quite incremental over the prior work, a strong empirical section is must to justify the approach. Here are the comments:
+   - Since the proposed approach is an adaptation of [Battaglia, 2016], it should be compared to other existing methods. The experiment section in its current state does not compare to any baseline. The well-written related work (section-2) talks about (Mrowca et.al. 2018) and (Schenck and Fox, 2018) as the works which investigate learning dynamics of deformable objects using a particle-based simulator. However, no comparison is provided to either of the methods. Hence, it is not possible to judge the quality of the presented results.
+
+   - All results in Figure-5 or Figure-3 are quite close to each other. It is not clear whether the improvement is significant or not since the error bars are not provided at all.
+
+   - No ablation is performed to test the sensitivity of the proposed method with respect to the hyper-parameters introduced; for instance, the distance 'd'.
+
+=&gt; The name "Dynamic Particle Interaction" is overloaded with terms, especially, the use of word 'dynamic' here just refers to the interaction of particles to model deformable objects. This "dynamic" interaction is not "learned" but simply hard-coded by deleting the edges which are farther than d distance apart and adding near ones. Something like "Particle-level Interaction Networks" would be a more honest description of the approach.
+
+[Final Recommendation]
+I request the authors to address the comments raised above and will decide my final rating based on that. With the current set of experiments, the paper doesn't seem to be ready yet.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJg_Ehy-C7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJgbSn09Ym&amp;noteId=rJg_Ehy-C7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1513 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1513 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you so much for your insightful and detailed comments!
+
+1. Our contributions and comparisons with baselines
+Thanks for the suggestions. Our paper is novel, because it first explores learning particle dynamics among fluids and rigid bodies, with a dynamically-built graph, and because it first applies the learned particle dynamics model for control, in both synthetic environments and on a real robot. Here, we summarize the three key differences between our paper and earlier works that serve as our inspiration [1, 2]: 
+
+1) We learn dynamics between particles that are in different physical states (e.g. between rigid bodies and fluids), while other works focused on scenarios where all objects are in the same state, e.g. all soft or rigid bodies (Mrowca et al. [1]), or all fluids (Schenck and Fox [2]). 
+2) While Mrowca et al. used a static graph, our model uses an interaction graph built dynamically. Since maintaining a dynamic graph is crucial for simulating objects undergoing large deformation like fluids, this modification has enabled our model to work better in the more challenging cases mentioned above.
+3) We have applied our model to more challenging control problems, including one on a real-world robot. In the other paper (Mrowca et al. [1]), however, this non-trivial task was not explored at all. Demonstrating the power of learned particle dynamics models on downstream control tasks is an important contribution to the learning and robotics community. It should not be undervalued.
+
+Our dynamics model includes many improvements compared with the vanilla interaction networks: the use of dynamic graphs, multi-step propagations, and the hierarchical structure. While the hierarchical structure and multi-step propagations have been explored (Mrowca et al and Li et al), dynamically-built interaction graphs are new, the combination of these ideas is new, and most importantly, applying them to control is new. 
+
+In particular, a dynamically-built graph can better capture the inductive bias for many common physical systems like fluids and gases, as well as extrapolations to unseen environments (Fig. 3). We agree with the reviewer that learning to build dynamic graphs is definitely an important future direction, which we’re currently pursuing, but we’d also like to emphasize that the idea of updating the interaction graph based on the states of the particles is conceptually important and empirically useful.
+
+We agree that it’ll be important to clearly discuss the differences and include additional comparisons. In our revision by Nov. 26, we will compare with Mrowca et al. [1] in all four environments we used, contrasting the two models’ capacity in simulating rigid bodies, elastic deformation, and fluids.
+
+2. Ablation studies
+We’ll add confidence intervals and error bars to Fig. 3 and 5. The improvements of the simulation results in Fig. 3 are significant: on average, the rollout loss decreases by 85% with the use of dynamic graphs. We will also add more comparisons with related works demonstrating the effectiveness of our introduced techniques.
+
+The hyperparameters used in the paper are not specific to environments. The supplementary material shows that most hyperparameters are kept the same across scenarios. We will provide systematic analyses regarding the sensitivity of the hyperparameters in the revision, for
+1) the propagation step L,
+2) the number of roots in the rigid/deformable bodies, and
+3) the neighborhood distance d.
+
+We have also listed all other planned changes in our general response above. Please don’t hesitate to let us know for any additional comments on the paper or on the planned changes.
+
+[1] Damian Mrowca, Chengxu Zhuang, Elias Wang, Nick Haber, Li Fei-Fei, Joshua B. Tenenbaum, Daniel L. K. Yamins. "Flexible Neural Representation for Physics Prediction." In NIPS, 2018.
+[2] Connor Schenck, Dieter Fox. “SPNets: Differentiable Fluid Dynamics for Deep Neural Networks.” In CoRL 2018.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_B1eZWv4q2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Impressive work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJgbSn09Ym&amp;noteId=B1eZWv4q2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1513 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1513 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This work demonstrates that a particle dynamics model can be learned to approximate the interaction of various objects. The resulting differentiable simulator has a strong inductive bias, which makes it possible to efficiently solve complex manipulation tasks over deformable objects.
+
+# Quality
+
+This work is an impressive proof-of-concept of the capabilities of differentiable programming for learning complex (physical) processes, such as particle dynamics. In my opinion, the resulting particle interaction network would deserve publication for itself. However, this work goes already one step further and demonstrates that the resulting differentiable simulator can be used for the manipulation of deformable objects.
+
+The method is evaluated on a well-rounded set of experiments which demonstrates its potential. More real-world experiments would be welcome to leave any doubt.
+
+EDIT: However, the current manuscript lacks a proper comparison with (cited) previous work, such as 1806.08047. 
+
+# Clarity
+
+The paper is well written, although I do feel it was difficult to remain within the 8-page limit given the breadth of the work.
+
+# Originality
+
+As far as I know, this work is (very) original. (That being said, I am not too familiar with the related work.)
+
+EDIT: This work is actually quite similar to 1806.08047. A proper discussion of the differences should be included. 
+
+# Significance
+
+This work will certainly be of interest for several research communities, including deep learning, physics, control and robotics.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkxqaaJbC7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJgbSn09Ym&amp;noteId=SkxqaaJbC7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1513 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1513 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you so much for the encouraging comments! 
+
+Our paper is novel, because it first explores learning particle dynamics among fluids and rigid bodies, with a dynamically-built graph, and because it first applies the learned particle dynamics model for control, in both synthetic environments and on a real robot. There are also key differences between our paper and the inspiring early work from Mrowca et al. [1]: 
+1) We learn dynamics between particles that are in different physical states (e.g. between rigid bodies and fluids), while Mrowca et al. [1] focused on scenarios where all objects are in the same state, e.g. all soft or rigid bodies. 
+2) While Mrowca et al. used a static graph, our model uses an interaction graph built dynamically. Since maintaining a dynamic graph is crucial for simulating objects undergoing large deformation like fluids, this modification has enabled our model to work better in the more challenging cases mentioned above.
+3) We have applied our model to more challenging control problems, including one on a real-world robot. In the other paper (Mrowca et al. [1]), however, this non-trivial task was not explored at all. Demonstrating the power of learned particle dynamics models on downstream control tasks is an important contribution to the learning and robotics community. It should not be undervalued. 
+
+We agree that it’ll be important to clearly discuss the differences and include additional comparisons. In our revision by Nov. 26, we will compare with Mrowca et al. [1] in all four environments we used, contrasting the two models’ capacity in simulating rigid bodies, elastic deformation, and fluids.
+
+We have also listed all other planned changes in our general response above. Please don’t hesitate to let us know for any additional comments on the paper or on the planned changes.
+
+[1] Damian Mrowca, Chengxu Zhuang, Elias Wang, Nick Haber, Li Fei-Fei, Joshua B. Tenenbaum, Daniel L. K. Yamins. "Flexible Neural Representation for Physics Prediction." In NIPS, 2018.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

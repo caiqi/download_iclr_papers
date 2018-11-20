@@ -1,0 +1,249 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Deterministic Policy Gradients with General State Transitions | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Deterministic Policy Gradients with General State Transitions" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rylRgh0qK7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Deterministic Policy Gradients with General State Transitions" />
+      <meta name="og:description" content="We study a reinforcement learning setting, where the state transition function is a convex combination of a stochastic continuous function and a deterministic function. Such a setting generalizes..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rylRgh0qK7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Deterministic Policy Gradients with General State Transitions</a> <a class="note_content_pdf" href="/pdf?id=rylRgh0qK7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019deterministic,    &#10;title={Deterministic Policy Gradients with General State Transitions},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rylRgh0qK7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=rylRgh0qK7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We study a reinforcement learning setting, where the state transition function is a convex combination of a stochastic continuous function and a deterministic function. Such a setting generalizes the widely-studied stochastic state transition setting, namely the setting of deterministic policy gradient (DPG).
+
+We firstly introduce a theoretical technique to prove the existence of the policy gradient in this generalized setting. Using this technique, we prove that the deterministic policy gradient indeed exists for a certain set of discount factors, and further prove two conditions that guarantee the existence for all discount factors. We then derive a closed form of the policy gradient whenever exists. Furthermore, to overcome the challenge of high sample complexity of DPG in this setting, we propose the Generalized Deterministic Policy Gradient (GDPG) algorithm. The main innovation of the algorithm is a new method of applying model-based techniques to the model-free algorithm, the deep deterministic policy gradient algorithm (DDPG). GDPG optimize the long-term rewards of the model-based augmented MDP subject to a constraint that the long-rewards of the MDP is less than the original one.
+
+We finally conduct extensive experiments comparing GDPG with state-of-the-art methods and the direct model-based extension method of DDPG on several standard continuous control benchmarks. Results demonstrate that GDPG substantially outperforms DDPG, the model-based extension of DDPG and other baselines in terms of both convergence and long-term rewards in most environments.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Reinforcement Learning, Deterministic Policy Gradient, Model-based</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">4 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BygaK51yaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea but the presentation is unclear </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylRgh0qK7&amp;noteId=BygaK51yaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1128 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 09 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1128 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=BygaK51yaQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors studied a modification of deterministic policy gradient in which the transition function consists of both the deterministic part and the stochastic part. Leveraging the existing result in DDPG and arguing that the original result has convergence issue for general \gamma, they showed a new DPG theoretical result for deterministic transition function under certain conditions. Furthermore they also extended this result to general hybrid transition function, as well as including model-based/model-free gradient interpolation to improve sample complexity of DDPG. To illustrate the effectiveness of this work, the authors also compare GDPG with other baselines in several benchmarks. 
+
+While I find this topic potentially interesting, I do have several concerns. 
+
+First of all, the gradient result in Theorem 1 only holds when \gamma\in[0,1/nc], how restrictive is that? Can the authors provide more intuitions on this restriction to a more general gamma? 
+
+Second, while the PG result is extended in theorem 2 to the hybrid transition function, and the authors proposed a complicated gradient formulation, at the end it seems that resembles the standard DDPG result, so what is the novelty here, especially this result only holds under restrictions on gamma and specific ranges of eigen-values on transition? How can one check that conditions i) and ii) hold in practice? While the hybrid transition model presents theoretical interests how practical is this transition model? 
+
+Third, to reduce sample complexity, the authors proposed interpolating model-based PG with model-free ones. While I appreciate the idea of augmenting the MDP to transform the original problem to one with deterministic transition, and the motivation of justifying the PG interpolation via a constrained problem, how does the DPG result in Theorem 1 relate to the model-based gradient estimate (in first part of equation 5), in particular does the restriction of gamma also apply to the gradient estimate here? How does this approach compare with the interpolated PG approach (<a href="https://arxiv.org/abs/1706.00387)?" target="_blank" rel="nofollow">https://arxiv.org/abs/1706.00387)?</a> Does this model-based gradient term act as a control variate to reduce variance of PG? 
+
+Fourth, is the resulting gradient estimate still unbiased? If not, does the improvement come from bias-injection/variance-reduction?
+
+Presentation of this paper: this paper contains numerous typos (for example a) M_* versus M^*, b) what is MDPG exactly in the experiment section, c) grammatical errors etc.). While the presentation of this paper is technical, it lacks intuition on the assumptions made as well as the conditions posed. (For example, what are the intuitions behind condition A1 and A2, and how restrictive is the condition of Theorem 1, when \gamma needs to be in [0,1/nc]?) Furthermore the DPG result in Theorem 2 is for a complicated transition function, but I am not sure how practical/novel it is, can the authors provide more insights and examples to justify this hybrid transition function?
+Unfortunately given the current presentation I find it rather difficult to grasp the general ideas presented in this paper. I would recommend putting the rest of the theoretical proofs in the appendix and increasing the context on explaining the results.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJlkglxJaQ" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylRgh0qK7&amp;noteId=SJlkglxJaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper1128 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJxXMIV537" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Two relatively separate ideas, both warranting some more discussion</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylRgh0qK7&amp;noteId=rJxXMIV537"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1128 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1128 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper is a combination of two main and only vaguely related parts: one is a set of theoretical results regarding the existence of policy gradients for MDPs with deterministic (or mixed deterministic and stochastic) state transitions, and the other one is a new algorithm (GDPB) combining model-free and model-based policy gradients.
+
+The theoretical results seem to me like they further the understanding of DPG. This is more clearly the case for the negative result. For the mixture-of-deterministic-and-stochastic-transitions result, however, I might be missing something but I don’t see how the way that the two models are combined does not simply produce a stochastic transition model. Even disregarding this, I am not sure the particular combination of transition models they look at is that relevant for real-world tasks - for me it would be much more important to deal with the setting where some state features have deterministic transitions and others do not.
+
+I would have liked to see a more in-depth discussion of the model-based approach, in particular using the upper-bounded model-based value functions, as it seems like it could be a promising general technique. One thing that wasn’t clear to me was why the improvement in the lower-bound objective guarantees an improvement in the original objective, which seems like a key argument. 
+
+The empirical results look reasonable, although I am always a bit suspicious of introducing a new parameter (alpha in this case) that is tuned using the benchmark domains.
+
+In summary, I would have given this paper a higher rating if I had been convinced of either the real-world relevance of their positive theoretical result, or the  generality of the GDPG algorithm.
+
+One minor comment is that the * subscript notation is a bit confusing, as * is typically used for the optimal value / policy.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SJxyJReWjm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Paper is clearly sub-par, incoherent and ignores established work.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylRgh0qK7&amp;noteId=SJxyJReWjm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1128 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1128 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper addresses the problem of control in settings where the norm of the state can become arbitrarily large and diverge as time goes to infinity. In example 2.1, the authors provide an MDP where the norm of the state is multiplied by some constant &gt;1 at every time step for certain policies. Naturally, other quantities defined in terms of the state diverge as well. Since they define a reward function that is linear in the state, the value function diverges as well, as does its gradient. 
+
+The authors are right to notice that the problem of stability of dynamical systems is important - indeed, this type of phenomenon has been crucial to the development of control theory from the beginning. The scope of the paper is clearly within the remit of ICLR.
+
+However, I do not think that the way they analyse and tackle the problem is correct. I have the following objections to the analysis and methods of the paper.
+
+1. The authors wrongly claim that the problem is specific to systems with deterministic transitions and that no difficulty exists in systems with stochastic ones. This is clearly false. Indeed, consider a system with stochastic transitions, which is obtained by taking the transition operator defined in Example 2.1 and adding (eta)^2 to each entry, where eta is a zero-mean normal random variable. The problem of divergence still exists. This does not contradict Silver et al. who simply assume that all the relevant quantities exist (and are bounded).
+
+2. The authors completely ignore years of research into system stability done in the control community. Systems with differentiable dynamics and differentiable actions are the cornerstone of the field and criteria for stability are well-known. This is especially troubling given Example 2.1 is linear, which is probably the most canonical class of systems that have been studied. The paper does not cite even one text on control theory!
+
+3. The whole premise of reducing the discount as a way of tackling instability (vide Lemma 1) is potentially faulty because the underlying state vector still diverges. Since machine learning assumes bounded arguments and the value function takes the state as an argument, I don't see how we can learn value functions of unbounded states in general. The authors do not address this at all.
+
+4. The authors do not address the problem of exploration. Typically, policy gradient methods are based on some notion of ergodicity / sufficient exploration assumption. I don't see at all how the authors guarantee that the discounted measure \rho(s) covers the whole state space in the presence of entirely deterministic dynamics.
+
+5. The premise of using model-based RL to tackle the problem of diverging state is neither motivated nor sound. Indeed, if I start with an MDP where the state diverges and learn a good model, the model will simply reflect the original MDP in the sense that planning wrt. to the model will lead to divergent quantities. Therefore, the GDPG algorithm defined in section 4.2 bears no relevance at all to the divergence issues presented in earlier sections.
+
+6. The paper is very sloppily written for something which pretends to provide a result on divergence, a formal concept. The indicator function 'I' used in the line below formula (1) is never defined. The arguments used are both informal and expressed in bad English. For example, the phrase "s (prime) is reached from the initial state with infinite steps" makes sense neither as an English sentence nor as a mathematical statement.
+
+Considering the above, I believe that publishing the paper as it stands would actively detract from the community by giving a platform to claims which are partly incoherent and partly downright wrong. 
+
+I do not find anything valuable in this paper. I will argue to get it rejected.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">1: Trivial or wrong</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BylppDmep7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarification</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rylRgh0qK7&amp;noteId=BylppDmep7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1128 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1128 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comments. 
+
+We would like to clarify some of your misunderstandings of this paper due to our inappropriate presentation. 
+
+In this paper,  we do not consider the setting where the norm of the state can become arbitrarily large and diverge as time goes to infinity, and we assume the state space is bounded. In fact, we study the setting where the probability density function of transitions is not continuous with the action, and we give a theoretical guarantee of the existence of the deterministic policy gradient. I am sorry for the inappropriate example where the state space is unbounded. We have removed this example and update in the current version.
+
+We would very much appreciate if you could read our updated version.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

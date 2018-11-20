@@ -1,0 +1,307 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Marginal Policy Gradients: A Unified Family of Estimators for Bounded Action Spaces with Applications | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Marginal Policy Gradients: A Unified Family of Estimators for Bounded Action Spaces with Applications" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HkgqFiAcFm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Marginal Policy Gradients: A Unified Family of Estimators for..." />
+      <meta name="og:description" content="Many complex domains, such as robotics control and real-time strategy (RTS) games, require an agent to learn a continuous control. In the former, an agent learns a policy over R^d and in the latter..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HkgqFiAcFm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Marginal Policy Gradients: A Unified Family of Estimators for Bounded Action Spaces with Applications</a> <a class="note_content_pdf" href="/pdf?id=HkgqFiAcFm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 16 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019marginal,    &#10;title={Marginal Policy Gradients: A Unified Family of Estimators for Bounded Action Spaces with Applications},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HkgqFiAcFm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=HkgqFiAcFm" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Many complex domains, such as robotics control and real-time strategy (RTS) games, require an agent to learn a continuous control. In the former, an agent learns a policy over R^d and in the latter, over a discrete set of actions each of which is parametrized by a continuous parameter. Such problems are naturally solved using policy based reinforcement learning (RL) methods, but unfortunately these often suffer from high variance leading to instability and slow convergence. Unnecessary variance is introduced whenever policies over bounded action spaces are modeled using distributions with unbounded support by applying a transformation T to the sampled action before execution in the environment. Recently, the variance reduced clipped action policy gradient (CAPG) was introduced for actions in bounded intervals, but to date no variance reduced methods exist when the action is a direction, something often seen in RTS games. To this end we introduce the angular policy gradient (APG), a stochastic policy gradient method for directional control. With the marginal policy gradients family of estimators we present a unified analysis of the variance reduction properties of APG and CAPG; our results provide a stronger guarantee than existing analyses for CAPG. Experimental results on a popular RTS game and a navigation task  show that the APG estimator offers a substantial improvement over the standard policy gradient.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">reinforcement learning, policy gradient, MOBA games</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SJgG0gkChX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Comprehensive analysis and evaluated algorithms on realistic experiments.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgqFiAcFm&amp;noteId=SJgG0gkChX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper468 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper468 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper the authors proposed a new policy gradient method, which is known as the angular policy gradient (APG), that aims to provide provably lower variance in the gradient estimate. Here they presented a stochastic policy gradient method for directional control. Under the set of parameterized Gaussian policies, they presented a unified analysis of the variance of APG and showed how it theoretically outperform (in terms of having lower variance) than other state-of-the art methods. They further evaluated the APG algorithms on a grid-world navigation domain as well as the King of Glory task, and showed that the APG estimator significantly out-performs the standard policy gradient.
+
+In general I think this paper addressed an important issue in policy gradient in terms of deriving a lower variance gradient estimate. In particular the authors showed that under the parameterized marginal distribution, such as the angular Gaussian distribution, the corresponding APG estimate has a lower variance estimate than that of CAPG. Furthermore, I also appreciate that they evaluated these results in realistic experiments such as the RTS game domains. 
+
+My only question is on the possibility of deriving realistic APG algorithms beyond the class of angular Gaussian policy. In terms of the layout of the paper, I would also recommend including the exact algorithm pseudo-code used in the main paper.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1eUaqUjTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' Response for Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgqFiAcFm&amp;noteId=S1eUaqUjTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper468 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper468 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the time and effort spent reviewing our paper. We are glad you liked the paper. We want to emphasize one point that we perhaps did not highlight enough in our paper: there are other existing algorithms that fall into the marginal policy gradients framework. Specifically, researchers and practitioners both almost always clip actions for use in robotics control environments (read: MuJoCo tasks). Recently, a reduced variance method was introduced by Fujita and Maeda (2018) for clipped action spaces. Their algorithm is also a member of the marginal policy gradients family and our theoretical results for MPG significantly tighten existing analyses of variance reduction that can be achieved for clipped actions.
+
+To respond to your question, yes it is possible (e.g. the example given above), but their is no general procedure that we know of to derive such methods. Rather, this would be done on an action space by action space basis</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1gSPxyC3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Limited setting of directional RL, but interesting approach and results.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgqFiAcFm&amp;noteId=H1gSPxyC3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper468 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper468 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper introduces policy gradient methods for RL where the policy must choose a direction (a.k.a., the navigation problem).
+
+Mapping techniques from "non-directional" problems (where the action space is not a direction) and then projeting on the sphere is sub-optimal (the variance is too big). The authors propose to sample directly on the sphere, using the fact that the likelyhood of an angular Gaussian r.v. has *almost* a closed form and its gradient can almost be computed, up to some normalization term (the integral which is constant in the standard Gaussian case).
+
+
+This can be seen as a variance reduction techniques.
+
+The proofs are not too intricate, for someone used to variance reduction (yet computations must be made quite carefully).
+
+
+The result is coherent, interesting from a theoretical point of view and the experiment are somehow convincing. The main drawback would be the rather incrementality of that paper (basically sample before projecting is a bit better than projecting after sampling) and that this directional setting is quite limited...
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJlQqs8spQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' Response to Reviewer 2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgqFiAcFm&amp;noteId=SJlQqs8spQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper468 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper468 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the time and effort spent reviewing our paper. We mostly agree with your characterization of our work, but we think there are two important points we perhaps did not sufficiently emphasize in our paper and that we would like to mention:
+
+(1) There are other existing tasks and algorithms that fall into the marginal policy gradients framework. For example, researchers and practitioners both almost always clip actions when using policy gradient algorithms for robotics control environments (read: MuJoCo tasks). Recently, a reduced variance method was introduced by Fujita and Maeda (2018) for clipped action spaces. Their algorithm is also a member of the marginal policy gradients family and our theoretical results for MPG significantly tighten the existing analysis of their algorithm.
+
+(2) To the best of our knowledge, our work is the first to apply such variance reduction techniques to RL.
+
+To summarize, our work consists of two components: (a) a new algorithm for directional control and (b) a variance reduction framework that can be applied to directional action space and clipped action spaces. While directional action spaces are not very common at this time, clipped action spaces are extremely common. We also anticipate that in the future, many additional environments will be available that feature directional actions (many console or PC games, for example). For these reasons, we feel that our work is not incremental at all, and is actually quite novel.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Hyl_lXQF3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Fun, albeit incremental paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgqFiAcFm&amp;noteId=Hyl_lXQF3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper468 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper468 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary
+
+This paper derives a new policy gradient method for when continuous actions are transformed by a
+normalization step, a process called angular policy gradients (APG). A generalization based on
+a certain class of transformations is presented. The method is an instance of a 
+Rao-Blackwellization process and hence reduces variance.
+
+
+Detailed comments
+
+I enjoyed the concept and, while relatively niche, appreciated the work done here and do believe it has clear applications. I am not convinced that the measure theoretic perspective is always
+necessary to convey the insights, although I appreciate the desire for technical correctness. Still,
+appealing to measure theory does reduces readership, and I encourage the authors to keep this in
+mind as they revise the text.
+
+Generally speaking it seems like a lot of technicalities for a relatively simple result:
+marginalizing a distribution onto a lower-dimensional surface.
+
+The paper positions itself generally as dealing with arbitrary transformations T, but really is 
+about angular transformations (e.g. Definition 3.1). The generalization is relatively 
+straightforward and was not too surprising given the APG theory. The paper would gain in clarity
+if its scope was narrowed. 
+
+It's hard for me to judge of the experimental results of section 5.3, given that there are no other 
+benchmarks or provided reference paper. As a whole, I see APG as providing a minor benefit over PG.
+
+Def 4.4: "a notion of Fisher information" -- maybe "variant" is better than "notion", which implies there are different kinds of Fisher information 
+Def 3.1 mu is overloaded: parameter or measure?
+4.4, law of total variation -- define 
+
+
+Overall
+
+This was a fun, albeit incremental paper. The method is unlikely to set new SOTA, but I appreciated
+the appeal to measure theory to formalize some of the concepts.
+
+
+Questions
+
+What does E_{pi|s} refer to in Eqn 4.1?
+Can you clarify what it means for the map T to be a sufficient statistic for theta? (Theorem 4.6)
+Experiment 5.1: Why would we expect APG with a 2d Gaussian to perform better than a 1d Gaussian
+on the angle?
+
+
+Suggestions
+
+Paragraph 2 of section 3 seems like the key to the whole paper -- I would make it more prominent.
+I would include a short 'measure theory' appendix or equivalent reference for the lay reader.
+
+I wonder if the paper's main aim is not actually to bring measure theory to the study of policy
+gradients, which would be a laudable goal in and of itself. ICLR may not in this case be the right
+venue (nor are the current results substantial enough to justify this) but I do encourage authors to
+consider this avenue, e.g. in a journal paper.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1eabnIj67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Authors' Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkgqFiAcFm&amp;noteId=H1eabnIj67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper468 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper468 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the time and effort spent reviewing our paper, and for the detailed suggestions. Below we repeat the questions/comments from the review and respond to each in turn.
+
+“The paper positions itself generally as dealing with arbitrary transformations T, but really is about angular transformations (e.g. Definition 3.1). The generalization is relatively straightforward and was not too surprising given the APG theory. The paper would gain in clarity if its scope was narrowed.”
+
+Our MPG framework not only supports the angular transformation but also covers the recently proposed clipped transformation in CAPG [Fujita and Maeda, 2018]. The theoretical result is tighter than the one in [Fujita and Maeda, 2018], and it supports general transformations instead of only clipped actions.
+
+"I am not convinced that the measure theoretic perspective is always necessary to convey the insights, although I appreciate the desire for technical correctness." / "Generally speaking it seems like a lot of technicalities for a relatively simple result: marginalizing a distribution onto a lower-dimensional surface."
+
+We agree that the measure theoretic approach is not always necessary (indeed for angular actions, it is not needed), but it is necessary for a very common scenario -- clipped actions. Researchers and practitioners both almost always clip actions when using policy gradient algorithms for robotics control environments (read: MuJoCo tasks). Recently, a reduced variance method was introduced by Fujita and Maeda (2018) for clipped action spaces. Their algorithm is also a member of the marginal policy gradients family and our theoretical results for MPG significantly tighten the existing analysis of that algorithm. 
+
+
+"It's hard for me to judge of the experimental results of section 5.3, given that there are no other benchmarks or provided reference paper. As a whole, I see APG as providing a minor benefit over PG."
+
+For the results in Section 5.3, the issue is that currently, there are no benchmark environments for directional control. We anticipate that in the future this may change (e.g. console and PC games often have directional controls).
+
+“What does E_{pi|s} refer to in Eqn 4.1?”
+
+The expectation is taken with respect to the policy \pi conditioned on the current state s (s here is arbitrary, but fixed). Stated differently, we are taking the expectation with respect to the distribution $\pi(\cdot | s,\theta)$.
+
+“Can you clarify what it means for the map T to be a sufficient statistic for theta? (Theorem 4.6)”
+
+We have now removed this part of the statement because we are no longer absolutely certain of its correctness, and because it is not used anywhere else in the paper.
+
+“Experiment 5.1: Why would we expect APG with a 2d Gaussian to perform better than a 1d Gaussian on the angle?”
+
+Because using a 1D Gaussian requires either (1) clipping the angle to [0,2\pi) before execution in the environment and making updates using the clipped output or (2) using the sampled angle for updates and perform the clipping in the environment. In the first case, this approach is asymmetric in that does not place similar probability on $\mu_{\theta}(s) - \epsilon$ and $\mu_{\theta}(s) + \epsilon$ for $\mu_{\theta}(s)$ near to $0$ and $2\pi$. In the second case, this requires approximating a periodic function. We include both these reasons at the start of Section 3.
+
+
+Lastly, thank you for the concrete suggestions:
+"Def 4.4: "a notion of Fisher information" -- maybe "variant" is better than "notion", which implies there are different kinds of Fisher information 
+Def 3.1 mu is overloaded: parameter or measure?
+4.4, law of total variation -- define "
+
+We have addressed these and uploaded a new draft to reflect the changes. For the last suggestion, we currently define the law of total variance(variation) in the preliminaries so we did not repeat the definition in Section 4.4. We now write "law of total variance" instead of "law of total variation" to avoid any ambiguity.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

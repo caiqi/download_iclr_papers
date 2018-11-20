@@ -1,0 +1,255 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Improving Differentiable Neural Computers Through Memory Masking, De-allocation, and Link Distribution Sharpness Control | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Improving Differentiable Neural Computers Through Memory Masking, De-allocation, and Link Distribution Sharpness Control" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HyGEM3C9KQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Improving Differentiable Neural Computers Through Memory Masking..." />
+      <meta name="og:description" content="The Differentiable Neural Computer (DNC) can learn algorithmic and question answering tasks. An analysis of its internal activation patterns reveals three problems: Most importantly, the lack of..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HyGEM3C9KQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Improving Differentiable Neural Computers Through Memory Masking, De-allocation, and Link Distribution Sharpness Control</a> <a class="note_content_pdf" href="/pdf?id=HyGEM3C9KQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019improving,    &#10;title={Improving the Differentiable Neural Computer Through Memory Masking, De-allocation, and Link Distribution Sharpness Control},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HyGEM3C9KQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=HyGEM3C9KQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">The Differentiable Neural Computer (DNC) can learn algorithmic and question answering tasks. An analysis of its internal activation patterns reveals three problems: Most importantly, the lack of key-value separation makes the address distribution resulting from content-based look-up noisy and flat, since the value influences the score calculation, although only the key should. Second, DNC’s de-allocation of memory results in aliasing, which is a problem for content-based look-up. Thirdly, chaining memory reads with the temporal linkage matrix exponentially degrades the quality of the address distribution. Our proposed fixes of these problems yield improved performance on arithmetic tasks, and also improve the mean error rate on the bAbI question answering dataset by 43%.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">rnn, dnc, memory augmented neural networks, mann</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_H1epWZcnpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Update</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyGEM3C9KQ&amp;noteId=H1epWZcnpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1258 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1258 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Following the suggestions of the reviewers, we updated our paper. We made the following changes:
+    - Clarified the abstract
+    - Added mean/std loss curves for the associative recall task for many models
+    - Added mean/std error curves for the bAbI task in the appendix
+    - Highlighted our modifications compared to DNC equations in Appendix A
+    - Fixed missing definitions/variables/etc.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Hkg0R50bpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Solid improvements to DNC.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyGEM3C9KQ&amp;noteId=Hkg0R50bpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1258 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1258 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary:
+
+This paper is built on the top of DNC model. Authors observe a list of issues with the DNC model: issues with deallocation scheme, issues with the blurring of forward and backward addressing, and issues in content-based addressing. Authors propose changes in the network architecture to solve all these three issues. With toy experiments, authors demonstrate the usefulness of the proposed modifications to DNC. The improvements are also seen in more realistic bAbI tasks.
+
+Major Comments:
+
+The paper is well written and easy to follow. The proposed improvements seem to result in very clear improvements. The proposed improvements also improve the convergence of the model. I do not have any major concerns about the paper. I think that contributions of the paper are good enough to accept the paper.
+
+I also appreciate that the authors have submitted the code to reproduce the results.
+
+I am curious to know if authors observe similar convergence gains in bAbI tasks as well. Can you please provide the mean learning curve for bAbI task for DNC vs proposed modifications?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkxQaAFh6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyGEM3C9KQ&amp;noteId=SkxQaAFh6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1258 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1258 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your careful consideration and feedback. Following your request, we updated the paper to include mean learning curves for different models in Figure 6 in Appendix C. Our models converge faster than DNC. Some of them (especially DNC-MD) also have significantly lower variance than DNC.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rygRU5E5nm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Promising modifications to the Differentiable Neural Computer (DNC) architecture, but needs stronger empirical evidence </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyGEM3C9KQ&amp;noteId=rygRU5E5nm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1258 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1258 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=rygRU5E5nm" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+Overview: 
+This paper proposes modifications to the original Differentiable Neural Computer architecture in three ways. First by introducing a masked content-based addressing which dynamically induces a key-value separation. Second, by modifying the de-allocation system by also multiplying the memory contents by a retention vector before an update. Finally, the authors propose a modification in the link distribution, through renormalization. They provide some theoretical motivation and empirical evidence that it helps avoiding memory aliasing. 
+The authors test their approach in the some algorithm task from the DNC paper (Copy, Associative Recall and Key-Value Retrieval), and also in the bAbi dataset.
+
+
+Strengths: Overall I think the paper is well-written, and proposes simple adaptions to the DNC architecture which are theoretically grounded and could be effective for improving general performance. Although the experimental results seem promising when comparing the modified architecture to the original DNC, in my opinion there are a few fundamental problems in the empirical session (see weakness discussion bellow).
+
+Weaknesses: Not all model modifications are studied in all the algorithmic tasks. For example, in the associative recall and key-value retrieval only DNC and DNC + masking are studied. 
+
+For the bAbi task, although there is a significant improvement (43%) in the mean error rate compared to the original DNC, it's important to note that performance in this task has improved a lot since the DNC paper was release. Since this is the only non-toy task in the paper, in my opinion, the authors have to discuss current SOTA on it, and have to cite, for example the universal transformer[1], entnet[2], relational nets [3], among others architectures that shown recent advances on this benchmark. 
+Moreover, the sparse DNC (Rae el at., 2016) is already a much better performant in this task. (mean error DNC: 16.7 \pm 7.6, DNC-MD (this paper) 9.5 \pm 1.6, sparse DNC 6.4 \pm 2.5). Although the authors mention in the conclusion that it's future work to merge their proposed changes into the sparse DNC, it is hard to know how relevant the improvements are, knowing that there are much better baselines for this task.
+It would also be good if besides the mean error rates, they reported best runs chosen by performance on the validation task, and number of the tasks solve (with &lt; 5% error) as it is standard in this dataset.
+
+
+Smaller Notes. 
+1) In the abstract, I find the message for motivating the masking from the sentence  "content based look-up results... which is not present in the key and need to be retrieved."  hard to understand by itself. When I first read the abstract, I couldn't understand what the authors wanted to communicate with it. Later in 3.1 it became clear. 
+
+2) page 3, beta in that equation is not defined
+
+3) First paragraph in page 5 uses definition of acronyms DNC-MS and DNC-MDS before they are defined.
+
+4) Table 1 difference between DNC and DNC (DM) is not clear. I am assuming it's the numbers reported in the paper, vs the author's implementation? 
+
+5)In session 3.1-3.3, for completeness. I think it would be helpful to explicitly compare the equations from the original DNC paper with the new proposed ones. 
+
+--------------
+
+Post rebuttal update: I think the authors have addressed my main concern points and I am updating my score accordingly. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BklGVJ92pX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to reviewer 2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyGEM3C9KQ&amp;noteId=BklGVJ92pX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1258 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1258 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your thoughtful and helpful comments. 
+
+Following the suggestions, we added additional results for the associative recall task for many network variants. We also report mean and variance of losses for different seeds. This shows that masking improves performance on this task especially when combined with improved de-allocation, while sharpness enhancements negatively affect performance in this case. From the variance plots it can be seen that some seeds of DNC-M and DNC-MD converge significantly faster than plain DNC.
+
+In our experimental section, we added requested references to methods performing better on bAbI, and point out that our goal is not to beat SOTA on bAbI, but to exhibit and overcome drawbacks of DNC.
+
+Comparison to Sparse DNC is an interesting idea, and we are currently running experiments in this direction. We intend to make the results available in the near future.
+
+We are unable to provide a fair comparison for the lowest bAbi scores, having reported 8 seeds compared to the 20 seeds reported by Graves et al. Indeed, the high variance of DNC (Table 1) suggests that it may benefit a lot from exploring additional seeds.
+
+We incorporated all of the smaller notes, including a comparison to the original DNC equations in Appendix A.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJxK_pj6TQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>rebuttal</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyGEM3C9KQ&amp;noteId=rJxK_pj6TQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1258 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1258 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for addressing the main concerns of my review, I have updated my score accordingly. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_H1g7-dMz3m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Well written, has implications beyond DNC</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyGEM3C9KQ&amp;noteId=H1g7-dMz3m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1258 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1258 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors propose three improvements to the DNC model: masked attention, erasion of de-allocated elements, and sharpened temporal links --- and show that this allows the model to solve synthetic memory tasks faster and with better precision. They also show the model performs better on average on bAbI than the original DNC.
+
+The negatives are that the paper does not really show this modified DNC can solve a task that the original DNC could not. As the authors also admit, there have been other DNC improvements that have had more dramatic improvements on bAbI.
+
+I think the paper is particularly clearly written, and I would vote for it being accepted as it has implications beyond the DNC. The fact that masked attention works so much better than the standard cosine-weighted content-based attention is pretty interesting in itself. The insights (e.g. Figure 5) are interesting and show the study is not just trying to be a benchmark paper for some top-level results, but actually cares about understanding a problem and fixing it. Although most recent memory architectures do not seem to have incorporated the DNC's slightly complex memory de-allocation scheme, any resurgent work in this area would benefit from this study.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1eovy5nam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to reviewer 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyGEM3C9KQ&amp;noteId=B1eovy5nam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1258 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1258 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your thoughtful feedback!</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

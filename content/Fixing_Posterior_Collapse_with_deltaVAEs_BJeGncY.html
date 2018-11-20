@@ -1,0 +1,252 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Fixing Posterior Collapse with delta-VAEs | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Fixing Posterior Collapse with delta-VAEs" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BJe0Gn0cY7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Fixing Posterior Collapse with delta-VAEs" />
+      <meta name="og:description" content="Due to the phenomenon of “posterior collapse”, current latent variable generativemodels pose a challenging design choice which trades-off optimizing the ELBObut handicapping the decoders’ capacity..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BJe0Gn0cY7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Fixing Posterior Collapse with delta-VAEs</a> <a class="note_content_pdf" href="/pdf?id=BJe0Gn0cY7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019fixing,    &#10;title={Fixing Posterior Collapse with delta-VAEs},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BJe0Gn0cY7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Due to the phenomenon of “posterior collapse”, current latent variable generativemodels pose a challenging design choice which trades-off optimizing the ELBObut handicapping the decoders’ capacity and expressivity, or changing the loss tosomething that is not directly minimizing the description length. In this paper wepropose an alternative that utilizes the best, most powerful generative models asdecoders, whilst optimizing the proper variational lower bound all while ensuringthat  the  latent  variables  preserve  and  encode  useful  information. delta-VAEs  pro-posed here achieve this by constraining the variational family for the posterior tohave a minimum distance to the prior, which resembles the classic representationlearning approach of slow feature analysis. We demonstrate the efficacy of our ap-proach at modeling images:  learning representations, improving sample quality,and improving state of the art log-likelihood on CIFAR-10 and ImageNet32×32.</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value"> Avoid posterior collapse by lower bounding the rate.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">5 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_ryeyLYqyam" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJe0Gn0cY7&amp;noteId=ryeyLYqyam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper1316 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SJxpwu6A2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Well written paper detailing a slightly different approach to preventing posterior collapse in VAEs.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJe0Gn0cY7&amp;noteId=SJxpwu6A2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1316 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1316 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The majority of approaches for preventing posterior collapse in VAEs equipped with powerful decoders to better model local structure involve either: alteration of the ELBO training objective, or a restriction on the decoder structure.
+
+This paper presents an approach which broadly falls into the latter category; by limiting the family of the variational approximation to the posterior, the minimum KL divergence between the prior and posterior is lower bounded to a 'delta' value, preventing collapse.
+
+The paper is well written, and the methodology clearly explained.
+
+The experiments show that the proposed approach (delta VAE combined with the 'anti-causal' architecture) captures both local and global structure, and appears to do so while preserving SOTA discriminative performance on some tasks.  Tests are performed on both generative image and language tasks.
+
+I believe that the paper is of low-medium significance: whilst it does outline a different method of restricting the family of posteriors, it does not give a detailed reasoning (empirical or theoretical) as to why this should be a generally better solution as compared to other approaches.
+
+Pros:
+- Very clear and well written.
+- Good execution and ablation/experimentation section.
+
+Cons:
+- Lack of theory (and minimal experimentation) as to why this approach should be better than competing methods.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Byl_786uhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An interesting idea for an important problem</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJe0Gn0cY7&amp;noteId=Byl_786uhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1316 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1316 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">General:
+The paper attacks a problem of the posterior collapse that is one of the main issues encountered in deep generative models like VAEs. The idea of the paper relies on introducing a constraint on the family of variational posteriors in such a way that the KL term could be controlled.
+
+The authors propose to use a linear autoregressive process (AR(1)) as the prior. Alternatively, they trained a single-layer LSTM network with conditional-Gaussian outputs as the prior (the auxiliary prior). Additionally, the authors claim that the encoder should contain anti-causal dependencies in order to introduce additional bias that may diminish the posterior collapse.
+
+The experiments present various results on image and text datasets. Interestingly, the proposed techniques allowed to perform on a par with purely autoregressive models, however, the latent variables were utilized (i.e., no posterior collapse). For instance, in Figure 3(a) we can notice that a decoder is capable of generating similar images for given latent variable. A similar situation is obtained for text data (e.g., Figure 12).
+
+In general, I find the paper interesting and I believe it should be discussed during ICLR.
+
+Pros:
++ The paper is well-written and all ideas are clearly presented.
++ The idea of “hard-coded” constraints is interesting and constitutes an alternative approach to utilizing either quantized values in the VAE (VQ-VAE) or a constrained family of variational posteriors (e.g., Hyperspherical VAE).
++ The obtained results are convincing. Additionally, I would like to highlight that at the first glance it might seem that there is no improvement over the autoregressive models. However, the proposed approach allows to encode an image or a document and then decode it. This is not a case for purely autoregressive models.
++ The introduction of the Slow Features into the VAE framework constitutes an interesting direction for future research.
+
+Cons:
+- The quality of Figure 4 is too low.
+- I am not fully convinced that the auxiliary prior is significantly better than the AR(1) prior. Indeed, the samples seem to be a bit better for the aux. prior but it is rather hard to notice by inspecting quantitative metrics.
+- In general, the proposed approach is a specific solution rather than a general framework. Nevertheless, I find it very interesting with a potential for future work.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1ixv5dnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Anti-causal encoder/causal decoder</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJe0Gn0cY7&amp;noteId=r1ixv5dnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1316 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1316 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a method to prevent posterior collapse, which refers to the phenomenon that VAEs with powerful autoregressive decoders tend to ignore the latent code, i.e., the decoder models the data distribution independently of the code. Specifically, the encoder, decoder, and prior distribution families are chosen such that the KL-term in the ELBO is bounded away from 0, meaning that the encoder output cannot perfectly match the prior. Assuming temporal data, the authors employ a 1-step autoregressive (across) prior with an encoder whose codes are independent conditionally on the input. Furthermore, they propose to use a causal decoder together with an anti-causal or non-causal encoder, which translates into a PixelSNAIL/PixelCNN style decoder and an anti-causal version thereof as encoder in the case of image data. The proposed approach is evaluated on CIFAR10, Imagenet 32x32, and the LM1B data set (text).
+
+Pros:
+
+The method obtains state-of-the-art performance in image generation. The paper features extensive ablation experiments and is well-written. Furthermore, it is demonstrated that the code learns an abstract representation by repeatedly sampling form the decoder conditionally on the code.
+
+Cons:
+
+One question that remains is the relative contribution of 1) lower-bounding the KL-term 2) using causal decoder/anti-causal encoder to the overall result. Is the encoder-decoder structure alone enough to prevent posterior collapse? In this context it would also be interesting to see how the encoder-decoder structure performs without \delta-constraint, but with regularization as in \beta-VAE.
+
+What data set are the ablation experiments performed on? As far as I could see this is not specified.
+
+Also, I suggest toning down the claims that the proposed method works "without altering the ELBO training objective" in the introduction and conclusion. After all, the encoding and decoding distributions are chosen such that the KL term in the ELBO is lower-bounded by \delta. In other words the authors impose a constraint to the ELBO.
+
+Minor comments:
+- Space missing in the first paragraph of p 5: \kappaas
+- "Auxiliary prior"-paragraph on p 5: marginal posterior -&gt; aggregate posterior?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BJl4aRZTq7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Missing reference</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJe0Gn0cY7&amp;noteId=BJl4aRZTq7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Adji_Bousso_Dieng1" class="profile-link">Adji Bousso Dieng</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1316 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi,
+
+Just wanted to point out our related paper <a href="https://arxiv.org/abs/1807.04863" target="_blank" rel="nofollow">https://arxiv.org/abs/1807.04863</a> . 
+
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJlopG40cX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>RE: Missing reference</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJe0Gn0cY7&amp;noteId=HJlopG40cX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1316 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1316 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the pointer. We will consider the paper carefully and will update our citations after the review period.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

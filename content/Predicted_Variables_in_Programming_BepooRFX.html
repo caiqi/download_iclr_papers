@@ -1,0 +1,325 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Predicted Variables in Programming | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Predicted Variables in Programming" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=B1epooR5FX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Predicted Variables in Programming" />
+      <meta name="og:description" content="We present Predicted Variables, an approach to making machine learning (ML) a first class citizen in programming languages.&#10;  There is a growing divide in approaches to building systems: using human..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_B1epooR5FX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Predicted Variables in Programming</a> <a class="note_content_pdf" href="/pdf?id=B1epooR5FX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019predicted,    &#10;title={Predicted Variables in Programming},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=B1epooR5FX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=B1epooR5FX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We present Predicted Variables, an approach to making machine learning (ML) a first class citizen in programming languages.
+There is a growing divide in approaches to building systems: using human experts (e.g. programming) on the one hand, and using behavior learned from data (e.g. ML) on the other hand. PVars aim to make using ML in programming easier by hybridizing the two. We leverage the existing concept of variables and create a new type, a predicted variable. PVars are akin to native variables with one important distinction: PVars determine their value using ML when evaluated. We describe PVars and their interface, how they can be used in programming, and demonstrate the feasibility of our approach on three algorithmic problems: binary search, QuickSort, and caches.
+We show experimentally that PVars are able to improve over the commonly used heuristics and lead to a better performance than the original algorithms.
+As opposed to previous work applying ML to algorithmic problems, PVars have the advantage that they can be used within the existing frameworks and do not require the existing domain knowledge to be replaced. PVars allow for a seamless integration of ML into existing systems and algorithms.
+Our PVars implementation currently relies on standard Reinforcement Learning (RL) methods. To learn faster, PVars use the heuristic function, which they are replacing, as an initial function. We show that PVars quickly pick up the behavior of the initial function and then improve performance beyond that without ever performing substantially worse -- allowing for a safe deployment in critical applications.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">predicted variables, machine learning, programming, computing systems, reinforcement learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We present Predicted Variables, an approach to making machine learning a first class citizen in programming languages.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SylpG0Y52Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Potentially interesting idea, not well explained and justified</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1epooR5FX&amp;noteId=SylpG0Y52Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper664 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper664 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes using predicted variables(PVars) - variables that learn
+their values through reinforcement learning (using observed values and
+rewards provided explicitly by the programmer). PVars are meant to replace
+variables that are computed using heuristics.
+
+Pros:
+* Interesting/intriguing idea
+* Applicability discussed through 3 different examples
+
+Cons:
+* Gaps in explanation
+* Exaggerated claims
+* Problems inherent to the proposed technique are not properly addressed, brushed off as if unimportant
+
+The idea of PVars is potentially interesting and worth exploring; that
+being said, the paper in its current form is not ready for
+publication.
+
+Some criticism/suggestions for improvement:
+
+While the idea may be appealing and worth studying, the paper does not address several problems inherent to the technique, such as:
+
+- overheads (computational cost for inference, not only in
+  prediction/inference time but also all resources necessary to run
+  the RL algorithm; what is the memory footprint of running the RL?)
+
+- reproducibility
+
+- programming overhead: I personally do not buy that this technique -
+  at least as presented in this paper - is as easy as "if statements"
+  (as stated in the paper) or will help ML become mainstream in
+  programming. I think the programmer needs to understand the
+  underpinnings of the PVars to be able to meaningfully provide
+  observations and rewards, in addition to the domain specific
+  knowledge. In fact, as the paper describes, there is a strong
+  interplay between the problem setting/domain and how the rewards should be
+  designed.
+
+- applicability: when and where such a technique makes sense
+
+The interface for PVars is not entirely clear, in particular the
+meaning of "observations" and "rewards" do not come natural to
+programmers unless they are exposed to a RL setting. Section 2 could
+provide more details such that it would read as a tutorial on
+PVars. If regular programmers read that section, not sure they
+understand right away how to use PVars. The intent behind PVars
+becomes clearer throughout the examples that follow.
+
+It was not always clear when PVars use the "initialization function"
+as a backup solution. In fact, not sure "initialization" is the right
+term, it behaves almost like an "alternative" prediction/safety net.
+
+The examples would benefit from showing the initialization of the PVars.
+
+The paper would improve if the claims would be toned down, the
+limitations properly addressed and discussed and the implications of
+the technique honestly described. I also think discussing the
+applicability of the technique beyond the 3 examples presented needs
+to be conveyed, specially given the "performance" of the technique
+(several episodes are needed to achieve good performance).
+
+While not equivalent, I think papers from approximate computing (and
+perhaps even probabilistic programming) could be cited in the related
+work. In fact, for an example of how "non-mainstream" ideas can be
+proposed for programming languages (and explained in a scientific
+publication), see the work of Adrian Sampson on approximate computing
+<a href="https://www.cs.cornell.edu/~asampson/research.html" target="_blank" rel="nofollow">https://www.cs.cornell.edu/~asampson/research.html</a>
+In particular, the EnerJ paper (PLDI 2011) and Probabilistic Assertions (PLDI 2014).</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJe9P9PeAQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Added reproducibility data and incorporated feedback in paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1epooR5FX&amp;noteId=BJe9P9PeAQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper664 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper664 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for relevant and insightful comments. We provide responses and, when applicable, pointers to the changes we’ve done in the paper aiming to address some of the problems related to the technique we introduced.
+
+- computation overhead
+We did not provide an analysis of the computational overhead of our method because we see the three algorithmic problems as tasks to demonstrate that the interface that we provide is expressive and powerful enough to bring ML into normal software development. In many other applications, where predicted variables can be applied, speed is not a relevant metric, e.g user modelling, optimizing UI components, predicting user preference,  systems optimization, or content recommendations. We acknowledge that our current implementation is probably slower than the original variant - but as we describe above, we don't consider actual runtime to be the relevant metric here.
+Further - we strongly believe that specialized hardware such as GPUs or TPUs are continuously improving the runtime of ML models which will eventually make our proposed implementation practical even for speed sensitive applications (compare also Kraska et al, 2017).
+
+- reproducibility
+We acknowledge that the paper does not provide sufficient data related to reproducibility and we present additional reproducibility experiments in the appendix. Similar to other RL work, there are some problems with reproducibility. However, for binary search we obtain positive results (negative cumulative regret) with a reproducibility of 85% (Quicksort: 94%).
+
+- applicability
+We assume throughout our work that the developer -- algorithm and problem expert -- has domain-specific knowledge that is relevant for the problem being solved. Therefore our interface enables the developer to make use of their expert knowledge without requiring deep machine learning expertise. The developer decides what are the most important contextual signals and what metric to optimize for - The API naturally translates these into observations and rewards for the RL methods applied.
+
+- initial function
+We thank the reviewer for pointing out the lack of more detailed explanations. The initial function does not serve only for initialization but it plays two other important roles 
+(1) it generates safe experience trajectories from which the off-policy RL algorithm learns and 
+(2) can be reused as a safety net, should the model performance degrade. 
+We have updated our draft to more clearly express this.
+
+- performance/episodes
+We are not 100% sure what the reviewer means with the comment about "performance" - we try to respond to this comment as good as we can.
+As we describe in the paper, we measure cumulative regret as our main performance metric. A negative cumulative regret indicates that the user benefits from using a predicted variable compared to the baseline. While initially, the predicted variable might perform a bit worse than the baseline, the goal is to outperform the baseline as quickly as possible. Note also, that the use of the initial function in our setup enables us to ensure a certain safety net in the beginning which helps the method to never perform terribly badly.
+
+- citations, related work
+Thank you for the reference, we have updated our draft to point out work related specifically to approximate computing, as well as for probabilistic programming.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Ske788m937" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting proposal without clear contributions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1epooR5FX&amp;noteId=Ske788m937"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper664 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper664 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes the use of RL as a set of commands to be included as programming instructions in  common programming languages.  In this aspect, the authors propose to add simple instructions to employ the power of machine learning in general, and reinforcement learning in particular in common programming tasks.
+
+In this aspect, the authors show with three different examples how the use of RL can speed up the performance of common tasks: binary search, sorting and caches.
+
+The paper is easy to read and follow. 
+
+In my opinion, the main problem of the paper is that the contributions are not clear. The authors claim that the introduce a new hybrid approach of programming between common programming and ML, however, I do not see many differences between calling APIs and the current proposal. The paper seems to be a wrapper of API calls. Here, the authors should comment existing approaches based on ML and APIs.
+
+The authors  introduce the examples to show the advantages of using predictive variables. Many of the advantages are based on increasing the performance of the algorithms using these predictive variables, however, the results do not include the computational costs of learning the models. 
+
+Therefore, in my opinion the paper should be more focused on detailing the commands of use of predictive variables and emphasising the advantages with respect to existing methods. Currently, the paper gives too relevance to the performance of the experiments, where the novel contributions are not there.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byl2ksvgAm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarified contributions in the paper </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1epooR5FX&amp;noteId=Byl2ksvgAm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper664 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper664 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their insightful comments and the very relevant question about clarifying our contributions. We have tried to clarify and itemized our contribution (see page 2).
+
+[no operational cost given] 
+The main focus of the paper is not to improve specific algorithms but demonstrate that such improvement is possible easily, and illustrate the claim with simple/well-known algorithms examples.
+
+We did not provide an analysis of the computational overhead of our method because we see the three algorithmic problems as tasks to demonstrate that the interface that we provide is expressive and powerful enough to bring ML into normal software development. In many other applications, where predicted variables can be applied, speed is not a relevant metric, e.g user modelling , optimizing UI components, predicting user preference,  systems optimization, or content recommendations. We acknowledge that our current implementation is probably slower than the original variant - but as we describe above,  we don't consider actual runtime to be the relevant metric here.
+Further - we strongly believe that specialized hardware such as GPUs or TPUs are continuously improving the runtime of ML models which will eventually make our proposed implementation practical even for speed sensitive applications (compare also Kraska et al, 2017).
+
+["commands of use"] 
+We do agree with R2 that the main contribution of this paper is in the novel API that we propose. As we describe in the paper, the experiments are performed to demonstrate that such an API is actually feasible and to indicate how good the state of the art in machine learning supports such an API at this point. 
+The experiments performed serve as examples of how to apply predicted variables and to demonstrate that they are a viable solution to enable software developers to add ML models into their regular development workflow at a low engineering cost. 
+Arguably, the current state of machine learning does not yet make "ML as easy as if statements" which is why we removed that claim from our paper.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1xn7AL8h7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea but replaces constants with other constants </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1epooR5FX&amp;noteId=H1xn7AL8h7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper664 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper664 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes to include within regular programs, learned parameters that are then tuned in an online manner whenever the program is invoked. Thus learning is continuous, integration with the ML backend seamless. The idea is very interesting however, it seems to me that while we can replace native variables with learned parameters, the hyperparameters involved in the learning become new native variables (e.g. the value of feedback). Perhaps with some effort we can replace the  hyperparameters with predicted variables too. Other concerns of mine stem from the programmer in me. I think of a program as something deterministic and predictable. With continuous, online, self-tuning, these properties are gone. How do the authors propose to assuage folks with my kind of mindset? Is debugging programs with predicted variables an issue? Consider a situation where the program showed some behavior with a certain setting of q which has since been tuned to another value and thus the same behavior doesn't show up. I find these to be very interesting questions but don't see much of a discussion in the current draft. Also, how does this work relate to probabilistic programming?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkguooveAX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Addressed some of the questions through comments and updated submission.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1epooR5FX&amp;noteId=BkguooveAX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper664 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper664 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the comments and questions brought up related to our proposed interface.
+
+[hyperparameters become new variables]
+We agree that hyperparameters introduce an additional search space, but we consider that navigating through this space is sometimes simpler than in the space of building complex heuristic functions to improve a specific problem, which would be the equivalent of not being able to use machine learning at all through an interface such as PVars. 
+
+[debugging programs with predicted variables]
+As with debugging any complex ML model, predicted variables will likely add additional challenges to debugging. However, because of their natural integration into the programming language, debugging the logic around the predicted variable should not be affected and inspecting the values coming from a predicted variable in a debugger will also be as simple as inspecting a regular predicted variable. 
+
+[relation to probabilistic programming]
+Probabilistic programming is a line of work similar to ours but focused on a specific class of models. The interface introduced by the probabilistic programming line of work exposes directly methods required for operating with that class of models, e.g. graphical models, where as PVars leaves that as a solution detail.
+We added related work from the probabilistic programming literature to our paper. 
+
+[interesting questions that aren't discussed much in the current draft]
+We have updated our draft to highlight our position related to some of your questions. 
+We consider this work on predicted variables a first step into an interesting field of research and we hope to be able to address more of these questions in future work.  
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DialogWAE: Multimodal Response Generation with Conditional Wasserstein Auto-Encoder | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="DialogWAE: Multimodal Response Generation with Conditional Wasserstein Auto-Encoder" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BkgBvsC9FQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="DialogWAE: Multimodal Response Generation with Conditional..." />
+      <meta name="og:description" content="Variational autoencoders (VAEs) have shown a promise in data-driven conversation modeling. However, most VAE conversation models match the approximate posterior distribution over the latent..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BkgBvsC9FQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>DialogWAE: Multimodal Response Generation with Conditional Wasserstein Auto-Encoder</a> <a class="note_content_pdf" href="/pdf?id=BkgBvsC9FQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 13 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019dialogwae:,    &#10;title={DialogWAE: Multimodal Response Generation with Conditional Wasserstein Auto-Encoder},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BkgBvsC9FQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=BkgBvsC9FQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Variational autoencoders (VAEs) have shown a promise in data-driven conversation modeling. However, most VAE conversation models match the approximate posterior distribution over the latent variables to a simple prior such as standard normal distribution, thereby restricting the generated responses to a relatively simple (e.g., single-modal) scope. In this paper, we propose DialogWAE, a conditional Wasserstein autoencoder (WAE) specially designed for dialogue modeling. Unlike VAEs that impose a simple distribution over the latent variables, DialogWAE models the distribution of data by training a GAN within the latent variable space. Specifically, our model samples from the prior and posterior distributions over the latent variables by transforming context-dependent random noise using neural networks and minimizes the Wasserstein distance between the two distributions. We further develop a Gaussian mixture prior network to enrich the latent space. Experiments on two popular datasets show that DialogWAE outperforms the state-of-the-art approaches in generating more coherent, informative and diverse responses.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">dialogue, GAN, VAE, WAE, chatbot</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HyghGy8-TQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A nice application of W-GAN to dialog, rather weak experiment analysis.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgBvsC9FQ&amp;noteId=HyghGy8-TQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper263 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper263 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper uses Wasserstein GAN in conditional modeling of the dialog response generation. The main goal is to learn to use two network architecture to approximate the posterior distribution of the prior network. Instead of a KL divergence, like in VAE training, they use adversarial training and instead of using softmax output from the discriminator, they use Wasserstein distance. They also introduce a multi-modal distribution, GMM, while sampling from a the posterior during training, prior during the test time. The multi-modal sampling is based on gumbel-softmax over K possible G-distributions. They experiment on Daily Dialog and Switchborad datasets and show promising improvements on qualitative measures like BLEU and BOW embedding similarities, as well as qualitative measures including human evaluations comparing againsts substantial amount of baselines.
+
+The paper presents a marriage of a few ideas together. First of, it uses the conditional structure presented in the ACL 2017 paper "Learning Discourse-level Diversity for Neural Dialog Models using Conditional Variational Autoencoders". It's great that they used that paper as their baseline. The extension is to use a GAN objective function (the discriminator) as critic and use Wasserstein GAN to to resolve the gradient vanishing issue and produce smooth gradients everywhere. In ACL 2017 paper they use KL divergence to make the posterior from the prior and rec-networks as close to each other so at test time the prior network can generate the samples similar to the true data features distribution. In this paper instead of KL, they use a Discriminator as in 'Adversarial AutoEncoders' paper. This paper extends AAE, instead uses the Wasserstein distance instead (1-Lipschitz function instead of softmax for the discriminator). The W-GAN has been shown to produce good results in text generation in this year's ICML 2018 with the paper 'Adversarially Regularized GAN' (AARE). The idea was to resolve VAE posterior collapse issue by using a discriminator as a regularizer instead of KL divergence with a stronger sampler from the output of the generator to map from noise sampler into the latent space. Interestingly, AARE paper is not cited in this work, which i think is an issue. I understand that paper was just for generation purpose not specific to the dialog modeling, but it makes the claims in the paper misleading such as: "Unlike VAE conversation models that impose a simple distribution over latent variables, DialogWAE models the data distribution by training a GAN within the latent variable space".
+
+The part that i liked is the fact that they used multimodal gaussian distributions. I agree with the authors that using Gaussian for the approximating distribution only limits the sampling space and can weaken the models capability of variation. Although it is not proven for text, in image, the gaussian posteriors during training converge together into a single gaussian, causing blurry images. In this text this might correspond to dull responses in dialog. I would like the authors to comment on the interpretability of the components. Perhaps show a sample from each component (in the end the model decides which modal to choose before generation. Are these GMMs overlapping and how much ? Can you measure the difference between the means ? 
+
+I find the experiments extensive except the datasets are weaker. 
+I like the fact that they included human evaluations. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJlpvEDuTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgBvsC9FQ&amp;noteId=BJlpvEDuTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper263 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper263 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for taking the time to read our paper and for the useful comments to help improve our presentation! Below we address the specific points raised by the reviewer:
+
+&gt;&gt;&gt;
+Interestingly, AARE paper is not cited in this work, which I think is an issue…
+&lt;&lt;&lt;
+
+We have cited and discussed the ARAE paper in the revision.  
+
+&gt;&gt;&gt;
+I would like the authors to comment on the interpretability of the components. Perhaps show a sample from each component (in the end the model decides which modal to choose before generation. Are these GMMs overlapping and how much? Can you measure the difference between the means? 
+&lt;&lt;&lt;
+
+In the revised manuscript we have added an example showing responses for each Gaussian component. We select a dialogue context used in a baseline paper (Shen et al. 2018) for analysis and generate 5 responses for each component using DialogWAE-GMP. Results are shown in the following table (Reviewers can also find it from Table 4 in our revised manuscript):
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+ Context  |        I would like to invite you to dinner tonight, do you have time?
+-------------|---------------------------------------------------------------------------------------------------------------------------------------
+                 |               Component 1              |                Component 2                     |         Component 3
+                 |-----------------------------------------|-----------------------------------------------|---------------------------------------------  
+                 | Eg.1: Yes, I'd {like} to  go        | Eg.1: I'm {not sure}                          | Eg.1: {Of course} I'm {not} sure. 
+                 |           with you.                          | Eg.2: I'm {not sure}.                         |           What's the problem? 
+                 | Eg.2: My {pleasure}.                 |           What's the problem?             | Eg.2: {No}, I {don't} want to go
+Replies    | Eg.3: {OK}, thanks.                    | Eg.3: I'm sorry to hear that            | Eg.3: I want to {go to bed}, but
+                 | Eg.4: I don't know what to do|           What's the problem?             |           I'm not sure. 
+                 | Eg.5: {Sure}. I'd {like} to          | Eg.4: It's very kind of you, too        | Eg.4: {Of course not}. you 
+                 |            go out                              | Eg.5: I have {no idea}. You have to | Eg.5: Do you want to go?
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+As shown in the table, different Gaussian models generate different types of responses: component 1 expresses a strong will, while component 2 expresses some uncertainty, and component 3 generates strong negative responses. The overlap between components is marginal (around 1/5). The results indicate that the Gaussian mixture prior network can successfully capture the multimodal distribution of the responses. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1xEp0mqnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clear ideas with convincing results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgBvsC9FQ&amp;noteId=r1xEp0mqnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper263 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper263 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a novel dialogue modeling framework DialogWAE, which adopts conditional Wasserstein Auto-Encoder to learn continuous latent variables z that represents the high-level representation of responses. To enrich the diversity of the latent representations and capture multiple modes in the latent variables, the authors propose an advanced version (DialogWAE-GMP) of DialogWAE and models the prior distribution with a mixture of Gaussian distributions instead one. 
+
+Strength: The idea is clear and the paper is very well written. The authors evaluate the proposed models on a variety of reasonable metrics and compare against seven recently-proposed baselines.  Results show that both DialogWAE and DialogWAE-GMP generate responses that are both more similar to the references (BLEU and BOW embeddings) and more diverse (inter-dist). Human evaluations also show that the proposed models generate better responses than two representative baselines.
+
+Minor comments/questions: 
+
+1) Missing citation, the optimization problem of this paper (Equation 5) is similar to the Adversarially Regularized Autoencoders (ICML 2018). 
+
+2) The authors use Gumbel-Softmax re-parametrization to sample an instance for the Gaussian Mixture prior network. Are you using the Straight-Through estimator or the original one? If the original Gumbel-Softmax estimator is used, it is better to show a comparison between simply using the Softmax with Gumbel softmax. Since the discrete sampling is not crucial in this case, a mixture of weighted representation may also work.
+
+3) The DialogWAE-GMP with Gaussian Mixture prior network achieves great evaluation results and is better than the non-mixture version. I'd be interested to see some analysis on what each Gaussian model has captured. Will different Gaussian model generate different types of responses? Are the differences interpretable? </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryenU7v_am" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgBvsC9FQ&amp;noteId=ryenU7v_am"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper263 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018 (modified: 14 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper263 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for taking the time to read our paper and for the useful comments to help improve our presentation! Below we address the specific points raised by the reviewer:
+
+&gt;&gt;&gt;
+1) Missing citation, the optimization problem of this paper (Equation 5) is similar to the Adversarially Regularized Autoencoders (ICML 2018). 
+&lt;&lt;&lt;
+
+We have cited and discussed the ARAE paper in the revision.  
+
+&gt;&gt;&gt;
+2) The authors use Gumbel-Softmax re-parametrization to sample an instance for the Gaussian Mixture prior network. Are you using the Straight-Through estimator or the original one?
+&lt;&lt;&lt;
+
+We use the Strait-Through Gumbel softmax. 
+
+&gt;&gt;&gt;
+3) I'd be interested to see some analysis on what each Gaussian model has captured. Will different Gaussian model generate different types of responses? Are the differences interpretable? 
+&lt;&lt;&lt;
+
+In the revised manuscript we have added an example showing responses for each Gaussian component. We select a dialogue context used in a baseline paper (Shen et al. 2018) for analysis and generate 5 responses for each component using DialogWAE-GMP. Results are shown in the following table (Reviewers can also find it from Table 4 in our revised manuscript):
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+ Context  |        I would like to invite you to dinner tonight, do you have time?
+-------------|---------------------------------------------------------------------------------------------------------------------------------------
+                 |               Component 1              |                Component 2                     |         Component 3
+                 |-----------------------------------------|-----------------------------------------------|---------------------------------------------  
+                 | Eg.1: Yes, I'd {like} to  go        | Eg.1: I'm {not sure}                          | Eg.1: {Of course} I'm {not} sure. 
+                 |           with you.                          | Eg.2: I'm {not sure}.                         |           What's the problem? 
+                 | Eg.2: My {pleasure}.                 |           What's the problem?             | Eg.2: {No}, I {don't} want to go
+Replies    | Eg.3: {OK}, thanks.                    | Eg.3: I'm sorry to hear that            | Eg.3: I want to {go to bed}, but
+                 | Eg.4: I don't know what to do|           What's the problem?             |           I'm not sure. 
+                 | Eg.5: {Sure}. I'd {like} to          | Eg.4: It's very kind of you, too        | Eg.4: {Of course not}. you 
+                 |           go out                               | Eg.5: I have {no idea}. You have to| Eg.5: Do you want to go?
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+As shown in the table, different Gaussian models generate different types of responses: component 1 expresses a strong will, while component 2 expresses some uncertainty, and component 3 generates strong negative responses. The overlap between components is marginal (around 1/5). The results indicate that the Gaussian mixture prior network can successfully capture the multimodal distribution of the responses. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryxFd-TK2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>This paper presents a dialog response generation model based on the framework of adversarial autoencoder. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgBvsC9FQ&amp;noteId=ryxFd-TK2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper263 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper263 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a dialogue response generation model based on the framework of adversarial autoencoder. Specifically, the proposed model uses an autoencoder to encode and decode a response in a dialogue, conditioning on the context of the dialogue. The RNN encoded context is used as the prior of the latent variable in the autoencoder, and the whole dialogue (context + response) is used to infer the posterior of the latent variable. The inference is done by the adversarial training to match the prior and the posterior of the latent variable. Besides constructing the prior with a single Gaussian, the variant of the proposed model is also proposed where the prior is constructed with a Gaussian mixture model.
+
+My comments are as follows:
+
+1. The paper is well-written and easy to follow.
+
+2. The experiments seem quite strong and the compared models are properly selected. I'm not an expert in the specific area of the dialogue generation. But to me, the results seem convincing to me. 
+
+3. The usage of the Wasserstein distance in the proposed model does not make sense to me. Both the adversarial training in AAE and minimising the Wasserstein distance are able to match the prior and posterior of the latent variable. If the former is used in the proposed model, then how is the Wasserstein distance used at the same time? I also checked Algorithm 1 and did not find how the Wasserstein distance comes in. This is the first question that needs the authors to clarify.
+
+4. To me, the significance of this paper mainly goes to combining several existing frameworks and tricks into the specific area of dialogue generation. Although the empirical results show the proposed model outperforms several existing models, my concern is still on the originality of the paper. Specifically, one of the main contributions goes to using the Gaussian mixture to construct the prior, but this is not a whole new idea in VAE or GAN, nor using the Gumbel trick. 
+
+5. It is good to see that the authors showed some comparisons between DialogWAE and DialogWAE-GMP, letting us see GMP does help the performance. But a minor concern is that it seems hard to identify which part makes DialogWAE get superior performance than others. Are all the models running with the same experiment settings including the implementation of the RNNs?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkxsExnM6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkgBvsC9FQ&amp;noteId=BkxsExnM6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper263 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper263 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for taking the time to read our paper and for the useful comments to help improve our presentation! Below we address the specific points raised by the reviewer:
+
+&gt;&gt;&gt;
+ 3. The usage of the Wasserstein distance in the proposed model does not make sense to me…
+&lt;&lt;&lt;
+
+We apologize for not making the algorithm clear. In our paper, we consider the Wasserstein Auto-Encoder (WAE) as a special AAE, as what WGAN is to GAN.  Therefore, training AAE (i.e., WAE in our algorithm) means minimizing the Wasserstein distance. They are not trained separately at the same time. We will clarify this more clearly in the upcoming revision. 
+
+&gt;&gt;&gt;
+ 4. To me, the significance of this paper mainly goes to combining several existing frameworks and tricks into the specific area of dialogue generation…
+&lt;&lt;&lt;
+
+First, we want to clarify that our core contribution is on the improved GAN architecture for a crucial problem in dialogue modeling rather than a trial-and-error methodology by combining different tricks. 
+        
+We agree that our paper's contribution is not geared toward machine learning itself but how it could be used better for dialogue generation, which is considered one of the core challenges in both machine learning, natural language processing, and more broadly artificial intelligence. As is clear from the call-for-papers which states ``applications'' as one of the major subject areas, we believe our work fits the conference's scope well.
+
+&gt;&gt;&gt;
+ 5. But a minor concern is that it seems hard to identify which part makes DialogWAE get superior performance than others…
+&lt;&lt;&lt;
+
+Except for the GAN module, all the models are running with the same experimental setup including the implementation of RNNs. Therefore, the superior performance can be attributed to the improved GAN architecture.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

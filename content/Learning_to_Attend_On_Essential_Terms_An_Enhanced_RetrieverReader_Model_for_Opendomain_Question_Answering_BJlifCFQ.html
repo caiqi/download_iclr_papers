@@ -1,0 +1,251 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Learning to Attend On Essential Terms: An Enhanced Retriever-Reader Model for Open-domain Question Answering | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Learning to Attend On Essential Terms: An Enhanced Retriever-Reader Model for Open-domain Question Answering" />
+        <meta name="citation_author" content="Jianmo Ni" />
+        <meta name="citation_author" content="Chenguang Zhu" />
+        <meta name="citation_author" content="Weizhu Chen" />
+        <meta name="citation_author" content="Julian McAuley" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BJlif3C5FQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Learning to Attend On Essential Terms: An Enhanced Retriever-Reader..." />
+      <meta name="og:description" content="Open-domain question answering remains a challenging task as it requires models that are capable of understanding questions and answers, collecting useful information, and reasoning over evidence...." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BJlif3C5FQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Learning to Attend On Essential Terms: An Enhanced Retriever-Reader Model for Open-domain Question Answering</a> <a class="note_content_pdf" href="/pdf?id=BJlif3C5FQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures"><a href="/profile?email=jin018%40ucsd.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="jin018@ucsd.edu">Jianmo Ni</a>, <a href="/profile?email=chezhu%40microsoft.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="chezhu@microsoft.com">Chenguang Zhu</a>, <a href="/profile?email=wzchen%40microsoft.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="wzchen@microsoft.com">Weizhu Chen</a>, <a href="/profile?email=jmcauley%40cs.ucsd.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="jmcauley@cs.ucsd.edu">Julian McAuley</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Withdrawn Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Open-domain question answering remains a challenging task as it requires models that are capable of understanding questions and answers, collecting useful information, and reasoning over evidence. Previous work typically formulates this task as a reading comprehension or entailment problem given evidence retrieved from search engines. However, existing techniques struggle to retrieve indirectly related evidence when no directly related evidence is provided, especially for complex questions where it is hard to parse precisely what the question asks. In this paper we propose a retriever-reader model that learns to attend on essential terms during the question answering process. We build (1) an essential term selector which first identifies the most important words in a question, then reformulates the query and searches for related evidence; and (2) an enhanced reader that distinguishes between essential terms and distracting words to predict the answer. We evaluate our model on multiple open-domain QA datasets where it outperforms the existing state-of-the-art, notably leading to an improvement of 8.1% on the AI2 Reasoning Challenge (ARC) dataset.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Open-domain question answering</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SJlt2nl4T7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Submission Withdrawn by the Authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJlif3C5FQ&amp;noteId=SJlt2nl4T7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1294 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1294 Withdraw Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Withdrawal confirmation: </span><span class="note_content_value">I have read and agree with the withdrawal statement on behalf of myself and my co-authors.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1xhhu9Thm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Essentially a better retrieval method</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJlif3C5FQ&amp;noteId=B1xhhu9Thm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1294 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1294 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper tackles the problem of multiple-choice reading comprehension problem, notably ARC, along with two datasets that the authors create from RACE and MCScript. The paper proposes to retrieve a passage by concatenating only the essential terms with each choice, and then use a reading model to obtain the answer from question-choice-passage triple. The paper obtains ~3% improvement over the previous SOTA on ARC and non-trivial improvements on the other two datasets that the authors created.
+
+The paper is generally well-written and I did not have much problem understanding it. Also, the result is encouraging in that it was able to improve ARC by identifying essential terms and then just using them (concatenated with each choice) to retrieve a good passage. However, I have two concerns:
+
+One is that the test dataset is very small. If I understood it correctly, it only has 200 questions (10% of 2k). 3% improvement hence corresponds to 6 questions. Since the dataset is 4-choice, getting 6 more questions right is certainly within the range of randomness. So it is not clear if the improvement is statistically significant. While the model also gets an improvement over the other two datasets, they are created by the authors and only have relatively weak baselines (which were implemented by the authors).
+
+The second weakness is that the model is essentially proposing a better way to retrieve a passage. TF-IDF is a completely unsupervised method of weighing the importance of each word. Hence it is not surprising that the supervision of essential terms (on their importance) improves retrieval accuracy. There is nothing much new in the reader model (quite standard approaches for MRC), so I am worried about the novelty of the paper.
+
+Overall, while I think it is encouraging to know that a carefully designed retrieval model can improve ARC, the contribution does not seem to be significant enough for ICLR.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SJeFO_u8hm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A interesting Ideas, but the evaluation is not enough. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJlif3C5FQ&amp;noteId=SJeFO_u8hm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1294 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1294 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a retriever-reader model for open domain QA, which follows the pipeline of 1) selecting the keywords/essential terms of a question; 2) retrieving related evidence for passage construction; and 3) predicting final answer via a proposed attention-enhanced reader.  
+
+Although the proposed method achieves the good performance on ARC, I have concerns about both of the model design and evaluations.  
+
+I am wondering how useful the essential term selection is?  The module is trained as a separate binary sequence tagging task on the dataset of Khashabi.   I am wondering the difference between the Khashabi's dataset and these datasets used for evaluation in this paper.   Authors need to show how well the trained essential term selection module on Khashabi can be transferred on the question of ARC, RACE, etc.   In the paper, authors mentioned that they removed questions of that less than a specific number of words for both RACE and MCScript dataset to ensure a sufficient number of retrieved data.   Such a kind of data manipulation is unacceptable and unfair to other baseline methods.   Authors need to demonstrate the generated essential terms on these short questions.  My guess is that the essential term selection fails on these short questions due to the mismatch between the source dataset it trained on and the target dataset.   The ablation study in table 8 does not convince me that the essential term selection has a significant effect.  
+
+The novelty in terms of the RC model of this paper is limited.   Authors claim one of their contributions is the design of the attention and fusion layers that aggregates information among questions, passages, and answers choices.  However, the design is heuristic, complex and without any intuition.   Three Match-LSTM-like sequence encoders are used for sequence modeling, which makes the number of the parameters of the model large (authors needs to report the total number of parameters of their model for the experiment).   The sequence encoder is followed by the fusion layer, choice interaction and the output layer.    I cannot identify the significance of each of the design to the final performance.  Although authors had an ablation study shown in table 6, it is hard to understand.  </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJxRo1-In7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Further experiments to support the paper contributions?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJlif3C5FQ&amp;noteId=HJxRo1-In7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1294 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1294 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper has made two major contributions: (1) a new neural reader architecture for multi-choice QA; (2) it is the first to introduce essential term selection to open-domain QA, to the best of my knowledge. The above two proposed modules (reader and selector) are not very novel, but are still valid contributions to me. Experiments on the ARC dataset shows that (1) the proposed reader itself improves over the state-of-the-art on the leaderboard; (2) introducing the essential term selector further improves the above results by about 2%.
+
+Although the paper also provides additional experiments on other datasets, I feel that the contributions of the proposed methods are not sufficiently verified. I would suggest the authors consider the following further experiments that I believe could improve its ratings:
+
+(1) The proposed reader works very well on ARC. However, besides the BiDAF, there is no comparison between the proposed reader and previous models on datasets other than ARC. In order to know whether the result generalizes or not, I think the authors should conduct experiments on the regular RACE or other multi-choice QA datasets, to fully test the reader model.
+
+(2) It is not clear whether the essential term selector could help on datasets other than science questions. Again, the authors reported results on two other datasets. However, on neither of these datasets the ET-RR was compared with ET-RR (Concat). Therefore, I have concerns that the proposed framework may only be significant on the ARC dataset.
+
+Moreover, it will be interesting to see whether the essential term selector can be learned from distant supervision. For example, using REINFORCE to learn the selector model with the rewards from the end-task performance. The current framework heavily relies on the supervised training data from (Khashabi et al., 2017), which may limit its usage to other datasets.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1gynbA9jQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Doubts regarding the results mentioned on RACE-Open dataset</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJlif3C5FQ&amp;noteId=B1gynbA9jQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">22 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1294 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">For experimentation on the RACE-Open dataset, the authors have mentioned that only questions having more than 15 words are considered to avoid passage specific questions. While looking at the dataset, it seems like many of the questions are of the form - 'From the passage, we can infer that........', 'The passage suggests that the character..........', 'which of the following can be inferred from the passage.....' - and similar types. Also, some of the questions are very specific in the sense that they explicitly state 'in the paragraph, the author want to............', 'the given phrase relates to which character........', etc. In such cases, it seems unreasonable that the retriever model would be able to select the required sentences from the corpus since there doesn't seem to be any words which can relate the question to any specific passage or sentence. 
+
+My major concern is whether selecting the essential terms will have any significant effect at all because of the nature of the questions, which are very different compared to other datasets. In context of this, the results table shows improvements over 3 other models. However, the scores of the 3 models (25-30%) are very close to random chance (4 options, so random chance of getting it correct is 25%). Also, ET-RR achieves accuracy of 38.26% on RACE-Open but it is possible to get accuracy of more than 40% on RACE without even using any context (the model can be trained with just the options and labels to give &gt;40% accuracy which is much higher than random chance and seems strange). Based on these observations, I had some concerns regarding the significance of applying such a model on RACE since it is very different and the stated results.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkerBiFpiX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarification on RACE-Open dataset</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BJlif3C5FQ&amp;noteId=BkerBiFpiX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1294 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">24 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1294 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your comment! We agree that the RACE dataset contains many passage-specific questions that do not contain any specific content. To address this issue, we only keep ‘long’ questions with more than 15 words in RACE-Open because they contain more information, so that using them as queries allows us to retrieve related passages/sentences. It is to be noted that our main contribution is proposing an effective model for open-domain datasets with complex questions like ARC, i.e., our method is not designed explicitly for datasets like RACE. As such we tried our best to adapt RACE into a similar open-domain setting.
+
+We list some statistics to show that the adapted RACE-Open dataset is appropriate since it only includes a small amount of ambiguous passage-specific questions. For each question in RACE-Open, we first convert it into lowercase and check if any of the following words are in the question: "passage", "paragraph", "phrase", "article" -- we call them passage-specific questions here. As shown below, the number of passage-specific questions constitute less than 23% on all train/dev/test sets. 
+
+==========================
+           |  # of total questions  |  # of passage-specific questions 
+Train   |  9531                          |  1733
+Dev     |  473                            |  72
+Test     |  528                            |  117
+==========================
+
+Moreover, many of these passage-specific questions have question specific content. Below are some examples. In this context, these questions can be used to find relevant sentences. So the actual number of ambiguous passage-specific questions could be even less than the reported number above.
+
+========================================================
+Original passage-specific question                       |    Essential terms in question
+-----------------------------------------------------------------------------------------------------------
+According to the article,what does the band      |    band Four Square hope future
+Four Square hope to do in the future?                 |
+-----------------------------------------------------------------------------------------------------------
+According to the article we know it is    _    to      |    prevent forests slowly disappearing
+prevent the forests from slowly disappearing.   |
+-----------------------------------------------------------------------------------------------------------
+According to the passage we can infer the         |    infer main reason Times changing tabloid
+ main reason for The Times' changing into        |
+ the tabloid is that  _  .                                             |
+========================================================
+
+Regarding the prediction accuracy, we agree that RACE is a difficult dataset. With our adapted RACE-Open dataset, it comes with new challenges to retrieve relevant evidence and conduct reasoning over them. Overall, our proposed ET-RR model performs better than other baselines under this open-domain setting.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Optimal Control Via Neural Networks: A Convex Approach | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Optimal Control Via Neural Networks: A Convex Approach" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=H1MW72AcK7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Optimal Control Via Neural Networks: A Convex Approach" />
+      <meta name="og:description" content="Control of complex systems involves both system identification and controller design. Deep neural networks have proven to be successful in many identification tasks, however, from model-based..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_H1MW72AcK7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Optimal Control Via Neural Networks: A Convex Approach</a> <a class="note_content_pdf" href="/pdf?id=H1MW72AcK7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 18 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019optimal,    &#10;title={Optimal Control Via Neural Networks: A Convex Approach},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=H1MW72AcK7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=H1MW72AcK7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Control of complex systems involves both system identification and controller design. Deep neural networks have proven to be successful in many identification tasks, however, from model-based control perspective, these networks are difficult to work with because they are typically nonlinear and nonconvex. Therefore many systems are still identified and controlled based on simple linear models despite their poor representation capability.
+
+In this paper we bridge the gap between model accuracy and control tractability faced by neural networks, by explicitly constructing networks that are convex with respect to their inputs. We show that these input convex networks can be trained to obtain accurate models of complex physical systems. In particular, we design input convex recurrent neural networks to capture temporal behavior of dynamical systems. Then optimal controllers can be achieved via solving a convex model predictive control problem. Experiment results demonstrate the good potential of the proposed input convex neural network based approach in a variety of control applications. In particular we show that in the MuJoCo locomotion tasks, we could achieve over 10% higher performance using 5 times less time compared with state-of-the-art model-based reinforcement learning method; and in the building HVAC control example, our method achieved up to 20% energy reduction compared with classic linear models.
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">optimal control, input convex neural network, convex optimization</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">11 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SJeInZNZR7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>reviewers: comments on responses and revised-paper improvements?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=SJeInZNZR7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1332 Area Chair1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1332 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The detailed reviews and responses are commendable.  Thanks to all.
+
+Reviewers:  can you comment on whether the revised-paper and author responses have addressed  your concerns?
+In particular, for reviewer 1, this would be important. Note that the revised version can also be viewed in a way that lets one easily see the differences.
+
+-- area chair
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1lZ9YkkC7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revised Paper Uploaded to Address Reviewers' Feedback</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=r1lZ9YkkC7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1332 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1332 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We would like to thank all the reviewers for their constructive comments. We have responded to each reviewer’s comments individually, and in summary, we have made the following clarifications or changes:
+-Clarify the inputs and constraints on the input convex neural network weights  
+-Update texts, equations accordingly to avoid notation confusions
+-Explain and add details for simulation results.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1ljLTYjnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Well-motived but may have serious issues</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=S1ljLTYjnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1332 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1332 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This is a well-motived paper that considers bridging the gap
+in discrete-time continuous-state/action optimal control
+by approximating the system dynamics with a convex model class.
+The convex model class has more representational power than
+linear model classes while likely being more tractable and
+stable than non-convex model classes.
+They show empirical results in Mujoco continuous-control
+environments and in an HVAC example.
+
+I think this setup is a promising direction but I have
+significant concerns with some of the details and claims
+in this work:
+
+1. Proposition 2 is wrong and the proposed input-convex recurrent
+   neural network architecture not input-convex.
+   To fix this, the D1 parameters should also be non-negative.
+   To show why the proposition is wrong, consider the convexity of y2
+   with respect to x1, using g to denote the activation function:
+
+       z1 = g(U x1 + ...)
+       y2 = g(D1 z1 + ...)
+
+   Thus making
+
+       y2 = g(D1 g(U x1 + ...) + ...)
+
+   y2 is *not* necessarily convex with respect to x1 because D1 takes
+   an unrestricted weighted sum of the convex functions g(U x1 + ...)
+
+   With the ICRNN architecture as described in the paper not being
+   input-convex, I do not know how to interpret the empirical findings
+   in Section 4.2 that use this architecture.
+
+2. I think a stronger and more formal argument should be used to show
+   that Equation (5) is a convex optimization problem as claimed.
+   It has arbitrary convex functions on the equality constraints that
+   are composed with each other and then used in the objective.
+   Even with parts of the objective being convex and non-decreasing
+   as the text mentions, it's not clear that this is sufficient when
+   combined with the composed functions in the constraints.
+
+3. I have similar concerns with the convexity of Equation (6).
+   Consider the convexity of x3 with respect to u1, where g is
+   now an input-convex neural network (that is not recurrent):
+
+       x3 = g(g(x1, u1), u2)
+   
+   This composes two convex functions that do *not* have non-decreasing
+   properties and therefore introduces an equality constraint that
+   is not necessarily even convex, almost certainly making the domain
+   of this problem non-convex. I think a similar argument can be
+   used to show why Equation (5) is not convex.
+
+In addition to these significant concerns, I have a few other
+minor comments.
+
+1. Figure 1 hides too much information. It would be useful to know,
+   for example, that the ICNN portion at the bottom right
+   is solving a control optimization problem with an ICNN as
+   part of the constraints.
+
+2. The theoretical results in Section 3 seem slightly out-of-place within
+   the broader context of this paper but are perhaps of standalone interest.
+   Due to my concerns above I did not go into the details in this portion.
+
+3. I think more information should be added to the last paragraph of
+   Section 1 as it's claimed that the representational power of
+   ICNNs and "a nice mathematical property" help improve the
+   computational time of the method, but it's not clear why
+   this is and this connection is not made anywhere else in the paper.
+
+4. What method are you using to solve the control problems in
+   Eq (5) and (6)?
+
+5. The empirical setup and tasks seems identical to [Nagabandi et al.].
+   Figure 3 directly compares to the K=100 case of their method.
+   Why does Fig 6 of [Nagabandi et al.] have significantly higher rewards
+   for their method, even in the K=5 case?
+
+6. In Figure 5, f_NN seems surprisingly bad in the red region of the
+   data on the left side. Is this because the model is not using
+   many parameters? What are the sizes of the networks used?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">1: Trivial or wrong</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1e8JrJ1Am" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1-Theoretical guarantees on the convexity of neural networks-MPC [1/3]</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=B1e8JrJ1Am"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1332 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1332 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We are grateful to the reviewer for carefully reading our paper and providing many helpful suggestions and comments that have significantly improved the revised version. We also appreciate the opportunity to clarify our presentation of theorems, figures and experiment setups, as well as some unclear writing in the manuscript. We agree with the reviewer that the original manuscript contained several parts that were not clear and some typos, and it resulted in some confusion on the technical results. Overall, we note that the results of the paper remain unchanged: deep (recurrent) neural networks can be made input convex and effectively used in control of complex systems. Based on the comments made by the reviewers, we have made the figures more illustrative, and the formulations and the theorems more rigorous. Our implementation of the algorithms is consistent with the updated manuscript, so we stress that these changes are made to clarify the writing of the paper and all of the simulation and numerical results remain unchanged. Below we provide a point-by-point account of the comments. 
+
+-	Concerns on the correctness of Proposition 2
+
+We thank the reviewer for bringing up this important question and agree this was a point of confusion in our original manuscript. In Proposition 2 of the original submission, we stated that we only need to keep V and W non-negative and this will result in a network that is convex from input to output. This is true for a single step, but as the reviewer correctly points out, negative weights cannot go through composition and maintain convexity. Actually, Proposition 1 and Proposition 2 in our original submission give the sufficient condition for a network to be input-convex for a single step; when used for control purpose, these network structures (both ICNN and ICRNN) should be modified to their equivalent variants: restricting all weight matrices to be non-negative (element-wise) and augmenting the input to include its negation. Such network structure variants and “duplicate trick” have been mentioned in Section 3.1 Sketch of proof for Theorem 1 in our original manuscript, “We first construct a neural network with ReLU activation functions and both positive and negative weights, then we show that the weights between different layers of the network can be restricted to be nonnegative by a simple duplication trick. Specifically, since the weights in the input layer and passthrough layers can be negative, we simply add a negation of each input variable (e.g. both x and −x are given as inputs) to the network”. We apologize for not making this point clear and the notational confusions in our previous manuscript. To clarify, for both the MuJoCo locomotion tasks and the building control experiments, we used the modified input-convex network structures with all weights non-negative and input negation duplicates instead of the conventional input-convex structure for single step (but these two structures could be equivalently transformed). 
+In the revised paper, we explicitly explain the sufficient conditions for ICNN/ICRNN variants that can be used for control purpose. We also update Proposition 1 and 2 to ease the confusions of convexity under control settings. Also, we have updated Figure 2 accordingly to demonstrate the modified ICNN/ICRNN structure, input duplication, operations and activation functions used for our control settings. For all the empirical experiments, we will release our code after the openreview process for result validation, which demonstrated that proposed control framework via input-convex networks obtain both good identification accuracies and better control performance compared with regular neural networks or linear models. 
+
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HklIprkJRm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Theoretical guarantees on the convexity of neural networks-MPC [2/3] </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=HklIprkJRm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1332 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1332 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">-	A stronger and more formal argument should be used to show that Equation (5) is a convex optimization problem as claimed.
+
+We thank the reviewer for this helpful suggestion and agree that a more rigorous argument should be used to show that Equation (5) is a convex optimization problem. In the revised manuscript, we update Equation (5) to reflect the fact that we are using input-convex neural networks with all non-negative weights and the input negation trick. Equations (5d) and (5e) are added in the revised formulation which denote the augmented input variables and the consistency condition between u and its negation v.
+
+Then, in order to show Equation (5) is a convex optimization problem, we need to both the objective function and constraints are convex. Specifically,
+(i). The objective function J(\hat{x},y) (Equation(5a)) is convex, non-decreasing with respect to \hat{x} and y;
+(ii). The functions f and g are parameterized as ICRNNs with all weight matrices non-negative, which ensures f and g are convex and non-decreasing. Therefore rolling it out over time, the compositions remain convex with respect to the input.
+(iii). The consistency constraint (5e) that one variable is the negation of the other is linear, therefore it preserves the convexity of optimization problems.
+
+We have clarified this discussion in the revised manuscript.
+
+-	Convexity on Equation (6)
+
+As a similar case to the optimization problem in Equation (5),  the system dynamics is governed  by Equation (6b). By restricting all weight matrices in ICNN to be non-negative and expanding  the inputs, the MPC formulation for MuJuCo case is convex with respect to control action vectors at different time. As shown in Fig. 3,  such convex properties also guaranteed that our  results on a series of control tasks outperformed current neural network based dynamical model. 
+
+
+Response to reviewer’s other comments:
+-	Figure 1 hides too much information
+We agree and have revised Figure 1 to include more information about problem setup related to modeling objective, control objective and constraints. In the left plot of revised Figure 1, we describe how an input convex neural network can be trained to learn the system dynamics. Then the right plot demonstrates the overall control framework, where we solve a convex predictive control problem to find the optimal actions. The optimization steps are also based on objectives and dynamics constraints represented by the trained networks.
+
+-	The theoretical results in Section 3 seem slightly out-of-place within the broader context of this paper
+
+We thank the reviewer for this question. The key idea for this section is by making the neural network convex from input to output, we are able to obtain both good predictive accuracies and tractable computational optimization problems. There are two main results presented in Section 3, Theorem 1 is about the representation capacity of ICNN (can represent all convex functions) and Theorem 2 is on the representation efficiency of ICNN (can be exponentially more efficient than conventional convex piecewise linear fitting [MP]). 
+
+Since our proposed control framework involves two stages: 1) using ICNN/ICRNN for system identification; 2) design an optimal controller via solving a predictive control problem. For the system identification stage, obviously, one benefit of using input convex networks (instead of conventional neural networks) is its computational trackability and optimality guarantee for the subsequent optimization stage. However, besides the trackability, reasonable representation capacity to model complex relationships is also desired as a system identification model. Theorem 1 and 2, on this aspect, demonstrate such representability and efficiency of ICNN. In the revised manuscript, we have added the above discussion at the beginning of Section 3 to improve the coherence of the paper.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1eqHIJyCm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Theoretical guarantees on the convexity of neural networks-MPC [3/3]</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=S1eqHIJyCm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1332 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1332 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">-      More information should be added to the last paragraph of Section 1 as it's claimed that the representational power of ICNNs and "a nice mathematical property" .
+
+We have added the following discussion to the end of Section 1: Our method enjoys computational efficiency in two perspectives. Firstly, as stated in Theorem 2, compared to model based method which often employs piecewise linear functions, we could train ICNN or ICRNN (with exponentially less variables/pieces) using off-the-shelf deep learning packages such as PyTorch and Tensorflow, while the optimal control can be achieved by solving convex optimization; Secondly, compared to model-free (deep) reinforcement learning algorithms, which usually takes an end-to-end settings and requires lots of samples and long training time, our model is learning and controlling based on the system dynamics – this can be much more sample efficient. There is also an ongoing debate on the model-free and model-based reinforcement learning algorithms [BR], and we look forward to incorporating learning into control tasks with optimality guarantees.
+
+-	What method are you using to solve the control problems in Eq (5) and (6)?
+
+In Eq (5) and (6), since both the objectives and the constraints contain neural networks, we set up our networks with Tensorflow and solve the control problem using projected gradient descent method with adaptive step size. The gradients can be calculated via existing modules in Tensorflow for backpropagation. In both cases the optimization problems can be solved fairly fast and we observe the solution convergence after around 20 iterations. As shown in Figure 4 (c) of the original manuscript, the control actions outputted by solving (5) are stable and much better than the results achieved from regular neural network + MPC (which has no optimality guarantee). In the revised paper, we have included more details on the solution algorithm of Eq. (5) in the last paragraph of Section 2.
+
+-	Why does Figure 6 of [Nagabandi et al.] have significantly higher rewards for their method, even in the K=5 case?
+
+We thank the reviewer for carefully proofreading the figure, and we also thank Nagabandi et al open sourced their code. We re-run their simulations using all the default parameters and observed the reward for their cases are all around 10x less than they showed in Figure 6. We also refer to [KC], where their rewards on swimmer case are significantly smaller than the case as [Nagabandi et al]. We are not sure what is causing the difference in the performances, although we believe there may be difference in hyperparameter settings and the random starting points between our and [Nagabandi et al]’s result. We make sure the comparison in Figure 3 of our paper are using the same hyperparameters and training data, except the differences on control methods.
+
+-	The experimental results in Figure 5
+
+We thank the reviewer for bringing up this interesting point. In the toy example on classifying points in 2D grid, we used a 2-layer neural networks for both conventional neural networks and ICNN, with 200 neurons in each layer. We simulate the case when training data is small (100 training samples). We observe the results given by conventional neural networks are quite unstable by using different random seeds and are prone to be overfitting. On the contrary, by adding constraints on model weights to train the ICNN, fitting result is better using this small-size training data, while the learned landscape is also beneficial to the optimization problem. 
+In the revised manuscript, we added more details on the model and training setup, the learning task, and the optimization task to address the confusion.
+
+References
+
+[MP] Alessandro Magnani and Stephen P Boyd. “Convex piecewise-linear fitting”. Optimization and Engineering, 10(1):1–17, 2009. 
+
+[BR] Recht, Benjamin. "A tour of reinforcement learning: The view from continuous control." arXiv preprint arXiv:1806.09460(2018).
+
+[KC] Kurutach T, Clavera I, Duan Y, Tamar A, Abbeel P. “Model-Ensemble Trust-Region Policy Optimization”. arXiv preprint arXiv:1802.10592. 2018 Feb 28.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_ryx2JPefTX" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=ryx2JPefTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper1332 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1eRNOBqn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A good paper that bridges the gap between neural networks and MPC.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=H1eRNOBqn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1332 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1332 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes to use input convex neural networks (ICNN) to capture a complex relationship between control inputs and system dynamics, and then use trained ICNN to form a model predictive control (MPC) problem for control tasks.
+The paper is well-written and bridges the gap between neural networks and MPC.
+The main contribution of this paper is to use ICNN for learning system dynamics. ICNN is a neural network that only contains non-negative weights. Thanks to this constraint, ICNN is convex with respect to an input, therefore MPC problem with an ICNN model and additional convex constraints on control inputs is a convex optimization problem.
+While it is not easy to solve such a convex problem, it has a global optimum, and a gradient descent algorithm will eventually reach such a point. It should also be noted that a convex problem has a robustness with respect to an initial starting point and an ICNN model itself as well. The latter is pretty important, since training ICNN (or NN) is a non-convex optimization, so the parameters in trained ICNN (or NN) model can vary depending on the initial random weights and learning rates, etc. Since a convex MPC has some robustness (or margin) over an error or deviation in system dynamics, while non-convex MPC does not, using ICNN can also stabilize the control inputs in MPC.
+Overall, I believe that using ICNN to from convex MPC is a sample-efficient, non-intrusive way of constructing a controller with unknown dynamics. Below are some minor suggestions to improve this paper.
+
+-- Page 18, there is Fig.??. Please fix this.
+-- In experiments, could you compare the result with a conventional end-to-end RL approach? I know this is not a main point of this paper, but it can be more compelling.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1lKWukkCQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=r1lKWukkCQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1332 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1332 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the encouraging words, and we are also expecting our work would be able to serve as an efficient framework for incorporating deep learning into real-world control problems. The reviewer’s comments on the robustness of proposed convex MPC are also quite valuable. We would try to explore in details about the learning errors and control robustness in the future work. 
+
+Here are some responses to the reviewer’s comments:
+
+-The miss-replacement of Figure in Page 18
+We thank the reviewer for pointing this out. In the revised version, we have added the fitting result comparison (Fig. 7 in Appendix D.4) for ICNN and a normal neural network, which shows that ICNN is able to learn the MuJoCo dynamics efficiently.
+
+-The comparison with end-to-end RL approach
+
+We thank the reviewer for this helpful suggestion. Conventional end-to-end RL approach directly learns the mapping from observations to actions without learning a system dynamics model. Such algorithms could achieve better performances, but are at the expense of much higher sample complexity. The model-free approach we compare with is the rllab implementation of trust region policy optimization (TRPO) [JL], which has obtained state-of-the-art results on MuJuCo tasks. We added Fig. 9 in Appendix D of the revised paper to compare our results with TRPO method and random shooting method [Nagabandi et al]. TRPO suffers from very high sample complexity and often requires millions of samples to achieve good performance. But here we only provided very few rollouts (since for physical system control, the sample collection might be limited by real-time operations, or it is difficult to explore the whole design space because suboptimal actions would lead to disastrous results), therefore, the performance by ICNN is much better than TRPO. Similarly to the model-based, model-free (MBMF) approach mentioned in [Nagabandi et al], the learned controller via ICNN could also provide good rollout samples and serve as a good initialization point for model-free RL method. 
+
+
+References
+[JL] Schulman, John, Sergey Levine, Pieter Abbeel, Michael Jordan, and Philipp Moritz. "Trust region policy optimization." In International Conference on Machine Learning, pp. 1889-1897. 2015.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJxXxUZ92X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A great work in quality, originality, significance, some questions to authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=rJxXxUZ92X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1332 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1332 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes neural networks which are convex on inputs data to control problems. These types of networks, constructed based on either MLP or RNN, are shown to have similar representation power as their non-convex versions, thus are potentially able to better capture the dynamics behind complex systems compared with linear models. On the other hand, convexity on inputs brings much convenience to the later optimization part, because there are no worries on global/local minimum or escaping saddle points. In other words, convex but nonlinear provides not only enough search space, but also fast and tractable optimization. The compromise here is the size of memory, since 1) more weights and biases are needed to connect inputs and hidden layers in such nets and 2) we need to store also the negative parts on a portion of weights. 
+
+Even though the idea of convex networks were not new, this work is novel in extending input convex RNN and applying it into dynamic control problems. As the main theoretical contribution, Theorem 2 shows that to have same representation power, input convex nets use polynomial number of activation functions, compared with exponential from using a set of affine functions. Experiments also show such effectiveness. The paper is clearly and nicely written. These are reasons I suggest accept.
+
+
+Questions and suggestions:
+
+1) For Lemma 1 and Theorem 1, I wonder whether similar results can be established for non-convex functions. Intuitively, it seems that as long as assuming Lipschiz continuous, we can always approximate a function by a maximum of many affine functions, no matter it is convex or not. Is this right or something is missing?
+
+2) In the main paper, all experiments were aimed to address ICNN and ICRNN have good accuracy, but not they are easier to optimize due to convexity. In the abstract, it is mentioned "... using 5X less time", but I can only see this through appendix. A suggestion is at least describing some results on the comparison with training time in the main paper.
+
+3) In Appendix A, it seems the NN is not trained very well as shown in the left figure. Is this because the number of parameters of NN is restricted to be the same as in ICNN? Do training on both spend the same resource, ie, number of epoch? Such descriptions are necessary here.
+
+4) In Table 2 in appendix, why the running time of ICNN increases by a magnitude for large H in Ant case?
+
+
+Typos:
+	Page 1 "simple control algorithms HAS ..."
+	Page 7 paragraph "Baselines": "Such (a) method".
+	In the last line of Table 2, 979.73 should be bold instead of 5577.
+	There is a ?? in appendix D.4.
+	
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1gu-tJJRQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=r1gu-tJJRQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1332 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1332 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We are grateful to the reviewer for thoroughly reading our paper and providing these encouraging
+words. Below, we respond to the comments in detail.
+
+1) For Lemma 1 and Theorem 1, I wonder whether similar results can be established for non-convex functions. Intuitively, it seems that as long as assuming Lipschiz continuous, we can always approximate a function by a maximum of many affine functions, no matter it is convex or not. Is this right or something is missing?
+	
+This is an interesting and subtle question. If we restrict ourselves to “maximum” of affine functions, then we cannot construct functions that are not convex. This is from the fact that a pointwise max of convex functions (which include affine functions) is convex. As the reviewer points out, if we allow other types of operations, we can construct other types of functions. For example, if we change the pointwise max to the pointwise min, then we can approximate all Lipschiz concave functions. If we allow both max and min, we get all Lipschiz functions, but this just recover the result that neural networks can approximate most function types. We anticipate that different applications may require different function types to be approximated, and this is an active research direction for us. 
+
+2) In the main paper, all experiments were aimed to address ICNN and ICRNN have good accuracy, but not they are easier to optimize due to convexity. In the abstract, it is mentioned "... using 5X less time", but I can only see this through appendix. A suggestion is at least describing some results on the comparison with training time in the main paper.
+
+We thank the reviewer for pointing out this piece of missing information on running time in the main text. In the revised manuscript, we have added discussions on computation time in Section 4.1 to show our controller design would achieve both computation efficiency and performance improvement.
+
+3) In Appendix A, it seems the NN is not trained very well as shown in the left figure. Is this because the number of parameters of NN is restricted to be the same as in ICNN? Do training on both spend the same resource, ie, number of epoch? Such descriptions are necessary here.
+
+In the toy example on classifying points in 2D grid, we used a 2-layer neural networks for both conventional neural networks and ICNN, with 200 neurons in each layer. We simulate the case when training data is small (100 training samples). We observe the results given by conventional neural networks are quite unstable by using different random seeds and are prone to be overfitting. On the contrary, by adding constraints on model weights to train the ICNN, fitting result is better using this small-size training data, while the learned landscape is also beneficial to the optimization problem. 
+In the revised manuscript, we added more details on the model and training setup, the learning task, and the optimization task to address the confusion.
+
+4) In Table 2 in appendix, why the running time of ICNN increases by a magnitude for large H in Ant case?
+
+We apologize for the typo in the case of Ant for computation time and the confusion it caused. We wanted to report everything in minutes but forgot to convert the time for the Ant case from seconds to minutes. In the revised version we have unified the running time under minutes. 
+
+We also thank the reviewer for carefully proofreading the paper and extracting the typos.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryxdDdm3F7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Efficient model based control of almost convex systems -- convexity comes in surprisingly</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1MW72AcK7&amp;noteId=ryxdDdm3F7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Sep 2018 (modified: 02 Oct 2018)</span><span class="item">ICLR 2019 Conference Paper1332 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This paper proposed a powerful tool for an important category of model based control system. For model based control, there are usually two steps: 1. modeling the system as accurate as you can, and 2. Optimize over the fitted system to find the best control strategy. It is known that convex optimization is always tractable, so if the true system can be convex, or almost exactly regressed by a convex function, we can make use of it. However, for modeling complex systems, where neural network becomes more popular, there is no guarantee that step 1 outputs a convex system -- even if the system is convex, we do not know whether the model is convex unless we can prove that they are close enough, which is usually difficult. So paper such as <a href="https://arxiv.org/abs/1708.02596" target="_blank" rel="nofollow">https://arxiv.org/abs/1708.02596</a> use a non-convex model and have to search for the control strategy by griding and testing the entire space almost exhaustedly.
+
+This paper propose an NN structure which is simply based on only Relu, but guarantees a convex modeling of the system. Compared with maximum piecewise linear modeling, it only introduces a fixed 2 piece linear activating module, but dramatically decreases the number of parameters from exponential to polynomial, which makes it realizable.
+
+But if it's true, now something interesting might come up. The authors show that even for seemingly hard scenarios including Mujoco, it performances well to attempt a convex model, whose optimizer corresponds to good control scheme in true problems. It likely means that, despite the impossibility to show the model is everywhere accurate, the model well sketches the landscape of true loss around its minimizer (where is probably locally convex) and the trajectory of optimizing iterations, where people are interested. I'm not sure if that's true. NN always surprise people, but it's definitely worth rethinking and experimenting, based on the result on such complex tasks in this paper.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

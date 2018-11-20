@@ -1,0 +1,321 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Accumulation Bit-Width Scaling For Ultra-Low Precision Training Of Deep Networks | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Accumulation Bit-Width Scaling For Ultra-Low Precision Training Of Deep Networks" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BklMjsRqY7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Accumulation Bit-Width Scaling For Ultra-Low Precision Training Of..." />
+      <meta name="og:description" content="Efforts to reduce the numerical precision of computations in deep learning training have yielded systems that aggressively quantize weights and activations, yet employ wide high-precision..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BklMjsRqY7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Accumulation Bit-Width Scaling For Ultra-Low Precision Training Of Deep Networks</a> <a class="note_content_pdf" href="/pdf?id=BklMjsRqY7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019accumulation,    &#10;title={Accumulation Bit-Width Scaling For Ultra-Low Precision Training Of Deep Networks},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BklMjsRqY7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Efforts to reduce the numerical precision of computations in deep learning training have yielded systems that aggressively quantize weights and activations, yet employ wide high-precision accumulators for partial sums in inner-product operations to preserve the quality of convergence. The absence of any framework to analyze the precision requirements of partial sum accumulations results in conservative design choices. This imposes an upper-bound on the reduction of complexity of multiply-accumulate units. We present a statistical approach to analyze the impact of reduced accumulation precision on deep learning training. Observing that a bad choice for accumulation precision results in loss of information that manifests itself as a reduction in variance in an ensemble of partial sums, we derive a set of equations that relate this variance to the length of accumulation and the minimum number of bits needed for accumulation. We apply our analysis to three benchmark networks: CIFAR-10 ResNet 32, ImageNet ResNet 18 and ImageNet AlexNet. In each case, with accumulation precision set in accordance with our proposed equations, the networks successfully converge to the single precision floating-point baseline. We also show that reducing accumulation precision further degrades the quality of the trained network, proving that our equations produce tight bounds. Overall this analysis enables precise tailoring of computation hardware to the application, yielding area- and power-optimal systems.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">reduced precision floating-point, partial sum accumulation bit-width, deep learning, training</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We present an analytical framework to determine accumulation bit-width requirements in all three deep learning training GEMMs and verify the validity and tightness of our method via benchmarking experiments.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HJgqZjSA2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Accumulation Bit-Width Scaling For Ultra-Low Precision Training Of Deep Networks</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BklMjsRqY7&amp;noteId=HJgqZjSA2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper603 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper603 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors conduct a thorough analysis of the numeric precision required for the accumulation operations in neural network training. The analysis is based on Variance Retention Ratio (VRR), and authors show the theoretical impact of reducing the number of bits in the floating point accumulator. And through extensive benchmarks with popular vision models, the authors demonstrate the practical performance of their theoretical analysis.
+
+There are several points that I am not particularly clear about this work:
+
+1) In section 4.4, the authors claim to use v(n) &lt; 50 as the cutoff of suitability. This is somewhat arbitrary. As one can imagine, for an arbitrary model of VRR, we can find an empirical cutoff that seems to match benchmarks tightly. Or put it another way, this is a hyperparameter that the authors can tune to match their chosen benchmarks. It would be more interesting to see a detailed study on this cutoff on multiple datasets.
+
+2) Again the 0.5% accuracy cutoff from baseline in the experiment section is also another similar hyperparameter.
+
+It would be more convincing if we can see a fuller picture of the training dynamics without these two hyperparameters clouding the big picture.
+
+Having said this, I appreciate the authors' effort in formally studying this problem.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1xM6yWFpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to AnonReviewer3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BklMjsRqY7&amp;noteId=r1xM6yWFpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper603 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper603 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer3,
+
+Thank you very much for your review and thoughtful comments. Those will be addressed as we prepare our revised draft. In the meantime, we would like to provide a first response:
+
+
+- Response to point 1)
+
+-- In Fig 5 (a&amp;b), the variance lost rapidly increases when v(n)&gt;50 and n increases. On the other hand, when v(n)&lt;50 and n decreases, the variance lost quickly drops to zero. As such, v(n)=50 coincides with the ‘knee’ of the variance lost curve as a function of accumulation length and was therefore chosen as stability cutoff. Thus, this choice of cutoff was chosen purely based on the accumulation length and precision, independently from the benchmarks we have used.
+
+
+- Response to point 2)
+
+-- It is believed that there is an error bound for neural networks by changing the random number seeds. In ref [a], table 1 shows that the random seed effect could achieve 0.56% in ImageNet and in ref [b], page 5, the difference of random seed effect can be 0.44% in CIFAR100. In our experiments, we also observed the a variability of ~0.5% in accuracy due to random seed variation on CIFAR-10 and ImageNet.  In this paper, we used this well-accepted value for comparison to a baseline. In addition, choosing this value is mainly for illustration purpose and won’t change the conclusion of our work. For example, in Fig 6 (d), using the predicted precision assignment, the converged test error can be clearly seen to be very close to the baseline, but increases significantly when the precision is further reduced.
+
+
+We will motivate the choice of these two numbers more explicitly in the revised draft. We do want to let you know that we appreciate your comment, and we also believe a story is better told when specific numbers do not ‘cloud’ the picture. Hopefully our justification above makes it more convincing.
+
+
+Thanks again for your review!
+
+
+[a] Goyal et al. (2018), Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour - <a href="https://arxiv.org/pdf/1706.02677.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1706.02677.pdf</a>
+[b] Gastaldi (2017), Shake-Shake regularization - https://arxiv.org/pdf/1705.07485.pdf
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1lrdaUqnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting theoretical framework for predicting the necessary precision in deep networks, along with experimental evaluation confirming the theoretical results.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BklMjsRqY7&amp;noteId=H1lrdaUqnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper603 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper603 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Quality and clarity:
+The paper presents a theoretical framework and method to determine the necessary number of bits in a deep learning networks. The framework predicts the smallest number of bits necessary in the (multiply-add) calculations (forward propagation, backward propagation, and gradient calculation) in order to keep the precision at an acceptable level. 
+
+The statistical properties of the floating-point calculations form the basis for the approach, and expressions are derived to calculated the smallest number of bits based on, e.g., the length of the dot product and the number variance. 
+
+The paper seems theoretically correct, although I haven't studied the appendices in detail. The experimental part is good, using three networks of various sizes (CIFAR-10 ResNet 32, ImageNet ResNet 18 and ImageNet AlexNet) as benchmarks. The experimental results support the theoretical predictions. 
+
+Originality and significance:
+The paper seems original, at least the authors claim that no such work has been done before, despite the large amount work done on weight quantization, bit reduction techniques, etc. The paper may have some significance, since most earlier papers have not considered the statistical properties of the reduced precision calculations.
+
+Pros:
+* Interesting topic
+* Theoretical predictions match the practical experiments
+
+Cons:
+* Nothing particular
+
+Minor:
+* Fig 5a. The curve for m_acc = 13 does not seem to follow the same pattern as the other curves. Why?
+* Motivate why you have selected the networks that you have in the evaluation.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJgdyxbYpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to AnonReviewer1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BklMjsRqY7&amp;noteId=BJgdyxbYpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper603 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper603 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer1,
+
+Thank you very much for your nice review! We are revising our draft to take into account all comments and suggestions. In this reply, we wish to provide a response to some of your comments:
+
+
+- Reply to the comment on originality and significance:
+
+-- We just want to mention that, indeed, there is a large body of work addressing the general problem of quantization and reduced precision in deep learning. Almost all of these works solely focus on the issue of representation quantization (i.e., reducing the precision of weights and/or activations). To this day, the precision of partial sums in accumulations has been largely overlooked. Hence, this is still an unanswered question, and as described in our introduction (third paragraph and Fig. 1 (b)), an important one to address in order to scale down the hardware complexity of deep learning systems. This constitutes the thesis of our work and is why we have claimed that no such work has been done before, and why our paper is of great significance. Of course, that, in addition to the statistical analysis, which by itself is novel. 
+
+
+- Reply to first minor comment:
+
+-- We also noticed the peculiar pattern around m_acc = 12 &amp; 13 in Fig. 5 (a). Observe that this curve is obtained by evaluation of eq. (2) in Theorem 1, which is clearly a non-linear function of m_acc. We can actually give you a more elaborated answer. We have plotted v(n) as a function of m_acc for several fixed values of n (as in our paper, we used a value of m_p=5). Please check out the plot at this anonymous link: <a href="https://www.dropbox.com/s/au9h9v650dvhyxw/variance_lost_fixed_n.pdf?dl=0" target="_blank" rel="nofollow">https://www.dropbox.com/s/au9h9v650dvhyxw/variance_lost_fixed_n.pdf?dl=0</a>
+These plots are for illustrative purpose, note that a fractional value of m_acc has no physical meaning. As we can see, the general trend of variance lost decreasing as a function of m_acc is present (which is expected). However, there is a ‘lobe’ in each curve. This is because there are two sources of errors modeled by eq. (2): full swamping errors (contributing to the equation via the first term in the numerator), and partial swamping errors (contributing to the equation via the second term in the numerator). Thus, there is a trade-off between these two sources of errors: in some regime, full swamping would dominate (when m_acc is much higher than m_p) while in another regime partial swamping would dominate (when m_acc is not much higher than m_p). This trade-off causes the ‘bumps’ or ‘lobes’ observed in our linked plot. The effects seem most dramatic for values of m_acc around 12 and 13 which explains the pattern observed in Fig. 5 (a).
+
+
+-Reply to second minor comment:
+
+-- There are two reasons why we have selected our benchmarks. First, the datasets and networks are widely used and popular in such applications. Second, such image datasets and associated convolutional networks presents very large accumulation lengths due to the data size and network topology. This makes them very good candidates against which we can verify our work.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJeEW_UM37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clever analysis of quantization in matrix multiplies leads to actionable insights</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BklMjsRqY7&amp;noteId=SJeEW_UM37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper603 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper603 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">There has been a lot of work on limited precision training and inference for deep learning hardware, but in most of this work, the accumulators for the multiply-and-add (FMA) operations that occur for inner products are chosen conservatively or treated as having unlimited precision. The authors address this with  an analytical method to predict the number of mantissa bits needed for partial summations during the forward, delta and gradient computation ops for convolutional and fully connected layers. They propose an information theoretic approach to argue that by using fewer bits of mantissa in the accumulator than necessary, the variance of the resulting sum is less than what it would have been if sufficient bits of mantissa were used. This is surprising to me, as quantization is usually modeled as _adding_ noise, leading to an _increase_ in variance (Mc Kinstry et al. 2018), so this is a nice counterexample to that intuition. Unfortunately the result is presented in a way that implies the variance reduction is what causes the degradation in performance, while obviously (?) it's just a symptom of a deeper problem. E.g., adding noise or multiplying by a constant to get the variance to where it should be, will not help the network converge. The variance is just a proxy for lost information. The authors should make this more clear.
+
+Loss of variance is regarded as a proxy to the error induced/loss of information due to reduced mantissa prevision. The authors present their metric called Variance Retention Ratio (VRR) as a function of the mantissa length of product terms, partial sum (accumulator) terms, and the length of the accumulation. Thereafter, the mantissa precision of the accumulator is predicted to maintain the error of accumulation within bounds by keeping the VRR as close to 1 as possible. The authors use their derived formula for VRR to predict the minimum mantissa precision needed for accumulators for three well known networks: AlexNet, ResNet 32 and ResNet 18. For tightness analysis they present convergence results while perturbing the mantissa bits to less than those predicted by their formula, and show that it leads to more than 0.5% loss in the final test error of the network.
+
+Some questions that the manuscript leaves open in it's current form:
+
+0. Does this analysis only apply to ReLu networks where all the accumulated terms are positive? Would a tanh nonlinearity, e.g. in an RNN, result in a different kind of swamping behavior? I don't expect the authors to add a full analysis for the RNN case if it's indeed different, but it would be nice to comment on it. 
+1. Do the authors assume that the gradients and deltas will always be within the exponent range of representation? I do not find a mention of this in the paper. In other words, are techniques like loss scaling, etc. needed in addition? Other studies in literature analyzing IEEE fp16 seem to suggest so.
+2. The authors do not provide details on how they actually performed the experiments when running convergence experiments. It is not straightforward to change the bit width of the accumulator mantissa in CPU or GPU kernel libraries such as CUDNN or Intel MKL. So how do they model this?
+3. On page 7, the authors point out that they provide a theoretical justification of why the chunk size should neither be too small or too large - but I do not see such a justification in the paper. More detailed explanation is needed.
+
+There are a few minor typos at a few places, e.g.
+ 
+1. Page 4: “… , there is a an accumulation length….”
+2. Page 6: “…floaintg-point format…"
+
+Some figures, notably 2 and 5, use text that is unreadably small in the captions. I know this is becoming somewhat common practice in conference submissions with strict pages limits, but I implore the authors to consider shaving off space somewhere else. Some of us still read on paper, or don't have the best eyes!</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ByxaQebt6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to AnonReviewer2 (Part 1/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BklMjsRqY7&amp;noteId=ByxaQebt6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper603 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper603 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear AnonReviewer2,
+
+Thank you very much for thorough review and detailed comments! We are revising our draft and will address your concerns and suggestions. In this reply, we wish to provide answers to some of your comments:
+
+
+- On the symptoms of quantization and ‘increase vs decrease’ in variance:
+
+-- Our work actually does not contradict prior findings. Indeed, prior arts have considered representation quantization, that is to say, reducing the precision of weights/activations/gradients. It is reasonable and common to model such phenomenon by an additive noise, which statistically increases the variance. What we are looking at in our work is intermediate roundings in partial sums during the accumulation. Indeed, in our work, we fixed the precision of the representations and only reduced the precision of the accumulators for partial sum accumulation. Unlike representation quantization error, the accumulation error is dominated by swamping error.
+Basic statistics tell us that in a dot product (or a sum in general), the addition of terms causes the variance of the result to increase (with the implied assumption that the terms being added are independent (He et al., 2016)). Due to the rounding of partial sums, parts of the addition are swamped away, preventing the variance of the result to grow as expected (as illustrated in Fig. 3). 
+Thus, as you have correctly pointed out, we have used the loss of variance metric as a proxy to loss of information due to reduced mantissa precision. Our reasoning is that, should this loss of info be prevented in each dot product (by assigning enough precision), then we may expect the training behavior to be similar to that of the baseline. 
+We will sharpen the above messages in our revised version.
+
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyxIBxbtam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to AnonReviewer 2 (Part 2/2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BklMjsRqY7&amp;noteId=SyxIBxbtam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper603 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper603 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+- Reply to question 0:
+
+-- In our derivation, we do not require ReLU outputs (i.e., no such assumption is made). In addition, one of the three GEMM accumulations, specifically BWD, does not involve activations (ReLU outputs); it involves activation gradients and weights. Even the other two accumulations (FWD and GRAD) accumulate elementwise products of activations and weights/activation gradients. Thus, we never deal with the case of an accumulation where all terms are positive. We do not expect a tanh non-linearity to exhibit any different behavior. 
+In case of RNN, we validated our theory with a simple example, PTB for language model. In case of PTB, the swamping issue was not severe, mainly due to its short accumulation length (i.e., for PTB-medium (minibatch=20, timestep=35, the accumulation length for FWD,BWD,WGRAD are only 650, 2600, and 700, respectively). Thus, for this network topology, VRR predicted 5-bit for accumulation (with chunking) which is much smaller than one used for CIFAR10. We demonstrated successful convergence using this precision of accumulation, as shown in this anonymous link: <a href="https://www.dropbox.com/s/yntvzhnvso64z29/ptb.pdf?dl=0" target="_blank" rel="nofollow">https://www.dropbox.com/s/yntvzhnvso64z29/ptb.pdf?dl=0</a>
+
+It is to be noted that, a more difficult task, say WMT, typically requires a much larger batch size of a few thousand, so that the GRAD accumulation length could reach a million. This would make such example very interesting and relevant to our work. Unfortunately, we currently do not have a working setup for training an LSTM on such a task. As we mentioned in the conclusion, this is definitely a topic of our future work. Nevertheless, we will include comments on this issue in our revised version as per your request.
+
+
+- Reply to question 1:
+
+-- Yes, we do make this assumption and solely analyze the mantissa precision requirements. This is mentioned at the start of Section 4. In addition, we do use the technique of loss scaling in our experiments. We just realized that in our submitted draft, we somehow omitted to mention that. We are using the same technique of loss scaling as Micikevicius et al. (2017) and Wang et al. (2018) for the (1,5,2) representation and should have mentioned that at the start of Section 5. Thanks a lot for this question! We will add this mention in the revised version.
+
+
+- Reply to question 2:
+
+-- Very good point. We have used an in-house library to perform the experiments and we could not shed too much light on those details. However, we can answer with the crucial part needed to reproduce the results, which in principle is applicable to any deep learning framework. The key is to modify the CUDA code of the GEMM function. In particular, there is a for loop where the partial sum accumulation occurs. There, we add a call to a custom rounding function (which quantizes the partial sum to the desired reduced precision floating-point representation). We will add an explanation such as this in the revised version. 
+
+
+- Reply to question 3:
+
+-- The justification is actually mentioned in the last paragraph of Section 4 when discussing Fig. 5 (c). Indeed, the “plateaus” in the VRR curves as a function of chunk size indicate that a specific value of chunk size is not of great importance as long as it is neither too small nor too large since in the extreme cases the VRR does drop. One intuition we can provide further is that, in chunk-based accumulation, there are two sources of swamping errors: swamping in the inter-chunk accumulation and swamping the intra-chunk accumulations. If the chunk size is too small, then the inter-chunk accumulation is very similar to the original accumulation; while a very large chunk size makes the intra-chunk accumulations similar to the original one. In either case, one of the two types of accumulations would suffer the same fate as the original accumulation.
+
+
+Finally, thanks for your minor comments, we will correct the typos and try to magnify the plots as much as possible. We sympathize with your comments, we also like to read on paper.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

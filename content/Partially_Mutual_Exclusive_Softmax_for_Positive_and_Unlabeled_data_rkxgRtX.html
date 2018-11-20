@@ -1,0 +1,303 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Partially Mutual Exclusive Softmax for Positive and Unlabeled data | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Partially Mutual Exclusive Softmax for Positive and Unlabeled data" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rkx0g3R5tX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Partially Mutual Exclusive Softmax for Positive and Unlabeled data" />
+      <meta name="og:description" content="In recent years, softmax together with its fast approximations has become the de-facto loss function for deep neural networks with multiclass predictions. However, softmax is used in many problems..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rkx0g3R5tX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Partially Mutual Exclusive Softmax for Positive and Unlabeled data</a> <a class="note_content_pdf" href="/pdf?id=rkx0g3R5tX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 10 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019partially,    &#10;title={Partially Mutual Exclusive Softmax for Positive and Unlabeled data},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rkx0g3R5tX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=rkx0g3R5tX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">In recent years, softmax together with its fast approximations has become the de-facto loss function for deep neural networks with multiclass predictions. However, softmax is used in many problems that do not fully fit the multiclass framework and where the softmax assumption of mutually exclusive outcomes can lead to biased results. This is often the case for applications such as language modeling, next event prediction and matrix factorization, where many of the potential outcomes are not mutually exclusive, but are more likely to be independent conditionally on the state. To this end, for the set of problems with positive and unlabeled data, we propose a relaxation of the original softmax formulation, where, given the observed state, each of the outcomes are conditionally independent but share a common set of negatives. Since we operate in a regime where explicit negatives are missing, we create an adversarially-trained model of negatives and derive a new negative sampling and weighting scheme which we denote as Cooperative Importance Sampling (CIS). We show empirically the advantages of our newly introduced negative sampling scheme by pluging it in the Word2Vec algorithm and benching it extensively against other negative sampling schemes on both language modeling and matrix factorization tasks and show large lifts in performance.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Negative Sampling, Sampled Softmax, Word embeddings, Adversarial Networks</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Defining a partially mutual exclusive softmax loss for postive data and implementing a cooperative based sampling scheme</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">5 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Byg02IJ_a7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea, need more clarification and detail, not sure if language modeling is good application</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkx0g3R5tX&amp;noteId=Byg02IJ_a7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1127 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1127 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The mutually exclusive assumption of traditional softmax can be biased in case negative samples are not explicitly defined. This paper presents Cooperative Importance Sampling towards resolving this problem. The authors experimentally verify the effectiveness of the proposed approach using different tasks including applying matrix factorization in recommender system, language modeling tasks and a task on synthetic data.
+
+I like this interesting idea, and I agree with the authors that softmax does exist certain problem especially when negative samples are not well defined. I appreciate the motivation of this work from the PU learning setting. It would be interested to show more results in PU learning setting using some synthetic data. I am interested to see the benefit of this extension of softmax with respect to different amount of labeled positive samples.
+
+However, I am not completely convinced that the proposed method would be a necessary choice for language modeling tasks.
+--To me, the proposed method has close connection to 2-gram language model. 
+--But for language tasks, and other sequential input, we typically make prediction based on representation of very large context. Let’s say, we would like to make prediction for time step t given the context of word_{1:t} based on some recurrent model, do you think the proposed softmax can generally bring sizable improvement with respect to traditional choices. And how?
+
+By the way, I think the proposed method would also be applicable in the soft-label setting.
+
+For the experiments part, maybe put more details and discussions to the supplementary material.
+A few concrete questions.
+-- In some tables and settings, you only look at prec@1, why? I expect the proposed approach would work better in prec@K.
+-- Can you provide more concrete analysis fortable 6? Why proposed methods does not work well for syntactic. 
+-- Describe a little bit details about MF techniques and hyper-parameters you used. 
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1ldt8dJpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>missing critical details in formulation and evaluation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkx0g3R5tX&amp;noteId=r1ldt8dJpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1127 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1127 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposed PMES to relax the exclusive outcome assumption in softmax loss. The proposed methods is motivated from PU settings. The paper demonstrate its empirical metrit in improving word2vec type of embedding models. 
+
+- on experiment: 
+-- word2vec the window size = 1 but typically a longer window is used for NS. this might not reflect the correct baseline performance. is the window defined after removing rare words? what's the number of NS used? how stop words are taken care of? 
+-- would be good to elaborate how CIS in word similarity task were better than full softmax. Not sure what;s the difference between the standard Negative sample objective. Can you provide some quantitative measure?  
+-- what is the evaluation dataset for the analogy task? 
+
+-- MF task: the results/metrics suggests this is a implicit [not explicit (rating based)] task but not clearly defined. Better to provide - embedding dimensions, datasets positive/negative definition and overall statistics (# users, movies, sparsity, etc), how the precision@K are calculated, how to get a positive label from rating based dataset (movielens and netflix), how this compares to the plain PU/implicit-matrix factorization baseline. How train/test are created in this task?
+
+
+- on problem formulation:
+in general, it is difficult to parse the technical contribution clearly from the current paper. 
+-- in 3.3., the prob. distribution is not the standard def of multi-variate bernoulli distribution.
+-- (6) first defined the support set but not clear the exact definition. what is the underlying distribution and what is the support for a sington means?
+-- it is better to contrast against the ns approximation in word2vec paper and clarify the difference in term of the mathematical terms. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rygqyL8mT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Explanations on Experiments and Problem formulation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkx0g3R5tX&amp;noteId=rygqyL8mT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1127 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1127 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear reviewer,
+
+First of all, thank you for the precise feedback. We 'll try and answer all the different points made above.
+
+On experiments:
+Q1 : Indeed, the window size will impact the quality of the models, but we want to be clear that the same window size has been used for all negative sampling schemes. Indeed, we will undertake further experiments to confirm that the same results are observed on different window sizes. Also, the window is defined after removing the rare words. In the dataset from Matt Mahoney's web page, the stop words are already taken care of. We added more details on this to the updated version of the paper.
+
+Q2 : We are currently working on quantitative experiments for the similarity task. It will indeed help us better differentiate the CIS performance from full softmax. Results will be then added to the paper.
+
+Q3 : The test set used is the Google analogy test set developed by Mikolov et al. It can be found here: <a href="http://download.tensorflow.org/data/questions-words.txt" target="_blank" rel="nofollow">http://download.tensorflow.org/data/questions-words.txt</a>
+
+Q4 : For all our experiments, we hold out 20% of the dataset for test time. Indeed, we ran experiments on an implicit task with positive only data. The MPR refers to the standard Mean Percentile Rank and, Prec@k refers to the fraction of instances in the test set for which the target falls within the top-k predictions (we added definitions for both metrics).
+Regarding the movie datasets creation, we only kept movies ranked over respectively 4 and 4.5 stars. From these, we create positive only co-occurence datasets from all the possible pair combinations of items.
+In terms of performance, no experiments have been done to compare sampling based methods and plain implicit-matrix factorization baselines on this dataset. However, many papers in the recent years have underlined the fact that sampling schemes methods can be interpreted as implictly factorizing a word context matrix (Neural Word Embedding as Implicit Matrix Factorization, Levy et al). All these details have been made clearer in the current version of the paper.
+
+On problem formulation:
+Q1 : The multivariate-Bernouilli formulation has been removed. We prefer to say that we model the data with a n-dimensional random vector of Bernoulli random variables.
+
+Q2 : The support set Si is defined as all the potential targets j that can possibly co-occur with i. Si is therefore defined as a subset of J. The definition has been clarified in the paper.
+
+Q3 : We did not compare with the NS formulation of Mikolov paper, Distributed Representations of Words and Phrases and their Compositionality, as we are not using the same loss. However, NS as defined by Mikolov does not try to fit a generative model and therefore does not fall within the scope of our PME Softmax. Further experiments could try our CIS sampling scheme to Mikolov's NS loss to see if it improves the performance. 
+
+Hope these details improved the understanding of our work,
+Best regards.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1xEBUXd2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea, writing needs a lot of improvement</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkx0g3R5tX&amp;noteId=H1xEBUXd2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1127 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1127 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents Partially Mutual Exclusive Softmax (PMES), a relaxation of the full softmax that is commonly used for multi-class data. PMES is designed for positive-unlabeled learning, e.g., language modeling, recommender systems (implicit feedback), where we only get to observe positive examples. The basic idea behind PMES is that rather than considering all the non-positive examples as negative in a regular full softmax, it instead only considers a "relevant" subset of negatives. Since we actually don't know which of the negatives are more relevant, the authors propose to incorporate a discriminator which attempts to rate each negative by how hard it is to distinguish it from positives, and weight them by the predicted score from the discriminator when computing the normalizing constant for the multinomial probability. The motivation is that the negatives with higher weights are the ones that are closer to the decision boundary, hence will provide more informative gradient comparing to the negatives that are further away from the decision boundary. On both real-world and synthetic data, the authors demonstrate the PMES improves over some other negative sampling strategies used in the literature. 
+
+Overall the idea of PMES is interesting and the solution makes intuitive sense. However, the writing of the paper at the current stage is rather subpar, to the extend that makes me decide to vote for rejection. In details:
+ 
+1. The motivation of PMES from the perspective of mutual exclusivity is quite confusing. First of all, it is not clear to me what exactly the authors mean by claiming categorical distribution assumes mutual exclusivity -- does it mean given a context word, only one word can be generated from it? Some further explanation will definitely help. Further more, no matter what mutual exclusive means in this context, I can hardly see that PSME being fundamentally different given it's still a categorical distribution (albeit over a subset).
+
+The way I see PMES from a positive-unlabeled perspective seems much more straight-forward -- in PU learning, how to interpret negatives is the most crucial part. Naively doing full softmax or uniform negative sampling carry the assumption that all the negatives are equal, which is clearly not the right assumption for language modeling and recommender systems. Hence we want to weight negatives differently (see Liang et al., Modeling user exposure in recommendation, 2016 for a similar treatment for RecSys setting). From an optimization perspective, it is observed that for negative sampling, the gradient can easily saturate if the negative examples are not "hard" enough. Hence it is important to sample negatives more selectively -- which is equivalent to weighting them differently based on their relevance. A similar approach has also been explored in RecSys setting (Rendle, Improving pairwise learning for item recommendation from implicit feedback, 2014). Both of these perspectives seem to offer more clear motivation than the mutual exclusivity argument currently presented in the paper.
+
+That being said, I like the idea of incorporating a discriminator, which is something not explored in the previous work.  
+
+2. The rigor in the writing can be improved. In details:
+
+* Section 3.3, "Multivariate Bernoulli" -&gt; what is presented here is clearly not multivariate Bernoulli
+
+* Section 3.3, the conditional independence argument in "Intuition" section seems no difference from what word2vec (or similar models) assumes. The entire "Intuition" section is quite hand-wavy.
+
+* Section 3.3, Equation 4, 5, it seems that i and j are referred both as binary Bernoulli random variables and categorical random variables. The notation here about i and j can be made more clear. Overall, there are ambiguously defined notations throughout the paper. 
+
+* Section 4, the details about the baselines are quite lacking. It is worth including a short description for each one of them. For example, is PopS based on popularity or some attenuated version of it? As demonstrated from word2vec, a attenuated version of the unigram (raised to certain power &lt; 1) works better than both uniform random, as well as plain unigram. Hence, it is important to make the description clear. In addition, the details about matrix factorization experiments are also rather lacking. 
+
+3. On a related note, the connection to GAN seems forced. As mentioned in the paper, the discriminator here is more on the "cooperative" rather than the "adversarial" side. 
+
+Minor:
+
+1. There are some minor grammatical errors throughout. 
+
+2. Below equation 3, "\sigma is the sigmoid function" seems out of the context.
+
+3. Matt Mohaney -&gt; Matt Mahoney </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1llurUmpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarification of the drawbacks of the softmax formulation and the advantages of PMES</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkx0g3R5tX&amp;noteId=r1llurUmpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1127 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1127 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear reviewer,
+
+Thank you for your detailed feedback, please find our answers below:
+
+To begin, as a general answer to your feedback, we would like to say that indeed, one can see our PMES as new negative sampling scheme. It enables us to sample true negatives, close to the decision boundary, that will be informative in terms of gradients. Therefore, instead of choosing random and easy negatives as with Uniform Sampling or just all the potential targets as with Softmax, we now have a better strategy for sampling negatives.
+
+However, the difference with previous negative sampling approaches is that we are not trying to approximate full softmax which is the case of all prior work since the time that Sampled Softmax was introduced by Bengio et al in “Quick Training of Probabilistic Neural Nets by Importance Sampling,” where the estimator has been seen as a biased approximation of the full softmax.
+
+In our case, we argue that sampled softmax is ideal because it relaxes the mutual exclusivity constraint and with a good sampling can outperform the full softmax. 
+In the case of multi-class and single-label tasks it is natural to use the softmax formulation. However, when it comes to language modelling and sequence prediction, most of the tasks fall in the multi-labeled settings. For a given context, one does not observe one target item j, but rather a subset of target items{j1,...,jk}. For example, in a word2vec setting, the subset of targets is defined by the sliding window parameter. 
+Inspired from textual analysis, Blei et al. (2003) (Latent Dirichlet Allocation) suggested that words in sequences can be regarded as a mixture of distributions related to each of the different categories ofthe vocabulary, such as "sports" and "music". Building upon this example, we effectively search over an enlarged class of models to better represent the multiplicity of the data. We now train a product of independent distributions to learn this set generative process.
+To clarify our point, we added a new paragraph in our paper.
+
+Now, going through the different points raised:
+Q1 : The multivariate-Bernoulli formulation has been removed. We prefer now to say that we model the data with a n-dimensional random vector of Bernoulli random variables.
+
+Q2 : Thanks for your comment on this section, the "intuition" paragraph has been edited for clarity.
+
+Q3 : Notations have been clarified in the paper. In the PME Softmax model, one tries to fit parameters of Bernoulli distributions. In section 3.3, i and j refer indeed to binary Bernoulli random variables with parameter P(j|i).
+
+Q4: A short description of each baseline has now been added to the paper. For the popularity sampling, we used a log uniform distribution as used in the TensorFlow implementation.
+
+To be noted the relation to GAN as reduced, at least in the Related Work section. As mentioned earlier, both the generator and the discriminator work in a cooperative setting rather than an adversarial one.
+
+Hope these details improved the understanding of our work,
+Many regards</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

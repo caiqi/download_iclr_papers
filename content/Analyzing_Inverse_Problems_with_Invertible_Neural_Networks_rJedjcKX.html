@@ -1,0 +1,512 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Analyzing Inverse Problems with Invertible Neural Networks | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Analyzing Inverse Problems with Invertible Neural Networks" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rJed6j0cKX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Analyzing Inverse Problems with Invertible Neural Networks" />
+      <meta name="og:description" content="For many applications, in particular in natural science, the task is to&#10;  determine hidden system parameters from a set of measurements. Often,&#10;  the forward process from parameter- to..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rJed6j0cKX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Analyzing Inverse Problems with Invertible Neural Networks</a> <a class="note_content_pdf" href="/pdf?id=rJed6j0cKX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019analyzing,    &#10;title={Analyzing Inverse Problems with Invertible Neural Networks},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rJed6j0cKX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=rJed6j0cKX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">For many applications, in particular in natural science, the task is to
+determine hidden system parameters from a set of measurements. Often,
+the forward process from parameter- to measurement-space is well-defined,
+whereas the inverse problem is ambiguous: multiple parameter sets can
+result in the same measurement. To fully characterize this ambiguity, the full
+posterior parameter distribution, conditioned on an observed measurement,
+has to be determined. We argue that a particular class of neural networks
+is well suited for this task – so-called Invertible Neural Networks (INNs).
+Unlike classical neural networks, which attempt to solve the ambiguous
+inverse problem directly, INNs focus on learning the forward process, using
+additional latent output variables to capture the information otherwise
+lost. Due to invertibility, a model of the corresponding inverse process is
+learned implicitly. Given a specific measurement and the distribution of
+the latent variables, the inverse pass of the INN provides the full posterior
+over parameter space. We prove theoretically and verify experimentally, on
+artificial data and real-world problems from medicine and astrophysics, that
+INNs are a powerful analysis tool to find multi-modalities in parameter space,
+uncover parameter correlations, and identify unrecoverable parameters.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Inverse problems, Neural Networks, Uncertainty, Invertible Neural Networks</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">To analyze inverse problems with Invertible Neural Networks</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">17 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HJgl48AlTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Related work using loss at both ends of invertible network</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=HJgl48AlTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Robin_Tibor_Schirrmeister1" class="profile-link">Robin Tibor Schirrmeister</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper817 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi,
+
+interesting paper.
+
+Just wanted a small reference from our work, that also uses a loss at both ends of the network, albeit only heuristically motivated:
+Training generative reversible networks, ICML Workshop on Theoretical Foundations and Applications of Deep Generative Models, <a href="https://arxiv.org/abs/1806.01610" target="_blank" rel="nofollow">https://arxiv.org/abs/1806.01610</a>
+
+Maybe you can find it interesting since you also use a loss at both ends of the network.
+
+Best,
+Robin </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HkehGGd36Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revised Version</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=HkehGGd36Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We have uploaded a revised version of the paper, and added your paper to the related work section.
+Thank you for the suggestion.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1xEx_DbA7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=r1xEx_DbA7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Robin_Tibor_Schirrmeister1" class="profile-link">Robin Tibor Schirrmeister</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper817 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Great thanks</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_rJeG6QIc3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An inspiring idea with weaknesses on theoretical and experimental side</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=rJeG6QIc3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper817 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">1) Summary
+
+The authors propose to use invertible networks to solve ambiguous inverse problems. This is done by training one group of Real-NVP output variables supervised while training the other group via maximum likelihood under a Gaussian prior as done in the standard Real-NVP. Further, the authors suggest to not only train the forward model, but also the inverse model with an MMD critic, similar to previous works that used a more flexible GAN critic [1].
+
+2) Clarity
+
+The paper is easy to understand and the main idea is well-motivated. 
+
+3) Significance
+
+The main contribution of this work is of conceptual nature and illustrates how invertible networks are a promising framework for many inverse problems. I really like the main idea and think it is inspiring. However, the experiments and technical contributions are rather limited. 
+
+Theoretical / ML contribution: 
+
+Using an MMD to factorize groups of latent variables is well-known and combining flow-based maximum likelihood training in the forward model with GAN-like objectives in the inverse model has been done before as well.
+
+Experimental contribution: 
+
+I am not fully convinced by the experiments. 
+The inverse kinematics experiment shows that the posterior collapses from large uncertainty to almost a point for the right-most joint. This seems like a negative result to me. 
+The medical experiment also seems rather limited, because if I understand correctly the tissue data is artificial and the proposed INN only outperforms competitors (despite ABC) on two out of three measurements. Further, the authors should have explained the experimental setup of the tissue experiment better, as it is not a standard task in the field. 
+In the astronomy experiment figure 4 shows strong correlations between some of the z variables, the authors claim that this is a feature of their method, but I argue that they should not be present if training with the factorial prior was successful. It would be good to show the correlation between y and z variables as well if they show high dependencies, learning was not very successful. Simply eyeballing the shape of the posterior is not enough to conclude independence. 
+
+In summary, even though interesting, the significance of the experimental results is hard to judge and I am a bit worried that if the proposed model is making some strange mistakes on artificial toy-data, how well it will perform on challenging realistic problems. 
+
+4) Main Concerns
+
+The authors claim that specifying a prior/posterior distribution in density modeling is complicated and typically the chosen distributions are too simplistic. This argument is, of course, valid, but they also have the same problem and specify z to be factorial Gaussian. So the same "hen-and-egg" problem applies here.
+
+The authors also seem to suggest that they are the first to train flow-based models in forward and inverse direction, but this has already been done in the flow-GAN paper [1].
+
+MMD does not easily scale to high-dimensional problems, this is not a problem here as all artificial problems considered are very low-dimensional. But when applying the proposed algorithm in realistic settings, one will likely need extensions of MMD, like used in MMD GANs, which would introduce min/max games on both sides of the network. This will likely be hard to train and constitutes a fundamental limitation of the approach that needs to be discussed.
+
+5) Minor Concerns
+
+- Some basic citations on normalizing flows seem to be missing, e.g. [2,3].
+- How does one guarantee that padded regions are actually zero on output when padding input with zeros? Small variance in those dimensions could potentially code important information. Is this considered as part of y or z?
+- The authors require the existence of inverse and set this equal to bijectivity, but injectivity would be sufficient.
+- The authors mention that z is conditioned on y, but in their notation, the conditional density p(z|y) never shows up explicitly. It should be made clear, that p(z)=p(z|y) is a consequence of their additional MMD penalty and only holds at convergence.
+
+[1] Grover et al., "Flow-GAN: Combining Maximum Likelihood and Adversarial Learning in Generative Models"
+[2] Tabak and Turner, "Density estimation by dual ascent of the log-likelihood"
+[3] Deco and Brauer, "Nonlinear higher-order statistical decorrelation by volume-conserving neural architectures"</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1gn4WuhTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revised Version</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=H1gn4WuhTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We have uploaded a revised version of the paper, thank you again for your suggestions.
+The changes and additions are highlighted in red font for convenience.
+Please also note that by adding these changes, our page count increased by half a page beyond the recommended 8 pages.
+If this presents a problem, we can attempt shorten the paper accordingly.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SkgZ2oh4aX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: An inspiring idea with weaknesses on theoretical and experimental side</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=SkgZ2oh4aX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you very much for your time, and your constructive comments, we are looking forward to further discussions!
+We answer your questions and concerns in the following. 
+Note that we split the response into two comments, due to the 5000 character limit.
+
+&gt; "The inverse kinematics experiment shows that the posterior collapses from large uncertainty to almost a point for the right-most joint. This seems like a negative result to me."
+
+This comment made us realize that the description/illustration of experiment 2 may not have been clear enough.
+The rightmost circle marker is not a joint, but the end effector (‘hand’) of the arm.
+The conditioning variable y is the position of this hand.
+Therefore, having the hand located on or near the gray cross is the desired outcome of the experiment, not a failure.
+The thick contour line does not represent the posterior p(x|y), but indicates the re-simulation error: It is the 97%-confidence region of the model’s end-point distribution p(y|y_target) = integral p(y|x) p(x|y_target) dx and should be as small as possible (ideally, a delta(y - y_target) is desired).
+The ABC result (leftmost panel) is essentially the ground truth posterior. 
+We will replace Fig. 3 with the following improved illustration, to clarify the setup and show what the arm’s degrees of freedom are:
+<a href="https://i.imgur.com/nNMdwPA.png" target="_blank" rel="nofollow">https://i.imgur.com/nNMdwPA.png</a>
+
+&gt; "The medical experiment also seems rather limited, because if I understand correctly the tissue data is artificial and the proposed INN only outperforms competitors (despite ABC) on two out of three measurements. "
+
+Concerning the artificial nature of the medical experiment:
+Medical researchers must resort to simulation, because so far there is no way to create real training data from living tissue.
+These simulations are sufficiently realistic that they are currently used in clinical trials during actual surgery, albeit only with point estimate methods. 
+The medical scientists consider our approach a major leap forward, because our full posteriors allow them to quantify uncertainty reliably and efficiently for the first time, especially regarding possible ambiguities arising from multi-modal posteriors.
+
+Concerning the performance measures:
+To compare posteriors, the calibration errors reported in Sec. 4.2 (“Quantitative results”) and Appendix Sec. 6 are the most meaningful performance metrics, and the INN has a clear lead here.
+We will add these numbers to Table 1 to emphasize their importance.
+The numbers in the current Table 1 refer to MAP estimate accuracy, where alternative methods may be competitive, even if their estimated posteriors or uncertainties are inferior.
+
+&gt; "In the astronomy experiment figure 4 shows strong correlations between some of the z variables, the authors claim that this is a feature of their method, but I argue that they should not be present if training with the factorial prior was successful. It would be good to show the correlation between y and z variables as well if they show high dependencies, learning was not very successful."
+
+There seems to be a misunderstanding, the paper does not show the correlation matrix of the latent z variables. 
+Instead, the matrices in Figs. 4 and 5 (right) show the correlation of the x-variables for some fixed y.
+It is a distinguishing feature of our method that we can uncover correlations in the posterior p(x|y), which are not visible in the marginals p(x_i|y) or a mean-field approximation.
+We verify correctness of the correlations in Fig. 4 via comparison to (expensive) ABC.
+
+&gt; "The authors also seem to suggest that they are the first to train flow-based models in forward and inverse direction, but this has already been done in the flow-GAN paper [1]. "
+
+Thank you for pointing out that their ‘hybrid’ strategy is equivalent to bi-directional training. We will change the related work and Sec. 3.3, to properly appreciate their pioneering contributions. Note that we did not make any claims to be the first to use bi-directional training.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJxI8nnV6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: An inspiring idea with weaknesses on theoretical and experimental side (Part 2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=HJxI8nnV6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018 (modified: 15 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">&gt; "The authors claim that specifying a prior/posterior distribution in density modeling is complicated and typically the chosen distributions are too simplistic. This argument is, of course, valid, but they also have the same problem and specify z to be factorial Gaussian. So the same "hen-and-egg" problem applies here."
+
+We respectfully disagree with this statement.
+We only argue that restrictions to the posterior p(x|y) are problematic. In contrast, restricting the latent distribution p(z) to a Gaussian poses no serious limitation, thanks to a theorem in [1]: This paper proves under mild assumptions that any distribution over vectors u can be nonlinearly transformed into a distribution over vectors v, whose elements v_i are independently uniformly distributed in [0,1]^m (“nonlinear independent component analysis”). 
+The uniform distribution can easily be transformed to a Gaussian (or any other desired prior) with standard transformations.
+Therefore, as long as the neural network is powerful enough and assumptions are fulfilled, it can always realize the transformation from Gaussian p(z) to any arbitrary p(x|y) at any desired accuracy. 
+Note that these properties are not specific to our INN setup, but apply to all models of “normalizing flow”-type.
+
+[1] A. Hyvärinen and P. Pajunen. Nonlinear Independent Component Analysis: Existence and Uniqueness results. Neural Networks 12(3): 429--439, 1999.
+(<a href="https://www.cs.helsinki.fi/u/ahyvarin/papers/NN99.pdf" target="_blank" rel="nofollow">https://www.cs.helsinki.fi/u/ahyvarin/papers/NN99.pdf</a> )
+
+&gt; "MMD does not easily scale to high-dimensional problems, this is not a problem here as all artificial problems considered are very low-dimensional. But when applying the proposed algorithm in realistic settings, one will likely need extensions of MMD, like used in MMD GANs, which would introduce min/max games on both sides of the network."
+
+Our paper intentionally includes two real-world examples in order to demonstrate that there are plenty of low-dimensional applications, which will directly profit from our MMD-based solution. 
+Scaling MMD to high dimensions is indeed not easy, and other losses (maximum likelihood, adversarial) may be superior.
+The following figure shows preliminary results of a forthcoming paper on this subject, where we train using maximum likelihood in conjunction with a supervised classification loss, to enable conditional generation by INNs:
+https://i.imgur.com/ft09Pk9.png
+
+&gt; "- Some basic citations on normalizing flows seem to be missing, e.g. [2,3]."
+
+Thank you for pointing these out. It is fascinating to see that some key ideas were already invented 25 years ago. We will add these references.
+
+&gt; "- How does one guarantee that padded regions are actually zero on output when padding input with zeros? Small variance in those dimensions could potentially code important information. Is this considered as part of y or z? "
+
+We explicitly prevent information from being hidden in the padding dimensions in the following way:
+* A squared loss ensures that the amplitudes are close to zero.
+* In an additional inverse training pass, we overwrite the padding dimensions with noise of the same amplitude, and minimize their effect via a reconstruction loss.
+Note that zero padding of the input is only necessary for the toy problem in Fig. 2, because the width of the resulting network would be too small otherwise.
+We consider the padding part of y, as it has a supervised loss.
+We will add this to the relevant paragraph in the paper.
+
+&gt; "- The authors require the existence of inverse and set this equal to bijectivity, but injectivity would be sufficient."
+
+We think that bijectivity is required for bi-directional training to be well-defined.
+Since the coupling architecture is bijective by construction, the distinction has no practical implications for our method.
+
+&gt; "- The authors mention that z is conditioned on y, but in their notation, the conditional density p(z|y) never shows up explicitly. It should be made clear, that p(z)=p(z|y) is a consequence of their additional MMD penalty and only holds at convergence."
+
+You are right, we will make this clear in our revised text.
+
+&gt; "[...] I am a bit worried that if the proposed model is making some strange mistakes on artificial toy-data, how well it will perform on challenging realistic problems."
+
+We feel that this statement might be due to the misunderstandings discussed in the answers above.
+There is no indication, quantitatively or otherwise, that our model is behaving incorrectly or unexpectedly in any of the experiments.
+If this does not answer your concerns, we will be happy to provide further clarifications and additional data.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryeDzcZ867" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for the detailed answers</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=ryeDzcZ867"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for clarifying some misconceptions from my side w.r.t. the astronomy experiment and the resulting misinterpretation of your statements about the posterior distribution.
+
+I was, in fact, referring to practical limitations, related to insufficient expressiveness of the model, that may not make it powerful enough to transform arbitrary densities into the factorized normal space. This is also why a better baseline would be a model that is closer to state-of-the-art density models, like IAF or other normalizing flow extensions to vanilla VAEs. 
+
+In summary, you are trying to improve conditional density estimation and it is not clear why your proposed method should be the method of choice for this if not compared properly to other state-of-the-art conditional density estimation approaches.
+
+Can you please provide your perspective on this and would you be able to add an additional experiment with a more competitive baseline? 
+
+It would also be great if you upload a revision to incorporate all the changes you mentioned, so I can better judge the current state and clarity of the manuscript.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1gxtiJq6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>IAF Baseline</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=H1gxtiJq6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">As you suggested, we incorporated the IAF from [1] into our cVAE. That is, we inserted the IAF subnetwork between the existing encoder and decoder, but didn’t use the more complex decoder from [1], as it did not improve results and destabilized the training. 
+Introducing IAF improved results measurably over plain cVAE, at the cost of a larger network. Now, the performance is on par with the INN on the 8 Gaussian mode experiment, but a noticeable gap remains for the inverse kinematics and medical experiments.
+Qualitatively, cVAE-IAF exhibits the same shortcomings as the cVAE, but with reduced magnitude.
+
+The measurements from Table 1 for the cVAE-IAF model are as follows:
+Calibration error: 1.40%
+MAP error s_O2: 0.050 ± 0.002
+MAP error all: 0.74 ± 0.03
+MAP resimulation error: 0.313 ± 0.008
+
+Sampled posteriors for each experiment, comparing INN, cVAE and cVAE-IAF:
+<a href="https://i.imgur.com/s2PECtl.jpg" target="_blank" rel="nofollow">https://i.imgur.com/s2PECtl.jpg</a>
+
+We will upload the revised paper later this week.
+
+Contrary to intuitive expectations, we (and others) found, that the expressive power of INNs relative to unconstrained networks of comparable size, is not substantially reduced. Differences are subtle, and looking at single experiments in isolation may be misleading.
+
+Definitive statements should be based on systematic comparisons along various degrees of freedom:
+- INNs (trained bi-directionally) vs. auto-encoders (trained for cycle consistency), each with several subtypes and network sizes
+- different unsupervised losses (adversarial, MMD, maximum likelihood, information theoretical)
+- different applications and problem sizes
+
+Ideally, the experiments should include more traditional Bayesian methods for the prediction of posteriors as well, e.g. accelerated MCMC and Stein point sampling.
+It will also be interesting to investigate if novel training or prediction schemes enabled by the INNs’ tractable Jacobians can compensate for their potentially reduced expressive power.
+
+We are currently setting up such experiments and will report about our findings in a future paper. In the present paper, we would like to keep the focus on demonstrating that high-quality posteriors can be learned with bi-directional training as facilitated by INNs.
+
+[1] Kingma, Diederik P., et al. "Improved variational inference with inverse autoregressive flow." Advances in Neural Information Processing Systems. 2016.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJeN0xOh6Q" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=rJeN0xOh6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_rJxS7urch7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Invertible network with observations for posterior probability of complex input distributions with a theoretical valid bidirectional training scheme.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=rJxS7urch7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper817 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">While the invertible model structure itself is essentially the same as Real-NVP, the use of observation variables in the framework with theoretically sound bidirectional training for safe use of the seemingly naïve inclusion of y (i.e., y and z can be independent). Its abilities to model the posterior distributions of the inputs are supported by both quantitative and qualitative experiments. The demonstration on practical examples is a plus. 
+
+The advantage of INN, however, is not crystal clear to me versus other generative methods such as GAN and VAE. This is an interesting paper overall, so I am looking forward for further discussions.
+
+Pros:
+1.	Extensive analyses of the possibility of modeling posterior distributions with an INN have been shown. Detailed experiment setups are provided in the appendix.
+
+2.	The theoretical guarantee (with some assumptions) of the true posterior might be beneficial in practice for relatively low-dimensional or less complex tasks.
+
+Comments/Questions:
+1.	From the generative model point of view, could the authors elaborate on the comparison against cGAN (aside from the descriptions in Appendix 2)? It is quoted “cGAN…often lack satisfactory diversity in practice”. Also, can cGAN be used estimate the density of X (posterior or not)?
+
+2.	For the bidirectional training, did the ratios of the losses (L_z, L_y, L_x) have to be changed, or the iterations of forward/backward trainings have to be changed (e.g., 1 forward, 1 backward vs. 2 forward, 1 backward)? This question comes from my observation that the nature of the losses, especially for L_y vs. L_y,L_x (i.e., SL vs. USL) seem to be different.
+
+3.	“we find it advantageous to pad both the in- and output of the network with equal number of zeros”: Is this to effectively increase the intermediate network dimensions? Also, does this imply that for both forward and inverse process those zero-padded entries always come out to be zero? It seems that there needs some way to enforce them to be zero to ensure that the propagation happens only among the entries belonging to the variables of interests (x, y and z).
+
+4.	It seems that most of the experiments are done in relatively small dimensional data. This is not necessarily a drawback, I am curious if this model could succeed on higher dimensional data (e.g., image), especially with the observation y.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1gIl-_n6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revised Version</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=H1gIl-_n6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We have uploaded a revised version of the paper, thank you again for your suggestions.
+The changes and additions are highlighted in red font for convenience.
+Please also note that by adding these changes, our page count increased by half a page beyond the recommended 8 pages.
+If this presents a problem, we can attempt shorten the paper accordingly.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SylKBy6Eam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: Invertible network with observations for posterior probability of complex input distributions with a theoretical valid bidirectional training scheme.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=SylKBy6Eam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018 (modified: 15 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you very much for your time, and your constructive comments, we are looking forward to further discussions!
+We answer your questions and concerns in the following. 
+
+&gt; "The advantage of INN is not crystal clear to me versus other generative methods such as GAN and VAE."
+
+It is indeed possible to adapt other network types to the task of predicting conditional posteriors. We are currently setting up experiments for detailed analysis of the respective advantages and disadvantages and will report about these results in a future paper. In the present paper, we focus on demonstrating that high-quality posteriors can actually be learned using bi-directional training as facilitated by INNs.
+
+Concerning the comments/questions:
+1.
+&gt; "could the authors elaborate on the comparison against cGAN"
+
+cGAN generators are at an inherent disadvantage relative to INNs, because they never see ground-truth pairs (x,y) directly -- they are only informed about them indirectly via discriminator gradients. This it not a problem for simple relationships, e.g. between images x and attributes y, and cGANs work very well there. However, it makes learning of complicated forward processes much harder and may cause the resulting posteriors to be inaccurate. Moreover, INNs are forced to embed every training point x somewhere in the latent space, whereas cGAN generators may fail to allocate latent space for some x, because this is never explicitly penalized. This can lead to mode collapse and insufficient diversity.
+
+&gt; "Can cGAN be used to estimate the density of X (posterior or not)?"
+
+cGANs can in principle do this by choosing a generator architecture with tractable Jacobian (using e.g. coupling layers or autoregressive flow), but we are not aware of published results about this possibility.
+
+2.
+&gt; "For the bidirectional training, did the ratios of the losses (L_z, L_y, L_x) have to be changed, or the iterations of forward/backward trainings have to be changed (e.g., 1 forward, 1 backward vs. 2 forward, 1 backward)?"
+
+Yes, the weights of the losses are considered as hyperparameters, because the magnitude of MMD-based losses depends on the chosen kernel function. Hyperparameter optimization suggested an up-weighting of MMD-based losses by a factor of 5, to give them approximately equal impact as the supervised loss.
+For the iterations, we accumulated gradients over one forward and one inverse network execution before each parameter update. We also tried alternating parameter updates after each forward and backward pass, which resulted in equal accuracy, but was a bit slower. We did not experiment with other ratios than 1:1.
+
+3. 
+&gt; "Is this to effectively increase the intermediate network dimensions?"
+
+This is precisely the reason: It improves the representational power of the INN, as mentioned in Sec. 3.2 and discussed in our response to reviewer 1.
+At present, we find this is only necessary for the toy problem in Fig. 2.
+
+&gt; "It seems that there needs some way to enforce them to be zero to ensure that the propagation happens only among the entries belonging to the variables of interests (x, y and z)."
+
+This is correct.
+We explicitly prevent information from being hidden in the padding dimensions in the following way:
+A squared loss ensures that the amplitudes are close to zero.
+In an additional inverse training pass, we overwrite the padding dimensions with noise of the same amplitude, and minimize their effect via a reconstruction loss.
+We will add this to the relevant paragraph in the paper.
+
+4.
+&gt; "I am curious if this model could succeed on higher dimensional data"
+
+Works such as [1, 2, 3] (also cited in our paper) have shown that the coupling layer architecture in general works well with images. These works use maximum likelihood training, i.e. exploit the tractable Jacobians to maximize the likelihood of the data embedding in latent space. To scale-up our approach, we may need to replace MMD loss with maximum likelihood as well, and first experiments with this show promising results, see 
+<a href="https://i.imgur.com/ft09Pk9.png" target="_blank" rel="nofollow">https://i.imgur.com/ft09Pk9.png</a> .
+
+[1] Laurent Dinh, Jascha Sohl-Dickstein, and Samy Bengio. Density estimation using Real NVP. arXiv:1605.08803, 2016.
+[2] Diederik P Kingma and Prafulla Dhariwal.  Glow: Generative flow with invertible 1x1 convolutions. arXiv:1807.03039, 2018
+[3] Schirrmeister, Robin Tibor, et al. "Generative Reversible Networks." arXiv:1806.01610, 2018</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJgZjv4c37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Constraining models to enable approximate posterior inference</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=BJgZjv4c37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper817 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors propose in this paper an approach for learning models with tractable approximate posterior inference. The paper is well motivated (fast and accurate posterior inference) and the construction of the solutions (invertible architecture, appending vectors to input and output, choice of cost function) well described. From my understanding, it seems this method is also to be compatible with other methods of approximate Bayesian Computation (ABC).
+Concerning the experimental section:
+- The Mixture of Gaussians experiment is a good illustration of how the choice of cost functions influences the solution. However, I do not understand how are the *discrete* output y is handled. Is it indeed a discrete output (problem with lack of differentiability)? Softwax probability? Other modelling choice? 
+- The inverse kinematics is an interesting illustration of the potential advantage of this method over conditional VAE and how close it is to ABC which can be reasonably computed for this problem.
+- For the medical application, INN outperforms other methods (except sometimes for ABC, which is far more expensive, or direct predictor, which doesn’t provide uncertainty estimates) over some metrics such as the error on parameters recovery (Table 1), calibration error, and does indeed have a approximate posterior which seems to correspond to the ABC solution better. I’m not sure I understand what we are supposed to learn from the astrophysics experiments.
+The method proposed and the general problem it aims at tackling seem interesting enough, the toy experiments demonstrates well the advantage of the method. However, the real-world experiments are not necessarily the easiest to read. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1ltbW_naQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revised Version</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=H1ltbW_naQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We have uploaded a revised version of the paper, thank you again for your suggestions.
+The changes and additions are highlighted in red font for convenience.
+Please also note that by adding these changes, our page count increased by half a page beyond the recommended 8 pages.
+If this presents a problem, we can attempt shorten the paper accordingly.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rygRUCn4am" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: Constraining models to enable approximate posterior inference</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=rygRUCn4am"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018 (modified: 15 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you very much for your time, and your constructive comments, we are looking forward to further discussions!
+We answer your questions and concerns in the following. 
+
+&gt; "However, I do not understand how are the *discrete* output y is handled."
+
+For this toy problem, we represent labels y by standard one-hot encoding, and we directly regress one-hot vectors using squared loss instead of softmax. This allows us to input one-hot vectors into the inverted network to generate conditional x-samples.
+
+&gt; "I’m not sure I understand what we are supposed to learn from the astrophysics experiments."
+
+We included this experiment to demonstrate that we are able to find multi-modal posteriors in a second real-world setting relevant to natural science.
+
+&gt; "INN outperforms other methods [...] over some metrics such as the error on parameters recovery (Table 1), calibration error, and does indeed have a approximate posterior which seems to correspond to the ABC solution better"
+
+We indeed consider the calibration errors (reported in Sec. 4.2 (“Quantitative results”) and Appendix Sec. 6) the most meaningful of these comparisons, because they directly measure the quality of the estimated posterior distributions, and INNs have a clear lead here.
+We will add these numbers to Table 1 to emphasize their importance.
+
+&gt; "However, the real-world experiments are not necessarily the easiest to read."
+
+We understand, although we tried our best to condense the complicated nature of these applications. For the astrophysics setting, we provide more information in the appendix, Sec. 5, and for the medical application we refer to [1] for full details.
+
+[1] Wirkert et al.: Robust near real-time estimation of physiological parameters from megapixel multispectral images with inverse monte carlo and random forest regression. International Journal of Computer Assisted Radiology and Surgery, 2016.
+(<a href="https://link.springer.com/article/10.1007/s11548-016-1376-5" target="_blank" rel="nofollow">https://link.springer.com/article/10.1007/s11548-016-1376-5</a> )</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1l_8Kbqhm" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=r1l_8Kbqhm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper817 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1xOO9K9sX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Several questions about claims, text clarifications</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=H1xOO9K9sX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">22 Oct 2018</span><span class="item">ICLR 2019 Conference Paper817 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi, 
+
+the work has few interesting extensions to invertible networks. However, there are some questions raised when studying it: 
+
+   *  In eq. 3 the authors express the determinant of the jacobian, but it is not clear what partitioning they’ve done to y, z or to x space. 
+
+   *  The variable u seems self-defined, what is the relationship with the x, y, z in the previous section?
+
+    * In eq 4, v2 is a function of v1 (which depends on u1) so how come the partial derivative dv2 / du1 = 0? (i.e. how come we end up in a triangular jacobian)
+
+    * The forward and backward iterations (sec. 3.3) are not mentioned in similar works. Could the authors share their experience and or some experimental results of how those help? 
+
+    * The authors mention that Lz enforces y and z to be independent. Is there any proof of that? Or did you measure it somehow in the test results? 
+
+    * An ablation study justifying all the implementation choices would help. For instance about different architectures of their model, e.g. it seems quite confusing how many invertible blocks are required for similar dimensionality problems. How were those discovered by the authors? 
+
+    * Also, the authors mention that Lx contributes marginally, but Table 1 shows that without Lx, the results are worse than all the external compared methods.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hkx3D2TaoX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: Several questions about claims, text clarifications</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rJed6j0cKX&amp;noteId=Hkx3D2TaoX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper817 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">24 Oct 2018</span><span class="item">ICLR 2019 Conference Paper817 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your interest and your comment. We address your questions in order:
+
+* We are not sure what is meant by this question. We simply concatenate y and z into a single vector, and compute the derivatives with respect to this.
+
+* We use u and v to generically denote the in- and output of each coupling block. For instance, u = x for the first coupling block, and v = [y,z] for the last.
+
+* This is correct. However, as illustrated in the image below, each coupling block consists of two affine transformations. The first of these has an upper triangular Jacobian, and the second has a lower triangular Jacobian. The argument concerning the triangular Jacobians applies to each affine transformation separately. A more in-depth look at the Jacobians of affine coupling layers can be found in Dinh et al. (<a href="https://openreview.net/forum?id=HkpbnH9lx" target="_blank" rel="nofollow">https://openreview.net/forum?id=HkpbnH9lx</a> Sec. 3.2 and 3.3).
+
+Schematic illustration of coupling block:
+https://i.imgur.com/XdccxeA.png
+
+* As far as we know, we are the first to apply loss functions on both ends of the same network. Our ablations in Fig. 2 and Table 1 show that the method works best when making full use of that. On the practical side, we perform a parameter update once gradients from all loss terms have been accumulated -- an approach also known from GAN training. In our experiments, we found that alternating forward and inverse parameter updates did not affect training results, but increased training time by ~5%.  
+
+* L_z is defined as the MMD between the network outputs q(y, z), and the target distribution p(y, z). In our case, y and z are explicitly independent in the target distribution: p(y, z) = p(y)p(z).  When the MMD converges to zero, q is necessarily equal to p, therefore the y and z outputs are asymptotically independent. At present, we do not explicitly differentiate between residual dependency of y and z, and other types of mismatch between the distributions in the case of non-zero loss.  
+
+* The network architecture depends on two problem characteristics: Problem dimensionality dictates the width of the layers, and the complexity of the forward process we wish to learn determines the required depth.  We did a coarse grid search to roughly determine the smallest network needed for each application. We will supply ablation studies showing the effect of a larger or smaller number of coupling layers for each of our applications in the following days.
+
+* This is true, the influence of L_x is felt on finite training sets. We meant to say that it plays a smaller role in Table 1 than e.g. in Fig. 2. We will correct our wording in the relevant sections.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

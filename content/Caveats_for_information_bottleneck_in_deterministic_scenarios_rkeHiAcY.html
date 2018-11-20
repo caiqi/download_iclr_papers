@@ -1,0 +1,462 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Caveats for information bottleneck in deterministic scenarios | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Caveats for information bottleneck in deterministic scenarios" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rke4HiAcY7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Caveats for information bottleneck in deterministic scenarios" />
+      <meta name="og:description" content="Information bottleneck (IB) is a method for extracting information from one random variable X that is relevant for predicting another random variable Y. To do so, IB identifies an intermediate..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rke4HiAcY7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Caveats for information bottleneck in deterministic scenarios</a> <a class="note_content_pdf" href="/pdf?id=rke4HiAcY7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019pathologies,    &#10;title={Pathologies in information bottleneck for deterministic supervised learning},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rke4HiAcY7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=rke4HiAcY7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Information bottleneck (IB) is a method for extracting information from one random variable X that is relevant for predicting another random variable Y. To do so, IB identifies an intermediate "bottleneck" variable T that has low mutual information I(X;T) and high mutual information I(Y;T). The 'IB curve' characterizes the set of bottleneck variables that achieve maximal I(Y;T) for a given I(X;T), and is typically explored by optimizing the 'IB Lagrangian', I(Y;T) - β I(X;T). In some cases, Y is a deterministic function X, including many supervised classification scenarios where the output class Y is a deterministic function of the input X. We demonstrate several caveats when using IB in any situation where Y is a deterministic function of X: (1) the IB curve cannot be recovered by optimizing the IB Lagrangian for different values of β; (2) there are "uninteresting" trivial solutions at all points of the IB curve; and (3) for multi-layer classifiers that achieve low error rates, different layers cannot exhibit a strict trade-off between compression and prediction, contrary to a recent proposal. We also demonstrate that when Y is a small perturbation away from being a deterministic function of X, these issues arise in an approximate way. To address problem (1), we propose a functional that, unlike the IB Lagrangian, can recover the IB curve in all cases. We demonstrate these issues on the MNIST dataset.</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Information bottleneck behaves in surprising ways whenever the output is a deterministic function of the input.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">information bottleneck, supervised learning, deep learning, information theory</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">16 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rylEAtCZ67" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=rylEAtCZ67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper77 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1lfqvH-T7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>On the use of the IB and associated problems</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=S1lfqvH-T7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The paper make it sound like there is something wrong with the IB in Deep Learning. But when the IB variable is 'T = w', the weights rather than the features, these problems are not there. This is quite clear in the work of Achile and Soatto (disappointing not to see that work discussed here).
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJlhNTlKpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Our analysis applies more generally</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=BJlhNTlKpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comment. Our analysis is not exclusive to deep learning but actually applies to any use of IB where the output variable is finite-valued and a deterministic function of the input, regardless of the choice of the bottleneck variable. Unfortunately, for space reasons, we are unable to discuss all the work related to IB and machine learning.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SylivA6b6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>reference?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=SylivA6b6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">?</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SyxYCicxpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>relevance?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=SyxYCicxpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I am not sure I see the relevance of this paper: Nobody uses the the deterministic IB in deep learning, and the fact that there are issues in deterministic setting has already been argued by Saxe and co-workers at ICLR last year. Is this a straw-man?
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJlPdpxFp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Relevance</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=rJlPdpxFp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comment. We are not sure what the comment “nobody uses the deterministic IB” refers to --- deterministic IB typically refers to a specialized variant of IB proposed by Strouse and Schwab (arXiv:1604.00268), and it is not the main focus of our paper (though we discuss it in Appendix B).
+
+We believe there is a quite active interest in IB in the deep learning community, as evidenced by recent literature. Our results also apply outside of deep and/or supervised learning contexts, and we believe they hold interest for those working with IB in various other contexts (information theory, coding theory, etc., see response to Reviewer 2 below).
+
+The paper by Saxe et al. 2018, did not discuss inherent issues in IB itself, but rather evaluated the claim by Shwartz-Ziv that training of deep nets tends to ‘implicitly’ carry out IB, because of SGD dynamics. This is not the question considered in this paper. The “issues in deterministic setting” discussed in Saxe et al. concern that the fact that MI(input layer ; hidden layer) can be unbounded when the input-&gt;hidden layer map is deterministic. The issues analyzed in our paper are unrelated to such problems, and instead concern fundamental properties of IB that arise when input-&gt;output mapping is deterministic, and which occur even when the output takes a finite set of values, and all MI terms are bounded, as in classification. We have added some text to the Introduction to highlight this difference.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rklj4rCChQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Pathologies in information bottleneck for deterministic supervised learning</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=rklj4rCChQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper77 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">SUMMARY:
+This paper is about potential problems of the information bottleneck principle in cases where the output variable Y is a deterministic function of the inputs X. Such a deterministic relationship between outputs and inputs induces the problem that the the IB "information curve" (i.e. I(T;Y) as a function of I(X;T)) is piece-wise linear and, thus, no longer strictly concave, which is crucial for non-degenerate ("interesting") solutions. The authors argue that most real classification problems indeed show such a deterministic relation between the class labels and the inputs X, and they explore several issues that result from such pathologies.
+
+EVALUATION:
+In my opinion, the whole story could be summarized as follows: if  Y is
+a deterministic function of p-dimensional inputs X, then the joint distribution P(X,Y) is 
+degenerate in that its support lies in a space of dimension p (an not p+1 as it would be in the non-degenerate situation), and this is the source of all pathologies observed. As a consequence, only the cumulative distribution is defined, but there is no density with respect to the Lebesgue measure of R^{p+1}. Thus, one has to be careful when defining the mutual information I(X,Y), which explains the problems with the IB information curve (which should asymptotically converge to I(X;Y) as I(X;T) gets large. Another consequence of this degeneracy concerns the latent variable interpretation of the IB: if T is treated as a latent variable (as, for instance, in the "deep" IB models) then we have the conditional independence relation "Y independent of X given T", which simply makes no sense if Y is deterministic in X (there is, of course, a deeper underlying problem here: the IB problem is difficult in that it is difficult to define a geneative model with a faithful DAG...).
+Analyzing situations in which Y = f(X) (with f being a deterministic function) is certainly interesting from a theoretic point of view, but I am not convinced that this analysis is truly relevant for practical problems. 
+In particular, I strongly disagree with the statement that "in most classification problems, the labels Y are a deterministic function of X". I would rather argue that the opposite is the case, because I don't think that there are too many such problems with zero Bayes error rate.  In particular, I would argue that digit recognition problems like MNIST so not have deterministic labels, since there will always be images of handwritten characters that will give room for interpretation...</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">2: Strong rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyxvmAgtaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revision and response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=SyxvmAgtaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their comments. However, there appears to be some misunderstanding, which we attempt to address with our revision and comments below (response broken into 2 comments for space reasons).
+
+&gt; EVALUATION: In my opinion, the whole story could be summarized as follows: if
+&gt; Y is a deterministic function of p-dimensional inputs X, then the joint
+&gt; distribution P(X,Y) is  degenerate in that its support lies in a space of
+&gt; dimension p (an not p+1 as it would be in the non-degenerate situation), and
+&gt; this is the source of all pathologies observed. As a consequence, only the
+&gt; cumulative distribution is defined, but there is no density with respect to
+&gt; the Lebesgue measure of R^{p+1}. Thus, one has to be careful when defining the
+&gt; mutual information I(X,Y), which explains the problems with the IB information
+&gt; curve (which should asymptotically converge to I(X;Y) as I(X;T) gets large.
+
+It is true that there has been some recent work (Saxe et al. 2018; Amjad et al., 2018) on the degeneracies that occur when T (the bottleneck variable, such as the hidden layer) is a continuous-valued and deterministic function of a continuous-valued input layer.
+
+However, the caveats described in our paper are unrelated to this problem, and arise even when all mutual information terms and probability distributions are well-defined and finite. In our case, Y (the output class) is a discrete random variable over a finite set (call this set [Y]) and the joint distribution of X and Y is a mixed continuous-discrete distribution over R^p \times [Y]. Moreover, the conditional distribution p(y|x) is a discrete probability distribution for every x. In this case, the mutual information is given by I(X;Y) = H(Y), and is bounded between 0 and log |Y|.
+
+Based on the reviewer’s comments, we have attempted to clarify our work by inserting text into the Introduction, which states that our caveats are not the result of degenerate distributions or poorly defined mutual information.
+
+
+&gt; Another consequence of this degeneracy concerns the latent variable
+&gt; interpretation of the IB: if T is treated as a latent variable (as, for
+&gt; instance, in the "deep" IB models) then we have the conditional independence
+&gt; relation "Y independent of X given T", which simply makes no sense if Y is
+&gt; deterministic in X
+
+Unfortunately, we are not sure we understand the reviewer’s comment.  
+
+For clarity, we emphasize that the usual Markov condition for IB is “Y is independent of T given X” (Y - X - T).  This remains true in a neural network with hidden layers, where the hidden layer T separates input layer X from *predicted outputs*, since X still separates T from the true output Y (we use Y to refer to the true output).
+
+We do show in our paper that when Y is deterministic in X, the IB curve will be populated by bottleneck variables on it that obey both Y - X - T (as all bottleneck variables must) and X - Y - T, such as our family T_alpha [see discussion around our Eq. 5].
+
+Finally, it is true that T_alpha for alpha=1 (in which case T_alpha is simply equal to Y) does also obey the independence condition “Y independent of X given T” (X - T - Y). This bottleneck variable sits at the “corner point” of the piecewise linear IB curve. However, we disagree with the reviewer that “ ‘Y independent of X given T’ ... makes no sense if Y is deterministic in X”.  If T=Y, as in this one particular case, then Y will in fact be conditionally independent of X given T, under the usual definition of conditional independence.
+
+
+&gt; (there is, of course, a deeper underlying problem here: the
+&gt; IB problem is difficult in that it is difficult to define a geneative model
+&gt; with a faithful DAG...).
+
+Unfortunately, we are not sure we understand the reviewer’s point.  We will say, however, that in IB, one begins by assuming that X and Y are provided, then selects among T that obey T - X - Y. This fits naturally into the setting of supervised learning, where X represents the input, Y represents the true outputs, and T can refer to any intermediate representations (e.g., hidden layer neurons). The form of the mapping from X to the true output Y does not matter, nor does the form of the representation from X to T.  Any standard ML discriminative model will obey this Markov condition.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1e0VRlKaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response (part 2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=B1e0VRlKaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+&gt; Analyzing situations in which Y = f(X) (with f being
+&gt; a deterministic function) is certainly interesting from a theoretic point of
+&gt; view, but I am not convinced that this analysis is truly relevant for
+&gt; practical problems.  In particular, I strongly disagree with the statement
+&gt; that "in most classification problems, the labels Y are a deterministic
+&gt; function of X". I would rather argue that the opposite is the case, because I
+&gt; don't think that there are too many such problems with zero Bayes error rate.
+&gt; In particular, I would argue that digit recognition problems like MNIST so not
+&gt; have deterministic labels, since there will always be images of handwritten
+&gt; characters that will give room for interpretation...
+
+In our paper, when considering the application of IB to classification problems, we have defined things in relation to the empirical distribution p(X,Y), as found in the training dataset and/or testing dataset, and it a fact that many classification datasets are deterministic. For example, neither the training nor testing dataset for MNIST contain more than one exemplar of an image, and each image is labelled with a single class only, and so the empirical distribution is deterministic. We believe that many supervised learning problems are commonly seen as deterministic, in which the challenge is to find the one true label for each input.
+
+At the same time, we recognize that (to use the MNIST example) there may be handwritten digits “out there in the world” that cannot be deterministically assigned to a single class due to subjective interpretations of images. Our arguments in the paper are motivated by thinking about the empirical distributions of train/test data because it is somewhat difficult to speculate  about such cases. Nonetheless, we appreciate the reviewers position, and we have softened some of the language, to emphasize that we believe many (rather than most) classification problems have a deterministic nature.  We have also added some new text to the Introduction and a new appendix (Appendix C) where we show that our results apply approximately when the relationship between X and Y is very close to, but not exactly, deterministic.  In particular, when Y is epsilon-close to being deterministic (in L1 norm of the joint X,Y distribution), then our caveats will still apply in the sense that: (1) it is hard to explore the IB curve by optimizing the IB Lagrangian, because all optimizers will fall within O(-epsilon log epsilon) of a single ‘corner' point on the information plane; (2) there are ‘uninteresting' trivial solutions which are no more than O(-epsilon log epsilon) away from being optimal along all points on the IB curve; (3) different layers of a neural networks can trade-off at most O(-epsilon log epsilon) amount of prediction. Note that our constraint on the L1 distance of the joint distribution from a deterministic mapping allows either for a small global non-determinism for all X, or for a small number of X to have a very non-deterministic relations (as in the hypothetical digits example).</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_HylXDrkTn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A good paper on information bottleneck for machine learning</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=HylXDrkTn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper77 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper is about issues that arise when applying Information Bottleneck (IB) concepts to machine learning, more precisely in deterministic supervised learning such as classification (deterministic in the sense that the target function to estimate is deterministic: it associates each example to one true label only, and not to a distribution over labels).
+Namely:
+(1) the "Information Bottleneck curve" cannot be computed with the Information Bottleneck Lagrangian approach (because of optimization landscape issues: optimization of such a piecewise-linear function with a linear penalty will always yield the same optimum whatever the slope of the penalty is [same story as L1 vs. L0]); 
+(2) there are many solutions to the optimization of the IB Lagrangian for any given compression/performance ratio (i.e. for any given beta in the IB Lagrangian method: I(Y,T)/I(X,T)) and some of them are provably trivial; thus optimizing just the IB Lagrangian does not imply that the solution will be interesting, and better (or complementary) criteria are needed.
+
+Another point discussed also is about the successive layers of perfect classifiers (neural networks), in which I(Y,T) remains constant while I(X,T) decreases.
+
+
+Pros:
+- the paper is well written, mostly self-contained, and easy to read (for someone familiar with information theory);
+- all mathematical points are detailed and well explained, with sufficient introduction;
+- the writing is compact, the paper is dense, and given the page limit this is a good information/compression compromise;)
+- information bottleneck is a topic of prime interest in the community these days;
+- the two first problems described ((1) and (2)) are original, interesting contributions to the field, of particular interest for people interested in applying information bottleneck concepts to supervised learning;
+- the solution brought to the IB Lagrangian issues is simplistic though efficient (squaring I(X,T) so that it's not linear in I(X,T) anymore).
+
+
+Cons:
+- not much.
+
+Remarks:
+- there exist recent papers tackling the information bottleneck concept for neural networks from a variational perspective, which enables them to compute exactly the mutual informations (such as "Compressing Neural Networks using the Variational Information Bottleneck" by Dai &amp; al., ICML 2018); I have not seen these papers cited in the article, nor discussed (nor used); I feel it would be appropriate, either in the general literature section, either for discussing how to compute in practice the mutual informations (exact values vs. estimates or lower bounds as here).
+- at first reading, I had found the tone of the beginning of the paper (first section) a bit aggressive, though this feeling disappeared later. Maybe rephrase some expressions that might be wrongly perceived?
+- About multilabel classification (end of section 2): multilabel classification can still be seen as with deterministic expected outputs, if considered as a task from X to P(Y) (power set of Y, i.e. set of all possible subsets of labels).
+- As in practice T is constrained to belong to a particular space of functions (neural network layer with predefined architecture): how does this impact the study? For instance the T_alpha in equation (5) are not reachable anymore; the optimization space for the IB Lagrangian is different; etc. Which properties/conclusions can be kept, and which ones cannot?
+- What about sampling on the other part of the IB curve, the horizontal one (same I(Y,T) for various I(X,T))? Would it bring any insight, and how to do it?
+- A side remark about applying IB to neural networks: What about neural networks that are not a "linear" chain of layers (i.e. most networks now)? i.e. Inception, ResNet, U-nets, etc., where computational flows are parallel, sometimes keeping full information till the end. For instance in a U-net, meant for image processing, features computed at the beginning at a full pixelic resolution are communicated to the last layer. This is not an image classification task though, as predictions are made for each pixel; still, given an input image X, there is only one correct output Y, so, still in the deterministic supervised classification problem.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byxrc0eKpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revision and response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=Byxrc0eKpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for their supportive words and helpful suggestions. We address the reviewer’s remarks point by point (split into two responses for space).
+
+&gt; - there exist recent papers tackling the information bottleneck concept for
+&gt; neural networks from a variational perspective, which enables them to compute
+&gt; exactly the mutual informations (such as "Compressing Neural Networks using
+&gt; the Variational Information Bottleneck" by Dai &amp; al., ICML 2018); I have not
+&gt; seen these papers cited in the article, nor discussed (nor used); I feel it
+&gt; would be appropriate, either in the general literature section, either for
+&gt; discussing how to compute in practice the mutual informations (exact values
+&gt; vs. estimates or lower bounds as here).
+
+We have added some text to section “2) Supervised Classification and IB”, where we highlight that our theoretical results are independent of how mutual information between neural network layers is estimated, but that this is an important and active area of research (including recent work by Belghazi et al., 2018; Goldfeld et al., 2018; Dai et al., 2018; Gabrié et al., 2018). For our empirical results, we use the estimator proposed in Kolchinsky et al., (2017).
+
+
+&gt; - at first reading, I had found the tone of the beginning of the paper (first
+&gt; section) a bit aggressive, though this feeling disappeared later. Maybe
+&gt; rephrase some expressions that might be wrongly perceived? 
+
+We appreciate this suggestion. We do not intend for our work to be viewed as an attack on IB. To soften the tone, we have rephrased several sentences in the abstract and introduction that may have been perceived as overly aggressive. Moreover, we have (partly in response to reviewer 2) replaced ‘pathology’ with ‘caveat’ throughout the text. We believe that this wording is more appropriate, particularly for the third issue (i.e., the lack of strict prediction/compression trade-off between different layers of a neural net), which is more of an ‘unexpected behaviour’ than it a ‘pathology’.
+
+
+&gt; - About multilabel classification (end of section 2): multilabel classification can 
+&gt; still be seen as with deterministic expected outputs, if considered as a task from 
+&gt; X to P(Y) (power set of Y, i.e. set of all possible subsets of labels).
+
+We fully agree with the reviewer’s point, and have updated the manuscript accordingly.
+
+
+&gt; - As in practice T is constrained to belong to a particular space of functions
+&gt; (neural network layer with predefined architecture): how does this impact the
+&gt; study? For instance the T_alpha in equation (5) are not reachable anymore; the
+&gt; optimization space for the IB Lagrangian is different; etc. Which
+&gt; properties/conclusions can be kept, and which ones cannot?
+
+These are great questions. An in-depth analysis of the effects of model constraints on T would be very interesting, especially for the types of constraints that characterize real-world architectures. At the same time, it is hard to say something meaningful for the general case, since different constraints on the set of T can produce arbitrarily different 'constrained IB-curves'. Due to the page limit, we must leave this topic for future work. We do note that in our experimental results, where we use a very standard MLP network architecture which does not include T_\alpha itself in the space of model, we witness all three issues discussed in the main text.
+
+
+&gt; - What about sampling on the other part of the IB curve, the horizontal one
+&gt; (same I(Y,T) for various I(X,T))? Would it bring any insight, and how to do
+&gt; it?
+
+We expect it should be straightforward to design objective functions that encourage exploration of the flat part of the curve. However, points on the flat part of the curve are (weakly) Pareto dominated by the ‘corner point’. From the conceptual point of view of IB, in which it is assumed to always be better to have low I(X;T) all else being equal, we cannot think of why one might want to do this.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkgnsAeFpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response (part 2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=rkgnsAeFpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">(cont'd)
+
+&gt; - A side remark about applying IB to neural networks: What about neural
+&gt; networks that are not a "linear" chain of layers (i.e. most networks now)?
+&gt; i.e. Inception, ResNet, U-nets, etc., where computational flows are parallel,
+&gt; sometimes keeping full information till the end. For instance in a U-net,
+&gt; meant for image processing, features computed at the beginning at a full
+&gt; pixelic resolution are communicated to the last layer. This is not an image
+&gt; classification task though, as predictions are made for each pixel; still,
+&gt; given an input image X, there is only one correct output Y, so, still in the
+&gt; deterministic supervised classification problem.
+
+This is an important point.  In fact, our results can still apply to such cases, as long as T is chosen to be a set of neurons (or more generally internal state variables) that separate the input from the predicted output (in the conditional independence sense), so that one can write 
+    Pr( predicted_output | input_vector ) = Pr( predicted_output | t ) Pr( t | input_vector)
+Thus, for example, T can be taken to be the set of all non-input-node neurons, or alternatively the set of output neurons themselves, which can be done in almost any neural architecture.
+
+Our analysis of caveat 3 (i.e., the lack of a strict trade-off between different neural network layers) does rely on some kind of “decomposability” of the network architecture, but doesn’t necessarily depend on a strictly layered architecture. As long as the different T_i are chosen so their corresponding neurons form a Markov chain from inputs to predicted outputs, the analysis can be applied (For example, a particular T_i could includes neurons that are part of several parallel streams in an Inception-type architecture.)
+
+We have added some text to the manuscript to highlight both of these points.
+
+In addition to the points above, we would like to draw attention the reviewer’s to a new paragraph and Appendix C (made partly in response to reviewer 3), where we prove that our results apply approximately when the relationship between X and Y is very close to, but not exactly, deterministic.  In particular, we show that if Y is epsilon-close to being deterministic, then the three caveats we discuss in the text can only be avoided by O(-epsilon log epsilon), in a formal sense defined in Appendix C.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJxsTLJ-AQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Discussion</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=HJxsTLJ-AQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your detailed answers.
+About the literature: thanks for citing these additional, related papers. And sorry for mis-remembering the paper by Dai &amp; al (it does not compute the exact mutual information as I thought; yet it is a great paper in other respects and still deserves to be cited here).
+About the horizontal part of the IB curve: your answer is convincing indeed.
+The additional study (Appendix C) completes nicely the paper. It seems that "Issue 1" disappears as such for approximately-only deterministic target functions (if one chooses suitable values of beta), which was expected somehow.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_HylIo_XX2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The present work interestingly clarifies several counter-intuitive behaviors of the information bottleneck (IB) method for the learning of a deterministic rule. We note, however, that the necessity of noise for its application to supervised learning was already known.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=HylIo_XX2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper77 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This work analyses the information bottleneck (IB) method applied to the supervised learning of a deterministic rule Y=f(X).
+
+The idea as I understood it is as follows:
+1) In a first section the authors discuss the relationship between supervised learning through minimization of the empirical cross entropy and the maximization of the empirical mutual information with an intermediate latent variable T. 
+2) They show that in the case of a deterministic rule, the information bottleneck curve has a simple shape, piecewise linear, and is not strictly concave. 
+3) They show that the optimization of the IB Lagrangian for different \beta does not lead to a point by point exploration of the IB curve.
+4) They propose a cure to the previous issue by introducing the squared IB Lagrangian. 
+5) They exhibit uninteresting representations (noisy versions of the output Y) that are on the IB curve.
+6) They show that multiple successive representations (like in DNNs), have identical predicting power (mutual information with output Y) when they allow for perfect prediction. 
+7) They use the IB method to train a neural net on MNIST, using the Kolchinsky estimate of the mutual informations. 
+	- they show that the optimization of the squared IB reaches more different points on the IB curve,
+	- but that these representations are possibly uninteresting (hard clustering of uneven numbers of grouped classes) 
+	- they show that for large enough value of beta, zero error is reached. 
+
+The necessity of noise in the IB theory has been already pointed out by (Gilad-Bachrach et al., 2003; Shwartz-Ziv et al.  2017), although the more thorough analysis proposed here is novel. In practice, besides a few recent propositions (Kolchinsky et al., 2017; Alemi et al., 2016; Chalk et al., 2016) the IB Lagrangian is not a usual objective function for supervised learning. The motivation and impact of this work studying deterministic rules is therefore not completely convincing. 
+
+Further pros and cons:
+
+Pros:
+- The discussion is generally well written. 
+- This work provides in depth clarification of the counter-intuitive behaviors of the IB method in the case to the learning of a deterministic rule. 
+- These are demonstrated with experiments conducted on the MNIST dataset for concreteness.
+
+Cons:
+- The fact that multiple successive representations have identical predicting power when the prediction error is zero, was already observed for example in Shwartz-Ziv et al.  2017. It is not clear why this should be considered as an issue. It also seems to be a straightforward observation when restricting to the empirical measure on the training set. 
+- The fact that the entire IB curve is not explored point by point by the IB Lagrangian is not necessarily an issue for learning. In the experiments of the present paper, the results seem to suggest that the interesting intermediate representations (separation in 10 compact clusters of the MNIST classes) is actually easier to obtain (large range of \beta) optimizing the IB Lagrangian rather than the proposed squared IB Lagrangian. 
+
+Questions:
+- Do the authors know of an application where the full probing of the IB curve would be necessary?
+- In Section 2, when injecting the decomposition of the prediction density q(y|x) over the intermediate variable t in eq (3) was a Jensen inequality replaced by an equality?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJl6_1-Kp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revision and response (part 1)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=SJl6_1-Kp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the thoughtful reading and comments. We address several of the reviewer’s criticisms point by point (broken into three comments for length):
+
+&gt; The necessity of noise in the IB theory has been already pointed 
+&gt; out by (Gilad-Bachrach et al., 2003; Shwartz-Ziv et al.  2017), 
+&gt; although the more thorough analysis proposed here is novel. 
+
+We agree with the reviewer that Gilad-Bachrach et al., 2003 and Shwartz-Ziv et al.  2017 also discussed the role of noise in the mapping from X to Y in IB. Gilad-Bachrach et al., 2003 showed that IB curve is not strictly concave without noise. However, we believe that this result may not be widely known, nor -- more importantly -- that it implies that the IB Lagrangian fails in deterministic scenarios was not appreciated. Shwartz-Ziv et al. discussed the fact that when Y=f(X), mutual information between input and output doesn’t reflect the “the complexity of the function f(x) or the class of functions it comes from” (where complexity could be understood in terms of, e.g., VC dimension) [section 2.4, “The crucial role of noise”]. This is an interesting issue, but is orthogonal to the issues discussed in our paper. However, we have added a sentence in the Introduction to draw attention Shwartz-Ziv et al.’s discussion of this other, interesting caveat.
+
+We note that even without noise, the IB curve still exists and is well-defined via the constrained optimization problem (Eq. 1 in our paper, Eq. 2 in Gilad-Bachrach et al.), or via the alternative objective function (squared-IB Lagrangian that we propose). However, it has not been previously recognized that in deterministic settings, this IB curve will be full of trivial solutions.
+
+Finally, we have seen various recent articles that apply IB concepts to supervised learning in which class labels are completely deterministic and which do not seem to be aware of any of the possible caveats mentioned in our article (or that of Gilad-Bachrach et al. or Shwartz-Ziv et al.).
+
+
+&gt; In practice, besides a few recent propositions (Kolchinsky et al., 2017;
+&gt; Alemi et al., 2016; Chalk et al., 2016) the IB Lagrangian is not a
+&gt; usual objective function for supervised learning. The motivation
+ &gt; and impact of this work studying deterministic rules is therefore
+ &gt; not completely convincing. 
+
+We see our paper as being about the fundamental properties of IB, in particular when applied to deterministic settings. Neural networks is one area where IB has recently been receiving a lot of attention, and where deterministic mappings are very common, and seems like a natural area of application.
+
+However, we believe the work can be of interest to a diverse community of researchers, including:
+
+(1) Those using IB in various applied settings. This includes not just recent work deep learning (where the IB Lagrangian has been suggested as an objective function), but numerous applications of IB in speech recognition (Yaman et al, 2012; Hecht et al, 2005), image recognition (Winn et al., 2005), video (Hsu et al., 2006), distributional clustering (Slonim et al, 2000), network coding (Zeitler et al., 2008), etc.
+
+(2) Those working in theoretical machine learning, for example by investigating the idea that stochastic gradient descent may “implicitly” optimize the IB Lagrangian (Shwartz-Ziv et al., Zhao 2018 [arXiv:1803.07980]), or analyzing properties of IB-optimal representations (Amjad et al. 2018, arXiv:1802.09766)
+
+(3) Those analyzing theoretical properties of IB in other fields, e.g., from the point of view of rate distortion (Harremoes et al., 2007), data compression (Cardinal, 2003), source doing (Courtade et al. 2011, arXiv:1106.0032), adaptive quantization (Lazebnik, 2009), etc.
+
+We recognize, however, that the title and tone of our article suggests that its its primary domain of application is supervised learning. We have tweaked the title and some of the article text to emphasize that we see supervised learning as one important application area of our results, among others.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Skg8iyZFam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response (part 2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=Skg8iyZFam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">&gt; Cons:
+&gt; - The fact that multiple successive representations have identical 
+&gt; predicting power when the prediction error is zero, was already 
+&gt; observed for example in Shwartz-Ziv et al.  2017. It is not clear why
+&gt; this should be considered as an issue. It also seems to be a 
+&gt; straightforward observation when restricting to the empirical measure 
+&gt; on the training set. 
+
+We are unable to find a statement in Shwartz-Ziv et al. that clearly says that multiple layers will have the same predictive power when prediction error of the whole network is 0. However, we agree with the reviewer that this could be inferred from some of the other results in that paper. We think it is useful to highlight this behavior clearly, because we believe it is not widely recognized in the community (e.g., some may expect their layers to explore a strict compression/prediction trade-off, e.g., as shown in Fig 6 of Shwartz-Ziv et al.). We also think it is interesting in that it demonstrates another instance of IB behaving in a qualitatively different way specifically when Y is a deterministic function of X. 
+
+We agree with the reviewer that this behavior is not necessarily problematic in itself. We have changed the title and some of the text of the manuscript to refer to “Caveats” rather than “Pathologies” of IB, in large because of this third issue.
+ 
+
+&gt; - The fact that the entire IB curve is not explored point by point
+&gt; by the IB Lagrangian is not necessarily an issue for learning. In 
+&gt; the experiments of the present paper, the results seem to suggest
+&gt;  that the interesting intermediate representations (separation in 
+&gt; 10 compact clusters of the MNIST classes) is actually easier to 
+&gt; obtain (large range of \beta) optimizing the IB Lagrangian rather
+&gt;  than the proposed squared IB Lagrangian.
+
+We appreciate this comment, and agree that if the goal is to simply find the “corner point” (i.e., maximal compression with no loss of prediction), then the IB Lagrangian works well and doesn’t require careful selection of beta. Moreover, we think this is a useful insight that emerges from the results and are paper, and we have added some text to Section 4 to highlight this (as a side note, this might suggests some potentially interesting algorithms for finding the corner point, e.g. setting beta initially to 0 and then slowly increasing during optimization of the IB Lagrangian...).
+
+However, in many cases (see next point), one’s goal is in fact to explore the IB curve, and there the IB Lagrangian fails.
+
+Moreover, we think it is commonly thought that the IB Lagrangian provides a general way to explore the IB curve, where by changing beta one changes the balance between compression and prediction. The fact that it sticks to a single corner point for deterministic Y is at the very least quite surprising.
+
+
+&gt; Questions:
+&gt; - Do the authors know of an application where the full probing
+&gt; of the IB curve would be necessary?
+
+We are familiar with several use cases in which one is interested in exploring the IB curve (note that we do not claim that the research mention below all involves deterministic scenarios, though some of it does, but rather only that it involves approaches that might be applied in such scenarios).
+
+In machine learning, Alemi et al. (2017) proposed that training with IB can provide robustness against adversarial inputs, and suggested that different points on the IB curve provide different levels of robustness; similarly, Alemi et al. (2018) proposed that IB can be used to detect out-of-distribution data. Finding a good trade-off between robustness/detectability and prediction accuracy, or at the very least evaluating such claims, requires exploration of the IB curve. There are also some connections between IB and generalization error (Shamir et al., 2010, Vera et al., 2018), so one may want to adaptively balance between training cross-entropy loss and generalization error guarantees.
+
+IB has been proposed as a method for distributional clustering, see e.g., Slonim et al., (2000) and cites thereof. In this case, exploring the IB curve allows one to adaptively control the resolution of the clustering.
+
+IB has an important interpretation from the point of view of rate-distortion/channel-coding (if Alice has access to X and a capacity-limited information channel to Bob, and Bob wants to optimally predict Y, then Bob does best by receiving an IB-optimal bottleneck variable). For this reason, IB has drawn attention from various researchers in coding theory, quantization, compression and rate distortion (Cardinal, 2003; Zeitler et al., 2008; Harremoes et al., 2007; Courtade et al. 2011, arXiv:1106.0032, Lazebnik, 2009, etc.) In such cases, it is centrally important to be able to explore the IB curve, since the optimal representations need to be adapted to available channel capacity (which can vary).
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJgf61-tpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response (part 3)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rke4HiAcY7&amp;noteId=SJgf61-tpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper77 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper77 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">- In Section 2, when injecting the decomposition of the prediction 
+&gt; density q(y|x) over the intermediate variable t in eq (3) was a 
+&gt; Jensen inequality replaced by an equality?
+
+Here we exchanged integral/summation for an expectation over an appropriate distribution. So we did not move anything into the logarithm, and it is in fact an equality.
+
+
+In addition to the points above, we would like to draw the reviewer’s attention to a new paragraph and Appendix C (made partly in response to reviewer 3), where we prove that our results apply approximately when the relationship between X and Y is very close to, but not exactly, deterministic.  In particular, we show that if Y is epsilon-close to being deterministic, then the three caveats we discuss in the text can only be avoided by O(-epsilon log epsilon), in a formal sense defined in Appendix C. We believe this adds to the technical contribution of our manuscript.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

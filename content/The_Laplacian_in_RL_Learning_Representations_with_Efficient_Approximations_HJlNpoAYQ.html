@@ -1,0 +1,303 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>The Laplacian in RL: Learning Representations with Efficient Approximations | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="The Laplacian in RL: Learning Representations with Efficient Approximations" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HJlNpoA5YQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="The Laplacian in RL: Learning Representations with Efficient..." />
+      <meta name="og:description" content="The smallest eigenvectors of the graph Laplacian are well-known to provide a succinct representation of the geometry of a weighted graph. In reinforcement learning (RL), where the weighted graph..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HJlNpoA5YQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The Laplacian in RL: Learning Representations with Efficient Approximations</a> <a class="note_content_pdf" href="/pdf?id=HJlNpoA5YQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019the,    &#10;title={The Laplacian in RL: Learning Representations with Efficient Approximations},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HJlNpoA5YQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=HJlNpoA5YQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">The smallest eigenvectors of the graph Laplacian are well-known to provide a succinct representation of the geometry of a weighted graph. In reinforcement learning (RL), where the weighted graph may be interpreted as the state transition process induced by a behavior policy acting on the environment, approximating the eigenvectors of the Laplacian provides a promising approach to state representation learning. However, existing methods for performing this approximation are ill-suited in general RL settings for two main reasons:  First, they are computationally expensive, often requiring operations on large matrices. Second, these methods lack adequate justification beyond simple, tabular, finite-state settings. In this paper, we present a fully general and scalable method for approximating the eigenvectors of the Laplacian in a model-free RL context. We systematically evaluate our approach and empirically show that it generalizes beyond the tabular, finite-state setting. Even in tabular, finite-state settings, its ability to approximate the eigenvectors outperforms previous proposals. Finally, we show the potential benefits of using a Laplacian representation learned using our method in goal-achieving RL tasks, providing evidence that our technique can be used to significantly improve the performance of an RL agent.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Laplacian, reinforcement learning, representation</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We propose a scalable method to approximate the eigenvectors of the Laplacian in the reinforcement learning context and we show that the learned representations can improve the performance of an RL agent.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_ryl6Crxo3m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>well written, interesting approach, well evaluated</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlNpoA5YQ&amp;noteId=ryl6Crxo3m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper793 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper793 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This works proposes a scalable way of approximating the eigenvectors of the Laplacian in RL by optimizing the graph drawing objective on limited sampled states and pairs of states. The authors empirically show the benefits of their method in two different types of goal achieving task. 
+
+Pros:
+- Well written, well structured, an overall enjoyable read.
+- The related work section appears to be comprehensive and supports the motivations for the presented work.
+- Clear and rigorous derivations. 
+- The method is evaluated both in terms of how well it is able to approximate the optimal Laplacian-based representations with limited samples compared to baseline models and how well it solves reward shaping in RL.
+
+Cons:
+- In the experimental section, the methods used to learn the policies, DQN and DDPG, should be briefly explained or at least referenced.
+- A further discussion on why the authors chose a half-half mix of the L2 distance and sparse reward could be beneficial. The provided explanation (L2 distance doesn't provide enough gradient) is not very convincing nor justified.
+ </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HkxzFKz6pX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlNpoA5YQ&amp;noteId=HkxzFKz6pX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper793 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper793 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We are glad that the reviewer found the paper interesting, well-written, and well-evaluated.  We also appreciate the feedback.  
+
+With regards to the methods DQN and DDPG, we have updated the paper to include references in the main text and brief descriptions of these algorithms in the experiment details section in Appendix.
+
+We have updated the paper to clarify the reasoning behind the half-half mix for reward shaping. By “gradient,”  we meant the change in rewards between adjacent states (not the gradient in optimization). When the L2 distance between the representations of the goal state and adjacent states is small the Q-function can fail to provide a significant signal to actually reach the goal state (rather than a state that is just close to the goal).  Thus, to better align the shaped reward with the task directive, we use a half-half mix, which clearly draws a boundary between the goal state and its adjacent states (as the sparse reward does) while retaining the structure of the distance-shaped reward.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Hylrlueq3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>needs improvement</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlNpoA5YQ&amp;noteId=Hylrlueq3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper793 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper793 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary: This paper proposes a method to learn a state representation for RL using the Laplacian. The proposed method aims to generalize previous work, which has only been shown in finite state spaces, to continuous and large state spaces. It goes to approximate the eigenvectors of the Laplacian which is constructed using a uniformly random policy to collect training data. One use-case of the learnt state representation is for reward-shaping that is said to accelerate the training of standard goal-driven RL algorithms. 
+
+
+In overall, the paper is well written and easy to follow. The idea that formulates the problem of approximating the Laplacian engenfunctions as constraint optimization is interesting. I have some following major concerns regarding to the quality and presentation of the paper.
+
+- Though the idea of learning a state representation seems interesting and might be of interest within the RL research, the authors have not yet articulated the usefulness of this learnt representation. For larger domains, learning such a representation using a random policy might not be ideal because the random policy can not explore the whole state space efficiently. I wish to see more discussions on this, e.g. transfer learning, multi-task learning etc.
+
+- In terms of an application of the learnt representation, reward-shaping looks interesting and promising. However I am concerned about its sample efficiency and comparing experiments. It takes a substantial amount of data generated from a random policy to attain such a reward-shaping function, so the comparisons in Fig.5 are not fair any more in terms of sample efficiency. On the other hand, the learnt representation for reward-shaping is fixed to one goal, can one do transfer learning/multi-task learning to gain the benefit of such an expensive step of representation learning with a random policy.
+
+- The second equation, below the text"we rewrite the inequality as follows" in page 5, is correct? this derivation is like E(X^2) = E(X) E(X)?
+
+- About the performance reported in Section 5.1, I wonder if the gap can be closer to zero if more eigenfunctions are used?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJlAT9zapm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlNpoA5YQ&amp;noteId=BJlAT9zapm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper793 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper793 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the valuable feedback. We are glad the reviewer found the paper interesting and easy to follow.  Responses to the reviewer’s remaining concerns are addressed below.  With these, we hope the reviewer will find the paper more appropriate for publication and, if so, will raise their score accordingly.  We are also always happy to discuss further if the reviewer has additional concerns.
+
+“learning such a representation using a random policy might not be ideal because the random policy can not explore the whole state space efficiently”
+
+-- We agree that this can be a concern. However, a random policy can be sufficient for exploration when the initial state is uniformly sampled from the whole state space (as we did in our experiments). As you suggest, a random policy is not sufficient for exploration when the initial state is not sampled from the whole state space but only sampled within a region that is far from the goal. In this case, exploring the whole state space itself is a hard problem which we are not trying to solve here. In this paper, we aim at demonstrating the usefulness of learned representations in “reward shaping” with well controlled experiments in RL settings, so we attempted to exclude other factors such as exploration. 
+-- With that being said, we have results showing that our representation learning method works beyond random-walk policies: In appendix D-2 we have experiments (Figure-8) showing that the learned representation with online policies provides a similar advantage in reward shaping as with random-walk policies. Here, the online policy and the representation are learned concurrently starting from scratch and on the same online data.  It is thus significant that we retain the same advantages in speed of training. 
+
+
+“I am concerned about its sample efficiency and comparing experiments”
+
+-- Even when the pretraining samples are included, our method is much more sample efficient than the baselines. The representation learning phase with a random walk policy is not expensive. For the MuJoCo experiments in Figure 5, we pretrain the representation with 50,000 samples.Then, we train the policy with 250,000(for pointmass)/450,000(for ant) samples.  After shifting the mix/fullmix learning curves to the right by 50,000 steps to include the pretraining samples, their learning curves are still clearly above the baseline learning curves.
+
+
+“the learnt representation for reward-shaping is fixed to one goal, can one do transfer learning/multi-task learning to gain the benefit of such an expensive step of representation learning with a random policy”
+
+- Our learnt representation is not fixed to one goal and are in fact agnostic to goal or task reward. Thus, the representations may be used for any goals in subsequent training. The goal is used only when computing the rewards (L2 distances) for training goal-achieving policies.
+- The representation learning phase is not expensive compared with the policy training phase, as we explained in the previous concern point.
+ - The representations are learned in a purely unsupervised way without any task information (e.g. goal, reward, a good policy). So it is natural to apply the representations to different tasks without the notion of “transfer” or “multi-task”.
+
+
+“The second equation, below the text "we rewrite the inequality as follows" in page 5, is correct?”
+
+-- Yes, it is correct. The square is outside the brackets in all of the expressions, so E(X)^2 = E(X)E(X).
+
+
+“About the performance reported in Section 5.1, I wonder if the gap can be closer to zero if more eigenfunctions are used?”
+
+-- We have additional results for larger values of d (50, 100) in Appendix D-1, Figure 6. The gap actually becomes bigger if more eigenfunctions are used: With much larger values of d the problem becomes harder as you need to approximate (the subspace of) more eigenfunctions of the Laplacian.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJxZV3b82m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The Laplacian in RL: Learning Representations with Efficient Approximations</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlNpoA5YQ&amp;noteId=SJxZV3b82m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper793 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper793 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors propose a Laplacian in the context of reinforcement learning, together with learning the representations. Overall the authors make a nice contribution. The insight of defining rho to be the stationary distribution of the Markov chain P^pi and connecting this to eq (1) is interesting. Also the definition of the reward function on p.7 in terms of the distance between phi(s_{t+1}) and phi(z_g) looks original. The method is also well illustrated and compared with other methods, showing the efficiency of the proposed method.
+
+On the other hand I also have further comments and suggestions:
+
+- it would be good if the authors could comment on the choice of d. This is in fact a model selection problem. According to which criterion is this selected?
+
+- the authors define D(u,v) in eq (4). Why this choice? Is there some intuition or interpretation possible related to this expression?
+
+- in (6) beta is called a Lagrange multiplier. Given that a soft constraint (not a hard constraint) is added for the orthonormality constraint it is not a Lagrange multiplier.
+
+How sensitive are the results with respect to the choice of beta in (6) (or epsilon in the eq above)? The orthonormality constraint will only be approximately satisfied. Isn't this a problem?
+
+Wouldn't it be better in this case to rely on optimization algorithm on Grassmann and Stiefel manifolds?
+
+- The authors provide a scalable approach related to section 2 by stochastic optimization. Other scalable methods related to kernel spectral clustering (related to subsets/subgraphs and making out-of-sample extensions) were proposed in literature, e.g.
+
+Multiway Spectral Clustering with Out-of-Sample Extensions through Weighted Kernel PCA, IEEE Transactions on Pattern Analysis and Machine Intelligence, 32(2), 335-347, 2010.
+
+Kernel Spectral Clustering for Big Data Networks, Entropy, Special Issue: Big Data, 15(5), 1567-1586, 2013.
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJe3zTf6p7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJlNpoA5YQ&amp;noteId=SJe3zTf6p7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper793 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper793 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the careful reading of the paper. We are glad the reviewer found the contribution of the paper insightful and original.  Responses to the reviewer’s questions are below:
+
+“it would be good if the authors could comment on the choice of d. This is in fact a model selection problem. According to which criterion is this selected?”
+
+-- Our choice of d(=20) in reward shaping experiments is arbitrary and we didn’t tune it. In practice, if the downstream task is known, d can be regarded as a hyperparameter and selected according to the performance. If the downstreaming task is not available, one can visualize the distances between representations like in Figure 4 (with randomly sampled goal states) and select d when the visualized distance is meaningful; or in other cases treat it as an additional hyperparameter to search over.
+
+
+“the authors define D(u,v) in eq (4). Why this choice? Is there some intuition or interpretation possible related to this expression?”
+
+-- The underlying motivation is in order to make the graph drawing objective practical to optimize (via sampling) while reflecting the affinity between states. Optimizing the graph drawing objective requires sampling from D(u,v)rho(u)rho(v) so D(u,v)rho(u)rho(v) should be a joint measure over u, v. The Laplacian is defined for undirected graphs so D(u,v) also needs to be symmetric. These are the intuitions behind the conditions for D in Section 2.2. In RL, a natural choice for representing the affinity between two states is to use the transition probabilities P(u|v) (which is also convenient for sampling).  However, naively setting D := P is premature, as P in general does not satisfy the conditions necessary for D.  To this end, we first “symmetrize” P to achieve the setting of D as in Eq 4 by averaging the transitions u-&gt;v and v-&gt;u  This procedure is analogous to “symmetrized Laplacians” (see Boley, et al., “Commute times for a directed graph using an asymmetric Laplacian”). We then divide it by rho to make D(u,v)rho(u)rho(v) a joint measure over pairs of states so that the graph drawing objective can be written in terms of an expectation (as in (5)) and sample based optimization is possible. 
+
+
+“in (6) beta is called a Lagrange multiplier. Given that a soft constraint (not a hard constraint) is added for the orthonormality constraint it is not a Lagrange multiplier.”
+
+-- We have updated the paper to replace this terminology with the more appropriate “KKT multiplier”.
+
+
+“How sensitive are the results with respect to the choice of beta in (6) (or epsilon in the eq above)? The orthonormality constraint will only be approximately satisfied. Isn't this a problem?”
+
+-- The results are not very sensitive to the choice of beta. We have plots for approximation qualities with different values of beta in Appendix D-1 Figure-7 with discussions.
+-- Approximately satisfying the orthonormality constraint is not a problem in RL applications, at least in the reward shaping setting which we experiment with. In reward shaping the important thing is that the distance in the latent space can reflect the affinity between states properly, and orthonormality constraint plays a role more like encouraging the diversity of the representations (preventing them from collapsing to a single point). We think the same argument applies to most other applications of learned representations to RL so only satisfying the constraint approximately should not be a problem in the RL context.  
+
+
+“Wouldn't it be better in this case to rely on optimization algorithm on Grassmann and Stiefel manifolds?”
+
+-- In the RL setting, one requires an optimization algorithm which is amenable to stochastic mini-batching. We are not aware of an optimization algorithm based on Grassman and Stiefel manifolds which is applicable in such settings, but would be interested if the reviewer has a specific algorithm in mind.  While our paper proposes one technique for enforcing orthonormality, there are likely to be other applicable algorithms to achieve the same aims, and we would be happy to include references to them as alternative methods.
+
+
+“Other scalable methods related to kernel spectral clustering (related to subsets/subgraphs and making out-of-sample extensions) were proposed in literature”
+
+-- We updated our paper to cite these two papers in the related work section.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

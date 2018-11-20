@@ -1,0 +1,361 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Déjà Vu: An Empirical Evaluation of the Memorization Properties of Convnets | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Déjà Vu: An Empirical Evaluation of the Memorization Properties of Convnets" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=B1lwSsC5KX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Déjà Vu: An Empirical Evaluation of the Memorization Properties of..." />
+      <meta name="og:description" content="Convolutional neural networks memorize part of their training data, which is why strategies such as data augmentation and drop-out are employed to mitigate overfitting. This paper considers the..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_B1lwSsC5KX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Déjà Vu: An Empirical Evaluation of the Memorization Properties of Convnets</a> <a class="note_content_pdf" href="/pdf?id=B1lwSsC5KX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019déjà,    &#10;title={Déjà Vu: An Empirical Evaluation of the Memorization Properties of Convnets},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=B1lwSsC5KX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Convolutional neural networks memorize part of their training data, which is why strategies such as data augmentation and drop-out are employed to mitigate overfitting. This paper considers the related question of ``membership inference'', where the goal is to determine if an image was used during training.  We consider it under three complementary angles. We first analyze explicit memorization and extend classical random label experiments to the problem of learning a model that predicts if an image belongs to an arbitrary set. We then show how to detect if a dataset was used to train a model, and in particular whether some validation images were used at train time. Finally, we propose a new approach to infer membership when a few of the top layers are not available or have been fine-tuned, and show that lower layers still carry information about the training samples. To support our findings, we conduct large-scale experiments on Imagenet and subsets of YFCC-100M with modern architectures such as VGG and Resnet.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">membership inference, memorization, attack, privacy</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We analyze the memorization properties by a convnet of the training set and propose several use-cases where we can extract some information about the training set. </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1l7E6X22m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Contributions unclear</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1lwSsC5KX&amp;noteId=r1l7E6X22m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper93 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper93 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary
+The paper trains classification models to classify a labeling of a subset of images (assigned with label 1) from the rest of the images (assigned with a label 0). Firstly, the paper shows that deep learning models are able to learn such classifiers and get low training loss. It then proposes to use this model to ``attack’’ task-specific models to perform membership inference, i.e. figuring out if an image provided in a set was used in training or not. 
+
+Strengths
++ The paper thoroughly covers related work and provides context.
++ Results on confidence as a signature of a dataset are interesting.
+
+Weaknesses
+
+[Motivation]
+1. In general, recent work has found that the raw number of parameters has little to do with the size of the model class or the capacity of a model for deep models, and thus work like [A] has been trying to come up with better complexity measures for models to explain generalization. Thus, without sufficient justification the assertion in the paper that the capacity of the network is well approximated by the number of parameters does not seem correct. Also, the claim in Fig. 1 that the transition from ‘’high capacity’’ to low capacity happens at the number of parameters in the network seems a bit loose and hard to substantiate from what I understand, and should be toned down. (*)
+
+[Capacity]
+2. Sec. 3.3, Fig. 3: The capacity (in terms of parameters)of both Resnet-18 and VGG-16 is higher than the capcity for YFCC100M dataset for n=10K images (comes to 161K bits), while the capacity of Resnet-18, with 14.7 million parameters (assuming float32 encoding) has 14.7 * 32 bits = 470.4 million bits, thus capacity alone cannot explain why VGG converges faster than Resnet-18, since both networks exceed the capacity, and capacity does not seem to have an established formal connection to rate of memorization. This is something which would need to be explained/ substantiated separately. (*)
+
+3. Scenario discussed in Sec. 4 seems somewhat impractical. Given a set of m images, it is not clear that a classifier that is trained to detect between train and validation is sufficient, as one might also need to figure out if it is neither train nor val, which is a very practical scenario.
+
+4. Fig. 3 (right): It is not clear why the fact that the classifier is able to predict which dataset the image ‘m’ corresponds to is useful or practical, as this seems to be a property of the set ‘m’ rather than the property of the trained classification model (f_\theta). Please clarify. On the other hand it is clear that using the confidence of the model to predict the dataset is a useful property, but the right side of the Fig. is very confusing. (*)
+
+6. It is not clear to me what the point of Sec. 5 is, given a trained model, one wants to figure out if an image was present in the training of the model. While the baseline approaches seem to make use of the model confidence, I cannot see how the proposed approach (which uses a classifier) makes use of the original model. It is also not clear why Table. 3 does not report the Bayes baseline results. Also, does this section use the classifier for predicting the dataset, or is the approach reported in the section, the MAT approach?
+
+7. ``Our experiments show that our networks can remember a large number of images and distinguish them from unseen images’’ -- this does not seem to be true, since the model is trained on both n as well as N -n ``unseen’’ images which it labels as the negative class, thus the negative class is also seen by the memorization model. (*)
+
+Minor Points
+1. It is not clear that training a network to classify a set from another set is necessarily equivalent to ``memorization’’. In addition, the paper would also need to show that such a model does not generalize to a validation set of images. This is probably obvious given the results from Zhang et.al. but should be included as a sanity check.
+2. Figure 3: it is confusing to call the cumulative distribution of the maximum classification score as the CDF of the model (y-axis fig. 3 left) as CDF means something else generally in such contexts, as the CDF of a predictor.
+
+
+References:
+[A]: Blier, Léonard, and Yann Ollivier. 2018. ``The Description Length of Deep Learning Models.’’ arXiv [cs.LG]. arXiv. <a href="http://arxiv.org/abs/1802.07044." target="_blank" rel="nofollow">http://arxiv.org/abs/1802.07044.</a>
+
+Preliminary Evaluation
+There are numerous issues with the writing and clarity of the paper, while it seems like some of the observations around the confidence of classifiers are interesting, in general the connection between those set of results and the ``memorization’’ capabilities of the classifier trained to remember train vs val images is not clear in general. Important points for the rebuttal are marked with (*).
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ByezUKSq2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>review of "an empirical evolution of the memorisation properties of Convents"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1lwSsC5KX&amp;noteId=ByezUKSq2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper93 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper93 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary of the paper:
+
+
+The paper has two intertwined goals. These goals are to illuminate the
+generalization/memorization properties of large and deep ConvNets in
+tandem with trying to develop procedures related to identifying
+whether an input to a trained ConvNet has actually been used to train the
+network. The latter task is generalized to detecting if a
+particular dataset has been used to train a ConvNet. These goal are
+tackled empirically with multiple sets of experiments on largescale
+datasets such as ImageNet22k and modern deep ConvNets architectures
+such as VGG and ResNet.
+
+
+
+Paper's positive points
+
++ The paper has a very comprehensive set of references in the areas it
+touches upon.
+
++ Some of the experimental results presented are quite
+interesting. They show that regularization data-augmentation helps
+prevent a network from explicit memorization and could be used as a
+way to help make training data more anonymous.
+
++ Large scale experiments are reported on modern architectures.
+
+
+Paper's negative points
+
+- The paper makes use of a result from the David MacKay textbook
+  which defines the capacity of a single layer network to memorize the
+  labelling of $n$ inputs in $d$-dimensional space. If I'm not
+  mistaken, from this result the authors extrapolate that the capacity
+  of a (deep) neural network is proportional to the number of
+  parameters in the network. This is true, but there are a
+  couple of caveats. The first is that the coefficient of
+  proportionality must depend very much on the number of layers in the
+  network. Increasing the network's depth increases the efficiency of
+  the representation (i.e. fewer total parameters needed to have the
+  same representational power as a shallow network). And as MacKay
+  also says in his book (chapter 44 quoting findings from Radford
+  Neal) that for MLPs what determines the complexity of the typical
+  function (once the network has a large enough width) represented by
+  the MLP is the "characteristic magnitude of the weights". So the
+  regularization technique applied is very significant in the
+  controlling the effective capacity of a network. This paper
+  experimentally shows that is the case multiple times as it is shown
+  that with increasing degrees of regularization (figure 1, figure 2)
+  it becomes harder and harder to memorize the positive training
+  images. It would be great if the paper also made some attempt to
+  consider these connections. Or at least comment on how these factors
+  could be incorporated into a more sophisticated analysis of the
+  capacity of a network.
+
+
+
+- There is a slight oxymoron in the premise of the first set of
+  experiments. The network is forced to memorize a set of
+  positive examples relative to the negative set it sees during
+  training. What is memorized I presume depends a lot on the negative
+  set used for training (its diversity, closeness to the positive set
+  and how frequently each negative example is seen during
+  training). This issue is not really commented upon in the paper. Is
+  there a training task which would allow one to more explicitly
+  memorize the image (some sort of reconstruction task) as opposed to
+  an in/out classification task?
+
+- This paper is a slightly difficult read - not because of the
+  language or the presentation of the material but more because there
+  is not one main coherent argument or goal for the paper. This is
+  reflected in the "Related work" section where 4 different
+  issues/tasks are referred to. Each one of these topics is worthy of
+  a paper in itself, but this paper dips into each one and then
+  swiftly moves onto the next one. For example in section 3 the paper
+  explores if a network can be forced to explicitly memorize a set of
+  images and how the size of this set is affected by the number of
+  parameters in the network and data augmentation. High-level
+  conclusions are made: more parameters in the network implies more
+  images can be memorized and data-augmentation makes explicit
+  memorization more difficult. Then it is off to considering
+  pre-trained networks and determining whether by analyzing the
+  statistics of the responses at different layers one can decide if a
+  set of images was used for training or not (or similar tasks). Yes
+  the different sections are related but it is does not feel like they
+  build upon each other to help form a clearer picture of memorization
+  within neural networks.
+  
+
+- The conclusions focus on the importance of section 3 and
+  the results of the experiments performed. Do the conclusions accurately
+  reflect the opinions of the author? If yes, would
+  it better to re-organize the paper and devote more of it to the
+  material presented in section 3 and filling this out with more
+  analysis and experiments to perhaps explore the issue of the
+  capacity of a network in more 
+
+
+Queries/ points that need some clarification
+
+- I'm a little unclear when data-augmentation is included in the
+  training phase whether the goal is to be able to also recognise
+  perturbed versions of the input images at test time. In section 3 is
+  a perturbed positive image considered a positive training image? And
+  in the testing phase are only unperturbed versions of the positive
+  images given to the ConvNet as input?
+
+- Last paragraph page 4: "when the accuracy gets over 60\% and again
+  at 90\%". Is this training or validation accuracy?
+
+
+
+
+Typos possible errors spotted along the way:
+
+* First paragraph page 5: "more shallow" --&gt; "shallower"
+* Page 7, first paragraph of section 5.: "is ran" --&gt; "is run"
+* Using "scenarii" for the plural of "scenario" I would say is pretty
+  non-standard and most people would use "scenarios"</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJlO-N9psQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review of "an empirical evaluation of the memorization properties of convnets"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1lwSsC5KX&amp;noteId=HJlO-N9psQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper93 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">24 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper93 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Paper 93 proposes an empirical evaluation of the memorization properties of convnets. More specifically, it evaluates three aspects:
+-	First it evaluates whether convnets can learn to distinguish images from two different sets by training a binary classifier. The conclusion is that, indeed, deep convnets can learn to make such a decision. As could be guessed from intuition, the larger the capacity of the network and the smaller the size of the sets, the higher the accuracy.
+-	Second, it evaluates whether we can detect that a group of samples of a dataset was used to train a model. For this purpose, it is proposed to compute the distribution of maximal activation scores of the output softmax layer and to make use of the Kolmogorov-Smirov distance between the cumulative distributions. It is shown experimentally that one can detect (even partial) leakage with such a technique.
+-	Third, it evaluates whether we can detect that a single images was used to train a convnet. Two simple techniques are proposed. The first one considers that a sample is part of the training set if it correctly classified. The second one considers that a sample is part of the training set if its loss is below a threshold. It is shown experimentally that one can make such a decision with moderate accuracy.
+
+On the positive side:
+-	This is a topic that should be of broad interest to the ICLR community.
+-	The paper is generally well-written.
+-	The experiments are reported on large-scale datasets on high-capacity networks which is more realistic than small-scale settings.
+
+On the negative side:
+-	It is unclear whether the data augmentation techniques is applied only at training time or also at test time. In other words: at test time, do you present the original images only or transformed images too?
+-	In section 4, it is unclear why only the maximal activation of the softmax layer is used to characterize a sample? Why not considering the full distribution that should contain richer information? Why just focusing on the output layer and why not using the info available at intermediate layers?
+-	Section 5 is somewhat less clear than the previous sections. The authors should more clearly define what the private, public and evaluation sets are, right from the beginning. The purpose of the public set is explained only in section 5.2.
+-	The experimental results of section 5.2 are somewhat disappointing. Even with no data augmentation, and even with the original networks, membership can only be assessed with a 90% accuracy. Results are much lower in less favorable cases, sometimes close to random (see last line of Table 3). This seems to be too low to be of practical use. This might be because the Bayes and MAT attacks are too simplistic. Again, why not using the distribution of the outputs of all layers? Why focusing only on the output of the last layer?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

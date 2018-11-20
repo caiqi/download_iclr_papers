@@ -1,0 +1,384 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Proxy-less Architecture Search via Binarized Path Learning | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Proxy-less Architecture Search via Binarized Path Learning" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HylVB3AqYm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Proxy-less Architecture Search via Binarized Path Learning" />
+      <meta name="og:description" content="Neural architecture search (NAS) has great impact by automatically designing efficient neural network architectures. However, the computation demand is prohibitive with conventional NAS algorithms..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HylVB3AqYm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Proxy-less Architecture Search via Binarized Path Learning</a> <a class="note_content_pdf" href="/pdf?id=HylVB3AqYm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019proxy-less,    &#10;title={Proxy-less Architecture Search via Binarized Path Learning},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HylVB3AqYm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=HylVB3AqYm" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Neural architecture search (NAS) has great impact by automatically designing efficient neural network architectures. However, the computation demand is prohibitive with conventional NAS algorithms (e.g. 10^4 GPU hours), making it difficult to directly search the architecture on large-scale tasks (e.g. ImageNet). As a result, NAS needs to utilize proxy tasks, such as training on a smaller dataset (e.g. CIFAR-10), or learning with only a few blocks rather than the full depth, or training only for a few epochs rather than till convergence. These architectures optimized on proxy tasks are not guaranteed to be optimal on target task. In this paper, we present Proxy-less Architecture Search that can directly learn the architectures on a large-scale target task. We reduce the computational cost of architecture search by two orders of magnitude (to the same level of normal training). Additionally, by using the measured hardware latency (rather than FLOPs) as a direct objective, we can specialize neural network architectures for different hardware architectures. Experiments on CIFAR-10 and ImageNet demonstrate the effectiveness of directness. On CIFAR-10, our model achieves 2.08% test error with only 5.7M parameters, better than the previous state-of-the-art architecture AmoebaNet-B, while using 6× fewer parameters. On ImageNet, our model achieves 3.1% better top-1 accuracy than MobileNetV2, while being 1.2× faster with measured GPU latency. Compared with previous architecture search algorithms, we saved the GPU hours by two orders of magnitude, GPU memory by one orders of magnitude, both on ImageNet. We also analyzed the insights of efficient CNN models specialized for different hardware platforms.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Neural Architecture Search, Efficient Neural Networks</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Proxy-less neural architecture search for directly learning architectures on large-scale target task (ImageNet) while reducing the cost to the same level of normal training.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">17 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SkeDbIW-CX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Paper revision: new methods and new experiment results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=SkeDbIW-CX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1534 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi all,
+
+We have uploaded a revision of our paper with the following new methods and stronger experiment results:
+
+a) “Economical alternative to mobile farm”. In Appendix C, we introduce an accurate latency prediction model and remove the need of building an expensive mobile farm infrastructure [1] when learning specialized neural network architectures for mobile phone. We add new experiment results on the mobile setting, where our model achieves state-of-the-art top-1 accuracy on ImageNet under mobile latency constraints. 
+
+b) “Make latency differentiable”. In Appendix D, we present a *differentiable* approach to handle the non-differentiable objectives (i.e. latency in our case). Specifically,  we propose the latency regularization loss based on our proposed latency prediction model. By incorporating the predicted latency of the network into the loss function as a regularization term, we are able to directly optimize the trade-off between accuracy and latency. We also add new experiments on ImageNet to justify the effectiveness of the proposed latency regularization loss.  
+
+[1] Tan, Mingxing, et al. "Mnasnet: Platform-aware neural architecture search for mobile." arXiv preprint arXiv:1807.11626 (2018).</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rkle4Pwda7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Implementation question regarding rescaling of architecture parameters</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=rkle4Pwda7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Robin_Tibor_Schirrmeister1" class="profile-link">Robin Tibor Schirrmeister</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1534 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for the fascinating research work.
+I am trying to reimplement your method and have a question regarding:
+"Finally,  as path weights are computed by applying softmax to the architecture parameters, we need to rescale the value of these two updated architecture parameters by multiplying a ratio to keep the path weights of unsampled paths unchanged."
+
+I am not sure how to do this correctly, can you provide the formula for this ratio or code? I am a bit stuck there, how to compute the ratio :)
+
+Another question regarding:
+"Following this idea, within an update step of the architecture parameters, we first sample two paths according to the multinomial distribution (p1,···,pN) and mask all the other paths as if they do not exist."
+
+Could this sampling result in the same path being chosen twice? And do you handle that in some way?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1eNgOayAX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Responses to implementation questions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=H1eNgOayAX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1534 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi Robin, 
+
+Thanks for your interest in our work and your detailed questions. 
+
+&gt;&gt;&gt; Response to "Rescaling architecture parameters" 
+Your understanding of the gradient-based updates is correct.  
+As for sampling two paths according to the multinomial distribution, we use "torch.multinomial()". And by setting "replacement=True", the same path will not be chosen twice. 
+
+&gt;&gt;&gt; Response to "Adam optimizer for architecture parameters" 
+We also consider it would be problematic to use the adaptive gradient averages for this case where most of the paths are not chosen. So we set beta1 to be 0 in the Adam optimizer.  Sampling multiple times before making an Adam update step is a nice idea. We will try it later. Thanks for your suggestion. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1x6eyDe0X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>replacement=True or False?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=H1x6eyDe0X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Robin_Tibor_Schirrmeister1" class="profile-link">Robin Tibor Schirrmeister</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1534 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your answers! I assume you man replacement=False, right?
+beta1 is set zero, and what value do you use for beta2?
+And for the network parameters, what is your optimizer and hyperparameters , including learning rate schedule (for CIFAR-10)?</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BygWA7OK6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Further questions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=BygWA7OK6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Robin_Tibor_Schirrmeister1" class="profile-link">Robin Tibor Schirrmeister</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018 (modified: 15 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1534 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Let me expand a little bit on the question and just write my understanding and open questions regarding the Gradient-Based Updates from section 3.1.
+
+So, given a_i's as architecture weights, I am implementing it as follows:
+1. Compute p_i's from a_i's using softmax
+2. Use computed p_i's as sampling probabilities for the multinomial distribution to select two operations. [Possibly resample, if same operation chosen twice?]
+3. Recompute p_i's of the chosen a_i's by only pushing the two chosen a_is through softmax? Let's call them pnew_i's
+4. Use pnew_i's as input to binarize function, which will select one operation as active and one as inactive
+5. Compute outputs for both chosen operations, let's call them o_1, o_2, with o_1 the active operation according to the binarize function computed before
+6. Compute overall output as g_1(=1)*o_1 + g_2(=0)*o_2 (g_1, g_2 from binarize)
+7. Compute gradient on chosen a_i's as (gradient of loss wrt g_i) * (gradient of pnew_i wrt a_i) [or using full softmax, i.e. (gradient of loss wrt g_i) * (gradient of p_i wrt a_i)?]
+8. Make update step on a_i's with optimizer
+9. Multiply updated and chosen a_is by a factor that keeps probabilities p_is of unchosen operations identical to before [or see update below]
+
+What is correct, what is not?
+
+Also, you use Adam for the architecture parameters, do you think it can be a problem for the adaptive gradient averages that in a single update, most operations are not chosen? Or do you sample multiple times before you make an Adam update step?
+
+
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HyxqxNT5aQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Rescaling code</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=HyxqxNT5aQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Robin_Tibor_Schirrmeister1" class="profile-link">Robin Tibor Schirrmeister</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1534 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">So, on further thought I assume you might have meant rescaling probabilities of sampled operations by a factor such that probabilities of  unsampled operations stay the same. And update the corresponding alphas for the sampled operations such that this matches.
+
+I have tried to do this here:
+<a href="https://gist.github.com/robintibor/83064d708cdcb311e4b453a28b8dfdca" target="_blank" rel="nofollow">https://gist.github.com/robintibor/83064d708cdcb311e4b453a28b8dfdca</a>
+
+Does this look correct to you?</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_HkxRDmY7am" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>can you release code?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=HkxRDmY7am"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1534 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear authors, can you release your source code for readers to validate your experiment?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1lC-BtXpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We have uploaded the evaluation code and pretrained models</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=S1lC-BtXpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1534 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your interest in our work. The evaluation code and pretrained models are accessible at <a href="https://goo.gl/QU3GhA." target="_blank" rel="nofollow">https://goo.gl/QU3GhA.</a> We also made a video to visualize the architecture search process at https://goo.gl/VAzGJs . You are welcome to validate the performance. The entire codebase will be released after the double blind review.
+
+Our implementation is repeatable and reproducible. We used the same code base to search CPU/GPU/Mobile models. On all three platforms the performance consistently outperformed previous work, thanks to our Proxyless NAS enables searching over a large design space efficiently.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HkxEMyl33m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting combination of existing methods and good performance</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=HkxEMyl33m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1534 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+This paper addresses the problem of architecture search, and specifically seeks to do this without having to train on "proxy" tasks where the problem is simplified through more limited optimization, architectural complexity, or dataset size. The paper puts together a set of existing complementary methods towards this end, specifically 1) Training "cumbersome" networks as in One Shot and DARTS, 2) Path binarization to address memory requirements (optimized using ideas in BinaryConnect), and 3) optimizing a non-differentiable architecture using REINFORCE. The end result is that this method is able to find efficient architectures that achieve state of art performance with fewer parameters, can be optimized for non-differentiable objectives such as latency, and can do so with smaller amounts of GPU memory and computation.
+
+Strengths
+
+ + The paper is in general well-written and provides a clear description of the methods.
+
+ + Different choices made are well-justified in terms of the challenge they seek to address (e.g. non-differentiable objectives, etc.)
+
+ + The results achieve state of art while being able to trade off other objectives such as latency
+
+ + There are some interesting findings such as the need for specialized blocks rather than repeating blocks, comparison of architectures for CPUs vs. GPUs, etc. 
+
+Weaknesses
+ 
+ - In the end, the method is really a combination of existing methods (One Shot/DART, BinaryConnect, use of RL/REINFORCE, etc.). One novel aspect seems to be factorizing the choice out of N candidates by making it a binary selection. In general, it would be good for the paper to make clear which aspects were already done by other approaches (or if it's a modification what exactly was modified/added in comparison) and highlight the novel elements.
+
+ - The comparison with One Shot and DARTS seems strange, as there are limitations place on those methods (e.g. cell structure settings) that the authors state they chose "to save time". While that consideration has some validity, the authors should explicitly state why they think these differences don't unfairly bias the experiments towards the proposed approach.
+
+ - It's not clear that the REINFORCE aspect is adding much; it achieves slightly higher parameters when compared against Proxyless-G, and while I understand the motivation to optimize a non-differentiable function in this case the latency example (on ImageNet) is never compared to Proxyless-G. It could be that optimized the normal differentiable objective achieves similar latency with the smaller number of parameters. Please show results for Proxyless-G in Table 4.
+
+ - There were several typos throughout the paper ("great impact BY automatically designing", "Fo example", "is build upon", etc.)
+
+ In summary, the paper presents work on an interesting topic. The set of methods seem to be largely pulled from work that already exists, but is able to achieve good results in a manner that uses less GPU memory and compute, while supporting non-differentiable objectives. Some of the methodological issues mentioned above should be addressed though in order to strengthen the argument that all parts of the the method (especially REINFORCE) are necessary. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJlO7KpVp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>proxy-less NAS is an important contribution that breaks many conventions and stereotypes of neural architecture design.  Both our *efficient search* methodology and the resulting *efficient models* will have industry impact</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=SJlO7KpVp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1534 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We sincerely thank you for your comprehensive comments and constructive advices.
+
+&gt;&gt;&gt; Response to “combination of existing methods”: 
+Thanks for your kind advice on organizing the paper to make our contributions more clear. Here, we would like to emphasize our contributions:
+
+a) Our proxy-less NAS is the first NAS algorithm that directly learns architectures on the large-scale dataset (e.g. ImageNet) without any proxy. We also solved an important problem improving the computation efficiency of NAS as we reduced the computational cost (GPU hours and GPU memory) of NAS to the same level as normal training. Moreover, the GPU memory requirement of our method keeps at O(1) complexity rather than grows linearly with the number of candidate operations O(N)  [3, 4]. Therefore, our method can easily support a large candidate set while DARTS and One-Shot cannot. 	
+
+b) Our proxy-less NAS is the first NAS algorithm that breaks the convention of repeating blocks in neural architecture design. From Alexnet and VGG to ResNet and MobileNet, manually designed CNNs used to repeat blocks within the same stage. Previous NAS works keep the tradition as otherwise the searching cost will be unaffordable. Our work breaks the constraints, and we found this is actually a stereotype that needs to be corrected. 
+
+The new interesting design patterns, found by our method, can provide new insights for efficient neural architecture design. For example, people used to stack multiple 3x3 convs to replace a single large kernel conv, as this uses fewer parameters while keeping a similar receptive field. But we found this pattern may not be proper for designing efficient (low latency) networks: Two 3x3 depthwise separable convs actually run slower than a single 5x5 depthwise separable conv.  Our GPU model, shown in Figure 4, incorporates large kernel convs and aggressively pools at early stages to shrink network depth. Then the model chooses computation-expensive operations at low-resolution stages. It also tends to choose computation-expensive operations in the first block within each stage where the feature map is downsampled.  As a consequence, our GPU model can outperform previous SOTA efficient architectures in accuracy performances (e.g. 3.1% higher top-1 than MobileNetV2), while running faster than them (e.g. 1.2x faster than MobileNetV2). Such patterns cannot be found by previous NAS, as they optimize on proxy task and force blocks to share structures.
+
+c) Our method builds upon methods from two communities (one-shot architecture search from NAS community and Pruning/BinaryConnect from model compression community). It is the first time to incorporate ideas from the model compression community to the NAS community and we also provide a new path-level pruning perspective for one-shot architecture search. Moreover, we provide a unified framework for both gradient-based updates and REINFORCE-based updates. 
+
+d) Our proxy-less NAS achieved very strong empirical results on two most representative benchmarks (i.e. CIFAR and ImageNet). On CIFAR-10, our optimized model reached 2.08% error rate with only 5.7M parameters, outperforming previous state-of-the-art architecture (AmeobaNet-B with 34.9M parameters). On ImageNet, we searched specialized neural network architectures for three different platforms (GPU, CPU and mobile phone). With latency constraints, our optimized models also achieved state-of-the-art results (3.1% higher top-1 accuracy while being 1.2x faster on GPU and 2.6% higher top-1 accuracy with similar latency on mobile phone, compared to MobileNetV2). 
+
+Besides, we directly optimize the latency, rather than an inaccurate proxy (i.e. FLOPs). It’s an important concept that low FLOPs doesn’t translate to low latency. All our speedup numbers are reported with real measured latency. We believe both our efficient search methodology and the resulting efficient models have big industry impact. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1xBSKTN6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We made Apple-to-Apple comparison. Our advantage on memory saving is clear.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=S1xBSKTN6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018 (modified: 12 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1534 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+&gt;&gt;&gt; Response to “comparison with One Shot and DARTS”: 
+Apologize for the unclear explanation for this experiment. We will revise this part to make it more clear. 
+
+All of three methods are evaluated under the same condition except DARTS [3]. Same as the original paper, DARTS *has to* use a smaller scale setting for learning architectures due to the high memory consumption. So for DARTS, the first cell structure setting is chosen to fit the network into a single GPU to learn cell structure. Then we evaluated the learned cell structure on two larger settings by repeatedly stacking it, same as the original DARTS paper [3]. 
+
+For our method, since we solved the high memory consumption issue via binarized path, our method can directly learn architectures under both small-scale and large-scale settings with *limited* GPU memory. As it is one of the key advantages of our method over previous NAS methods, we consider it reasonable to keep such differences. 
+
+&gt;&gt;&gt; Response to “add results for Proxyless-G on ImageNet”: 
+Thanks for suggesting this new experiment. We have launched this experiment and will add the results to the paper.
+
+However, it is important to take latency as a *direct* objective when learning specialized neural network architectures for a platform. Otherwise, NAS would fail to make a good trade-off between accuracy and latency. For example, NASNet-A [1] and AmoebaNet-A [2] has shown compelling accuracy results compared to MobileNetV2 1.4 with similar number of parameters and FLOPs. But they are optimized without the awareness of the latency, their measured latencies on mobile phone are much worse than MobileNetV2 1.4 (see below). Therefore, we employ REINFORCE to directly optimize the non-differentiable objective (i.e. latency).
+
+Model				Params	        FLOPS	        Top-1	Mobile latency
+MobileNet V2 1.4		6.9M		585M		74.7		143ms
+NASNet-A			5.3M		564M		74.0		183ms
+AmeobaNet-A		5.1M		555M		74.5		190ms
+
+[1] Zoph B, Vasudevan V, Shlens J, Le QV. Learning transferable architectures for scalable image recognition. CVPR 2018.
+[2] Real E, Aggarwal A, Huang Y, Le QV. Regularized evolution for image classifier architecture search. arXiv preprint arXiv:1802.01548. 2018.
+[3] Liu H, Simonyan K, Yang Y. Darts: Differentiable architecture search. arXiv preprint arXiv:1806.09055. 2018.
+[4] Bender G, Kindermans PJ, Zoph B, Vasudevan V, Le Q. Understanding and simplifying one-shot architecture search. ICML 2018.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1lXIuW-CQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We have added the results for Proxyless-G on ImageNet. And we also include a new differentiable approach to handle non-differentiable objectives (i.e. latency).</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=B1lXIuW-CQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1534 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We have added the results for Proxyless-G on ImageNet to the paper (please see Table 6 in Appendix D). We find that without taking latency as a direct objective, Proxyless-G has no incentive to choose computation-cheap operations. Consequently, it designs a very slow network that has 158ms latency on mobile phone. After rescaling the network using depth multiplier [1, 2], the latency of the network reduces to 83ms. However, this model can only achieve 71.8% top-1 accuracy on ImageNet which is 2.8% lower than Proxyless-R. Therefore, as discussed in our previous responses, it is essential to take latency which is non-differentiable as a direct optimization objective. And REINFORCE-based approach provides a solution to this problem.
+
+Beside REINFORCE, we have recently designed a differentiable approach to handle the non-differentiable objectives (please see Appendix D). Specifically,  we propose the latency regularization loss based on our proposed latency prediction model (please see Appendix C). The key to the latency regularization loss is an observation that the expected latency of a mixed operation is actually differentiable w.r.t. architecture parameters. Therefore, by incorporating the expected latency into the loss function as a regularization term, we are able to directly optimize the trade-off between accuracy and latency. Further details are provided in Appendix D. 
+
+[1] Sandler, Mark, et al. "MobileNetV2: Inverted Residuals and Linear Bottlenecks." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2018.
+[2] Tan, Mingxing, et al. "Mnasnet: Platform-aware neural architecture search for mobile." arXiv preprint arXiv:1807.11626 (2018).</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_rJl-2uUshQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Solid work with convincing results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=rJl-2uUshQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1534 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">It seems the authors propose an efficient method to search platform-aware network architecture aiming at high recognition accuracy and low latency. Their results on CIFAR-10 and ImageNet are surprisingly good.  But it is still hard to believe that the author can  achieve 2.08% error rate with only 5.7M parameter on CIFAR10 and 74.5% top-1 accuracy on ImageNet with less GPU hours/memories than prior arts.
+
+Given my concerns above, the author must release their code and detail pipelines since NAS papers are difficult to be reproduced. 
+
+There is a small typo in reference part:
+Jing-Dong Dong's work should be DPP-Net instead of PPP-Net (<a href="https://eccv2018.org/openaccess/content_ECCV_2018/papers/Jin-Dong_Dong_DPP-Net_Device-aware_Progressive_ECCV_2018_paper.pdf)" target="_blank" rel="nofollow">https://eccv2018.org/openaccess/content_ECCV_2018/papers/Jin-Dong_Dong_DPP-Net_Device-aware_Progressive_ECCV_2018_paper.pdf)</a>
+and I think this paper "Neural Architecture Optimization" shoud be cited.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkxbEO0XpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Models on all platforms have been open sourced. Reproducible experiment verified on 3 different platforms. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=BkxbEO0XpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018 (modified: 12 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1534 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We sincerely thanks for the detailed feedback. Our pre-trained models and the evaluation code are provided in the following anonymous link for verifying our results: <a href="https://goo.gl/QU3GhA." target="_blank" rel="nofollow">https://goo.gl/QU3GhA.</a> We have also made a video to visualize the architecture search process: https://goo.gl/VAzGJs. We would like to release the entire codebase after the double-blind process. 
+
+&gt;&gt;&gt; Response to “performances are too good to be true”: 
+We consider the comment as a compliment rather than a drawback. There are several reasons for our good results:
+a) Our proxy-less NAS *directly* learns on the *target* task while previous NAS methods *indirectly* learn on *proxy* tasks. For example, on CIFAR-10, DARTS [1] conducted architecture search experiments with 8 blocks due to their high memory consumption and then transferred the learned block structure to a much larger network with 20 blocks. This indirect optimization scheme would lead to suboptimal results while our proxy-less NAS does not suffer from this problem. 
+
+b) We broke the convention in neural architecture design by *not* repeating the same building block structure. Our method explores a much larger architecture space compared to previous NAS methods (10^547 vs 10^18). Furthermore, our method has much larger block diversity and is able to learn preferences at different positions in the architecture.
+ 
+For example, our optimized neural network architectures for GPU, CPU and mobile phone prefer to choose more computation-expensive operations (e.g. 7x7 MBConv6) for the last few stages where the resolution of feature map is low. They also prefer to choose more computation-expensive operations in the first block within each stage where the feature map is downsampled. We consider the ability to learn such patterns which are absent in previous NAS papers also helps to improve our results.
+
+&gt;&gt;&gt; Response to “DPP-Net and NAO citations”: 
+Apologize for the typo and missing a relevant paper in our reference part. We have fixed typo and added a reference to “Neural Architecture Optimization”. Thanks for pointing out our mistakes.
+
+[1] Liu H, Simonyan K, Yang Y. Darts: Differentiable architecture search. arXiv preprint arXiv:1806.09055. 2018.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BklS-ur9h7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea for efficient NAS that gives state-of-the-art results (on limited datasets)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=BklS-ur9h7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1534 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The algorithm described in this paper is part of the one-shot family of architecture search algorithms. In practice this means training an over-parameterized architecture, of which the architectures being searched for are sub-graphs. Once this bigger network is trained it is pruned into the desired sub-graph. The algorithm is similar to DARTS in that it it has weights that determine how important the various possible nodes are, but the interpretation here is stochastic, in that the weight indicates the probability of the component being active. Two methods to train those weights are being suggested, using REINFORCE and using BinaryConnect, both having different trade offs.
+
+- (minor) *cumbersome* network seems the wrong term, maybe over-parameterized network?
+- (minor) I do not think that the size of the search space a very meaningful metric
+
+Pros:
+- Good exposition
+- Interesting and fairly elegant idea
+- Good experimental results
+
+Cons
+- tested on a limited amount of settings, for something that claims that helps to automate the creation of architecture. I think this is the main shortcoming, although shared by many NAS papers
+- No source code available
+
+Some typos:
+
+- Fo example, when proxy strategy -&gt; Fo*r* example
+- normal training in following ways. -&gt; in *the* following ways
+- we can then derive optimized compact architecture.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJxuErCmTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Proxyless NAS enables efficient and direct search on different tasks and hardware platforms</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=rJxuErCmTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018 (modified: 12 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1534 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We sincerely thank you for the detailed comments on our paper. We have revised the paper and fixed the typos accordingly.
+
+&gt;&gt;&gt; Response to “limited amount of tested settings”: 
+As our proxy-less NAS has reduced the cost to the same level of normal training (100x more efficient on ImageNet), it is of great interest for us to apply proxy-less NAS to more settings and datasets. However, for this work, considering the resource constraints and time limits, we have strong reasons to believe that our experiment settings are sufficient:
+
+a) Our experiments are conducted on two most representative benchmarks (CIFAR and ImageNet). It is in line with previous NAS papers and also makes it possible to compare our method with previous NAS methods. We also experimented with 3 different hardware platforms and observed consistent latency improvement over previous work. 
+
+b) Moreover, on the challenging ImageNet classification task, we have conducted architecture search experiments under three different settings (GPU, CPU and Mobile) while previous NAS papers mainly transfer learned architectures from CIFAR-10 to ImageNet without conducting architecture search experiments on ImageNet [1, 2]. 
+
+&gt;&gt;&gt; Response to “no source code available”: 
+Reviewer 2 also has similar requests, based on the concern on our strong empirical results. Our pre-trained models and the evaluation code are provided in the following anonymous link: <a href="https://goo.gl/QU3GhA." target="_blank" rel="nofollow">https://goo.gl/QU3GhA.</a> Besides, we have also uploaded the video visualizing the architecture search process: https://goo.gl/VAzGJs. We plan to open source our project after the double-blind reviewing process.
+
+&gt;&gt;&gt; Response to “the size of the search space is not a very meaningful metric”: 
+This might be a misunderstanding. We do not intend to use the size of our search space as a metric for comparison; instead, it is an important reason why our accuracy is much better than previous NAS methods. Previous NAS methods forced different blocks to share the same structure and only explored a limited architecture space (e.g. 10^18 in [2] and 10^10 in [3]). Our method, breaking the constraints, allows all of the blocks to be specified and has much larger search space (i.e. 10^547).
+
+[1] Zoph B, Vasudevan V, Shlens J, Le QV. Learning transferable architectures for scalable image recognition. CVPR 2018.
+[2] Liu H, Simonyan K, Yang Y. Darts: Differentiable architecture search. arXiv preprint arXiv:1806.09055. 2018.
+[3] Bender G, Kindermans PJ, Zoph B, Vasudevan V, Le Q. Understanding and simplifying one-shot architecture search. ICML 2018.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJeFYtGK27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>New experiment results on mobile phone</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylVB3AqYm&amp;noteId=rJeFYtGK27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1534 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 03 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1534 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi all,
+
+Our efficient algorithm allows us to specialize neural network architectures for different devices easily. Recently, we extended our proxyless NAS to the mobile setting and achieved SOTA result with mobile latency constraint (&lt; 80ms latency on Pixel 1 phone) as well. The following is our current results on ImageNet (Device: Pixel 1. Batch size: 1. Framework: TF-Lite):
+
+Model				Top-1	Top-5	Mobile latency
+MobileNet V1		70.6		89.5		113ms
+MobileNet V2		72.0		91.0		75ms
+NASNet-A			74.0		91.3		183ms
+AmeobaNet-A		74.5		92.0		190ms
+MnasNet			74.0		91.8		76ms
+MnasNet (our impl.)	74.0		91.8		79ms
+Proxyless NAS (ours)	74.6		92.2		78ms
+
+The detailed architectures of our searched models and their learning process are provided in the following anonymous link:
+<a href="https://drive.google.com/open?id=1nut1owvACc9yz1ZPqcbqoJLS2XrVPp1Q" target="_blank" rel="nofollow">https://drive.google.com/open?id=1nut1owvACc9yz1ZPqcbqoJLS2XrVPp1Q</a></span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

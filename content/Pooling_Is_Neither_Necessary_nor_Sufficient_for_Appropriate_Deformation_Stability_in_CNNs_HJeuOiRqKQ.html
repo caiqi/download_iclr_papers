@@ -1,0 +1,249 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Pooling Is Neither Necessary nor Sufficient for Appropriate Deformation Stability in CNNs | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Pooling Is Neither Necessary nor Sufficient for Appropriate Deformation Stability in CNNs" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HJeuOiRqKQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Pooling Is Neither Necessary nor Sufficient for Appropriate..." />
+      <meta name="og:description" content="Many of our core assumptions about how neural networks operate remain empirically untested. One common assumption is that convolutional neural networks need to be stable to small translations and..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HJeuOiRqKQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Pooling Is Neither Necessary nor Sufficient for Appropriate Deformation Stability in CNNs</a> <a class="note_content_pdf" href="/pdf?id=HJeuOiRqKQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019pooling,    &#10;title={Pooling Is Neither Necessary nor Sufficient for Appropriate Deformation Stability in CNNs},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HJeuOiRqKQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Many of our core assumptions about how neural networks operate remain empirically untested. One common assumption is that convolutional neural networks need to be stable to small translations and deformations to solve image recognition tasks. For many years, this stability was baked into CNN architectures by incorporating interleaved pooling layers. Recently, however, interleaved pooling has largely been abandoned. This raises a number of questions: Are our intuitions about deformation stability right at all? Is it important? Is pooling necessary for deformation invariance? If not, how is deformation invariance achieved in its absence? In this work, we rigorously test these questions, and find that deformation stability in convolutional networks is more nuanced than it first appears: (1) Deformation invariance is not a binary property, but rather that different tasks require different degrees of deformation stability at different layers. (2) Deformation stability is not a fixed property of a network and is heavily adjusted over the course of training, largely through the smoothness of the convolutional filters. (3) Interleaved pooling layers are neither necessary nor sufficient for achieving the optimal form of deformation stability for natural image classification. (4) Pooling confers \emph{too much} deformation stability for image classification at initialization, and during training, networks have to learn to \emph{counteract} this inductive bias. Together, these findings provide new insights into the role of interleaved pooling and deformation invariance in CNNs, and demonstrate the importance of rigorous empirical testing of even our most basic assumptions about the working of neural networks.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Convolutional Neural Networks, Deformation Stability, Pooling, Transformation Invariance</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We find that pooling alone does not determine deformation stability in CNNs and that filter smoothness plays an important role in determining stability. </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">4 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HJeFxf4oa7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Serious empirical study, but somewhat unsurprising and expected conclusions. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJeuOiRqKQ&amp;noteId=HJeFxf4oa7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper367 AnonReviewer6</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper367 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper asks what is the role of pooling in the success story of CNNs applied to computer vision. 
+Through several experimental setups, the authors conclude that, indeed, pooling is neither necessary nor sufficient to achieve deformation stability, and that its effect is essentially recovered during training. 
+
+The paper is well-written, it is clear, and appears to be readily reproducible. It addresses an interesting and important question at the interface between signal processing and CNNs. 
+
+That said, the paper does not produce any clear novel results. It does not provide any theoretical result, nor any new algorithm. Its contributions consist of three empirical studies, demonstrating that (i) the benefits of pooling in terms of deformation stability can be achieved through supervised learning the filters instead (sec 3), (ii) the mechanism to obtain stability through learning essentially consists on reducing the bandwidth of (some) filters (sec4), and (iii) that this mechanism is data-dependent (sec 5). None of these studies strike the reviewer as particularly revealing. Moreover, the reviewer felt that the authors could have built on those findings to ask (and hopefully answer) a few interesting questions, such as:
+-- Nowhere in the paper there is a discussion about critical Nyquist sampling and the need to reduce the bandwidth of a signal prior to downsampling it in order to avoid aliasing. Average pooling provably does it, and learnt filters do it provided they indeed become bandlimited. What are the links between deformation stability and the ability to avoid aliasing? 
+-- How many lowpass antialiasing filters are needed per layer to provide sufficient stability? 
+-- Also, the authors should relate this study with similar works that do the same in speech (e.g. <a href="https://www.isca-speech.org/archive/Interspeech_2018/abstracts/1371.html)." target="_blank" rel="nofollow">https://www.isca-speech.org/archive/Interspeech_2018/abstracts/1371.html).</a> 
+
+In conclusion, my impression is that this paper requires a major iteration before it can be of widespread interest to the community. I encourage the authors to think about the above points. 
+
+
+ </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1xY5EwIpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Not enough evidence to conclude much about pooling</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJeuOiRqKQ&amp;noteId=H1xY5EwIpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper367 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper367 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">It is often argued that one of the roles of pooling is to increase the stability of neural networks to 
+deformations. This paper presents empirical evidence to contest this assertion, or at least qualify it.
+
+I appreciate empirical studies that question some of the widely accepted dogmas of deep learning. 
+From this point of view, the present paper is certainly interesting.
+
+Unfortunately, the actual evidence presented is quite weak, and insufficient to draw far reaching 
+conclusions. An obvious objection is the authors only consider two datasets, and a very small number of 
+more or less standard pooling methodologies. The effect of pooling is evaluated in terms of cosine 
+similarlity, which is not necessarily a good proxy for the actual performance of a network.
+
+A more serious issue is that they seem to very readily jump to unwarranted conclusions. For example, 
+the fact that stability to deformations (by which I necessarily mean the specific type of deformations 
+that they consider) tends to decrease in the middle layers of neural networks during training does not 
+mean that starting with a neural network with less stability would be better. Maybe some kind of 
+spontaneous coarse-to-fine optimization is going on in the network. Similarly, it is obvious that smoother 
+filters are going to lead to more stable representations. However, they might be less good at discriminative 
+tasks. Just because smoother filters are more stable does not automatically mean that they are more desirable.
+
+Stability to deformations is an important but subtle topic in computer vision. For starters, it is difficult 
+to define what kind of deformations one wants to be insensitive to in the first place. A useful model would 
+likely incorporate some notion of deformations at multiple different length scales. 
+
+Just showing that one network is better than another wrt some arbitrarily defined simple class of deformations 
+with no reference to actual recognition performance, speed of training, or interpretation of the nature of 
+the deformations and the learned filters is not very convincing. I would particularly like to emphasize the 
+last point. I would really like to understand what pooling actually does, not just at the level of "if you 
+turn it off, then cosine similarity will decrease by this much or that much."</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SJlP_2N-67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Ask good questions but need more insightful analysis</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJeuOiRqKQ&amp;noteId=SJlP_2N-67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper367 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018 (modified: 15 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper367 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=SJlP_2N-67" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The work does an analysis of impact of different pooling strategies on image classification with deformations. It shows different pooling strategies reach to similar levels of deformation stability after sufficient training. It also offers an alternative technique with smoothness filters with to CNNs more stable. 
+Pros:
+The paper considers a wide variety of pooling strategies and deformation techniques for evaluation.  Fair experiments with conclusion of similar stability of different pool layers after training is very evident.
+Cons:
+i) Results on CIFAR 10 show pooling has little effect but is it unnecessary for harder problems as well? What about human pose datasets where deformation is inherent?
+iii) Although, the results presented on smoother filter initialization are interesting, but these results are not compared in a one to one setting to different pooling methods, convolutions or residual networks. 
+
+This paper tries to argue that pooling is unnecessary for deformation invariance, as title suggests, and proposes initialization based on smooth filters as an alternative. Results are presented on CIFAR 10 to show the same, albeit on a trained network. However, CIFAR 10 is not a difficult dataset and the level of cosine sensitivity (shown as same with and without pooling) could very well be a steady state for the specific classification task. Imagenet dataset doesn't seem to show ablative studies. So this little evidence is insufficient to conclude that pooling is unnecessary.  Also as mentioned in the conclusion of the paper, the effect of pooling through the course of training would add more weight. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1eNZj4bpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Ask good questions but need more insightful analysis </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJeuOiRqKQ&amp;noteId=S1eNZj4bpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper367 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper367 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The work does an analysis of impact of different pooling strategies on image classification with deformations. It shows different pooling strategies reach to similar levels of deformation stability after sufficient training. It also offers an alternative technique with smoothness filters with to CNNs more stable. 
+Pros:
+The paper considers a wide variety of pooling strategies and deformation techniques for evaluation.  Fair experiments with conclusion of similar stability of different pool layers after training is very evident.
+Cons:
+i) Results on CIFAR 10 show pooling has little effect but is it unnecessary for harder problems as well? What about human pose datasets where deformation is inherent?
+iii) Although, the results presented on smoother filter initialization are interesting, but these are results are not compared in a one to one setting to different pooling methods, convolutions or residual networks. 
+
+This paper tries to argue that pooling is unnecessary for deformation invariance, as title suggests, and proposes initialization based on smooth filters as an alternative. Results are presented on CIFAR 10 to show the same, albeit on a trained network. However, CIFAR 10 is not a difficult dataset and the level of cosine sensitivity (shown as same with and without pooling) could very well be a steady state for the specific classification task. Imagenet dataset doesn't seem to show ablative studies. So this little evidence is insufficient to conclude that pooling is unnecessary.  Also as mentioned in the conclusion of the paper, the effect of pooling through the course of training would add more weight. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Discriminator Rejection Sampling | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Discriminator Rejection Sampling" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=S1GkToR5tm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Discriminator Rejection Sampling" />
+      <meta name="og:description" content="We propose a rejection sampling scheme using the discriminator of a GAN to&#10;  approximately correct errors in the GAN generator distribution. We show that&#10;  under quite strict assumptions, this will..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_S1GkToR5tm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Discriminator Rejection Sampling</a> <a class="note_content_pdf" href="/pdf?id=S1GkToR5tm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 08 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019discriminator,    &#10;title={Discriminator Rejection Sampling},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=S1GkToR5tm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=S1GkToR5tm" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We propose a rejection sampling scheme using the discriminator of a GAN to
+approximately correct errors in the GAN generator distribution. We show that
+under quite strict assumptions, this will allow us to recover the data distribution
+exactly. We then examine where those strict assumptions break down and design a
+practical algorithm—called Discriminator Rejection Sampling (DRS)—that can be
+used on real data-sets. Finally, we demonstrate the efficacy of DRS on a mixture of
+Gaussians and on the state of the art SAGAN model. On ImageNet, we train an
+improved baseline that increases the best published Inception Score from 52.52 to
+62.36 and reduces the Frechet Inception Distance from 18.65 to 14.79. We then use
+DRS to further improve on this baseline, improving the Inception Score to 76.08
+and the FID to 13.75.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">GANs, rejection sampling</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We use a GAN discriminator to perform an approximate rejection sampling scheme on the output of the GAN generator.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1e5iSqf6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good paper!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1GkToR5tm&amp;noteId=r1e5iSqf6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper767 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper767 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a rejection sampling algorithm for sampling from the GAN generator. Authors establish a very clear connection between the optimal GAN discriminator and the rejection sampling acceptance probability. Then they explain very clearly that in practice the connection is not exact, and propose a practical algorithm. 
+
+Experimental results suggest that the proposed algorithm helps the increase the accuracy of the generator, measured in terms of inception score and Frechet inception distance. 
+
+It would be interesting though to see if the proposed algorithm buys anything over a trivial rejection scheme such as looking at the discriminator values and rejecting the samples if they fall below a certain threshold. This being said, I do understand that the proposed practical acceptance ratio in equation (8) is 'close' to the theoretically justified acceptance ratio. Since in practice the learnt discriminator is not exactly the ideal discriminator D*(x), I think it is super okay to add a constant and optimize it on a validation set. (Equation (7) is off anyways since in practice the things (e.g. the discriminator) are not ideal). But again, I do think it would make the paper much stronger to compare equation (8) with some other heuristic based rejection schemes.
+
+ </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1gYHA1-a7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>FYI</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1GkToR5tm&amp;noteId=r1gYHA1-a7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper767 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper767 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We have written individual replies to Reviews 2 and 3 (these are the only reviews at present). 
+
+We have also update the PDF to include a new figure (fig 6) on the effect of gamma. 
+
+We are working on making more updates to the draft for purposes of clarity.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SklRqc0yTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Very well written paper, with excellent results, but experiments may be unfair, and a much simpler rejection scheme may work equally well.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1GkToR5tm&amp;noteId=SklRqc0yTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper767 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper767 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">his paper assumes that, in a GAN, the generator is not perfect and some information is left in the discriminator, so that it can be used to 'reject' some of the 'fake' examples produced by the generator.
+
+The introduction, problem statement and justification for rejection sampling are excellent, with a level of clarity that makes it understandable by non expert readers, and a wittiness that makes the paper fun to read. I assume this work is novel: the reviewer is more an expert in rejection than in GANs, and is aware how few publications rely on rejection.
+
+However, the authors fail to compare their algorithm to a much simpler rejection scheme, and a revised version should discuss this issue.
+Let's jump to equation (8): compared to a simple use of the dicriminator for rejection, it adds the term under the log.
+The basic rejection equation would read F(x) = D*(x) - gamma and one would adjust the threshold gamma to obtain the desired operating point. I am wondering why no comparison is provided with basic rejection? 
+
+Let me try to understand the Gaussian mixture experiment, as the description is ambiguous:
+- GAN setting: 10K examples are generated and reported in figure 3?
+- DRS setting: 10K examples are generated, and submitted to algorithm in figure 1. For each batch, a line search sets gamma so that 95% of the examples are accepted. Thus only 9.5K are reported in figure 3.
+- What about basic rejection using F(x) = D*(x) - gamma: how does it compare to DRS at the same 95% accept?
+
+If this is my understanding, then the comparison in Figure 3 in unfair, as DRS is allowed to pick and choose.
+For completeness, basic rejection should also be added.
+
+Going back to Eq.(8), one realizes that the difference between DRS rejection and basic rejection may be negligible.
+First order Taylor expansion of log(1-x) that would apply to the case where the rejection probability is small yields:
+F(x) = (D*(x) - D*_M) + exp(D*(x) - D*_M) 
+
+x+ exp(x) is monotonous, so thresholding over it is the same as thresholding over x: back to basic rejection!</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SylUYa1bpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for the review!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1GkToR5tm&amp;noteId=SylUYa1bpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper767 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper767 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks very much for the review. 
+We think that there have been two misunderstandings here, one about the Gaussian Mixture experiment and one about the purpose of the quantity F_hat(x).
+These are our fault; we should have made the paper more clear and we are modifying the draft to do so.
+In the meantime, we will address both issues here. We use &gt; for quotes. 
+
+GAUSSIAN MIXTURE EXPERIMENT:
+&gt; - GAN setting: 10K examples are generated and reported in figure 3?
+This much is true.
+
+
+&gt; - DRS setting: 10K examples are generated, and submitted to algorithm in figure 1. For each batch, a line search sets gamma so that 95% of the examples are accepted. Thus only 9.5K are reported in figure 3.
+This part is not true.
+You probably got confused by the line 'We generate 10,000 samples from the generator with and without DRS.' which we agree is unclear. 
+
+First, we generate as many samples as needed to yield 10K acceptances, so both plots have 10k dots on them.
+
+Second, there is no line search.
+Each example is given an acceptance probability p that is generated from substituting F_hat from equation 8 for F in equation 6.
+Then, a pseudo-random number in [0,1] is compared with p to determine acceptance. 
+Thus, for any given batch, the number of examples accepted is non-deterministic.
+We think that this point also relates to the misunderstanding regarding the purpose of F_hat.
+
+Third, gamma is subtracted from F.
+So setting gamma equal to the 95th %-ile value of F means that an example where F(x) is at the 95th %-ile will have a 50% chance of being accepted, because
+1 / (1 + e^(-F_hat(x))) = 1 / (1 + e^0) = 1 / 2 in this case. 
+The result is that around 23% of samples drawn from the generator made it into the final DRS plot, which means we had to draw a little less than 50k samples from the generator. 
+
+
+&gt; If this is my understanding, then the comparison in Figure 3 in unfair, as DRS is allowed to pick and choose.
+We're unsure what you mean here.
+It's true in some sense that DRS is allowed to pick and choose, but from our perspective this is part of the definition of rejection sampling?
+The generator can't figure out how to stop yielding bad samples, but the discriminator can tell which samples are bad, so we can
+throw those out and get a distribution closer to the ground truth distribution at the cost of having to generate extra samples from the generator.
+
+
+PURPOSE OF F_HAT:
+&gt; Let's jump to equation (8): compared to a simple use of the discriminator for rejection, it adds the term under the log
+We don't think this is correct - the log already exists and we just add the gamma and epsilon terms.
+The discussion after eq 5 shows that the acceptance probability p(x) is exp(D_tilde^*(x) - D_tilde^*(x^*)).
+The tildes are important, because they mean that we are operating not on the sigmoid output of D but on the logit that is passed to the sigmoid output.
+Then we ask what F(x) would have to be s.t. 1 / (1 + e^(-F(x))) = p(x).
+This results in equation 7, *which already has the log term*.
+The only difference between F_hat and F is that we introduce the epsilon for numerical stability and the gamma to modulate the acceptance probability.
+
+&gt; First order Taylor expansion of...
+What you say here is true, but we are not thresholding. 
+We think this is the root of the misunderstanding.
+We don't consider the hard thresholding algorithm here because it might deterministically reject certain samples for which D^* is low,
+which means that we would never be able to actually draw samples from p_d, even in the idealized setting of section 3.1
+
+Please let us know if this response answers all of your questions. 
+We are happy to expand.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJgNPOjOnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A post-processing method to filter ‘good’ generated samples for GANs </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1GkToR5tm&amp;noteId=rJgNPOjOnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper767 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper767 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposed a post-processing rejection sampling scheme for GANs, named Discriminator Rejection Sampling (DRS), to help filter ‘good’ samples from GANs’ generator. More specifically, after training GANs’ generator and discriminator are fixed; GANs’ discriminator is further exploited to design a rejection sampler, which is used to reject the ‘bad’ samples generated from the fixed generator; accordingly, the accepted generated samples have good quality (better IS and FID results). Experiments of SAGAN model on GMM toys and ImageNet dataset show that DRS helps further increases the IS and reduces the FID.
+
+The paper is easy to follow, and the experimental results are convincing. However, I am curious about the follow questions.
+
+(1)	Besides helping generate better samples, could you list several other applications where the proposed technique is useful? 
+
+(2)	In the last paragraph of Page 4, I don’t think the presented Discriminator Rejection Sampling “addresses” the issues in Sec 3.2, especially the first paragraph of Page 5.
+
+(3)	The hyperparameter gamma in Eq. (8) is of vital importance for the proposed DRS. Actually, it is believed the key to determining whether DRS works or not. Detailed analysis/experiments about hyperparameter gamma are considered missing. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkeXZRk-Tm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for the review!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=S1GkToR5tm&amp;noteId=SkeXZRk-Tm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper767 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper767 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for his/her time and feedback. We appreciate the kind words relating to the clarity and comprehensiveness of our submission, and hope to address any remaining concerns the reviewer has here.
+
+OTHER APPLICATIONS:
+ (a) Suppose we’re designing molecules for drug discovery purposes using a generative model. 
+At some point, we will have to physically test the molecules that we have designed, which could be costly.
+ If the discriminator can throw out some obviously unrealistic molecule designs, this will save us money and time.
+(b) For text generation applications, a nonsensical generated sentence in a dialog system could be rejected by the discriminator, reducing the frequency of embarrassing mistakes. 
+(c) In RL applications, if we are predicting future states with a generative model, we could use this technique to throw out silly predictions, reducing the risk of taking a silly action predicated on those predictions. 
+(d) More generally, you could use DRS on models that are not GANs.
+
+ADDRESSING D* ISSUE
+
+You’re right about this - we will change the wording. We don’t do anything to *fix* the problem that we can’t actually compute D*, we just show that you don’t need to precisely recover D* to get good results. The first paragraph on page 5 speculates on why this might be so, and figures 4 and 5 provide evidence for this speculation.
+
+REGARDING GAMMA:
+
+We agree that gamma is an important hyperparameter, because it modulates the acceptance rate. 
+We have already made the figure you propose and have updated the PDF to include it. It is now figure 6. 
+Please let us know if there are other experiments that you think would
+improve the quality of the work.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

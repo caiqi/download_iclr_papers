@@ -1,0 +1,380 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>(Unconstrained) Beam Search is Sensitive to Large Search Discrepancies | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="(Unconstrained) Beam Search is Sensitive to Large Search Discrepancies" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BkE8NjCqYm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="(Unconstrained) Beam Search is Sensitive to Large Search Discrepancies" />
+      <meta name="og:description" content="Beam search is the most popular inference algorithm for decoding neural sequence models. Unlike greedy search, beam search allows for a non-greedy local decisions that can potentially lead to a..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BkE8NjCqYm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>(Unconstrained) Beam Search is Sensitive to Large Search Discrepancies</a> <a class="note_content_pdf" href="/pdf?id=BkE8NjCqYm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019(unconstrained),    &#10;title={(Unconstrained) Beam Search is Sensitive to Large Search Discrepancies},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BkE8NjCqYm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Beam search is the most popular inference algorithm for decoding neural sequence models. Unlike greedy search, beam search allows for a non-greedy local decisions that can potentially lead to a sequence with a higher overall probability. However, previous work found that the performance of beam search tends to degrade with large beam widths. In this work, we perform an empirical study of the behavior of the beam search algorithm across three sequence synthesis tasks. We find that increasing the beam width leads to sequences that are disproportionately based on early and highly non-greedy decisions. These sequences typically include a very low probability token that is followed by a sequence of tokens with higher (conditional) probability leading to an overall higher probability sequence. However, as beam width increases, such sequences are more likely to have a lower evaluation score. Based on our empirical analysis we propose to constrain the beam search from taking highly non-greedy decisions early in the search. We evaluate two methods to constrain the search and show that constrained beam search effectively eliminates the problem of beam search degradation and in some cases even leads to higher evaluation scores. Our results generalize and improve upon previous observations on copies and training set predictions.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">beam search, sequence models, search, sequence to sequence</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Analysis of the performance degradation in beam search and how constraining the the search can help avoiding it</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">10 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HygoNFt7a7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Distinction between search errors and modeling errors not clear</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkE8NjCqYm&amp;noteId=HygoNFt7a7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper6 Area Chair1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper6 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This paper investigates the problem of search degrading translation accuracy as measured by BLEU score.
+
+However, the paper seems to be conflating two fundamental issues, search errors and modeling errors. Search errors are errors where the search algorithm is not able to find the highest-scoring hypothesis, and modeling errors are errors where the highest-scoring hypothesis is actually not a good one according to the model.
+
+The widely-known problem of BLEU (or other) scores degrading with larger beams is due to modeling errors: MLE-trained models tend to prefer shorter sentences, and this can be (largely) fixed by better modeling of length. The simplest method for doing so is length normalization, searching for the hypothesis that has the highest average likelihood per word rather than the highest likelihood overall per sentence (see "On the Properties of Neural Machine Translation: Encoder–Decoder Approaches" SSST 2014). This largely fixes the problem of large beams degrading accuracy (see "Six Challenges for Neural Machine Translation" WNMT 2017), although there are other methods for length normalization as well.
+
+In contrast, this paper attempts to indirectly fix the problem of modeling errors by changing the search algorithm. Hobbling the search algorithm seems like a rather indirect way to solve a problem that is essentially a modeling problem (and has already been largely fixed by other methods). In addition, the discussion seems pretty incomplete without a discussion of whether the search algorithm is actually achieving better model scores, which is the fundamental job of the search algorithm in the first place.
+
+It would be nice to see a discussion of these issues in the author response if possible.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SylvelA4pQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Length Bias and Search vs. Model errors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkE8NjCqYm&amp;noteId=SylvelA4pQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper6 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper6 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your comments. We will address the two issues separately.
+
+Length bias
+The review claims that the problem of performance degradation is well known and is due to the fact that MLE-trained models tend to prefer shorter sentences. However, this is not the case we are addressing. We are considering the case of performance degradation that is *not* due to length bias. Even when length-normalization is used, performance degradation is observed in previous work that we cite and in our baseline results (which explicitly use length-normalization). More specifically:
+	* For the translation and summarization models we perform length normalization as a baseline (see Section 3) and observe search degradation.
+	* Appendix D analyzes the length bias and shows that the performance degradation we observe is not associated with significant length bias. 
+	* The problem of ``copies'' (that we generalize in this work) was observed by Ott et al. (2018) when using length normalization.
+	* In "Six Challenges for Neural Machine Translation" (Koehn &amp; Knowles, 2017) that the reviewer refers to, the authors show that while normalization reduces the problem of performance degradation of beam search, it does not eliminate it.  As a consequebnce, performance degradation is still listed as Challenge #6.
+	* Besides BLEU we analyze rouge for summarization, and in our response for AnonReviewer3 we added CIDEr and SPICE for image captioning.
+
+
+Model errors vs. search errors
+We agree with the distinction between search errors and modeling errors and think this distinction is useful in highlighting our contributions. We do not agree that we are conflating model error and search error.
+   	 In the context of beam search, wider beams lead to higher likelihood hypotheses (fairly trivially because we are searching a larger space). The phenomenon we are exploring is the observation over a number of tasks that the higher likelihood hypotheses result in lower quality results due to the misalignment between the learned probability model and metric; that is, due to model errors.
+	Our position is that modeling errors are unavoidable (due to e.g., noisy training data, training data that is necessarily a small sample of a huge space, etc.).  By understanding how these modeling errors interact with search we can improve task performance. Note that we do not consider search discrepancies as ``search errors''. The notion of discrepancies is well established in the search literature and limited discrepancy search is meant to deal with ``heuristic mistakes'': decision points in a tree search where the guiding heuristic prefers what is not actually the best option in terms of the final solution quality. We believe that there is a meaningful analogy here: just as a human-designed heuristic is not infallible (e.g. due to a myopic perspective), the learned model is not infallible due to modeling errors. 
+	We are proposing a more nuanced search, based on our analysis and identification of a common phenomenon, to better deal with the modeling error. We note that the previous works on "copies" and training set predictions also addressed these problems using changes in search. Ott et al. (2018) added a pruning constraint to the beam search, while Vinyals et al. (2017) intentionally reduce the beam size to avoid training set predictions. However, these changes were aimed at the narrow phenomena observed (copies and training set predictions) which we generalize.
+	Section 6 discusses the cause for the observed phenomenon, namely a combination of exposure bias and label bias. Our example in Section 4.6 (that is further clarified in our response to AnonReviewer 1) provide a detailed example.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJeT62PxRX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>To further disentangle the effects</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkE8NjCqYm&amp;noteId=HJeT62PxRX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper6 Area Chair1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper6 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">First, thank you for the response and clarification regarding length normalization. I had missed the detail in the paper.
+
+Second, as a suggestion to disentangle the effect of search and model errors, I have a simple suggestion: could you please report the value of the search criterion (in this case, "length normalized model score") for each of the search algorithms? This would help show whether the algorithms you're proposing are actually better search algorithms, or whether they're exploiting some systematic difference between model scores and outputs that give high BLEU scores.
+
+Third, while I focused on length normalization in my previous comment, this is actually a band-aid over the true problem of not optimizing directly for the evaluation score. There are more direct methods to do so (e.g. "sequence level training for recurrent neural networks" by Ranzato et al.), and this made me wonder whether the proposed algorithm would be useful in a situation where the model has been tuned with one of these objectives.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_HyeSeu4jhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting direction, although more work required</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkE8NjCqYm&amp;noteId=HyeSeu4jhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper6 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper6 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper addresses issues with the beam search decoding algorithm that is commonly applied to recurrent models during inference. In particular, the paper investigates why using larger beam widths, resulting in output sequences with higher log-probabilities, often leads to worse performance on evaluation metrics of interest such as BLEU. The paper argues that this effect is related to ‘search discrepancies’ (deviations from greedy choices early in decoding), and proposes a constrained decoding mechanism as a heuristic fix. 
+
+Strengths:
+- The reduction in performance from using larger beam widths has been often reported and needs more investigation.
+- The paper views beam search decoding through the lens of heuristic and combinatorial search, and suggests an interesting connection with methods such as limited discrepancy search (Harvey and Ginsberg 1995) that seek to eliminate early ‘wrong turns’. 
+- In most areas the paper is clear and well-written, although it may help to be more careful about explaining and / or defining terms such as ‘highly non-greedy’, ‘search discrepancies’ in the introduction. 
+
+Weaknesses and suggestions for improvement:
+
+- Understanding: The paper does not offer much in the way of a deeper understanding of search discrepancies. For example, are search discrepancies caused by exposure bias or label bias, i.e. an artifact of local normalization at each time step during training, as suggested in the conclusion? Or are they actually a linguistic phenomenon (noting that English, French and German have common roots)? As there are neural network methods that attempt to do approximate global normalization (e.g. <a href="https://www.aclweb.org/anthology/P16-1231)," target="_blank" rel="nofollow">https://www.aclweb.org/anthology/P16-1231),</a> there may be ways to investigate this question by looking at whether search discrepancies are reduced in these models (although I haven’t looked deeply into this).
+
+- Evaluation: In the empirical evaluation, the results seem quite marginal. Taking the best performing beam size for the proposed method, and comparing the score to the best performing beam size for the baseline, the scores appear to be within around 1% for each task. Although the proposed method allows larger beam widths to be used without degradation during decoding, of course this is not actually beneficial unless the larger beam can improve the score. In the end, the evidence that search discrepancies are the cause of the problems with large beam widths, and therefore the best way to mitigate these problems, is not that strong.
+
+- Evaluation metrics and need for human evals: The limitations of automatic linguistic evaluations such as BLEU are well known. For image captioning, the SPICE (ECCV 2016 https://arxiv.org/abs/1607.08822) and CIDEr (CVPR 2015 https://arxiv.org/abs/1411.5726) metrics show much greater correlation with human judgements of caption quality, and should be reported in preference (or in addition) to BLEU. More generally, it is quite possible that the proposed fix based on constraining discrepancies could improve the generated output in the eyes of humans, even if this is not strongly reflected in automatic evaluation metrics. Therefore, it would be interesting to see human evaluations for the generated outputs in each task.  
+
+- Rare words: The authors reference Koehn and Knowles’ (2017) six challenges for NMT, which includes beam search decoding. One of the other six challenges is low-frequency words. However, the impact of the proposed constrained decoding approach on the generation of rare words is not explored. It seems reasonable that limiting search discrepancies might also further limit the generation of rare words. Therefore, I would like to suggest that an analysis of the diversity of the generated outputs for each approach be included in the evaluation.
+
+- Constrained beam search: There is a bunch of prior work on constrained beam search. For example, an algorithm called constrained beam search was introduced at EMNLP 2017 (http://aclweb.org/anthology/D17-1098). This is a general algorithm for decoding RNNs with constraints defined by a finite state acceptor. Other works have also been proposed that are variations on this idea, e.g. http://aclweb.org/anthology/P17-1141, http://aclweb.org/anthology/N18-1119). It might be helpful to identify these in the related work section to help limit confusion when talking about this ‘constrained beam search’ algorithm.  
+
+Minor issues:
+- Section 3. The image captioning splits used by Xu et al. 2015 were actually first proposed by Karpathy &amp; Li, ‘Deep visual-semantic alignments for generating image descriptions’, CVPR 2015, and should be cited as such. (Some papers actually refer to them as the ‘Karpathy splits’.)
+- In Table 4 it is somewhat difficult to interpret the comparison between the baseline results and the constrained beam search methods, because the best results appear in different columns. Bolding the highest score in every row would be helpful.
+
+Summary:
+In summary, improving beam search is an important direction, and to the best of my knowledge the idea of looking at beam search through the lens of search discrepancies is novel. Having said, I don't feel that this paper in it's current form contributes very much to our understanding of RNN decoding, since it is not clear if search discrepancies are actually a problem. Limiting search discrepancies during decoding has minimal impact on BLEU scores, and it seems possible that search discrepancies could just be an aspect of linguistic structure. I rate this paper marginally below acceptance, although I would encourage the authors to keep working in this direction and have tried to provide some suggestions for improvement.   </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1leOha4aQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Addressing the reviewer concerns</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkE8NjCqYm&amp;noteId=S1leOha4aQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper6 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper6 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your detailed review. We will incorporate your comments and suggestions in the final version of the paper.
+
+We would like to address the reviewer concerns:
+
+- Understanding the discrepancy phenomenon and applicability to languages significantly different from English:
+We believe that the search discrepancies occur due to the combination of exposure and label bias as explained in our discussion. We provide a concrete example in Section 4.6 (see our response for AnonReviewer 1 for a detailed explanation of this example).
+    The reviewer raises a potential concern that the discrepancy phenomenon is actually a linguistic phenomenon associated with English or similar languages. We therefore perform an experiment of generating translations in a language that is significantly different than English: Chinese. We train and evaluate the convolutional translation model by Gehring et al. (2017) on the WMT'17 En-Zh dataset. We performed the analysis in the paper on this dataset and found similar trends (results follow). Specifically:
+	* The dataset exhibits significant performance degradation for large beam width
+	* Our analysis of the frequency and size of the early discrepancies and the comparison between improved vs. degraded sequences yielded similar trends to the other languages
+	* We used a gap-constrained beam search, tuned on a held-out validation set, and successfully eliminated the performance degradation. We will have results on the rank constraint soon.
+
+The results for the baseline vs. the discrepancy-constrained beam search are described in the following table:
+
+|    Dataset     |   Method    |    Threshold    |  B=1  |  B=3  |  B=5  | B=25  | B=100 | B=250 |
+
+| En-Zh (BLEU-4) | Baseline    |                 | 15.20 | 17.47 | 17.68 | 16.48 |  9.44 |  6.28 |
+| En-Zh (BLEU-4) | Constr. Gap | \mathcal{M}=1.0 | 15.20 | 15.49 | 17.71 | 17.73 | 17.79 | 17.83 |
+
+
+- Evaluation metrics and need for human evals:
+Our work is done from a search perspective and is focused on analyzing, explaining, and eliminating the performance degradation in beam search with respect to a given evaluation metric. Previous work reporting the performance degradation are also based only on automatic evaluation.
+    The reviewer raises a potential concern regarding using BLEU-4 to evaluate image captioning, as there are indication that CIDEr and SPICE are better correlated with human judgment. We therefore present results for these two metrics on the image captioning dataset (COCO). Our analysis finds similar results to the ones found for BLEU-4:
+	* There is a significant performance degradation for the image captioning tasks, with respect to both CIDEr and SPICE
+	* We used a gap-constrained beam search, tuned on a held-out validation set, and significantly reduced (and almost eliminated) the performance degradation.
+
+The results for the baseline vs. the discrepancy-constrained beam search are described in the following table:
+
+|   Dataset    |   Method    |    Threshold     |  B=1  |  B=3  |  B=5  | B=25  | B=100 | B=250 |
+
+| COCO (CIDEr) | Baseline    |                  | 0.974 | 1.018 | 1.005 | 0.953 | 0.946 | 0.945 |
+| COCO (CIDEr) | Constr. Gap | \mathcal{M}=0.4  | 0.974 | 1.016 | 1.018 | 1.016 | 1.016 | 1.016 |
+| COCO (SPICE) | Baseline    |                  | 18.13 | 18.54 | 18.43 | 17.76 | 17.68 | 17.64 |
+| COCO (SPICE) | Constr. Gap | \mathcal{M}=0.45 | 18.13 | 18.41 | 18.44 | 18.43 | 18.43 | 18.43 |
+
+- Rare words:
+	* One main problem with rare words is the limited size of vocabulary (Koehn and Knowles, 2017). We do not change the vocabulary size. In fact, our machine translation model is using BPE (Sennrich et al., 2016) to allow translation of rare words using subword units.
+	* Regarding the frequency of rare words that are in the vocabulary, we are definitely reducing the frequency of such rare words compared to the large beams of the baseline: for example, "copies" are all sequences of rare words that we eliminate. However, we analyzed the occurrence of rare words that are also in the reference for En-De translation and found no significant difference between the baseline and our algorithm in that respect. Note that the baseline itself poorly represents rare words that are indeed in the reference.
+	* For image captioning and summarization, the related problem of novel captions/summaries vs. ones from the training set is thoroughly discussed in the paper (see Section 4.5 and Appendix B).
+
+- Constrained beam search:
+Thanks for pointing that out. We are familiar with these works but did not include them as they are not directly related (they are addressing different problems such as forcing the inclusion of a selected token in the sequence). However, we agree with the reviewer that mentioning these works in the related work section will help reduce confusion with other constrained variants of beam search. We will add these to the related work section.
+
+Please let us know if you have further questions.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1lH_kUq2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>it is not right to do analysis on test set.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkE8NjCqYm&amp;noteId=S1lH_kUq2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper6 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper6 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+This work does extensive experiments on three different text generation tasks and shows the relationship between wider beam degradation and more and larger early discrepancies. This is an interesting observation but the reason behind the scene are still unclear to me. A lot of the statements in the paper lack of theoretical analysis. 
+
+The proposed solutions addressing the beam discrepancies are effective, which further proves the relationship between beam size and early discrepancies. My questions/suggestions are as follows:
+* It’s better to show the dataset statistics along with Fig1,3. So that readers know how much of test set have discrepancies in early steps.
+* It is not right to conduct your analysis on the test set. You have to be very clear about which results are from test set or dev set.
+* All the results with BLEU score must include the brevity penalty as well. It is very useful to analyze the length ratio changes between baseline, other methods, and your proposal.
+* The example in Sec. 4.6 is unclear to me, maybe you could illustrate it more clearly.
+* Your approaches eliminate the discrepancies along with the diversity with a wider beam. I am curious what if you only apply those constraints on early steps.
+* I suggest comparing your proposal to the word reward model in [1] since it is also about improving beam search quality. Your threshold-based method is also kind of word reward method.
+* In eq.2, what do you mean by sequence y \in V? y is a sequence, V just a set of vocabulary.  What do you mean by P (y|x;{y_0..y_t}). Why the whole sequence y is conditioned on a prefix of y?
+
+[1] Huang et al, "When to Finish? Optimal Beam Search for Neural Text Generation" 2017</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkevCeCNp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Our algorithms are tuned on a held-out dev set (part 2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkE8NjCqYm&amp;noteId=BkevCeCNp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper6 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper6 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">(This is part 2 of our response)
+
+- Example in Section 4.6:
+In Section 4.6 we consider one case of training set prediction and explain how it exhibits our analysis on the search discrepancies. For the Gigaword dataset, we found that increasing the beam width leads to more predictions of "&lt;weekday&gt;'s sports scoreboard" that are all evaluated poorly against their reference (note that for lower beam widths we do not observe such predictions at all).
+   Our analysis in Section 4 explains that increasing the beam width can lead to large search discrepancies that are being selected since they are followed by a sequence of high (conditional) probability tokens that yield overall higher probability.
+    In Section 4.6 we present evidence that this scenario explains the increasing frequency of this (incorrect) summary:
+	* The first token, &lt;weekday&gt;, has a relatively low probability (an average a discrepancy gap of 3.63 vs. a first token discrepancy gap average of 0.39 across the dataset).
+	* In order for a sequence with such a low-probability first token to be chosen the most likely, the rest of tokens are significantly higher. The reason is that the training set has 2971 instances of "&lt;weekday&gt;'s sports scoreboard" as a target. This makes the "sports" and then "scoreboard" very likely, conditioned on the prefix. Due to this exposure bias in the training set and the fact that probabilities are locally normalized to 1 (label bias), these consecutive tokens of the low-probability first one end up "contributing" much more to the overall probability compared to consecutive tokens for the higher probability first token, leading this (incorrect) summary to be the most likely one.
+	* For lower beam width, this first low-probability token would not have been considered as it would not be one of the top B.
+
+
+- Applying the constraints on early steps only:
+Thanks for the interesting question. We have performed an initial analysis of the result when only constraining the early positions. While it is still beneficial to do it, it seems that it might not be enough to mitigate the performance degradation as new discrepancies will appear in the positions following the ones that are constrained (can be thought of "early" positions after the constrained ones).
+    A thorough analysis requires more time. We will do the analysis by the end of the review period and if accepted, we will include it as an appendix in the final version of the paper.
+
+
+- Comparison to Huang et al.: 
+Our work is focused on the analyzing and eliminating the problem of performance degradation in large beam width. The problem addressed by Huang et al. is when to stop searching for new hypotheses when we already have completed hypotheses. Specifically, their work does not deal with large beam widths (up to 20 in their work) and as a result they do not observe a performance degradation. Trying to implement our constraints into other beam search algorithms (such as Huang et al.'s) is a direction for future work.
+
+
+- Clarifying eq.2:
+The $y$ inside is meant to be a token rather than a sequence (which we denote $\ry$; we mistakenly refer to it as $y$ in the line before the equation), and the equation simply means that the conditional probability of token y_t in the generated sequence is smaller than the conditional probability of the token with the highest conditional probability. We understand that the current notation is a bit confusing and we will revise it to make it clear.
+
+
+Please let us know if you have further questions. We also ask the reviewer to see the new results we report in the response to AnonReviewer3 on Chinese translation (that shows the applicability of our analysis to languages that are significantly different from English) and the success of our methods with respect to two alternative evaluation metrics in image captioning.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HygNil0Vpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Our algorithms are tuned on a held-out dev set (part 1)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkE8NjCqYm&amp;noteId=HygNil0Vpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper6 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper6 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your review. We will incorporate your comments and suggestions in the final version of the paper.
+
+We would like to address the reviewer questions and concerns:
+
+- The use of test set in our analysis:
+While the empirical results in Section 4 are on the test set, our algorithms (discrepancy-constrained beam search variants) are tuned only on a dev set (with *no* information from the test set analysis). The reason why we present the empirical analysis in Section 4 on the test set is that we are focused on explaining the performance degradation that was previously reported on the test set. This analysis only provides a better understanding of the what is going on: no information from that analysis is later used in our algorithmic improvements. We did perform a similar analysis on the dev set and observed similar trends, however we thought presenting the test set is consistent with the previously reported results.
+   In Section 5, we propose two discrepancy-constrained variants of beam search. In order to tune these $\mathcal{M}$ and $\mathcal{N}$ that control the constraints, we used a held-out validation set, and then evaluated the performance on the test set (we also repeat our analysis of search discrepancy and it can be compared to the one in Section 4). Again, we would like to stress that no information from the test set were used to tune the algorithms (if the phenomenon did not occur on the dev set, the tuning would not yield useful values that will eliminate the performance degradation in the test set). We agree with the reviewer that this was not completely clear in the paper and we will clarify it in our final version.
+
+- Length ratio changes:
+We specifically addressed the topic of length ratio changes in Appendix D, to demonstrate that the performance degradation on the baseline is not due to significant bias in length. Since the reviewer asked about the length ratio changes in our algorithms as well, we provide an updated table that also includes our discrepancy-constrained algorithms. Note that this is not the brevity term but it shows whether the length of the prediction has changed between the different beam widths and when comparing the baseline to our algorithms (and allows us to analyze other metrics that are not BLEU). 
+   The table below includes the average length relative to the average length of the top performing baseline configuration (marked with *). As we state in Appendix D, the performance degradation in the baseline is not due to significant change in the length ratio. We can also see that our algorithm keeps nearly the same length ratio across the different beam widths (and is even marginally more stable than the baseline).
+
+
++----------+--------------+------+-------+-------+------+-------+-------+
+| Dataset  |  Algorithm   | B=1  |  B=3  |  B=5  | B=25 | B=100 | B=250 |
++----------+--------------+------+-------+-------+------+-------+-------+
+| En-De    | Baseline     | 0.99 | 1.00  | 1.00* | 1.00 |  0.99 |  0.98 |
+| En-De    | Constr. Gap  | 0.99 | 1.00  | 1.00  | 1.00 |  1.00 |  1.00 |
+| En-De    | Constr. Rank | 0.99 | 1.00  | 1.00  | 1.00 |  1.00 |  0.99 |
++----------+--------------+------+-------+-------+------+-------+-------+
+| En-Fr    | Baseline     | 0.99 | 1.00  | 1.00* | 1.00 |  0.99 |  0.91 |
+| En-Fr    | Constr. Gap  | 0.99 | 1.00  | 1.00  | 1.00 |  1.00 |  0.99 |
+| En-Fr    | Constr. Rank | 0.99 | 1.00  | 1.00  | 1.00 |  1.00 |  1.00 |
++----------+--------------+------+-------+-------+------+-------+-------+
+| Gigaword | Baseline     | 1.03 | 1.00* | 0.99  | 0.99 |  1.00 |  1.01 |
+| Gigaword | Constr. Gap  | 1.03 | 0.99  | 0.99  | 0.99 |  0.99 |  0.99 |
+| Gigaword | Constr. Rank | 1.03 | 1.00  | 0.99  | 0.99 |  0.99 |  0.99 |
++----------+--------------+------+-------+-------+------+-------+-------+
+| COCO     | Baseline     | 1.04 | 1.00* | 0.99  | 0.98 |  0.98 |  0.98 |
+| COCO     | Constr. Gap  | 1.04 | 1.00  | 0.99  | 0.99 |  0.99 |  0.99 |
+| COCO     | Constr. Rank | 1.04 | 1.00  | 0.99  | 0.99 |  0.99 |  0.99 |
++----------+--------------+------+-------+-------+------+-------+-------+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1gTFivu3m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A thorough analysis of (and two heuristic solutions to) the failures of beam search when applied to modern neural models</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkE8NjCqYm&amp;noteId=S1gTFivu3m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper6 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper6 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Pros:
+- The paper generalizes upon past observations by Ott et al. that NMT models might decode "copies" (of the source sentence) when using large beam widths, which results in degraded results. In particular, the present paper observes similar shortcomings in two additional tasks (summarization and captioning), where decoding with large beam widths results in "training set predictions." It's unclear if this observation is novel, but in any case the connection between these observations across NMT and summarization/captioning tasks is novel.
+- The paper draws a connection between the observed degradation and "label bias", whereby prefixes with a low likelihood are selected merely because they lead to (nearly-)deterministic transitions later in decoding.
+- The paper suggests two simple heuristics for mitigating the observed degradation with large beam widths, and evaluates these heuristics across three tasks. The results are convincing.
+- The paper is very well written. The analysis throughout the paper is easy to follow and convincing.
+
+Cons:
+- Although the analysis is very valuable, the quantitive impact of the proposed heuristics is relatively minor.
+
+Comments/questions:
+- In Eq. 2, consider using $v$ or $w$ for the max instead of overloading $y$.
+- To save space, you might compress Figure 1 into a single figure with three differently-styled bars per position that indicate the beam width (somewhat like how Figure 3 is presented). You can do this for Figure 2 as well, and these compressed figures could then be collapsed into a single row.
+- In Section 5, when describing the "Discrepancy gap" constraint, you say that you "modify Eq. 3 to include the constraint", but I suspect you meant that you modify Eq. 1 to include this constraint.
+- In Table 4, why didn't you tune $\mathcal{M}$ and $\mathcal{N}$ separately for each beam width?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkllHKTV6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BkE8NjCqYm&amp;noteId=BkllHKTV6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper6 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper6 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the review for the review and the comments. We will incorporate your comments and suggestions in the final version of the paper.
+
+Regarding the concern about the minor empirical improvement:
+This work is focused on studying the previously reported search phenomenon of performance degradation in beam search with large beams. We believe understanding search-related phenomena provides deeper insight into the neural decoding process and can help design better search algorithms. Our proposed variants of discrepancy-constrained beam search are meant to "fix" the performance based on our analysis, and the success in doing so validates our analysis (together with our analysis of search discrepancies on the results of the discrepancy-constrained beam search). As such, we did not expect our methods to significantly outperform the best beam width but to eliminate the effect of the beam degradation and validate our analysis of the performance degradation phenomenon.
+
+Regarding your questions:
+- You are correct about the mistake in Section 5: we do mean "modify Eq. 1" instead of "modify Eq. 3". We will fix it.
+
+- We can definitely tune a different $\mathcal{M}$ and $\mathcal{N}$ for each beam width and we expect it to provide further improvement, however we preferred to show the robustness of a relatively simple tuning in effectively eliminating the performance degradation (this is why we are also interested in the easier-to-tune rank constraint). This is, again, consistent with our motivation stated above of studying the performance degradation, explaining this phenomenon, and mitigating it.
+
+Please let us know if you have further questions. We also ask the reviewer to see the new results we report in the response to AnonReviewer3 on Chinese translation (that shows the applicability of our analysis to languages that are significantly different than English) and the success of our methods with respect to two alternative evaluation metrics in image captioning.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

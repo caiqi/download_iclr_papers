@@ -1,0 +1,290 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DANA: Scalable Out-of-the-box Distributed ASGD Without Retuning | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="DANA: Scalable Out-of-the-box Distributed ASGD Without Retuning" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SkGQujR5FX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="DANA: Scalable Out-of-the-box Distributed ASGD Without Retuning" />
+      <meta name="og:description" content="Distributed computing can significantly reduce the training time of neural networks. Despite its potential, however, distributed training has not been widely adopted: scaling the training process..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SkGQujR5FX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>DANA: Scalable Out-of-the-box Distributed ASGD Without Retuning</a> <a class="note_content_pdf" href="/pdf?id=SkGQujR5FX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019dana:,    &#10;title={DANA: Scalable Out-of-the-box Distributed ASGD Without Retuning},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SkGQujR5FX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Distributed computing can significantly reduce the training time of neural networks. Despite its potential, however, distributed training has not been widely adopted: scaling the training process is difficult, and existing SGD methods require substantial tuning of hyperparameters and learning schedules to achieve sufficient accuracy when increasing the number of workers. In practice, such tuning can be prohibitively expensive given the huge number of potential hyperparameter configurations and the effort required to test each one.
+    
+We propose DANA, a novel approach that scales out-of-the-box to large clusters using the same hyperparameters and learning schedule optimized for training on a single worker, while maintaining similar final accuracy without additional overhead. DANA estimates the future value of model parameters by adapting Nesterov Accelerated Gradient to a distributed setting, and so mitigates the effect of gradient staleness, one of the main difficulties in scaling SGD to more workers.
+
+Evaluation on three state-of-the-art network architectures and three datasets shows that DANA scales as well as or better than existing work without having to tune any hyperparameters or tweak the learning schedule. For example, DANA achieves 75.73% accuracy on ImageNet when training ResNet-50 with 16 workers, similar to the non-distributed baseline.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">distributed, asynchronous, gradient staleness, nesterov, optimization, out-of-the-box, stochastic gradient descent, sgd, imagenet, distributed training, neural networks, deep learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">A new distributed asynchronous SGD algorithm that achieves state-of-the-art accuracy on existing architectures without any additional tuning or overhead.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">10 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HJxD0Jmu6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>1st reply to all reviewers</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=HJxD0Jmu6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper342 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper342 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the anonymous reviewers for their insightful and helpful reviews. Below we address their main concerns and detail the changes we are making in response. To make discussion easier, we have grouped our replies based on common or main points raised in the reviews. We will also answer smaller, specific points in the response to each reviewer.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJgkF-mdam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply 1.1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=SJgkF-mdam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper342 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper342 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">A common criticism was our use of block-random scheduling, which was deemed limited: it does not simulate variability in task completion time nor stragglers. We concur with the reviewers, and are now adding experiments with much more detailed simulations.
+
+The new simulations will be based on well-documented research into modeling task execution times [Ali et al., 2000]. We will repeat the experiment with the execution time for each individual batch drawn from a Gamma distribution. The Gamma distribution is a well-accepted model for task execution time, and gives rise to stragglers naturally. Our simulation will use the formulation proposed by [Ali et al., 2000] and set V=0.1 and mu=1.28  (yielding a mean execution time of 128 simulated time units, although given this is a simulation, the exact numbers do not matter).
+
+[Ali et al, 2000]: Shoukat Ali, Howard Jay Siegel, Muthucumaru Maheswaran, and Debra Hensgen. "Task execution time modeling for heterogeneous computing systems." HCW 2000.
+
+We will be happy to consider alternative approaches to simulation proposed by the reviewers.
+
+Beyond the new simulations, it is important to note that the paper does show DANA works well with real schedules. As discussed in Section 5.2, we implemented DANA on a real distributed system and its convergence in real runs in the cloud (where scheduling is natural, and we have no control over it) matched the simulated run. We agree we should do more (and are doing so), but even in the current state the reader can still have some confidence that DANA works well with realistic scheduling. Moreover, while the variability in batch completion times may affect DANA, it will of course also substantially affect ASGD and the other algorithms.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Skxqr-7OaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply 1.2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=Skxqr-7OaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper342 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper342 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Several reviewers correctly remarked that we do not show advantage beyond 32 workers.
+
+While this is true on CIFAR due to its small size (perhaps it would be more fair to say no algorithm achieves state-of-the-art accuracy with 32 workers on CIFAR), DANA can in fact converge on much more workers and to a much better accuracy than ASGD. We are now adding experiments on ImageNet with more workers -- where even at 16 workers, ASGD and SSGD already show poor convergence (Table 2). Note that even if DANA’s improvement had been limited to 16-32 workers, it is still a substantial improvement on the previous state of the art (DC-ASGD shows convergence with 8-16 workers, and we are not aware of any work that goes beyond that on CIFAR).
+
+We wish to stress DANA’s most important improvement over state-of-the-art is qualitative rather than quantitative: DANA removes the need for tuning, while other state-of-the-art algorithms rely on tuning to converge to good results. Our goal is not only to train networks faster on more workers, but to achieve good results without any tuning. Thus, the pure focus on the number of workers ("algorithm A trains on more workers than algorithm B") somewhat misses the mark. A fair quantitative comparison would need to cover the cost of tuning as well as training, but this information is seldom included in the relevant papers -- tuning is seen as either a necessity or something that one gets for free.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1gf7bQ_a7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply 1.3 </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=B1gf7bQ_a7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper342 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper342 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We respectfully disagree with reviewer #2 that "tuning of learning rate as a hyperparameter is required anyway, and keeping training synchronous doesn't really change that. The only issue is if one often changes the number of workers for training, which isn't typical.”
+
+Useful models are rarely trained once. They must occasionally be retrained down the line, for example to incorporate more recent data, or we wouldn't care about training time. The number of available workers for this retraining can change for many reasons: shared environments, limited resources, equipment malfunction, and budget increase ("we have more machines we want to use"), availability of compute servers on a public cloud, and more. Having to retune for SSGD would make this rather common case much more time consuming.
+
+Other advantages for avoiding tuning is reproducibility ("I want to be able to get the same result as someone else despite not having as many GPUS"), as well as flexibility in choosing a different infrastructure ("I want to use 20 weak GPUs instead of 4 TPUs without having to retune parameters").
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Bygk1-QOTm" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=Bygk1-QOTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper342 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJedVxQuam" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=HJedVxQuam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper342 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rye5N_bah7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Incremental improvement to ASGD approaches at mid-size scaling</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=rye5N_bah7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper342 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper342 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Paper offers an improvement to existing approaches using momentum with SGD for asynchronous training across a distributed worker pool. The key value in the proposal seems to be that it works "out-of-the-box" and requires no new parameters to be tuned, while delivering similar final accuracy as other distributed methods.
+
+The authors begin with an explanation of ASGD training, why it doesn't scale - worker lags that lead to gap in parameter that gradients are computed on (worker parameters) vs parameters applied (master parameters). It also discusses the kind of momentum approaches that are in use today and how it helps and hurts. 
+
+The new proposal in this paper is DANA that builds on Nesterov Momentum to reduce the lag between these two sets of parameters by predicting the parameters that should be used for computing gradients at each worker.
+
+Pros:
+- A key issue with most optimization methods is the number of hyperparameters to tune. DANA is "out-of-the-box" in that it doesn't introduce any new hyperparameters thus making it easy to scale the training of any model.
+
+Cons:
+- The sweetspot for DANA seems to be between 8-24 workers. In practice these days it is pretty easy to run synchronous SGD for these sizes with a setup of 8 GPUs per machine with a few machines. The tuning of learning rate as a hyperparameter is required anyway, and keeping training synchronous doesn't really change that. The only issue is if one often changes number of workers for training, which isn't typical.
+- ASGD is useful for a larger number of workers as it is harder to train with SSGD for those because of the additional synchronization overhead. That is one area though where DANA starts to have worse behavior than other ASGD approaches.
+
+Comments:
+- Paper assumes block-random scheduling for simulation, however in practice it is quite common to have a few workers that are consistently slower. How does this kind of bias effect their methods?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1lcLmmdaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to AnonReviewer2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=S1lcLmmdaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper342 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper342 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank Reviewer 2 for their detailed comments. Please see our other replies that address block-random scheduling order, using more than 32 workers, and the comparison to SSGD. Here we address smaller, specific comments.
+ 
+1) There appears to be a misconception that a single worker must be a single GPU, and therefore it is "pretty easy to run synchronous SGD for these sizes with a setup of 8 GPUs per machine with a few machines". Putting aside the cost effectiveness of such a setup, DANA, like all ASGD algorithms, treats this as a case with 3 workers, where each worker performs SSGD internally on 8 GPUs (which is transparent to the ASGD algorithm). If 8-GPU machines are so easily available, DANA can actually train on ImageNet with (for example) 32 workers with 8 GPUs each (we again stress that the 32 worker number is not the limit of DANA, and we are adding new experiments on ImageNet to show this). We will try to make this clearer in the paper.
+
+Please see our main replies about the viability of DANA compared to SSGD, and the importance of scaling without tuning.
+
+2) "ASGD is useful for a larger number of workers … That is one area though where DANA starts to have worse behavior than other ASGD approaches."
+
+We stress this is only true for CIFAR, a dataset too small for 32 workers: no distributed algorithm that we are aware of achieves good accuracy with so many workers. Our ImageNet results (Table 2) show that DANA is substantially better than other ASGD and SSGD approaches with 32 workers. We are now adding more workers for ImageNet to demonstrate this point.
+
+Please see full discussion in our main reply.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_B1xCQE3KhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>In general, a good paper addressing an important issue with distributed deep learning training, i.e., the gradient staleness vs parallel performance (speedup).</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=B1xCQE3KhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper342 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper342 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper addresses an important problem in distributed training of deep learning models, i.e., the gradient staleness vs the parallel performance. Keeping the gradient up-to-date in distributed training is important in order to achieve a low test error and high accuracy, but that comes at a cost: the overhead of more communication and synchronization. Asynchronous methods to update the gradient have been proposed, but they usually suffer from staleness, i.e., the communication latency between the master and the slaves impacts the accuracy and training time since the accumulated gradient already is "old" in relation to the model parameters when distributed to the slaves. 
+
+The paper proposes an approach to estimate the future model parameters at the slaves using Bengio-Nesterov momentum, thus reducing the effects of the communication latency (the gap) between the master and the slaves when collecting and distributing the gradient. The novelty is mainly on the application and implementation side of the spectrum, and not so much theoretical novelty. The contribution is relatively incremental, but important and clear. Reducing training times with maintained accuracy is an important practical problem, and we need all kinds of measures to address that.
+
+The evaluation seems solid and the results are very promising. The comparison is done with relevant "competitors" (e.g., both synchronous and asynchronous approaches for distributed training). However, since the goal of distributed learning is improved execution performance, I would have liked to see more performance numbers. 
+
+Minor:
+* Page 7, top paragraph. It's written that Table 2 shows that DANA easily scales to 32 workers. That information is not shown in Table 2... You don'r show any execution time / speedup numbers at all for ImageNet input. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJxRtzQ_a7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to AnonReviewer1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=SJxRtzQ_a7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper342 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper342 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank Reviewer 1 for their encouraging review.
+
+DANA runtime performance and speed-up are no different from standard ASGD -- DANA simply provides better final accuracy. Because ASGD performance is well-known, we did not consider performance data particularly useful for readers. We do show speedup and accuracy on a real distributed system for CIFAR-10 to drive home the point that there are no hidden surprises there (for example, the bottleneck at the master is expected and mitigations are discussed in Section 5.2).
+
+Now that we see there is an interest, we are working to provide additional speed-up and other numbers for ImageNet, and hope they will be ready in time for the deadline. Moreover, the new detailed simulation we propose (see top reply) does model runtime explicitly, and should at least allow us to show the theoretical speedups.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_Bylab3SKh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea, but evaluation constraints are limiting</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=Bylab3SKh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper342 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper342 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value"># overview
+In this work, Nesterov Accelerated gradient based updates are applied in a distributed fashion to scale SGD based training to multiple nodes without the introduction of further hyperparameters or having to adapt the learning rate schedule from that of single node training on the same data.
+
+Evaluation is carried out on image classification workloads using ResNet model variants across CIFAR10,100, and ImageNet datasets, utilizing from 8-32 nodes. In contrasting test error relative to single node performance, the authors find their method degrades less than other synchronous and asynchronous SGD based approaches as node count increases.
+
+Overall, this work is presented in a fairly clear and logical manner, and the writing is easy to follow.  However the approach described appears to be contingent on very specific worker communication patterns and timing which seem unrealistic for real-world settings (namely that each worker sends exactly one update per N sized block received).  Extrapolating from the curvature of the results shown it doesn't appear that DANA would continue to outperform other methods like ASGD once the worker count scales beyond the 32 node limit evaluated.
+
+# pros
+* no additional hyperparameter tuning required
+* should be easy to drop into existing asynchronous SGD implementations, just need to modify the worker side.
+* does appear to scale slightly better from an accuracy perspective in 16-32 node counts
+
+# cons
+* Biggest criticism is the assumption of block random or round-robin worker update scheduling. Presuming each worker will update master exactly once to determine future parameter position is far from realistic on real hardware (varying capacity, performance, system loads, dealing with stragglers) and should probably be considered a synchronous not asynchronous update.
+* only evaluated on image classification tasks on cifar10, cifar100, imagenet on resnet-20 and resnet-50. Would have been better to evaluate on a more varied set of tasks/models/datasets
+
+# other comments
+* Figure 2 baseline performance reported is a bit misleading/confusing since it was only evaluated on a single worker. Would suggest restricting to a single point rather than some extrapolated line that seems to indicate being run on multiple-workers.
+* Figure 3 should should also show multi-node speedups for the other methods compared for completeness. 
+* Section 5.2 should report on percentage scaling efficiency rather than using speedup as it doesn't normalize for worker count.  For instance 16x could be interpreted as good or poor if it was achieved using 16 vs 160 nodes.
+* Section 5.2 there's a small typo: GPUs -&gt; GPU
+* Consider <a href="https://arxiv.org/abs/1705.07176" target="_blank" rel="nofollow">https://arxiv.org/abs/1705.07176</a> in related work?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1e2BMQOpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to AnonReviewer3 </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkGQujR5FX&amp;noteId=S1e2BMQOpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper342 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper342 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank Reviewer 3 for their comments and suggestions. Here we address smaller, specific comments. Please see our other replies that address scheduling order and using more than 32 workers.
+
+1) "Extrapolating from the curvature of the results shown it doesn't appear that DANA would continue to outperform other methods like ASGD once the worker count scales beyond the 32 node limit evaluated."
+
+This is only true for CIFAR results. CIFAR is a small dataset, and when distributed to so many workers each worker only gets very few batches. We are not aware of any distributed algorithm that achieves good accuracy with so many workers. For ImageNet, DANA scales much better than ASGD on 16 and 32 workers (Table 2), and we are now adding more workers (please see full discussion in our main reply).
+
+2) "Section 5.2 should report on percentage scaling efficiency rather than using speedup as it doesn't normalize for worker count. For instance, 16x could be interpreted as good or poor if it was achieved using 16 vs 160 nodes."
+
+The X axis for the relevant Figure 3 shows the number of workers. We will add the necessary information to the body text.
+
+3) "Only evaluated on image classification tasks on cifar10, cifar100, imagenet on resnet-20 and resnet-50."
+
+We did use several datasets and network architectures, but on reflection we agree with the reviewer that we may have focused too much on image classification. This was mostly because there are accepted, well-specified, easy-to-replicate benchmarks in that space. We are exploring more options, but given the time constraints and the other important experiments, we cannot guarantee to do so. We do note that nothing in DANA specifically targets any particular architecture or task.
+
+4) We thank the reviewer for the additional reference. We note that this reference discusses convex objective functions only, while DNN training is not convex in the parameters of the network.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

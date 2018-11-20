@@ -1,0 +1,273 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Toward Understanding the Impact of Staleness in Distributed Machine Learning | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Toward Understanding the Impact of Staleness in Distributed Machine Learning" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=BylQV305YQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Toward Understanding the Impact of Staleness in Distributed Machine..." />
+      <meta name="og:description" content="Most distributed machine learning (ML) systems store a copy of the model parameters locally on each machine to minimize network communication. In practice, in order to reduce synchronization..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_BylQV305YQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Toward Understanding the Impact of Staleness in Distributed Machine Learning</a> <a class="note_content_pdf" href="/pdf?id=BylQV305YQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019toward,    &#10;title={Toward Understanding the Impact of Staleness in Distributed Machine Learning},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=BylQV305YQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=BylQV305YQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Most distributed machine learning (ML) systems store a copy of the model parameters locally on each machine to minimize network communication. In practice, in order to reduce synchronization waiting time, these copies of the model are not necessarily updated in lock-steps, and can become stale. Despite much development in large-scale ML, the effect of staleness on the learning efficiency is inconclusive, mainly because it is challenging to control or monitor the staleness in complex distributed environments. In this work, we study the convergence behaviors of a wide array of ML models and algorithms under delayed updates. Our extensive experiments reveal the rich diversity of the effects of staleness on the convergence of ML algorithms, and offer insights into seemingly contradictory reports in the literature. The empirical findings also inspire a new convergence analysis of SGD in non-convex optimization under staleness, matching the best known convergence rate of O(1/\sqrt{T}).</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Empirical and theoretical study of the effects of staleness in non-synchronous execution on machine learning algorithms.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rJgnEvDxCX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revision Summary</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BylQV305YQ&amp;noteId=rJgnEvDxCX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1436 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1436 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank all the reviewers for giving valuable feedback to this paper. We have revised the manuscript to incorporate the suggestions from the comments.
+
+We highlight the following revisions:
+- We have provided additional discussion and references to recent works presenting empirical evidence consistent with our assumption for Theorem 1.
+- We have redone experiments in Fig. 2 with hyperparameter tuning and updated the writing accordingly.
+- We have included a brief discussion on how Theorem 1 relates model complexity to the larger slowdown from staleness observed in our experiments. 
+- We have included reference to [1] which uses the sufficient direction assumption that shares resemblance to our Definition 1 but differs in certain key aspects. 
+- We have made further clarifications throughout the manuscript based on reviewers’ comments. 
+
+[1] Huo and et al. Training Neural Networks Using Features Replay. To appear in NIPS 2018.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1e0R75T2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The paper addresses asynchronous optimization with a focus on staleness effect. A strong hypothesis is made on the path followed by the optimization walk and concerns should be raised with the hyperparameters in the empirical validation.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BylQV305YQ&amp;noteId=B1e0R75T2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1436 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1436 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The papers addresses the important issue with asynchronous SGD: stale gradients.
+
+Convergence is proven under an assumption on the path followed by the optimization walk. Namely, gradient are assumed to be all pointing to the close directions along the walk. My major concern is that this is a strong (if not completely wrong) hypothesis in the practical case of deep learning, with high dimensional models and totally non-convex loss functions (see e.g. 
+Choromanska et al. 2014).
+
+The paper illustrates empirically the convergence claims, but only under fixed hyper-parameters, which completely illustrates the recent concerns about the reproducibility crisis in ML.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryeUVuDg0Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BylQV305YQ&amp;noteId=ryeUVuDg0Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1436 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1436 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the comments. Our goals in this work are threefold: (1) Through systematic experiments, we explicitly observe staleness and its impact, for the first time to our knowledge, on 12 key models and algorithms. (2) We introduce gradient coherence (GC), which is related to the impact of staleness for gradient-based optimization. GC can be evaluated in real time during the course of convergence, with minimal overhead, and may be used by practitioners to control delays in the system. (3) Based on GC, we provide a convergence analysis of SGD in non-convex optimization under staleness. With such a broad scope, there is inevitably areas for improvements. We hope that the reviewer will consider the contributions towards making distributed ML more robust under non-synchronous execution as we address the comments:
+
+Regarding the reviewer’s first comment, we would like to clarify that our Definition 1 *does not* require all the gradients to point to close directions along the optimization path. Instead, it only requires the gradients to be positively correlated over a small number of iterations s, which is often very small (e.g. &lt;10 in our experiments). Therefore, Definition 1 is not a global requirement on optimization path. We have clarified this Definition 1 in the revision.
+
+We want to point out that our own results and a number of recent studies show strong evidences that SGD in practical neural network training encourage positive gradient coherence, e.g., Fig. 4(a)(b), and Fig. 5 in our manuscript, [1] and [3], etc. In particular, [1] shows that the optimization trajectories of SGD and Adam are generally smooth, which is also observed in [3] (e.g., Fig. 4 in [3]). These findings suggest that the direction of the optimization trajectory changes slowly during convergence and therefore justifies our Definition 1, even if the gradient direction may oscillate globally [3]. Such findings are perhaps not surprising, because the loss surface of shallow networks and deep networks with skip connections are dominated by large, flat, nearly convex attractors around the critical points [1][2]. This indicates that the degree of non-convexity is mild around critical points. With small batch sizes (32) and skip connections for deep networks in our experiments, our observation of gradient coherence is therefore consistent with the experimental evidence in existing literature. 
+
+Regarding the reference (Choromanska et al. 2014) mentioned by the reviewer, even though it shows the (layer-wise) structure of critical points in simple networks with one hidden layer, the more recent works, including those highlighted above, have revealed additional curvature information around critical points and the optimization dynamics for many complex networks. We therefore sincerely ask the reviewer to reevaluate our work in light of these empirical evidence that are consistent with our findings. As pointed out by Reviewer 3, a similar assumption has been made in [4]. We have included these references and discussion in our latest revision.
+
+Regarding to fixed hyperparameters: we have redone all experiments in Fig. 2 with hyperparameter search over the learning rate. We observe the same overall pattern as before: staleness slows down convergence, sometimes quite significantly at high levels of staleness. Furthermore, different algorithms have different sensitivity to staleness, and show similar trends as observed before. For example, SGD with Momentum remains highly sensitive to staleness. Notably, with the learning rate tuning, RMSProp no longer diverges, but is actually more robust to staleness than Adam and SGD with Momentum. We have updated manuscript to reflect this new observation. 
+
+Finally, we fully understand the reviewer’s concern about reproducibility. We believe that our simulation work provides a well-controlled environment for future research of distributed machine learning systems. To make the future reproducibility efforts easier and facilitate the use of simulation study alongside distributed experiments, we will open source our code upon acceptance. 
+
+
+[1] Li et al. Visualizing the loss landscape of neural nets. To appear in NIPS 2018
+[2] Nitish Shirish Keskar et al. On large-batch training for deep learning: Generalization gap and sharp minima. In ICLR, 2017.
+[3] Eliana Lorch. Visualizing deep network training trajectories with pca. In ICML Workshop on Visualization for Deep Learning, 2016.
+[4] Huo and et al. Training Neural Networks Using Features Replay. To appear in NIPS 2018.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ryxskfvlA7" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BylQV305YQ&amp;noteId=ryxskfvlA7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper1436 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJxI4taJ2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting empirical and theoretical analysis of the convergence of async SGD under delay</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BylQV305YQ&amp;noteId=SJxI4taJ2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1436 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1436 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents and empirical and theoretical study of the convergence of asynchronous stochastic gradient descent training if there are delays due to the asynchronous part of it. The paper can be neatly split in two parts: a simulation study and a theoretical analysis.
+
+The simulation study compares, under fixed hyperparameters, the behavior of distributed training under different simulated levels of delay on different problems and different model architectures. Overall the results are very interesting, but the simulation could have been more thorough. Specifically, the same hyperparameter values were used across batch sizes and across different values of the distributed delay. Some algorithms failed to converge under some settings and others experienced dramatic slowdowns, but without careful study of hyperparameters it's hard to tell whether these behaviors are normal or outliers. Also it would have been interesting to see a recurrent architecture there, as I've heard much anecdotal evidence about the robustness of RNNs and LSTMs to asynchronous training. I strongly advise the authors to redo the experiments with some hyperparameter tuning for different levels of staleness to make these results more believable.
+
+The theoretical analysis identifies a quantity called gradient coherence and proves that a learning rate based on the coherence can lead to an optimal convergence rate even under asynchronous training. The proof is correct (I checked the major steps but not all details), and it's sufficiently different from the analysis of hogwild algorithms to be of independent interest. The paper also shows the empirical behavior of the gradient coherence statistic during model training; interestingly this seems to also explain the heuristic commonly believed that to make asynchronous training work one needs to slowly anneal the number of workers (coherence is much worse in the earlier than later phases of training). This quantity is interesting also because it's somewhat independent of the variance of the stochastic gradient across minibatches (it's the time variance, in a way), and further analysis might also show interesting results.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">9: Top 15% of accepted papers, strong accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkgQs-Yg07" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BylQV305YQ&amp;noteId=SkgQs-Yg07"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1436 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1436 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We appreciate the insightful comments and careful review of our work. Our goals in this work is threefold: (1) Through systematic experiments, we explicitly observe staleness and its impact, for the first time to our knowledge, on 12 key models and algorithms. (2) We introduce gradient coherence (GC), which is related to the impact of staleness for gradient-based optimization. GC can be evaluated in real time during the course of convergence, with minimal overhead, and may be used by practitioners to control delays in the system. (3) Based on GC, we provide a new convergence analysis of SGD in non-convex optimization under staleness. With such a broad scope, there is inevitably areas for improvements. We hope that the reviewer will consider the contributions towards making distributed ML more robust under non-synchronous execution as we address the comments:
+
+Regarding to fixed hyperparameters: we have redone all experiments in Fig. 2 with hyperparameter search over the learning rate. We observe the same overall pattern as before: staleness slows down convergence, sometimes quite significantly at high levels of staleness. Furthermore, different algorithms have different sensitivity to staleness, and show similar trends as observed before. For example, SGD with Momentum remains highly sensitive to staleness. Notably, with the learning rate tuning, RMSProp no longer diverges, but is actually more robust to staleness than Adam and SGD with Momentum. We have updated manuscript to reflect this new observation. While detailed study of hyperparameter settings is beyond the scope of our work, we will open source our code upon acceptance to make the future reproducibility efforts easier and facilitate the use of simulation study alongside distributed experiments.
+
+LSTM is indeed an interesting piece to add. We are working on LSTM for language modeling task and will provide updates soon.
+
+We thank the reviewer for the careful review of our theoretical contributions. We especially appreciate the helpful comments that draw the connection between the low gradient coherence at the early phase of optimization and the annealing of the number of workers. Indeed, the convergence analysis of [1] requires the number of parallel workers to follow a \sqrt{K} schedule, where K is the number of iterations. Our work addresses the convergence of non-convex, non-synchronous optimization from a very different starting point than [1] by using gradient coherence, and it seems that similar challenges remains at the initial phase of optimization. We have included a discussion of this connection in the revised manuscript. 
+
+[1] Xiangru Lian and et al. Asynchronous parallel stochastic gradient for nonconvex optimization. In NIPS, 2015.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJlVH62mo7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Empirical explanation of the impact of staleness </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BylQV305YQ&amp;noteId=rJlVH62mo7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1436 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1436 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper tries to analyze the impact of the staleness on machine learning models in different settings, including model complexity, optimization methods or the number of workers. In this work, they study the convergence behaviors of a wide array of ML models and algorithms under delayed updates, and propose a new convergence analysis of asynchronous SGD method for non-convex optimization.
+
+The following are my concerns:
+1. "For CNNs and DNNs, the staleness slows down deeper models much more than shallower counterparts." I think it is straightforward. I want to see the theoretical analysis of the relation between model complexity and staleness.  
+2. "Different algorithms respond to staleness very differently".  This finding is quite interesting. Is there any theoretical analysis of this phenomenon?  
+3. The "gradient coherence"  in the paper is not new. I am certain that "gradient coherence" is very similar to the "sufficient direction" in [1]. 
+4. What is the architecture of the network? in the paper, each worker p can communicate with other workers p'. Does it mean that it is a grid network? or it is just a start network. 
+5. in the top of page 3, why the average delay under the model is 1/2s +1, isn't it (s-1)/2? 
+6.  on page 5, "This is perhaps not surprising, given the fact that deeper models pose more optimization challenges even under the sequential settings." why it is obvious opposite to your experimental results in figure 1(a)? Could you explain why shallower CNN requires more iterations to get the same accuracy? it is a little counter-intuitive.
+7. I don't understand what does "note that s = 0 execution treats each worker’s update as separate updates instead of one large batch in other synchronous systems" mean in the footnote of page 5.
+
+
+Above all, this paper empirically analyzes the effect of the staleness on the model and optimization methods. It would be better if there is some theoretical analysis to support these findings.
+
+[1] Training Neural Networks Using Features Replay  <a href="https://arxiv.org/pdf/1807.04511.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1807.04511.pdf</a>
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ByeqAlqeC7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=BylQV305YQ&amp;noteId=ByeqAlqeC7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1436 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1436 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the valuable feedback. Our work aims to strike a balance between empirical and theoretical approaches to understanding the effects of stale updates. Our goals in this work is threefold: (1) Through systematic experiments, we explicitly observe staleness and its impact, for the first time to our knowledge, on 12 key models and algorithms. (2) We introduce gradient coherence (GC), which is related to the impact of staleness for gradient-based optimization. GC can be evaluated in real time during the course of convergence, with minimal overhead, and may be used by practitioners to control delays in the system. (3) Based on GC, we provide a new convergence analysis of SGD in non-convex optimization under staleness. With such a broad scope, there is inevitably areas for improvements. We hope that the reviewer will consider the contributions towards making distributed ML more robust under non-synchronous execution as we address the comments:
+
+1. The reviewer indeed raised interesting points. Our theory based on gradient coherence relates model complexity to the larger slowdown by staleness through the gradient coherence. Fig. 5 in the manuscript shows that deeper network generally exhibits lower gradient coherence. Our theorem shows that lower gradient coherence amplifies the effect of staleness s through the factor s/mu^2 in Eq (1) in the manuscript. We have included a brief discussion of this point in the manuscript. 
+
+2. Staleness is known to add implicit momentum to SGD gradients [2]. The Adam optimizer keeps an exponentially decaying average of past gradients to modify gradient direction, and can be viewed as a version of momentum methods, whose momentum may be affected by staleness by similar reasoning. It is, however, challenging to analyze the convergence of these advanced gradient descent methods even under sequential settings [3], and the treatment under staleness is beyond the scope of our current work. It’d be an interesting future direction to create a delay tolerant version of Adam, similar to AdaRevision [4]. 
+
+3. We thank the reviewer for pointing out a reference that we were not aware of. We agree that the sufficient direction assumption in [1] shares resemblance to our Definition 1. We note that their ``staleness’’ in the definition of sufficient direction is based on a layer-wise and fixed delay, whereas our staleness is a random variable that is subject to system level factors such as communication bandwidth. Also, we note that their convergence results in Theorem 1 and Theorem 2 do not capture the impact of staleness, whereas our Theorem 1 explicitly characterizes its impact on the choice of stepsize and the convergence rate, and also captures the interplay to gradient coherence. We have included the reference in our updated manuscript to provide further context.
+
+4. Though we use a peer to peer topology in our experiment, our delay pattern is agnostic to the underlying communication network topology. In practice it is more common to implement an intermediate aggregation such as parameter server [5] to reduce network traffic.
+
+5. We thank the reviewer for pointing out the error. The delay should be r ~ Categorical(0, 1, …, s), which gives the 0.5s + 1 expected delay. We have corrected in the updated manuscript.
+
+6. This is an important point to clarify. With SGD, ResNet8’s final test accuracy is about 73% in our setting, while ResNet20’s final test accuracy is close to 75%. Therefore, deeper ResNet can reach the same model accuracy in the earlier part of the optimization path, resulting in lower number of batches in Fig.1(a). However, when the convergence time is normalized by the non-stale (s=0) value, we observe the impact of staleness is higher on deeper models. We have included this clarification in the updated manuscript. 
+
+7. Many synchronous systems uses batch size linear in the number of workers (e.g., [6]). We preserve the same batch size and more workers simply makes more updates in each iteration. We have reworded the footnote for better clarity.
+
+[1] Training Neural Networks Using Features Replay.  <a href="https://arxiv.org/pdf/1807.04511.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1807.04511.pdf</a>
+[2] Ioannis Mitliagkas et al. Asynchrony begets momentum, with an application to deep learning. 
+[3] Sashank J. Reddi, Satyen Kale, and Sanjiv Kumar. On the convergence of adam and beyond. International Conference on Learning Representations, 2018.
+[4] H. Brendan Mcmahan and Matthew Streeter. Delay-Tolerant Algorithms for Asynchronous Distributed Online Learning. NIPS 2014.
+[5] M. Li, D. G. Andersen, J. Park, A. J. Smola, A. Ahmed, V. Josifovski, J. Long, E. J. Shekita, and B.-Y. Su. Scaling distributed machine learning with the Parameter Server. In Proceedings of OSDI, 2014. 
+[6] P. Goyal and et al. ´ A. Kyrola, A. Tulloch, Y. Jia, and K. He, “Accurate, large minibatch SGD: training imagenet in 1 hour,” CoRR, vol. abs/1706.02677, 2017.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

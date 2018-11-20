@@ -1,0 +1,239 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>PPO-CMA: Proximal Policy Optimization with Covariance Matrix Adaptation | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="PPO-CMA: Proximal Policy Optimization with Covariance Matrix Adaptation" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=B1VWtsA5tQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="PPO-CMA: Proximal Policy Optimization with Covariance Matrix..." />
+      <meta name="og:description" content="Proximal Policy Optimization (PPO) is a highly popular model-free reinforcement learning (RL) approach. However, in continuous state and actions spaces and a Gaussian policy -- common in computer..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_B1VWtsA5tQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>PPO-CMA: Proximal Policy Optimization with Covariance Matrix Adaptation</a> <a class="note_content_pdf" href="/pdf?id=B1VWtsA5tQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019ppo-cma:,    &#10;title={PPO-CMA: Proximal Policy Optimization with Covariance Matrix Adaptation},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=B1VWtsA5tQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Proximal Policy Optimization (PPO) is a highly popular model-free reinforcement learning (RL) approach. However, in continuous state and actions spaces and a Gaussian policy -- common in computer animation and robotics -- PPO is prone to getting stuck in local optima. In this paper, we observe a tendency of PPO to prematurely shrink the exploration variance, which naturally leads to slow progress. Motivated by this, we borrow ideas from CMA-ES, a black-box optimization method designed for intelligent adaptive Gaussian exploration, to derive PPO-CMA, a novel proximal policy optimization approach that expands the exploration variance on objective function slopes and only shrinks the variance when close to the optimum. This is implemented by using separate neural networks for policy mean and variance and training the mean and variance in separate passes. Our experiments demonstrate a clear improvement over vanilla PPO in many difficult OpenAI Gym MuJoCo tasks.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Continuous Control, Reinforcement Learning, Policy Optimization, Policy Gradient, Evolution Strategies, CMA-ES, PPO</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We propose a new continuous control reinforcement learning method with a variance adaptation strategy inspired by the Covariance Matrix Adaptation Evolution Strategy (CMA-ES) optimization method</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">4 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rkeNAG762Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VWtsA5tQ&amp;noteId=rkeNAG762Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper422 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper422 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes an improvement of the PPO algorithm inspired by some components of the CMA-ES black-box optimization method. The authors evaluate the proposed method on a few Mujoco domains and compare it with PPO method using simpler exploration strategies. The results show that PPO-CMA less likely to getting stuck in local optima especially in Humanoid and Swimmer environments. 
+
+Major comments:
+
+The reason that CMAES discards the worst batch of the solutions is that it cannot utilize the quality of the solutions, i.e., it treats every solution equally. But PPO/TRPO can surely be aware of the value of the advantage, and thus can learn to move away from the bad area. The motivation of remove the bad samples is thus not sound, as the model cannot be aware of the areas of the bad samples and can try to repetitively explore the bad area. 
+
+Please be aware that CMAES can get stuck in local optima as well. There is no general convergence guarantee of CMAES.
+
+
+
+Detailed comments:
+
+- In page 4, it is claimed that "actions with a negative $A^\pi$ may cause instability, especially when one considers training for several epochs at each iteration using the same data" and demonstrate this with Figure 2. This is not rigorous. If you just reduce all the negative advantage value to zero and calculate its gradient, the method is similar to just use half of step-size in policy gradient. I speculate that if you halve the step-size in "Policy Gradient" setting, the results will be similar to the "Policy Gradient(only positive advantages)" setting. Furthermore, different from importance sampling technique, pruning all the negative advantage will lose much **useful** information to improve policy. So I think this is maybe not a perfect way to avoid instability although it works in experiments.
+
+
+- There have been a variety of techniques proposed to improve exploration based on derivative-free optimization method. But in my opinion, the way you combine with CMA-ES to improve exploration ability is not so reasonable. Except for the advantage function is change when policy is updated (which has mentioned in "D LIMITATIONS"), I consider that you do not make good use of the exploration feature in CMA-ES. The main reason that CMA-ES can explore better come from the randomness of parameter generation (line 2 in Algorithm 2). So it can generate more diverse policy than derivative-based approach. However, in PPO-CMA, you just replace it with the sampling of policy actions, which is not significant benefit to exploration. It more suitable to say that you "design a novel way to optimize Gaussian policy with separate network for it mean and variance inspired by the CMA-ES method rather than "provides a new link between RL and ES approaches to policy optimization" (in page 10).
+
+- In experiments, there are still something not so clear:
+
+1. In Figure 5, I notice that the PPO algorithm you implemented improved and then drop down quickly in Humanoid-v2 and InvertedDoublePendulum-v2, which like due to too large step-size. Have you tried to reduce it? Or there are some other reasons leading to this phenomenon.
+
+2. What's the purpose of larger budget? You choose a bigger iteration budget than origin PPO implementation.
+
+3. What the experiments have observed may not due to the clipping of negative reward, but could due to the scaling down of the reward. Please try reward normalization.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HkxIgoUlpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Notes</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VWtsA5tQ&amp;noteId=HkxIgoUlpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Ilya_Loshchilov1" class="profile-link">Ilya Loshchilov</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper422 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">"The reason that CMAES discards the worst batch of the solutions is that it cannot utilize the quality of the solutions, i.e., it treats every solution equally. " 
+This comment is incorrect. First, CMA-ES does not treat every solution equally but with weights w_i thus contradicting "it treats every solution equally". Second, CMA-ES can directly utilize the quality all solutions, e.g., the weights of worst solutions are non-zero in activeCMA-ES [1] which considers all lambda solutions for the update equations. 
+
+[1] "Benchmarking a Weighted Negative Covariance Matrix Update on the BBOB-2010 Noiseless Testbed" N. Hansen, R. Ros, GECCO 2010. <a href="https://hal.archives-ouvertes.fr/hal-00545728/document" target="_blank" rel="nofollow">https://hal.archives-ouvertes.fr/hal-00545728/document</a> </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1lt40uc3m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Very interesting paper on Covariance Matrix Adaption used to solve exploration/exploitation trade-offs in PPO</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VWtsA5tQ&amp;noteId=r1lt40uc3m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper422 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper422 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This is in my view a strong contribution to the field of policy gradient methods for RL in the context of continuous control. The method the authors proposed is dedicated to solving the premature convergence issue in PPO through the learning of variance control policy. The authors employ CMA-ES which is usually employed for adaptive Gaussian exploration. The method is simple and yet provides good results on a several benchmarks when compared to PPO.
+
+One key insight developed in the paper consists in employing the advantage function as a means of filtering out samples that are associated with poorer rewards. Namely, negative advantage values imply that the corresponding samples are filtered out. Although with standard PPO such a filtering of samples leads to a premature shrinkage of the variance of the policy, CMA-ES increases the variance to enable exploration.
+
+A key technical point is concerned with the learning of the policy variance which is cleverly done, BEFORE updating the policy mean, by exploiting a window of historical rewards over H iterations. This enables an elegant and computationally cheap means of changing the variance for a specific state.
+
+Several experiments confirm that this method may be effective on different task when compared to PPO. Before concluding the authors carefully relate their work to prior research and delineate some limitations.
+
+Strengths:
+   o) The paper is well written.
+   o) The method introduced in the paper to learn how to explore is elegant, simple and seems robust.
+   o) The paper combines educational analysis through a trivial example with more realistic examples which helps the reader understand the phenomenon helping the learning as well as its practical impact.
+
+Weaknesses:
+   o) The experiments focus a lot on MuJuCo-1M. Although this task is compelling and difficult, more variety in experiments could help single out other applications where PPO-CMA helps find better control policies.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">9: Top 15% of accepted papers, strong accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BkxLPtYt3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Algorithm description is unclear</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1VWtsA5tQ&amp;noteId=BkxLPtYt3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper422 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper422 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">I have to say that this paper is not well organized. It describes the advantage function and CMA-ES, but it does not describe PPO and PPO-CMA very well. I goes through the paper twice, but I couldn't really get how the policy variance is adapted. Though the title of section 4 is "PPO-CMA", only the first paragraph is devoted to describe it and the others parts are brief introduction to CMA.
+
+The problem of variance adaptation is not only for PPO. E.g., (Sehnke et al., Neural Networks 2009) is motivated to address this issue. They end up using directly updating the policy parameter by an algorithm like evolution strategy. In this line, algorithm of (Miyamae et al. NIPS 2010)  is similar to CMA-ES. The authors might want to compare PPO-CMA with these algorithms as baselines.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

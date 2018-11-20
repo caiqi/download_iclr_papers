@@ -1,0 +1,330 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Accelerated Gradient Flow for Probability Distributions | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Accelerated Gradient Flow for Probability Distributions" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HkxCEhAqtQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Accelerated Gradient Flow for Probability Distributions" />
+      <meta name="og:description" content="This paper presents a methodology and numerical algorithms for constructing accelerated gradient flows on the space of probability distributions.  In particular, we  extend the recent variational..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HkxCEhAqtQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Accelerated Gradient Flow for Probability Distributions</a> <a class="note_content_pdf" href="/pdf?id=HkxCEhAqtQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019accelerated,    &#10;title={Accelerated Gradient Flow for Probability Distributions},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HkxCEhAqtQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=HkxCEhAqtQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">This paper presents a methodology and numerical algorithms for constructing accelerated gradient flows on the space of probability distributions.  In particular, we  extend the recent variational formulation of accelerated gradient methods in wibisono2016 from vector valued variables to probability distributions.  The variational problem is modeled as a mean-field optimal control problem. The maximum principle of optimal control theory is used to derive Hamilton's equations for the optimal gradient flow. The Hamilton's equation are shown to achieve the accelerated form of density transport from any initial probability distribution to a target probability distribution.  A quantitative estimate on the asymptotic convergence rate is provided based on a Lyapunov function construction, when the objective functional is displacement convex.  Two numerical approximations are presented to implement the Hamilton's equations as a system of N interacting particles.  The continuous limit of the Nesterov's algorithm is shown to be a special case with N=1. The algorithm is illustrated with numerical examples.  </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Optimal transportation, Mean-field optimal control, Wasserstein gradient flow, Markov-chain Monte-Carlo</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Methodology and numerical algorithms for constructing accelerated gradient flows on the space of probability distributions.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_B1grUCbp67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>interesting derivation of 2nd gradient flows but with limited practical usefulness</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkxCEhAqtQ&amp;noteId=B1grUCbp67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1497 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1497 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper derives accelerated gradient flow formula in the space of probability measures from the view of optimal control formalism. The generalization of variational formulation from finite space to the space of probability measures seems new, but the resulting PDE seems to be a known result, which is the Fokker-Planck equation (with some minor modifications) for the 2nd order Langevin dynamic. From this point of view, the resulting algorithm from the derived PDE seems not having much practical advantage over SGHMC (a stochastic version of 2nd order Langevin dynamics).
+
+Actually, I think the derivation of accelerated gradient flow formula from the view of optimal control formalism does not seem necessary. One can get the same formula by deriving it from Wasserstein gradient flows. When considering the functional as relative entropy, one can derive the formula simply from the Fokker-Planck equation of 2nd order Langevin dynamics. As a result, the proposed methods seems to be a new way to derive the Wasserstein gradient flow (or Fokker-Planck equation), which does not make impact the algorithm, e.g., both ways result in the same algorithm.
+
+Besides, I found the writing needs to be improved. There are a lot of background missing, or the descriptions are not clear enough.  For example:
+1. Page 2: the divergence operator is not defined, though I think it is a standard concept, but would be better to define it.
+2. Page 2: the Wasserstein gradient and Gateaux derivative are not defined, what are the specific meanings of \nabla_\rho F(\rho) and \partial F / \partial \rho?
+3. 1st line in Section 2: convex function f of d real variables seems odd, I guess the author means argument of f is d-dimensional variable.
+4. Section 2, the authors directly start with the variational problem (3) without introducing the problem. Why do we need to variational problem? It would be hard to follow for some one who does not have such background.
+5. Similarly, what is the role of Lyapunov function here in (6)? Why do we need it?
+6. Why do you define the Lagrangian L in the form of (10)? What is the relation between (10) and (2)?
+7. It is not clear what "The stochastic process (X_t, Y_t) is Gaussian" means in Proposition 1? It might need to be rephrased.
+8. Second last line in page 5: I guess \nabla \log(\rho) should be \nabla\log(\rho_t).
+
+For the theory, I think eq.15 only applies when the PDE, e.g. (13), is solved exactly, thus there is not too much practical impact, as it is well known from the Wasserstein gradient theory that the PDE decays exponentially, as stated in the theorem. When considering numerical solutions, I think this results is useless.
+
+For the relation with SGHMC, let's look at eq.16. Actually, the derivative of the log term \nabla \log \rho_t(X_t)) is equivalent to a brownian motion term. This can be seen by considering the Fokker-Planck equation for Brownian motion, which is exactly d \rho_t = \Delta \rho_t. Consequently, instead of using the numerical approximations proposed later, one cane simply replacing this term with a Brownian motion term, which reduces to SGHMC (with some constant multipliers in front). 
+
+The authors then shows empirically that the proposed method is better than SGHMC, which I think only comes from the numerical methods.
+
+For the kernel approximation, it makes the particles in the algorithm interactive. This resembles other particle optimization based algorithms such as SVGD, or the latest particle interactive SGLD proposed in [1] or [2[.  I think these methods need to be compared.
+
+[1] Chen et al (2018), A Unified Particle-Optimization Framework for Scalable Bayesian Sampling.
+[2] Liu et al (2018), <a href="https://arxiv.org/pdf/1807.01750.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1807.01750.pdf</a>
+
+To sum up, though the derivation of accelerated gradient flow formula seems interesting, the resulting algorithm does not seem benefit from this derivation. The algorithm seems to be able to derived from a more direct way of using Wasserstein gradient flows, which results in a Wasserstein gradient flow for 2nd order Langevin dynamics, and is thus well known. The experiments are not convincing, and fail to show the advantage of the proposed method. The proposed method needs to be compared with other related methods.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkxMU9rA6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to the reviewer 4 (part 2)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkxCEhAqtQ&amp;noteId=BkxMU9rA6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1497 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1497 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The reviewer also suggested several improvements as part of an enumerated list 1-8.  These suggestions have been incorporated in the revised version of the paper:
+
+1) The definition of the divergence is indeed standard but now appears as part of Notation (on page 2).  
+
+2) We have added a new section Appendix C as part of the Supplementary material.  The definition of the Wasserstein gradient and Gateaux derivative appears as part of this section.
+
+3) The sentence has now been rephrased to avoid confusion.
+
+4) We do not completely understand the reviewer’s concern. The variational formulation in the finite-dimensional Euclidean setting is due to Wibisono et al. (2016).  The motivation for the same appears in the Introduction. 
+
+5) The Lyapunov function is useful to obtain convergence results.  
+
+6) The definition of the Lagrangian (10) is a core contribution of this paper.  The proposed definition represents a generalization of the Lagrangian (2) proposed by Wibisono et. al.  The relationship between the two is summarized in Table I, discussed in Introduction.  Additional relationship appears in Prop. 1 where it is shown that we recover the continuous limit of Nesterov ode in the Gaussian setting. Furthermore, the result of Theorem.1-(ii) shows that one also obtains the same convergence rate as in Wibisono, et. al. (2017). 
+
+7) The text now reads “the stochastic process (X_t,Y_t) is a Gaussian process”. The definition of a Gaussian process is standard.
+
+8) The typo has been fixed in the revised version of the paper.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Skx0X5H0TX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to the reviewer 4</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkxCEhAqtQ&amp;noteId=Skx0X5H0TX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1497 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1497 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for reviewing the paper and for providing several helpful comments. 
+
+“.. the resulting PDE seems to be a known result, which is the Fokker-Planck equation for the 2nd order Langevin dynamic.”
+
+It appears that the main concern of the reviewer is that the accelerated gradient flow proposed in our paper is the same as the second order Langevin equation or SGHMC?  We would like to clarify that this is not the case for the second order equation considered in this paper. 
+
+For a first order Langevin equation, it is indeed true that the Brownian motion and $\nabla log(p)$ yield the same distribution. In other words, if one replaces the Brownian motion with $\nabla log(p)$ in the first order Langevin equation, the resulting Fokker-Planck equation and thus the distribution remains the same. 
+
+However, this property does not hold for the second order Langevin equation considered in this paper. In the second order system, we are dealing with the joint distribution on position and momentum. If one replaces the Brownian motion (in the momentum update) with $\nabla log(p)$ where $p$ is the marginal on the position, the resulting Fokker-Planck equations are different.  Consequently, the distributions are also different.  
+
+Since this is an important point, we have included a new section (Appendix D) as part of the supplementary material in the paper to show the difference between the first order and the second order cases.  
+
+“.. Actually, I think the derivation of accelerated gradient flow formula from the view of optimal control formalism does not seem necessary ..” 
+
+Variational formulation of fundamental equations is a cornerstone of Mathematics.  
+    1. Lagrangian mechanics is a variational formulation of Newtonian mechanics;
+    2. Feynman’s path integral formulation of quantum mechanics;
+    3. For the Fokker-Planck equation, the celebrated gradient flow construction of the Jordan- Kinderlehrer-Otto;
+    4. Finally, Wibisono et. al. is itself a variational formulation of the Nesterov ode (which has been known since 1980-s).
+`    5. As noted in the introduction, the objective of this paper is to generalize Wibisono el. al. (2016). So a variational construction is natural.  
+  
+In all these cases 1-4, variational formulations have been worthy of study not only for numerical reasons but also because of their rich mathematical structure, geometric aspects which makes the derivation of models and algorithms independent of the choice of coordinates, first integrals and Lyapunov function which provides insights into conserved quantities and convergence analysis etc.  Variational formulations have also been useful for numerics, e.g., development of symplectic integrators.  
+
+“ … One can get the same formula by deriving it from Wasserstein gradient flows. ”
+
+ We disagree that the proposed accelerated algorithm can be derived using Wasserstein gradient flows. Or at least, we are not aware of how to do that.   
+
+" ... though the derivation of accelerated gradient flow formula seems interesting, the resulting algorithm does not seem benefit from this derivation"
+
+The concern of the reviewer is justified. The numerical algorithm is obtained from discretizing the Hamilton’s equations (16).  These equations are directly derived from the variational formulation. One may try to obtain the numerical algorithm directly from the variational formulation by discretizing (in both time and space) the Lagrangian directly. For example, the symplectic integration is the result of such a time discretization. We believe that it is possible express the variational problem in terms of particles in the Gaussian setting with the solution given by the proposed numerical algorithm in the Gaussian settings. However, doing so in more general setting is beyond the scope of this paper. 
+
+“The authors then shows empirically that the proposed method is better than SGHMC, which I think only comes from the numerical methods.”
+
+Regarding the numerical comparison, the revised version of the paper includes comparison to MCMC, HMCMC (which is the same as the second order Langevin equation), and a method based on the density estimation. Please note that, as clearly described in the Introduction, the main contribution of the paper is the variational formulation and the generalization of the Wibisono et. al. and not the numerical algorithm in of itself. The numerical experiments are included to illustrate the theoretical results (e.g., accelerated convergence rates), show the potential and limitations of the proposed algorithm (e.g., bias-variance tradeoff depicted in Fig. 3 (d) and computational complexity depicted in Fig. 3 (c), and provide some preliminary comparisons with MCMC and HMCMC (Fig. 3). 
+
+We do not claim that the proposed algorithm is better than all the existing algorithms.  Such a claim will require extensive numerical experiments which are outside the scope of this paper. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1gUpCRham" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Summary of responses</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkxCEhAqtQ&amp;noteId=H1gUpCRham"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1497 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1497 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewers for carefully reading the paper and for providing helpful comments.  Both the reviewers agreed that the problem is important, the contributions are original, and the paper is well written.  Broadly, the reviewers raised two concerns on the numerical aspects of the paper:
+
+Concern 1: Lack of comparison with existing methods.
+
+Concern 2: Complexity/practicality of the proposed algorithm. 
+
+Our answers to these top-level concerns are as follows:
+
+Answer to concern 1: The paper has been revised to now include also a comparison with the state-of-the-art Markov Chain Monte-Carlo (MCMC) and Hamiltonian MCMC algorithms.  
+
+Answer to concern 2: The main contribution of this paper is theoretical. The preliminary numerical results demonstrate that, using the same number of samples, the proposed numerical algorithm achieves better accuracy compared to the state-of-the-art.  The theoretical contributions together with these preliminary results are likely to fuel future study to develop more practical lower-complexity algorithms.  Additional details appear in our response to the reviewers.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1evDrYhnQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>theoretically interesting</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkxCEhAqtQ&amp;noteId=r1evDrYhnQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1497 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1497 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The articles adapt the framework developed in Wibisono &amp; al to the (infinite dimensional) setting consisting in carrying out  gradient descent in the space of probability distributions.
+
+PROS:
+- the text is well written, with clear references to the literature and a high-level description of the current state-of-the-art.
+- there is a good balance between mathematical details and high-level descriptions of the methods
+- although I have not been able to check all the details of the proofs, the results appear to be correct.
+
+CONS:
+- while I think that this type of article is interesting, I was really frustrated to discover at the end that the proposed methods either rely on strong Gaussian assumptions, or  "density estimations". In other words, no "practical" method is really proposed.
+- no comparison with other existing method is provided.
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJemw1J6a7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to reviewer 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkxCEhAqtQ&amp;noteId=BJemw1J6a7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1497 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1497 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for reviewing the paper and for providing insightful comments. 
+
+“No comparison with other existing method is provided.” 
+ 
+The paper has been revised to now include  a comparison with the  MCMC and Hamiltonian MCMC algorithms.  The comparison is described in Sec 4.3 and the results of the comparison (accuracy and computational time) are depicted in Figure 3.    
+
+“ … the proposed methods either rely on strong Gaussian assumptions or density estimation.”  
+
+We would like to clarify that the proposed kernel algorithm does not involve explicit estimation of the density as an intermediate step. 
+1. We have included Remark 3 which clarifies the difference between the proposed kernel algorithm and an algorithm based on an explicit density estimation.  
+2. We have included results of numerical experiments comparing the kernel algorithm and the density estimation-based algorithm.  Results appear in Figure-3-(a)-(d) in Sec. 4.3.
+3. In order to avoid the confusion with the density estimation, we now refer to the kernel approximation as the diffusion-map approximation. 
+
+The algorithm based on Gaussian approximation is included because of its relationship to the Nesterov ode (see Remark 2).  Also, the algorithm may be useful in the cases where the density is unimodal (see the discussion following equation (18) in the paper).          
+
+Finally, we note that the proposed form of the interaction term arises as a solution of the variational problem (which is the main contribution of our paper).  The theoretical results together with the positive preliminary numerical comparisons are likely to spur future work to develop more computationally efficient algorithms to approximate the interaction term. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SyxTTel53Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting extension of the Bregman Lagrangian framework, but quite expensive</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkxCEhAqtQ&amp;noteId=SyxTTel53Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1497 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1497 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary: This paper introduces a functional extension of the Bregman Lagrangian framework of Wibisono et al. 2016. The basic idea is to define accelerated gradient flows on the space of probability distribution. Because the defined flows include a term depending on the current distribution of the system, which is difficult to compute in general, the authors introduce an interacting particle approximation as a practical numerical approximation. The experiments are a proof-of-concept on simple illustrative toy examples.
+
+Quality: The ideas are generally of high quality, but I think there might some typos (or at least some notation I did not understand). In particular
+- tilde{F} is not defined for Table 1
+- the lyapunov function for the vector column of table one includes a term referring to the functional over rho. I think this is a typo and should be f(x) - f(xmin) instead.
+
+Clarity: The paper is generally clear throughout.
+
+Originality &amp; Significance: The paper is original to my knowledge, and a valuable extension to the interesting literature on the Bregman Lagrangian. The problem of simulating from probability distributions is an important one and this is an interesting connection between that problem and optimization.
+
+Pros:
+- An interesting extension that may fuel future study.
+
+Cons:
+- This algorithm appears naively to have an O(n^2) complexity per iteration, which is very expensive in terms of the number of particles. Most MCMC algorithms would have only O(n) complexity in the number of particles. This limits its applicability.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJgSTkJp6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HkxCEhAqtQ&amp;noteId=BJgSTkJp6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1497 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1497 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for reviewing the paper and for providing insightful comments. 
+
+ “This algorithm appears naively to have an O(n^2) complexity per iteration, which is very expensive in terms of the number of particles.”  
+
+This is an important criticism.  As part of comparison with MCMC, we have included figure-3-(c) which highlights the O(n^2) complexity of the proposed algorithm compared to O(n) complexity of MCMC.  In the revised version of the paper, we have now included text on the algorithm complexity and some approaches to ameliorate it: (i) exploiting the sparsity structure of the NxN matrix ; (ii) sub-sampling the particles in computing the empirical averages; (iii) adaptively updating the NxN matrix according to a certain error criteria. 
+ 
+The notational issues in Table-1 have been fixed in the revised version of the paper.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

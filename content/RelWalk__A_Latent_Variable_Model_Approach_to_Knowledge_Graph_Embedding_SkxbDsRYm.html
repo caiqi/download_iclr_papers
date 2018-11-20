@@ -1,0 +1,322 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>RelWalk -- A Latent Variable Model Approach to Knowledge Graph Embedding | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="RelWalk -- A Latent Variable Model Approach to Knowledge Graph Embedding" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SkxbDsR9Ym" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="RelWalk -- A Latent Variable Model Approach to Knowledge Graph..." />
+      <meta name="og:description" content="Knowledge Graph Embedding (KGE) is the task of jointly learning entity and relation embeddings for a given knowledge graph. Existing methods for learning KGEs can be seen as a two-stage process..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SkxbDsR9Ym" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>RelWalk -- A Latent Variable Model Approach to Knowledge Graph Embedding</a> <a class="note_content_pdf" href="/pdf?id=SkxbDsR9Ym" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 13 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019relwalk,    &#10;title={RelWalk -- A Latent Variable Model Approach to Knowledge Graph Embedding},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SkxbDsR9Ym},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=SkxbDsR9Ym" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Knowledge Graph Embedding (KGE) is the task of jointly learning entity and relation embeddings for a given knowledge graph. Existing methods for learning KGEs can be seen as a two-stage process where (a) entities and relations in the knowledge graph are represented using some linear algebraic structures (embeddings), and (b) a scoring function is defined that evaluates the strength of a relation that holds between two entities using the corresponding relation and entity embeddings. Unfortunately, prior proposals for the scoring functions in the first step have been heuristically motivated, and it is unclear as to how the scoring functions in KGEs relate to the generation process of the underlying knowledge graph. To address this issue, we propose a generative account of the KGE learning task. Specifically, given a knowledge graph represented by a set of relational triples (h, R, t), where the semantic relation R holds between the two entities h (head) and t (tail), we extend the random walk model (Arora et al., 2016a) of word embeddings to KGE. We derive a theoretical relationship between the joint probability p(h, R, t) and the embeddings of h, R and t. Moreover, we show that marginal loss minimisation, a popular objective used by much prior work in KGE, follows naturally from the log-likelihood ratio maximisation under the probabilities estimated from the KGEs according to our theoretical relationship. We propose a learning objective motivated by the theoretical analysis to learn KGEs from a given knowledge graph. The KGEs learnt by our proposed method obtain state-of-the-art performance on FB15K237 and WN18RR benchmark datasets, providing empirical evidence in support of the theory.
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">relation representations, natural language processing, theoretical analysis, knowledge graphs</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We present a theoretically proven generative model of knowledge graph embedding. </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">17 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HyxKd25wp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A solid idea that seems to work in practic but the novelty and the empirical justification may not be enough. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=HyxKd25wp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper236 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes to perform the link prediction in knowledge bases by introducing a new scoring function and theoretically motivating their method. The authors validate their proposed approach through several experiments. 
+
+This paper reads well and the results appear sound. I personally find the theoretical argument behind the proposed scoring function very interesting. Unfortunately, the contribution seems rather small to be accepted for ICLR. This is a straight application and combination of existing pieces with not much originality and without being backed up by very strong experimental results. My concerns are as follows:
+
+   - Having only results on two flawed datasets (considering the inverse relations in them) makes it hard to evaluate the quality of the method. I suggest conducting the experiments on the FB15K-237 and WN18RR from [1] instead. 
+   - You only evaluate on MR and Hits@10, but it is standard to include metrics like MRR and Hits@1 and 3 also, since no metric is perfect for this task.
+   - Since the goal of the work is not providing a state of the art method, and focus on the theoretical understanding of their scoring function, it is of high importance to assess the characteristics of their embeddings and scoring function through designing other experiments. As a result, I suggest to study the geometric behavior of their embeddings and compare it to the other methods. Further, investigating the semantic purity of the embeddings by calculating the entropy of the type distribution of the entities, similar as [2], can shed more light on the significance of their method.
+
+On overall, although the proposed method seems a direct application of Arora et al.,2016a, I find their extension novel and quite interesting, But the paper needs more experimental results to validate the idea.  
+
+
+[1] Dettmers, Tim, et al. "Convolutional 2d knowledge graph embeddings.", AAAI-18.
+[2] Ding, Boyang, et al. "Improving Knowledge Graph Embedding Using Simple Constraints.", ACL-18.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkxdq_JOT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author response: AnnonReviewer2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=rkxdq_JOT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper236 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Q1: - Having only results on two flawed datasets (considering the inverse relations in them) makes it hard to evaluate the quality of the method. I suggest conducting the experiments on the FB15K-237 and WN18RR from [1] instead. 
+
+Ans: In the revised version we have conducted experiments using both FB15K-23k and WN18RR datasets and the proposed method (RelWalk) obtains the state-of-the-art performance on both datasets. 
+
+Q2: - You only evaluate on MR and Hits@10, but it is standard to include metrics like MRR and Hits@1 and 3 also, since no metric is perfect for this task.
+
+Ans: Given the limited availability of space, we had to select the evaluation measures that are more widely used for this task, which are MR and Hits@10. 
+
+Q3:  Since the goal of the work is not providing a state of the art method, and focus on the theoretical understanding of their scoring function, it is of high importance to assess the characteristics of their embeddings and scoring function through designing other experiments. As a result, I suggest to study the geometric behavior of their embeddings and compare it to the other methods. Further, investigating the semantic purity of the embeddings by calculating the entropy of the type distribution of the entities, similar as [2], can shed more light on the significance of their method.
+
+Ans: Thank you for the suggestion. As shown in the revised version, the proposed method is obtaining state-of-the-art results in addition to its theoretical contribution. Therefore, we would believe this is sufficient for an 8-page conference publication and would consider the suggested additional evaluations in a longer journal version.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJgxzoVCam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting Results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=BJgxzoVCam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper236 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">It is impressive that you could achieve state of the art results with your proposed scoring function, but I suggest updating your Table 2 with more recent baselines, specifically adding ConvE [1]. Furthermore, I believe the number of page restriction does not strongly being enforced in ICLR venue, and you could even add the results of your method for more metrics to the Appendix; I am really interested in seeing those results.
+
+[1] Dettmers, Tim, et al. "Convolutional 2d knowledge graph embeddings.", AAAI-18.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_SklgyeG5hX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An OK paper on theoretical understanding the KGE</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=SklgyeG5hX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper236 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the author proposed a way to understand the knowledge graph embedding task. More specifically, the authors try to extend the random walk model (Arora et al., 2016a) of word embeddings to KGE.
+
+Some of my detailed comments and questions below.
+
+1. To me, this paper sounds like a direct application of the method of Arora et al., 2016a to KGE. Therefore, this does look like a very obvious application, and it is not clear to me if this paper presents any new methods or if you have obtained any new insights.
+
+2. The paper claims that all prior work use some sort of heuristics in the KGE task, and their approach is a generative account that might deal with this issue? But I personally found that by using random walk and the exp function, you are also making some very strong assumptions that are similar to heuristics? How do you know it is exp function but not other function? 
+
+3. I am not sure what the purpose for the evaluation section is. You mention that this paper is not about state-of-the-art results, but if you theory really works, your scoring function should beat SOTA results. 
+
+Overall, I have to say that I am very disappointed with this paper, because there are no new theoretical tools being introduced, and the authors seem to be applying Arora et al., 2016a from word embedding to KGE only. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1ey7t1_6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author response: AnonReviewer3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=H1ey7t1_6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper236 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Q1:  To me, this paper sounds like a direct application of the method of Arora et al., 2016a to KGE. Therefore, this does look like a very obvious application, and it is not clear to me if this paper presents any new methods or if you have obtained any new insights. 
+
+Ans: We would like to thank the reviewer for the time and review. 
+
+It is true that we are extending the original Random Walk model proposed by Arora et al [2016a] to model relations. However, we do not agree that is a “very obvious application”. Next, we detail the reasons for this.
+
+The original random walk model was proposed for a co-occurrence graph, ignoring the relations between the entities. It is nontrivial as how to incorporate relational information into this model. We have both proposed a new relational version of the original random walk model and have proven that it can obtain state-of-the-art knowledge graph embeddings.
+
+Q2: The paper claims that all prior work use some sort of heuristics in the KGE task, and their approach is a generative account that might deal with this issue? But I personally found that by using a random walk and the exp function, you are also making some very strong assumptions that are similar to heuristics? How do you know it is exp function but not other function?
+
+Ans: This is a very standard way to represent the potential function in a probabilistic graph. Moreover, as you can see from the Taylor expansion of exp, it contains all polynomials terms in it. In fact, prior work on kernel methods have shown that exponential kernels such as Radial Basis Functions (RBF) kernel can theoretically subsume all other types of kernel functions. Therefore, this is not a heuristic but a very general modelling assumption that does not assume anything about the properties of entities and their relations.
+
+ Q3:  I am not sure what the purpose for the evaluation section is. You mention that this paper is not about state-of-the-art results, but if your theory really works, your scoring function should beat SOTA results. Overall, I have to say that I am very disappointed with this paper, because there are no new theoretical tools being introduced, and the authors seem to be applying Arora et al., 2016a from word embedding to KGE only. 
+
+Ans: At the initial submission of the paper, we did not have state-of-the-art results for KGE. Therefore, we did not claim this in the initial submission. However, we have obtained state-of-the-art results for FB15k237 and WN18RR datasets as shown in the updated version of the paper. Note that FB15k237 and WN18RR datasets were recently proposed by removing reverse relations that were easier to predict in the original versions of those two datasets. We have revised the paper with these results and have claimed as such. Therefore, this paper not only provides a theoretical analysis but also obtains state-of-the-art results on two modern benchmarks for KGE. 
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1eY4IjF2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The paper "RELWALK – A LATENT VARIABLE MODEL APPROACH TO KNOWLEDGE GRAPH EMBEDDING" is about a generative knowledge graph embedding process and a theoretic motivation for a corresponding scoring function.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=r1eY4IjF2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper236 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">+ Theoretic explanation for the scoring function.
++ (Promise for) Online provided source code.
++ The paper is well-written.
+
+- The authors missed [1] which also introduces a generative model for knowledge graph embeddings. 
+- The use of the datasets FB15k-237 and WN18RR instead of FB15k and WN18 (without inverse relations) would enable a better empirical evaluation. By using the flawed FB15k and WN18 datasets, the evaluation is biased towards the usage of inverse relations which should not exist in a link prediction evaluation dataset.
+- The authors are not mentioning and comparing to walk based approaches like node2vec [2], Deepwalk [3], and rdf2vec [4]. 
+
+
+Due to the missing comparisons to the mentioned references above and the possible bias in the evaluation, I am leaning towards rejecting the paper.
+
+
+Minor comments:
+
+. Abbreviations like h for head are used before they are introduced.
+. "The the" -&gt; "The"
+. "triples are likely too be obvious examples" -&gt; "triples are likely to be obvious examples"
+
+
+[1] Xiao, Han, Minlie Huang, and Xiaoyan Zhu. "TransG: A generative model for knowledge graph embedding." Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). Vol. 1. 2016.
+
+[2] Grover, Aditya, and Jure Leskovec. "node2vec: Scalable feature learning for networks." Proceedings of the 22nd ACM SIGKDD international conference on Knowledge discovery and data mining. ACM, 2016.
+
+[3]  Perozzi, Bryan, Rami Al-Rfou, and Steven Skiena. "Deepwalk: Online learning of social representations." Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining. ACM, 2014.
+
+[4] Petar Ristoski, Jessica Rosati, Tommaso Di Noia, Renato De Leone, and Heiko Paulheim. "RDF2Vec: RDF Graph Embeddings and Their Applications." SWJ <a href="http://www.semantic-web-journal.net/content/rdf2vec-rdf-graph-embeddings-and-their-applications-1" target="_blank" rel="nofollow">http://www.semantic-web-journal.net/content/rdf2vec-rdf-graph-embeddings-and-their-applications-1</a></span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJlNV5yu6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author response: AnonReviewer1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=HJlNV5yu6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper236 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Q1: - The authors missed [1] which also introduces a generative model for knowledge graph embeddings. 
+
+Ans: TransG [1] is described in detail in the related work section and is compared against in the experiments section. The proposed method, RelWalk, out performs TransG in FB13 dataset in the triple classification task.
+
+Q2: - The authors are not mentioning and comparing to walk based approaches like node2vec [2], Deepwalk [3], and rdf2vec [4]. Due to the missing comparisons to the mentioned references above and the possible bias in the evaluation, I am leaning towards rejecting the paper. 
+
+Ans: Please note that all these papers are cited in the revised version and their relevance discussed in the related work section. However, we note that [2], [3], [4] are only weakly related to the KGE task we consider in this paper because those paper are either assuming a richer knowledge graph (RDF annotated) than a simple relation-labelled knowledge base or learning vertex representations only. Therefore, following the prior work on KGE, in our evaluations, we compare methods that use the standard benchmarks such as Freebase and WordNet.
+
+All minor comments are updated in the paper and the papers are cited.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rkl-f_f757" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Spherical Gaussian distribution</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=rkl-f_f757"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Oct 2018</span><span class="item">ICLR 2019 Conference Paper236 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hello, 
+
+Thanks for the nice paper.
+Could you provide the definition of spherical Gaussian distribution? I thought that it is a distribution on l_2 ball since the random variable has a unit norm, but the description saying it has zero means and diagonal covariance matrix makes me confused. since it is somewhat different from the usual description here: <a href="https://mynameismjp.wordpress.com/2016/10/09/sg-series-part-2-spherical-gaussians-101/" target="_blank" rel="nofollow">https://mynameismjp.wordpress.com/2016/10/09/sg-series-part-2-spherical-gaussians-101/</a>
+
+Or is that the multivariate Gaussian where each dimension is independent to each other while having the same variance? if then, did you normalize the random vector to make a unit vector? In this case, is it still normally distributed? it should be uniformly distributed on the unit ball.
+
+Thanks in advance!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJxptPnIqX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: Spherical Gaussian distribution </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=HJxptPnIqX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Oct 2018</span><span class="item">ICLR 2019 Conference Paper236 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your question.
+
+It is the latter. Specifically, we consider a multivariate Gaussian with Identity covariance. A spherical distribution, in general, is a one with equal variances in each dimension and without any cross-correlations. Hope this clarifies your concern.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJgNw8ZOqm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: Spherical Gaussian distribution </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=HJgNw8ZOqm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Oct 2018</span><span class="item">ICLR 2019 Conference Paper236 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">In that case the ||\hat{h} ||_1 should not a unit vector (described under equation 7). The support should be R^D. Right? I guess you have confused C and \hat{h} where the former is distributed on a unit sphere whereas the latter is not. Now I understand it's just a typo, but it makes me confused while reading the proof of lemma 1. Thanks.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1eH1XsOc7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarification</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=r1eH1XsOc7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Oct 2018</span><span class="item">ICLR 2019 Conference Paper236 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for spotting the typo.  $\hat{h}$ is in the Spherical Gaussian with unit covariance matrix $\mat{I} \in \R^{d \times d}$ and not $s^2\mat{I} \in \R^{d \times d}$. 
+
+&gt; I guess you have confused C and \hat{h} where the former is distributed on a unit sphere whereas the latter is not.
+
+No. They are both on the unit sphere. c is on the unit sphere from the assumption, whereas h is represented in the polar coordinate form where the direction is given by the unit vector \hat{h} and the scale is given by s_h. This transformation can be done for any vector h.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJgu1f6cqQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarification</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=BJgu1f6cqQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Oct 2018</span><span class="item">ICLR 2019 Conference Paper236 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I think you still don't understand the question.
+
+If, as you said, \hat{h} is distributed as the multivariate Gaussian with zero mean and unit covariance matrix, ||\hat{h}||_2 is not guaranteed to be 1 (because \hat{h} \in R^D), whereas in the paper \hat{h} is a unit vector.
+
+The unit covariance matrix does not make the multivariate Gaussian distributed on a unit sphere. 
+In the other words, \hat{h} = (1, 1, 1) can be drawn from MN(0, I) where ||(1,1,1)||_2 = \sqrt{3} != 1. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkxAisFCcm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: Spherical Gaussian</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=rkxAisFCcm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Oct 2018</span><span class="item">ICLR 2019 Conference Paper236 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">&gt;If, as you said, \hat{h} is distributed as the multivariate Gaussian with zero mean and unit covariance matrix, ||\hat{h}||_2 is not guaranteed to be 1 (because \hat{h} \in R^D), whereas in the paper \hat{h} is a unit vector.
+
+True. But you could always scale the sampled vector such that it has unit length.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_r1ecOjvhFQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Not mention recent results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=r1ecOjvhFQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Sep 2018</span><span class="item">ICLR 2019 Conference Paper236 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">You missed to mention a lot of recent results which are much better than yours from last two years, as you can see a part from [1].
+
+[1] An overview of embedding models of entities and relationships for knowledge base completion. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1l8S-KhY7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: not mention recent results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=r1l8S-KhY7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">29 Sep 2018</span><span class="item">ICLR 2019 Conference Paper236 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your comment. As we have stated in several places in the paper, the focus of this work is to provide a theoretical explanation to the knowledge graph embedding and not to propose yet another heuristically-motivated scoring formula. We have discussed the most recent work by Ding et al. (ACL 2018, which happened in July 2018), which is the most recent venue. It is true that there are over 35 scoring formulas proposed in the literature as shown in [1]. However, we did not find any method to be providing a rigorous theoretical analysis as done in our work. In the empirical validation section, we have selected methods that have been repeatedly used in prior work as comparison points. As we have stated in the paper, and shown in the empirical validation section, although the derived scoring formula obtains good results they are not SoTA. However, the main contribution of the paper is in the theoretical extension of the generative model proposed by Arora et al. (2016), and to this extent, we have covered all theoretically-relevant prior work on such extensions. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJlffFoTFX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re: not mention recent results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=HJlffFoTFX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Sep 2018</span><span class="item">ICLR 2019 Conference Paper236 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">You had one sentence about Ding et al. (2018) in related work section and ignored most works in 2017 and 2018. You did not motivate well how we should need the generative process of a knowledge graph. You can see [1] that you did not cite.
+
+More importantly, you did an important heuristic assumption: relations are asymmetric in general, this may be not true in real-world datasets. For example, you did experiments on WN18 (WN11) and FB15 (FB11) consisting of many reversible relations. That's reason why you were not among SOTA results (results of ComplexE and NTN as you mentioned were not SOTA since 2017). I would suggest you do experiments on WN18RR and FB15k-237 as mentioned in [2].
+
+[1] TransG : A Generative Model for Knowledge Graph Embedding. ACL 2016.
+[2] Convolutional 2D Knowledge Graph Embeddings. AAAI 2018.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rygUojWAKQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re Re: not mention recent results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkxbDsR9Ym&amp;noteId=rygUojWAKQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper236 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Sep 2018</span><span class="item">ICLR 2019 Conference Paper236 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you again for the comments. Much appreciated. We have added results on WN18RR, which shows that the proposed method (RelWalk) is doing well on this dataset as well. We have also added TransG to the evaluations on Link Prediction and discussed briefly in the related work section.
+
+see the version here:  <a href="https://www.dropbox.com/s/x3kixodqays7nwi/RelWalk-ICLR.pdf?dl=0" target="_blank" rel="nofollow">https://www.dropbox.com/s/x3kixodqays7nwi/RelWalk-ICLR.pdf?dl=0</a>
+
+We will reflect these additional details during the rebuttal stage.
+
+However, as stated in the previous response and also in the paper, the main contributions in the paper is the theoretical extension of the word embedding model of to KGE.
+
+"More importantly, you did an important heuristic assumption: "...
+No we DO NOT make this assumption at all. The third sentence in Sec 3 explicitly states that we assume relation to be asymmetric in general. Asymmetry is a general assumption and the model can capture symmetry as a special case. You can see this from the scoring function we derive as well. Unless otherwise, R_1 and R_2 are equal  (for the symmetric case) p(h,t | R) and p(t,h | R) will not be equal.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

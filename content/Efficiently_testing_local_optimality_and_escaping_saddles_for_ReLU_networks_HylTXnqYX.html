@@ -1,0 +1,264 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Efficiently testing local optimality and escaping saddles for ReLU networks | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Efficiently testing local optimality and escaping saddles for ReLU networks" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HylTXn0qYX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Efficiently testing local optimality and escaping saddles for ReLU..." />
+      <meta name="og:description" content="We provide a theoretical algorithm for checking local optimality and escaping saddles at nondifferentiable points of empirical risks of two-layer ReLU networks. Our algorithm receives any parameter..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HylTXn0qYX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Efficiently testing local optimality and escaping saddles for ReLU networks</a> <a class="note_content_pdf" href="/pdf?id=HylTXn0qYX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019efficiently,    &#10;title={Efficiently testing local optimality and escaping saddles for ReLU networks},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HylTXn0qYX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We provide a theoretical algorithm for checking local optimality and escaping saddles at nondifferentiable points of empirical risks of two-layer ReLU networks. Our algorithm receives any parameter value and returns: local minimum, second-order stationary point, or a strict descent direction. The presence of M data points on the nondifferentiability of the ReLU divides the parameter space into at most 2^M regions, which makes analysis difficult. By exploiting polyhedral geometry, we reduce the total computation down to one convex quadratic program (QP) for each hidden node, O(M) (in)equality tests, and one (or a few) nonconvex QP. For the last QP, we show that our specific problem can be solved efficiently, in spite of nonconvexity. In the benign case, we solve one equality constrained QP, and we prove that projected gradient descent solves it exponentially fast. In the bad case, we have to solve a few more inequality constrained QPs, but we prove that the time complexity is exponential only in the number of inequality constraints. Our experiments show that either benign case or bad case with very few inequality constraints occurs, implying that our algorithm is efficient in most cases.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">local optimality, second-order stationary point, escaping saddle points, nondifferentiability, ReLU, empirical risk</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">A theoretical algorithm for testing local optimality and extracting descent directions at nondifferentiable points of empirical risks of one-hidden-layer ReLU networks.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">4 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rkl6k5D7am" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylTXn0qYX&amp;noteId=rkl6k5D7am"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1404 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1404 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Paper Summary:
+This paper gives a new algorithm to check whether a given point is a (generalized) second-order stationary point if not, it can return a strict descent direction even at this point the objective function (empirical risks of two-layer ReLU or Leaky-ReLU networks) is not differentiable.
+The main challenge comes from the non-differentiability of ReLU. While testing a second-order stationary point is easy, because of the non-differentiability, one needs to test 2^M regions in the ReLU case. This paper exploits the special structure of two-layer ReLU network and shows it suffices to check only the extreme rays of the polyhedral cones which are the feasible sets of these 2^M linear programs. 
+
+Comments:
+1. About Motivation. While checking the optimality on a non-differentiable point is a  mathematically interesting problem, it has little use in deep learning.  In practice, SGD often finds a global minimum easily of ReLU-activated deep neural networks [1].
+2. This algorithm can only test if a point is a real SOSP. In practice, we can only hope to get an approximate SOSP. I expect a robust analysis, i.e., can we check whether it is a (\epsilon,\delta) SOSP?
+3. About writing: g(z,\eta) and H(z,\eta) appear in Section 1 and Section 2, and they are used to define generalized SOSP. However, their formal definitions are in Lemma 2. I suggest give the formal definitions in Section 1 or Section 2 and give more intuitions on their formulas.
+
+Minor Comments:
+1. Many typos in references, e.g., cnn -&gt; CNN.
+2. Page 4: Big-Oh -&gt; Big O.
+
+
+
+Overall I think this paper presents some interesting ideas but I am unsatisfied with the issues above. I am happy to see the authors’ response, and I may modify my score. 
+
+
+[1] Zhang, C., Bengio, S., Hardt, M., Recht, B., &amp; Vinyals, O. (2016). Understanding deep learning requires rethinking generalization. arXiv preprint arXiv:1611.03530.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rkeveQE02m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylTXn0qYX&amp;noteId=rkeveQE02m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1404 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1404 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes an efficient method to test whether a point is a local minimum in a 1-hidden-layer ReLU network. If the point is not a local minimum, the algorithm also returns a direction for descending the value of the loss function. 
+
+The tests include a first-order stationary point test (FOSP), and a second-order stationary point test (SOSP). As these test can be written as QPs, the core challenge is that if there are M boundary points in the dataset, i.e.,  data points on a non-differentiable region of the ReLU function, then the FOSP test requires 2^M tests of extreme rays -- each boundary partition the whole space into at least two parts. This paper observes that since the feasible sets are pointed polyhedral cones. Therefore checking only these extreme rays suffices. This results in an efficient test with only 2M tests. 
+
+Lastly, the paper performs experiments on synthetic data. It turns out there are surprisingly many boundary points.
+
+Comments:
+This paper proposes an interesting method of testing whether a given point is a local minimum or not in a ReLU network. The technique is non-trivial and requires some key observation to make it computationally efficient. However, I have the following concerns:
+1) such a test may need very high numeric precision. For instance, you cannot make sure whether a floating point number is strictly greater than 0 or not. The small error may critically affect the property of a point. 
+2) boundary points of a ReLU network should have measure 0 (correct me if not). The finding in the experiment shows surprisingly many boundary points. This is counter-intuitive. Is it because of numeric issues? You might misclassify non-boundary points.
+3) Usefulness. 
+    a. The paper claims that such a test would be very useful in practice. However, they cannot even perform an experiment on real datasets. 
+    b. Such a method only works for one-hidden layer network. It is not clear deeper network admit similar structure. 
+    c. Practical training of neural-network usually trains the network using SGD, which always obtain a solution with a non-zero gradient. In this sense, there is no need for such a testing. 
+    d. It seems like it is much easier to perform a test with different activation function, e.g., sigmoid.
+    
+If the authors can address these concerns convincingly, I would be happy to change the rating.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SklEPann2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Algorithm for testing local optimality in ReLU networks</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylTXn0qYX&amp;noteId=SklEPann2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1404 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1404 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary:
+This work proposes a theoretical algorithm for checking local optimality and escaping saddles when training two-layer ReLU networks. The proposed "checking algorithm" involves solving convex and non-convex quadratic programs (QP) which can be done in polynomial time. The paper is well organized and technically correct with detailed proofs.
+
+Comments:
+1) Applicability issue: the conditions required by the proposed checking algorithm are too ideal, making it difficult to apply in practical applications. For example, the first step of the proposed algorithm is to check whether 0 belongs to the subdifferential. In practice, the iterates may get very close to a stationary point, but arriving to a stationary point might be too time-consuming and unrealistic. If the problem is smooth, then the gradient is expected to be small so that one can easily relax this first order optimality condition by allowing a small gradient. However, since here the problem is nonsmooth, in general the subgradient could be still very large even when the iterate is very close to a stationary point.  Therefore, one would need to relax the ideal conditions in the proposed algorithm to make it more applicable.
+
+2) Another concern is that the efficiency of the proposed method relies too much on the empirical result that the number of flat extreme ray is small. The computational complexities for the test of the local optimality is exponentially depending on the number of flat extreme rays. Thus to guarantee a high efficiency of the proposed test algorithm and to make the main theory sound, it is important to provide a theoretical bound on this number. Without appropriate theoretical guarantees on the upper-bound of this number, it is not persuasive to claim that the proposed theoretical algorithm is of high efficiency.
+ 
+3) The computational complexity is proportional to the number of training data points which could be huge. Is it possible to have a stochastic version?
+
+Typos:
+1) On page 2, under Section 2, ``$h(t):=$" should be ``$h(x):=$"
+
+2) In section 2.1, at the end of the paragraph "Bisection by boundary data points": change $b_1$ by $\delta_1$ in ``$\Delta_1x_i+b_1$".
+
+3) On page 4, when defining B_k, change x by x_i. 
+
+4) On page 5, above Lemma 1, when defining C_k, N(x_i) is not well defined.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SkxeZJD5nQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Refreshing ideas, clever algorithm, unclear impact</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HylTXn0qYX&amp;noteId=SkxeZJD5nQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1404 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1404 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a method to check if a given point is a stationary point or not (if not, it provides a descent direction), and then classify stationary points as either local min or second-order stationary. The method works for a specific non-differentiable loss.  In the worst case, there can be exponentially many flat directions to check (2^L), but usually this is no the case.
+
+Overall, I'm impressed. The analysis seems solid, and a lot of clever ideas are used to get around issues (such as exponential number of regions, and non-convex QPs that cannot be solved by the S-procedure or simple tricks). A wide-variety of techniques are used: non-smooth analysis, recent analysis of non-convex QPs, copositive optimization.
+
+The writing is clear and makes most arguments easy to follow.
+
+There are some limitations:
+
+(1) the technical details are hard to follow, and most are in a lengthy appendix, which I did not check
+
+(2) there was no discussion of robustness. If I find a direction eta for which the directional derivative is zero, what do you mean by "zero"? This is implemented on a computer, so we don't really expect to find a directional derivative that is exactly zero.  I would have liked to see some discussions with epsilons, and give me a guarantee of an epsilon-SOSP or some kind of notion.  In the experiments, this isn't discussed (though another issue is touched on a little bit: you wanted to find real stationary points to test, but you don't have exactly stationary points, but rather can get arbitrarily close).  To make this practical, I think you need a robust theory.
+
+(3) The numerical simulations mainly provided some evidence that there are usually not too many flat directions, but don't convince us that this is a useful technique on a real problem.  The discussion about possible loss functions at the end was a bit opaque.  Furthermore, if you can't find a dataset/loss, then why is this technique useful?
+
+The paper is interesting and novel enough that despite the limitations, I am supportive of publishing it. It introduces new ideas that I find refreshing. The technique many not ever make it into the state-of-the-art algorithms, but I think the paper has intellectual value regardless of practical value.
+
+In short, quality = high, clarity=high, originality=very high, and significance=hard-to-predict</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

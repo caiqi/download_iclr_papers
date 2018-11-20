@@ -1,0 +1,227 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Stochastic Gradient/Mirror Descent: Minimax Optimality and Implicit Regularization | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Stochastic Gradient/Mirror Descent: Minimax Optimality and Implicit Regularization" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HJf9ZhC9FX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Stochastic Gradient/Mirror Descent: Minimax Optimality and Implicit..." />
+      <meta name="og:description" content="Stochastic descent methods (of the gradient and mirror varieties) have become increasingly popular in optimization. In fact, it is now widely recognized that the success of deep learning is not..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HJf9ZhC9FX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Stochastic Gradient/Mirror Descent: Minimax Optimality and Implicit Regularization</a> <a class="note_content_pdf" href="/pdf?id=HJf9ZhC9FX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019stochastic,    &#10;title={Stochastic Gradient/Mirror Descent: Minimax Optimality and Implicit Regularization},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HJf9ZhC9FX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Stochastic descent methods (of the gradient and mirror varieties) have become increasingly popular in optimization. In fact, it is now widely recognized that the success of deep learning is not only due to the special deep architecture of the models, but also due to the behavior of the stochastic descent methods used, which play a key role in reaching "good" solutions that generalize well to unseen data. In an attempt to shed some light on why this is the case, we revisit some minimax properties of stochastic gradient descent (SGD) for the square loss of linear models---originally developed in the 1990's---and extend them to \emph{general} stochastic mirror descent (SMD) algorithms for \emph{general} loss functions and \emph{nonlinear} models. 
+In particular, we show that there is a fundamental identity which holds for SMD (and SGD) under very general conditions, and which implies the minimax optimality of SMD (and SGD) for sufficiently small step size, and for a general class of loss functions and general nonlinear models.
+We further show that this identity can be used to naturally establish other properties of SMD (and SGD), namely convergence and \emph{implicit regularization} for over-parameterized linear models (in what is now being called the "interpolating regime"), some of which have been shown in certain cases in prior literature. We also argue how this identity can be used in the so-called "highly over-parameterized" nonlinear setting (where the number of parameters far exceeds the number of data points) to provide insights into why SMD (and SGD) may have similar convergence and implicit regularization properties for deep learning. </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">optimization, stochastic gradient descent, mirror descent, implicit regularization, deep learning theory</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_ryxWiLXCh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Very insightful paper but some essential details are missing. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJf9ZhC9FX&amp;noteId=ryxWiLXCh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1199 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1199 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This is a very interesting paper and it suggests a novel way to think of "implicit regularization". The power of this paper lies in its simplicity and its inspiring that such almost-easy arguments could be made to get so much insight. It suggests that minimizers of the Bregrman divergence are an alternative characterization of the asymptotic end-points of  "Stochastic Mirror Descent" (SMD) when it converges. So choice of the strongly convex potential function in SMD is itself a regularizer!  
+
+Its a very timely paper given the increasing consensus that "implicit regularization" is what drives a lot of deep-learning heuristics. This paper at its technical core suggests a modified notion of Bregman-like divergence (equation 15) which on its own does not need a strongly convex potential. Then the paper goes on to show that there is an invariant of the iterations of SMD along its iterations which involves a certain relationship (equation 18) between the usual Bregman divergence and their modified divergence. I am eager to see if such relationships can be shown to hold for more complicated iterative algorithms! 
+
+But there are a few points in the paper which are not clear and probably need more explanation and let me list them here. ( and these are the issues that prevent me from giving this paper a very high rating despite my initial enthusiasm )
+
+1. 
+Can the authors explain how is the minimax optimality result of Theorem 6 (and Corollary 7) related to the main result of the paper which is probably Proposition 8 and and 9? Is that minimax optimiality a different insight separate from the main line of the arguments (which I believe is Proposition 8 and 9)? 
+
+2.
+Is the gain in Proposition 9 over Proposition 8 is all about using loss convexity to ensure that the SMD converges and w_\infty exists? 
+
+3. 
+The paper has highly insufficient comparisons to many recent other papers on the idea of "implicit bias" like, <a href="https://arxiv.org/abs/1802.08246," target="_blank" rel="nofollow">https://arxiv.org/abs/1802.08246,</a> https://arxiv.org/abs/1806.00468 and https://arxiv.org/abs/1710.10345. It seems pretty necessary that there be a section making a detailed comparison with these recent papers on similar themes. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Skg_Iqwq37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Minimax optimality results are proven for SGD and SMD. These results demonstrate implicit regularization properties of these algorithms even when the models are trained without explicit regularization</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJf9ZhC9FX&amp;noteId=Skg_Iqwq37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1199 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1199 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors look at SGD, and SMD updates applied to various models and loss functions. They derive a fundamental identity lemma 2 for the case of linear model and squared loss + SGD and in general for non-linear models+ SMD + non squared loss functions. The main results shown are
+1. SGD is optimal in a certain sense for squared loss and linear model.
+2. SGD always converges to a solution closest to the starting point.
+3. SMD when it converges, converges to a point closest to the starting point in the bregman divergence. The convergence of SMD iterates is shown for certain learning scenarios.
+
+Pros: Shows implicit regularization properties for models beyond linear case.
+Cons: 1. The notion of optimality is w.r.t. a metric that is pretty non-standard and it was not clear to me as to why the metric is important to study (the ratio metric in eq 9).
+2. The result is not very surprising since SMD is pretty much a gradient descent w.r.t a different distance metric. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1gpoI__hQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>a nice attempt to study implicit regularization of SGD but not sure whether the contribution is sufficient</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJf9ZhC9FX&amp;noteId=S1gpoI__hQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1199 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1199 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Optimization algorithms such as stochastic gradient descent (SGD) and stochastic mirror descent (SMD) have found wide applications in training deep neural networks. In this paper the authors provide some theoretical studies to understand why SGD/SMD can produce a solution with good generalization performance when applied to high-parameterized models. The authors developed a fundamental identity for SGD with least squares loss function, based on which the minimax optimality of SGD is established, meaning that SGD chooses the best estimator that safeguards against the worst-case disturbance. Implicit regularization of SGD is also established in the interpolating case, meaning that SGD iterates converge to the one with minimal distance to the starting point in the set of models with no errors. Results are then extended to SMD with general loss functions.
+
+Comments:
+
+(1) Several results are extended from existing literature. For example, Lemma 1 and Theorem 3 have analogues in (Hassibi et al. 1996). Proposition 8 is recently derived in (Gunasekar et al., 2018). Therefore, it seems that this paper has some incremental nature. I am not sure whether the contribution is sufficient enough.
+
+(2) The authors say that they show the convergence of SMD in Proposition 9, while (Gunasekar et al., 2018) does not. It seems that the convergence may not be surprising since the interpolating case is considered there.
+
+(3) Implicit regularization is only studied in the over-parameterized case. Is it possible to say something in the general setting with noises?
+
+(4) The discussion on the implicit regularization for over-parameterized case is a bit intuitive and based on strong assumptions, e.g., the first iterate is close to the solution set. It would be more interesting to present a more rigorous analysis with relaxed assumptions.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

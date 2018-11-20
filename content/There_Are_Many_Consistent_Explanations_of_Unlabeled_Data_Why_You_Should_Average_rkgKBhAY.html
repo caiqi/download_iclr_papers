@@ -1,0 +1,343 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>There Are Many Consistent Explanations of Unlabeled Data: Why You Should Average | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="There Are Many Consistent Explanations of Unlabeled Data: Why You Should Average" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rkgKBhA5Y7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="There Are Many Consistent Explanations of Unlabeled Data: Why You..." />
+      <meta name="og:description" content="Presently the most successful approaches to semi-supervised learning are based on consistency regularization, whereby a model is trained to be robust to small perturbations of its inputs and..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rkgKBhA5Y7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>There Are Many Consistent Explanations of Unlabeled Data: Why You Should Average</a> <a class="note_content_pdf" href="/pdf?id=rkgKBhA5Y7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019there,    &#10;title={There Are Many Consistent Explanations of Unlabeled Data: Why You Should Average},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rkgKBhA5Y7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Presently the most successful approaches to semi-supervised learning are based on consistency regularization, whereby a model is trained to be robust to small perturbations of its inputs and parameters. The consistency loss dramatically improves generalization performance over supervised-only training; however, we show that SGD struggles to converge on the consistency loss and continues to make large steps that lead to changes in predictions on the test data. We show that averaging weights can significantly improve their generalization performance. Motivated by these observations, we propose to train consistency-based methods with Stochastic Weight Averaging (SWA), a recent approach which averages weights along the trajectory of SGD with a modified learning rate schedule. We also propose fast-SWA, which further accelerates convergence by averaging multiple points within each cycle of a cyclical learning rate schedule. With weight averaging, we achieve the best known semi-supervised results on CIFAR-10 and CIFAR-100 over many different settings of training labels. For example, we achieve 5.0% error on CIFAR-10 with only 4000 labels, compared to the previous best result in the literature of 6.3%.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">semi-supervised learning, computer vision, classification, consistency regularization, flatness, weight averaging, stochastic weight averaging</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Consistency-based models for semi-supervised learning do not converge to a single point but continue to explore a diverse set of plausible solutions on the perimeter of a flat region. Weight averaging helps improve generalization performance.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">10 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HJgMPuQNTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Consistency regularization vs noise cushioning</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgKBhA5Y7&amp;noteId=HJgMPuQNTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Olivier_Grisel1" class="profile-link">Olivier Grisel</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1559 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Very interesting empirical study and nice results. I have two remarks / questions.
+
+- It seems that the consistency regularization loss is directly optimizing the interlayer noise cushioning terms from the generalization bound given in:
+
+Stronger Generalization Bounds for Deep Nets via a Compression Approach
+Sanjeev Arora, Rong Ge, Behnam Neyshabur, Yi Zhang ;
+Proceedings of the 35th International Conference on Machine Learning, PMLR 80:254-263, 2018. 
+
+<a href="http://proceedings.mlr.press/v80/arora18b.html" target="_blank" rel="nofollow">http://proceedings.mlr.press/v80/arora18b.html</a>
+
+Maybe you should discuss the relation to this theoretical work in your manuscript.
+
+
+- Have you tried to apply this to non-image classification problems? In particular the combination of stochastic regularization + weight averaging seemed to be important to get SOTA performance on recurrent language models:
+
+https://github.com/salesforce/awd-lstm-lm
+
+I am wondering if fast-SWA with its consistency loss term could improve upon the Averaged SGD + stochastic regularization combination.
+
+Arguably, auto-regressive language modeling cannot benefit from the semi-supervised setting as it's already a self-supervised task. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rklWfa233Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgKBhA5Y7&amp;noteId=rklWfa233Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1559 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1559 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes to apply Stochastic Weight Averaging to the semi-supervised learning context. It makes an interesting argument that the semi-supervised MT/Pi models are especially amenable to SWA since they are empirically observed to traverse a large flat region of the weight space during the later stages of training. To speed up training, the authors propose fast-SWA.
+
+Secition 3.2 is a little confusing. 
+- If a random direction is, with high probability, not penalized, then why is it so flat along a random direction? Or is this simply an argument for why it is not guaranteed to be penalized, and therefore adversarial rays exist? I think the claim needs to be more precise (though it remains unclear how accurate the claim would be).
+- I also think that there is maybe something special about measuring the SGD-SGD ray at epochs 170/180. It coincides with the regime of training where the signal is dominated by the consistency loss. Is it possible this somehow induces a near-linear path in the parameter space? I would be interested in seeing projections of other epoch’s SGD-SGD (e.g. 170/17x) vectors onto the 170/180 SGD-SGD ray and the extend to which they are co-linear. 
+- It is also striking that traversing the SGD-SGD ray causes an error rate so similar to the adversarial ray for the supervised model; can the authors explain this phenomenon? 
+- All this being said, I find the diversity argument compelling---though what would happen if we train the model even longer? Does it keep exploring?
+- Overall, I am not sure how comfortable we should be with interpreting the SGD-SGD ray results. It is important that the authors provide a convincing argument for the interpretability of the SGD-SGD ray results, as this appears to be the key to the “large flat region” claim.
+
+I think Mandt’s paper should be cited in-text, since this is what motivates Figure 2d.
+
+Is the benefit of Fast-SWA’s fast convergence (to a competitive/better solution than SWA) unique to semi-supervised learning? Or can it be demonstrated by fully-supervised learning too? Given the focus on the semi-supervised regime, I would prefer if what the authors are proposing is, in some sense, special to the semi-supervised regime.
+
+Table 1 is confusing to read. I just want to see a comparison between with and without using fast-SWA, *with all else kept equal*. Is the intention to compare “Previous Best CNN” and “Ours CNN”? Is this a fair comparison?
+
+Pros:
++ Interesting story
++ Good empirical performance
+Cons:
+- Unclear whether the story is entirely correct
+
+If the authors can provide a convincing case for the interpretability of the SGD-SGD results, I am happy to raise my score.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1g4NjaeAX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgKBhA5Y7&amp;noteId=B1g4NjaeAX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1559 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1559 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your thoughtful and supportive feedback. We address your questions below.
+
+1. Regarding the argument in section 3.2: 
+
+In section 3.2 we discuss the behavior of train and test error along different types of rays: SGD-SGD, random, and adversarial rays. We analyze the error along SGD-SGD rays for two reasons. Firstly, in fast-SWA we are averaging solutions traversed by SGD so the rays connecting SGD iterates serve as a proxy for the space we average over. Secondly, we are interested in evaluating the width of the solutions that we explore during training which we expect will be improved by the consistency training as discussed in section 3.1 and A.6. We do not expect width along random rays to be very meaningful because there are many directions in the parameter space that do not change the network outputs (see e.g. [2, 4, 5]). However, by evaluating SGD-SGD rays, we can expect that these directions corresponds to meaningful changes to our model because individual SGD updates correspond to directions that change the predictions on the training set. Furthermore, we observe that different SGD iterates produce significantly different predictions on the test data.
+
+In section 3.2 we observe that along SGD-SGD directions the Pi and MT solutions are much wider than supervised solutions. On the other hand, we observe that along random and adversarial directions the difference in flatness is less pronounced. Neural networks in general are known to be resilient to noise, explaining why both MT / Pi and Supervised models are flat along random directions [1]. At the same time neural networks are susceptible to targeted perturbations (such as adversarial attacks). We hypothesize that we do not observe improved flatness for semi-supervised methods along adversarial rays because we do not choose our input or weight perturbations adversarially, but rather they are sampled from a predefined set of transformations.
+
+
+2. Regarding the choice of epochs 170, 180 for SGD-SGD ray analysis:
+We consider epochs 170 and 180 (the last 10 epochs of training) for the SGD-SGD rays, as we are interested in the regime when the training has converged to the neighbourhood of the optimum, rather than the behavior during early iterations. We argue that in this regime SGD explores the set of possible solutions instead of converging to a single solution.
+
+Based on your suggestion, we computed the cosine similarity between the SGD-SGD rays for epoch pairs 170&amp;175 and 175&amp;180 using the Pi model. We measured a value of -0.065, which corresponds to an angle of 93 degrees. Thus, the path traversed by SGD late in training is rather far from linear as the weight updates between epochs 170 and 175 and between epochs 175 and 180 are almost orthogonal. 
+
+
+3. Regarding the similarity between SGD-SGD rays and adversarial rays for supervised training:
+
+SGD-SGD directions and adversarial rays are indeed related. The adversarial ray for train loss at the given point is aligned with the gradient of the train loss at this point. The directions between SGD solutions from different epochs are also obtained by combining multiple gradient steps. In particular, if we use the full dataset as our mini-batch, the ray connecting SGD solutions at epochs 170 and 171 would be aligned with the adversarial ray computed at the SGD solution for epoch 170 (but pointing in the opposite direction).
+
+Since the adversarial ray is constructed using only the derivative of the train loss at a given point -- this local derivative information says that if we perturb the weights with an infinitesimal step, the error goes up the fastest along this adversarial direction -- it is not guaranteed that along the adversarial ray, for any given distance, the error would be as large as possible. In Figure 2 (d) we observe that locally the train and test error go up more sharply along adversarial rays, but for larger distances SGD-SGD rays exhibit similar behavior. 
+
+4. Regarding training longer:
+Yes, the model continues to explore even if we train longer, if we don’t anneal the learning rate to zero. In particular note that for the results in section 3.3 we extend the training time. We run training for a total of 330 epochs using a cyclical learning rate schedule (see section A9 for the details). Further, note that in combination with SWA or fast-SWA running longer consistently leads to improved performance. For example on CIFAR-10 with 4k labeled data using MT+fast-SWA we get 10.7% test error after 180 epochs, 10.34% after 240 epochs, 9.86% after 480 epochs, and 9.05% after 1200 epochs (see Tables 2-5 in the appendix for detailed results). The fact that running fast-SWA longer improves the results suggests that SGD continues to explore diverse solutions and is demonstrated by the diversity plots in figures 2 and 7.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1lZLspeAm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 1 (continued)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgKBhA5Y7&amp;noteId=B1lZLspeAm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1559 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1559 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">5. Regarding the SGD-SGD ray analysis:
+
+See 1.
+
+6. Regarding Mandt’s paper:
+Thank you for the suggestion, we will include an argument explaining the behavior in Figure 2d based on Mandt’s paper [3].
+
+7. Regarding fast-SWA for supervised learning:
+In the paper we show that the exploration done by SGD late in training in semi-supervised learning is more aggressive than in supervised learning, and leading to greater benefits from averaging. Fast-SWA, which averages weights more frequently than SWA, is designed to make use of this exploration. We also obtained preliminary results suggesting that fast-SWA can significantly improve performance in a domain adaptation model that uses the consistency term (see Section 5.5). We leave a thorough analysis of fast-SWA in supervised learning and other applications, such as domain adaptation, for future work.
+
+
+8. Regarding Table 1:
+Table 1 summarizes the results of our approach and the best previous results reported in the literature across different settings. “Previous Best CNN” and “Ours CNN” show the results of our proposed method and the best previously reported result for the 13-layer CNN architecture, which is commonly used in the literature (see section A8 for the architecture description). “Previous Best” and “Ours” show the results for the ResNet architectures, which are the best results reported in the literature overall. In both cases the comparisons are fair, as the methods are using the same architecture. Note that we also present a direct comparison between our approach and the alternatives *with everything else kept equal* in the Figure 4 and Tables 2-5.
+
+
+[1]: Arora et. al, Stronger generalization bounds for deep nets via a compression approach, 2018.
+[2]: Anonymous, Gradient Descent Happens in a Tiny Subspace, 2019.
+[3]: Mandt et al., Stochastic Gradient Descent as Approximate Bayesian Inference, 2017.
+[4]: Dinh et al., Sharp Minima Can Generalize for Deep Nets
+[5]: Sagun et al., Empirical Analysis of the Hessian of Over-Parametrized Neural Networks, 2017.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_S1gzzDv5hQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Very thorough analysis but limited novel contribution</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgKBhA5Y7&amp;noteId=S1gzzDv5hQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1559 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1559 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">OVERVIEW:
+The paper looks at the problem of self-supervised learning using consistency-enforcing approaches. Their main contributions are two-fold:
+1. Analysis to understand current state-of-the-art methods for self-supervised learning, namely the Mean Teacher model (MT) by Tarvainen and Valpola (2017) and the \Pi model (Laine and Aila, 2017). They show a theoretical analysis (Sec.3.1) of a simplified version of the \Pi model and show that it reaches flatter minima leading to good generalization. They show an analysis of the SDG trajectories (Sec. 3.2) that shows how these self-supervised models achieve flatter and lower minima compared to a fully supervised approach. They also provide an intuitive explanation to explore more solutions along the SGD trajectory. Finally, in Sec.3.3, they also discuss how ensembling and weight averaging help get better solutions.
+2. Fast-SWA, which is a tweak to the SWA procedure (Izmailov et al, 2018) that averages models in the weight space along the SGD trajectory with a cyclical learning rate.
+They show good performance on CIFAR-10 and CIFAR-100 with their proposed Fast-SWA.
+
+PROS:
+1. The paper contains a lot of empirical analysis explaining the behavior of these models and providing intuition about the optimization leading to their proposed solution. The problem and experiments are very organized and explained very well.
+2. Exhaustive experiments, plots and tables showing very good performance on the standardized benchmark.
+
+CONS:
+1. The novel contribution (as I see it) is in the theoretical analysis of Sec. 3.1 &amp; A.5 and the Fast-SWA procedure. The Fast-SWA is a minor tweak to the regular SWA. The theoretical analysis is the main novelty and it is hidden away in the appendix ! Also, the results seems to be derived on the basis of Avron and Toledo and the authors' contribution relative to that is not clear. Also, what is the difference between the regular \Pi model and simplified \Pi model and how big a difference does this make in your theory ?
+2. Can the Fast SWA be used directly say while supervised training of ImageNet ? Or is it applicable only to self-supervised problems ? Comments on the generalizability of this contribution might help increase novelty.
+
+OVERALL:
+I like the thorough analysis and good results of the paper. The novelty being a little weak results in the final rating of 7.5 (rounded up to 8, subject to change depending on other reviewers).</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyeJI36lCX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgKBhA5Y7&amp;noteId=SyeJI36lCX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1559 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1559 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We appreciate your supportive and thoughtful review. Our responses are below:
+
+1. Novelty can have many forms, and in this paper the main novelty, which we believe to be very significant, and also rare, is a thorough conceptual exploration of how loss geometry interacts with training procedures, particularly for semi-supervised learning, leading to several meaningful insights. Since many settings of neural network weights lead to essentially no loss, it is of foundational importance to understand how the geometric properties of a solution affect generalization. While conceptual papers can be more difficult to assess, they are often highly impactful, such as the ICLR paper by Zhang et. al (2016) on rethinking generalization [1].
+
+In addition to these conceptual advances, we do also propose simple algorithms, combined with very strong results on many thorough experiments. In this context, we view simplicity as a strength. There is sometimes a temptation to propose complicated approaches that can appear highly novel, but are not adopted because similar results can be achieved by simpler alternatives.  It is our contention that the extensive strong results in our paper combined with a simple algorithm, and a novel conceptual understanding (which is rare), are a real service to the community. 
+
+As you note we also make novel theoretical contributions, some of which are in the appendix. We will highlight some of this material more in the main text. In addition to the novel theoretical and methodological contributions, there is also a novel empirical analyses in sections 3.2-3.3.
+
+
+In the simplified \Pi model, we consider small additive input perturbations to the inputs whereas in the full \Pi model we use random translations and horizontal flips of the inputs, and dropout perturbations on the weights. Tarvainen &amp; Valpola (2017) showed that dropout could be removed without much degradation in performance. We view the random translations to be more targeted perturbations that lie along directions of the image manifold. This case is referred to in a footnote of the appendix section A.5. We mentioned the main results from the theoretical analysis in the main text but keep the proof details in the appendix due to space limitation. We will bring forward key parts to the main text for clarity. 
+
+2. Yes, (fast-)SWA can be used on purely supervised problems. SWA was used for supervised problems on CIFAR-10 and ImageNet (Izmailov, 2018) and achieved improved performance over SGD. Our paper, however, shows that the gains from weight averaging in consistency-based models are much larger than in semi-supervised learning than in supervised learning due to the geometric properties of the training trajectories and solutions discussed in Section 3. 
+
+We really appreciate your strong support, and we hope that you can consider our comments on overall novelty -- across methods, experiments, theory, and conceptual understanding -- combined with strong results, in your final assessment. We are happy to answer any further questions.
+
+[1]: Zhang et. al. Understanding deep learning requires rethinking generalization. ICLR 2017.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HJlan4ZqnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Nice read + questions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgKBhA5Y7&amp;noteId=HJlan4ZqnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1559 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1559 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper is nice thread, easy to follow.
+
+The paper proposed to apply SWA (Stochastic Weight Averaging) Izmailov et al. 2018 to the semi-supervised approached based on consistency regularization. The paper first describes the related work nicely and offers a succinct explanation of two semi-supervised approaches they study. The paper then present an analysis on SGD trajectories of these 2 approaches, drawing comparisons with the supervised training and then building a case of why SWA is a valid idea to apply. The analysis section is very well described, the theoretical explanations are easy to follow and Figure 1, Figure 2 are really helpful to understand this analysis. 
+
+Overall, the paper offers a useful insight into semi-supervised model trainings and offers recipe of converging to supervised results which is a valid contribution.
+
+I have following questions to the authors:
+1. Did the authors do the analysis and apply SWA on ImageNet training besides Cifar-10 and Cifar-100
+2. The accuracy number reported in abstract (5.0% error) is top-1 error or top-5 error? I think it's top-5 but explicit mention would be great.
+3. In section 3.2, authors offer an analysis by chosing epoch 170, 180. How are these epochs chosen?
+4. In section 3.1, authors consider a simple model version where only small additive perturbations to student inputs are applied. Is this a practical setup i.e. is this ever the case in actual model training?
+5. In section 3.3, pg 6, do authors have intuition into why weight averaging has better improvement (1.18) vs ensembling (0.94)?
+6. In section 5.2, page 8 , can authors provide their intuition behind the results: "We found that the improvement on VAT is not drastic – our base implementation obtains 11.26% error where fast-SWA reduces it to 10.97%" - why did fast-SWA not improve much?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">1: The reviewer's evaluation is an educated guess</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HygKOhalA7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer 3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgKBhA5Y7&amp;noteId=HygKOhalA7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1559 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1559 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your support and thoughtful questions. Below we address your questions:
+
+1. We have not yet been able to reproduce the baseline (without SWA) results for the MT model. We have been in touch with the authors of [1] to replicate these results. ImageNet experiments have also been difficult to run due to limited computational resources. Semi-supervised learning is more computationally intense than standard supervised training, which amplifies the computational difficulties and expense in running ImageNet experiments.
+
+2. All the errors reported in the paper are top-1 errors. We will make this more explicit in the updated draft.
+
+3. The epochs 170-180 are the last 10 epochs of training. We select these epochs as we are interested in the regime when the training has converged to the neighbourhood of the optimum, rather than the behavior during early iterations. We argue that in this regime SGD explores the set of possible solutions instead of converging to a single solution.
+
+4. The typical setup uses perturbations from the data augmentations (random translation and flipping) and from dropout. The space of images is highly structured, and as such we believe that the more targeted perturbations of translation and flipping are more efficient at enforcing meaningful consistencies between teacher and student. In the 3072-dimensional input space, random perturbations will have a low projection onto these more meaningful directions. 
+
+5. The difference between the results of ensembling and averaging weights is sufficiently minor that the ordering could be different had we used a different dataset or architecture. We focus on weight averaging since ensembling N models results in N-fold increase in the number of computations at test time. Note that Izmailov et al. (Averaging Weights Leads to Wider Optima and Better Generalization, 2018, section 3.5) provides an argument that weight averaging approximates ensembling given that the averaged models are close in the weight space.
+
+6. In Figure 2b we found that different methods can achieve different gains from averaging. Our empirical analysis in section 3 is focused on the Pi model and Mean Teacher, as the training trajectories for VAT are different, due to adversarial perturbations. Since random perturbations in Pi and MT lead to heterogeneous solution spaces, the gains from averaging could be greater in these model classes due to capturing a greater diversity of models.
+
+[1] Tarvainen and Valpola. Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results. NIPS, 2017</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SkgwKUS6cX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>About "the best result reported in the literature"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgKBhA5Y7&amp;noteId=SkgwKUS6cX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1559 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">“... improving the best result reported in the literature (Tarvainen and Valpola, 2017) by 1.3%.” --- appeared in the introduction.
+
+FYI, the statement above seems like outdated because the results reported in (Tarvainen and Valpola, 2017) have been surpassed by (Wei et al., 2018) for the same underlying network architecture. It is unclear how well the WGAN+consistency method of (Wei et al., 2018) could work for the Shake-Shake architecture. 
+
+Wei, X., Gong, B., Liu, Z., Lu, W. and Wang, L., 2018. Improving the Improved Training of Wasserstein GANs: A Consistency Term and Its Dual Effect. arXiv preprint arXiv:1803.01541.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkgNXKDCqX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Clarification</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkgKBhA5Y7&amp;noteId=rkgNXKDCqX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1559 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1559 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hello, 
+Thank you for your comment. In the introduction we mention the improvement over the best overall result on CIFAR-10 with 4k unlabeled data points, which is achieved using ResNet with Shake-Shake regularization and which belonged to [3]. We improve their result from 93.7% accuracy to 95% accuracy. Note that in the experiments section we also provide results for the 13-layer CNN used by [2] (the paper you mentioned). For that architecture, the best results previously reported in the literature were to the best of our knowledge achieved by [1] (90.8% as opposed to 90% for the paper [2] you mentioned). We also further improve the results from [1] on that architecture.
+
+[1] Adversarial Dropout for Supervised and Semi-Supervised Learning. Sungrae Park, Jun-Keon Park, Su-Jin Shin, Il-Chul MoonSungrae Park, Jun-Keon Park, Su-Jin Shin, Il-Chul Moon
+[2] Improving the Improved Training of Wasserstein GANs: A Consistency Term and Its Dual Effect. Wei, X., Gong, B., Liu, Z., Lu, W. and Wang, L.
+[3] Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results. Antti Tarvainen, Harri Valpola</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

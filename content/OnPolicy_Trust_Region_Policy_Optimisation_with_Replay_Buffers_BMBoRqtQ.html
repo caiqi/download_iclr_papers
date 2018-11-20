@@ -1,0 +1,295 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>On-Policy Trust Region Policy Optimisation with Replay Buffers | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="On-Policy Trust Region Policy Optimisation with Replay Buffers" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=B1MB5oRqtQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="On-Policy Trust Region Policy Optimisation with Replay Buffers" />
+      <meta name="og:description" content="Building upon the recent success of deep reinforcement learning methods, we investigate the possibility of on-policy reinforcement learning improvement by reusing the data from several consecutive..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_B1MB5oRqtQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>On-Policy Trust Region Policy Optimisation with Replay Buffers</a> <a class="note_content_pdf" href="/pdf?id=B1MB5oRqtQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019on-policy,    &#10;title={On-Policy Trust Region Policy Optimisation with Replay Buffers},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=B1MB5oRqtQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=B1MB5oRqtQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Building upon the recent success of deep reinforcement learning methods, we investigate the possibility of on-policy reinforcement learning improvement by reusing the data from several consecutive policies. On-policy methods bring many benefits, such as ability to evaluate each resulting policy. However, they usually discard all the information about the policies which existed before. In this work, we propose adaptation of the replay buffer concept, borrowed from the off-policy learning setting, to the on-policy algorithms. To achieve this, the proposed algorithm generalises the Q-, value and advantage functions for data from multiple policies. The method uses trust region optimisation, while avoiding some of the common problems of the algorithms such as TRPO or ACKTR: it uses hyperparameters to replace the trust region selection heuristics, as well as  the trainable covariance matrix instead of the fixed one. In many cases, the method not only improves the results comparing to the state-of-the-art trust region on-policy learning algorithms such as ACKTR and TRPO, but also with respect to their off-policy counterpart DDPG.  </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">reinforcement learning, on-policy learning, trust region policy optimisation, replay buffer</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We investigate the theoretical and practical evidence of on-policy reinforcement learning improvement by reusing the data from several consecutive policies.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1x7kkhlRm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Summary of the amendments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1MB5oRqtQ&amp;noteId=r1x7kkhlRm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper531 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper531 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The authors would like to thank the reviewers, whose contributions, hopefully, helped to improve the quality of the paper. 
+
+The minor comments of reviewers 1 and 3 have been addressed in the corrections; necessary changes on the major comments from all reviewers are listed in the comments below. 
+
+Below is the summary of the major changes in the second revision:
+- in the abstract and introduction, the emphasis is put on the motivation behind using data from the previous policies alongside with the off-policy data
+- in the introduction, new references on the relevant methods, benefitting from both on-policy and off-policy data (Trust-PCL, IPG), are given, as well as the reference on PPO which is also relevant to the proposed method
+- the comment, addressing practical implementation of gradient in eq. (25) and practical application of the Theorem 1, has been added after eq. (25)
+- the experimental section now include new results for PPO
+- the clarifications on the meaning of replay buffer size in Figures 1-3 have been added to the experimental section</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HkgtVr853m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Seems a trivial extension of TRPO</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1MB5oRqtQ&amp;noteId=HkgtVr853m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper531 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper531 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper tries to bring together the replay buffer and on-policy method. However, the reviewer found major flaws in such a method.
+
+- Such replay buffers are used for storing simulations from several policies at the same time, which are then utilised in the method, built upon generalised value and advantage functions, accommodating data from these policies.
+
+If the experience the policy is learning from is not generated by the same policy, that is off-policy learning. 
+
+In the experiment part, the replay buffer size is often very tiny, e.g., 3 or 5. The reviewer believes there may be something wrong in the experiment setting. Or if the reviewer understood it incorrectly, please clarify the reason behind such a tiny replay buffer.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rke3tAVxC7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for the comment, please find detailed explanations below</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1MB5oRqtQ&amp;noteId=rke3tAVxC7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper531 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper531 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">“If the experience the policy is learning from is not generated by the same policy, that is off-policy learning. “
+
+The paper strongly relies on on-policy data collected with actual policies; the archive of previous policies is only to augment the training data, therefore it combines advantages of on-policy learning with also using (off-policy) replay buffer data for the previous policies. We've made modifications throughout the text to reflect this statement. As it is said in (Sutton&amp;Barto, Reinforcement Learning: An Introduction, 2018):
+“All learning control methods face a dilemma: They seek to learn action values conditional on subsequent optimal behavior, but they need to behave non-optimally in order to explore all actions (to find the optimal actions). How can they learn about the optimal policy while behaving according to an exploratory policy? The on-policy approach in the preceding section is actually a compromise—it learns action values not for the optimal policy, but for a near-optimal policy that still explores. A more straightforward approach is to use two policies, one that is learned about and that becomes the optimal policy, and one that is more exploratory and is used to generate behavior. The policy being learned about is called the target policy, and the policy used to generate behavior is called the behavior policy. In this case we say that learning is from data “off” the target policy, and the overall process is termed off-policy learning. “
+The question we  pose in the paper is: maintaining the ability of on-policy learning to use the actual policy, would it be possible to augment it with the idea of replay buffers? In the proposed method, we do not use the separate behaviour policy to generate behaviour; instead we maintain the buffer of previous policies’ outcomes.   In the introduction, we have also put some emphasis on recent efforts to put together on-policy and off-policy learning (Nachum et al, TRUST-PCL: an off-policy trust region method for continuous control , ICLR, 2018; Gu et al, Interpolated Policy Gradient: Merging On-Policy and Off-Policy Gradient Estimation for Deep Reinforcement Learning, NIPS 2017). 
+
+“In the experiment part, the replay buffer size is often very tiny, e.g., 3 or 5. The reviewer believes there may be something wrong in the experiment setting. Or if the reviewer understood it incorrectly, please clarify the reason behind such a tiny replay buffer.”
+
+The size of the replay buffer, in our case, is measured in terms of the number of policies, not actions (i.e. it would mean that given that we collect at least 1000 actions  from a single policy as outlined in appendix A, buffer size 3 would mean samples from three policies, i.e. no less than 3000 samples in the buffer). We have made sure that this is evident the text of the paper (see the revised experimental section). The motivation behind the notion of the replay buffer in this paper is different from the one for the state-of-the art off-policy replay buffers (like DDPG). Rather than leveraging upon a multitude of previous policies, we use replay buffers to better approximate the vicinity of the current policy within the trust region policy optimisation approach and therefore save the simulation steps numbers. 
+
+We believe that the novelty of our approach is that using the formulation of the generalised Q- and advantage functions (see Equations (8)-(12)) we avoid the restriction of policy stationarity, imposed in policy gradient theorem which is often used for on-policy learning (Sutton et al, 2000).  We’ve amended the description around Equations (8)-(12) to reflect this. Theorem 2 highlights the reason behind a small replay buffer: as it is said in the comments below the theorem, “given the continuous value function approximator it reveals that the closer are the policies, within a few trust regions radii, the smaller will be the bias” in advantage function approximation. Deterministic Policy gradient (Silver et al, Deterministic Policy Gradient Algorithms, ICML, 2014) does not have this assumption of policy stationarity, and it allows it to maintain far larger replay buffers. 
+
+ We’ve made modifications in the paper to make the difference more clear. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rkeixIFO3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interessting work but some open questions remain</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1MB5oRqtQ&amp;noteId=rkeixIFO3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper531 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper531 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors introduce a off-policy method for TRPO by suggesting to use replay buffers to store trajectories and sample from them during training. To do this they extend the definition of the Q function to multiple policies where the Q_pi bar is then the expectation over the several policies. They propose the same for the value function and consequently the advantage function. 
+In my opinion this is some interesting work, but there are some details that are not clear to me, so i have several questions.
+
+1. Why is it necessary to define these generalized notions of the Q, Value and Advantage functions? You motivate this by the fact the samples stored in the replay buffer will be generated by different policies, i.e. by differently parametrized policies at a certain time step. But this also holds almost all algorithms using replay buffers. Could you plese explain this part further?
+
+2. In eq. (26) you introduce the parameter alpha as a sort of Lagrange multiplier to turn the unconstrained optimization problem defined by TRPO into a constrained one. This is was also proposed early by Schulman et al. in Proximal Policy Optimization. Yet, it is not cited or referenced. In the discussion of the experimental results go further into this. Please explain this part in more detail.
+
+3. Another point of your work is the learnable diagonal covariance matrix. How can you be sure that the improvements you show are due to the replay buffers and not due to learning these? Or learning covariance in combination with the penalty term alpha?
+
+4. Can you provide comparative results for PPO? PPO outperforms DDP and TRPO on most tasks so it would be interessting to see
+
+5. How many trajectory samples do you store in the replay buffers? Can you provide results where you use your method but without any replay buffers, i.e. by using the last batch of data points?
+
+Minor Suggestions:
+- The references for the figures in the Experiments part are off. In fig. 1 you cite Todorov et al. for Mujoco but not TRPO and ACKTR, the same in fig. 2. Then in fig. 3 you cite DDPG also with Todorov et al.
+- Some parts of the text is a bit unorganized. In section 2.1 you introduce AC algorithms and on the next page you give the definitions for all components but you don't say anything about how the interact. Also, the definition of the expected return was not "invented" by Schulman et al, and neither were Advantages, Q-, and Value functions. Maybe add a second or third reference.  
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Ske2cZBlCm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Many thanks for the review, please find the the response and the revised version of the paper</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1MB5oRqtQ&amp;noteId=Ske2cZBlCm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper531 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper531 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1.In many of the on-policy methods, such as TRPO, the distribution is assumed to be stationary (Sutton, 2000). This is in contrast to the methods based on deterministic policy gradient (Silver et al, Deterministic Policy Gradient Algorithms, ICML, 2014). We’ve amended the text in order to make this motivation clearer (see Introduction and section 3.1 for details). Using the generalised Q- and advantage functions formulation, we avoid the restriction of policy stationarity, imposed in policy gradient theorem which is often used for on-policy learning (Sutton et al, 2000).  We’ve amended the description around Equations (8)-(12) to reflect this.
+
+2. While the optimisation methods themselves are not in a focus of the paper, we totally agree that we need to cite Schulman et al, as they apply a similar technique in their method (the main difference is that we have the \alpha parameter fixed whilst Schulman et al use adaptive parameters). We’ve modified the description accordingly.  Our proposal has happened to come independently from Schulman et al, although we believe it is because this technique seems to be the natural solution for constrained optimisation. The reason behind using this technique is to move away from heuristically defined dynamic estimation of the step size to make the problem fit the constraints, such as the one featured in ACKTR, and switch to one universal hyperparameter. In Proximal Policy Optimisation (see Section 4 of Schulman et al, 2017), the (heuristic) adaptive coefficient is still used.
+Our response to the reviewer 1 states that
+"The point behind the barrier function is to remove heuristic adjustments of the step parameter in optimisation. In TRPO and ACKTR, the step size is changed heuristically in order to make the solution fit the constraint; with the barrier function, we can perform the optimisation just with a fixed step size 0.01  applied to all tasks (to make sure we meet the repeatability requirements, we state these parameters in Appendix A). For PPO, the heuristic update rules for penalisation coefficient look like: if constraint &lt; constraint_target / 1.5, step_size &lt;- step_size/2; if constraint &gt; constraint_target * 1.5, step_size &lt;- step_size * 2 (it is our understanding that this procedure is based upon the heuristic rather than has theoretical background). We do not use it and use fixed barrier function constraint 100. Our point is that we maintain the performance without these heuristics, just with the hyperparameters, universal for all tasks. "
+
+3. Indeed, the improvement is reasoned by different aspects of the method; we separate different aspects of the method, providing the comparison of the entire method in Figure 1, and elaborating on the influence of the replay buffers separately in Figure 2. In Figure 2, the buffer size 1 means that there is effectively no replay buffer, so the optimisation is carried out over the most recent policy only (i.e. without taking an advantage of the previous policies). 
+
+4. In the new revision of the paper, we provide PPO results (see Figure 1 for details). 
+
+5. We provide the results for our method without any replay buffers in Figure 2, and we’ve changed its description accordingly. Considering the trajectory samples, this number is not fixed as we put a cap on the number of overall samples per policy (no less than 1000 samples and until the terminal state, see appendix A). It typically corresponds to several(2-10) trajectory samples per policy.When we state that the size of the replay buffer is 3, it would mean that the samples are taken from 3 policies. It would mean no less than 3000 actions in the replay buffer. We've also added a statement the description of experimental section to reflect that the replay buffer size is the number of stored policies outputs rather than the number of samples in those policies which may vary. 
+
+Minor Suggestions:
+"- The references for the figures in the Experiments part are off. In fig. 1 you cite Todorov et al. for Mujoco but not TRPO and ACKTR, the same in fig. 2. Then in fig. 3 you cite DDPG also with Todorov et al."
+We’ve fixed these omissions, many thanks for pointing at them.
+"- Some parts of the text is a bit unorganized. In section 2.1 you introduce AC algorithms and on the next page you give the definitions for all components but you don't say anything about how the interact. Also, the definition of the expected return was not "invented" by Schulman et al, and neither were Advantages, Q-, and Value functions. Maybe add a second or third reference.  "
+Totally agree, we’ve made the appropriate change in the descriptions; also we changed section 3.1.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1lbv6PuhX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting Generalization of G/V/advantage function but some clarifications are needed. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1MB5oRqtQ&amp;noteId=S1lbv6PuhX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper531 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper531 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors present how to integrate replay buffer and on-policy trust region policy optimization (TRPO) by generalizing Q/V/advantage function and then empirically show the proposed method outperforms TRPO/DDPG.
+
+The generalization of advantage function is quite interesting and is well written. One minor issue is that d^{\pi_n} (s) is confusing since it appears after ds. 
+
+The theory in Section 3.1 makes sense. However, due to the limitation in Theorem 1 that $\theta$ is the joint parameters, applying Theorem 1 can be difficult. In Eq (25), what is the $\theta$ here? And what does $\nabla_\theta \pi_n$ mean? Does $\pi_n$ uses $\theta$ for computation? One of the problems of using replay buffers in on-policy algorithms is that the stationary distribution of states changes as policy changes, and at least the writing doesn't make it clear on how to solve distribution mismatching issue. Further explanation on Eq (25) might help. If the distributions of states are assumed to match, then the joint distribution of states and actions may mismatch so additional importance sampling might help, as suggested in [1] Eq (3). 
+
+Another problem is on the barrier function. In Eq (26), if we only evaluate $\rho_b(\theta)$ (or its gradient w.r.t. $\theta$) at the point $\theta_old$, it doesn't differ with or without the barrier function. So in order to show the barrier function helps, we must evaluate $\rho_b(\theta)$ (or its gradient) at a point $\theta \neq \theta_old$. As far as I know, the underlying optimizer, K-FAC, just evaluates the objective's (i.e., $\rho_b$) gradients at $\theta_old$. Both Conjugate Gradient (CG), which TRPO uses, and K-FAC are trying to solve $F^{-1} g$ where $g$ is the gradient of the objective at the current point. 
+
+The experiments show significant improvement over TRPO/DDPG. However, some experiments are also expected.
+1. How is the proposed algorithm compared to PPO or Trust PCL? 
+2. How does the barrier function help? More importantly, what's the comparison of the barrier function to [1] Eq (5)? 
+
+The proposed algorithm seems more like a variant of ACKTR instead of TRPO since line search is missing in the proposed algorithm and the underlying optimizer is K-FAC instead of CG.
+
+Ref:
+[1]: Proximal Policy Optimization Algorithms, by John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, Oleg Klimov. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryevMMSgAm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Many thanks for the review, please find below our response</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1MB5oRqtQ&amp;noteId=ryevMMSgAm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper531 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper531 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">"In this paper, the authors present how to integrate replay buffer and on-policy trust region policy optimization (TRPO) by generalizing Q/V/advantage function and then empirically show the proposed method outperforms TRPO/DDPG."
+
+“The generalization of advantage function is quite interesting and is well written. One minor issue is that d^{\pi_n} (s) is confusing since it appears after ds. “
+Many thanks, we’ve made the necessary corrections.
+
+“The theory in Section 3.1 makes sense. However, due to the limitation in Theorem 1 that $\theta$ is the joint parameters, applying Theorem 1 can be difficult. In Eq (25), what is the $\theta$ here? And what does $\nabla_\theta \pi_n$ mean? Does $\pi_n$ uses $\theta$ for computation? One of the problems of using replay buffers in on-policy algorithms is that the stationary distribution of states changes as policy changes, and at least the writing doesn't make it clear on how to solve distribution mismatching issue. Further explanation on Eq (25) might help. If the distributions of states are assumed to match, then the joint distribution of states and actions may mismatch so additional importance sampling might help, as suggested in [1] Eq (3). “
+
+We’ve made corrections to the explanation of the equation (25). As we say in the text below this equation, 
+"To practically implement this gradient, we substitute the parameters $\theta^\pi$, derived from the latest policy for the replay buffer, instead of joint $\theta$ parameters assuming that the parameters would not deviate far from each other due to the trust region restrictions; it is still possible to calculate the estimation of $\tilde{A}^{\pi_n} (s^n_t, a^n_t)$ for each policy using Equation (\ref{AdvantageEstimator}) as these policies are observed. "
+
+“Another problem is on the barrier function. In Eq (26), if we only evaluate $\rho_b(\theta)$ (or its gradient w.r.t. $\theta$) at the point $\theta_old$, it doesn't differ with or without the barrier function. So in order to show the barrier function helps, we must evaluate $\rho_b(\theta)$ (or its gradient) at a point $\theta \neq \theta_old$. As far as I know, the underlying optimizer, K-FAC, just evaluates the objective's (i.e., $\rho_b$) gradients at $\theta_old$. Both Conjugate Gradient (CG), which TRPO uses, and K-FAC are trying to solve $F^{-1} g$ where $g$ is the gradient of the objective at the current point. “
+It is also our understanding that the gradient in K-FAC is estimated at the current point only. That is why, when we use the K-FAC optimiser in practice for policy update, we do not just use it for one iteration but for several (N_ITER_PL_UPDATE = 10) iterations. 
+
+The experiments show significant improvement over TRPO/DDPG. However, some experiments are also expected.
+"1. How is the proposed algorithm compared to PPO or Trust PCL? "
+We’ve added the experimental results to compare the improvement over PPO (see Figure 1). 
+
+"2. How does the barrier function help? More importantly, what's the comparison of the barrier function to [1] Eq (5)? "
+The point behind the barrier function is to remove heuristic adjustments of the step parameter in optimisation. In TRPO and ACKTR, the step size is changed heuristically in order to make the solution fit the constraint; with the barrier function, we can perform the optimisation just with a fixed step size 0.01  applied to all tasks (to make sure we meet the repeatability requirements, we state these parameters in Appendix A). For PPO, the heuristic update rules for penalisation coefficient look like: if constraint &lt; constraint_target / 1.5, step_size &lt;- step_size/2; if constraint &gt; constraint_target * 1.5, step_size &lt;- step_size * 2 (it is our understanding that this procedure is based upon the heuristic rather than has theoretical background). We do not use it and use fixed barrier function constraint 100. Our point is that we maintain the performance without these heuristics, just with the hyperparameters, universal for all tasks. 
+
+“The proposed algorithm seems more like a variant of ACKTR instead of TRPO since line search is missing in the proposed algorithm and the underlying optimizer is K-FAC instead of CG.”
+We agree with the statement that the methodology is closer to ACKTR while it differs significantly in various aspects (it includes barrier function optimisation, diagonal matrix adjustment, and, which is the main point of the paper, the replay buffer for TRPO); as it is outlined in Algorithm 1, we use the K-FAC  optimiser only for the policy gradient optimisation, while for the value function we use the Adam method, as we have seen no evidence of advantage of using K-FAC for the value function.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Gaussian-gated LSTM: Improved convergence by reducing state updates | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Gaussian-gated LSTM: Improved convergence by reducing state updates" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=r1eO_oCqtQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Gaussian-gated LSTM: Improved convergence by reducing state updates" />
+      <meta name="og:description" content="Recurrent neural networks can be difficult to train on long sequence data due to the well-known vanishing gradient problem. Some architectures incorporate methods to reduce RNN state updates..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_r1eO_oCqtQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Gaussian-gated LSTM: Improved convergence by reducing state updates</a> <a class="note_content_pdf" href="/pdf?id=r1eO_oCqtQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019gaussian-gated,    &#10;title={Gaussian-gated LSTM: Improved convergence by reducing state updates},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=r1eO_oCqtQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=r1eO_oCqtQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Recurrent neural networks can be difficult to train on long sequence data due to the well-known vanishing gradient problem. Some architectures incorporate methods to reduce RNN state updates, therefore allowing the network to preserve memory over long temporal intervals. To address these problems of convergence, this paper proposes a timing-gated LSTM RNN model, called the Gaussian-gated LSTM (g-LSTM). The time gate controls when a neuron can be updated during training, enabling longer memory persistence and better error-gradient flow. This model captures long-temporal dependencies better than an LSTM and the time gate parameters can be learned even from non-optimal initialization values. Because the time gate limits the updates of the neuron state, the number of computes needed for the network update is also reduced. By adding a computational budget term to the training loss, we can obtain a network which further reduces the number of computes by at least 10x. Finally, by employing a temporal curriculum learning schedule for the g-LSTM, we can reduce the convergence time of the equivalent LSTM network on long sequences.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">time gate, faster convergence, trainability, rnn, computational budget</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Gaussian-gated LSTM is a novel time-gated LSTM RNN network that enables faster and better training on long sequence data.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1enbDcgRm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Manuscript Update</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1eO_oCqtQ&amp;noteId=r1enbDcgRm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper366 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper366 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewers for their insightful comments. We have rewritten the abstract, introduction, and conclusion to highlight more specifically when the g-LSTM will converge faster than the LSTM. We also added a new section (Section 5) to explain the faster convergence of g-LSTM and we have removed Fig. 2 from the original submission to make space for this new section.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HkxYmJqo2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Simple idea with potential but experiments are unconvincing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1eO_oCqtQ&amp;noteId=HkxYmJqo2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper366 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper366 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In the vein of recent work on learning “ticking” behaviour for LSTMs such as Phased LSTM, this paper proposes to add additional data independent gates to LSTM units that are defined as Gaussian functions of time indices.
+The performance of the modified g-LSTM is compared to LSTM on the Addition, sequential MNIST and sequential CIFAR-10 tasks. The authors argue that g-LSTM results in better performance and has faster convergence on these tasks. 
+
+Additionally, it is proposed that one can reduce the amount of computations performed by the network by adding a computation budget term to the optimized loss that encouraged the cells to update less often. Finally, a technique for gradually transitioning from a g-LSTM to an LSTM during training is proposed, with the objective of speeding up training over a regular LSTM.
+
+The paper is well written and easy to understand in general. However, the main results of this paper are experimental, and I am not entirely convinced by the experiments that g-LSTM is an improvement over the LSTM baseline for certain scenarios.
+
+One broad reason for my doubts is that the comparisons don’t seem to utilise proper hyperparameter tuning for the baseline LSTM. Network sizes, learning rates, decay schedules, initialisations etc. all appear to be fixed, so one can not be sure of the “real” performance or convergence behavior of the models. Biased gate initializations are not used, though they have been used successfully in past work to aid in long term memory.
+
+I should note that for long term memory problems such as those proposed by Hochreiter and Schmidhuber (1997), the proposed LSTM did not use a forget gate (or even BPTT) and used biased gate initialisations. However, these features are useful for more realistic tasks, and popular LSTM designs are biased towards them instead of toy problems.
+
+I would consider the addition problem and sequential MNIST and CIFAR-10 to be interesting and difficult toy tasks for initial validation of ideas (and more extensive hyperparameter searches). It is unclear if the proposed techniques will perform provide  improvements over a well-tuned baseline for some realistic tasks, or are they suitable only for toy problems. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJeW89ce07" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1eO_oCqtQ&amp;noteId=HJeW89ce07"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper366 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper366 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your review.
+
+1. We have rewritten the abstract, introduction and conclusion to make it clear that the advantages (convergence speed) of g-LSTM over the LSTM are prominent primarily in tasks where the sequence length is over 500,  whereas for shorter sequences we see that both the g-LSTM and LSTM networks perform similarly.
+
+2. We have added more experiments over a range of hyperparameters. These results are reported in Appendix D. We see the benefit of using the g-LSTM across these additional experiments.
+
+3. Regarding the baseline LSTM, we have taken care of optimizing hyperparameters and initializations. This is reflected in the performance of the baseline LSTM networks, which are on par with the performance of LSTM networks with similar network size in other publications, e.g.  Recurrent Batch Normalization by Cooijmans et al.  We have also used biased gate initializations, which we have now added to the paragraph in Section 3.4.
+
+4. We chose the datasets because they were used in several works that address the problem  of  long  sequence  training  in  recurrent  networks.   We  agree  with  there viewer that these datasets are toy datasets and we are currently investigating the g-LSTM performance on practically relevant datasets.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BJxidDyinm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Simple ideas but unconvincing results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1eO_oCqtQ&amp;noteId=BJxidDyinm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper366 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper366 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The work takes inspiration from a recent work on phased LSTM, and proposes to add a Gaussian gate based on time to LSTM cells. With this additional gate, the network can skip updating the states by closing the time-gate, as a result enabling longer memory persistence, and better gradient flow. The authors also propose to add a budget term to force the time-gate to be closed most of the time as a way to save compute. Empirical results suggest the Gaussian-gated LSTMs perform better than regular LSTMs on tasks with long temporal dependencies. The authors also propose to use a curriculum training schedule in which the variance of the gaussian gates is continuously increased to speed up training of LSTMS.  
+
+pros:
+1. The paper is clearly written and easy to follow;
+2. The way the authors introduce time-dependent gating into LSTM is easy to follow and re-implement;
+3. Experiments on various tasks of long temporal dependencies do show improvement over the standard LSTM cells;
+4. The experiments on the adding task does show gLSTM is less sensitive to initialization than the phased LSTM;
+5. The experiments on setting curriculum training schedule to improve convergence on LSTMs are insightful. 
+
+cons:
+1. The work was framed as an easier-to-optimize alternative to the time-based gating mechanism introduced in phased LSTMs, which takes a parametrization form that is much harder to learn, the gating mechanism covered by the new model gLSTM however, is much more limited. The parametrization introduced in Phased LSTMs allows the memory cells and outputs of LSTMs to be updated periodically. gLSTMs on the other hand only allows updates within a single window over the entire sequence; As a result, one would expect phased LSTM to outperform gLSTM on tasks with periodical temporal dependencies;  
+2.  The empirical results are not convincing enough. gLSTM performs noticeably worse than several state-of-the-art work on improving long-term dependencies in RNNs. The authors did not give any explanation in the performance gap.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJeNiYcxR7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1eO_oCqtQ&amp;noteId=SJeNiYcxR7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper366 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper366 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your review.
+
+1. It is possible that the PLSTM will outperform the g-LSTM on tasks which require a periodicity, but we have not found any datasets as yet where the PLSTM outperforms the g-LSTM. Moreover the time gate parameters in the g-LSTM network need not be carefully initialized, which is not true in the case of PLSTM.
+
+2. The intention of Table 2 is not to do a direct comparison of our two networks against other reported networks on the sMNIST, pMNIST, and sCIFAR-10 datasets. We reported the other networks in this table because we wanted to show the accuracies that are achievable on these datasets by using other methods. There are several reasons why we cannot do a direct comparison: the IndRNN network is a multi-layered architecture and we could not reproduce the results in the BN-LSTM work even though we used the reported training parameters.  We do not claim that the g-LSTM network can produce state-of-the-art results, rather we see it as an alternate model that helps long sequence training and could probably be used in addition to other methods such as the auxiliary loss in the r-LSTM work and IndRNN.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryeUW3j937" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Novel Contribution; Interesting speedup; too few self-critical; more evaluation needed</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1eO_oCqtQ&amp;noteId=ryeUW3j937"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper366 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper366 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">
+This paper focuses on the reduction of training time by various mechanisms. By introducing a time gate during training, it controls when a neuron (weights?) can be updated during training. By introducing and additional budget term in the loss function, training costs (number of computations) are reduced by one order of magnitude. 
+A major advantage of the newly introduced Gaussian-gated LSTM (g-LSTM; I suggest using a capital G for Gauss, e.g., GgLSTM).
+
+Experiments are carried out on the adding-problem from 1997; the sequential MNIST and the sequential CIFAR-10 problem. In all experiments, g-LSTM converges faster. A few things would be of interest:
+- clearly state the stopping criterium for training. Especially, I would still be interested to see, how Fig. 3d continues; it seems that the network begins to collapse (also a and be are interesting to see).
+The "This work" in Table 2 is confusing; I would expect it to appear behind g-LSTM; 
+It appears that in the budgeted g-LSTM some units are not used at all (Figure 5b); Please comment on that.
+
+In general, the paper makes the impression that it is overselling the contribution a bit too much. It would be nice to question the outcomes more and investigate the g-LSTM for the existence of possible problems which might be introduced by the omission of computations.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJec9dqeCm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AnonReviewer1</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1eO_oCqtQ&amp;noteId=HJec9dqeCm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper366 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">20 Nov 2018</span><span class="item">ICLR 2019 Conference Paper366 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We have rewritten the abstract, introduction, and conclusion to highlight the specific  advantages  of  g-LSTM,  which  is  primarily  on  the  faster  convergence  than  the LSTM, on long sequence tasks.
+
+1. We have added more experiments over a range of hyperparameters. These results are reported in Appendix D.
+
+2. We have also added further evidence regarding a better gradient flow in the g-LSTM  network  compared  to  the  LSTM.  These  results  are  reported  in  a  new section (Section 5).
+
+3. We have now emphasized in the main text (Introduction and Conclusion) that the advantages of g-LSTM over the LSTM are prominently on the faster convergence in tasks where the sequence length is over 500. For shorter sequences we see that both the gLSTM and LSTM networks perform similarly.
+
+4. Regarding the stopping criterion, we run our experiments until convergence of all the models under consideration or until 700 epochs in the case of adding task.We have also updated the figures 3b and 3d to include more training epochs.
+
+5. We have reordered the first two rows in table 2 to make clear that the figures reported for gLSTM and LSTM were based on our experiments.
+
+6. Regarding the unused units in the budgeted g-LSTM, this could be because the network can solve without requiring all the 110 units as seen in the new added experiments in the Appendix D (with 25 units). We regard this as a feature which would be of help in pruning networks. We find this effect more prominent when increasing the 'lambda'  hyperparameter value, corresponding to the budget term in the loss function.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

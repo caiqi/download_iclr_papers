@@ -1,0 +1,371 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Deterministic PAC-Bayesian generalization bounds for deep networks via generalizing noise-resilience | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Deterministic PAC-Bayesian generalization bounds for deep networks via generalizing noise-resilience" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Hygn2o0qKX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Deterministic PAC-Bayesian generalization bounds for deep networks..." />
+      <meta name="og:description" content="The ability of overparameterized deep networks to generalize well has been linked to the fact that stochastic gradient descent (SGD) finds solutions that lie in flat, wide minima in the training..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Hygn2o0qKX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Deterministic PAC-Bayesian generalization bounds for deep networks via generalizing noise-resilience</a> <a class="note_content_pdf" href="/pdf?id=Hygn2o0qKX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019deterministic,    &#10;title={Deterministic PAC-Bayesian generalization bounds for deep networks via generalizing noise-resilience},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=Hygn2o0qKX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=Hygn2o0qKX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">The ability of overparameterized deep networks to generalize well has been linked to the fact that stochastic gradient descent (SGD) finds solutions that lie in flat, wide minima in the training loss -- minima where the output of the network is resilient to small random noise added to its parameters. 
+So far this observation has been used to provide generalization guarantees only for neural networks whose parameters are either \textit{stochastic} or \textit{compressed}. In this work, we present a general PAC-Bayesian framework that leverages this observation to provide a bound on the original network learned -- a network that is deterministic and uncompressed.  What enables us to do this is a key novelty in our approach: our framework allows us to show that if on training data, the interactions between the weight matrices satisfy certain conditions that imply a wide training loss minimum, these conditions themselves {\em generalize} to the interactions between the matrices on test data, thereby implying a wide test loss minimum. We then apply our general framework in a setup where we assume that the pre-activation values of the network are not too small (although we assume this only on the training data). In this setup, we provide a generalization guarantee for the original (deterministic, uncompressed) network, that does not scale with product of the spectral norms of the weight matrices -- a guarantee that would not have been possible with prior approaches.
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">generalization, PAC-Bayes, SGD, learning theory, implicit regularization</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We provide a PAC-Bayes based generalization guarantee for deep networks by generalizing noise-resilience of the network on the training data to the test data.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">19 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Bkgs5rO8TX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting paper - can be improved significantly</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=Bkgs5rO8TX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a PAC-Bayesian framework that bounds the generalization error of the learned model. While PAC-Bayesian bounds have been studied before, the focus of this paper is to study how different conditions in the network (e.g. behavior of activations) generalize from training set to the distribution. This is important since prior work have not been able to handle this issue properly and as a consequence, previous bounds are either on the networks with perturbed weights or with unrealistic assumptions on the behavior of the network for any input in the domain.
+
+I think the paper could have been written more clearly. I had a hard time following the arguments in the paper. For example, I had to start reading from the Appendix to understand what is going on and found the appendix more helpful than the main text. Moreover, the constraints should be discussed more clearly and verified through experiments.
+
+I see Constraint 2 as a major shortcoming of the paper. The promise of the paper was to avoid making assumptions on the input domain (one of the drawbacks in Neyshabur et al 2018) but the constraint 2 is on any input in the domain. In my view, this makes the result less interesting.
+
+Finally, as authors mention themselves, I think conditions in Theorem F.1 (the label should be 4.1 since it is in Section 4) could be improved with more work. More specifically, it seems that the condition on the pre-activation value can be improved by rebalancing using the positive homogeneity of ReLU activations.
+
+Overall, while I find the motivation and the approach interesting, I think this is not a complete piece of work and it can be improved significantly.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1x5VnK5T7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Uploaded revision</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=B1x5VnK5T7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi again! 
+
+First of all, a quick note: we updated the label of Theorem F.1 to 4.1. Thanks for your note!
+
+Next, we'd like to get in touch with you again to know if we clarified your concern regarding Constraint 2. (By the way, please let us know in case we misunderstood your concern.) 
+
+We'd like to reiterate, like we state throughout the text of the main paper, we do not make any assumption that holds on all input datapoints. The lack of such an assumption is the main strength/contribution of the paper.  We'd also like to point out that the mathematical statement of Constraint 2 and the text following it, and the mathematical statements of Theorem 3.1 and 4.1, all reflect this fact!
+
+In the light of this discussion, we respectfully encourage you to reevaluate the paper &amp; update your score. Thank you!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJxRVajna7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for clarification + some feedback</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=HJxRVajna7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks a lot for clarifying constraint 2. I think my confusion was because you have not mentioned the constraints in the Theorem 3.1 statement but used it in the proof of the theorem (and of course because I did not read the proof of Theorem 4.1 carefully). I have spent more time reading your paper and here is some feedback:
+
+1- I find Theorem 3.1 interesting and useful. First of all, please clearly mention the assumptions in the statement of  theorem 3.1, i.e.  constraint 1 and 2. 
+
+2- There is too much notation in the paper. I understand that there is no easy way to figure out how to reduce the notation but this complexity hides the result of the paper and not many readers are willing to spend hours figuring out the notation. I suggest to put the neural net notation after the Theorem 3. With very simple notation, you should be able to write the assumptions and Theorem 3. I think this is the most interesting part of the paper and it worth spending time to present it properly.
+
+3- I believe Theorem 4.1 is needed to demonstrate how Theorem 3.1 can be useful but the limitations of Theorem 4.1 (which are not related to Theorem 3.1) should be discussed clearly. You already mentioned the main limitation which is the dependence of the bounds on the inverse of smallest pre-activation. I have two suggestions:
+a) Even though it is mentioned indirectly in the discussion, I think you should clearly mention early in the discussion that this limitation is due to the fact that the proof does not allow activations to flip. This helps the reader to have a better understanding of this limitation and potentially build on your work.
+
+b) Most plots show the quantities vs depth. Please fix the number of layers and plot the quantities vs "#hidden units per layer" as well (up to at least 2K hidden units per layer). Please also report the numerical value of the generalization bound on a network with 1K hidden units and 10 layers. If you have time, compare it to at least one of the other generalization bounds. To be clear, I am not going to evaluate your generalization bound based on these plots but what matters is that these plots help the reader to have a clearer picture.
+
+I am looking forward to the revision and then I will decide about the final score (up to 8 if all the suggestions are applied).</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1gAw-ZxAX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Incorporated all suggestions + demonstrated that our bound works better for sufficiently large D, small H</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=B1gAw-ZxAX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi again!
+
+We want to let you know that we've incorporated all your suggestions and presented some additional experiments too. 
+
+Specifically, in the main paper, we have demonstrated the value of our bound for H=40, and varying depth and compared with spectral-norm-bounds Neyshabur et al., '18 and Bartlett et al., 17. We argue that for this H, our bound should perform asymptotically better and show that our bound does better for D=25. 
+
+Due to space constraints, we had to present some of the plots in the appendix. 
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Please fix the number of layers and plot the quantities vs "#hidden units per layer" as well (up to at least 2K hidden units per layer).
+
+The plots in Appendix Figure 5 show the quantities and the overall bound (including existing bounds) for H=40 until 2000, for depth D=8.
+Additionally, Figure 6 shows a similar plot for depth D=14, for H=40 until 1280.
+
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Please also report the numerical value of the generalization bound on a network with 1K hidden units and 10 layers.
+
+You can find the plots in Appendix Figure 4 for no. of units H=1280, where we show both the individual quantities and the actual bound for different depths uptil D=14.
+
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; If you have time, compare it to at least one of the other generalization bounds.
+Compared our bounds with both Neyshabur et al., '18 and Bartlett et al., 17 which have pretty similar orders of magnitudes with each other. Please refer to Figure 2 in the main paper.
+
+We are eager to hear back from you if you have any feedback or further questions, and would love to know your updated review.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1eypq036Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Incorporated suggestions 1,2 and 3(a)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=H1eypq036Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi! We wanted to let you know that we've uploaded a revision with suggestions 1 2 and 3(a) incorporated. We are still working on 3b. 
+
+1. We're glad you find the theorem interesting. Indeed, we believe that the generality and the novelty in this theorem leaves a lot of opportunity for exploration by the both the deep learning theory community and the learning theory community.
+
+2. We moved the network-related notations to Section 4. In Section 3, we completely rephrased the description of "INPUT-DEPENDENT PROPERTIES OF WEIGHTS"  and the description following Constraint 2, without using neural network notations. We also modified it to read better. We hope that the rewritten version of this discussion, and the additional text we've squeezed into Theorem 3.1 can help parse the notation more easily. However, we think it's hard to get rid of the other notations involving T, r, \rho etc., which are integral to describing the abstract setup.  Having said that, we are happy to consider further suggestions here! We really appreciate your above suggestions in this context and believe it helps reduce the burden on the reader.
+
+3 (a) Again, this is a good point and we have incorporated it as follows: 
+In the last paragraph of "Our Contributions" we say:
+"Intuitively, we make this assumption to ensure that under sufficiently small parameter perturbations, the activation states of the units are guaranteed not to flip."
+and again after Thm 4.1, we modified the paragraph at the end of page 7, and added the line:
+"Specifically, using the assumed lower bound on the pre-activation magnitudes we can ensure that, under noise, the activation states of the units do not flip; then the noise propagates through the network in a tractable, “linear” manner. Improving this analysis is an important direction for future work."</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rkxgiN236m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for the suggestions!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=rkxgiN236m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Reviewer, 
+
+Thanks for considering our clarification and accepting it. Also, thanks for studying the paper more carefully and providing concrete, valuable feedback. We will work on them! 
+
+Currently, there are plots for dependence on width, upto 1280 hidden units, present in Figure 3 and 4. We will present more plots as soon as possible.
+
+
+
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_rkgCLsBDT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Constraint 2 is NOT a shortcoming, and provably holds!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=rkgCLsBDT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Reviewer, thanks for your precise summary of the paper's approach and your thoughts about it! 
+
+We strongly disagree with your remark that Constraint 2 is  "a major shortcoming of the paper". Here's why:
+
+Constraint 2 is not restrictive and is in fact a very natural/intuitive constraint of the properties in the network -- and it provably holds good. At a high level, all the constraint says is the following:
+
+**For a given point x** for which the first r-1 sets of properties are bounded (say the first 3 layers have small l2 norm), the r-th property is noise-resilient (i.e., under noise injected into the parameters, the 4th layer's l2 norm does not suffer much change under parameter perturbation).
+
+This is a pretty natural constraint **which provably holds** for networks because of how the output of a particular layer depends only on the output of the preceeding layers.
+
+We make NO assumption of the form that something about the network holds good for ALL inputs in the domain. As you can see in Theorem 3.1, we say "if W satisfies T_r(W, x, y) &gt; Delta_r^* ... for all (x,y) in S" which means that these properties are bounded only for the training data. 
+
+We hope this clears the misunderstanding surrounding the constraint and convinces you that this is not at a drawback at all!
+
+The drawback that we acknowledge is regarding the dependence on the pre-activations, which we hope to improve upon in the future. But as it is, we believe the paper makes a conceptual contribution in terms of a new methodology of generalizing noise-resilience, and accomplishes a PAC-Bayes based product-of-spectral-norm independent bound in specific settings where it wasn't possible. 
+
+As you've suggested, we will improve the discussion of the constraints; thanks for your comment!
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1gqC-a3hQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=H1gqC-a3hQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper746 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper provides new generalization bounds for deep neural networks using the PAC-Bayesian framework. Recent efforts along these lines have proved bounds that 
+either apply to a classifier drawn from a distribution or to a compressed form of the trained classifier. In contrast, the paper uses PAC Bayesian bounds to 
+provide generalization bounds for the original trained network. At this same time, the goal is to provide bounds that do not scale exponentially in the depth of the
+network and depend on more nuanced parameters such as the noise-stability of the network. In order to do that the paper formalizes properties that a classifier must 
+satisfy on the training data. While these are a little difficult to understand in general, in the context of ReLU networks these boil down to bounding the l2-norms
+of the Jacobian and the hidden layer outputs on each data point. Additionally, the paper also requires the pre-activations to be sufficiently large, which as the authors 
+acknowledge, is an unrealistic assumption that is not true in practice. Despite that, the paper makes an important contribution towards our current understanding of 
+generalization of deep nets. It would have been helpful if the authors had a more detailed discussion on how their assumptions relate to the specific assumptions in the papers
+of Arora et al. and Neyshabur et al. This would help when comparing the results of the paper with existing ones. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hyxu-tF9TQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you! Added detailed discussion on the conditions from prior work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=Hyxu-tF9TQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Reviewer,
+
+Thanks for your positive feedback!
+
+We have uploaded a revised version with Appendix G where we have added a one-page discussion relating our noise-resilience conditions and the conditions in prior work. We hope this provides you better context to understand our assumptions. Happy to provide more details if needed.
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SkxjMyes3m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An honest work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=SkxjMyes3m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper746 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The fact that a number of current generalization bounds for (deep) neural networks are not expressed on the deterministic predictor at stake is arguably an issue. This is notably the case of many recent PAC-Bayesian studies of neural networks stochastic surrogates (typically, a Gaussian noise is applied to the network weight parameters). The paper proposes to make these PAC-Bayesian bounds deterministic by studying their "noise-resilience" properties. The proposed generalization result bounds the margin of a (ReLU) neural network classifier from the empirical margin and a complexity term relying on conditions on the values of each layer (e.g., via layer Jacobian norm, the layer output norm, and the smallest pre-activation value). 
+
+I have difficulty to attest if the proposed conditions are sound. Namely, the authors genuinely admit that the empirically observed pre-activation values are not large enough to make the bound informative (I must say that I truly appreciate the authors' candor when it comes to analyzing their result). That being said, the fact that the bounds does not scale with the spectral norm of the weight matrices, like previous PAC-Bayesian result for neural networks, is an asset of the current analysis.
+
+I must say that I had only a quick look to it the proofs, all of them being in the supplementary material along most of the technical details. Nevertheless, it appears to me as an honest, original and rigorous theoretical study, and I think it deserves to be presented to the community. It can bring interesting discussion and suggest new paths to explore to explain the generalization properties of neural networks.
+
+Minor comment: For the reader benefit, Theorem F.1 in page 7 should quickly recall the meaning of some notation, even if it's the "short version" of the theorem statement.
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJxLnKFq67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Revision uploaded</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=BJxLnKFq67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">As you suggested, we have recalled some of the notation in  the text preceding Theorem F.1 (which by the way is now Theorem 4.1 as it should be, thanks to Reviewer 4). 
+Thanks for your suggestion!</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1l1xiHMpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Yes, it is important to derive bounds on the original network!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=H1l1xiHMpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your positive response! We are glad you agree that many of the current generalization bounds for deep networks apply only to a compressed/stochastic network; indeed,  even though these bounds provide valuable intuition about generalization, we believe that an extremely important and non-trivial piece of the puzzle is to extend the benefits of these bounds (or at least some of its benefits -- in this case the lack of a product-of-spectral-norm dependence) over to the original network. And we achieve this through an approach that "generalizes noise resilience".
+
+With regards to your suspicion about the proposed "conditions", the only pesky condition in our result is the one involving the pre-activation values. The other bounds on the other quantities certainly hold favorably in practice as seen in our plots. We must also note that these conditions themselves are not the main contribution of our paper (and we have stated this point in "Our Contribution" in Page 3); the main contribution lies in how we generalize these conditions assumed about the network on the training data, to test data (without ever incurring a product-of-spectral-norms dependence). The conditions themselves are in fact philosophically similar to conditions examined and verified in prior work [1,2]; in essence, they dictate how the parts of the weight matrices activated by a particular datapoint, interact with each other.  
+
+Even as far as the condition involving the pre-activation values are concerned, it appears in our analysis to ensure that the hidden units don't jump their non-linearity under parameter perturbations; the assumption that only a small proportion of the hidden units  do not jump the non-linearity under perturbations has been made in prior works, although in a more relaxed form e.g., "Interlayer Smoothness" in [1] or condition C2 in [2], and *these have been verified in practice*. Intuitively, we believe that this assumption allows one to argue that the network is "linear" in a small local neighborhood in the parameter space, and this local linearity helps imply that the network has lesser complexity. 
+ 
+Again, we thank the reviewer for appreciating our contributions. We hope that the community finds our approach of generalizing noise-resilience useful. Our framework is general in that one could think of designing different sets of conditions that imply noise-resilience of the network, and argue how these conditions would generalize; with a better understanding of the source of noise-resilience in deep networks, we might identify better sets of conditions which can be generalized this way to obtain tighter bounds on the original network.
+
+We will take note of the reviewer's comment about Theorem F.1!
+
+[1] Arora et al., "Stronger generalization bounds for deep nets via a compression approach." 
+[2] Neyshabur et al., "Exploring gen- eralization in deep learning."
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1eo-DD537" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>PAC-Bayesian generalization bounds of deep neural networks based on the noise-resilience analysis</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=H1eo-DD537"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper746 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors demonstrate the generalization bound for deep neural networks using the PAC-Bayesian approach. They adopt the idea of noise resilience in the analysis and obtain a result that has improved dependence in terms of the network dimensions, but involves parameters (e.g., pre-activation) that may be large potentially. 
+
+My major concern is also regarding the dependence on the pre-activation that can be very large in practice. This is also shown in the numerical experiments. Therefore, the overall generalization bound can be larger than existing results, though the later have stronger dependence on the network sizes. By examining the analysis for the main result, it seems to me that the reason the authors can induce weaker dependence on network sizes is essentially they involved the pre-activation parameters. This can be viewed as a trade-off how strong the generalization bound depend on the network sizes and other related parameters (like the pre-activation here) rather than strictly tighten the error bound from a more refined/structured way. I also suggest that the authors provide the comparison of their bound and existing ones to see the quantitative difference of the results. 
+
+Regarding the noise resilience, it is not clear to where the noise resilience shows up from the analysis or the result. From the proof of the main result, the analysis seems to be standard as in the PAC-Bayesian analysis, which is based on bounding the difference of the network before and after injecting randomness into the parameters. The difference with respect to the previous result due to the different way of bounding such a gap, where the Jacobian, the pre-activation and function output pop up. But this does not explain how well a network can tolerate the noise, either in the parameter space of the data space. This is different with the previous analysis based on the noise resilience, such as [1]. So, the title and the way the authors explain as noise resilience is somewhat misleading. More detailed explanation will help.
+
+[1] Arora et al. Stronger generalization bounds for deep nets via a compression approach. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SJeNlQZlCQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Added plots of the bounds -- our bound works better for larger D, small H</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=SJeNlQZlCQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">19 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Reviewer,
+
+We want to let you know that, like you've suggested, we've added Figure 2 in the main paper, demonstrating the value of our bound for different values of D, for H=40. We want to highlight that our bound has weaker dependence on depth and does better than other product-of-spectral-norm-based bounds for sufficiently deep, not-so-wide networks. We hope this helps you better appreciate the contribution and significance of our work.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1eCm0tqTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Uploaded revision</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=r1eCm0tqTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Hi! Based on Reviewer 1's feedback, we uploaded a revision with Appendix G that now describes and compares the noise-resilience conditions assumed in our work vs. the ones assumed in prior work. We believe that in addition to our earlier responses to your review, this section might better highlight how noise-resilience is studied in our paper.
+
+Overall, we hope our comments
+i) clarify the main contribution of this paper, which lies in showing how noise-resilience of the network generalizes from training data to test data. 
+ii) convince you that our analysis is not a standard application of PAC-Bayes theorems (and is on the contrary, quite nuanced and novel)
+iii) justify the title.
+
+We are eager to know if you have any questions remaining; if your concerns have been clarified, we sincerely hope it helps you re-evaluate our paper and update your score. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BJxgsmSfa7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Dependence on pre-activation values is necessary to some extent</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=BJxgsmSfa7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We provide some context as to why the dependence on pre-activation values is not outrageous, and is to some extent necessary:
+	a) Here's our intuition: the larger the pre-activation values, the less likely is it that, under parameter perturbations, the hidden units jump the non-linearity in the ReLU; in other words, the network is more likely to behave "linearly" under small perturbations. Roughly speaking, the more locally linear the network is, the simpler is the fit that the network has found, and hence better the generalization. 
+	b) The assumption that only a small proportion of the hidden units  do not jump the non-linearity under perturbations has been made in prior works e.g., "Interlayer Smoothness" in [1] or condition C2 in [2], and *these have been verified in practice*. Overall, it is intuitively reasonable  that a generalization bound depends on a quantity that characterizes this behavior. Currently, for our bound to be small, one would need that none of the hidden units jump the non-linearity, which as we admitted in the paper, does not reflect reality completely.  Since our framework is quite general, with an even more careful analysis, in the future, one might be able to apply our framework for the case where this assumption is relaxed to better reflect reality (i.e., all but a small proportion of hidden units have a sufficiently large pre-activation value).
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ByxPcMBGam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Our contribution is a new refined/structured way to "generalize noise-resilience", not to explain noise-resilience</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hygn2o0qKX&amp;noteId=ByxPcMBGam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper746 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper746 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for you comments! In this response, we'll address the second half of your comment and explain the contributions of the paper, which we believe has been misunderstood. 
+
+We first note that our contribution is not just about getting rid of the dependence on the products of the spectral norms of the weight matrices; our contribution is also that we arrive at such a bound on the *original network* and not just a compressed network/stochastic network. While compression-based bounds  like [1] or other PAC-Bayes based bounds like  [2,3]  numerically evaluate to smaller values, and provide a partial answer for why deep networks generalize well, these bounds are not on the original network learned by SGD.  An extremely important and **non-trivial** piece of the puzzle is to extend the benefits of these bounds (or at least some of its benefits -- in this case the lack of a product-of-spectral-norm dependence) over to the original network. 
+
+
+We do this by presenting a structured and novel technique which "generalizes noise-resilience" presented in Section 3. Thus we disagree with the observation that our bound does not "strictly tighten the error bound from a more refined/structured way." Below we describe what we mean by "generalizing noise-resilience", in effect justifying our title, and also clarifying what exactly our contribution is.
+
+Like in [1,2], we model noise-resilience in terms of certain "conditions". For example, [1] assume  conditions like "the interlayer smoothness of the network is sufficiently large on training data". We assume similar conditions (e.g., "the output of each layer has small l2 norm on the training data") this allows us to bound the output perturbation of the network without incurring a product-of-spectral-norm dependence. Crucially, our theory and the theory in [1,2] assume these conditions to hold only **on training data**. 
+
+With reference to your comment:
+    "The difference with ... previous result due to the different way of bounding such a gap... But this does not explain how well a network can tolerate the noise":
+
+ While there are technical differences in how these conditions are formulated in [1,2] vs. our work, and how the perturbation in the output is bounded in terms of these conditions, the exact formulation of the conditions is NOT our key contribution. As mentioned in Page 3 under our contributions, our conditions are in fact philosophically similar to those in [1] and [2] and at a high level essentially characterize how the activated parts of the weight matrices in the network interact with each other. We strongly emphasize the following points:
+
+
+=====&gt; The novelty in our paper is NOT primarily about explaining why a network is noise-resilient (on training data). 
+
+=====&gt; Our main contribution, when compared to [1] or [2], is that we take a step beyond these existing approaches and present an approach to how conditions assumed about the network on the training data *can be generalized to test data*.  This step is crucial and allows us to claim that the network is noise-resilient on test data as well. 
+
+
+ The key reason [1,2] were not able to present product-of-spectral-norm independent bounds on the original network (but only on a modified network) was that they did not generalize these conditions about the behavior of the network from the training data to test data. 
+
+To achieve this, we present a structured approach that iterates through the layers and generalizes these conditions one after the other, in a specific order. It requires a lot of care to not incur product-of-spectral-norm dependency (or other extra dependencies on the width) while generalizing any of these multiple O(depth^2) conditions.  Besides, to generalize each condition, we require a particular style of reducing PAC-Bayesian bounds to deterministic bounds. Overall, we hope you understand that our analysis is quite far from "standard as in the PAC-Bayesian analysis, which is based on bounding the difference of the network before and after injecting randomness into the parameters".
+
+The idea of generalizing these conditions is novel and is an important step to explain the noise-resilience of these networks on testing data. Besides being refined and structured, most importantly, our approach is general and leaves scope for future work to use it as a hammer on different sets of conditions (hopefully one that doesn't assume large preactivation values on all units!).
+
+
+We hope our detailed response better explains the contribution of our work to answering the generalization puzzle,  in the context of the results in [1,2].
+
+[1] Arora et al., "Stronger generalization bounds for deep nets via a compression approach." 
+[2] Neyshabur et al., "Exploring gen- eralization in deep learning."
+[3] Dziugaite et al., "Computing nonvacuous generalization bounds ... than training data."
+
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

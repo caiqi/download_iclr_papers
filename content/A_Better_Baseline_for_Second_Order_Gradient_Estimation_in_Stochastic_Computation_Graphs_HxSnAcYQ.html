@@ -1,0 +1,265 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>A Better Baseline for Second Order Gradient Estimation in Stochastic Computation Graphs | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="A Better Baseline for Second Order Gradient Estimation in Stochastic Computation Graphs" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=H1x3SnAcYQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="A Better Baseline for Second Order Gradient Estimation in..." />
+      <meta name="og:description" content="Motivated by the need for higher order gradients in multi-agent reinforcement learning and meta-learning, this paper studies the construction of baselines for second order Monte Carlo gradient..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_H1x3SnAcYQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A Better Baseline for Second Order Gradient Estimation in Stochastic Computation Graphs</a> <a class="note_content_pdf" href="/pdf?id=H1x3SnAcYQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019a,    &#10;title={A Better Baseline for Second Order Gradient Estimation in Stochastic Computation Graphs},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=H1x3SnAcYQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Motivated by the need for higher order gradients in multi-agent reinforcement learning and meta-learning, this paper studies the construction of baselines for second order Monte Carlo gradient estimators in order to reduce the sample variance. Following the construction of a stochastic computation graph (SCG), the Infinitely Differentiable Monte-Carlo Estimator (DiCE) can generate correct estimates of arbitrary order gradients through differentiation. However, a baseline term that serves as a control variate for reducing variance is currently provided only for first order gradient estimation, limiting the utility of higher-order gradient estimates. To improve the sample efficiency of DiCE, we propose a new baseline term for higher order gradient estimation. This term may be easily included in the objective, and produces unbiased variance-reduced estimators under (automatic) differentiation, without affecting the estimate of the objective itself or of the first order gradient. We provide theoretical analysis and numerical evaluations of our baseline term, which demonstrate that it can dramatically reduce the variance of second order gradient estimators produced by DiCE. This computational tool can be easily used to estimate second order gradients with unprecedented efficiency wherever automatic differentiation is utilised, and has the potential to unlock applications of higher order gradients in reinforcement learning and meta-learning.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Reinforcement learning, meta-learning, higher order derivatives, gradient estimation, stochastic computation graphs</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We extend the DiCE formalism of higher order gradient estimation with a new baseline for variance reduction of second order derivatives, improving sample efficiency by two orders of magnitude. </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HJl83sY967" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting paper, could push it further</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1x3SnAcYQ&amp;noteId=HJl83sY967"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1579 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1579 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper extends the "infinitely differentiable Monte Carlo gradient estimator" (or DiCE) with a better control variate baseline for reducing the variance of the second order gradient estimates.
+
+The paper is fairly clear and well written, and shows significant improvements on the tasks used in the DiCE paper.
+
+I think the paper would be a much stronger submission with the following improvements:
+
+- More explanation/intuition for how the authors came up with their new baseline (eq. (8)). As the paper currently reads, it feels as if it comes out of nowhere.
+- Some analysis of the variance of the two terms in the second derivative in eq. (11). In particular, it would be nice to show the variance of the two terms separately (for both DiCE and this paper), to show that the reduction in variance is isolated to the second term (I get that this must be the case, given the math, but would be nice to see some verification of this). Also I do not have good intuition for which of these two terms dominates the variance. 
+- I appreciate that the authors tested their estimator on the same tasks as in the DiCE paper, which makes it easy to compare them. However, I think the paper would have much more impact if the authors could demonstrate that their estimator allows them to solve new, more difficult problems. Some of these potential applications are discussed in the introduction, it would be nice if the authors could demonstrate improvements in those domains.
+
+As is, the paper is still a nice contribution.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ryglNsz9p7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A paper on an important topic, but the contribution is not very significant</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1x3SnAcYQ&amp;noteId=ryglNsz9p7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1579 AnonReviewer5</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1579 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Thank you for an interesting read.
+
+This paper extends the recently published DiCE estimator for gradients of SCGs and proposed a control variate method for the second order gradient. The paper is well written. Experiments are a bit too toy, but the authors did show significant improvements over DiCE with no control variate.
+
+Given that control variates are widely used in deep RL and Monte Carlo VI, the paper can be interesting to many people. I haven't read the DiCE paper, but my impression is that DiCE found a way to conveniently implement the REINFORCE rules applied infinite times. So if I were to derive a baseline control variate for the second or higher order derivatives, I would "reverse engineer" from the exact derivatives and figure out the corresponding DiCE formula. Therefore I would say the proposed idea is new, although fairly straightforward for people who knows REINFORCE and baseline methods.
+
+For me, the biggest issue of the paper is the lack of explanation on the choice of the baseline. Why using the same baseline b_w for both control variates? Is this choice optimal for the second order control variate, even when b_w is selected to be optimal for the first order control variate? The paper has no explanation on this issue, and if the answer is no, then it's important to find out an (approximately) optimal baseline for this second order control variate. 
+
+Also the evaluation seems quite toy. As the design choice of b_w is not rigorously explained, I am not sure the better performance of the variance-reduced derivatives generalises to more complicated tasks such as MAML for few-shot learning.
+
+Minor:
+1. In DiCE, given a set of stochastic nodes W, why did you use marginal distributions p(w, \theta) for a node w in W, instead of the joint distribution p(W, \theta)? I agree that there's no need to use p(S, \theta) that includes all stochastic nodes, but I can't see why using marginal distribution is valid when nodes in W are not independent.
+
+2. For the choice of b_w discussed below eq (4), you probably need to cite [1][2].
+
+3. In your experiments, what does "correlation coefficient" mean? Normalised dot product?
+
+[1] Mnih and Rezende (2016). Variational inference for Monte Carlo objectives. ICML 2016.
+[2] Titsias and Lázaro-Gredilla (2015). Local Expectation Gradients for Black Box Variational Inference. NIPS 2015.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJeQrTXahX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An important direction motivated by recent need for second-order gradient estimation, but need to verify its advantages more thoroughly</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1x3SnAcYQ&amp;noteId=HJeQrTXahX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1579 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1579 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the author proposed a better control variate formula for second-order Monte Carlo gradient estimators, based on a special version of DiCE (Foerster et al, 2018).  The motivation and the main method is easy to follow and the paper is well written.  The author followed the same experiments setting as DiCE, numerically verifying the advantages of the newly proposed baseline, which can estimate the Hession accurately. 
+
+The work is essentially important due to the need for second-order gradient estimation for meta-learning (Finn et al., 2017) and multi-agent reinforcement learnings.  However, the advantage of the proposed method is not verified thoroughly. The only real application demonstrated in the paper, can be achieved the same performance as the second-order baseline using a simple trick.  Since this work only focuses on second-order gradient estimations, I think it would be better to verify its advantages in various scenarios such as meta-learning or sparse reward RL  as the author suggested in the paper.
+
+Finn, Chelsea, Pieter Abbeel, and Sergey Levine. "Model-agnostic meta-learning for fast adaptation of deep networks." ICML 2017.
+Foerster, Jakob, et al. "DiCE: The Infinitely Differentiable Monte-Carlo Estimator." ICML 2018.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hyl7UE0Ya7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for the positive review, we’re excited about applying this tool to larger problems in future work.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1x3SnAcYQ&amp;noteId=Hyl7UE0Ya7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1579 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1579 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Many thanks for the review. While we agree that more experimental validation would have value, this paper is primarily proposing a novel method, which is validated both through proof-of-principle experiments, but, also, and more importantly, theoretically. Furthermore, since we uploaded the paper to OpenReview, another research group has already started experimenting with the new baseline.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJxbt-3sjX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Nicely written paper contributes useful trick; novelty too low for conference track, some correctness issues present</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1x3SnAcYQ&amp;noteId=SJxbt-3sjX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1579 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">23 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1579 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Overview: 
+This nicely written paper contributes a useful variance reduction baseline to make the recent formalism of the DiCE estimator more practical in application. I assess the novelty and scale of the current contribution as too low for publication at ICLR. Also, the paper includes a few incorrect assertions regarding the control variate framework as well as action-dependent baselines in reinforcement learning. Such issues reduce the value of the contribution in its current form and may contribute to ongoing misunderstandings of the control variate framework and action-dependent baselines in RL, to the detriment of variance reduction techniques in machine learning. I do not recommend publication at this time.
+
+Pros:
+The paper is well written modulo the issues discussed below. It strikes me as a valuable workshop contribution once the errors are addressed, but it lacks enough novelty for the main conference track.
+
+Issues:
+
+* (p.5) "R_w and b_w are positively correlated by design, as they should be for variance reduction of the first order gradients."
+
+This statement is not true in general. Intuitively, a control variate reduces variance because when a single estimate of an expectation of a function diverges from its true value according to some delta, then, with high probability, some function strongly correlated with that function will also diverge with a similar delta. Such a delta might be positive or negative, so long as the error may be appropriately modeled as drawn from some symmetric distribution (i.e. is Gaussian).
+
+Control variates are often estimated with an optimal scaling constant that depends on the covariance of the original function and its control variate. Due to the dependence on the covariance, the scaling constant flips sign as appropriate in order reduce variance for any delta. For more information, see the chapter on variance reduction and subsection on control variates in Sheldon Ross's textbook "Simulation."
+
+The fact that a control variate appears to work despite this is not surprising. Biased and suboptimal unbiased gradient estimators have been shown to work well for reasons not fully explored in the literature yet. See, for example, Tucker et al.'s "Mirage of Action-Dependent Baselines", <a href="https://arxiv.org/abs/1802.10031." target="_blank" rel="nofollow">https://arxiv.org/abs/1802.10031.</a>
+
+Since the authors claim on page 6 that the baseline is positively correlated by design, this misunderstanding of the control variate framework appears to be baked into the baseline itself. I recommend the authors look into adaptively estimating an optimal scale for the baseline using a rolling estimator of the covariance and variance to fix this issue. See the Ross book cited above for full derivation of this optimal scale.
+
+* The second error is a mischaracterization of the use and utility of action-dependent baselines for RL problems, on page 6: "We choose the baseline ... to be a function of state ... it must be independent of the action ...." and "it is essential to exclude the current action ... because the baselines ... must be independent of the action ... to remain unbiased." In the past year, a slew of papers have presented techniques for the use of action-dependent baselines, with mixed results (see the Mirage paper just cited), including two of the papers the authors cited.
+
+Cons
+* Much of paper revises the DiCE estimator results, arguing for and explaining again those results rather than referring to them as a citation. 
+* I assess the novelty of proposed contribution as too low for publication. The baseline is an extension of the same method used in the original paper, and does not generalize past the second order gradient, making the promising formalism of the DiCE estimator as infinitely differentiable still unrealizable in practice.
+* The experiments are practically identical to the DiCE estimator paper, also reducing the novelty and contribution of the paper.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1eK5IRF6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>We strongly disagree with the main points raised, particularly the misconception around the optimal scaling constant ‘c’ and action-dependent baselines.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=H1x3SnAcYQ&amp;noteId=B1eK5IRF6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1579 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1579 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your feedback. However, we strongly disagree with the main points of criticism, particularly the misconception around the optimal scaling constant ‘c’ and action-dependent baselines. Please see our detailed response to the individual points of the review below.
+
+1) Re “positive vs negative correlation”: Of course covariates can be positively or negatively correlated. The fact that we say it should be positively correlated does not indicate a misunderstanding but merely reflects the fact that in our case c is set to 1 (see below why directly evaluating the optimal c is not practical in realistic settings).
+
+2) Re “optimal scaling constant”: While it is well known that the optimal variance reduction depends on the covariance between the control variate and the estimator, this optimal factor is rarely used in practice for reinforcement learning due to the computational costs of doing one gradient estimate per entry in a batch. What is used in practice across the board for Deep RL (eg. A3C, PPO, IMPALA, etc) is the value-function based variance reduction, which we are enabling for higher order gradients through the DiCE formalism. The fact that our method only depends on the commonly used state-value-function for the baseline computation is a strength, not a weakness.
+
+3) Re “independent of the action”: We will clarify this issue in the paper but the review misrepresents the facts on this point. Yes, there is a way to account for the bias introduced by an action-dependent baseline and in some cases this bias can be removed exactly. However, this is another method (like the optimal scaling factor mentioned above) that has not been shown to work in practice. In fact the very paper cited by the reviewer (the ‘mirage of action dependent baselines’), concludes that from a practitioner's point of view there currently is no reason to consider action dependent baselines. Our submission extends the utility of value functions to provide action-independent variance reduction for higher order gradients.
+
+4) Re “revises DiCE formalism”: Thank you for this suggestion. Prior to submission, we carefully considered how our contribution and decided that in order for the paper to be self-contained, Stochastic Computation Graphs as well as the DiCE formalism should be explained clearly in the Background section. To highlight the delta to prior work, we clearly separated out the revision of Stochastic Computation Graphs and the DiCE formalism (Section 2) from the Method (Section 3). 
+
+5) Re “novelty too low.. does not generalize past the second order gradient”: This is obviously a subjective claim. However, note that second order gradients are a key use-case in meta-learning and multi-agent RL and as such the new baseline has the potential to unlock a large number of applications and is of key importance to the community (in fact we are aware of one other research group that has already started experimentation with this baseline). Also, just as the 1st order variance reduction term contributes to a lower 2nd order variance, our new 2nd order baseline also acts as a variance reduction for higher order gradient estimators, although we did not quantify the impact experimentally (since 2nd order is the most relevant for current research). 
+
+6) Re “experiments are identical”: This is also a strength, not a weakness: for the sake of reproducibility between the original DiCE and the new baseline, it is crucial to use the same setting. Also, note that his paper is about proposing a new tool, rather than demonstrating full solutions to novel applications. Experimental results are provided as proof-of-principle and are not the main point of the paper. Clearly, the experimental results support the utility of the new baseline compared to a previously published result.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

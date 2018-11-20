@@ -1,0 +1,249 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Understanding &amp; Generalizing AlphaGo Zero | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Understanding &amp; Generalizing AlphaGo Zero" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rkxtl3C5YX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Understanding &amp; Generalizing AlphaGo Zero" />
+      <meta name="og:description" content="AlphaGo Zero (AGZ) introduced a new {\em tabula rasa} reinforcement learning algorithm that has achieved superhuman performance in the games of Go, Chess, and Shogi with no prior knowledge other..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rkxtl3C5YX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Understanding &amp; Generalizing AlphaGo Zero</a> <a class="note_content_pdf" href="/pdf?id=rkxtl3C5YX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019understanding,    &#10;title={Understanding &amp; Generalizing AlphaGo Zero},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rkxtl3C5YX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">AlphaGo Zero (AGZ) introduced a new {\em tabula rasa} reinforcement learning algorithm that has achieved superhuman performance in the games of Go, Chess, and Shogi with no prior knowledge other than the rules of the game. This success naturally begs the question whether it is possible to develop similar high-performance reinforcement learning algorithms for generic sequential decision-making problems (beyond two-player games), using only the constraints of the environment as the ``rules.'' To address this challenge, we start by taking steps towards developing a formal understanding of AGZ.  AGZ includes two key innovations: (1) it learns a policy (represented as a neural network) using {\em supervised learning} with cross-entropy loss from samples generated via Monte-Carlo Tree Search (MCTS); (2) it uses {\em self-play} to learn without training data. 
+
+We argue that the self-play in AGZ corresponds to learning a Nash equilibrium for the two-player game; and the supervised learning with MCTS is attempting to learn the policy corresponding to the Nash equilibrium, by establishing a novel bound on the difference between the expected return achieved by two policies in terms of the expected KL divergence (cross-entropy) of their induced distributions. To extend AGZ to generic sequential decision-making problems, we introduce a {\em robust MDP} framework, in which the agent and nature effectively play a zero-sum game: the agent aims to take actions to maximize reward while nature seeks state transitions, subject to the constraints of that environment, that minimize the agent's reward. For a challenging network scheduling domain, we find that AGZ within the robust MDP framework provides near-optimal performance, matching one of the best known scheduling policies that has taken the networking community three decades of intensive research to develop.
+</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">reinforcement learning, AlphaGo Zero</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HyljDMze6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The results in the paper are relatively straightforward and there is a clear gap.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxtl3C5YX&amp;noteId=HyljDMze6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1097 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1097 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper seeks to understand the AlphaGo Zero (AGZ) algorithm and extend the algorithm to regular sequential decision-making problems. Specifically, the paper answers three questions regarding AGZ: (i) What is the optimal policy that AGZ is trying to learn? (ii) Why is cross-entropy the right objective? (iii) How does AGZ extend to generic sequential decision-making problems? This paper shows that AGZ’s optimal policy is a Nash equilibrium, the KL divergence bounds distance to optimal reward, and the two-player zero-sum game could be applied to sequential decision making by introducing the concept of robust MDP. Overall the paper is well written. However, there are several concerns about this paper.
+
+In fact, the key results obtained in this paper is that minimizing the KL-divergence between the parametric policy and the optimal policy (Nash equilibrium) (using SGD) will converge to the optimal policy. It is based on a bound (2), which states that when the KL-divergence between a policy and the optimal policy goes to zero then the return for the policy will approach that of the optimal policy. This bound is not so surprising because as long as certain regularity condition holds, the policies being close should lead to the returns being close. Therefore, it is an overclaim that the KL-divergence bound (2) provides an immediate justification for AGZ’s core learning algorithm. As mentioned earlier, the actual conclusion in Section 4.2 is that minimizing the KL-divergence between the parametric policy and the optimal policy by SGD will converge to the optimal policy, which is straightforward and is not what AlphaGo Zero does. This is because there is an important gap: the MCTS policy is not the same as the optimal policy. The effect of the imperfection in the target policy is not taken into account in the paper. A more interesting question to study is how this gap affect the iterative algorithm, and whether/how the error in the imperfect target policy accumulates/diminishes so that iteratively minimizing KL-divergence with imperfect \pi* (by MCTS) could still lead to optimal policy (Nash equilibrium).
+
+Furthermore, the robust MDP view of the AGZ in sequential decision-making problems is not so impressive either. It is more or less like a reformulation of the AGZ setting in the MDP problem. And it is commonly known that two-player zero-sum game is closely related to minimax robust control. Therefore, it cannot be called as “generalizing AlphaGo Zero” as stated in the title of the paper.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Hylj7vZsh7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting insights about alphaGo Zero and a nice case-study.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxtl3C5YX&amp;noteId=Hylj7vZsh7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1097 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1097 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper analyzes the AlphaGo Zero algorithm by showing that the optimal policy corresponds to a Nash equilibrium. The authors then show that the equilibrium corresponds to a KL-minimization. Finally, the show on a classical scheduling task.
+
+On the positive side, the paper is well written and structured. The results presented are very interesting, specially showing that stochastic approximation of a KL-divergence minimization. The case-study is also interesting, although does not improve current state-of-the-art. On the negative side, I think the relevance and novelty of the results should be explained better.
+
+For example, it is not clear the strong emphasis on the robust MDP formalization and the fact that MCTS finds a Nash equilibrium. The MDP formalization is rather straightforward. Also, MCTS has been used extensively to find Nash equilibria in both perfect and imperfect games, e.g., "Online monte carlo counterfactual regret minimization for search in imperfect information games". Maybe the authors can elaborate more on the significance/relevance of this contribution.
+
+Besides, the power of AlphaGo Zero resides in the combination of the MCTS together with the compact representation learning of the value functions. The presented analysis seems to neglect the error term corresponding to the value function.
+
+There are other minor details:
+
+- Eq(2). notation: \forall s is missing
+- Theorem 2 should be Theorem 1
+- "there are constraints per which state can transition"
+- "P1 is agent" -&gt; "P1 is the agent"
+- "Pinker" -&gt; "Pinsker"
+- C_R in Eq(5) is not introduced.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SJlYT1Uw27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>heavy on notations, limited impact applicability / experimental results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxtl3C5YX&amp;noteId=SJlYT1Uw27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1097 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1097 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a formal framework to claim that Alpha Zero might converges to a Nash equilibrium. The main theoretical result is that the reward difference between a pair of policy and the Nash policy is bounded by the expected KL of these policy on a state distribution sampled from the Nash policies. 
+
+The paper is quite heavy on notations and relatively light on experimental results. The main theoretical results is a bit remote from the case Alpha Zero is applied to. Indeed the bound is in 1/(1-/gamma) while Alpha Zero works with gamma = 1. Also 
+
+Casting a one player environment as a two player game in which nature plays the role of the second player makes the paper very heavy on notations.
+
+In the experimental sections, the only comparison with RL types algorithm is with SARSA, it would be interesting to know how other RL algorithms, perhaps model free, would compare to this, i.e. is Alpha Zero actually necessary to solve this tasks?
+
+
+--- 
+p 1
+
+' it uses the current policy network g_theta' : policy and value network.
+
+p 2 / appendix
+No need to provide pseudo code for alpha zero the original paper already describes that?
+
+p2 (2). It seems a bit surprising to me that the state density rho does not depend upon pi but only on pi star? 
+
+p4:
+Not sure why you need to introduce R(pi), isnt it just V_pi (s_0) ? Also usually the letter R is used for the return i.e. the sum of discounted reward without the expectation, so this notation is a bit confusing?
+
+p5:
+paragraph2: I don't quite see the point of this.
+
+p8:
+"~es, because at most on packet can get serviced from any input or output port.~" typo ?
+
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

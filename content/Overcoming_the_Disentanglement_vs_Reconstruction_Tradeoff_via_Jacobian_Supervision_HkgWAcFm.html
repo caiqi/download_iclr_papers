@@ -1,0 +1,373 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Overcoming the Disentanglement vs Reconstruction Trade-off via Jacobian Supervision | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Overcoming the Disentanglement vs Reconstruction Trade-off via Jacobian Supervision" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Hkg4W2AcFm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Overcoming the Disentanglement vs Reconstruction Trade-off via..." />
+      <meta name="og:description" content="Learning image representations where the factors of variation are disentangled&#10;  is typically achieved with an encoder-decoder architecture where a subset of the&#10;  latent variables is constrained to..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Hkg4W2AcFm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Overcoming the Disentanglement vs Reconstruction Trade-off via Jacobian Supervision</a> <a class="note_content_pdf" href="/pdf?id=Hkg4W2AcFm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019overcoming,    &#10;title={Overcoming the Disentanglement vs Reconstruction Trade-off via Jacobian Supervision},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=Hkg4W2AcFm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Learning image representations where the factors of variation are disentangled
+is typically achieved with an encoder-decoder architecture where a subset of the
+latent variables is constrained to correspond to specific factors, and the rest
+of them are considered nuisance variables. This widely used approach has an
+important drawback: as the dimension of the nuisance variables is increased,
+better image reconstruction is achieved, but the decoder has the flexibility to
+ignore the specified factors, thus losing the ability to condition the output on
+those factors.
+In this work, we propose to overcome this trade-off by progressively growing the
+dimension of the latent code, while constraining the Jacobian of the output
+image with respect to the disentangled variables to remain the same.  As a
+result, the obtained models are effective at both disentangling and reconstruction.
+We demonstrate the aplicability of this method in both unsupervised and
+supervised scenarios for learning disentangled representations. In a facial
+attribute manipulation task, we obtain high quality image generation while
+smoothly controlling dozens of attributes with a single model. This is an order
+of magnitude more disentangled factors than state-of-the-art methods, while
+obtaining visually similar or superior results, and avoiding adversarial
+training</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">disentangling, autoencoders, jacobian, face manipulation</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">A method to learn image representations that are good at both disentangling factors of variation and obtaining faithful reconstructions.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">5 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_BJxo72kq3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Nice results on image manipulation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hkg4W2AcFm&amp;noteId=BJxo72kq3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1160 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1160 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper aims to learn an autoencoder that can be used to effectively encode the known attributes/ generative factors and this allows easy and controlled manipulation of the images while producing realistic images.
+
+To achieve this, ordinarily, the encoder produces latent code with two components y and z where y are clamped to known attributes using supervised loss while z is unconstrained and mainly useful for good reconstruction. But his setup fails when z is sufficiently large as the decoder can learn to ignore y altogether. Smaller sized z leads to poor reconstruction.
+
+To overcome this issue, the authors propose to employ a student teacher training paradigm. The teacher is trained such that the encoder only produces y and the decoder that only consumes y. This ensures good disentanglement but poor reconstruction. Subsequently, a student autoencoder is learned which has a much larger latent code and produces both y and z. The y component is mapped to the teacher encoder’s y component using Jacobian regularization.
+
+Positives:
+The results of image manipulation using known attributes is quite impressive. The authors propose modifications to the Jacobian regularization as simple reconstruction losses for efficient training. The approach avoids adversarial training and thus is easier to train.
+
+Negatives:
+Unsupervised disentanglement results are only shown for MNIST. I am not convinced similar results for unsupervised disentanglement can be obtained on more complex datasets. Authors should include some results on this aspect or reduce the emphasis on unsupervised disentanglement. Also when studying this quantitative evaluation for disentanglement such as in beta-VAE will be nice to have.
+
+Typos:
+page 3: tobtain -&gt; obtain
+page 5: conditionning -&gt; conditioning </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1gqJD2u2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Idea is neat and qualitative results are impressive, but the paper is quite lacking in quantitative results and comparisons to other methods.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hkg4W2AcFm&amp;noteId=r1gqJD2u2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1160 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1160 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary: The paper proposes a method to tackle the disentanglement-reconstruction tradeoff problem in many disentangling approaches. This is achieved by first training the teacher autoencoder (unsupervised or supervised) that learns to disentangle the factors of variation at the cost of poor reconstruction, and then distills these learned representations into a student model with extra latent dimensions, where these extra latents can be used to improve the reconstructions of the student autoencoder compared to the teacher autoencoder. The distillation of the learned representation is encouraged via a novel Jacobian loss term that encourages the change in reconstructions of the teacher and student to be similar when the latent representation changes. There is one experiment for progressive unsupervised disentangling (disentangling factor by factor) on MNIST data, and one experiment for semi-supervised disentangling on CelebA-HQ.
+
+Pros:
+- I think the idea of progressively capturing factors of variation one by one is neat, and this appears to be one of the first successful attempts at this problem.
+- The distillation appears to work well on the MNIST data, and does indeed decrease the reconstruction loss of the student compared to the teacher.
+- The qualitative results on CelebA-HQ look strong (especially apparent in the video), with the clear advantage over Fader Networks being that the proposed model is a single model that can manipulate the 40 different attributes, whereas Fader Nets can only deal with at most 3 attributes per model.
+
+Cons:
+- There are not enough quantitative results supporting the claim that the model is “effective at both disentangling and reconstruction.” The degree of disentanglement in the representations is only shown qualitatively via latent interpolation, and only for a single model. Such qualitative results are generally prone to cherry-picking and it is difficult to reliably compare different disentangling methods in this manner. This calls for quantitative measures of disentanglement. Had you used a dataset where you know the ground truth factors of variation (e.g. dSprites/2D Shapes data) for the unsupervised disentangling method, then the level of disentanglement in the learned representations could be quantified, and thus your method could be compared against unsupervised disentangling baselines. For the semi-supervised disentanglement example on CelebA, you could for example quantify how well the encoder predicts the different attributes (because there is ground truth here) e.g. report RMSE of the y_i’s on a held out test set with ground truth. A quantitative comparison with Fader Networks in this manner appears necessary. The qualitative comparison on a single face in Figure 5 is nowhere near sufficient.
+- There is quantitative evidence that the reconstruction loss decreases when training the student, but here it’s not clear whether this quantitative difference makes a qualitative difference in the reconstructions. Getting higher fidelity images is one of the motivations behind improving reconstructions, so It would be informative to compare the reconstructions of the teacher and the student on the same image.
+- In the CelebA experiments, the benefit of student training is not visible in the results. In Figure 5 you already show that the teacher model gives decent reconstructions, yet you don’t show the reconstruction for the student model (quantitatively you show that it improves in Figure 3b, but again it is worth checking if it makes a difference visually). Also it’s not clear whether Figure 4 are results from the student model or the teacher model. I’m guessing that they are from the student model.
+- These quantitative results could form the basis of doing ablation studies for each of the different losses in the additive loss (for both unsupervised &amp; semi-supervised tasks). Because there are many components in the loss, with a hyperparameter for each, it would be helpful to know what losses the results are sensitive to for the sake of tuning hyperparameters. This would be especially useful should I wish to apply the proposed method to a different dataset.
+- I think the derivation of the Jacobian loss requires some more justification. The higher order terms in the Taylor expansion in (2) and (3) can only be ignored when ||y_2 - y_1|| is small compared to the coefficients, but there is no validation/justification regarding this.
+
+Other Qs/comments:
+- On page 5 in the last paragraph of section 3, you say that “After training of the student with d=1 is finished, we consider it as the new teacher”. Here do you append z to y when you form the new teacher?
+- On page 6 in the paragraph for prediction loss, you say “This allows the decoder to naturally …. of the attributes”. I guess you mean this allows the model to give realistic interpolations between y=-1 and 1?
+- bottom of page 6: “Here we could have used any random values in lieu of y_2” &lt;- not sure I understand this?
+- typo: conditionnning -&gt; conditioning
+- I would be inclined to boost the score up to 7 if the authors include some quantitative results along with more thorough comparisons to Fader Networks</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SyxL9vbI27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Need more quantitative experiments to justify the claims. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hkg4W2AcFm&amp;noteId=SyxL9vbI27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1160 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1160 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposed a novel approach for learning disentangled representation from supervised data (x as the input image, y as different attributes), by learning an encoder E and a decoder D so that (1) D(E(x)) reconstructs the image, (2) E(D(x)) reconstruct the latent vector, in particular for the vectors that are constructed by mingling different portion of the latent vectors extracted from two training samples, (3) the Jacobian matrix matches and (4) the predicted latent vector matches with the provided attributes. In addition, the work also proposes to progressively add latent nodes to the network for training. The claim is that using this framework, one avoid GAN-style training (e.g., Fader network) which could be unstable and hard to tune. 
+
+Although the idea is interesting, the experiments are lacking. While previous works (e.g., Fader network) has both qualitative (e.g., image quality when changing attribute values) and quantitative results (e.g., classification results of generated image with novel combination of attributes), this paper only shows visual comparison (Fig. 4 and Fig. 5), and its comparison with Fader network is a bit vague (e.g., it is not clear to me why Fig. 5(e) generated by proposed approach is “more natural” than Fig. 5(d), even if I check the updated version mentioned by the authors' comments). Also in the paper there are five hyperparameters (Eqn. 14) and the center claim is that using Jacobian loss is better. However, there is no ablation study to support the claim and/or the design choice. From my opinion, the paper should show the performance of supervised training of attributes, the effects of using Jacobian loss and/or cycle loss, the inception score of generated images, etc. 
+
+I acknowledge the authors for their honesty in raising the issues of Fig. 4, and providing an updated version. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1xizrM-q7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a> Interesting paper, but I have a few questions and concerns</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hkg4W2AcFm&amp;noteId=B1xizrM-q7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1160 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear authors, this is an interesting paper but I have a few questions and concerns:
+
+(1) In equation (1) could you explain why y is used instead of y^S and y^T? Is y supposed to refer to some Oracle factors? And if so, it is not clear what assumption the authors are making later in the paper to relate y to y^S and y^T.
+
+(2) In Figure 1., the authors claim that the student obtains better reconstruction than the teacher, however is there any quantitative comparison? It is not clear if Figure 1.(d) is sufficient to show this? Does epoch 0 correspond to the teacher? If it does, it would be good to say this explicitly.
+
+(3) The derivation of Equation (7) is clear and very easy to follow. 
+
+(4) Is it possible to quantify the contribution of L_{xcov} to the model?
+
+(5) The authors say that: 
+`Once the student model is trained, it generates a better reconstructed image than the teacher model, thanks to the expanded latent code, while maintaining the conditionning of the output that the teacher had.’
+
+The authors have not quantified the level of ‘conditionning’ (disentanglement) for either the student or the teacher, so it is not clear if this claim is well backed, or the extent to which this is true. It would be hard for other researchers to build on this work, without having methods to qualitatively compare models. Higgins et al. ICLR 2017 propose one method for measuring disentanglement.
+
+(6) A more serious concern is that the term disentanglement as defined in the abstract:
+
+`where a subset of the latent variables is constrained to correspond to specific factors'
+
+ is not clear nor is it consistently used throughout the paper. When the authors disentangle MNIST, they appear to be searching for linear separability, and when they disentangle CelebA they appear to be trying to assign one factor of variation (attribute) to each unit of y^T. Additionally, the paper refers more to ‘conditionning’ than disentanglement, it would be nice to rectify or explain this discontinuity between the main body of the text and the title.
+
+(7) Reconstruction results in Figure 4. appear to be very good, however there is no quantitative evaluation nor comparison with other models.
+
+(8) Additionally, while most of the results in Figure 4. are visually pleasing, there are no quantitative results. From these visual results it is not clear how reliably (or consistently) the model is able to edit the correct attribute? 
+
+(9) The authors say that:
+`In comparison, a student model with enlarged latent code but that continues with the training procedure as the teacher, without Jacobian supervision, achieves good reconstruction but loses the effective conditionning on the attributes.’
+
+There are no quantitative (or qualitative) results to demonstrate that the disentanglement is worse in the `student model with enlarged latent code'.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rygfJ69oqm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>thank you for your interest</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Hkg4W2AcFm&amp;noteId=rygfJ69oqm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1160 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Oct 2018</span><span class="item">ICLR 2019 Conference Paper1160 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">(1) In equation (1) y_i refers to an arbitrary dimension in the input space of the
+decoders. Both T and S decoders have the same input space for the specified
+variables, namely $\mathds{R}^k$.  In the paper we use the superscript when we
+want to indicate the value was produced by one of the encoders.
+
+(2) Please refer to our answer to item (5) below for a quantitative
+comparison. Yes, epoch 0 in Fig.1 (d) corresponds to the teacher. We will
+clarify it.
+
+(5) We quantified the level of disentanglement as follows: we evaluated how well
+the first two hidden variables ($k$=2), maintain the encoding of the digit class
+in the student models. We take two images of different digits from the test set,
+feed them to the encoder, swap their corresponding 2D subpart of the latent code
+and feed the fabricated latent codes to the decoder. We then run a pre-trained
+MNIST classifier in the generated image to see if the class was correctly
+swapped.
+
+| model                             | $d$ | recons. MSE | swaps OK |
+|---------------------------------+-----+---------------+-----------|
+| teacher                             |   0 |     3.66e-2 |    80.6% |
+| student w/ Jac. sup. (*) |  14 |     1.38e-2 |    57.2% |
+| student wo/ Jac. sup.     |  14 |     1.12e-2 |    32.0% |
+| student wo/ Jac. sup      |  10 |     1.40e-2 |    41.4% |
+|---------------------------------|------|--------------|------------|
+| random weights             |  14 |     1.16e-1 |     9.8% |
+
+We observe that at the same level of reconstruction performance (~1.4e-2), the
+student with Jacobian supervision maintains a better disentangling of the class
+(under this metric) than the student without it. We will include a figure
+showing that the reconstruction-disentanglement trade-off traversed by varying
+$d$ is indeed more advantageous for our model. Note that the first two variables
+do not encode perfectly the digit class. This advantage in the trade-off is much
+larger in the application of Section 4.
+
+(*) Note: this model was trained with $\lambda_{diff} = 0.1$ instead of $1.0$ as
+the one currently in the paper. The figure will be updated for this model.
+
+(4) We evaluated the disentangling measure (described in (5)), on the
+MNIST test set, for the student with Jacobian supervision:
+
+| xcov weight | $d$ | recons. MSE | swaps OK |
+|-------------+-----+-------------+----------|
+|        1e-3 |  14 |     1.38e-2 |    57.2% |
+|        1e-2 |  14 |     1.46e-2 |    56.3% |
+|        1e-1 |  14 |     1.49e-2 |    56.6% |
+
+(6) Thank you for remarking this important point.  In this paper we use the
+word disentangling to refer to both aspects:
+
+a) each latent unit in the specified part is sensitive to one generative factor
+b) the value of each of these latent units conditions the generated output such
+that it varies the corresponding generative factor
+
+We will clarify this in the manuscript and revise the text to make sure it is
+coherent.
+
+(7) See item (8)
+
+(8) We evaluated quantitatively how well the output is conditioned to the specified
+factors, similarly to the procedure described in item (5). To do this, for each
+image in the CelebA test set, we tried to flip each of the 32 disentangled
+attributes, one at a time (e.g. eyeglasses/no eyeglasses). We did the flipping
+by setting the latent variable y_i to sign(y_i)*-1*\alpha, with \alpha &gt;0 a
+multiplier to exaggerate the attribute, found in a separate validation set for
+each model (\alpha=40 for all).
+
+To verify that the attribute was indeed flipped in the generated image, we used
+an external classifier trained to predict each of the attributes. We used the
+classifier provided by the authors of Lample et al. (2017), which was trained
+directly on the CelebA dataset.
+
+The results are as follows:
+
+| model                           |  $d$ | flips OK | recons. MSE |
+|------------------------------+--------+------------+---------------|
+| teacher                        | 2048  |    73.1% |     1.82e-3 |
+| student w/ Jac. sup.   | 8192 |    72.2% |     1.08e-3 |
+| student wo/ Jac. sup. | 8192 |    42.7% |     1.04e-3 |
+|------------------------------+--------+------------+---------------|
+| Lample et al., 2017     | 2048 |    43.1% |     3.08e-3 |
+| random weights         | 2048 |    20.2% |     1.01e-1 |
+
+At approximately the same reconstruction performance, the student with Jacobian
+supervision is significantly better at flipping attributes than the student
+without it. 
+
+We also trained a Fader Networks model (Lample et al., 2017) with the same
+hyperparameters and training epochs as our teacher model. The result suggests
+that the adversarial discriminator acting on the latent code harms the
+reconstruction and that the conditionning is worse than with our teacher model.
+
+(9) We will add to the appendix the result of trying the same experiment as in
+Figure 4, but using the student model without Jacobian supervision. It will be
+clear from this experiment that the latter cannot effectively control most of
+the attributes.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

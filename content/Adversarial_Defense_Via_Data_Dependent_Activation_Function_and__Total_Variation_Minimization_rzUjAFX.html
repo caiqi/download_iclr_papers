@@ -1,0 +1,246 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Adversarial Defense Via Data Dependent Activation Function and  Total Variation Minimization | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Adversarial Defense Via Data Dependent Activation Function and  Total Variation Minimization" />
+        <meta name="citation_author" content="Bao Wang" />
+        <meta name="citation_author" content="Alex T. Lin" />
+        <meta name="citation_author" content="Zuoqiang Shi" />
+        <meta name="citation_author" content="Wei Zhu" />
+        <meta name="citation_author" content="Penghang Yin" />
+        <meta name="citation_author" content="Andrea L. Bertozzi" />
+        <meta name="citation_author" content="Stanley J. Osher" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=r1z1UjA5FX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Adversarial Defense Via Data Dependent Activation Function and..." />
+      <meta name="og:description" content="We improve the robustness of deep neural nets  to adversarial attacks by using an interpolating function as the output activation.   This data-dependent activation function remarkably improves both..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_r1z1UjA5FX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Adversarial Defense Via Data Dependent Activation Function and  Total Variation Minimization</a> <a class="note_content_pdf" href="/pdf?id=r1z1UjA5FX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures"><a href="/profile?email=wangbaonj%40gmail.com" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="wangbaonj@gmail.com">Bao Wang</a>, <a href="/profile?email=atlin%40math.ucla.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="atlin@math.ucla.edu">Alex T. Lin</a>, <a href="/profile?email=zqshi%40mail.tsinghua.edu.cn" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="zqshi@mail.tsinghua.edu.cn">Zuoqiang Shi</a>, <a href="/profile?email=zhu%40math.duke.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="zhu@math.duke.edu">Wei Zhu</a>, <a href="/profile?email=yph%40g.ucla.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="yph@g.ucla.edu">Penghang Yin</a>, <a href="/profile?email=bertozzi%40math.ucla.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="bertozzi@math.ucla.edu">Andrea L. Bertozzi</a>, <a href="/profile?email=sjo%40math.ucla.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="sjo@math.ucla.edu">Stanley J. Osher</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Withdrawn Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We improve the robustness of deep neural nets  to adversarial attacks by using an interpolating function as the output activation.   This data-dependent activation function remarkably improves both classification accuracy and stability to adversarial perturbations. Together with the total variation minimization of adversarial images and augmented training, under the strongest attack, we achieve up to 20.6%, 50.7%, and 68.7% accuracy improvement w.r.t.  the fast gradient sign method, iterative fast gradient sign method, and Carlini-WagnerL2attacks, respectively.  Our defense strategy is additive to many of the existing methods.  We give an intuitive explanation of our defense strategy via analyzing the geometry of the feature space. For reproducibility, the code will be available on GitHub.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Adversarial Attack, Adversarial Defense, Data Dependent Activation Function, Total Variation Minimization</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We proposal strategies for adversarial defense based on data dependent activation function, total variation minimization, and training data augmentation</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">13 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rygCmxn-5X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Submission Withdrawn by the Authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=rygCmxn-5X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper138 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Withdraw Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Withdrawal confirmation: </span><span class="note_content_value">I have read and agree with the withdrawal statement on behalf of myself and my co-authors.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1g8G7tb97" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>CW-L2 bounded?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=r1g8G7tb97"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Can you elaborate on how you generate CW-L2 with varying epsilon? CW-L2 attack is designed at minimizing the l2-norm of (x'-x) where x' is the adverial image and the x is the original image. 
+
+Also, I think two important missing pieces are evaluation against black-box and gradient free attacks. 
+
+Too many parameters seem to be missing. How many iterations is iFGSM run for?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SkegXFFWc7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to "CW-L2 bounded"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=SkegXFFWc7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper138 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your comments. The epsilon parameter in our work is similar to the one used in (<a href="https://openreview.net/pdf?id=SyJ7ClWCb)" target="_blank" rel="nofollow">https://openreview.net/pdf?id=SyJ7ClWCb)</a> with an appropriate scaling.
+
+For iIFGSM we run 10 iterations.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1gyUCob5X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>CW-L2 and Epsilon</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=S1gyUCob5X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Not OP, but you appear not to have answered the question. 
+
+The CW-L2 attack (a) is unbounded and (b) uses L2 distortion. So to start, it is not meaningful to compare the distortion to IFGSM, which is L_infinity based. But also, the paper gives an epsilon bound for CW-L2, what does that mean?</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_Byx2aUPWc7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Confusing Fig.2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=Byx2aUPWc7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Perturbations in Fig.2 seem rather large. The tone changes quite a lot in most of the images.
+
+However, the caption beneath indicates a small perturbation level (0.02/0.08). According to my knowledge, such small values would never result in what is demonstrated in Fig.2.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HygV3cw-cm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to "Confusing Fig.2"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=HygV3cw-cm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper138 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your comment. We applied some public code to attack the standard DNNs. And we implemented the corresponding attacks to the DNNs with WNLL activation function. Visually the adversarial images resulting from attacking DNNs with these two activation functions are identical. 
+
+For small images, e.g., MNIST, Cifar, FGSM and IFGSM introduce visualizable noise.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_ryemwZqbcQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to Reply</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=ryemwZqbcQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">But how come the shallow colors in the airplane example become so dark? Did you manually check how much it actually changed?</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_HJlJDcORY7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting but few questions</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=HJlJDcORY7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1.  What do you mean by u(y) in Eq. 1? I m confused since there is no definition of y before (I thought y was the label but then the equation should be like u(x) - y)
+
+2.  In section 3.2, you said that directly training WNLL has difficulties in backpropagation because \partial L / \partial \theta is difficult to compute. Therefore it can only be backpropped via an "estimation" approach. Then how about \partial L / \partial x (the gradient used in the attack algorithms)? 
+I ask this question just because if you can not directly use an appropriate gradient to attack your defense, your defense might rely on obfuscated gradients mentioned in <a href="https://arxiv.org/abs/1802.00420" target="_blank" rel="nofollow">https://arxiv.org/abs/1802.00420</a>
+
+3.  Have you compared your defense with PGD adversarial training, which is the state-of-the-art defense against l_\infty attacks??</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJx4BQEl9Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to "Interesting but few questions"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=BJx4BQEl9Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper138 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your comments!
+Answer to comment 1: As shown in Eq. 1, y is another instance from X, u(y) is the corresponding interpolated label to be obtained by solving Eq.1. 
+
+Answer to comment 2: We thought about the obfuscated gradient issue in this work. We attack the DNNs with WNLL activation by using a straight-through estimated gradient as used in <a href="https://arxiv.org/abs/1802.00420." target="_blank" rel="nofollow">https://arxiv.org/abs/1802.00420.</a> The results in Table 2 show the efficacy of our attack, the accuracy decrease as \epsilon increases. Moreover, the results in Table 1 show the transferability of the adversarials resulting from attacking DNNs with WNLL activations is better than their counterparts from attacking the standard DNNs.
+
+Answer to comment 3: PGD is a way to generate adversarial training data. It is very robust, but in defending many known attacks, many papers reported better results. Even though these attacks might utilize obfuscated gradient. We are exploring to incorporate PGD and other adversarial trainings into our framework to further improve robustness to adversarial attacks.
+
+Hope these answers help!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HkgRPUBgcm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your reply but still not clear</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=HkgRPUBgcm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">For the comment 2, how did you estimate the gradients? I mean only from table 2, I can not figure out which gradient-estimation method you used to attack your defense (BPDA?)
+
+For the comment 3, to my knowledge, PGD adversarial training is the state-of-the-art defense until now. You said you compared your defense with PixelDefend, but PixelDefend was already broken by BPDA in  <a href="https://arxiv.org/abs/1802.00420" target="_blank" rel="nofollow">https://arxiv.org/abs/1802.00420</a> !!! (only 9% on cifar10 with 8/255 l_\infty perturbation, you can refer to https://github.com/anishathalye/obfuscated-gradients ).  
+Since you compared your defense with PixelDefend, which is mentioned as the “state-of-the-art" defense in your paper, I am confused about your answer to my comment 2 =&gt; if you have read https://arxiv.org/abs/1802.00420 before, why you chose PixelDefend (a weak defense) for comparison??
+
+Besides, can you name one or two defense that can outperform PGD adversarial training?? I did not see a defense that can really outperform PGD adversarial training until now, including defenses appearing in ICLR2018, ICML2018 and CVPR2018. It is worth noting that 2 white-box defenses in CVPR2018 are already broken by PGD and BPDA in https://arxiv.org/pdf/1804.03286</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1eKLJwe97" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to "Thanks for your reply but still not clear"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=H1eKLJwe97"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper138 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks you for further comments!
+
+Yes, in attacking the DNNs with WNLL activation function, we utilized the BPDA approach for gradient estimation.
+
+We agree that if the defense strategies are known, pixelDefend or many other defense methods can be further attacked by BPDA or related attacks reported in (<a href="https://arxiv.org/abs/1802.00420)." target="_blank" rel="nofollow">https://arxiv.org/abs/1802.00420).</a> PGD adversarial training was not broken by the reported insightful methods. But suppose if we do not know the defense, what will happen? In this case, I think we should break the defense methods in a black-box fashion as well.
+
+Without further attacks like BPDA, PixelDefend paper reported a very strong defense towards some exsiting attack methods, even through the computational cost is high. Again, we agree that it can be further attacked if we know the mechanism of this strategy.
+
+Our proposed defense strategy does not involve adversarial training yet, we are working on improving our strategy by incorporating it.
+
+Thank you again for many stimulating discussions!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyeaoNDl5X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Then you have to claim PixelDefend (or your defense) is effective under black-box setting, definitely not the state-of-the-art (PGD adversarial training is)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=SyeaoNDl5X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018 (modified: 04 Oct 2018)</span><span class="item">ICLR 2019 Conference Paper138 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The assumption that the defense strategy is unknown is ok, but in that case, many defenses can work, so what is the advantage of PixelDefend. Moreover, as long as the model is used in public, then you should assume the adversary knows the strategy (and even the parameters), otherwise, it sounds like “The cat shuts its eyes when stealing cream”. That's the main reason we want a model to be robust under gray/white-box adaptive settings. I strongly agree with Anish Athalye and Nicholas Carlini's opinion in <a href="https://arxiv.org/pdf/1804.03286.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1804.03286.pdf</a> : "security against oblivious attacks is not useful."
+
+Thanks for your replies too.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hygqx-de5m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply to "Then you have to claim PixelDefense (or your defense) is effective under black-box setting, definitely not the state-of-the-art (PGD adversarial training is) "</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1z1UjA5FX&amp;noteId=Hygqx-de5m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper138 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper138 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for sharing your knowledge with us. We wish the community can attack our model and enables us to further improve our model. We believe our strategy's performance can be boosted with the help of PGD adversarial training.
+
+We will compare with more benchmarks in our future work!
+
+Thanks for your helpful comments!</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

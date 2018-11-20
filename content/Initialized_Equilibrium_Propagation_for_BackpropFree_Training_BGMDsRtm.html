@@ -1,0 +1,284 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Initialized Equilibrium Propagation for Backprop-Free Training | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Initialized Equilibrium Propagation for Backprop-Free Training" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=B1GMDsR5tm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Initialized Equilibrium Propagation for Backprop-Free Training" />
+      <meta name="og:description" content="Deep neural networks are almost universally trained with reverse-mode automatic differentiation (a.k.a. backpropagation). Biological networks, on the other hand, appear to lack any mechanism for..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_B1GMDsR5tm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Initialized Equilibrium Propagation for Backprop-Free Training</a> <a class="note_content_pdf" href="/pdf?id=B1GMDsR5tm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019initialized,    &#10;title={Initialized Equilibrium Propagation for Backprop-Free Training},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=B1GMDsR5tm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Deep neural networks are almost universally trained with reverse-mode automatic differentiation (a.k.a. backpropagation). Biological networks, on the other hand, appear to lack any mechanism for sending gradients back to their input neurons, and thus cannot be learning in this way. In response to this, Scellier &amp; Bengio (2017) proposed Equilibrium Propagation - a method for gradient-based train- ing of neural networks which uses only local learning rules and, crucially, does not rely on neurons having a mechanism for back-propagating an error gradient. Equilibrium propagation, however, has a major practical limitation: inference involves doing an iterative optimization of neural activations to find a fixed-point, and the number of steps required to closely approximate this fixed point scales poorly with the depth of the network. In response to this problem, we propose Initialized Equilibrium Propagation, which trains a feedforward network to initialize the iterative inference procedure for Equilibrium propagation. This feed-forward network learns to approximate the state of the fixed-point using a local learning rule. After training, we can simply use this initializing network for inference, resulting in a learned feedforward network. Our experiments show that this network appears to work as well or better than the original version of Equilibrium propagation. This shows how we might go about training deep networks without using backpropagation.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">credit assignment, energy-based models, biologically plausible learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We train a feedforward network without backprop by using an energy-based model to provide local targets</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_B1gzOC6Wa7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>review initialized equilibrium propagation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1GMDsR5tm&amp;noteId=B1gzOC6Wa7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper245 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper245 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary:
+This paper aims at improving the speed of the iterative inference procedure (during training and deployment) in energy-based models trained with Equilibrium Propagation (EP), with the requirement of avoiding backpropagation. To achieve this, the authors propose to train a feedforward network to predict a fixed point of the "equilibrating network". Gradients are approximated by local gradients only. The method is compared to standard EP on MNIST.
+
+The overall idea of the paper to speed up the slow iterative inference (during training and deployment) seems very reasonable. However, the paper seems to be still work in progress and could be improved on the theoretical side, the presentation, and especially the experimental evaluation. 
+The paper is rather weak on the theoretical side. The main theoretical result is perhaps the analysis of the gradient alignment. However, I cannot follow their analysis and suspect that it is false. More detailed comments follow. Regarding the presentation, I found many typos which I don't consider in my evaluation. However, there are both minor and major issues with several equations. Details follow below. Another major concern is the lack of experimental evaluation. There is only a single plot that shows the learning curves of EP and the proposed Initialized EP with 2 different numbers of negative-phase steps and for 2 different architectures. The authors should put a lot more effort into the evaluation. For example, evaluate the influence of the hyperparameter in Eq. (10) (Is lambda &gt; 0 detrimental to the capacity of the equilibrating network?), etc.
+
+Lastly, as of my current understanding, the whole motivation for the EP framework is biological plausibility. In my opinion, this paper lacks a discussion of that motivation with respect to the proposed approach.
+
+To summarize, there are too many major problems that cannot be addressed only in the rebuttal phase. 
+
+
+Details:
+- Sec. 1.1. Equilibrium Propagation --&gt; Sec. 2 (It is not part of the introduction) 
+- In 1.1., "Equilibrium Propagation is a method for training a Continuous Hopfield Network for classification". EP is a method for training various energy-based models, not just hopfield networks. 
+- Eq. (1): I find the notation very confusing. Specifically, I can't make sense of:
+    a) "$\alpha = \{\alpha_j: j \in  S\}$ denotes the network architecture". What does it mean for alpha to denote an architecture? Please be more specific. 
+    b) In the definition of $\alpha_j$, you are constructing a set of neurons $i \in S  \cup I$, but then you are re-defining i in the same set, using the forall operator. 
+    c) Even if the two above is corrected, I can't follow. Please simplify the notation (the energy function is not that complicated).
+- Eq. (1): Why is it $i \in S$ everywhere, rather than all neurons, including input neurons (as in [Scellier and Bengio 2017])? 
+- The text between Eq. (2) and Eq. (3) introduces the classification targets by adding the gradients of another energy function $C(s_O, y)$ to the previously described energy function from Eq. (1). First $C(s_O, y)$ is nowhere defined. Second, The energy is a scalar, while the gradient is a vector, so there must be a mistake. I suppose it should be just $C(s_O, y)$ rather than its gradients?
+- Eq. (6): $f_{\phi_{j}}$ is defined as a function of multiple $f_{\phi_{i}}$ ? 
+- Eq. (9): Again the index i is used twice. 
+- Sec. 2.1: Can you elaborate on why the equilibrating network can create targets that are not achievable by the feedforward network? Is it a problem of your particular choice of model architecture? Isn't the "regularization" then detrimental to the (capacity of the) equilibrating network? 
+- In Sec. 2.2 on page 5, you claim that given random parameter intitialization, the gradients should almost always be aligned. For random weight matrices, where the weights are drawn with zero mean, I cannot see how this is true. To compute gradients of layer $l$, backpropagation (in an MLP) computes the matrix-vector multiplication between transposed weight matrix and the gradients of layer l+1 (I am ignoring the activation function here). The resulting gradient should have zero mean.
+- Eq. (11): Is it the L1 Norm or L2?
+- Eq. (12): In the preceding text, you made claims about the gradient alignment for random parameter initialization. In Eq. (12) you analyze the gradients close to the optimum?
+- Eq. (12): What is f, it has never been defined. I suppose it should be the h from above? 
+- Eq. (12): I don't understand how you arrived at these gradient equations, even the first one. Shouldn't it be the standard backpropagation in an MLP or am I missing something? Using the chain rule $\frac{\partial L_1}{\partial w_1} = \frac{\partial L_1}{\partial s_1} \frac{\partial s_1}{\partial w_1}$, I arrive at a different result. How can there be the derivative of f (or h) twice.
+- Sec. 3: Is beta really sampled from a zero-centred uniform distribution? On page 2, beta is introduced as a small positive number. Would a negative beta not cause the model to settle to a fixed point where maximally wrong targets are predicted?
+
+
+[Scellier and Bengio 2017] Equilibrium Propagation: Bridging the Gap Between Energy-Based Models and Backpropagation</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1eOy7xKhQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Init EqProp</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1GMDsR5tm&amp;noteId=r1eOy7xKhQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper245 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper245 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This is a nice improvement on Equilibrium Propagation (EqProp) based on training a separate network to initialize (and speed-up at test time) the recurrent network trained by EqProp. The feedforward network takes as laywerwise targets the activities of each layer when running the recurrent net to convergence (s-). The surprising result (on MNIST) is that the feedforward approximation does as well as the recurrent net that trains it. This allows faster run-time, which is practically very useful.
+
+My main concern is with the mathematical argument in section 2.2. s* is not the same as s- , and in general, it is not clear at all that there should be a phi* such that s*=s-. Also, the derivation in eqn 12 assumes that w is very close to w*, which is not clear at all. So this derivation is more suggestive, and the empirical results are the ones which could be convincing. My only concern there is that the only experiments performed are on MNIST, which is known to be easily dealt with using the kind of feedforward architectures studied here. Things could break down if much more non-linearity (which is what the fixed point recurrence provides) is necessary (equivalently this would correspond to networks for which much more depth is necessary, given some budget of number of parameters). I don't think that this is a deal-breaker, but I think that this section needs to be more prudent in the way that it concludes from these observations (the math and the experiments).
+
+One question I have is about biological plausibility. The whole point of EqProp was to produce a biologically plausible variation on backprop. How plausible is it to have two sets of weights for the feedforward and recurrent parts? That is where a trick such as proposed in Bengio et al 2016 might be useful, so that the same set of weights could be used for both.
+
+It might be good to mention Bengio et al 2016 in the introduction since it is the closest paper (trying to solve the same problem of using a feedforward net to approximate the true recurrent computation), rather than pushing that to the end.
+
+In sec. 1.1, I would replace 'training a Continuous Hopfield Network for classification' by 'energy-based models, with a recurrent net's updates corresponding to gradient descent in the energy'. The EqProp algorithm is not just for the Hopfield energy but is general. Then before eq 1, mention that this is the variant of Hopfield energy studied in the EqProp paper.
+
+I found a couple of typos (scenerio, of the of the).
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ryeI_q3v3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1GMDsR5tm&amp;noteId=ryeI_q3v3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper245 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper245 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents an improvement on the local/derivative-free learning algorithm equilibrium propagation. Specifically, it trains a feedforward network to initialize the iterative optimization process in equilibrium prop, leading to greater stability and computational efficiency, and providing a network that can later be used for fast feedforward predictions on test data. Non-local gradient terms are dropped when training the feedforward network, so that the entire system still doesn't require backprop. There is a neat theoretical result showing that, in the neighborhood of the optimum, the dropped non-local gradient terms will be correlated with the retained gradient terms.
+
+My biggest concern with this paper is the lack of significant literature review, and that it is not placed in the context of previous work. There are only 12 references, 5 of which come from a single lab, and almost all of which are to extremely recent papers. Before acceptance, I would ask the authors to perform a literature search, update their paper to include citations to and discussion of previous work, and better motivate the novelty of their paper relative to previous work. Luckily, this is a concern that is addressable during the rebuttal process! If the authors perform a literature search, and update their paper appropriately, I will raise my score as high as 7.
+
+Here are a few related topic areas which are currently not discussed in the paper. *I am including these as a starting point only! It is your job to do a careful literature search. I am completely sure there are obvious connections I'm missing, but these should provide some entry points into the citation web.*
+- The "method of auxiliary coordinates" introduces soft (often quadratic) couplings between post- and pre- activations in adjacent layers which, like your distributed quadratic penalty, eliminate backprop across the couplings. I believe researchers have also done similar things with augmented Lagrangian methods. A similar layer-local quadratic penalty also appears in ladder networks.
+- Positive/negative phase (clamped / unclamped phase) training is ubiquitous in energy based models. Note though that it isn't used in classical Hopfield networks. You might want to include references to other work in energy based models for both this and other reasons. e.g., there may be some similarities between this approach and continuous-valued Boltzmann machines?
+- In addition to feedback alignment, there are other approaches to training deep neural networks without standard backprop. examples include: synthetic gradients, meta-learned local update rules, direct feedback alignment, deep Boltzmann machines, ...
+- There is extensive literature on biologically plausible learning rules -- it is a field of study in its own right. As the paper is motivated in terms of biological plausibility, it would be good to include more general context on the different approaches taken to biological plausibility.
+
+More detailed comments follow:
+
+Thank you for including the glossary of symbols!
+
+"Continuous Hopfield Network" use lowercase for this (unless introducing acronym)
+
+"is the set non-input" -&gt; "is the set of non-input"
+
+"$\alpha = ...$ ... $\alpha_j \subset ...$" I could not make sense of the set notation here.
+
+would recommend using something other than rho for nonlinearity. rho is rarely used as a function, so the prior of many readers will be to interpret this as a scalar. phi( ) or f( ) or h( ) are often used as NN nonlinearities.
+
+inline equation after "clamping factor" -- believe this should just be C, rather than \partial C / \partial s.
+Move definition of \mathcal O up to where the symbol is first used.
+
+text before eq. 7 -- why train to approximate s- rather than s+? It seems like s+ would lead to higher accuracy when this is eventually used for inference.
+
+eq. 10 -- doesn't the regularization term also decrease the expressivity of the Hopfield network? e.g. it can no longer engage in "explaining away" or enforce top-down consistency, both of which are powerful positive attributes of iterative estimation procedures.
+
+notation nit: it's confusing to use a dot to indicate matrix multiplication. It is commonly used in ML to indicate an inner product between two vectors of the same shape/orientation. Typically matrix multiplication is implied whenever an operator isn't specified (eg x w_1 is matrix multiplication).
+
+eq. 12 -- is f' supposed to be h'? And wasn't the nonlinearity earlier introduced as rho? Should settle on one symbol for the nonlinearity.
+
+This result is very cool. It only holds in the neighborhood of the optimum though. At initialization, I believe the expected correlation is zero by symmetry arguments (eg, d L_2 / d s_2 is equally likely to have either sign). Should include an explicit discussion of when this relationship is expected to hold.
+
+"proportional to" -&gt; "correlated with" (it's not proportional to)
+
+sec. 3 -- describe nonlinearity as "hard sigmoid"
+
+beta is drawn from uniform distribution including negative numbers? beta was earlier defined to be positive only.
+
+Figure 2 -- how does the final achieved test error change with the number of negative-phase steps? ie, is the final classification test error better even for init eq prop in the bottom row than it is in the top?
+
+The idea of initializing an iterative settling process with a forward pass goes back much farther than this. A couple contexts being deep Boltzmann machines, and the use of variational inference to initialize Monte Carlo chains
+
+sect 4.3 -- "the the" -&gt; "to the"</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

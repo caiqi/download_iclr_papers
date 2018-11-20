@@ -1,0 +1,345 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Meta-learning with differentiable closed-form solvers | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Meta-learning with differentiable closed-form solvers" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HyxnZh0ct7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Meta-learning with differentiable closed-form solvers" />
+      <meta name="og:description" content="Adapting deep networks to new concepts from few examples is challenging, due to the high computational and data requirements of standard fine-tuning procedures.&#10;  Most work on few-shot learning has..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HyxnZh0ct7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Meta-learning with differentiable closed-form solvers</a> <a class="note_content_pdf" href="/pdf?id=HyxnZh0ct7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019meta-learning,    &#10;title={Meta-learning with differentiable closed-form solvers},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HyxnZh0ct7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Adapting deep networks to new concepts from few examples is challenging, due to the high computational and data requirements of standard fine-tuning procedures.
+Most work on few-shot learning has thus focused on simple learning techniques for adaptation, such as nearest neighbours or gradient descent.
+Nonetheless, the machine learning literature contains a wealth of methods that learn non-deep models very efficiently.
+In this work we propose to use these fast convergent methods as the main adaptation mechanism for few-shot learning.
+The main idea is to teach a deep network to use standard machine learning tools, such as logistic regression, as part of its own internal model, enabling it to quickly adapt to novel tasks.
+This requires back-propagating errors through the solver steps.
+While normally the cost of the matrix operations involved in such process would be significant, by using the Woodbury identity we can make the small number of examples work to our advantage.
+We propose both closed-form and iterative solvers, based on ridge regression and logistic regression components.
+Our methods constitute a simple and novel approach to the problem of few-shot learning and achieve performance competitive with or superior to the state of the art on three benchmarks.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">few-shot learning, one-shot learning, deep learning, ridge regression</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We propose a simple meta-learning algorithm capable of adapting base learners such as ridge or logistic regression efficiently, by backpropagating through their closed-form solutions. We show strong performance on three few-shot learning benchmarks.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">14 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1xPm1Kah7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>results are not very promising</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=r1xPm1Kah7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1211 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1211 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a new meta-learning method based on closed-form solutions for task specific classifiers such as ridge regression and logistic regression (iterative). The idea of the paper is quite interesting, comparing to the existing metric learning based methods and optimization based methods. 
+
+I have two concerns on this paper. 
+First, the motivation and the rationale of the proposed approach is not clear. In particular, why one can simply treat \hat{Y} as a scaled and shifted version of X’W?
+
+Second, the empirical performance of the proposed approach is not very promising and it does not outperform the comparison methods, e.g., SNAIL.  It is not clear what is the advantage. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkljQHC-T7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AR3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=BkljQHC-T7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1211 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1211 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the comments and questions.
+
+&gt; “Why one can simply treat \hat{Y} as a scaled and shifted version of X’W?”
+In the case of logistic regression, the scaling and shifting is not needed, and we have \hat{Y}=X’W. This is because logistic regression is a classification algorithm, and directly outputs class scores. These scores are fed to the (cross-entropy) loss L.
+
+However, ridge regression is a regression algorithm, and its regression targets are one-hot encoded labels, which is only an approximation of the discrete problem (classification). This means that an extra calibration step is needed (eq. 6), to allow the network to tune the regressed outputs into classification scores for the cross-entropy loss L.
+
+&gt; “The empirical performance of the proposed approach is not very promising and it does not outperform the comparison methods, e.g., SNAIL”
+Our method actually outperforms SNAIL on an apples-to-apples comparison, with the same number of layers. We would like to draw the reviewer’s attention to the last paragraph of the “Multinomial classification” subsection (page 8).
+
+The result mentioned by the reviewer uses a ResNet, while we use a 4-layer CNN to remain comparable to prior work. SNAIL with a 4-layer CNN ([11] Appendix B) performs much worse than our method (7.4% to 10.0% accuracy improvement).
+
+Even disregarding the great difference in architecture capacity, our proposal's performance coincides with SNAIL on miniImageNet 5way-5shot and it is comparable on 3 out of 4 Omniglot setups. We would have liked to establish a comparison also on CIFAR, but unfortunately the official code for SNAIL hasn’t been released.
+
+Borrowing the words of AnonReviewer2: “Notably, the ridge regression variant can reach results competitive with SNAIL that uses significantly more weights and is shown to suffer when its capacity is reduced.”
+
+We hope that this addresses the two concerns raised by the reviewer. We will be happy to answer any other question about the paper.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJlghKO937" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Not clear what is novel here</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=SJlghKO937"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1211 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1211 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary: The paper proposes an algorithm for meta-learning which amounts to fixing the features (ie all hidden layers of a deep NN), and treating each task  as having its own final layer which could be a ridge regression or a logistic regression. The paper also proposes to separate the data for each task into a training set used to optimize the last, task specific layer, and a validation set used to optimize all previous layers and hyper parameters. 
+
+Novelty: This reviewer is unsure what the paper claims as a novel contribution. In particular training multi-task neural nets with shared feature representation and task specific final layer is probably 20-30 years old by now and entirely common. It is also common freeze the feature representation learned from the first set of tasks, and to simply use it for new tasks by modifying the last (few) layer(s) which would according to this paper qualify as meta-learning since the new task can be learned with very few new examples. 
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">2: Strong rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1e3St5u67" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>This is a comment on a different technique than what we propose</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=H1e3St5u67"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1211 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">14 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1211 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the comment.
+However, we believe that the low score originates from a misunderstanding of our proposal.
+Below, we try to bring some clarity by disambiguating between what the reviewer refers to and our method.
+If our interpretation of what the reviewer refers to as “entirely common” is incorrect, it would be great to be provided with at least one reference, so that we can continue the conversation on the same ground.
+
+&gt; “novel contribution?” , “training multi-task neural nets with shared feature representation and task specific final layer is probably 20-30 years old by now and entirely common.”
+“It is also common freeze the feature representation learned from the first set of tasks, and to simply use it for new tasks by modifying the last layer”
+
+We understand that the reviewer is hinting at the common multi-task scenario with a shared network and task-specific layers (e.g. Caruana 1993). He/she also refers to basic transfer learning approaches in which a CNN is first pre-trained on one dataset/task and then adapted to a different dataset/task by simply adapting the final layer(s) (e.g. Yosinski et al. “How transferable are features in deep neural Networks?” - NIPS 2014; Chu et al. “Best Practices for Fine-tuning Visual Classifiers to New Domains” - ECCVw 2016).
+
+If so, then this is significantly different to our work, and in general to all of the previous literature on meta-learning applied to few-shot classification (e.g. Finn et al. 2017, Ravi &amp; Larochelle 2017, Vinyals et al. 2016, etc).
+Notably, these methods and ours take into account adaptation *already during the training process*, which requires back-propagating errors through the very fine-tuning process.
+
+Within this setup, our main contribution is to propose an adaptation procedure based on closed-form regressors, which have the important characteristic of allowing different models for different episodes while still being fast because of 1) their convergence in one (R2-D2) or few (LR-D2) steps, 2) the use of the Woodbury identity, which is particularly convenient in the few-shot data regime, and 3) back-propagation through the closed-form regressor can be made efficient.
+
+To better illustrate our point, we conducted a baseline experiment.
+First, we pre-trained the same 4-layers CNN architecture, but for a standard classification problem, using the same training samples as our method. We simply added a final fully-connected layer (with 64 outputs, like the number of classes in the training splits) and used the cross-entropy loss.
+Then, we used the convolutional part of this trained network as a feature extractor and fed its activation to our ridge-regression layer to produce a per-episode set of weights.
+On miniImagenet, the drop in performance w.r.t. our proposed R2-D2 is very significant: 13.8% and 11.6% accuracy for the 1 and 5 shot problems respectively.
+Results are consistent on CIFAR, though less drastic: 11.5% and 5.9%.
+
+This confirms that simply using a “shared feature representation and task specific final layer” as commented by the reviewer is not what we are doing and it is not a good strategy to obtain results competitive with the state-of-the-art in few-shot classification.
+Instead, it is necessary to enforce the generality of the underlying features during training explicitly, which we do by back-propagating through the fine-tuning procedure (the closed-form regressors).
+
+We would like to conclude remarking that, probably, the source of confusion arises from the overlap that exists in general between the few-shot learning and the transfer/multi-task learning sub-communities.
+We realize that the two have developed fairly separately while trying to solve very related problems, and unfortunately the similarities/differences are not acknowledged enough in few-shot classification papers, including our own. We intend to alleviate this problem in our related work section, and invite the reviewer to suggest more relevant works from this area.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1ggxa85nm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>What is the essential difference compared to training multiple models that share a pre-trained ConvNet (fine-tuning is allowed) providing input features?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=r1ggxa85nm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1211 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">After reading this paper, I am confused about whether the proposed method is the same as a widely used technique, i.e., training multiple models (e.g., logistic regression) for different tasks based on shared input features provided by a pre-trained model (e.g., CNN), which can be fine-tuned. Although a minor difference here is that the tasks are sampled from a distribution of tasks rather than a fixed set (which follows a standard meta-learning setting), the used technique already exists and is well-known.
+
+Since the proposed method is claimed to be a meta-learning approach that can quickly adapt to novel tasks, the training algorithm or the meta-learner should do something different for different tasks (i.e., adaptive to each specific task). However, The CNN remains the same for different tasks, and the closed-form solvers do not have any hyper-parameters changed with the task. I am not sure if it can be recognized as a meta-learning method. It might be more suitable to be categorized in multi-task learning, where models for different tasks share the same feature extractor (the CNN here).
+
+Please correct me if I am wrong in the understanding of the essential idea of this paper. Thanks a lot!</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkevXdCb6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>It's the procedure to generate the pre-trained convnet</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=rkevXdCb6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1211 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1211 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">&gt; “I am confused about whether the proposed method is the same as … multiple models (e.g., logistic regression) for different tasks based on shared input features provided by a pre-trained model (e.g., CNN)”
+
+Thank you for participating in the discussion. This describes well only the behavior at test-time -- when facing a new task, a new regressor is learned based on pre-trained features (hence, different tasks will have different parameters). However, this leaves out a crucial detail: where does this pre-trained CNN come from?
+
+The standard approach is to use a CNN that was pre-trained on ImageNet or another task. However, there is no guarantee that the CNN features will transfer well to unknown tasks. In the case of few-shot learning, with only 1 or 5 training samples, fine-tuning will result in extreme over-fitting.
+
+Our training procedure (and indeed, all meta-learning methods for few-shot learning, such as MAML, SNAIL, etc) train the CNN features specifically to perform well on new, unseen tasks. “Performing well on unseen tasks” is formalized as achieving a low error after fine-tuning. This means that we have to back-propagate errors through the fine-tuning procedure, which can be SGD (MAML) or a ridge/logistic regression solver (ours). The end result is a CNN that is especially trained to be fine-tuned later under the same conditions; this differs substantially from standard pre-training.
+
+There is a nice, informal introduction to this (admittedly subtle!) distinction, that was written by the authors of MAML:
+<a href="https://bair.berkeley.edu/blog/2017/07/18/learning-to-learn/" target="_blank" rel="nofollow">https://bair.berkeley.edu/blog/2017/07/18/learning-to-learn/</a>
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byg2xy8MpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Fine tuning on the test set of training tasks is not novel</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=Byg2xy8MpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1211 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks a lot for your reply and explanation! I understand that the main novelty here is to apply fine tuning on the test set (of tasks sampled for training) in meta-learning, instead of on the training data of a single supervised learning task (as we normally did in supervised learning). However, I agree with AnonReviewer1: I do not think this work presents very original contributions. It applies the existing fine-tuning technique by following standard meta-learning setting, as many other meta-learning methods already did.
+
+Fine tuning is an existing technique that can be generally applied to different learning settings. The basic idea is to update a pre-trained model and continue to train it on new training instances. In supervised learning, each training instance is a data point, and the learning goal is to minimize the training error on each data point. In meta-learning, each training instance is an (n-way k-shot) classification task, and the learning goal is to minimize the validation/test error on the test set of each training task. Therefore, fine tuning in meta-learning should be applied to the test sets of training tasks (as this paper does). In fact, in meta-learning, any training happening on task-shared part (e.g., meta-learner or shared pre-trained model) should minimize the error/loss on the test sets of training tasks. However, these are all well-known facts, derived from the very early optimization formulation of "learning to learn" (although meta-learning becomes very popular topic very recently). So they are not the contributions of this paper.
+
+In addition, as the authors mentioned, many existing meta-learning methods use the same idea, the only difference here is that the base learner for each task changes to ridge/logistic regression model. But changing the model of base learners cannot be recognized as a novelty. Therefore, I think this is a successful application of existing technique, it re-explains how to do fine-tuning in meta-learning setting, but is not novel to me. </span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyedD2rXaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>There is ample precedent in the few-shot learning literature for proposing new base learners as the main contribution.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=SyedD2rXaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1211 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1211 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you. 
+
+&gt; “I understand that the main novelty here is to apply fine tuning on the test set (of tasks sampled for training) in meta-learning, instead of on the training data of a single supervised learning task (as we normally did in supervised learning).”
+
+Sorry but this is not claimed in the paper or in the answer above. Clearly, the overall training framework is not novel and it is common in the few-shot learning literature. In fact, we specifically wrote: “Our training procedure (and indeed, all meta-learning methods for few-shot learning, such as MAML, SNAIL, etc) ...”.
+
+The point of our previous comment was simply to clarify why different episodes correspond to different sets of parameters.
+
+
+&gt; ““changing the model of base learners cannot be recognized as a novelty”
+We strongly disagree with the statement. This is exactly the nature of the contribution of most approaches for few-shot classification. For example, both MAML and prototypical networks use the same algorithm (SGD) in the external loop, while they vastly differ for the method used in the inner loop (SGD and nearest neighbour respectively).
+
+Our contribution is to use closed-form solvers such as ridge regression to tackle few-shot classification, which is novel in the literature and it is a non-trivial endeavor.
+As stated by AR2: “[it] strikes an interesting compromise between not performing any adaptation for each new task (as is the case in pure metric learning methods [e.g. prototypical networks]]) and performing an expensive iterative procedure, such as MAML or Meta-Learner LSTM where there is no guarantee that after taking the few steps prescribed by the respective algorithms the learner has converged.”
+
+Besides offering a trade-off with respect to existing techniques, our proposal also presents a significant practical value in terms of performance, as outlined in our experimental section.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SklLz3csp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Using a classical linear model as base learner is not novel to me</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=SklLz3csp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1211 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thanks for your reply!
+
+&gt; Clearly, the overall training framework is not novel and it is common in the few-shot learning literature. 
+
+Thanks for the clarification! But if the "essential difference" (asked in my first post and answered in your previous reply) is not the contribution, it is hardly to tell the essential novelty of this method.
+
+&gt; We strongly disagree with the statement. This is exactly the nature of the contribution of most approaches for few-shot classification.
+
+I do not agree with this statement. Simply replacing the base learner and following the standard meta learning/few-shot learning  scheme sounds not novel to me. The claimed adaptation capability comes from the standard meta-learning scheme, while the claimed efficiency comes from the closed-form solver. Both are well known and common for years. 
+
+Yes MAML can be explained to be using SGD as base learner (but there are other more intuitive explanations), but they redesigned the learning procedure specifically for SGD, since SGD is a dynamic optimization algorithm rather than a model. Other meta-learning methods either proposes new algorithm or new model structure specifically for few-shot learning. BTW, I do not agree that "some papers propose their methods in the similar way, so our paper also presents contribution of similar novelty".
+
+&gt;Our contribution is to use closed-form solvers such as ridge regression to tackle few-shot classification, which is novel in the literature and it is a non-trivial endeavor.
+
+Using closed-form solver for sure can converge faster than using deep neural networks or doing second order optimization (like MAML). But this is an advantage of the existing closed-form solvers. In addition, as mentioned in your reply and paper, the fine-tuning still needs to backpropagate the error from the closed form solver to the pre-trained deep CNN. Together they still compose a deep model whose last layer is the closed-form solver, and each epoch of the fine tuning might need heavy computation (**This has been also pointed out by Reviewer 1**). Then the advantage of using shallow model is not clear: you can always find a good trade-off between fine tuning a large/small backbone model and a complex/simple base learner. Besides, logistic regression does not have a closed-form solver so the title is somehow misleading.
+
+Overall, I agree that using closed-form solver of a shallow model might have some practical value, especially in the case when you use a very powerful pre-trained CNN as the backbone model. However, I am not convinced that this is a novel contribution. 
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Syg19STh6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Re-using existing components in clever ways for new problems should be encouraged!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=Syg19STh6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1211 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1211 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I respectfully disagree with the argument regarding lack of novelty. Indeed, the authors did not invent the meta-learning framework, and they did not invent ridge regression. Yet the two of them had not been combined before in this way, and this combination is evidently beneficial. It does seem like a natural idea, but if it was so obvious, how come it wasn't done before?
+
+It may be tempting to create complicated models to solve a problem, yielding "more novel" solutions. But this seems wrong if the same problem can be solved in a simpler way! I feel strongly that re-using existing components in clever ways that yield good results on new problems is an important contribution and should be encouraged.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_Syegwm5yaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>shared parameters are optimized for Base test-set</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=Syegwm5yaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1211 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">IMO, shared parameters are optimized for Base test-set (Figure 1) instead of Base training-set, which is different than multi-task learning setup. ( I think AnonReviewer1 also raised similar issues...)
+
+And, I think authors missed a reference, which is very relevant.
+<a href="https://arxiv.org/abs/1806.04910" target="_blank" rel="nofollow">https://arxiv.org/abs/1806.04910</a></span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hkgvq5AZpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=Hkgvq5AZpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1211 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1211 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you, this is a really nice paper. The bi-level optimization point of view is very insightful. Although their framework is very general, they seem to specialize it in the experiments using gradient descent for the inner loop, which is different from our closed-form solutions.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_SkeX8K6thm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A good idea that achieves good results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=SkeX8K6thm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1211 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1211 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a meta-learning approach for the problem of few-shot classification. Their method, based on parametrizing the learner for each task by a closed-form solver, strikes an interesting compromise between not performing any adaptation for each new task (as is the case in pure metric learning methods) and performing an expensive iterative procedure, such as MAML or Meta-Learner LSTM where there is no guarantee that after taking the few steps prescribed by the respective algorithms the learner has converged. For this reason, I find that leveraging existing solvers that admit closed-form solutions is an attractive and natural choice. 
+
+Specifically, they propose ridge regression as their closed-form solver (R2-D2 variant). This is easily incorporated into the meta-learning loop with any hyperparameters of this solver being meta-learned, along with the embedding weights as is usually done. The use of the Woodbury equation allows to rewrite the closed form solution in a way that scales with the number of examples instead of the dimensionality of the features; therefore taking advantage of the fact that we are operating in a few-shot setting. While regression may seem to be a strange choice for eventually solving a classification task, it is used as far as I understand due to the availability of this widely-known closed-form solution. They treat the one-hot encoded labels of the support set as the regression targets, and additionally calibrate the output of the network (via a transformation by a scale and bias) in order to make it appropriate for classification. Based on the loss of ridge regression on the support set of a task, a parameter matrix is learned for that task that maps from the embedding dimensionality to the number of classes. This matrix can then be used directly to multiply the embedded (via the fixed for the purposes of the episode embedding function) query points, and for each query point, the entry with the maximum value in the corresponding row of the resulting matrix will constitute the predicted class label.
+
+They also experimented with a logistic regression variant (LR-D2) that does not admit a closed-form solution but can be solved efficiently via Newton’s Method under the form of Iteratively Reweighted Least Squares. When using this variant they restrict to tackling the case of binary-classification.
+
+A question that comes to mind about the LR-D2 variant: while I understand that a single logistic regression classifier is only capable of binary classification, there seems to be a straightforward extension to the case of multiple classes, where one classifier per class is learned, leading to a total of N one-vs-all classifiers (where N is the way of the episode). I’m curious how this would compare in terms of performance against the ridge regression variant which is naturally multi-class. This would allow to directly apply this variant in the common setting and would enable for example still oversampling classes at meta-training time as is done usually.
+
+I would also be curious to see an ablation where for the LR-D2 variant SGD was used as the optimizer instead of Newton’s method. That variant may require more steps (similar to MAML), but I’m curious in practice how this performs.
+
+A few other minor comments:
+- In the related work section, the authors write: “On the other side of the spectrum, methods that optimize standard iterative learning algorithms, [...] are accurate but slow.” Note however that neither MAML nor MetaLearner LSTM have been showed to be as effective as Prototypical Networks for example. So I wouldn’t really present this as a trade-off between accuracy and speed.
+- I find the term multinomial classification strange. Why not use multi-class classification?
+- In page 8, there is a sentence that is not entirely grammatically correct: ‘Interestingly, increasing the capacity of the other method it is not particularly helpful’.
+
+Overall, I think this is good work. The idea is natural and attractive. The writing is clear and comprehensive. I enjoyed how the explanation of meta learning and the usual episodic framework was presented. I found the related work section thorough and accurate too. The experiments are thorough as well, with appropriate ablations to account for different numbers of parameters used between different methods being compared. This approach is evidently effective for few-shot learning, as demonstrated on the common two benchmarks as well as on a newly-introduced variant of cifar that is tailored to few-shot classification. Notably, the ridge regression variant can reach results competitive with SNAIL that uses significantly more weights and is shown to suffer when its capacity is reduced. Interestingly, other models such as MAML actually suffer when given additional capacity, potentially due to overfitting.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1lS7rnxT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AR2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyxnZh0ct7&amp;noteId=B1lS7rnxT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1211 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1211 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewer for the insightful comments and analysis.
+
+&gt; “One-vs-all classifiers” for LR-D2
+This is a great suggestion, and we are not quite sure how we missed it. We will update the results for 5-way classification incorporating this method.
+
+&gt; “ablation where for the LR-D2 variant SGD was used ... instead of Newton’s method”
+We previously did exactly this experiment, although for the R2-D2 (ridge regression) variant. We did not include it due to space constraints. It is equivalent to MAML, which also uses SGD, but adapting only the classification layer for new tasks (instead of adapting all parameters).
+
+We tested this variant on miniImageNet with 5 classes, with the lowest-capacity CNN (which is the most favorable model for MAML/SGD). It yields 45.4±1.6% accuracy for 1-shot classification and 61.7±1.0% for 5-shot classification. Comparing it to Table 1, there’s a drop in performance compared to our closed form solver (3.5% and 4.4% less accuracy, respectively), and also compared to the original MAML (3.3% and 1.4% respectively).
+
+Although we expect the conclusions for logistic regression (LR-D2) to be similar, we will extend the experiment to this case and report the results.
+
+&gt; “Neither MAML nor MetaLearner LSTM have been showed to be as effective as Prototypical Networks for example”
+We agree, and will amend the text. Their interest may lie more in their technical novelty.
+
+&gt; Suggestions on multinomial term and sentence grammar
+These do improve the readability of the text and will be corrected.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

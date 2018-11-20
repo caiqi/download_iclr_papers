@@ -1,0 +1,231 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Neural network gradient-based learning of black-box function interfaces | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Neural network gradient-based learning of black-box function interfaces" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=r1e13s05YX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Neural network gradient-based learning of black-box function..." />
+      <meta name="og:description" content="Deep neural networks work well at approximating complicated functions when provided with data and trained by gradient descent methods. At the same time, there is a vast amount of existing functions..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_r1e13s05YX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Neural network gradient-based learning of black-box function interfaces</a> <a class="note_content_pdf" href="/pdf?id=r1e13s05YX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019neural,    &#10;title={Neural network gradient-based learning of black-box function interfaces},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=r1e13s05YX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Deep neural networks work well at approximating complicated functions when provided with data and trained by gradient descent methods. At the same time, there is a vast amount of existing functions that programmatically solve different tasks in a precise manner eliminating the need for training. In many cases, it is possible to decompose a task to a series of functions, of which for some we may prefer to use a neural network to learn the functionality, while for others the preferred method would be to use existing black-box functions. We propose a method for end-to-end training of a base neural network that integrates calls to existing black-box functions. We do so by approximating the black-box functionality with a differentiable neural network in a way that drives the base network to comply with the black-box function interface during the end-to-end optimization process. At inference time, we replace the differentiable estimator with its external black-box non-differentiable counterpart such that the base network output matches the input arguments of the black-box function. Using this ``Estimate and Replace'' paradigm, we train a neural network, end to end, to compute the input to black-box functionality while eliminating the need for intermediate labels. We show that by leveraging the existing precise black-box function during inference, the integrated model generalizes better than a fully differentiable model, and learns more efficiently compared to RL-based methods.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">neural networks, black box functions, gradient descent</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Training DNNs to interface w\ black box functions w\o intermediate labels by using an estimator sub-network that can be replaced with the black box after training</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rkgznMOCnX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting approach with good results on synthetic tasks</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1e13s05YX&amp;noteId=rkgznMOCnX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper672 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper672 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents an approach, called EstiNet, to train a hybrid models which uses both neural networks and black-box functions. The key idea is that, during training, a neural network can be used to approximate the functionality of the black-box functions, which makes the whole system end-to-end differentiable. At test time, the true black-box functions are still used. The training objective composes two parts: L_bbf, the loss for approximating the black-box function and L_target, the loss for the end-to-end goal. They tried different variations of when to train the black-box function approximator or not. It is shown to outperform the baselines like end-to-end differentiable model or NALU over 4 synthetic tasks in sample efficiency. There are some analysis about how the entropy loss and label smoothing helps with the gradient flow. 
+
+The proposed model is interesting, and is shown to be effective in the synthetic tasks. The paper is well-written and easy to follow. However, some of the experiment details are missing or scattered in the text, which might make it hard for the readers to reproduce the result. I think it helps to have the experimental details (number of examples, number of offline pretraining steps, size of the neural network, etc) organized in some tables (could be put in the appendix). 
+
+Two main concerns about how generally applicable is the proposed approach: 
+
+1. It helps to show how L_target depends on L_bbf, or how good the approximation of the black-box function has to be to make the approach applicable. For example, some functions, such as sorting, are hard to approximate by neural network in a generalizable way, so in those cases, is it still possible to apply the proposed approach? 
+
+2.The proposed approach can be better justified by discussing some potential real world applications. Two closely related applications I can think of are visual question answering and semantic parsing. However, it is hard to find good black-box functions for VQA and people often learn them as neural networks, and the functions in semantic parsing often need to interact with a database or knowledge graph, which is hard to approximate with a neural network. 
+
+Some minor issues:
+
+Table 3 isn’t very informative since k=2 and k=3 provides very similar results. It would help to show how large k needs to be for the performance to severely degrade. 
+
+Missing references: 
+
+The Related Works section only reviewed some reinforcement learning work on synthetic tasks. However, with some bootstrapping, RL is also shown to achieve state-of-the-art performance on visual question answering and semantic parsing tasks (Johnson et al, 2017; Liang et al, 2018), which might be good to include here. 
+
+Johnson, J., Hariharan, B., van der Maaten, L., Hoffman, J., Fei-Fei, L., Zitnick, C. L., &amp; Girshick, R. B. (2017, May). Inferring and Executing Programs for Visual Reasoning. In ICCV (pp. 3008-3017).
+Liang, C., Norouzi, M., Berant, J., Le, Q., &amp; Lao, N. (2018). Memory augmented policy optimization for program synthesis with generalization. arXiv preprint arXiv:1807.02322.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1xRq4Zah7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Well written paper and convincing results</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1e13s05YX&amp;noteId=r1xRq4Zah7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper672 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper672 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper is about training a neural network (NN) to perform regression given a dataset (x, y) *and* a black box function which we know correctly maps from some intermediate representation to y. Instead of learning a NN directly from x to y, we want to make use of this black box function and learn a mapping from x to the intermediate representation. Call this the "argument extractor" NN. The problem is that (i) the black box function is typically non-differentiable so we cannot learn end-to-end and (ii) we don't have labels for the intermediate representations in order to learn a NN to approximate the black box function. The authors propose to train in three different ways: (1) offline training: train an auxiliary NN that approximates the black box function based on data generated by sampling the input uniformly (or similar); then train both the auxiliary NN and the argument extractor NN together end-to-end using (x, y) data, (2)  online training: train the auxiliary NN and the argument extractor NN together, based on (x, y) data; data for training the auxiliary NN comes from the argument extractor NN during the main training, and (3) hybrid training: pre-train the auxiliary NN as in (1) and then train both NNs as in (2).
+
+Experimental results show:
+- this approach leads to better performance than regressing directly from x to y in the small data regime,
+- this approach leads to better generalization (being able to add more image numbers during test),
+- this approach learns faster than an actor-critic based RL agent,
+- this approach can be useful even if the functionality of the black-box function inherently cannot be estimated by a differentiable function (lookup table) - the resulting argument extractor NN is useful when used with the non-differentiable black box function,
+- hybrid training is the best; offline training is the worst,
+- penalizing low output entropy helps.
+
+It wasn't quite clear to me which training procedure was used for experiments 4.1-4.3. Presumably hybrid? It would also be nice to see how much time is spent in pre-training vs main training. In figure 2, what are the update steps for EstiNet (since there are two losses + pretraining)?
+
+I found this paper to be generally well-written and results convincing.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rkg1n-hLhm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A good idea with proper validation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1e13s05YX&amp;noteId=rkg1n-hLhm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper672 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper672 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a method to solve end-to-end learning tasks using a combination of deep networks and domain specific black-box functions. In many machine learning tasks there may be a sub-part of the task can be easily solved with a black-box function (e.g a hard coded logic).  The paper proposes to use this knowledge in order to design a deep net that mimics the black-box function. This deep net being differentiable can be utilized while training in order to perform back-propagation for the deep nets that are employed to solve the remaining parts of the task. 
+
+The paper is well written and in my opinion the experiments are solid. They show significant gains over well-designed baselines. (It should be noted that I am not super familiar with prior work in this area and may not be aware of some related baselines that can be compared with.)
+
+In Section 3.1.2 the authors discuss offline and online methods to train the mimicking deep network of a black-box function. The offline version suffers from wasting samples on unwanted regions while the online version will have a cold-start problem. However, I believe there can be better solution than the hybrid strategy. In fact there is a clear explore/exploit trade-off  here. Therefore, one may start with a prior over the input domain of the black-box function and then as the argument extractor learns well the posterior can be updated. Then we can Thompson sample the inputs from this posterior in order to train the mimicking network.  I think such a bandit inspired approach will be interesting to try out. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

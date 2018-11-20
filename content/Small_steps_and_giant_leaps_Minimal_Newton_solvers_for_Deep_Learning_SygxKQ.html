@@ -1,0 +1,351 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Small steps and giant leaps: Minimal Newton solvers for Deep Learning | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Small steps and giant leaps: Minimal Newton solvers for Deep Learning" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=Sygx4305KQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Small steps and giant leaps: Minimal Newton solvers for Deep Learning" />
+      <meta name="og:description" content="We propose a fast second-order method that can be used as a drop-in replacement for current deep learning solvers. Compared to stochastic gradient descent (SGD), it only requires two additional..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_Sygx4305KQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Small steps and giant leaps: Minimal Newton solvers for Deep Learning</a> <a class="note_content_pdf" href="/pdf?id=Sygx4305KQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 16 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019small,    &#10;title={Small steps and giant leaps: Minimal Newton solvers for Deep Learning},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=Sygx4305KQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=Sygx4305KQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">We propose a fast second-order method that can be used as a drop-in replacement for current deep learning solvers. Compared to stochastic gradient descent (SGD), it only requires two additional forward-mode automatic differentiation operations per iteration, which has a computational cost comparable to two standard forward passes and is easy to implement. Our method addresses long-standing issues with current second-order solvers, which invert an approximate Hessian matrix every iteration exactly or by conjugate-gradient methods, procedures that are much slower than a SGD step. Instead, we propose to keep a single estimate of the gradient projected by the inverse Hessian matrix, and update it once per iteration with just two passes over the network. This estimate has the same size and is similar to the momentum variable that is commonly used in SGD. No estimate of the Hessian is maintained.
+We first validate our method, called CurveBall, on small problems with known solutions (noisy Rosenbrock function and degenerate 2-layer linear networks), where current deep learning solvers struggle. We then train several large models on CIFAR and ImageNet, including ResNet and VGG-f networks, where we demonstrate faster convergence with no hyperparameter tuning. We also show our optimiser's generality by testing on a large set of randomly-generated architectures.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">deep learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">A fast second-order solver for deep learning that works on ImageNet-scale problems with no hyper-parameter tuning</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">5 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_SyxRWTJxpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Well-motivated idea</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Sygx4305KQ&amp;noteId=SyxRWTJxpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1418 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1418 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Authors propose choosing direction by using a single step of gradient descent "towards Newton step" from an original estimate, and then taking this direction instead of original gradient. This direction is reused as a starting estimate for the next iteration of the algorithm. This can be efficiently implemented since it only relies on Hessian-vector products which are accessible in all major frameworks.
+
+Based on the fact that this is an easy to implement idea, clearly described, and that it seems to benefit some tasks using standard architectures, I would recommend this paper for acceptance.
+
+Comments:
+- introducing \rho parameter and solving for optimal \rho, \beta complicates things. I'm assuming \rho was needed for practical reasons, this should be explained better in the paper. (ie, what if we leave rho at 1)
+- For  ImageNet results, they show 82% accuracy after 20 epochs on full ImageNet using VGG. Is this top5 or top1 error? I'm assuming top5 since top1 would be new world record for the number of epochs needed. For top5, it seems SGD has stopped optimizing at 60% top5. Since all the current records on ImageNet are achieved with SGD (which beats Adam), this suggests that the SGD implementation is badly tuned
+- I appreciate that CIFAR experiments were made using standard architectures, ie using networks with batch-norm which clearly benefits SGD</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_B1xyXcQ767" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AR3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Sygx4305KQ&amp;noteId=B1xyXcQ767"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1418 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1418 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We would like to thank the reviewer for the comments and questions.
+
+&gt; “Introducing \rho parameter and solving for optimal \rho, \beta complicates things”
+It does, but it makes the proposed solver more reliable (no tuning is necessary).
+
+It is possible to set the hyper-parameters manually, but this requires multiple runs (similarly to learning rate tuning for SGD), which makes it much less convenient.
+
+One reason for introducing rho, in addition to the connection to momentum SGD, is that this allowed us to use the same automatic tuning strategy as Martens &amp; Grosse (2015). This formulation depends on the update equations having both rho and beta hyper-parameters. Another intuitive reason is to slowly forget stale updates, which is the same role played by this parameter in momentum SGD. We will clarify this further in the paper.
+
+Our analysis for the convex quadratic case (visualized in fig. 4, appendix A) shows that the algorithm converges on a relatively large region of the (rho, beta) parameter-space. However, the best performance is achieved in a relatively narrow band, which will vary depending on the Hessian eigenvalues. Automatically solving for the optimal rho and beta removes this concern.
+
+&gt; “For ImageNet results, they show 82% accuracy after 20 epochs on full ImageNet using VGG. Is this top5 or top1 error?”
+This is top-1 training error; if it were top-1 validation error, it would indeed be unreasonably good.
+
+Counter-intuitively, SGD is well tuned -- its training error stalls, however the validation error keeps going down for a few more epochs. The learning rate annealing schedule was chosen by the authors of the VGG-f model taking this into account. This is a problem with SGD -- as it is implemented, it works both as optimizer and regularizer.
+
+We show the training error in all plots in order to accurately measure improvements in optimization, without the added confusion of such regularization effects. We study and discuss the validation error separately (in the last subsection of the experiments).
+
+In summary, we found that models that have an appropriate number of parameters w.r.t. the dataset size benefit from our improved optimization, while the larger models (e.g. ResNet) require additional regularization to lower the validation error.
+
+We view this development as a two-step process: first we create algorithms that can optimize the objective function efficiently; and once we have them, we can focus on effective regularization techniques. We believe that this strategy is more promising than developing both simultaneously.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryeIGPDv2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good Paper, Accept</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Sygx4305KQ&amp;noteId=ryeIGPDv2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1418 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1418 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In this paper, the authors introduce a new second-order algorithm for training deep networks. The method, named CurveBall, is motivated as an inexpensive alternative to Newton-CG. At its core, the method augments the update role for SGD+M with a Hessian-vector product that can be done efficiently (Algorithm 1). While a few new hyperparameters are introduced, the authors propose ways by which they can be calibrated automatically (Equation 16) and also prove convergence for quadratic functions (Theorem A.1) and guaranteed descent (Theorem A.2). The authors also present numerical results showing improved training on common benchmarks. I enjoyed reading the paper and found the motivation and results to be convincing. I especially appreciate that the authors performed experiments on ImageNet instead of just CIFAR-10, and the differentiation modes are explained well. As such, I recommend the paper for acceptance. 
+
+
+I suggest ways in which the paper can be further improved below:
+
+- In essence, the closest algorithm to CurveBall is LiSSA proposed by Agarwal et al. They use a series expansion for approximating the inverse whereas your work uses one iteration of CG. If you limit LiSSA to only one expansion, the update rule that you would get would be similar to that of CurveBall (but not exactly the same). I feel that a careful comparison to LiSSA is necessary in the paper, highlighting the algorithmic and theoretical differences. I don't see the need for any additional experiments, however.
+- For books, such as Nocedal &amp; Wright, please provide page numbers for each citation since the information quoted is across hundreds of pages. 
+- It's a bit non-standard to see vectors being denoted by capital letters, e.g. J(w) \in R^p on Page 2. I think it's better you don't change it now, however, since that might introduce inadvertent typos. 
+- It would be good if you could expand on the details concerning the automatic determination of the hyperparameters (Equation 16). It was a bit unclear to me where those equations came from. 
+- Could you plot the evolution of \beta, \rho and \lambda for a couple of your experiments? I am curious whether our intuition about the values aligns with what happens in reality. In Newton-CG or Levenberg-Marquardt-esque algorithms, with standard local strong convexity assumptions, the amount of damping necessary near the solution usually falls to 0. Further, in the SGD+M paper of Sutskever et al., they talked about how it was necessary to zero out the momentum at the end. It would be fascinating if such insights (or contradictory ones) were discovered by Equation 16 and the damping mechanism automatically. 
+- I'm somewhat concerned about the damping for \lambda using \gamma. There has been quite a lot of work recently in the area of Stochastic Line Searches which underscores the issues involving computation with noisy estimates of function values. I wonder if the randomness inherent in the computation of f(w) can throw off your estimates enough to cause convergence issues. Can you comment on this?
+- It was a bit odd to see BFGS implemented with a cubic line search. The beneficial properties of BFGS, such as superlinear convergence and self-correction, usually work out only if you're using the Armijo-Wolfe (Strong/Weak) line search. Can you re-do those experiments with this line search? It is unexpected that BFGS would take O(100) iterations to converge on a two dimensional problem. 
+- In the same experiment, did you also try (true) Newton's method? Maybe we some form of damping? Given that you're proposing an approximate Newton's method, it would be a good upper baseline to have this experiment. 
+- I enjoyed reading your experimental section on random architectures, I think it is quite illuminating. 
+- Please consider rephrasing some phrases in the paper such as "soon the latter" (Page 1), "which is known to improve optimisation", (Page 7), "non-deep problems" (Page 9). </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SyemYpEiam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to AR2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Sygx4305KQ&amp;noteId=SyemYpEiam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1418 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">16 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1418 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the very thoughtful suggestions and questions.
+
+&gt; Comparison to the LiSSA algorithm
+There are indeed very interesting connections between CurveBall and LiSSA. Despite their main update being derived from very different assumptions, we found that it is possible to manipulate it into a form that is directly comparable to ours, without a learning rate \beta. Another difference is structural: LiSSA uses a nested inner loop to create a Newton-like update from scratch every iteration, like other Hessian-free methods, while our algorithm structure has no such nesting and thus has the same structure as momentum SGD (cf. Alg. 1 and Alg. 2 in the paper).
+
+We updated the paper with a much more detailed exposition of these points, which we have only hinted at in this response to keep it short. It can be found in the last (large) paragraph of the related work (section 5, p. 9).
+
+&gt; Page numbers on books
+Thank you, we agree that this is important; we just added them to the paper.
+
+&gt; Vectors as capital letters, e.g. J(w)
+We share this concern, however this was used to simplify our exposition of automatic differentiation (sec. 2.2). There, the gradient J arises from the multiplication of several Jacobians, which are generally matrices, and it only happens to be a vector because of the shape of the initial projection. We could have treated Jacobians and gradients separately, but it would hamper this unifying view which we found more instructive.
+
+&gt; Automatic hyper-parameters derivation
+Although this can be found in the work of Martens &amp; Grosse (2015), to make the paper self-contained we added the derivations to the appendix (section A.1), consisting of a simple minimization problem in the \rho and \beta scalars.
+
+&gt; “Plot the evolution of \beta, \rho and \lambda”
+This is an interesting aspect to analyze. We plot these quantities for two models (with and without batch normalization) in the (newly-added) Fig. 5.
+
+It seems that the momentum hyper-parameter \rho starts with a high value and decreases over time, with what appears to be geometric behavior. This is in line with the mentioned theory, although it is simply a result of the automatic tuning process.
+
+As for the learning rate \beta, it increases in an initial phase, only to decrease slowly afterwards. We can compare this to the practitioners’ manually-tuned learning rate schedules for SGD that include “burn-in” periods, which follow a similar shape (He et al., 2016). Similar schedules were also obtained by previous work on gradient-based hyper-parameter tuning (Maclaurin et al., “Gradient-based Hyperparameter Optimization through Reversible Learning”, ICML 2015).
+
+The trust region \lambda decreases over time, but by a minute amount. The trust region adaptation is a 1D optimization problem over \lambda, minimizing the difference between the ratio \gamma and 1. This 1D problem has many local minima, punctuated by singularities corresponding to Hessian eigenvalues (see Wright &amp; Nocedal (1999) fig. 4.5). Given a large enough spread of eigenvalues, it is not surprising that a minimum close to the initial \lambda was found by the iterative adaptation scheme.
+
+&gt; Comment on Stochastic Line Searches; damping for \lambda using \gamma
+We agree that a more satisfactory solution would be to employ the ideas of Probabilistic Line Search. However, it would involve reframing the optimization in Bayesian terms, which would be a large change and add significant complexity, which we tried to avoid.
+
+Instead, and inspired by KFAC (Martens &amp; Grosse, 2015), we change \lambda in *small* increments based on how close \gamma is to 1. The argument is that, even if a particular batch gives an inaccurate estimate of \gamma, in expectation it should be correct, and so most of the small \lambda increments will be in the right direction (in 1D). The procedure would indeed be unstable if the increments were much less gradual.
+
+&gt; Re-do experiments with Armijo-Wolfe line search; BFGS performance
+BFGS only needs 19 function evaluations to achieve 10^-4 error on the *deterministic* Rosenbrock function, which we considered to be a reasonable result. However, the *stochastic* Rosenbrock functions are more difficult, as expected.
+
+The cubic line search is part of the BFGS implementation that ships with Matlab. Following this suggestion, we also tested minFunc’s implementation of L-BFGS, which includes Armijo and Wolfe line searches. We tried several initialization schemes, as well as different line search variants, and found no improvement over the previous ones (Table 1).
+
+&gt; “Try (true) Newton's method”
+We considered LM as the upper baseline as the Hessian isn’t necessarily definite positive, but the true Newton’s method is indeed subtly different. It achieves slightly better results overall (see updated Table 1). Note that when the Hessian matrix has negative eigenvalues, we use the absolute values instead.
+
+&gt; “Please consider rephrasing some phrases”
+We did; thank you for the suggestions.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryeMkWWQn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting research direction but the paper needs a lot more work before publication</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=Sygx4305KQ&amp;noteId=ryeMkWWQn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1418 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1418 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes an approximate second-order method with low computational cost. A common pitfall of second-order methods is the computation (and perhaps inversion) of the Hessian matrix. While this can be avoided by instead relying on Hessian-vector products as done in CG, it typically still requires several iterations. Instead, the authors suggest a simpler approach that relies on one single gradient step and a warm start strategy. The authors points out that the resulting algorithm resembles a momentum method. They also provide some simple convergence proofs on quadratics and benchmark their method to train deep neural networks.
+
+While I find the research direction interesting, the execution is rather clumsy and many details are not sufficiently motivated. Finally, there is a lot of relevant work in the optimization community that is not discussed in this paper, see detailed comments and references below.
+
+1) Method
+The derivation of the method is very much driven on a set of heuristics without theoretical guarantees. In order to derive the update of the proposed method, the authors rely on three heuristics:
+a) The first is to reuse the previous search direction z as a warm-start. The authors argue that this might be beneficial if If z does not change abruptly. In the early phase, the gradient norm is likely to be large and thus z will change significantly. One might also encounter regions of high curvature where the direction of z might change quickly from one iteration to the next.
+The "warm start" at s_{t-1} is also what yields the momentum term, what interpretation can you give to this choice?
+
+b) The second step interleaves the updates of z and w instead of first finding the optimum z. This amounts to just running one iteration of CG but it is rather unclear why one iteration is an appropriate number. It seems one could instead some adaptive strategy where CG with a fixed accuracy. One could potentially see if allowing larger errors at the beginning of the optimization process might still allow for the method to converge. This is for instance commonly done with the batch-size of first-order method. Gradually increasing the batch-size and therefore reducing the error as one gets close to the optimum can still yield to a converging algorithm, see e.g. 
+Friedlander, M. P., &amp; Schmidt, M. (2012). Hybrid deterministic-stochastic methods for data fitting. SIAM Journal on Scientific Computing, 34(3), A1380-A1405.
+
+c) The third step consists in replacing CG with gradient descent.
+"If CG takes N steps on average, then Algorithm 2 will be slower than SGD by a factor of at least N, which can easily be an order of magnitude".
+First, the number of outer iterations may be a lot less for the Hessian-free method than for SGD so this does not seem to be a valid argument. Please comment.
+Second, I would like to see a discussion of the convergence rate of solving (12) inexactly with krylov subspace methods. Note that Lanczos yields an accelerated rate while GD does not. So the motivation for switching to GD should be made clearer.
+
+d) The fourth step introduces a factor rho that decays z at each step. I’m not really sure this makes sense even heuristically. The full update of the algorithm developed by the author is:
+w_{t+1} = w_t - beta nabla f + (rho I - beta H) (w_t - w_{t-1}).
+The momentum term therefore gets weighted by (rho I - beta H). What is the meaning of this term? The -beta H term weights the momentum according to the curvature of the objective function. Given the lack of theoretical support for this idea, I would at least expect a practical reason back up by some empirical evidence that this is a sensible thing to do.
+This is especially important given that you claim to decay rho therefore giving more importance to the curvature term.
+Finally, why would this be better than simply using CG on a trust-region model? (Recall that Lanczos yields an accelerated linear rate while GD does not).
+
+2) Convergence analysis
+a) The analysis is only performed on a quadratic while the author clearly target non-convex functions, this should be made clear in the main text. Also see references below (comment #3) regarding a possible extension to non-convex functions.
+b) The authors should check the range of allowed values for alpha and beta. It appears the rate would scale with the square root of the condition number, please confirm, this is an important detail. I also think that the constant is not as good as Heavy-ball on a quadratic (see e.g. <a href="http://pages.cs.wisc.edu/~brecht/cs726docs/HeavyBallLinear.pdf)," target="_blank" rel="nofollow">http://pages.cs.wisc.edu/~brecht/cs726docs/HeavyBallLinear.pdf),</a> please comment.
+c) Sub-sampling of the Hessian and gradients is not discussed at all (but used in the experiments). Please add a discussion and consider extending the proof (again, see references given below).
+
+3) Convergence Heavy-ball
+The authors emphasize the similarity of their approach to Heavy-ball. They cite the results of Loizou &amp; Richtarik 2017. Note that they are earlier results for quadratic functions such as 
+Lessard, L., Recht, B., &amp; Packard, A. (2016). Analysis and design of optimization algorithms via integral quadratic constraints. SIAM Journal on Optimization, 26(1), 57-95.
+Flammarion, N., &amp; Bach, F. (2015, June). From averaging to acceleration, there is only a step-size. In Conference on Learning Theory (pp. 658-695).
+The novelty of the bounds derived in Loizou &amp; Richtarik 2017 is that they apply in stochastic settings.
+Finally, there are results for non-convex functions such convergence to a stationary point, see
+Zavriev, S. K., &amp; Kostyuk, F. V. (1993). Heavy-ball method in nonconvex optimization problems. Computational Mathematics and Modeling, 4(4), 336-341.
+Also on page 2, "Momentum GD ... can be shown to have faster convergence than GD". It should be mentioned that this only hold for (strongly) convex functions!
+
+4) Experiments
+a) Consider showing the gradient norms. 
+b) it looks like the methods have not yet converged in Fig 2 and 3.
+c) Second order benchmark:
+It would be nice to compare to a method that does not use the GN matrix but the true or subsampled Hessian (like Trust Region/Cubic Regularization) methods given below.
+Why is BFGS in Rosenbrock but not in NN plots?
+d) "Batch normalization (which is known to improve optimization)" 
+This statement requires a reference such as
+Towards a Theoretical Understanding of Batch Normalization
+Kohler et al… - arXiv preprint arXiv:1805.10694, 2018
+
+5) Related Work
+The related work should include Cubic Regularization and Trust Region methods since they are among the most prominent second order algorithms. Consider citing Conn et al. 2000 Trust Region,  Nesterov 2006 Cubic regularization, Cartis et al. 2011 ARC.
+Regarding sub-sampling: Kohler&amp;Lucchi 2017: Stochastic Cubic Regularization for non-convex optimization and Xu et al.: Newton-type methods for non-convex optimization under inexact hessian information.
+
+6) More comments
+
+Page 2
+Polyak 1964 should be cited  where momentum is discussed.
+"Perhaps the simplest algorithm to optimize Eq. 1 is Gradient Descent". This is technically not correct since GD is not a global optimization algorithm. Maybe mention that you try to find a stationary point
+rho (Eq. 2) and lambda (Eq. 4) are not defined
+
+Page 4: 
+Algorithm 1 and 2 and related equations in the main text: it should be H_hat instead of H.
+
+Background
+“Momemtum GD exhibits somewhat better resistance to poor scaling of the objective function”
+To be precise the improvement is quadratic for convex functions. Note that Goh might not be the best reference to cite as the article focuses on quadratic function. Consider citing the lecture notes from Nesterov.
+
+Section 2.2
+This section is perhaps a bit confusing at first as the authors discuss the general case of a multivalue loss function. Consider moving your last comment to the beginning of the section.
+
+Section 2.3
+As a side remark, the work of Dauphin does not rely on the Gauss-Newton approximation but a different PSD matrix, this is probably worth mentioning.
+
+Minor comment: The title is rather bold and not necessarily precise since the stepsize of curveball is not particularly small e.g. in Fig 1.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

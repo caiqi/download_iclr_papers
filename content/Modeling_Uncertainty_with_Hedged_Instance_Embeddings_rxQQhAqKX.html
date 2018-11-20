@@ -1,0 +1,421 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Modeling Uncertainty with Hedged Instance Embeddings | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Modeling Uncertainty with Hedged Instance Embeddings" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=r1xQQhAqKX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Modeling Uncertainty with Hedged Instance Embeddings" />
+      <meta name="og:description" content="Instance embeddings are an efficient and versatile image representation that facilitates applications like recognition, verification, retrieval, and clustering. Many metric learning methods..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_r1xQQhAqKX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Modeling Uncertainty with Hedged Instance Embeddings</a> <a class="note_content_pdf" href="/pdf?id=r1xQQhAqKX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 12 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019modeling,    &#10;title={Modeling Uncertainty with Hedged Instance Embeddings},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=r1xQQhAqKX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=r1xQQhAqKX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Instance embeddings are an efficient and versatile image representation that facilitates applications like recognition, verification, retrieval, and clustering. Many metric learning methods represent the input as a single point in the embedding space. Often the distance between points is used as a proxy for match confidence. However, this can fail to represent uncertainty which can arise when the input is ambiguous, e.g., due to occlusion or blurriness. This work addresses this issue and explicitly models the uncertainty by “hedging” the location of each input in the embedding space. We introduce the hedged instance embedding (HIB) in which embeddings are modeled as random variables and the model is trained under the variational information bottleneck principle (Alemi et al., 2016; Achille &amp; Soatto, 2018). Empirical results on our new N-digit MNIST dataset show that our method leads to the desired behavior of “hedging its bets” across the embedding space upon encountering ambiguous inputs. This results in improved performance for image matching and classification tasks, more structure in the learned embedding space, and an ability to compute a per-exemplar uncertainty measure which is correlated with downstream performance.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">uncertainty, instance embedding</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">The paper proposes using probability distributions instead of points for instance embeddings tasks such as recognition and verification.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">9 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HylIjDWunQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Modelling Uncertainty with Hedged Instance Embeddings</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1xQQhAqKX&amp;noteId=HylIjDWunQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1341 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1341 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value"># Summary
+Paper proposes an alternative to current point embedding and a technique to train them. Point embedding are conventional embedding where an input x is deterministically mapped to a vector in embedding space.
+
+i.e         f(x) = z where f may be a parametric function or trained Neural network.
+
+Note that this point embedding means that every x is assigned a unique z, this might be an issue in cases where x is confusing for example if x is an image in computer vision pipeline then x may be occluded etc. In such cases paper argues that assigning a single point as embedding is not a great option.
+
+Paper says that instead of assigning a single point it's better to assign smear of points (collection of points coming from some distributions like Gaussian and mixture of Gaussian etc) 
+
+They provide a technique based on variational inference to train the network to produce such embeddings. They also propose a new dataset made out of MNIST to test this concept.
+
+# Concerns
+
+Although they have results to back up their claim on their proposed dataset and problem. They have not compared with many existing uncertainty methods like dropout. (But I’m not sure if such a comparison is relevant here)
+Unlike Kendall method or dropout method, hyperparameters here are a pain point for me, i.e how many Gaussians should I consider in my mixture of Gaussian to create the embeddings (results will depend upon that)
+I.e consider the following scenario
+The first digit is occluded and can be anything 1,2,3,4,5,6,7,8,9,0 should I use only one Gaussian to create my embeddings like they have shown in the paper for this example, or should I choose 10 gaussian each centered about one of the digits, which might help in boosting the performance?
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJlt3zKLpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response 1/2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1xQQhAqKX&amp;noteId=rJlt3zKLpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1341 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1341 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewers for recognising the importance of the problem (R2) and finding the paper well-written (R2, R3). We have revised the submission according to reviewers’ suggestions and proposals (see summary of updates below). We respond to each reviewer’s comments below.
+
+
+= Summary of updates in revision:
+
+- Discussion of conceptual inapplicability of MC dropout for probabilistic embedding in Section 3 (R1).
+- Discussion of the intuition behind self-similarity for uncertainty measure and its conceptual advantage over the trace of covariance matrix (R2).
+- Description of network architecture for MoG embedding in Section 2.2 (R2).
+- New appendix section E for qualitative and quantitative analysis of the impact of KL divergence regularization term (R2).
+- Added (N=2, D=3) columns in tables 1 and 2.
+- Typos (R2,3).
+
+
+= R1: Comparison against “existing uncertainty methods like dropout”.
+
+Randomness in MC dropout is independent of input. It is designed to measure model uncertainty (epistemic uncertainty). On the other hand, our model is designed to measure input uncertainty (aleatoric uncertainty). They are conceptually distinct methods.  We have added this discussion in Section 3, “Probabilistic DNNs” paragraph of the revision.
+
+
+= R1: Unlike MC dropout, “hyperparameters [such as number of components for MoG] are a pain point”.
+
+We have found results to be fairly insensitive to number of mixture components in the MoG. Note that MC dropout also has parameters to tune!
+
+
+= R1: How should I choose the number of components given that there are ten possibilities for each digit?
+
+Do cross-validation if performance is critical. We have shown, however, that both a single Gaussian and two-component MoG perform well in our setup (Section 4.3).
+
+
+= R2: Sampling based similarity computation is “complicated”. Why not compute analytic distances for Gaussians like Expected Likelihood Kernel or Hellinger Kernel? 
+
+Our similarity computation based on distance samples is motivated by the contrastive loss metric learning objective (Section 2.1), where Euclidean distances between embeddings encode similarity of inputs. Compared to divergence (KL or JS), inner product (ELK), or Hellinger kernel based distances, HIB is designed to more directly represent distributions of Euclidean distances on the embedding space (through the match probability, Equation 2). However, we agree that it would be interesting to explore no-sampling alternatives in future work.
+
+
+= R2: What is the intuition behind self-similarity for uncertainty? Why not use the trace of the covariance matrix for uncertainty?
+
+The self-similarity uncertainty measure starts from the intuition that for ambiguous inputs, their embeddings will span diverse semantic classes (as in Figure 1b). To quantify this, we have defined self-similarity as the chance that given an input x and two independent samples (z1, z2) from its embedding p(z|x), they belong to the same semantic cluster (i.e., their match probability).
+ We do not use volumetric uncertainty measures like trace or determinant of covariance matrix because it does not make sense for multi-modal distributions like MoG. We have updated Section 2.4 with this discussion.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Byx_z7K86m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response 2/2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1xQQhAqKX&amp;noteId=Byx_z7K86m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1341 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1341 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+= R2: Is MoG implemented “by having 2C output branches generating C means and C standard deviation vectors”?
+
+Yes, your description is correct. We have added the detail in Section 2.2, “MoG embedding” paragraph in the revision.
+
+
+= R2: “It would be useful to report results without the VIB regularization.”
+
+We have added the results in the new appendix section E, “KL Divergence Regularization”. We confirm that the KL term improves generalisation for the main tasks (verification and recognition) and better calibrates the uncertainty measure.
+
+
+= R2: Doubt “practical usefulness” in a higher-dimensional case than D=2 or 3 in the paper.
+
+The space and time complexity of increasing D scale only linearly with D. We focus on D=2 and 3 because these compact embeddings stress the network's ability to discriminate well across many (100 or 1000) classes. We have successfully trained HIB with larger dimensional embeddings (D=6) and in that case HIB also exhibits good correlations between uncertainty and task performance. However, the task accuracy with N-digit-MNIST begins to saturate, making it difficult to further explore the relationship between the uncertainty measure and task performance.
+
+
+= R3: Evaluation should confirm that the “uncertainty measure actually affects the downstream task in a known manner” for example by showing it helps certain “active learning framework”.
+
+While we agree it would be interesting to see if collecting additional views of an ambiguous input reduces its uncertainty, this is not always an option in practice (e.g., face recognition from a single image). Therefore, we focus on the task of assessing when a model should say "I don't know" given a single input.
+
+
+= R3: In Figure 5, correlation between the embedding uncertainty and KNN will be high regardless of the quality of embedding.
+
+The aim of Figure 5 is not to measure the quality of embedding (which is measured in Section 4.3); it is to measure the quality of our uncertainty (i.e., higher uncertainty for low-performance inputs). Figure 5 is confirming that our measure of uncertainty is indeed a good predictor of downstream task performances. If this misses the point, please further clarify your concern.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_SJl9pTb827" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Great paper! Could use more uncertainty-measuring application / experiments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1xQQhAqKX&amp;noteId=SJl9pTb827"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1341 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1341 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">pros: The  paper is well-written and well-motivated. It seems like uncertain-embeddings will be a valuable tool as we continue to extend deep learning to Bayesian applications, and the model proposed here seems to work well, qualitatively. Additionally the paper is well-written, in that every step used to construct the loss function and training seem well motivated and generally intuitive, and the simplistic CNN and evaluations give confidence that this is not a random result. 
+
+cons: I think the quantitative results are not as impressive as I would have expected, and I think it is because the wrong thing is being evaluated. It would make the results more  impressive to try to use these embeddings in some active learning framework, to see if proper understanding of uncertainty helps in a task where a good uncertainty measure actually affects the downstream task in a known manner. Additionally, I don't think Fig 5 makes sense, since you are using the embeddings for the KNN task, then measuring correlation between the embedding uncertainty and KNN, which might be a high correlation without the embedding being good. 
+
+Minor comments: 
+ - Typo above (5) on page 3.
+ - Appendix line under (12), I think dz1 and dz2 should be after the KL terms.
+
+Reviewer uncertainty: I am not familiar enough with the recent literature on this topic to judge novelty. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1gHkXK86X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response 1/2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1xQQhAqKX&amp;noteId=r1gHkXK86X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1341 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1341 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewers for recognising the importance of the problem (R2) and finding the paper well-written (R2, R3). We have revised the submission according to reviewers’ suggestions and proposals (see summary of updates below). We respond to each reviewer’s comments below.
+
+
+= Summary of updates in revision:
+
+- Discussion of conceptual inapplicability of MC dropout for probabilistic embedding in Section 3 (R1).
+- Discussion of the intuition behind self-similarity for uncertainty measure and its conceptual advantage over the trace of covariance matrix (R2).
+- Description of network architecture for MoG embedding in Section 2.2 (R2).
+- New appendix section E for qualitative and quantitative analysis of the impact of KL divergence regularization term (R2).
+- Added (N=2, D=3) columns in tables 1 and 2.
+- Typos (R2,3).
+
+
+= R1: Comparison against “existing uncertainty methods like dropout”.
+
+Randomness in MC dropout is independent of input. It is designed to measure model uncertainty (epistemic uncertainty). On the other hand, our model is designed to measure input uncertainty (aleatoric uncertainty). They are conceptually distinct methods.  We have added this discussion in Section 3, “Probabilistic DNNs” paragraph of the revision.
+
+
+= R1: Unlike MC dropout, “hyperparameters [such as number of components for MoG] are a pain point”.
+
+We have found results to be fairly insensitive to number of mixture components in the MoG. Note that MC dropout also has parameters to tune!
+
+
+= R1: How should I choose the number of components given that there are ten possibilities for each digit?
+
+Do cross-validation if performance is critical. We have shown, however, that both a single Gaussian and two-component MoG perform well in our setup (Section 4.3).
+
+
+= R2: Sampling based similarity computation is “complicated”. Why not compute analytic distances for Gaussians like Expected Likelihood Kernel or Hellinger Kernel? 
+
+Our similarity computation based on distance samples is motivated by the contrastive loss metric learning objective (Section 2.1), where Euclidean distances between embeddings encode similarity of inputs. Compared to divergence (KL or JS), inner product (ELK), or Hellinger kernel based distances, HIB is designed to more directly represent distributions of Euclidean distances on the embedding space (through the match probability, Equation 2). However, we agree that it would be interesting to explore no-sampling alternatives in future work.
+
+
+= R2: What is the intuition behind self-similarity for uncertainty? Why not use the trace of the covariance matrix for uncertainty?
+
+The self-similarity uncertainty measure starts from the intuition that for ambiguous inputs, their embeddings will span diverse semantic classes (as in Figure 1b). To quantify this, we have defined self-similarity as the chance that given an input x and two independent samples (z1, z2) from its embedding p(z|x), they belong to the same semantic cluster (i.e., their match probability).
+ We do not use volumetric uncertainty measures like trace or determinant of covariance matrix because it does not make sense for multi-modal distributions like MoG. We have updated Section 2.4 with this discussion.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1e2VQtLTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response 2/2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1xQQhAqKX&amp;noteId=S1e2VQtLTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1341 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1341 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+= R2: Is MoG implemented “by having 2C output branches generating C means and C standard deviation vectors”?
+
+Yes, your description is correct. We have added the detail in Section 2.2, “MoG embedding” paragraph in the revision.
+
+
+= R2: “It would be useful to report results without the VIB regularization.”
+
+We have added the results in the new appendix section E, “KL Divergence Regularization”. We confirm that the KL term improves generalisation for the main tasks (verification and recognition) and better calibrates the uncertainty measure.
+
+
+= R2: Doubt “practical usefulness” in a higher-dimensional case than D=2 or 3 in the paper.
+
+The space and time complexity of increasing D scale only linearly with D. We focus on D=2 and 3 because these compact embeddings stress the network's ability to discriminate well across many (100 or 1000) classes. We have successfully trained HIB with larger dimensional embeddings (D=6) and in that case HIB also exhibits good correlations between uncertainty and task performance. However, the task accuracy with N-digit-MNIST begins to saturate, making it difficult to further explore the relationship between the uncertainty measure and task performance.
+
+
+= R3: Evaluation should confirm that the “uncertainty measure actually affects the downstream task in a known manner” for example by showing it helps certain “active learning framework”.
+
+While we agree it would be interesting to see if collecting additional views of an ambiguous input reduces its uncertainty, this is not always an option in practice (e.g., face recognition from a single image). Therefore, we focus on the task of assessing when a model should say "I don't know" given a single input.
+
+
+= R3: In Figure 5, correlation between the embedding uncertainty and KNN will be high regardless of the quality of embedding.
+
+The aim of Figure 5 is not to measure the quality of embedding (which is measured in Section 4.3); it is to measure the quality of our uncertainty (i.e., higher uncertainty for low-performance inputs). Figure 5 is confirming that our measure of uncertainty is indeed a good predictor of downstream task performances. If this misses the point, please further clarify your concern.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_ByegqBDioX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review of "Modeling Uncertainty with Hedged Instance Embeddings"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1xQQhAqKX&amp;noteId=ByegqBDioX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1341 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">22 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1341 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">While most works consider embedding as the problem of mapping an input into a point in an embedding space, paper 1341 considers the problem of mapping an input into a distribution in an embedding space. Computing the matching score of two inputs (e.g. two images) involves the following steps: (i) assuming a Gaussian distribution in the embedding space, computing the mean and standard deviation for each input, (ii) drawing a set of samples from each distribution, (3) computing the normalized distances between the samples and (iv) averaging to obtain a global score.
+
+The proposed approach is validated on a new benchmark built on MNIST.
+
+On the positive side:
+-	The topic of injecting uncertainty in neural networks should be of broad interest to the ICLR community.
+-	The paper is generally clear.
+-	The qualitative evaluation provides intuitive results.
+
+On the negative side:
+-	The whole idea of drawing samples to compute the distance between two Gaussian distributions seems unnecessarily complicated. Why not computing directly a distance between distributions? There exist kernels between distributions, such as the Probability Product Kernel (PPK). See Jebara, Kondor, Howard “Probability product kernels”, JMLR’04. The PPK between two distributions p(x) and q(x) writes as: \int_x p^a(x) q^a(x) dx, where a is a parameter. When a=1, it is known as the Expected Likelihood Kernel (ELK). When a=1/2, this is known as the Hellinger or Bhattacharyya kernel (BK). In p and q are Gaussian distributions, then the PPK can be computed in closed form. If p and q are mixtures of Gaussians, then the ELK can be computed in closed form. 
+-	The Mixture of Gaussians embedding extension is lacking in details. How does the network generate C Gaussian distributions? By having 2C output branches generating C means and C standard deviation vectors? 
+-	It might be useful to provide more details about why the self-similarity measure makes sense as an uncertainty measure. In its current state, the paper does not provide much intuition and it took me some time to understand (I actually understood when I made the connection with the ELK). Also, why not using a simpler measure of uncertainty such as the trace of the covariance matrix?
+-	The experiments are lacking in some respects:
+o	It would be useful to report results without the VIB regularization.
+o	The focus on the cases D=2 and D=3 (embedding in a 2D or 3D space) shades some doubt on the practical usefulness of this framework in a higher-dimensional case.
+
+Miscellaneous:
+-	It seems there is a typo between equations (4) and (5). It should write z_1^{(k_1)} \sim p(z_1|x_1)
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkgPgQYLam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response 1/2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1xQQhAqKX&amp;noteId=rkgPgQYLam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1341 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1341 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank the reviewers for recognising the importance of the problem (R2) and finding the paper well-written (R2, R3). We have revised the submission according to reviewers’ suggestions and proposals (see summary of updates below). We respond to each reviewer’s comments below.
+
+
+= Summary of updates in revision:
+
+- Discussion of conceptual inapplicability of MC dropout for probabilistic embedding in Section 3 (R1).
+- Discussion of the intuition behind self-similarity for uncertainty measure and its conceptual advantage over the trace of covariance matrix (R2).
+- Description of network architecture for MoG embedding in Section 2.2 (R2).
+- New appendix section E for qualitative and quantitative analysis of the impact of KL divergence regularization term (R2).
+- Added (N=2, D=3) columns in tables 1 and 2.
+- Typos (R2,3).
+
+
+= R1: Comparison against “existing uncertainty methods like dropout”.
+
+Randomness in MC dropout is independent of input. It is designed to measure model uncertainty (epistemic uncertainty). On the other hand, our model is designed to measure input uncertainty (aleatoric uncertainty). They are conceptually distinct methods.  We have added this discussion in Section 3, “Probabilistic DNNs” paragraph of the revision.
+
+
+= R1: Unlike MC dropout, “hyperparameters [such as number of components for MoG] are a pain point”.
+
+We have found results to be fairly insensitive to number of mixture components in the MoG. Note that MC dropout also has parameters to tune!
+
+
+= R1: How should I choose the number of components given that there are ten possibilities for each digit?
+
+Do cross-validation if performance is critical. We have shown, however, that both a single Gaussian and two-component MoG perform well in our setup (Section 4.3).
+
+
+= R2: Sampling based similarity computation is “complicated”. Why not compute analytic distances for Gaussians like Expected Likelihood Kernel or Hellinger Kernel? 
+
+Our similarity computation based on distance samples is motivated by the contrastive loss metric learning objective (Section 2.1), where Euclidean distances between embeddings encode similarity of inputs. Compared to divergence (KL or JS), inner product (ELK), or Hellinger kernel based distances, HIB is designed to more directly represent distributions of Euclidean distances on the embedding space (through the match probability, Equation 2). However, we agree that it would be interesting to explore no-sampling alternatives in future work.
+
+
+= R2: What is the intuition behind self-similarity for uncertainty? Why not use the trace of the covariance matrix for uncertainty?
+
+The self-similarity uncertainty measure starts from the intuition that for ambiguous inputs, their embeddings will span diverse semantic classes (as in Figure 1b). To quantify this, we have defined self-similarity as the chance that given an input x and two independent samples (z1, z2) from its embedding p(z|x), they belong to the same semantic cluster (i.e., their match probability).
+ We do not use volumetric uncertainty measures like trace or determinant of covariance matrix because it does not make sense for multi-modal distributions like MoG. We have updated Section 2.4 with this discussion.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_SygJLmYLpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Author Response 2/2</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1xQQhAqKX&amp;noteId=SygJLmYLpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1341 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">12 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1341 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+= R2: Is MoG implemented “by having 2C output branches generating C means and C standard deviation vectors”?
+
+Yes, your description is correct. We have added the detail in Section 2.2, “MoG embedding” paragraph in the revision.
+
+
+= R2: “It would be useful to report results without the VIB regularization.”
+
+We have added the results in the new appendix section E, “KL Divergence Regularization”. We confirm that the KL term improves generalisation for the main tasks (verification and recognition) and better calibrates the uncertainty measure.
+
+
+= R2: Doubt “practical usefulness” in a higher-dimensional case than D=2 or 3 in the paper.
+
+The space and time complexity of increasing D scale only linearly with D. We focus on D=2 and 3 because these compact embeddings stress the network's ability to discriminate well across many (100 or 1000) classes. We have successfully trained HIB with larger dimensional embeddings (D=6) and in that case HIB also exhibits good correlations between uncertainty and task performance. However, the task accuracy with N-digit-MNIST begins to saturate, making it difficult to further explore the relationship between the uncertainty measure and task performance.
+
+
+= R3: Evaluation should confirm that the “uncertainty measure actually affects the downstream task in a known manner” for example by showing it helps certain “active learning framework”.
+
+While we agree it would be interesting to see if collecting additional views of an ambiguous input reduces its uncertainty, this is not always an option in practice (e.g., face recognition from a single image). Therefore, we focus on the task of assessing when a model should say "I don't know" given a single input.
+
+
+= R3: In Figure 5, correlation between the embedding uncertainty and KNN will be high regardless of the quality of embedding.
+
+The aim of Figure 5 is not to measure the quality of embedding (which is measured in Section 4.3); it is to measure the quality of our uncertainty (i.e., higher uncertainty for low-performance inputs). Figure 5 is confirming that our measure of uncertainty is indeed a good predictor of downstream task performances. If this misses the point, please further clarify your concern.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

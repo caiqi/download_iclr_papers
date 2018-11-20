@@ -1,0 +1,310 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Unsupervised Latent Tree Induction with Deep Inside-Outside Recursive Auto-Encoders  | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Unsupervised Latent Tree Induction with Deep Inside-Outside Recursive Auto-Encoders " />
+        <meta name="citation_author" content="Andrew Drozdov" />
+        <meta name="citation_author" content="Patrick Verga" />
+        <meta name="citation_author" content="Mohit Yadev" />
+        <meta name="citation_author" content="Mohit Iyyer" />
+        <meta name="citation_author" content="Andrew McCallum" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HJeq43AqF7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Unsupervised Latent Tree Induction with Deep Inside-Outside..." />
+      <meta name="og:description" content="Syntax is a powerful abstraction for language understanding. Many downstream tasks require segmenting input text into meaningful constituent chunks (e.g., noun phrases or entities); more generally,..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HJeq43AqF7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Unsupervised Latent Tree Induction with Deep Inside-Outside Recursive Auto-Encoders </a> <a class="note_content_pdf" href="/pdf?id=HJeq43AqF7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures"><a href="/profile?email=adrozdov%40cs.umass.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="adrozdov@cs.umass.edu">Andrew Drozdov</a>, <a href="/profile?email=pat%40cs.umass.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="pat@cs.umass.edu">Patrick Verga</a>, <a href="/profile?email=ymohit%40cs.umass.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="ymohit@cs.umass.edu">Mohit Yadev</a>, <a href="/profile?email=miyyer%40cs.umass.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="miyyer@cs.umass.edu">Mohit Iyyer</a>, <a href="/profile?email=mccallum%40cs.umass.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="mccallum@cs.umass.edu">Andrew McCallum</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Withdrawn Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Syntax is a powerful abstraction for language understanding. Many downstream tasks require segmenting input text into meaningful constituent chunks (e.g., noun phrases or entities); more generally, models for learning semantic representations of text benefit from integrating syntax in the form of parse trees (e.g., tree-LSTMs). Supervised parsers have traditionally been used to obtain these trees, but lately interest has increased in unsupervised methods that induce syntactic representations directly from unlabeled text. To this end, we propose the deep inside-outside recursive autoencoder (DIORA), a fully-unsupervised method for discovering syntax that simultaneously learns representations for constituents within the induced tree. Unlike many prior approaches, DIORA does not rely on supervision from auxiliary downstream tasks and is thus not constrained to particular domains. Furthermore, competing approaches do not learn explicit phrase representations along with tree structures, which limits their applicability to phrase-based tasks. Extensive experiments on unsupervised parsing, segmentation, and phrase clustering demonstrate the efficacy of our method. DIORA achieves the state of the art in unsupervised parsing (46.9 F1) on the benchmark WSJ dataset.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">latent-tree-learning, unsupervised-parsing</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">In this work we propose deep inside-outside recursive auto-encoders(DIORA)  a  fully  unsupervised  method  of  discovering  syntax  while  simultaneously learning representations for discovered constituents. </span></div><div class="reply_row clearfix"><div class="item" id="reply_count">7 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_rJxBWdlH6m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Submission Withdrawn by the Authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJeq43AqF7&amp;noteId=rJxBWdlH6m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1477 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1477 Withdraw Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Withdrawal confirmation: </span><span class="note_content_value">I have read and agree with the withdrawal statement on behalf of myself and my co-authors.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BJlUCq1237" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting model, but results are not convincing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJeq43AqF7&amp;noteId=BJlUCq1237"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1477 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1477 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes an unsupervised model for grammar induction by drawing an analogy between a tree-like anto-encoder and the computation from the inside-outside algorithm. The claimed novelty of the proposed model are two-fold: (1) it can extract syntactic information with any supervision or downstream task; (2) it can build representations for internal constituents that obey syntactic and semantic regularities. Although this is an interesting work, the experimental results are not convincing enough to support the claims, especially the second one.
+
+Before giving my comments on the experiments, here are the ones for the technical content
+
+- It was a little surprise to me that the inside vectors in the training objective are only from word level. In this case, the whole training signal seems to be biased to the outside part. Therefore, I am wondering whether the inside part (compat and compose functions) can get sufficiently trained.
+- It is interesting to see that this work directly employs the CKY parsing without any justification, since the way of computing scores in the proposed model is not "context-free". Besides, it is not clear to me what the last sentence in section 2.3 means?
+
+
+About experiments
+
+- In section 3.1, there are two depth columns in table 2, which are not discussed in this paper.
+- In section 3.2, is there any explanation about the mixed results? For example, why DIORA performs better then PRPN-UP on VP but worse on NP?
+- In section 3.3, (1) why choose the tasks of CoNLL 2000 and CoNLL 2012? (2) how to obtain phrase representations? From inside vectors, outside vectors or their mixtures? (3) results in table 4 seems not convincing about DIORA can capture some syntactic and semantic regularities. Or how should we understand the results?
+
+Additional comments:
+
+- W_in in equation (1), S^in in equation (5) and S^out in equation (12) is left unexplained
+- Eq. 6 has a typo
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HylegSlB6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJeq43AqF7&amp;noteId=HylegSlB6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1477 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1477 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We would like to thank the reviewer for their thoughtful feedback.
+
+&gt; I am wondering whether the inside part can get sufficiently trained.
+
+This is a great point. The unsupervised binary constituency parsing results are state of the art, which is a strong positive result and one of our main findings. For this reason, certainly the compatibility function is being trained sufficiently. Training the composition function is more difficult and we intend to explore this in future work.
+
+&gt; It is interesting to see that this work directly employs the CKY parsing without any justification
+
+The compatibility scores for a phrase are computed solely using the words within that phrase. In other words, the compatibility is computed in a context-free manner and is why we relied on CKY parsing.
+
+&gt; two depth columns in table 2
+
+Thanks for pointing out this omission, we will make sure to explain the depth column. These are the average depth of binary trees produced by each model. Although not discussed in the paper, DIORA’s average depth is greater than previous baselines (besides left-branching, right-branching, and RL-SPINN). These depths are also closer to the ones observed in the ground truth (7.1 for WSJ and 5.7 for MultiNLI).
+
+&gt; why does DIORA perform better than PRPN-UP on VP but worse on NP
+
+This is an interesting question and warrants further error analysis to explore. One intuition is that VP is easily inferred from syntactic information information alone, although PP attachment requires stronger common-sense reasoning and incorrect PP attachment may break many of the ground truth NP.
+
+&gt; why choose the tasks of CoNLL 2000 and CoNLL 2012?
+
+CoNLL 2012 is a task for named entity recognition (all phrases are NP) and CoNLL 2000 is a task designed to specifically contain other phrase types in addition to NP.
+
+&gt; how to obtain phrase representations
+
+Indeed, we should have provided additional information on how DIORA phrase representations have been extracted for evaluation. We try 4 variants of phrase representation: the inside cell’s hidden state (In), the outside cell’s hidden state (Out), a concatenation of the two (In/Out), and a concatenation of In, Out, In-Out, and f(In, Out) where f is pointwise multiplication.
+
+&gt; results in table 4 seems not convincing about DIORA can capture some syntactic and semantic regularities
+
+In our abstract, we state that DIORA is “a fully-unsupervised method for discovering syntax that simultaneously learns representations for constituents within the induced tree”. We did not intend to imply that DIORA captures any semantic regularities, only that it attempts to do so. We will change the language to be more clear.
+
+DIORA does capture syntactic regularities, as portrayed by our state of the art unsupervised binary constituency parsing results. In section 3.3.1, we clearly state that DIORA is currently missing semantics, and in our conclusion we propose that using different objectives could encourage a more thorough capturing of semantics.
+
+&gt; Additional Comments
+
+Thank you for pointing out these typos!
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_S1lR9QP52X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea and well-written paper. Missing evaluation on downstream applications.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJeq43AqF7&amp;noteId=S1lR9QP52X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1477 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1477 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper describes a neural latent tree model (DIORA) trained with an auto-encoding objective. The proposed model performs an inside-outside pass to construct vector representations for all possible tree nodes. Full constituency trees can be extracted from the model by doing a CKY pass with the internal node-pair scores.  It  achieves the state of the art on unsupervised constituency parsing. On the other tasks/datasets (unsupervised segmentation, phrase similarity), the model is either on par with or a bit worse than the previous best systems. 
+
+Strengths:
+- The proposed model is quite interesting. Judging from the empirical results, it captures syntactic structure better than the other latent tree models.
+
+- The paper is well-written and easy to understand.
+
+Weaknesses:
+- It would be nice to see at least one task that involves the application of the DIORA model. 
+
+Other comments and questions below:
+- Table 1 shows that DIORA is trained on sentences with a maximum length of 20, while Section 4 says that the model is evaluated on the full WSJ test set. Is this setup affecting the performance? It would be nice to see some accuracy breakdown by sentence lengths.
+
+- Is it possible to compare to other unsupervised parsing/grammar induction models, despite the fact that they often evaluate on shorter sentences (e.g. 20 or 40 words)?
+
+- This paper reports parsing performance on the MultiNLI dataset against the automatic parser, is there a plan for getting the final accuracy on MultiNLI as well?
+
+- It would be nice to have more discussions in Section 3.4 on the qualitative examples. Moreover, is it possible to show examples where DIORA makes mistakes as well? 
+
+In 3.2.1, what are the possible reasons behind DIORA performing poorly on prepositional phrases?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkxQUHgHT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJeq43AqF7&amp;noteId=BkxQUHgHT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1477 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1477 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">&gt; It would be nice to see at least one task that involves the application of the DIORA model. 
+
+While we agree that it would be interesting to see the performance of DIORA on downstream tasks, we believe this is a substantially different piece of work in and of itself. Here we are focused more on unsupervised segmentation and representation and leave applications to downstream tasks to future work.
+
+&gt; It would be nice to see some accuracy breakdown by sentence lengths.
+
+Plotting F1 by sentence length between PRPN and DIORA shows that DIORA outperforms PRPN at all lengths, implying that our training procedure is robust to sentences longer than 20. We will include more of this analysis in future revisions of the paper.
+
+&gt; Is it possible to compare to other unsupervised parsing/grammar induction models, despite the fact that they often evaluate on shorter sentences
+
+Thank you for suggesting so. WSJ-10 remains a difficult task for latent tree models such as DIORA, PRPN, and the baselines discussed in (Williams et al.). DIORA (54.8 F1) outperforms previous models on WSJ-40 (54.6 F1).
+
+&gt; is it possible to show examples where DIORA makes mistakes as well
+
+This is a very good point and we agree. We plan to have a more extensive analysis of parse tree outputs (both where DIORA succeeds and fails) in future revisions of this paper.
+
+We should point out that Table 3 highlights some high level quantitative properties of the parse trees. For instance, DIORA struggles with PP attachment.  PP attachment is ambiguous by nature. In the case of a (VP PP NP), some linguists disagree whether the attachment should be from VP-PP or PP-NP. There are many other cases when PP attachment is ambiguous in relation to only nouns.
+
+Here are a couple unreported examples where DIORA disagreed with WSJ:
+
+Ambiguity the cases of verb-PP versus PP-noun attachment: 
+WSJ: (realized (from (the sales)))
+DIORA: ((realized from) (the sales))
+
+Ambiguity in nested phrases related to PP-attachment:
+WSJ: ((the sale) (PP-of ((the headquarters) (PP-of ((a (newspaper company)) (owned (PP-by hatchette)))))))
+DIORA: ((((the sale) PP-of) (the headquarters)) (PP-of ((a (newspaper company)) (owned (PP-by hatchette)))))
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_r1gRRdn_3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The paper combines neural modeling with the inside-outside algorithm for unsupervised dependency parsing. The model is interesting and seems to be novel, but there is a serious lack of knowledge reagrding previous work on unsupervised parsing</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJeq43AqF7&amp;noteId=r1gRRdn_3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1477 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1477 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a model for unsupervised dependency parsing (latent tree induction) that is based on a combination of the inside-outside algorithm with neural modeling (recursive auto-encoders). The paper is clearly written and the model seems interesting and, as far as I can tell, also novel.
+
+Yet, the paper suffers from a major limitation that deems its rejection. Unfortunately, the authors seem to be totally unaware of previous work on unsupervised parsing. It may sound surprising but people have worked on this problem even before 2014 and there are some strong results that do not involve deep learning. I am sorry for the sarcasm, but it was really frustrating to see not only the lack of citation, but also the statement (already in the abstract and throughout the paper) that an F-score of 46.9 set a SOTA for unsupervised parsing with WSJ PennTreebank.
+
+Particularly, the authors ignore works of Cohen and Smith, Spitkovsy et al., Seginer and many others. A quick look at Spitkosky et al., 2013 (EMNLP) would reveal that the reported result is not SOTA (although Spitkovsky et al report results for sentences no longer than 40 words, but given the numbers they report for several models - an F1 score of 54 and more - the full WSJ number is likely to be higher than 46.9). But all the papers cited at Spitkovsky et al. 2013 are even not cited here. 
+
+I would also like to refer the authors to work by Cohen and Collins (2012-2013) on latent variable PCFG, which presents a provably consistent parameter estimation for the problem. The presented techniques may also be an interesting point of comparison to this work and phrase representation may also be extracted from that algorithm.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">2: Strong rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rklmRBeSTm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HJeq43AqF7&amp;noteId=rklmRBeSTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1477 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">11 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1477 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank you for pointing out a few missing pieces of related work. An important distinction to make is that we do not propose a model for unsupervised dependency parsing, but rather a model for unsupervised binary constituency parsing. These are different (though related) tasks and their evaluation numbers are not directly comparable. A second important point is that previous work focus only on subsets of the WSJ dataset, primarily sentences only up to length 10. It’s for these reasons that we do not compare to much of the previous work to which you are probably referring.
+
+Spitkovsky et al. primarily focused on unsupervised dependency parsing on subsets of the WSJ dataset, whereas we focus on predicting binary constituency parses over the entire WSJ dataset (including punctuation). Still, Spitkovsky et al. do report a comparable result of 54.2 F1 for unsupervised *non*-binary constituency parsing of the WSJ40 subset (sentences up to length 40). For comparison, when we evaluate DIORA on WSJ40, we get an F1 score of 54.8.
+
+Even in this setting, evaluating on non-binary trees with a model that can only produce binary trees, we outperform the previous state-of-the-art. More importantly, we also outperform the previous state-of-the-art models for unsupervised binary constituency parsing, which are directly comparable to ours.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

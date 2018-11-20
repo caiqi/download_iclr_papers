@@ -1,0 +1,429 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DADAM: A consensus-based distributed adaptive gradient method for online optimization | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="DADAM: A consensus-based distributed adaptive gradient method for online optimization" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SJeUAj05tQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="DADAM: A consensus-based distributed adaptive gradient method for..." />
+      <meta name="og:description" content="Online and stochastic optimization methods such as SGD, ADAGRAD and ADAM are key algorithms in solving large-scale machine learning problems including deep learning. A number of schemes that are..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SJeUAj05tQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>DADAM: A consensus-based distributed adaptive gradient method for online optimization</a> <a class="note_content_pdf" href="/pdf?id=SJeUAj05tQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019dadam:,    &#10;title={DADAM: A consensus-based distributed adaptive gradient method for online optimization},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SJeUAj05tQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=SJeUAj05tQ" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Online and stochastic optimization methods such as SGD, ADAGRAD and ADAM are key algorithms in solving large-scale machine learning problems including deep learning. A number of schemes that are based on communications of nodes with a central server have been recently proposed in the literature to parallelize them. A bottleneck of such centralized algorithms lies on the high communication cost incurred by the central node. In this paper, we present a new consensus-based distributed adaptive moment estimation method (DADAM) for online optimization over a decentralized network that enables data parallelization, as well as decentralized computation. Such a framework note only can be extremely useful for learning agents with access to only local data in a communication constrained environment, but as shown in this work also outperform centralized adaptive algorithms such as ADAM for certain realistic classes of loss functions. We analyze the convergence properties of the proposed algorithm and provide a \textit{dynamic regret} bound on the convergence rate of adaptive moment estimation methods in both stochastic and deterministic settings. Empirical results demonstrate that DADAM works well in practice and compares favorably to competing online optimization methods.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">8 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1xPATVAam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>An Interesting Optimization Problem</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeUAj05tQ&amp;noteId=r1xPATVAam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018</span><span class="item">ICLR 2019 Conference Paper896 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Dear Authors:
+I appreciate the interesting work authors present in this paper. One question is about the convergence of DADAM on the nonconvex case. Can DADAM converge to a critical point? Thank you.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1e-5sxy0Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Convergence Rate of DADAM for Non-Convex Objectives</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeUAj05tQ&amp;noteId=H1e-5sxy0Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper896 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">18 Nov 2018 (modified: 19 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper896 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your interest in the paper.
+
+Let $f$ be real-valued, continuously differentiable (possibly nonconvex) function on a closed, convex set $\mathcal{X}$. The projected gradient $G_{\mathcal{X}}(x,f,\alpha)$ can be used to characterize stationary points because if $\mathcal{X}$ is a convex set, then $ x \in \mathcal{X}$ is a stationary point or critical point of continuously differentiable function $f$ if and only if $G_{\mathcal{X}}(x,f,\alpha) =0 $ [87CM, ABS13]. In general, $G_{\mathcal{X}}(x,f,\alpha)$ is discontinuous, but as proved by Calamai and More [87CM], if $f$ is continuously differentiable on $\mathcal{X}$, then the mapping $x \rightarrow \|G_{\mathcal{X}}(x,f,\alpha)\|$ is lower semicontinuous on $\mathcal{X}$. This property implies that if ${x_t}$ is a sequence in $\mathcal{X}$ that converges to $x^*$, and if $G_{\mathcal{X}}(x_t,f,\alpha)$ converges to zero, then $x^*$ is a stationary point of problem \ref{125}. Motivated by [87CM,ABS13,HSZ17], we monitor convergence to a stationary point using the \textit{local regret} which is an extension of projected gradients to the online distributed settings (please see Definition~1). 
+
+--In Theorem~7, we analyze the convergence of DADAM for general Lipschitz and smooth (possibly non-convex) loss function using the local regret and show that the online distributed algorithms converge even when the loss is non-convex, i.e., the algorithms find a stationary point to the time-varying loss at a rate of $\tilde{O}(\frac{1}{T})$. 
+
+--In Theorem 9, we extend this result to the stochastic nonconvex settings when noisy gradients are accessible to the agents. Finally, in Corollary~10, we show the potential advantage of DADAM over adaptive algorithms such as ADAM, ADAGRAD and RMSProp for solving stochastic nonconvex optimization problems. More specifically, our theoretical results show that DADAM can be faster than adaptive algorithms for finding stationary points of stochastic non convex problems when $T$ is sufficiently large.
+
+ 
+---- [87CM] Calamai, Paul H., and Jorge J. Moré. "Projected gradient methods for linearly constrained problems." Mathematical programming 39.1 (1987): 93-116. 
+
+----  [ABS13] Attouch, H., Bolte, J., &amp; Svaiter, B. F. (2013). Convergence of descent methods for semi-algebraic and tame problems: proximal algorithms, forward–backward splitting, and regularized Gauss–Seidel methods. Mathematical Programming, 137(1-2), 91-129.
+
+---- [HSZ17] Hazan, Elad, Karan Singh, and Cyril Zhang. "Efficient Regret Minimization in Non-Convex Games." arXiv preprint arXiv:1708.00075 (2017).
+ </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_ryeU9QY627" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>This paper proposes a consensus-based distributed method, namely DADAM, for online optimization. The technical details are well presented and the empirical results are convincing. </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeUAj05tQ&amp;noteId=ryeU9QY627"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper896 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 20 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper896 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=ryeU9QY627" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The proposed DADAM is a sophisticated combination of decentralized optimization and the adaptive moment estimation. DADAM enables data parallelization as well as decentralized computation, hence suitable for large scale machine learning problems. 
+
+Corollary 10 shows better performance of DADAM. Besides the detailed derivations, can the authors intuitively explain the key setup which leads to this better performance?
+
+The experimental results are mainly based on sigmoid loss with simple constraints. The results will be more convincing if the authors can provide studies on more complex objective, for example, regularized loss with both L2 and L1 bounded constraints.  
+
+Th experimental results in Section 5.1 is based on \beta_1 = \beta_2 = \beta_3 = 0.9. From  the expression of \hat v_{i,t} in Section 2, this setting implies the most recent v_{i,t} plays a more important role than the historical maximum, hence ADAM is better than AMSGrad. I am curious what the results will look like if we set \beta_3 as a value smaller than 0.5. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">8: Top 50% of accepted papers, clear accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HJldj5nM2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Novel algorithm for an important problem but not sufficiently justified theoretically or empirically.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeUAj05tQ&amp;noteId=HJldj5nM2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper896 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper896 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a consensus-based decentralized version of the Adam algorithm for online optimization. The authors consider an empirical risk minimization objective, which they split into different components, and propose running a separate online optimization algorithm for each component, with a consensus synchronization step that involves taking a linear combination of the parameters from each component before applying each component's individual parameter update. The final output is a simple average of the parameters from each component. 
+
+The authors study the important problem of distributed optimization and focus on adapting existing state-of-the-art methods to this setting. The algorithm is clearly presented, and to the best of my knowledge, original. The fact that this work includes both theoretical guarantees for the convex and non-convex settings as well as numerical experiments strengthens the contribution.
+
+On the other hand, I didn't find the actual method presented by the authors to be motivated very well. The main innovation with respect to the standard Adam/AMSGrad algorithm is the use of a mixing matrix W, but the authors do not discuss how the choice of this matrix influences the performance of the algorithm or how one should specify this input in practice. This seems like an important issue, especially since all of the bounds depend on the second singular value of this matrix. Moreover, arguments such as Corollary 10 do not actually imply that DADAM outperforms ADAM when this singular value is large, making it difficult to assess the impact of this work. The numerical experiments also do not test for the statistical significance of the results. 
+
+There are also many typos that make the submission seem relatively unpolished.
+
+Specific comments:
+1. page 1: "note only". Typo.
+2. page 2: "decentalized". Typo.
+3. page 2: "\Pi_X[x]. If \Pi_X(x)...." Inconsistent notation.
+4. page 3: "largest singular of matrix". Typo.
+5. page 3: "x_t* = arg min_{x \in X} f_t(x)". f_t isn't defined in up to this point.
+6. page 4: "network cost is then given by f_t(x) = \frac{1}{n} \sum_{i=1}^n f_{i,t}(x)" Should the cost be  \frac{1}{n} \sum_{i=1}^n f_{i,t}(x_{i,t})? That would be more consistent with the definition of regret presented in Reg_T^C. 
+7. page 4: "assdessed". Typo.
+8. page 4: " Reg_T^C := \frac{1}{n} \sum_{i=1}^n \sum)_{t=1}^T f_t(x_{i,t})..." Why is this f_t and not f_{i,t}?
+9. page 4: "\hat{v}_{i,t} = v_3 ..." You should reference how this assignment in the algorithm relates to the AMSGrad algorithm. Moreover, you should explain why you chose to use a convex combination in the assignment instead of just the max.
+10. page 5: Definition 1. This calculation should be derived and presented somewhere (e.g. in the appendix).
+11. page 5: Assumption 3. The notation for the stochastic gradient is not very clear and easily distinguishable from the notation for the deterministic gradient.
+12. page 5: Theorem 4. D_T can be very large in the bound, which would make the upper bound meaningless. Can you set hyperparameters in such a way to minimize it? Also, what is the typical size of \sigma_2(W) that one would incur?
+13. page 6: Remark 6. This remark seems misleading. It ignores the log(T) and D_T terms, both of which may dominate the data dependent arguments.
+14. page 6: "The update rules \tilde{v}_{i,t}...". \tilde{v}_{i,t} is introduced but never defined.
+15. page 6: Last display equation. The first inequality seems like it can be an equality.
+16. page 7: Equation (14). Doesn't the presence of \sigma_2(W) imply that the O(1/T) term may not be negligible? It would also be helpful to give some examples of how large T needs to be in (15a) and (15b) in order for this statement to take effect.
+17. page8: "distributed federated averaging SGD (FedAvg)". What is the reference for this? It should be included here. It should probably also be mentioned in the introduction as related work.
+18. page 9: Figure 1. Without error bars, it is impossible to tell the statistical significance of these results. Moreover, how sensitive are these results to different choices of hyperparameters?
+19. page 9: "obtain p coefficients". What is p in these experiments?
+20. page 9: Metropolis constant edge weight matrix W". What is \sigma_2(W) in this case?
+21. page 10: Acknowledgements. This shouldn't be included in the submission.
+
+
+
+
+ 
+
+
+
+
+
+
+
+  </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HJxViZZa6X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer~2 </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeUAj05tQ&amp;noteId=HJxViZZa6X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper896 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018</span><span class="item">ICLR 2019 Conference Paper896 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+We appreciate the reviewer's constructive comments and suggestions.
+We have carefully addressed them in the revised version of the
+paper and also focused on improving the presentation of the material. 
+A detailed point-by-point response to the reviewer's comments follows.
+
+1-1 [Comment]
+
+--I didn't find the actual method presented by the authors to be motivated very well. 
+
+1-1 [Response]
+
+--Existing distributed stochastic and adaptive gradient methods for various learning problems, including deep learning, are mostly designed for a network topology with a central node. The main bottleneck of such a topology lies on the communication overload on the central node, since all nodes need to concurrently communicate with it.
+Hence, performance can be significantly degraded when network bandwidth is limited. These considerations motivate us to study an adaptive algorithm for network topologies, where all nodes can only communicate with their neighbors and none of the nodes is designated as ``central". Therefore, the proposed method is suitable for large scale machine learning problems, since it enables both data parallelization and decentralized computation. 
+
+-- Further, we show that our proposed adaptive distributed algorithm can be faster than its centralized counterpart such as ADAM, ADAGRAD and RMSProp. 
+ 
+Refer to Subsection 1.1 on page 2.
+
+
+1-2 [Comment]
+
+-- The main innovation with respect to the standard Adam/AMSGrad algorithm is the use of a mixing matrix $W$, but the authors do not discuss how the choice of this matrix influences the performance of the algorithm or how one should specify this input in practice. This seems like an important issue, especially since all of the bounds depend on the second singular value of this matrix. 
+
+1-2 [Response] 
+
+-- We assume that the mixing matrix W is symmetric and doubly stochastic (see, equation~1). As mentioned in the Introduction, we consider Metropolis constant edge weight matrix [04XBK, 07XB] (please see, subsection 1.2). When $\hat{W}$ is chosen according to this scheme, $ W = \frac{I+\hat{W}}{2}$ is found to be very efficient [04XBK]. Also, this doubly stochastic matrix implies uniqueness of $\sigma_1(W) = 1$ and warrants that other singular values of $W$ are strictly less than one in magnitude. 
+
+-- It is worth mentioning that the optimization of matrix $W$ and in particular $\sigma_2$ is not the main focus of this work. To the best of our knowledge, our theorems are the first to establish a tight connection between the convergence rate of distributed adaptive methods to the spectral properties of the underlying
+network. In particular, the inverse dependence on the spectral gap $1-\sigma_2(W)$ is quite natural, since it is well-known to determine the rates of mixing in random walks on graphs [DAW12, LP17].
+
+---- [07XBK] Xiao, Lin, Stephen Boyd, and Seung-Jean Kim. "Distributed average consensus with least-mean-square deviation." Journal of parallel and distributed computing 67.1 (2007): 33-46.
+
+---- [04XB] Xiao, Lin, and Stephen Boyd. "Fast linear iterations for distributed averaging." Systems and Control Letters 53.1 (2004): 65-78.
+
+--- [DAW12] Duchi, John C., Alekh Agarwal, and Martin J. Wainwright. "Dual averaging for distributed optimization: Convergence analysis and network scaling." IEEE Transactions on Automatic control 57.3 (2012): 592-606.
+
+----[LP17]Levin, David A., and Yuval Peres. Markov chains and mixing times. Vol. 107. American Mathematical Soc., 2017.
+
+Refer to Subsection~1.2 on page 2.
+
+1-3 [Comment]
+
+Arguments such as Corollary 10 do not actually imply that DADAM outperforms ADAM when this singular value is large, making it difficult to assess the impact of this work. The numerical experiments also do not test for the statistical significance of the results. 
+
+1-3 [Response]
+
+-- First, the doubly stochastic matrix $W$ defined by our strategy in Section~1.2 warrants that $\sigma_2(W)$ is strictly less than one in magnitude and for a fully connected network is actually equal to 0. 
+
+-- Second, in the revised version, we improve the previous result and the spectral gap $1- \sigma_2(W)$ does not appear in the regret bound of DADAM, if $T$ is sufficiently large.  
+
+-- Finally, in the context of stochastic nonconvex optimization, we say a gradient-based method gives an $\epsilon$-approximation solution if $T^{-1}\e{{\bf Reg}^N_T} \leq \epsilon,$ where ${\bf Reg}^N_T$ is defined in Section~2.
+Now, assume that $T$ is sufficiently large, i.e. it satisfies (16a) and (16b), the $\frac{1}{T}$ term will be dominated by the $\frac{1}{\sqrt{nT}}$ term which leads to a $\frac{1}{\sqrt{nT}}$ convergence rate where $n$ is the number of agents. More specifically, it shows that the computation complexity of DADAM to achieve $\epsilon$-approximation solution is  $O(1/\epsilon^2)$. This shows that DADAM can be faster than ADAM for nonconvex stochastic optimization problems for $T$ sufficiently large.     
+
+ Refer to Subsection 3.2.1.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BJggSWZaTQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer~2 </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeUAj05tQ&amp;noteId=BJggSWZaTQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper896 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018 (modified: 18 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper896 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1-4 [Comment]
+
+--1. page 1: "note only". Typo.
+
+--2. page 2: "decentalized". Typo.
+.
+.
+.
+--21. page 10: Acknowledgements. This shouldn't be included in the submission.
+
+1-4 [Response] 
+
+Modified and fixed.
+
+1-5 [Comment]
+
+9. page 4: "$\hat{v}_{i,t} = v_3 ...$" You should reference how this assignment in the algorithm relates to the AMSGrad algorithm. Moreover, you should explain why you chose to use a convex combination in the assignment instead of just the max.
+
+1-5 [Response] 
+
+-- In some cases, the numerical performance of our experiments is  dependent on the choice of parameter $\hat{v}_{i,t}$ and the results provided establish the efficiency of ADAM in comparison to AMSGrad. Indeed, a good step size value generated in any iterate of ADAM is essentially discarded due to the max in AMSGrad. $\hat{v}_{i,t}$ provides a combination of these two approaches and enables us to develop a convergent adaptive method similar to AMSGrad, while maintaining the efficiency of ADAM. 
+
+Refer to Subsection 2 on page 4. 
+
+1-6 [Comment]
+
+12. page 5: Theorem 4. $D_T$ can be very large in the bound, which would make the upper bound meaningless. Can you set hyperparameters in such a way to minimize it? Also, what is the typical size of $\sigma_2(W)$ that one would incur?
+
+13. page 6: Remark 6. This remark seems misleading. It ignores the $\log(T)$ and $D_T$ terms, both of which may dominate the data dependent arguments.
+
+1-6 [Response] 
+
+--It is easy to show that the regret of DADAM is bounded by $O(G_\infty D_T \sqrt{T})$ where $D_T =\max_{d \in \{1,...,p\} } D_{T,d}$. Indeed, the term $\sum_{t=1}^T |g_{i,t,d}|/\sqrt{t}$ in the proof of Lemma~13 can be bounded by $O(G_\infty \sqrt{T})$ instead of $O(G_\infty \sqrt{T\log{T}})$. Hence, the regret of DADAM is upper bounded by minimum of $O(G_\infty D_T \sqrt{T})$ and the bound presented in Theorems~4 and 5, and thus the worst case dependence on $T$ is $\sqrt{T}$ rather than $\sqrt{T \log{T}}$. It is worth mentioning that in the static setting, i.e. $D_T=0$, the regret of DADAM is upper bounded by $O(G_\infty \sqrt{T})$. 
+
+Refer to Remark 6 on page 6. 
+
+1-7 [Comment]
+
+16. page 7: Equation (14). Doesn't the presence of $\sigma_2(W)$ imply that the $O(1/T)$ term may not be negligible? It would also be helpful to give some examples of how large T needs to be in (15a) and (15b) in order for this statement to take effect.
+
+1-7 [Response] 
+
+Please see Response 1-3.
+
+
+1-8 [Comment]
+
+18. page 9: Figure 1. Without error bars, it is impossible to tell the statistical significance of these results. Moreover, how sensitive are these results to different choices of hyperparameters?
+
+
+1-8 [Response] 
+
+-- The numerical results shown in Figure~1 are based on the deterministic variants of DADAM, DGD and EXTRA algorithms with only local computation and neighbor communication. Indeed, our goal is to show the exact convergence to the reference logistic classifier $\theta^*$. Hence, error bars are provided based on the residual $\|\frac{\theta_T- \theta^*}{\theta - \theta^*}\|$. We have provided a detailed implementation for different choices of hyperparameters in Appendix.
+
+Refer to Figure~1 on page 10.
+
+Refer to Figures~3 and 4 on page 29.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HyluXTeaTm" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeUAj05tQ&amp;noteId=HyluXTeaTm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper896 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkxeFaea6Q" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeUAj05tQ&amp;noteId=BkxeFaea6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper896 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_HJgQoTS-2m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A consensus-based distributed adaptive gradient method for online optimization</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeUAj05tQ&amp;noteId=HJgQoTS-2m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper896 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">27 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper896 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Title: DADAM: A consensus-based distributed adaptive gradient method for online optimization
+
+Summary: 
+
+The paper presented DADAM, a new consensus-based distributed adaptive moment estimation method, for online optimization. The author(s) also provide the convergence analysis and dynamic regret bound. The experiments show good performance of DADAM comparing to other methods. 
+
+Comments: 
+
+1) The theoretical results are nice and indeed non-trivial. However, could you please explain the implication to equation (7a)? Does it have absolute value on the LHS? 
+
+2) Can you explain more clearly about the section 3.2.1? It is not clear to me why DADAM outperform ADAM here. 
+
+3) Did you perform algorithms on many runs and take the average? Also, did you tune the learning rate for all other algorithms to be the best performance? I am not sure how you choose the parameter \alpha here. What if \alpha changes and do not base on that in Yuan et al. 2016? 
+
+4) The deep learning experiments are quite simple. In order to validate the performance of the algorithm, it needs to be run on more datasets and networks architectures. MNIST and CIFAR-10 and these simple network architectures are quite standard. I would suggest to provide more if the author(s) have time. 
+
+In general, I like this paper. I would love to have discussions with the author(s) during the rebuttal period. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_HygPwzZapm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Response to Reviewer~3</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SJeUAj05tQ&amp;noteId=HygPwzZapm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper896 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">17 Nov 2018 (modified: 18 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper896 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">
+
+We thank the reviewer for very helpful and constructive feedback. A detailed point-by-point response to the reviewer's comments follows. 
+
+
+1-1 [Comment] 
+
+-- Could you please explain the implication to equation (7a)? Does it have absolute value on the LHS? 
+
+1-1 [Response] 
+
+-- Modified and Fixed.
+
+
+
+1-2 [Comment] 
+
+-- Can you explain more clearly about the section 3.2.1? It is not clear to me why DADAM outperform ADAM here.  
+
+1-2 [Response] 
+
+-- In this section, we address the question of whether DADAM be faster than ADAM (which is a centralized adaptive algorithm)? We provide the analysis for the convergence rate of the stochastic DADAM in the non-convex setting and show that the convergence rate of DADAM w.r.t time steps is similar to the mini-batch SGD, mini-batch ADAM, centralized parallel ADAM and parallel stochastic gradient descent, but DADAM avoids the communication traffic jam due to its locally distributed nature.  
+
+- In the context of stochastic nonconvex optimization, we say a gradient-based method gives an $\epsilon$-approximation solution if $$T^{-1}\e{{\bf Reg}^N_T} \leq \epsilon$$ where ${\bf Reg}^N_T$ is defined in Section~2 (please see Definition~2). Now, assume that $T$ is sufficiently large, it satisfies (16a) and (16b), the $\frac{1}{T}$ term will be dominated by the $\frac{1}{\sqrt{nT}}$ term which leads to a $\frac{1}{\sqrt{nT}}$ convergence rate. More specifically, it shows that the computation complexity of DADAM to achieve $\epsilon$-approximation solution is  $O(1/\epsilon^2)$. It is worth to mention that the computational complexity per iteration of DADAM is $O(n)$ since the computation of a single stochastic gradient counts 1. Further, since the total number of nodes does not affect the complexity, each node exhibits complexity of $O\big(1/(n\epsilon^2)\big)$. 
+
+In summary, a linear speed up can be achieved by DADAM w.r.t computational complexity if $T$ is sufficiently large.        
+
+
+Refer to Subsection~3.2.1 on page 8. 
+
+1-3 [Comment] 
+
+Did you perform algorithms on many runs and take the average? Also, did you tune the learning rate for all other algorithms to be the best performance? I am not sure how you choose the parameter $\alpha$ here. What if $\alpha$ changes and do not base on that in Yuan et al. 2016?
+ 
+1-3 [Response] 
+
+-- The experiment is repeated ten times and the average residuals are considered for comparison purposes. 
+
+--  In [16KLY] and [18JY], fast ergodic convergence rate of DGD was established assuming $T$ is sufficiently large and the step sizes are $\alpha= \frac{1+ \sigma_n}{\rho}$ and $\alpha= \frac{\sigma_n}{\rho}$ for convex and nonconvex objectives, respectively. Our numerical results show efficiency of adaptive algorithms by choosing these parameters. It is worth to mention that recommended $alpha$ for adaptive gradient methods such as ADAM is equal to $0.001$ but this is not optimal for decentralized gradient methods. 
+
+[18JY] Zeng Jinshan, and Wotao Yin. "On nonconvex decentralized gradient descent." IEEE Transactions on Signal Processing 66.11 (2018): 2834-2848.  
+
+[16KLY]  Yuan, Kun, Qing Ling, and Wotao Yin. "On the convergence of decentralized gradient descent." SIAM Journal on Optimization 26.3 (2016): 1835-1854.
+
+Refer to Appendix on page 29. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

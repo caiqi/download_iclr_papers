@@ -1,0 +1,287 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Bias Also Matters: Bias Attribution for Deep Neural Network Explanation | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Bias Also Matters: Bias Attribution for Deep Neural Network Explanation" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=B1xeyhCctQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Bias Also Matters: Bias Attribution for Deep Neural Network..." />
+      <meta name="og:description" content="The gradient of a deep neural network (DNN) w.r.t. the input provides&#10;  information that can be used to explain the output prediction in terms of the&#10;  input features and has been widely studied to..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_B1xeyhCctQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Bias Also Matters: Bias Attribution for Deep Neural Network Explanation</a> <a class="note_content_pdf" href="/pdf?id=B1xeyhCctQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019bias,    &#10;title={Bias Also Matters: Bias Attribution for Deep Neural Network Explanation},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=B1xeyhCctQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">The gradient of a deep neural network (DNN) w.r.t. the input provides
+information that can be used to explain the output prediction in terms of the
+input features and has been widely studied to assist in interpreting DNNs.  In
+a linear model (i.e., $g(x)=wx+b$), the gradient corresponds solely to the
+weights $w$. Such a model can reasonably locally linearly approximate a smooth
+nonlinear DNN, and hence the weights of this local model are the gradient.
+The other part, however, of a local linear model, i.e., the bias $b$, is
+usually overlooked in attribution methods since it is not part of the
+gradient. In this paper, we observe that since the bias in a DNN also has a
+non-negligible contribution to the correctness of predictions, it can also
+play a significant role in understanding DNN behaviors. In particular, we
+study how to attribute a DNN's bias to its input features. We propose a
+backpropagation-type algorithm ``bias back-propagation (BBp)'' that starts at
+the output layer and iteratively attributes the bias of each layer to its
+input nodes as well as combining the resulting bias term of the previous
+layer. This process stops at the input layer, where summing up the
+attributions over all the input features exactly recovers $b$. Together with
+the backpropagation of the gradient generating $w$, we can fully recover the
+locally linear model $g(x)=wx+b$. Hence, the attribution of the DNN outputs to
+its inputs is decomposed into two parts, the gradient $w$ and the bias
+attribution, providing separate and complementary explanations. We study
+several possible attribution methods applied to the bias of each layer in BBp.
+In experiments, we show that BBp can generate complementary and highly
+interpretable explanations of DNNs in addition to gradient-based attributions.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">explainable AI, interpreting deep neural networks, bias, attribution method, piecewise linear activation function, backpropagation</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Attribute the bias terms of deep neural networks to input features by a backpropagation-type algorithm; Generate complementary and highly interpretable explanations of DNNs in addition to gradient-based attributions.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_B1e21UsqaX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting; Lack of comparisons to some existing methods.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1xeyhCctQ&amp;noteId=B1e21UsqaX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper952 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">15 Nov 2018</span><span class="item">ICLR 2019 Conference Paper952 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary:
+The paper's main contribution is to attribute the bias term seen at the output to each of the input dimension appropriately.  The other claim is that together with gradient information , this could enhance existing explainability methods.
+  
+The paper considers DNNs with piecewise linear activation functions. Then the final DNN output is a piece linear function. So for any given point x, the point lies in one of the linear pieces and there fore, can be written as a linear model. The gradient term can be computed using back propagation methods (although back propagating keeping the weights fixed and keeping the input as the variable). However there are no know existing works that attribute the bias of the linear piece at the final layer to the input dimensions. This paper provides a method to do it such that when you add the vector contribution of all the dimension in the input - it results in the bias vector at the output layer.
+
+The basic idea is to distribute dimension wise bias attribution  at layer \ell to layer \ell-1 by using N_{\ell} x N_{\ell-1} attribution matrix where N_{\ell} is the dimension of layer \ell. This is done using two methods - one using exponential weights and the other using some sort of variance measure from a fixed average bias.
+
+The authors then show using examples from STL-10 and Imagenet datasets, how the gradients and biases attributed to the inputs compare for explanation purposes.
+
+Strengths:
+
+The notion of attributing final layer biases to input layer is novel. Its important given that it carries important information regarding the final classification output.
+
+Weaknesses:
+
+a) This paper lacks quite a bit on comparison with existing work. For example, LRP (layer wise relevance propagation) has been referred to by the authors. However, there is no comparison with LRP heat maps. This website - <a href="http://www.explain-ai.org/" target="_blank" rel="nofollow">http://www.explain-ai.org/</a> - documents state of the LRP methods with code, videos, papers (some of which have been cited by the authors). I think the authors could produce heat map produced by LRP for all these different examples in page 8. For instance, pls look at Image A in Fig .2 in https://arxiv.org/pdf/1708.08296.pdf. There is 'cup' and a 'volcano' in the same picture. The paper compares gradient based heatmaps and LRP based ones. LRP based ones are very crisp (for this image of course). LRPcode is readily available from a well maintained project page - http://www.explain-ai.org/. Will the heat maps of grad/bias look crisper than LRP ? Other papers and more examples of LRP can be found at http://www.explain-ai.org/
+
+LRP takes the final probability weight at the output layer and assigns recursively to other neurons in the penultimate very similar to what the current paper does for bias. However, the attribution mechanism (the weights) are different. A couple of variations are explored in this survey (https://arxiv.org/pdf/1708.08296.pdf).
+
+b)  This point is related to the first- The authors say "Therefore, the interpretation of the DNN’s behavior on the input data should be exclusive to the information embedded in the linear model." - I disagree a little bit here. It is true that behavior of the DNN on the input is exclusive to the linear piece. However, interpretation of the behavior/ explanation of it is another matter. For example, I quote two methods in the literature that have been used for explanation of an input sample - but does not use the linear piece or the gradient information.
+     1)  Pls look at - https://arxiv.org/pdf/1703.02647.pdf - (Figure 3 + Section A.8 in the appendix). The paper used streaming submodularity algorithms to actually assemble a part of the image with everything else "blacked out" to determine which sparse parts of the image are responsible for the final output. They have exhaustive comparisons with LIME too. These methods actually rely on behavior of DNN far away from the actual x to explain the behavior at x. "Zeroing out irrelevant" parts is one of the ways of explaining adopted by LIME and these approaches. Ideally the authors should compare with these too.
+ 
+ 2) In this paper - https://arxiv.org/abs/1802.07623 - authors provide pertinent negatives - what should "not be" there in the image so that the label does not change - In fact for MNIST data, this produces very interesting additional explanations that is not produced by methods (including LRP and LIME) that rely on things in the image. Again the explanation is not at all related to the linear piece.
+
+In general, linear pieces are so close by , the nearby movement and possibly change of gradients can also provide useful explanation of the behavior.
+
+
+Overall - at least the authors must discuss the above references + also survey works that highlights "relevant parts of the image" like LIME and streaming sub modularity etc. Further an actual comparison to LRP (code is easily available) is crucial to evaluate the efficacy of the proposed methods given that the authors of LRP have compared with gradient based methods. Comparison with LIME would also be interesting and desirable.
+
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ByevCQwc27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting work, but needs refinement.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1xeyhCctQ&amp;noteId=ByevCQwc27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper952 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper952 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary of the paper
+This paper proposes a method for attributing the output of a neural network to bias terms. The method is restricted to networks that have piecewise-linear activation functions. Computation is recursive, starting from bias attribution to the activation of the penultimate layer, such that the final attribution is of the same size as the input data point and sums up to the bias term when the network is written as a linear function (for that input).
+
+Strengths 
+- The idea of mapping the bias term back to the input is interesting as it shows a common behaviour of the network on inputs that choose the same pieces of the piecewise linear functions. 
+- Other gradient-based methods overlook the bias term when piecewise-linear activations are involved, so this method closes that gap. 
+
+Questions for authors
+- The separability of the bias and gradient terms is possible only for piecewise linear activation functions, and would not generalize to other activations (e.g., LSTMs in NLP). 
+- Except for the 1-2 examples pointed out by the authors, it is not clear from the visualizations that bias attribution shows something qualitatively different. For instance, in “airplane”, “horse” and “fireguard”, gradient also highlights a region similar to bias attributions (although, technically they are complementary). 
+- While the authors qualitatively compare with other attribution methods, they only experimentally compare with gradient. It would be instructive to compare with more refined gradient-based attribution methods such as Integrated Gradients or DeepLift and show empirically that looking at bias attribution is better over simply looking at other attribution-based methods. Integrated Gradients specifically argues that it removes extraneous attribution to background (<a href="http://www.unofficialgoogledatascience.com/2017/03/attributing-deep-networks-prediction-to.html)." target="_blank" rel="nofollow">http://www.unofficialgoogledatascience.com/2017/03/attributing-deep-networks-prediction-to.html).</a> 
+- To have substantial content for a full publication, it may be good to address what insights one can derive from bias attributions. For instance, cluster inputs based on bias attributions, and show how different sets of inputs may be affected by different kinds of biases. For e.g., do all images of birds show similar bias attributions? Or, for instance, does a picture of a house (which may have the same kind of edges as a chair) have the same bias attribution as that of a chair? 
+
+Conclusion
+I think the paper is interesting, but for a full publication, a thorough comparison with other methods is required, as well as showing more insights as to how bias attribution is useful (another e.g., can it be combined with gradient-attribution for a “richer” visualization?) 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BkeWI6yY3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>interesting direction; preliminary result</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1xeyhCctQ&amp;noteId=BkeWI6yY3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper952 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper952 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper starts by establishing that biases play an important, negligible role in existing DNNs.
+Specifically, they help improve classification performance, and networks trained with biases do make use of biases.
+
+Then, the authors recognize that the state of the art DNNs use ReLU and variants, which are a piece-wise linear function.
+Over the linear regions, the entire DNN can be collapsed into a single linear model f(x) = Wx + b.
+
+Then the authors argue that the existing gradient-based attribution methods (for interpreting DNNs) often ignore the attribution of the `b` terms in the heatmap.
+That is, when backpropagating the DNN outputs back to the input, the gradient of (Wx + b) wrt x is exactly W only (ignoring the contribution of b).
+
+The paper then proposes a method for backpropagating biases.
+From the presented results, I only can conclude that bias backpropagation does show a different heatmap compared to regular gradient-based methods.
+However, it is unclear how much this BBp result is advancing our understanding of DNNs.
+The result for this is still preliminary.
+
+- Clarity
+Research is well motivated, and paper presentation shows a nice, coherent story.
+
+- Originality
+AFAIK, the direction of looking at bias attribution is novel.
+
+- Significance
+The significance of the paper is limited because (1) the paper only considers the positive region of ReLUs; (2) the empirical results are preliminary and do not show a convincing usefulness of BBp.
+Suggestions: authors may design a toy dataset or find a dataset that has some inherent biases (e.g. data imbalance) to show that DNNs do capture interesting information in the biases. From there, hopefully the impact of BBp can be clearer.
+
+At the moment, the paper appears not ready for publication.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

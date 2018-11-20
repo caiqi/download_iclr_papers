@@ -1,0 +1,282 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Sorting out Lipschitz function approximation | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Sorting out Lipschitz function approximation" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=ryxY73AcK7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Sorting out Lipschitz function approximation" />
+      <meta name="og:description" content="Training neural networks subject to a Lipschitz constraint is useful for generalization bounds, provable adversarial robustness, interpretable gradients, and Wasserstein distance estimation. By the..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_ryxY73AcK7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Sorting out Lipschitz function approximation</a> <a class="note_content_pdf" href="/pdf?id=ryxY73AcK7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 13 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019universal,    &#10;title={Universal Lipschitz Functions},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=ryxY73AcK7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=ryxY73AcK7" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Training neural networks subject to a Lipschitz constraint is useful for generalization bounds, provable adversarial robustness, interpretable gradients, and Wasserstein distance estimation. By the composition property of Lipschitz functions, it suffices to ensure that each individual affine transformation or nonlinear activation function is 1-Lipschitz. The challenge is to do this while maintaining the expressive power.  We identify a necessary property for such an architecture: each of the layers must preserve the gradient norm during backpropagation. Based on this, we propose to combine a gradient norm preserving activation function, GroupSort, with norm-constrained weight matrices. We show that norm-constrained GroupSort architectures are universal Lipschitz function approximators. Empirically, we show that norm-constrained GroupSort networks achieve tighter estimates of Wasserstein distance than their ReLU counterparts and can achieve provable adversarial robustness guarantees with little cost to accuracy.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">deep learning, lipschitz neural networks, generalization, universal approximation, adversarial examples, generative models, optimal transport, adversarial robustness</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We identify pathologies in existing activation functions when learning neural networks with Lipschitz constraints and use these insights to design neural networks which are universal Lipschitz function approximators.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">9 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HkgwSlAPpQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Uploaded revision and individual comments</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxY73AcK7&amp;noteId=HkgwSlAPpQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1380 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1380 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We thank each of the reviewers for their time and comments. We have uploaded a revised version of our paper which addresses the notes from each reviewer and includes substantial improvements to the writing. The new version provides improved presentation of theoretical content and some new additions to the experiments section. We emphasize that the scope of the paper has not changed at all. Alongside these changes, we have also modified the title of our paper to “Sorting out Lipschitz function approximation”.
+
+We have also responded to each of the reviewers in kind and welcome further discussion!</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1evMmjA2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Related work: OPLU (orthogonal permutation linear unit)</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxY73AcK7&amp;noteId=B1evMmjA2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1380 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">MaxMin, GroupSort with a grouping size of 2, looks the same as OPLU (orthogonal permutation linear unit) proposed in <a href="https://arxiv.org/abs/1604.02313." target="_blank" rel="nofollow">https://arxiv.org/abs/1604.02313.</a> The motivation of OPLU was also norm preserving.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJgZYz8167" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for bringing this to our attention</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxY73AcK7&amp;noteId=BJgZYz8167"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1380 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1380 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for bringing this preprint to our attention! OPLU is indeed identical to GroupSort with a grouping size of 2 (which we call MaxMin). We will cite this paper and credit it for proposing MaxMin and observing that it is norm-preserving.
+
+The focus of the OPLU paper is to preserve the norm of gradients during backpropagation to allow the training of extremely deep networks. In our latest revision of the paper, we also discuss this property in terms of dynamical isometry [1]. In our work, our primary focus is on training expressive Lipschitz-constrained architectures and we identify gradient norm preservation as an important condition for which MaxMin is one such suitable activation. We also prove that using MaxMin we are able to recover universal approximation of Lipschitz functions (which other common activations fail to achieve).
+
+The revised version and our response to the reviewers will be posted soon. 
+
+[1]: Pennington et al. “Resurrecting the sigmoid in deep learning through dynamical isometry: theory and practice” <a href="https://arxiv.org/abs/1711.04735" target="_blank" rel="nofollow">https://arxiv.org/abs/1711.04735</a></span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_rJxFhEd63Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review of "Universal Lipschitz Functions"</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxY73AcK7&amp;noteId=rJxFhEd63Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1380 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1380 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper introduces GroupSort. The motivation is to find a good way to impose Lipschitz constraint to the learning of neural networks. An easy approach is "atomic construction", which imposes a norm constraint to the weight matrix of every network layer. Although it guarantees the network to be a Lipschitz function, not all Lipschitz functions are representable under this strong constraint. The authors point out that this is because the activation function of the network doesn't satisfy the so called Jacobian norm preserving property.
+
+Then the paper proposes the GroupSort activation which satisfies the Jacobian norm preserving property. With this activation, it shows that the network is not only Lipschitz, but is also a universal Lipschitz approximator. This is a very nice theoretical result. To my knowledge, it is the first algorithm for learning a universal Lipschitz function under the architecture of neural network. The Wasserstein distance estimation experiment confirms the theory. The GroupSort network has stronger representation power than the other networks with traditional activation functions.
+
+Admittedly I didn't check the correctness of the proof, but the theoretical argument seems like making sense.
+
+Despite the strong theoretical result, it is a little disappointing to see that the GroupSort doesn't exhibit any significant advantage over traditional activation function on image classification and adversarial learning. This is not surprising though.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">7: Good paper, accept</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hkx-jx0v6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for the feedback</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxY73AcK7&amp;noteId=Hkx-jx0v6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1380 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1380 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your kind feedback!
+
+We agree with your comments on the empirical results presented in the original paper. We are pleased to present several improvements in our revised version. We include much improved adversarial robustness results which contain provable robustness guarantees and strong empirical evidence that MaxMin leads to significantly more expressive networks than ReLU (see Fig. 8 in revised version). We also compared MaxMin to ReLU on Wide ResNets and found that MaxMin had comparable performance over the training schemes we explored (we used a limited hyperparameter search around the optimal ReLU settings). Finally, we used MaxMin to train a WGAN-GP model on CelebA and generated images qualitatively on-par with the carefully tuned Leaky-ReLU model. We believe that these new additions show that MaxMin is more than just a niche activation function and in Lipschitz-constrained settings may lead to significant practical gains.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HkgdKwx93Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting paper but missing details and some formal polishing required</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxY73AcK7&amp;noteId=HkgdKwx93Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1380 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1380 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">summary:
+
+A paper that states that a new activation function, which sorts coordinates in a vector by groups, is better than ReLU for the approximation of Lipschtiz functions.
+
+pros:
+
+- interesting experiments
+- lots of different problems evaluated with the technique
+
+cons:
+
+- the GroupSort activation is justified from the angle of approximating Lipschitz transformations. While references are given why Lip is good for generalisation, I cannot see why GroupSort does not go *against* the ability of deep architectures to integrate the topology of inputs (see below).
+- the proof of Theorem 1 requires polishing (see below)
+- experiments require some polishing
+
+detail:
+
+* The proof of Theorem 1 has three problems, first in the main file argument: since ReLU is not differentiable, you cannot use the partial derivative. Maybe a sub differential ? Second, in the RHS after the use of the Cauchy-Schwartz inequality (no equation numbering…) you claim that the product of all three norms larger than 1 implies *each* of the last two is 1. This is wrong: it tell nothing about the the value of each, only about the *product* of each, which then make the next two identities a sufficient *but not necessary* condition for this to happen and invalidates the last identity. Last, the Theorem uses a three lines appendix result (C) which is absolutely not understandable. Push this in the proof, make it clear.
+
+Section D.1 (proof of Theorem 2) the proof uses group size 2 over a vector of dimension 2. This, unless I am mistaken, is the only place where the group sort activation is used and so the only place where GroupSort can be formally advocated against ReLU. If so, what about just using ReLUs and a single group sort layer somewhere instead of all group sort ? Have the authors tried this experimentally ?
+
+If I strictly follow Algorithm 1, then GroupSort is carried out by *partitioning* the [d] indexes in g groups of the same size. This looks quite arbitrary and for me is susceptible to impair the capacity of deep architectures to progressively integrate the topology of inputs to generalise well. Table 3 tends to display that this is indeed the case as FullSort does much worse than ReLU.
+
+* Table 5: replace accuracies by errors, to be consistent with other tables.
+
+* in the experiments, you do not always specify the number of groups (Table 4)
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJx3P-AvpX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Feedback integrated into revised version. Thank you!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxY73AcK7&amp;noteId=BJx3P-AvpX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1380 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1380 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for your detailed comments. We have uploaded a revised version of the paper which we believe addresses the majority of your concerns. You can find more detailed responses below. 
+
+Concern 1: Is GroupSort leading to bad networks? (Integrate the topology of inputs)
+
+Could you clarify what you mean by “integrate the topology of inputs”? Interpreting this as “is GroupSort a niche activation?”, we respond with the following: GroupSort is able to recover many common activation functions, for example ReLU, MaxOut, Concatenated ReLU, absolute value (now detailed in Appendix A). Importantly, it is often able to do this even with norm constrained weights (note that ReLU cannot recover GroupSort in this case). The main difference then will be how difficult GroupSort networks are to train. We have found practically that GroupSort networks are typically as easy to train as their ReLU counterparts. We trained wide ResNets using MaxMin and achieved comparable performance to ReLU. We also trained CelebA WGANs using MaxMin activations in the critic network without any issues. Importantly, in each case we used the suggested optimization hyperparameters tuned for ReLU and found that MaxMin worked too.
+
+Concern 2: Proof of Theorem 1 is incorrect.
+
+Thank you for taking the time to carefully investigate this result. While we are confident that the result is correct, we have rewritten the proof in an attempt to make it clearer.
+
+To address your points directly: we have modified the statement to hold almost everywhere, in which case we need not discuss sub differentials and may use differentiability directly. For your comment about the Cauchy-Schwarz inequality, note that the product cannot be larger than 1, as each individual component of the product has to be less than or equal to 1 (by the 1-Lipschitz constraint). Hence, each component must itself be 1. We have made this explicit in the revised proof, by bounding the product of norms above and below by 1. We have also removed the three-line result expressed in the appendix and instead baked it into the proof as part of the induction step. Finally, we have extended this result to hold in the setting of vector-valued inputs. Thank you for pointing out these issues to us. We hope that the improvements we’ve presented will clarify the proof for you but would be happy to discuss this further.
+
+Concern 3: Why not use GroupSort only at the end of the network?
+
+The universal construction must use GroupSort for the intermediate layers as well. We construct the final network by taking the max/min of increasingly wide and deep networks  (which are themselves max/mins). The final result is a network which uses MaxMin throughout and is able to represent the max/min of arbitrarily complicated Lipschitz functions.
+
+Concern 4: Table 3 shows FullSort doing worse
+
+This is true and perhaps not particularly surprising. In Section 4.1 (Section 3.2 in old version) we state that while FullSort and MaxMin are equally expressive, the former leads to a more challenging optimization problem. The full-sort activation sorts the entire activation vector. We were surprised that the network was able to learn anything reasonable at all (especially with dropout!) and presented this column as a surprising observation - we do not suggest that practitioners adopt FullSort for classification as it is harder to optimize and more computationally expensive. We would be happy to clarify this further in the paper.
+
+We hope that our responses above adequately resolve your concerns. Although we believe the current revision does a much better job of presenting these arguments, we warmly encourage you to provide any criticisms that may help us further express these points more clearly.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_H1gaveTEn7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Potentially interesting but unfinished work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxY73AcK7&amp;noteId=H1gaveTEn7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1380 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">30 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1380 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a new "sorting" layer in neural networks that offers
+some theoretical properties to be able to learn network which are 1-Lipschitz
+functions.
+
+The paper contains what seems to be a nice contribution but the manuscript
+seems to have been written in a rush which makes it full of typos
+and very hard to read. This unfortunately really feels like unfinished work.
+
+Just to name a few:
+
+- Please check the use of \citep and \citet. See eg Szegedy ref on page 3.
+
+- Unfinished sentence "In this work ..." page 3.
+
+- "]" somewhere at the bottom of page 4.
+
+- "Hence, neural network has cannot to lose Jacobian norm... " ???
+
+etc...
+
+Although I would like to offer here a comprehensive review I consider
+that the authors have not done their job with this submission. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rkeWyGAwp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Sorry for the poor presentation. Please, take another look!</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ryxY73AcK7&amp;noteId=rkeWyGAwp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1380 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">13 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1380 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">We are deeply sorry that you felt the paper was not in a position to be given a complete review. We acknowledge that the paper was certainly lacking polish (as also noted by reviewer 2) and accept that this may have made the paper difficult to read in places.
+
+We have uploaded a revised version which is tidier and without so many of the unfortunate errors you spotted previously. The revised version also presents the theoretical results more cleanly with some substantial improvements to the experiments. We hope that you will provide a more complete review at this time.
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

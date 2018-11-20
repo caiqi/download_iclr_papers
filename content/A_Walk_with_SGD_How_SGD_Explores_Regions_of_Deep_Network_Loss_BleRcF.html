@@ -1,0 +1,242 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>A Walk with SGD: How SGD Explores Regions of Deep Network Loss? | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="A Walk with SGD: How SGD Explores Regions of Deep Network Loss?" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=B1l6e3RcF7" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="A Walk with SGD: How SGD Explores Regions of Deep Network Loss?" />
+      <meta name="og:description" content="The non-convex nature of the loss landscape of deep neural networks (DNN) lends them the intuition that over the course of training, stochastic optimization algorithms explore different regions of..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_B1l6e3RcF7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>A Walk with SGD: How SGD Explores Regions of Deep Network Loss?</a> <a class="note_content_pdf" href="/pdf?id=B1l6e3RcF7" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019a,    &#10;title={A Walk with SGD: How SGD Explores Regions of Deep Network Loss?},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=B1l6e3RcF7},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">The non-convex nature of the loss landscape of deep neural networks (DNN) lends them the intuition that over the course of training, stochastic optimization algorithms explore different regions of the loss surface by entering and escaping many local minima due to the noise induced by mini-batches. But is this really the case? This question couples the geometry of the DNN loss landscape with how stochastic optimization algorithms like SGD interact with it during training. Answering this question may help us qualitatively understand the dynamics of deep neural network optimization. We show evidence through qualitative and quantitative experiments that mini-batch SGD rarely crosses barriers during DNN optimization. As we show, the mini-batch induced noise helps SGD explore different regions of the loss surface using a seemingly different mechanism. To complement this finding, we also investigate the qualitative reason behind the slowing down of this exploration when using larger batch-sizes. We show this happens because gradients from larger batch-sizes align more with the top eigenvectors of the Hessian, which makes SGD oscillate in the proximity of the parameter initialization, thus preventing exploration.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">4 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_ryeCmbgA2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Important line of research and novel ideas that lack precision and is limited by mere presentation of observations</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1l6e3RcF7&amp;noteId=ryeCmbgA2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1122 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">06 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1122 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The subject of how a given algorithm explores the landscape is still a poorly understood area in training neural networks. There is a large body of recent work that attempts to shed light on this puzzle, and each one tries to claim their share in the furthering of the understanding of the relationship between the geometry of the landscape and the dynamics that one chooses in optimization. The present paper is a fine addition to the literature with interesting observations and novel questions, however, it falls short in many core areas: An apparent work in progress that has a great potential. 
+
+It is safe to say that "A walk with SGD" has an important single focus in mind: Does the SGD cross over barriers in the weight space of the underlying neural network? This question, at its heart, is intimately linked with the many properties that are attributed to the modern algorithm of the choice and the way it navigates a given non-convex landscape. The paper claims to provide an almost negative answer to the question and thereby busting several myths that are attributed to the "trick" part of SGD algorithm. As good as it sounds, unfortunately, the paper falls short of providing a convincing evidence (be it theoretical or empirical), and the way it tries to frame itself unique and different in relation to related works only indicate a lack of deep understanding of the existing literature. Therefore, I think there are several ways the paper should be improved before it is ready.
+
+A major question (that I hope will easily be addressed) is on the definition of the barrier itself. According to the text, a barrier is defined judging by the minima of two 1-dimensional segments that connect weights connecting three consecutive steps: if the minimum of the line segment defined by the latter step is larger than the former, then it declared that a barrier is crossed. In a low dimensional world, this makes total sense, however, I fail to understand what kind of barrier it implies on the geometry of the landscape: Can the 1-dimensional lines be on the sides of a valley? Can one find *another* 1-dimensional projection for which the inequality is broken? How do such dependencies change the understanding of the problem? And if one is indeed only interested in the flat line segments (since SGD is making discrete steps), then one can, in principle, observe barrier crossing in a convex problem, as well? Is there an argument for otherwise? Or if it is a notion that applies equally well in a convex case then how should we really think about the barrier crossing? On the opposite point of view, can one not imagine a barrier crossing that doesn't appear in this triangular inequality above?
+
+The paper is full of empirical evidence that is guided by a simple observable that is very intuitive, however, it lacks a comprehensive discussion on the new quantity they propose that I consider a major flaw, but that I think (hope) that the authors can fix very easily. Some minor points that would improve the readability and clarity for the reader:
+- The figures are not very reader-friendly, this can be improved by better using the whitespaces in the paper but it can also be improved by finding further observables that would summarize the observations instead of showing individual consecutive line interpolations.
+- What are the values of the y-axis in Figure 5 and 6? Are they the top eigenvalues of the Hessian?
+- In the models that are compared in Figure 7, what are their generalization properties (early stopping and otherwise)?
+- The interpretation at the end of p. 6 may be a good motivation for the reader if it had been introduced earlier for that section.
+
+Finally, Section 5 reads very strangely, I have hard times understanding why certain phrases exist the way they are in this part. Here are further notes on Section 5:
+- Why the whole first paragraph focused on hot the current paper is different than Goodfellow et al (2014) (it is obvious that it is for a different purpose), or why do we read the sentence "Li et al (2017b) also visualize...." What way do they visualize, is it the only paper that does visualization, what's the relation with the current paper and barrier crossing? 
+- For the second paragraph, I can suggest another paper, <a href="https://arxiv.org/abs/1803.06969," target="_blank" rel="nofollow">https://arxiv.org/abs/1803.06969,</a> that was at ICML which also looks at the diffusion process through the parameter distance at different times which is similar to Hoffer et al. which also claims no barrier crossing similar to the present paper. 
+- However, my main issue is the exact connection between diffusion and no barrier crossing and it's connection to SGD preferring wide local minima instead of a narrow one. The second paragraph of the conclusion touches upon this subject. But it is not entirely clear how they are linked (except for the brittle SDE approximation at Li et al (see https://arxiv.org/abs/1810.00004)). Overall, the paper would benefit a lot from the discussion on why it is preferable to have SGD choose one basin over another in the beginning, as it is, it looks like the paper has another agenda behind the scenes.
+- In the fourth paragraph of the conclusion, the paper refers to three papers that link DNN to spin glasses, in two of the (older) references the networks are far from what we have today, and the third one is far from "showing" anything between DNN and spin glass. In any case, what's the link between the aspects studied there with the present paper?
+- Finally, the paper claims at the last few sentences that the works referred a little bit earlier look at the loss surface "in isolation from the optimization dynamics", however, many of those works cited have their empirical observations much like the current paper, and clearly they all "study the DNN loss surface along the trajectory of SGD" necessarily as it is the way to find local minima, saddle points, paths, curvature etc... The present paper is already very interesting and full of novel insight, I fail to see the value of struggling to stand out like this.
+
+Overall, I think the paper is a very interesting step forward in understanding SGD dynamics on the DNN landscape. And, even though it has many shortcomings as it currently stands, I think it has a lot of room to improve.
+
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1eM35A_h7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Two interesting ideas but somewhat disconnected</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1l6e3RcF7&amp;noteId=B1eM35A_h7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1122 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1122 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper explores the idea that mini-batch SGD rarely *crosses* barriers during DNN optimization, but rather uses a 'seemingly' or 'alternate' mechanism, as the authors somewhat mysteriously call it on the first page. In the second part of the paper,  they also investigate why the loss surface is explored more slowly when the batch size increases. 
+
+I found both parts of the paper reasonably interesting but not too surprising. My main concern is that both parts are , in themselves, not strong enough to warrant publication at ICLR, and the connection between them is rather weak. The authors write 'to complement this finding'  to connect the first to the second investigation, but that's not connecting them very closely is it?
+I think it would be better to work out both insights in more detail and publish them in separate papers. 
+Especially the second insight should be explored more thoroughly. For example, the authors write 'in convex optimization theory, when gradients point along the sharp directions of the loss surface, optimization exhibits under-damped convergence'. This is repeated later in different wordings.  But no reference to this result (I presume it's a mathematical theorem?) is given, neither here nor later when it is said again. The link from the convex to the nonvex DNN case could also be established more convincingly. Everything became quite (too) heuristic at some point...
+
+A few small remarks (which did not influence my judgement):
+- while in general (with the exception of the too-fast move from convex to nonconvex that I just explained) the paper is written quite clearly, the prose could be made significantly tighter. For example, the definition of what 'crossing a barrier' means is given three times (!) in the paper (two times in a figure, once in section 2). BTW, isn't it better to say 'moving *around* barriers' rather than 'over' barriers? You now use 'over' but still sounds very similar to just 'crossing'. 
+- plural nouns are often combined with singular vers ('measurements that ensures'). This happens not just once but all the time...
+
+PROS:
+- two nice little ideas; esp. the first one is well-explained
+- easy to read
+CONS:
+- ideas are not very surprising; and just tested on a few data sets; things could be more  robust. 
+- second idea not fully convincingly explained
+- (most important): the two ideas are not closely connected, making this a somewhat strange paper. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BylzRFgP2Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Qualitative analysis lacking key insights and not comprehensive enough?</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=B1l6e3RcF7&amp;noteId=BylzRFgP2Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1122 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1122 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">I like the idea of trying to qualitatively illustrate the behavior of SGD when optimizing parameters of complex models, such as Deep and Conv Nets, but I think that the contribution is not very substantial. The connection between SGD and diffusion has been pointed out in previous papers, as acknowledged by the Authors. The study of the effect of batch size is interesting, but again somewhat derived from previous works. 
+
+It would helpful to illustrate the difference between "crossing" and "moving over" a barrier with a simple figure. 
+
+The experimental validation is interesting, although I think it is limited and perhaps the conclusions that can be drawn from it are not so surprising. I believe it would have been interesting to study other important factors that affect the behavior of SGD, such as learning rate and type of momentum. For example, a larger learning rate might allow for more crossing of barriers. Also, different SGD algorithms (ADAGRAD, ADAM, etc...) would behave considerably differently I expect. At the moment these important factors are overlooked. 
+
+It is not clear to me why we would want to avoid larger batch sizes. A larger batch size allows for a lower variance of stochastic gradients, and therefore faster convergence. I think this point requires elaboration, because this forms the motivation behind theoretically grounded and successful SGD works, such as SAGA and the like. I agree that a smaller batch-size is preferable at the beginning of the optimization, but again this is a well known fact (again, see SAGA) and it is for computational reasons mostly (being far away from the (local) mode, a noisy gradient is enough to move in the right direction - no need to spend computations to use an accurate gradient). There is no guarantee that the local optimum close to initialization is a bad local optimum in general, so I don't think that using a large batch size at the beginning is a bad idea for this reason - again it is just computational. 
+
+Another thing missing I think is the discussion around why it is potentially a good thing to cross the barrier, either at the beginning of the exploration or towards convergence to a local optimum. At the moment, the paper seems to report the behavior of SGD without key insights on the importance of crossing or avoiding crossing barriers.
+
+As a concluding remark - there has been a lot of work on the connections between diffusions and MCMC algorithms (see e.g., the Metropolis Adjusted Langevin Algorithm - MALA) and a lot of the considerations made in the paper are somewhat known. That is, random walk/diffusion type MCMC (and even gradient-based MCMC like Hybrid Monte Carlo) struggle a lot in non-convex problems and they hardly move across modes of a posterior distribution (equivalent to crossing barriers of potential). So I'm not at all surprised that SGD does not cross barriers during optimization and I would challenge the statement in the introduction saying "Intuitively, when performing random walk on a potential, one would expect barriers being crossed quite often during the process."</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

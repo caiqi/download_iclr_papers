@@ -1,0 +1,286 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Feed-forward Propagation in Probabilistic Neural Networks with Categorical and Max Layers | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Feed-forward Propagation in Probabilistic Neural Networks with Categorical and Max Layers" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=SkMuPjRcKQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Feed-forward Propagation in Probabilistic Neural Networks with..." />
+      <meta name="og:description" content="Probabilistic Neural Networks take into account various sources of stochasticity: input noise, dropout, stochastic neurons, parameter uncertainties modeled as random variables.&#10;  In this paper we..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_SkMuPjRcKQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Feed-forward Propagation in Probabilistic Neural Networks with Categorical and Max Layers</a> <a class="note_content_pdf" href="/pdf?id=SkMuPjRcKQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019feed-forward,    &#10;title={Feed-forward Propagation in Probabilistic Neural Networks with Categorical and Max Layers},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=SkMuPjRcKQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Probabilistic Neural Networks take into account various sources of stochasticity: input noise, dropout, stochastic neurons, parameter uncertainties modeled as random variables.
+In this paper we revisit the feed-forward propagation method that allows one to estimate for each neuron its mean and variance w.r.t. mentioned sources of stochasticity. In contrast, standard NNs propagate only point estimates, discarding the uncertainty. Methods propagating also the variance have been proposed by several authors in different context. The presented view attempts to clarify the assumptions and derivation behind such methods, relate it to classical NNs and broaden the scope of its applicability.
+The main technical innovations are new posterior approximations for argmax and max-related transforms, that allows for applicability in networks with softmax and max-pooling layers as well as leaky ReLU activations.
+We evaluate the accuracy of the approximation and suggest a simple calibration. Applying the method to networks with dropout allows for faster training and gives improved test likelihoods without the need of sampling.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">probabilistic neural network, uncertainty, dropout, bayesian, softmax</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Approximating mean and variance of the NN output over noisy input / dropout / uncertain parameters. Analytic approximations for argmax, softmax and max layers.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_r1gp_wDw3m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Novel contribution to propagate uncertainty across argmax/max operations. Some experiments are missing to show the real benefit of the method in practical scenarios.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMuPjRcKQ&amp;noteId=r1gp_wDw3m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper280 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper280 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">* Summary
+
+The authors focus on the problem of uncertainty propagation DNN. The authors claim two main contributions: they revisit the assumptions of the feed forward method (proposed by several authors as an inference method for BNNs based on ADF/EP) and proposed a new approximation for argmax/max based functions that allows to propagated the first two moments analytically. 
+
+* Comments:
+
+The authors claim two main contributions: an analysis for the feed forward method (sections 2 and 3) previously proposed by several authors as an inference method for BNN based on ADF/EP, and a new method to propagate the uncertainty through argmax/max based operations (section 4).
+
+Regarding the first contribution, I was expecting some new insights about the method that I did not find. I would suggest to focus on the second contribution and refactor this section as a background section. I would make it shorter, focusing on the representation of probabilities as latent variables trough a function, which is the important bit to understand the real contribution of the paper described in section 4. I would also remove some examples that do not seem critical to understand the rest of the paper and just increase its length.
+
+The second contribution is quite novel. The authors propose a new approximation of argmax/max operations. The firstly proposed an approximation for argmax operations, e.g. latent variable view of the softmax, that avoids resorting to the normal cdf function that has numerical stability issues. Secondly, they suggest an approximation for max based operations, e.g. leaky relu, that again, does not depend on the gaussian cdf. 
+
+In the experimental section, the authors test:
+a)	The accuracy of the proposed method approximating the posterior of the neurons
+b)	End-to-end training benefits
+
+In a) they use MC to collect the ground truth statistics and compare the proposed method (AP2) with a classical NN (AP1). The analysis is nice but I miss a comparison with other state-of-the-art methods. In particular, the authors claim that the novelty of their method compared to other feed-forward methods is that they can propagate the uncertainty through argmax/max operations analytically. They do not compare with these other feed forwards methods to show the benefit of this.  This is shown in the end-to-end training experiments; however, I would like to see a direct comparison with the classical paper (Hern´andez-Lobato &amp; Adams, 2015). Finally, one of the justifications of the approximations that they propose is to avoid the numerical issues of the standard cdf. Have the authors compared with this, e.g. eq 18a, 18b? Using a robust implementation of the normal cdf/pdf function and further truncating them to avoid negative variances?
+
+typo: Shortly before eq. 12, Should not S_{n-1} be defined as the softmax operation?
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Hyls8EixaQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>rebuttal and clarification requests</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMuPjRcKQ&amp;noteId=Hyls8EixaQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper280 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper280 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">“Contribution 1: new insights about the method?”
+We mean: 1) a clear self-contained derivation, 2) the latent variable view of sigmoid that later extends to softmax, 3) the connection to standard NNs, 4) possibility to choose the approximating family at each layer in order to simplify the propagation. We believe this is useful and may help understanding by non-experts. Note that the frequently cited ADF is an incremental method for parameter estimation. Only example 3 (ReLU) is not directly used in the subsequent constructions. Do you definitely recommend to shorten this part? The numerical evaluation of accuracy has not been reported before with such methods. 
+
+“Contribution 2: an approximation for argmax operations that avoids resorting to the normal cdf function that has numerical stability issues”
+There is likely to be a misunderstanding. The challenge of argmax is that it is a multivariate nonlinear function. There were no previously proposed analytic approximations using the normal cdf or not. Furthermore, evaluating the multivariate normal cdf is a hard computational problem.
+
+To support the utility of the results, let us mention one more paper we discovered that achieved improvements in speech recognition with the uncertainty propagation but explicitly mentions that the approximation for softmax was an unsolved problem and a significant limitation:
+Astudillo et al. (2014) “ACCOUNTING FOR THE RESIDUAL UNCERTAINTY OF MULTI-LAYER PERCEPTRON BASED FEATURES”
+
+“A direct comparison with the classical paper (Hern´andez-Lobato &amp; Adams, 2015)”
+This work performs Bayesian learning, which we don’t do. Our work is related to the paragraph “Incorporating the likelihood factors”. They describe the case of ReLU with a numerical fix. Do you mean specifically comparing this approximation alone against ours? We do not see any other direct comparison applicable. The softmax is not considered there (they consider regression problems with fully connected 1-4 layers).
+
+“Comparison with a robust implementation of the normal cdf/pdf”
+According to our experiments, the bottleneck in the accuracy is currently due to the independence assumption. More accurate calculation of the variance as in (Hern´andez-Lobato &amp; Adams, 2015) is possible, but is more computationally costly. Truncation in order to force non-negativity of variance is particularly undesirable. Because the accumulated scaling in a deep network can lead to all activations being either large or small, a valid asymptotic behaviour is required. This is particularly important for normalization (Fig. B1). We propose that in the context of NNs cheaper approximations with valid asymptotes are more practical. 
+
+“Should not S_{n-1} be defined as the softmax operation”
+We quote the definition by Malik and Abraham. There is indeed relation S_{n-1}(u)  = softmax(0, u_1, … u_{n-1}). Think of the case with two variables X_1, X_2: we have U_1 =X_1 - X_2  and S_{1}(u) = sigmoid(u).</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HklGBGu8h7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMuPjRcKQ&amp;noteId=HklGBGu8h7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper280 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper280 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper revisits the feed-forward propagation of mean and variance in neurons. In particular, it addresses the problem of propagating uncertainty through max-pooling layers and softmax. This is important since previous methods on probabilistic neural networks have not handled these challenges, hence preventing them from using max-pooling and softmax in a principled way.
+
+In general, the authors did a good job approximating the mean and variance for the output of max-pooling and softmax. I have several concerns:
+
+The authors claimed that they derived new approximation for leaky ReLU as well. It seems the approximation in Eq. (22)-(25) is exactly the same as Gast and Roth, 2018, both leveraging the results on obtaining the maximum of two Gaussian random variables.
+
+The Bayesian formulation is not clear enough and seems a bit problematic in Sec. 2. For example, in Eq. (2), the authors mentioned p(X^k | x_0) as the posterior distribution. In this case, what is the corresponding prior? Besides, it should be made clear from the beginning that the network parameters W is not treated as random variables.
+
+It is an interesting idea to incorporate the Gumbel distribution’s variance into the approximation in Eq. (10). Do you have any empirical results on how accurate the approximation in Eq. (10) is?
+
+Similarly, the approximation from Eq. (13) to Eq. (14)-(15) seems a bit ad-hoc. It is good to know that the approximation is exact in the case of two input variables. However, it would be more convincing if the authors could investigate more about the accuracy of the approximation (either empirically or theoretically) when there are more than two variables.
+
+The organization of the paper could be improved. The notion of nonlinearity is not mentioned until Sec. 3. When reading Sec. 2, one would wonder where the nonlinear transformation happens. It would help to clarify a bit at the start of Sec. 2.
+
+In terms of experiments, one important benefit of feed-forward propagation is that it avoid the multi-pass MC estimates. However, it seems the performance boost on NLL mainly comes from the calibration, where \sigma^* needs to be computed using multi-pass MC estimates.
+
+The noise level (std of 10^-4 and 0.01) seems quite small in Table 1. According to the results, it seems the error of \sigma_2 increases a lot as the noise level goes from 10^-4 to 0.01, suggesting that the approximation does not work well when the input noise is large. How is the accuracy when the noise level further increases?
+
+Unlike the natural-parameter networks (NPN) in Wang et al. (2016), the proposed work assumes zero variance in the parameters W. It would be interesting to see whether the proposed methods could also improve NPN.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJxcjNogTX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>rebuttal and clarification requests</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMuPjRcKQ&amp;noteId=rJxcjNogTX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper280 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper280 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">“Eq. (22)-(25) is exactly the same as Gast and Roth, 2018”
+Expressions for the mean are indeed the same and well known. Expressions for the variance are different.
+Our main observation here is that that the variance of the output is proportional to the variance of the input and the proportionality factor is a function of one variable $a$ that can be well approximated, guaranteeing non-negativity and correct asymptotes for large and small inputs. In contrast expression (13b) in [Gast and Roth] requires computing (10b) twice that involves a difference of expressions depending on normal cdf, does not readily simplify and may result in negative values. They mention of adding 1e-4 variance to all activations for numerical reason, a quite large value that suggests that the problem is not void. We do not need to add any such constant, furthermore, it could negatively impact the accuracy when all activations are small due to the scaling. This is particularly important in approximating dataset statistics (Fig B.1).
+
+“Posterior distribution. What is the corresponding prior?”
+The term posterior is used to denote the distribution of interest when conditioned on some observations, following graphical models (c.f. maximum a posteriori solution in MRF / CRF). (Technically, the a priori distribution of the outputs without any observations is also existing but in our case is not relevant).
+The weights are indeed not treated as random variables in this work. Were they random, we would still speak of the posterior distribution of the outputs given the inputs and of the posterior distribution of the weights given both inputs and outputs in the context of Bayesian learning.
+
+“W is not treated as random variables”
+This will be made clear. However, this is only for reasons of simplicity. W can be made random, in which case the variance for the linear layer needs to use the expression of the variance of product of independent random variables (weights and layer inputs). The propagation method however cannot be expected to work very well in convolutional networks since outputs will be strongly spatially correlated. This restriction applies to all related methods: Wang et al. (2016), Hern´andez-Lobato &amp; Adams, 2015), etc. which do not do experiments with conv networks.
+
+“Empirical results on how accurate the approximation in Eq. (10) is”
+We interpret: “how accurate is the step to forget the shape of the Gumbel distribution and only take into account its variance?”. This is not exactly what happens, it is not a standalone approximation step. The approximating family for U with U_k = (X_y+Gamma_y) - (X_k+Gamma_k) is chosen to be multivariate logistic. This is the exact distribution in case X were deterministic (in case of two variables Gamma_2 - Gamma_1 is logistic). For random X, we lose in approximating the real distribution of U (which is hoped to be bell-shaped due to summing multiple terms) by a bell shaped multivariate logistic distribution. The step around (10) cannot be evaluated separately.
+
+“investigate more about the accuracy of the approximation (13)-(15)”
+This we will gladly do. We will generate distributions for X and evaluate the quality of both approximations w.r.t. MC sampling.
+
+“\sigma^* needs to be computed using multi-pass MC estimates”
+Only once after training is done. I.e. not adding to the cost of training iterations nor at the test time. Future work will address calibration during training.
+
+“The noise level (std of 10^-4 and 0.01) seems quite small in Table 1”
+The numbers $10^-4$ and $0.01$ are the variances. The standard deviations are thus 0.01 and 0.1, respectively. The input range is in the interval [0,1], so the noise level is not small. The accuracy can be compared to the results of 
+
+Adel Bibi, Modar Alfadly, Bernard  Ghanem, "Analytic Expressions for Probabilistic Moments of PL-DNN with Gaussian Input", (CVPR 2018) [Oral]
+In Table 1, they evaluate the accuracy for LeNet of the statistics of logits with input noise variance=1 and signal range [0,255], which corresponds to std of 0.0039 in our scale, smaller than we evaluate. The ratio of variances 0.4-0.6 appears worse than both tested cases in our Table 1.
+
+“Relation to natural-parameter networks (NPN) Wang et al. (2016),”
+NPNs are a similar propagation method to ours. They are more general in allowing approximation by a member of exponential family in each layer. In practice, for networks with real-valued weights, the only reasonable model for the outputs of a linear layer is the Normal distribution (an exponential family member with mean and variance as sufficient statistics and unrestricted domain). They have simple propagation rules only with exponential nonlinearities. Their results may benefit from our numerically stable approximation for ReLU and the new approximation for softmax. Random weights is a difference that is not essential for the method as discussed above.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_HyeBAMSynQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>valid technical contribution. a little on the incremental side</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMuPjRcKQ&amp;noteId=HyeBAMSynQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper280 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">25 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper280 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The main contribution of the paper are methods for propagating approximate uncertainty in neural networks through max and argmax layers. The proposed methods are explained well. The paper is clearly written. The methods are validated in small scale experiments and seem to work well.
+
+The proposed approach is not much more accurate than Monte Carlo dropout, but is more computationally efficient. The standard way of efficiently predicting at test time with a dropout-trained network is to simply scale the weights. Could the authors try calibration on networks of this type and compare against the proposed method with calibration? (i.e. scale the predicted logits of the standard test-time network to be on the same scale as the logits under your approach)</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_r1xl0Njl6Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>rebuttal and clarification requests</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=SkMuPjRcKQ&amp;noteId=r1xl0Njl6Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper280 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">08 Nov 2018</span><span class="item">ICLR 2019 Conference Paper280 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">“Scaling weights in standard test-time dropout”:
+The method AP1 is consistent with the mentioned standard scaling (by the probability of the activation being not dropped). More precisely, we follow the common implementation of dropout (described in Srivastava et al., 2014.) where the multiplicative noise variable Z attains value $1/p$ with probability $p$ and $0$ with probability 1-p at training time. Since the expectation of this variable is 1, there is no scaling of weights needed at test time.
+
+“Calibration of AP1”
+This might be a valid idea, however it is not completely clear what is ment. Note that with AP2 we are scaling only the variances of the logits not logits themselves. In AP1 variances of logits are not available. The scaling of logits is a free degree of freedom of the last linear layer. Is the proposition then to estimate the final rescaling to maximize the likelihood of the validation set?
+</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

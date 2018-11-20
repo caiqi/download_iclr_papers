@@ -1,0 +1,236 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Diagnosing Language Inconsistency in Cross-Lingual Word Embeddings | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Diagnosing Language Inconsistency in Cross-Lingual Word Embeddings" />
+        <meta name="citation_author" content="Yoshinari Fujinuma" />
+        <meta name="citation_author" content="Jordan Boyd-Graber" />
+        <meta name="citation_author" content="Michael J. Paul" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rkxdpiA5Ym" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Diagnosing Language Inconsistency in Cross-Lingual Word Embeddings" />
+      <meta name="og:description" content="Cross-lingual embeddings encode meaning of words from different languages into a shared low-dimensional space. However, despite numerous applications, evaluation of such embeddings is limited. We..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rkxdpiA5Ym" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Diagnosing Language Inconsistency in Cross-Lingual Word Embeddings</a> <a class="note_content_pdf" href="/pdf?id=rkxdpiA5Ym" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures"><a href="/profile?email=yoshinari.fujinuma%40colorado.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="yoshinari.fujinuma@colorado.edu">Yoshinari Fujinuma</a>, <a href="/profile?email=jbg%40umiacs.umd.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="jbg@umiacs.umd.edu">Jordan Boyd-Graber</a>, <a href="/profile?email=michael.j.paul%40colorado.edu" class="profile-link" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="michael.j.paul@colorado.edu">Michael J. Paul</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 17 Nov 2018)</span><span class="item">ICLR 2019 Conference Withdrawn Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Cross-lingual embeddings encode meaning of words from different languages into a shared low-dimensional space. However, despite numerous applications, evaluation of such embeddings is limited. We focus on diagnosing the problem of words segregated by languages in cross-lingual embeddings. In an ideal cross-lingual embedding, word similarity should be independent of language---i.e., words within a language should not be more similar to each other than to words in another language. One test of this is modularity, a network measurement that measures the strength of clusters in a graph. When we apply this measure to a nearest neighbor graph, imperfect cross-lingual embeddings are sorted into modular, distinct regions. The correlation of this measurement with accuracy on two downstream tasks demonstrates that modularity can serve as an intrinsic metric of embedding quality.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">cross-lingual embeddings, evaluation, graph-based metric, modularity</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">4 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Bye2y-EMpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Submission Withdrawn by the Authors</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxdpiA5Ym&amp;noteId=Bye2y-EMpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper816 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper816 Withdraw Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Withdrawal confirmation: </span><span class="note_content_value">I have read and agree with the withdrawal statement on behalf of myself and my co-authors.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ByxTX8S53Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Nice idea, clean exposition, partly thin experiment</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxdpiA5Ym&amp;noteId=ByxTX8S53Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper816 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper816 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes to inspect cross-lingual word embeddings as graphs, and suggests that high modularity of these graphs represents groupings by languages, and subsequently yields poor performing NLP models if they are based on such embeddings.
+
+The idea is simple, clean, and nicely exposed. The experiment clearly suggests that inspecting modularity of graphs into which cross-lingual embeddings are cast makes a lot of sense: As per Figure 3, for example, modularity and performance are strongly inversely correlated. Modularity is further shown to be superior to alternative metrics in section 5.
+
+The paper does leave me wanting for more cross-lingual embeddings to be analyzed in the experiment, as the list of four approaches does not chart the space of related work that nicely, e.g., no methods that feature parallel corpora as learning signal are included. For an updated version, I would be happy to see a nicer sample of embeddings construction methods.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rygH0KeF3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Should be better supported both theoretically and empirically</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxdpiA5Ym&amp;noteId=rygH0KeF3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper816 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper816 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a new evaluation method for cross-lingual word embeddings. The paper argues that the quality of cross-lingual word embeddings is correlated with their modularity (i.e. whether words in one language tend to appear next to words of the same language alone), proposes a new evaluation metric based on this idea, and explores the relationship between this metric and downstream performance in two tasks.
+
+While I think that the core idea of the paper is original and has some interest, I would say that the paper is not strong enough to get accepted. The topic of the paper seems rather narrow to me and, in addition to that, I think that the proposed method should be better supported both theoretically and empirically.
+
+A few comments:
+
+- It is not clear to me what the use case of the proposed method is. In particular, the proposed evaluation seems valid when applied to different cross-lingual mapping methods over the exact same embeddings, but its validity beyond that is not obvious nor tested empirically in the experiments. Is the proposed measure comparable across languages? What about different embedding learning methods and/or hyperparameters (e.g. CBOW vs skip-gram)? In other words, can the proposed method be used to predict downstream performance for any given set of cross-lingual embeddings (possibly using entirely different learning algorithms), or is it only valid to rank different cross-lingual mapping methods as applied to the exact same embeddings?
+
+- I assume that language typology can play an important role here, but this is not discussed at all in the paper. In particular, I think that the core idea of the paper can be somewhat questionable for languages that diverge morphologically. For instance, Spanish distinguishes between "lento" (masculine singular), "lenta" (feminine singular), "lentos" (masculine plural) and "lentas" (feminine plural), whereas English has a single word ("slow") for all of them. Should "lento" be closer to "slow" than to "lenta", "lentos" and "lentas"? That's what your proposal would favor, but it is not obvious at all to me! And this is probably the simplest case, as this phenomenon would be accentuated for morphologically rich languages.
+
+- Your experiments only compare 4 cross-lingual embedding mapping methods. This seems too little to me and, to make things worse, the compared methods are strongly connected. In particular, Artetxe et al. (AAAI 2018) show that MSE, CCA and MSE+Orth can be seen as variants of the same general framework, and the unsupervised method of Conneau et al. (ICLR 2018) also uses MSE+Orth in its iterative refinement. I think that you could (and should) compare more cross-lingual mapping methods and, more importantly, you should include other cross-lingual embedding methods that are not based on mappings (e.g. bilbowa and bivec).
+
+- The proposed evaluation method is compared to QVEC-CCA and cosine similarity between translation pairs. This looks like a very unusual choice to me, as most papers in the topic evaluate on bilingual lexicon induction and, to a less extent, cross-lingual word similarity. I think that you should definitely compare your proposed method to word translation accuracy, and including cross-lingual word similarity would also be good.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HygvhwJv3X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Simple idea, off-the-shelf comparison, discussion incomplete</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rkxdpiA5Ym&amp;noteId=HygvhwJv3X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper816 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">31 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper816 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The authors introduce the very simple idea of correlating graph modularity of cross-lingual embedding nearest neighbour graphs with downstream performance on cross-language document classification. Pros and cons: 
+
+a) Pro: The idea of checking whether nearest neighbors are overwhelmingly in-language, is very intuitive, and it is surprising that no one did this before.
+b) Pro: The empirical analysis of their method is relatively thorough. 
+c) Pro: The authors run experiments on actual low-resource languages (bonus points!). 
+d) Con: Cross-language document classification was introduced as a way to evaluate cross-lingual embeddings in Klementiev et al. (2012), but is a very crude way of evaluating cross-lingual embeddings; see Upadhyay et al. (2016) or Ruder et al. (2017) for discussion and alternatives. 
+e) Con: In their comparison, the authors simply ran off-the-shelf methods. This is not very informative. For example, MSE+Orth uses unit length normalization, projecting both sets of embeddings onto the same sphere. This is likely to decrease modularity. It is, however, unclear whether that is why MSE+Orth works best in your experiments. Similarly, MUSE uses GANs and Procrustes refinement; it would be more apples-to-apples to compare again MUSE using the same dictionary seeds you used for CCA and MSE (rather than the GAN-induced seeds). 
+f) Con: Several important details were omitted. E.g.: What dictionary seeds were used? What hyper-parameters did you use? In MUSE, for example, performance is very sensitive to hyper-parameters such as drop-out rate and the number of epochs. 
+g) Con: The authors do not discuss the effect of random initialization; see Artetxe et al. (2018) or Søgaard et al. (2018). Specifically, MUSE is known to be very unstable, and the above authors report performance over 10 randomly initialised runs. 
+h) Con: The authors do not investigate what causes modularity. In GANs, for example, this could be a result of mode collapse. In the case of MSE, why do the authors think modularity is lower than MSE+Orth (assuming this holds in the normalized case)?
+i) Con: The authors do not discuss the linearity assumption implicit in all these methods. Nakashole et al. (2018) argues that often (ideal) mappings are not linear. How would this effect these methods?
+
+In sum, I think modularity is probably an important concept in diagnosis, but I think the discussion is incomplete, ignoring the inductive biases of the embedding algorithms and the impact of hyper-parameters. While the empirical analysis was thorough, the main experiments were on a somewhat uninformative task (topic classification). I was also a bit under-whelmed by the off-the-shelf comparison of existing methods. 
+
+Questions and minor comments: 
+
+The authors say: “we focus on mapping-based approaches because of their applicability to low-resource languages by not requiring large bilingual dictionaries or parallel corpora”. An important observation in Ruder et al. (2017), however, is that mapping-based approaches can be equivalent to joint and pseudo-mixed corpus approaches.
+
+In §2.2., you mention QVEC as a method for measuring consistency, monolingually. I guess coherence can also be measured by analogy, relatedness, or computing the distances (in embedding space) of edges in a knowledge base, say WikiData? This would be possible across languages. 
+
+The problem with mismatched senses is simply a side-effect of one-embedding-per-word-form, right? This is not mentioned explicitly. 
+
+The idea of checking whether nearest neighbors are overwhelmingly in-language, is intuitive, and it is surprising that no one did this before. However, I find statements such as “Existing approaches do not reliably detect this problem” a bit misleading. I feel it would be more fair to talk about the contribution here being a “simple observation” rather than a new approach. On a similar note, modularity is a very simple concept, so, again, it’s a little misleading to say the authors “ apply concepts from network science”. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

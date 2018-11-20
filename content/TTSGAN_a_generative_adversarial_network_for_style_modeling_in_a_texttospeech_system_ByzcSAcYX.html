@@ -1,0 +1,338 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>TTS-GAN: a generative adversarial network for style modeling in a text-to-speech system | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="TTS-GAN: a generative adversarial network for style modeling in a text-to-speech system" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=ByzcS3AcYX" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="TTS-GAN: a generative adversarial network for style modeling in a..." />
+      <meta name="og:description" content="The modeling of style when synthesizing natural human speech from text has been the focus of significant attention. Some state-of-the-art approaches train an encoder-decoder network on paired text..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_ByzcS3AcYX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>TTS-GAN: a generative adversarial network for style modeling in a text-to-speech system</a> <a class="note_content_pdf" href="/pdf?id=ByzcS3AcYX" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 10 Nov 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019tts-gan:,    &#10;title={TTS-GAN: a generative adversarial network for style modeling in a text-to-speech system},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=ByzcS3AcYX},    &#10;note={under review}    &#10;}">Show Bibtex</a></span><a class="note_content_pdf item" href="/revisions?id=ByzcS3AcYX" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">The modeling of style when synthesizing natural human speech from text has been the focus of significant attention. Some state-of-the-art approaches train an encoder-decoder network on paired text and audio samples (x_txt, x_aud) by encouraging its output to reconstruct x_aud. The synthesized audio waveform is expected to contain the verbal content of x_txt and the auditory style of x_aud. Unfortunately, modeling style in TTS is somewhat under-determined and training models with a reconstruction loss alone is insufficient to disentangle content and style from other factors of variation. In this work, we introduce TTS-GAN, an end-to-end TTS model that offers enhanced content-style disentanglement ability and controllability. We achieve this by combining a pairwise training procedure, an adversarial game, and a collaborative game into one training scheme. The adversarial game concentrates the true data distribution, and the collaborative game minimizes the distance between real samples and generated samples in both the original space and the latent space. As a result, TTS-GAN delivers a highly controllable generator, and a disentangled representation. Benefiting from the separate modeling of style and content, TTS-GAN can generate human fidelity speech that satisfies the desired style conditions. TTS-GAN achieves start-of-the-art results across multiple tasks, including style transfer (content and style swapping), emotion modeling, and identity transfer (fitting a new speaker's voice).</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Text-To-Speech synthesis, GANs</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">a generative adversarial network for style modeling in a text-to-speech system</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">6 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_HyeiSBJQT7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>lack of details and proper comparisons</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ByzcS3AcYX&amp;noteId=HyeiSBJQT7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1570 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1570 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes to use GAN to disentangle style information from speech content. The presentation of the core idea is clear but IMO there are some key missing details and experiments.
+
+* The paper mentions '....the model could simply learn to copy the waveform information from xaud to the output and ignore s....' 
+--  Did you verify this is indeed the case? 1) The style embedding in Skerry-Ryan et al.'18 serves as a single bottleneck layer, which could prevent information leaking. What dimension did you use, and did you try to use smaller size? 2) The GST layer in Wang et al.'18 is an even more aggressive bottleneck layer, which could (almost) eliminate style info entangled with content info. 
+
+* The sampling process to get x_{aud}^{-} needs more careful justifications/ablations.
+-- Is random sampling enough? What if the model samples a x_{aud}^{-} that has the same speaking style as x_{aud}^{+}? (which could be a common case).
+
+* Did you consider the idea in Fader Netowrks (Lample et al.'17)', which corresponds to adding a simple adversarial loss on the style embedding? It occurs to be a much simpler alternative to the proposed method.
+
+* Table 1. "Tacotron2" is often referred to Shen et al.'18, not Skerry-Ryan et al.'18. Consider using something like "Prosody-Tacotron"?
+
+* The paramerters used for comparisons with other models are not clear. Some of them are important detail (see the first point above)
+
+* The author mentioned the distance between different clusters in the t-SNE plot. Note that the distance in t-SNE visualizations typically doesn't indicate anything.
+
+* 'TTS-GAN' is too general as the name for the proposed method.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_r1esueVMp7" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good technical ideas, but suffers from clarity issues and weak evaluation.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ByzcS3AcYX&amp;noteId=r1esueVMp7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1570 AnonReviewer4</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">09 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1570 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Overview: This paper describes an approach to style transfer in end-to-end speech synthesis by extending the reconstruction loss function and augmenting with an adversarial component and style based loss component.
+
+Summary: This paper describes an interesting technical approach and the results show incremental improvement to matching a reference style in end-to-end speech synthesis.  The three-component adversarial loss is novel to this task.  While it has technical merit, the presentation of this paper make it unready for publication.  The technical descriptions are difficult to follow in places, it makes some incorrect statements about speech and speech synthesis and its evaluation is lacking in a number of ways.   After a substantial revision and additional evaluation, this will be a very good paper.
+
+The title of the paper and moniker of this approach as “TTS-GAN” seems to preclude the fact that in the last few years there have been a number of approaches to speech synthesis using GANs.  By using such a generic term, it implies that this is the “standard” way of using a GAN for TTS.  Clearly it is not. Moreover, other than the use of the term, the authors do not claim that it is. 
+
+While the related works regarding style modeling and transfer in end-to-end TTS models are well described, prior work on using GANs in TTS is not.  (This may or may not be related to the previous point.)  For example, but not limited to:
+Yang Shan, Xie Lei, Chen Xiao, Lou Xiaoyan, Zhu Xuan, Huang Dongyan, and Li Haizhou, Statistical Parametric Speech Synthesis Using Generative Adversarial Networks Under a Multi-task Learning Framework, ASRU, 2017
+Yuki Saito, Shinnosuke Takamichi, Hiroshi Saruwatari, Text-to-speech Synthesis using STFT Spectra Based on Low- /multi-resolution Generative Adversarial Networks, ICASSP 2018
+Saito Yuki, Takamichi Shinnosuke, and Saruwatari Hiroshi, Training Algorithm to Deceive Anti-spoofing Verification for DNN-based Speech Synthesis, ICASSP, 2017.
+
+Section 2 describes speech synthesis as a cross-domain mapping problem F : S -&gt; T, where S is text and T is speech. (Why a text-to-speech mapping is formalized as S-&gt;T is an irrelevant mystery.)  This is a reasonable formulation, however, this is not a bijective mapping.  There are many valid realizations s \subset T of a text utterance t \in S.  The true mapping F is one-to-many.    Contrary to the statement in Section 2, there should not be a one-to-one correspondence between input conditions and the output audio waveform and this should not be assumed.  This formalism can be posed as a simplification of the speech synthesis mapping problem.  Overall Section 2 lays an incorrect and unnecessary formalism over the problem, and does very little in terms of “background” information regarding speech synthesis or GANs.  I would recommend distilling the latter half of the last paragraph.  This content is important -- the goal of this paper is to disentangle the style component (s) from the “everything else” component (z)  in x_{aud} by which the resultant model can be correctly conditioned on s and ignore z.
+
+Section 3.2 Style Loss: The parallel between artistic style in vision and speaking style in speech is misplaced.  Artistic style can be captured by local information by representing color choices, brush technique, etc.  Speaking style and prosodic variation more broadly is suprasegmental.  That is it spans multiple speech segments (typically defined as phonetic units, phonemes, etc.).  It is specifically not captured in local variations in the time-frequency domain.  The local statistics of a mel-spectrogram are empoverished to capture the long term variation spanning multiple syllables, words, and phrases that contribute to “speaking style”.  (In addition to the poor motivation of using low-level filters to capture speaking style, the authors describe “prosody” as “representing the low-level characteristics of sound”. This is not correct.)  These filter activations are more likely to capture voice quality and speaker identity characteristics than prosody and speaking style.
+
+Section 3.2: Reconstruction Loss: The training in this section is difficult to follow.  Presumably, l is the explicit style label from the data, the emotion label for EMT-4 and (maybe) speaker id for VCTK.  It is a rather confusing choice to refer to this as “latent” since this carries a number of implications from variational techniques and bayesian inference.  Similarly, It is not clear how these are trained. Specifically, both terms are minimized w.r.t. C but the second is minimized only w.r.t G.  I would recommend that this section be rewritten to describe both the loss functions, target variables, and the dependent variables that are optimized during training.
+
+Section 3.3 How are the coefficients \alpha and \beta determined?
+
+Section 3.3 “We train TTS-GAN for at least 200k steps.” Why be vague about the training?
+
+Section 3.3. “During training R is fixed weights” Where do these weights come from? Is it an ImageNet classifier similar with a smaller network than VGG-19?
+
+Section 5: The presentation of results into Table 1 and Table 2 is quite odd.  The text material references Table 1 in Section 5.1, then Table 2 in Section 5.2, then Table 1 in Section 5.3 and then Table 2 again in Section 5.3.  It would be preferable to include the tabular material which is being discussed in the same order as the text.
+
+Section 5: Evaluation.  It is surprising that there is no MOS or naturalness evaluation of this work.  In general increased flexibility of a style-enabled system results in decreased naturalness.  While there are WER results to show that intelligibility (at least machine intelligibility) may not suffer, the lack of an MOS result to describe TTS quality is surprising.
+
+Section 5: The captions of Tables 1 and 2 should provide appropriate context for the contained data.  There is not enough information to understand what is described here without reference to the associated text.
+
+Section 5.1: The content and style swapping is not evaluated.  While samples are provided, it is not at all clear that the claims made by the authors are supported by the data.  A listening study where subjects are asked to identify the intended emotion of the utterance would be a convincing way to demonstrate the effectiveness of this technique.  As it stands, I would recommend removing the section titled “Content and style swapping” as it is unempirical.  If the authors are committed to it, it could be reasonably moved to the conclusions or discussion section as anecdotal evidence.
+
+Section 5.3: Why use a pre-trained WaveNet based ASR model?  What is its performance on the ground truth audio?  This is a valuable baseline for the WER of the synthesized material.
+
+Section 5.3 Style Transfer: Without support that the subject ratings in this test follow a normal distribution a t-test is not a valid test to use here.  A non-parametric test like a Mann-Whitney U test would be more appropriate.
+
+Section 5.3 Style Transfer: “Each listened to all 15 permutations of content”.  From the previous paragraph there should be 60 permutations.
+
+Section 5.3 Style Transfer: Was there any difference in the results from the 10 sentences from the test set, and the 5 drawn from the web?
+
+Typos:
+Section 1 Introduction: “x_{aud}^{+} is unpaired” -&gt; “x_{aud}^{-} is unpaired”
+Section 2: “Here, We” -&gt; “Here, we”
+Section 5.3 “Tachotron” -&gt; “Tacotron”</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Byg1SllT37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review of “TTS-GAN: A GENERATIVE ADVERSARIAL NETWORK FOR STYLE MODELING IN A TEXT-TO-SPEECH SYSTEM”</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ByzcS3AcYX&amp;noteId=Byg1SllT37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1570 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1570 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes to use a generative adversarial network to model speaking style in end-to-end TTS. The paper shows the effectiveness of the proposed method compared with Takotron2 and other variants of end-to-end TTS with intensive experimental verifications. The proposed method of using adversarial and collaborative games is also quite unique. The experimental part of the paper is well written, but the formulation part is difficult to follow. Also, the method seems to be very complicated, and I’m concerning about the reproducibility of the method only with the description in Section 3.
+
+Comments
+- Page 2, line 2: x _{aud} ^{+} -&gt; x _{aud} ^{-} (?)
+- Section 2: $T$ is used for audio and the number of words.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJebIsvXpm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thank you for the comments.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ByzcS3AcYX&amp;noteId=BJebIsvXpm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1570 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1570 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Thank you for the comments. We have fixed the typos in our revision.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_SJeKU5Ic27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Good adversarial domain adaptation ideas for TTS - but details on architecture needed </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ByzcS3AcYX&amp;noteId=SJeKU5Ic27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1570 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1570 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><a class="note_content_pdf item" href="/revisions?id=SJeKU5Ic27" target="_blank">Show Revisions</a></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes a method to synthesize speech from text input, with the style of an input voice provided with the text. Thus, we provide content - text - and style - voice. It leverages recent - phenomenal - progress in TTS with Deep Neural Networks as seen from exemplar works such as Tacotron (and derivatives), DeepVoice, which use seq2seq RNNs and Wavenet families of models. The work is extremely relevant in that audio data is hard to generate (expensive) and content-style modeling could be useful in a number of practical areas in synthetic voice generation. It is also quite applicable in the related problem of voice conversion. The work also uses some quite complex - (and very interesting!) - proposals to abstract style, and paste with content using generative modeling. I am VERY excited by this effort in that it puts together a number of sophisticated pieces together, in what I think is a very sensible way to implement a solution to this very difficult problem. However, I would like clarifications and explanations, especially in regards to the architecture.  
+
+Description of problem: The paper proposes a fairly elaborate setup to inject voice style (speech) into text. At train time it takes in text samples $x_{txt}$, paired voice samples (utterances that have $x_{txt}$ as content) $s+$ and unpaired voice samples $s-$, and produces two voice samples $x+$ (for paired  &lt;txt, utterance&gt;) and $x-$ (for unpaired txt/utterance). The idea is that at test time, we pass in a text sample $x_{txt}$ and an UNPAIRED voice sample $x_{aud}$ and the setup produces voice in the style of $x_{aud}$ but whose content is $x_{txt}$, in other words it generates synthetic speech saying $x_{txt}$. The paper goes on to show performance metrics based on an autoencoder loss, WER and t-SNE embeddings for various attributes. 
+
+Context:  The setup seems to be built upon the earlier work by Taigman et al (2016) which has the extremely interesting conception of using a {\it ternary} discriminator loss to carry out domain adaptation between images. This previous work was prior to the seminal CycleGAN work for image translation, which many speech works have since used. Interestingly, the Taigman work also hints at a 'common' latent representation a la UNIT using coupled VAE-GANs with cycle consistency (also extremely pertinent), but done differently. In addition to the GAN framework by Taigman et al, since this work is built upon Tacotron and the GST (Global Style Tokens) work that followed it, the generative setup is a sophisticated recurrent attention based seq2seq model.
+
+Formulation:
+A conditional formulation is used wherein the content c (encoding generated by text) is passed along with other inputs in the generator and discriminator. The formulation in Taigman assumes that there is an invariant representation in both (image) domains with shared features. To this, style embeddings (audio) gets added on and then gets passed into the generator to generate the speech. Both c and s seem to be encoder outputs in the formulation. The loss components of what they call ‘adversarial’, ‘collaborative’ and ‘style’ losses. 
+
+Adversarial losses
+The ternary loss for D consists of 
+
+Discriminator output from ‘paired’ style embedding (i.e. text matching the content of paired audio sample)
+Discriminator output from ‘unpaired’ style embedding (i.e text paired with random sample of some style)
+Discriminator output from target ground truth style. The paper uses x_+, so I would think that it uses the paired sample (i.e. from the source) style.
+
+Generator loss (also analogous to Taigman et al) consists of generations from paired and unpaired audio, possibly a loose analogue to source and target domains, although in this case we can’t as such think of ‘+’ as the source domain, since the input is text. 
+
+Collaborative losses 
+This has two components, one for style (Gatys et al 2016) and a reconstruction component. The reconstruction component again has two terms, one to reconstruct the paired audio output ‘x+=x_audio+’ - so that the input content is reproduced -  and the other to encourage reconstruction of the latent code. 
+
+Datasets and Results:
+They use two datasets: one, an internal ‘EMT-4’ dataset with 20k+ English speakers, and the other, the VCTK corpus. Comparisons are made with a few good baselines in Tacotron2, GST and DeepVoice2. 
+
+One comparison technique to test disentanglement ability is to compare autoencoder reconstructions with the idea that a setup that has learnt to disentangle would produce higher reconstruction error because it has learnt to separate style and content. 
+
+t-SNE embeddings are presented to show visualizations of various emotion styles (neutral, angry, sad and happy), and separation of male and female voices. A WER metric is also presented so that generations are passed into a classifier (an ASR system trained on Wavenet). All the metrics above seem to compare excellently (better than?) with the others. 
+
+Questions and clarifications:
+
+(Minor) There’s a typo in page 2, line 2. x_{aud}^+ should be x_{aud}^-.
+
+Clarification on formulation: Making the analogy (is that even the right way of looking at this?) that the ‘source’ domain is ‘+’, and the target domain is ‘-’, in equation (5), the last term of the ternary discriminator has the source domain (x_{aud}^+) in it, while the Taigman et al paper uses the target term. Does this matter? I would think ‘no’, because we have a large number of terms here and each individual term in and of itself might not be relevant, nor is the current work a direct translation of the Taigman et al work. Nevertheless, I would like clarification, if possible, on the discrepancy and why we use the ‘+’ samples. 
+
+Clarification on reconstruction loss: I think the way it is presented, equation (8) is misleading. Apparently, we are sampling from the latent space of style and content embeddings for paired data. The notation seems to be quite consistent with that of the VAE, where we have a reconstruction and a recognition model, and in effect the equation (8) is sampling from the latent space in a stochastic way. However, as far as I can see, the latent space here produces deterministic embeddings, in that c = f(x_{txt}) and s = g(x_{aud}^+), with the distribution itself being a delta function. Also, the notation q used in this equation most definitely indicates a variational distribution, which I would think is misleading (unless I have misinterpreted what the style tokens mean). At any rate, it would help to show how the style token is computed and why it is not deterministic. 
+
+Clarification on latent reconstruction loss: In equation (9), how is the latent representation ‘l’ computed? While I can intuitively see that the latent space ‘l’ (or z, in more common notation) would be the ‘same’ between real audio samples and the ‘+’, ‘-’ fake samples, it seems to me that they would be related to s (as the paper says, ‘C’ and ‘Enc_s’ share all conv layers) and the text. But what, in physical terms is it producing? Is it like the shared latent space in the UNIT work, or the invariant representation in Taigman? This could be made clearer with an block diagram for the architecture. 
+
+(Major) Clarification on network architecture
+The work references Tacotron’s GST work (Wang et al 2018) and the related Skerry-Ryan work as the stem architecture with separate networks for style embeddings and for content (text). While the architecture itself might be available in the stem work by Wang et al, I think we need some diagrams for the current work as well for a high level picture. Although it is mentioned in words in section 3.3, I do not get a clear idea of what the encoder/decoder architectures look like. I was also surprised in not seeing attention plots which are ubiquitous in this kind of work. Furthermore, in the notes to the ‘inference’ network ‘C’ it is stated that C and Enc_s share all conv layers. Again, a diagram might be helpful - this also applies for the discriminator. 
+
+Clarification on stability/mode collapse: Could the authors clarify how easily this setup trained in this adversarial setup? 
+
+Note on latent representation: To put the above points in perspective, a small note on what this architecture does in regards to the meaning of the latent codes would be useful. The Taigman et al 2016 paper talks about the f-constancy condition (and 'invariance'). Likewise, in the UNIT paper by Ming-Yu Liu - which is basically a set of coupled VAEs + cycle consistency losses, there is the notion of a shared latent space. A little discussion on these aspects would make the paper much more insightful to the domain adaptation practitioner.
+
+Reference: This reference - Adversarial feature matching for text generation - (<a href="https://arxiv.org/abs/1706.03850)" target="_blank" rel="nofollow">https://arxiv.org/abs/1706.03850)</a> contains a reconstruction stream (as perhaps many other papers) and might be useful for instruction. 
+
+Other relevant works in speech and voice conversion: This work comes to mind, using the StarGAN setup, also containing a survey of relevant approach in voice conversion. Although the current work is for TTS, I think it would be useful to include speech papers carrying out domain adaptation for other tasks.
+
+StarGAN-VC: Non-parallel many-to-many voice conversion with star generative adversarial networks. 
+https://arxiv.org/abs/1806.02169 
+
+I would rate this paper as being acceptable if the authors clarify my concerns, and in particular, about the architecture. It is also hard to hard to assess reproducibility in a complex architecture such as this. </span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJxRuqPQam" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Thanks for your thoughtful reviews and valuable comments.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=ByzcS3AcYX&amp;noteId=BJxRuqPQam"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1570 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">10 Nov 2018</span><span class="item">ICLR 2019 Conference Paper1570 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">1. Typo in p2 l2.
+Thanks, we fixed it.
+
+2. Clarification on formulation:
+Thank you for pointing out the discrepency. We provide detailed explanation below. In short, there is a subtle yet important distinction: We use '+' samples to regularize within-domain mapping (between (c, x_aud^+) and \tilde{x}^+), while Taigman et al., (2016) use '-' to promote cross-domain mapping (between (c, x_aud^-) and \tilde{x}^-)).
+
+Taigman's work use a pretrained function f(.) to extract latent embeddings from both the source and the target domains, i.e., z_s = f(s), z_t = f(t). They then use a decoder to map these to the target distribution, producing s2t and t2t. The s2t drives cross-domain mapping, while the t2t regularizes within-domain mapping. They use a single function f(.) to compute the embeddings from both the source (real human face) and the target (emoji human face) because the two domains share certain structures and properties, e.g., a face has two eyes with eyebrows on top. This makes t2t -- within-domain mapping -- relatively easy compared to ours (see below on why); so they include the target term in the loss (Eqn 3 in [Taigman et al., 2016]) to further promote cross-domain mapping.
+
+In our work, making the analogy, the source domain is '(content, style+)' and the target is '(content, style-)'. Both domains consist of two input modalities (text and sound) with very different characteristics. So we use two functions to represent each domain: Enc_c and Enc_s. Unfortunately, this makes it difficult to even ensure that within-domain mapping is successful. So, to strengthen within-domain mapping we modify the last term of the tenary discriminator to have x_aud^+ instead of the target x_aud^-. 
+
+3. Clarification on reconstruction loss:
+Yes, both the content c = f(x_txt) and the style s = g(x_aud^+) embeddings are deterministic. The only stochasticity comes from the data distribution. We revised the notation in the paper; please take a look. 
+
+4. Clarification on latent reconstruction loss: 
+We have revised our paper with network architecture details, including a block diagram of the Inference Network 'C' that computes the latent representation 'l'; see Figure 3. The inference network is simply the style encoder (Enc_s) with a new classifier on top (one FC layer followed by softmax); all the weights are shared between C and Enc_s except for the new classifier layer.
+
+We agree that 'z' is a more commonly used notation to represent latent codes. We have changed the notation in the paper; thanks for the suggestion! 
+
+5. Clarification on network architecture
+We have revised our paper with block diagrams of our network architecture as well as parameter settings used in our implementation (Figure 3 to 5). We have also included an attention plot (Figure 6), showing the robustness of our approach to the length of the reference audio.
+
+6. Clarification on stability/mode collapse:
+In TTS stylization, when mode collapse happens the synthesized voice samples will exhibit the same acoustic style although different reference audio samples are provided. While it is difficult to entirely prevent the mode collapse from ever happening (as is common in GAN training), we have a number of measurements (i.e., different loss terms in our adversarial &amp; collaborative game) to alleviate the issue and to improve stability during training. Our qualitative results show more diverse synthesized samples than Tacotron-GST when different reference audio samples are given, suggesting our work clearly improves upon the state-of-the-art.  Our learning curve (<a href="https://researchdemopage.wixsite.com/tts-gan/image)" target="_blank" rel="nofollow">https://researchdemopage.wixsite.com/tts-gan/image)</a> also suggests that training with our loss formulation is relatively stable, i.e., the three loss values seem to converge to a stable regime.
+
+7. Note on latent representation:
+Perhaps the most important message we want to deliver is: We are improving upon content vs. style disentanglement in acoustic signals by means of adversarial &amp; collaborative learning. Extracting ``acoustic styles'' such as prosody has been an extremely difficult task. The state-of-the-art GST achieves this with an attention mechanism. But, as we argue in our paper, their loss construction makes it difficult to ``wipe out'' content information from acoustic signals; this is also shown in their qualitative results where prosody style transfer fails when the length of the reference audio clip is different from what is appropriate for the content to be synthesized. Our novel loss construction enables careful conditioning of our model so that the two latent representations, content 'c' and style 's' embeddings, become more precise than the previous method could obtain. In particular, our paired and unpaired input forumation, and the adversarial &amp; collaborative game makes our model better condition the latent space so that the content information is effectively ignored in style embedding vectors. 
+
+8. Reference:
+We have incorporated those references in our revision. </span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

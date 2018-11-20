@@ -1,0 +1,239 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Understanding and Improving Sequence-Labeling NER with Self-Attentive LSTMs | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Understanding and Improving Sequence-Labeling NER with Self-Attentive LSTMs" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=rklNwjCcYm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Understanding and Improving Sequence-Labeling NER with..." />
+      <meta name="og:description" content="This paper improves upon the line of research that formulates named entity recognition (NER) as a sequence-labeling problem. We use so-called black-box long short-term memory (LSTM) encoders to..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_rklNwjCcYm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Understanding and Improving Sequence-Labeling NER with Self-Attentive LSTMs</a> <a class="note_content_pdf" href="/pdf?id=rklNwjCcYm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019understanding,    &#10;title={Understanding and Improving Sequence-Labeling NER with Self-Attentive LSTMs},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=rklNwjCcYm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">This paper improves upon the line of research that formulates named entity recognition (NER) as a sequence-labeling problem. We use so-called black-box long short-term memory (LSTM) encoders to achieve state-of-the-art results while providing insightful understanding of what the auto-regressive model learns with a parallel self-attention mechanism. Specifically, we decouple the sequence-labeling problem of NER into entity chunking, e.g., Barack_B Obama_E was_O elected_O, and entity typing, e.g., Barack_PERSON Obama_PERSON was_NONE elected_NONE, and analyze how the model learns to, or has difficulties in, capturing text patterns for each of the subtasks. The insights we gain then lead us to explore a more sophisticated deep cross-Bi-LSTM encoder, which proves better at capturing global interactions given both empirical results and a theoretical justification.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">interpretability, sequence labeling, named entity recognition, LSTM, attention</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">We provide insightful understanding of sequence-labeling NER and propose to use two types of cross structures, both of which bring theoretical and empirical improvements.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_B1eEwJ0F37" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Strong results on NER, but not an interesting approach</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rklNwjCcYm&amp;noteId=B1eEwJ0F37"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper257 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper257 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This submission tackles the named entity recognition (NER) task.
+It formulates the task as sequence labeling (through BIO-tagging), and applies CNN+BILSTM encoder followed by self attention components to extract the representations used in local classification. Strong performance is achieved on benchmark datasets.
+
+The key of the claimed modeling novelty seems to be the self-attention mechanism.
+I'm not entirely familiar with the sequence labeling literature, but I would be very surprised if there is no existing work applying a similar model a such tasks. Further, some of the arguments seem to be over-claimed. For example, `theoretical justification` is mentioned for many times in abstract and intro, but I don't see any theory through the paper.
+
+Pros:
+- Nice numbers.
+
+Cons:
+- Noting else to learn other than nice numbers.
+
+Details:
+- Section 3.3. Does the model try to force consistency during decoding (e.g., by using constrained beam search)? If not, could the authors comment on how often does the model produces ill-formed predictions.
+
+- Two of the claimed contributions involve `theories`. But I don't see any theory through the paper. To be honest, the analysis in Section 6 can be some nice intuition, but it has nothing to do with theory. 
+
+- Contribution.2, self-attention is something `applied` in this paper, but not `proposed`.
+
+- I'm confused by Section 6. Is the model proposed here actually used in the experiments? If it is, isn't it better to put it before Section 5?
+
+- Figures 2 are extremely hard to read.
+
+- I'm not sure what points Section 5.4 is trying to make.
+
+Minor:
+
+- \sigma is usually used to indicate the sigmoid function.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BJgqixBl27" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>This paper presents a sequence labeling model that incorporates Bi-LSTM-CNN with multi-head self-attention module. The proposed architecture models cross-interaction between past and future information. Detailed analysis on how the attentions discover the patterns of chunking and entity typing is conducted that provides more understanding of what the model learns.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rklNwjCcYm&amp;noteId=BJgqixBl27"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper257 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper257 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">In general, the paper proposes a deep architecture combining bi-LSTM, CNN and self-attentions to better model the interactions among the contexts for sequence labeling. The model is then evaluated on a sequence-labeling problem (NER) with one dataset. Although effective, the method seems to be a bit trivial through a combination. Evaluating on only one NER dataset is also not too convincing for me. Detailed comments are the following:
+
+Pros:
+1. The paper is clearly written with a good organization to fully explain their model. The motivation is clear and comparison with existing work is clearly illustrated.
+2. It is interesting to decouple the problem to entity chunking and entity typing for detailed evaluation, although I do not see any decoupling methodology in terms of the model itself. It would be better to also make the decoupling idea integrated into sequence-labeling models, in this way the model could be more different and novel compared to existing works.
+3. The experimental section provides detailed analysis of the proposed model on the performance of each component as well as some qualitative analysis on what different attention heads learn.
+
+Cons:
+1. The methodology itself is a bit trivial to me, since the bi-LSTM-CNN and self-attention mechanism were already proposed previously. It seems to be an improved combination, as also stated in Related Work ("The subtle difference is that they..."). It also seems over-stated in the abstract about the functionality on providing insightful understanding of attentions and decoupling NER into two subproblems. To my understanding, the understanding is only qualitative by observing a few examples, and the decoupling does not refer to the method, but the evaluation.
+2. More existing works should be added in Related Work including sequence-labeling models as well as attention models.
+3. It's still unclear if one wants to re-implement the model. Section 5.2 still lacks some important parameters, e.g., learning rate, batch-size, training method, how to parallel etc. More explanations on baseline models should be added to better understand the comparisons. 
+4. Section 6.2 is confusing. Does the cross construction used in your experiments? Why do you put this part at the end of the paper. If section 6.2 provides better construction, why not making it integrated in the main part of the paper? Moreover, the authors claim the model's ability to exploit cross-interactions among input sequence, but I do not really get this point. The paper should illustrate this characteristics into more details for the readers to understand. 
+
+Questions:
+1. Since your model is quite similar to Chiu &amp; Nichols (2016), can you illustrate what's the architecture of their model and what's the difference between their work and Bi-LSTM-CNN in Table 2?
+2. Can you explain how do you parallel the computation for self-attentions?
+3. The statistics in Table 3 is quite unexpected to me. Although you mentioned C^{all} is much better than H for classifying "I", it did much worse for all the other classes (except "O"). In this case, I suppose the attention is actually worse than simply computing LSTM hidden representations (H). Can you explain why? The last column for NativeH actually shows little degradation compared to the full model, may I know how's that happen, and what's the difference between NativeH and H? Section 5.4.1 mentions that Table 3 shows "per-token recalls", can you explain more what does this mean? How's the f1 scores?</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ryl1P-ghsX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>well written paper with marginal contribution</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=rklNwjCcYm&amp;noteId=ryl1P-ghsX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper257 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">23 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper257 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper proposes to use multi-head attention module with bi-LSTM for sequence labeling name entity recognition. The author carefully introduce the model structure, followed by extensive experiments to demonstrate the advantage of the model. I think the novelty of this paper is not obvious, or at least the authors didn’t clearly demonstrate the contribution of this paper. Multi-head attention mechanism, bi-LSTM are both well established methods. There are also existing works which have already applied related techniques to the NER problem. I’m willing to change my score if the authors can clarify the contribution of this paper.
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

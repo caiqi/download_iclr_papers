@@ -1,0 +1,264 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Pumpout: A Meta Approach for Robustly Training Deep Neural Networks with Noisy Labels | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="Pumpout: A Meta Approach for Robustly Training Deep Neural Networks with Noisy Labels" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=HyG1_j0cYQ" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="Pumpout: A Meta Approach for Robustly Training Deep Neural Networks..." />
+      <meta name="og:description" content="It is challenging to train deep neural networks robustly on the industrial-level data, since labels of such data are heavily noisy, and their label generation processes are normally agnostic. To..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_HyG1_j0cYQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Pumpout: A Meta Approach for Robustly Training Deep Neural Networks with Noisy Labels</a> <a class="note_content_pdf" href="/pdf?id=HyG1_j0cYQ" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019pumpout:,    &#10;title={Pumpout: A Meta Approach for Robustly Training Deep Neural Networks with Noisy Labels},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=HyG1_j0cYQ},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">It is challenging to train deep neural networks robustly on the industrial-level data, since labels of such data are heavily noisy, and their label generation processes are normally agnostic. To handle these issues, by using the memorization effects of deep neural networks, we may train deep neural networks on the whole dataset only the first few iterations. Then, we may employ early stopping or the small-loss trick to train them on selected instances. However, in such training procedures, deep neural networks inevitably memorize some noisy labels, which will degrade their generalization. In this paper, we propose a meta algorithm called Pumpout to overcome the problem of memorizing noisy labels. By using scaled stochastic gradient ascent, Pumpout actively squeezes out the negative effects of noisy labels from the training model, instead of passively forgetting these effects. We leverage Pumpout to upgrade two representative methods: MentorNet and Backward Correction. Empirical results on benchmark datasets demonstrate that Pumpout can significantly improve the robustness of representative methods.</span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">Noisy Labels, Deep Learning, Meta Approach</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">Starting from tomorrow, never worry about your DNNs memorizing noisy labels---forget bad labels by Pumpout in an active manner!</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">15 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_ByxT2oFn2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>This paper presents a meta algorithm to improve the robustness of learning methods under noisy labels.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=ByxT2oFn2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper317 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">04 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper317 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper presents a meta algorithm to improve the robustness of learning methods under noisy labels. The idea is to squeeze out the negative effects of noisy labels actively. The paper trains deep neural networks by stochastic gradient descent on “fitting” labels; while trains deep neural networks by scaled stochastic gradient ascent on “not-fitting” labels. Experimental results show the improvement on robustness. 
+
+The good things of the paper are clear. 
+1.	Technical sound with reasonable idea
+2.	Problem is well motivated
+3.	Paper is general well written.
+
+Some comments
+1.	The idea using instance selection is not new. The novelty could be improved. If the paper could make more insight from either theoretical or application value, would be more interesting.
+2.	Experiments are too standard. More divers and various data sets would be more convincing. 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">6: Marginally above acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">3: The reviewer is fairly confident that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rJlfPNcx2X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Original idea with promising experimental results, but a limited contribution</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=rJlfPNcx2X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper317 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper317 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">A new method for defending against label noise during training of deep neural networks is presented. The main idea is to “forget” about wrongly labeled examples during training by an ascending step in the gradient direction. This is a meta-approach that can be combined with other methods for noise robustness; the detection of the noisy examples is specific of the base method utilised. Experimental results are promising.
+
+In general, I find the idea original, and of potential practical use, but I believe the contribution of paper to be limited and not well supported by experiments. Moreover, I think that some claims made in this work are poorly justified.
+
+== Method
+
+The paper would greatly benefit from some theoretical backing of the proposed optimization scheme, even on a simplified scenario. An idea would be to prove that, given a dataset with noisy labels, PumpOut converges close to the best model (= the one learned without noise), for certain hyperparameters. I think this would be new and interesting. A result of similar fashion was proven in [A].
+
+I found the following arguments not well or only heuristically supported:
+* section 2: the scaling factor \gamma. Why using \gamma=1 is suboptimal? One could claim that as much as you want to memorize the true image-label patterns, you also want to forget the image-noise ones.
+* Why MentorNet + PumpOut does not suffer from the selection bias effect of CoTraining? This is unclear to me
+* The non-negative version of the BackwardCorrection, and its appeal to Kiryo et al 17 is interesting, but it sidesteps its justification. A loss that can be negative does not necessarily means that it not lower-bounded. In fact, for a minimization problem to be well-defined, all you need is a lower bounded objective. Then, adding the lower bound makes your loss non-negative. Notice that Patrini et al 17 did not state that BC is unbounded, but only that it can be negative. Can you show more that that -- maybe, at least experimentally?
+
+The statement of Theorem 2 is trivial. In fact, no proof is given as it would be self-evident. Moreover, the Theorem is not used by PumpOut. Algorithm 3 uses a if-else conditional on the scale of the backward correction, without the max(0, .). I suggest to remove this part. I have notice later that the non-negative version of BC is used as a baseline in the experiment, but I think that is the only use.
+
+Regarding the presentation, in section 3, I suggest to move the explanation of MentorNet and BackwardCorrection before their upgrade by PumpOut.
+
+== Experiments
+
+Table 1 can be removed as these are extremely common datasets.
+
+The experimental results look very promising for applications. As a side effect of this analysis, I can also notice an improvement over BC given to the nnBC, which is nice per se. Although, I would have strengthen the empirics as follow.
+* SET2 is only run on MNIST. Why not even on CIFAR10 which is used in SET1? Any future reader will wonder “did it work on CIFAR10?"
+* A much harder instance of noise, for instance open set [B] or from a real dataset [Xiao et al 15] would have more clearly supported the use of PumpOut for real applications.
+* Can the authors elaborate on “the choices of \beta and \gamma follows Kirkyo et al 2017” ? And how assuming their knowledge gives a fair comparison to BC which does not require them? I believe this is a critical point for the validity of the experiments.
+
+Minor:
+* “LRELU active function’ -&gt; activation function. What is a LRELU? LeakyReLU?
+
+[A] Malach, Eran, and Shai Shalev-Shwartz. "Decoupling" when to update" from" how to update"." Advances in Neural Information Processing Systems. 2017.
+[B] Veit, Andreas, et al. "Learning From Noisy Large-Scale Datasets With Minimal Supervision." CVPR. 2017.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SJxMUmdJnm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Non convincing experiments   </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=SJxMUmdJnm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper317 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">26 Oct 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper317 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">The paper proposes a meta algorithm to train a network with noisy labels.
+It is not a general algorithm but a simple modification of two proposed methods.  It is presented as a heuristics and it  would be helpful to derive a theoretical framework or motivation for the proposed algorithm. 
+
+My main concern is related to the experiment results. The results of the baseline method look strange. Why there is a strong decrease in the MNIST test accuracy after 20 epochs? Standard training of neural network is very robust to label noise.  In case of  20% symmetric error  (figure 2c)  the performance degradation using standard training should be very small. 
+Hence it is difficult to evaluate to performance of the proposed method.
+At the beginning of the experiment section you mentioned several algorithms   for training with noisy labels.  I expect to compare your results to at least one of them. 
+    
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1eXySfG5Q" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=H1eXySfG5Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SJgKdFDxcQ" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=SJgKdFDxcQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rJeJTfEeqX" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=rJeJTfEeqX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Bye7Cj-eq7" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=Bye7Cj-eq7"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_HkeJt51eqX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Question about your experiments with CIFAR-10</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=HkeJt51eqX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I read your paper on Pumpout, and I think it offers an interesting new perspective on training DNNs with noisy labels. However, I have a question about your experiments on CIFAR-10. From Figure 3 (c) of your paper.  It seems that the performance of your "Normal" baselines using Resnet-32 is not as good as baselines by recent papers ([1][2][3][4]) which did experiments with similar architectures (resnet-32 and resnet-44). Do you have any explanation for why this might have happened? 
+
+[1] Patrini, Giorgio, et al. "Making deep neural networks robust to label noise: A loss correction approach." Proc. IEEE Conf. Comput. Vis. Pattern Recognit.(CVPR). 2017.
+[2] Zhang, Zhilu, and Mert R. Sabuncu. "Generalized Cross Entropy Loss for Training Deep Neural Networks with Noisy Labels." arXiv preprint arXiv:1805.07836 (2018).
+[3] Ma, Xingjun, et al. "Dimensionality-Driven Learning with Noisy Labels." arXiv preprint arXiv:1806.02612 (2018).
+[4] Tanaka, Daiki, et al. "Joint optimization framework for learning with noisy labels." arXiv preprint arXiv:1803.11364 (2018).
+</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_S1lJiNpNcQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The reason comes from Data Augmentation</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=S1lJiNpNcQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper317 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Oct 2018</span><span class="item">ICLR 2019 Conference Paper317 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The main reason is that training strategies are very different. All above works [1-4] use SGD with a momentum of 0.9, weight decay of 0.0001, and data augmentation. Note that, data augmentation has been widely used in computer vision community, which significantly improves the classification performance of a deep learning model. 
+
+However,  in our machine learning paper, our focus is to explore the efficacy of Pumpout. Therefore, we use Adam optimizer in all experiments for fair comparison without using data augmentation trick. 
+
+For Figure 3 (c), we have also tested the performance of "Normal" baseline using ResNet32 model, and the training strategy follows above works [1-4] using data augmentation. We achieved a similar test accuracy of 81%.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BJlibzhU57" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>missing comparison with dropout</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=BJlibzhU57"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">07 Oct 2018</span><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">In [5], their experiments at Table 2 (<a href="https://openreview.net/pdf?id=r1Ddp1-Rb" target="_blank" rel="nofollow">https://openreview.net/pdf?id=r1Ddp1-Rb</a> ) using dropout (droprate=0.7) achieves &gt; 89% test accuracy with the same setting as Figure 3.c (20% symmetric noise) though different architecture. Still, I think dropout should be compared as a strong baseline, especially since you also used it in training your models.
+
+[5] Zhang, Hongyi, et al. "mixup: Beyond Empirical Risk Minimization" International Conference on Learning Representations (ICLR). (2018).</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div><div class="note_with_children"><div id="note_B1ggnZyxcQ" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=B1ggnZyxcQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1luH11e5X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Related Work</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=S1luH11e5X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">This paper has many similarities to [1]. Superficially, Figure 1 is identical to [1]'s figure. Algorithmically, the method is highly similar too. The authors acknowledge the algorithmic similarity, but they compare to MentorNet and do little to show an improvement over [1].
+Also, the method requires a label noise estimate. They say "We assume the noise level \epsilon is known and... If \epsilon is not known in advance, \epsilon can be inferred using validation sets." In practice, \epsilon needs to be estimated by manually labeling some examples. But if a small set of clean data is available, then the authors should compare to the label corruption techniques of [2] or [3] since these approaches assume access to a small trusted set of examples.
+[1] Bo Han, Quanming Yao, Xingrui Yu, Gang Niu, Miao Xu, Weihua Hu, Ivor Tsang, Masashi Sugiyama. Co-teaching: Robust Training Deep Neural Networks with Extremely Noisy Labels. NIPS, 2018.
+[2] Dan Hendrycks, Mantas Mazeika, Duncan Wilson, Kevin Gimpel. Using Trusted Data to Train Deep Networks on Labels Corrupted by Severe Noise. NIPS, 2018.
+[3] Mengye Ren, Wenyuan Zeng, Bin Yang, Raquel Urtasun. Learning to Reweight Examples for Robust Deep Learning. ICML, 2018.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_rJeNFlCVcQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>The experimental comparisons are fair</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=rJeNFlCVcQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper317 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Oct 2018</span><span class="item">ICLR 2019 Conference Paper317 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Sorry, we should make our point clearer about how to estimate the noise level in practice. It's true the noise level can be estimated from clean validation data. However, note that clean data require domain experts to label, and thus a small set of clean data can be as costly as a huge set of noisy data. On the other hand, we could give a representative sub-sampling of our noisy data and directly ask the domain expert to estimate the noise level. In this way, we won't obtain a small set of clean data from the domain expert. As a result, we could pay much less to only obtain some key parameters in the underlying data generation/corruption process. This is the scenario of the current paper. Therefore, the experimental comparisons are fair.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_H1eGMrT49m" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Pumpout and Co-teaching are totally different</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=H1eGMrT49m"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper317 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Oct 2018</span><span class="item">ICLR 2019 Conference Paper317 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">The differences between Pumpout and Co-teaching [1] is obvious and significant. The idea of Co-teaching [1] is to train two deep neural networks, and each network samples small-loss instances to update the parameters of its peer network. 
+
+However, Pumpout is a meta approach, which aims to benefit orthogonal algorithms in deep learning with noisy labels (i.e., MentorNet, Co-teaching, Backward Correction etc.). The idea of Pumpout is to actively squeeze out the negative effects of noisy labels from the training model, instead of passively forgetting these effects. Specifically, Pumpout conducts stochastic gradient descent on “fitting” labels; and conducts scaled stochastic gradient ascent on ‘not-fitting’ labels instead of stopping gradient computation. The “fitting” labels are not limted to be the selected clean labels. 
+
+To verify the efficacy of Pumpout, we leverage Pumpout to upgrade two representative but orthogonal approaches: MentorNet and Backward Correction. Note that, Co-teaching shares the similar direction with MentorNet. Thus, we do not need to compare it with [1] here. The potential comparison in future should between “Co-teaching” and “Co-teaching + Pumpout”. 
+
+Moreover, we will add citation to Figure 1 in the updated version. For [2] and [3], we will cite them in our updated version, when our experiments involve the \epsilon estimation.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_ByehhGylqQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Question about unpublished but accepted papers</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=ByehhGylqQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Hassam_Sheikh1" class="profile-link">Hassam Sheikh</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">I see that you have mentioned 2 NIPS paper that are accepted at this years' NIPS which has not held which means that these accepted papers are not officially published yet and are only available at ArXiV. is it ok to compare a work which is not officially published as of now?</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Ske2_4yxcm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Reply</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=Ske2_4yxcm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Oct 2018</span><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Their paper builds on a NIPS 2018 paper. If your question is about the ICLR review process, then they probably consider ICML 2018 "prior art" but not necessarily NIPS 2018 papers except for NIPS 2018 papers authors choose to cite. Hence "[2] or [3]" not "[2] and [3]."</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_BkefgvT4qm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Both [2] and [3] are great papers</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=BkefgvT4qm"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper317 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Oct 2018</span><span class="item">ICLR 2019 Conference Paper317 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Both [2] and [3] are great papers, we will definitely cite them in the suitable place later. When our experiments involve the \epsilon estimation, we will compare them and conduct the analysis.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></div></div></div><div class="note_with_children"><div id="note_HylqHxCy5X" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=HylqHxCy5X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rJxxqA619Q" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=rJxxqA619Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_B1lSK22yqX" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=B1lSK22yqX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Bygu6To19X" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Interesting idea</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=Bygu6To19X"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">(anonymous)</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Oct 2018 (modified: 07 Oct 2018)</span><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Interesting idea. It is expected to benefit the area of learning from noisy labels and it is also meaningful for real scenario applications where clean labels are not available. Hope to see the released code soon.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_Bye5Mgl1qX" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=Bye5Mgl1qX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_rkeirB5AtX" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=rkeirB5AtX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_H1evYVZJ5Q" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=H1evYVZJ5Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div><div class="note_with_children"><div id="note_BklyBDw2FX" class="note panel trashed"><div class="title_pdf_row clearfix"><h2 class="note_content_title">  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=BklyBDw2FX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">[Deleted]</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_S1lK0T3stQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Simple and smart idea</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=S1lK0T3stQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures"><a href="/profile?id=~Xiyu_Yu1" class="profile-link">Xiyu Yu</a></span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018</span><span class="item">ICLR 2019 Conference Paper317 Public Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Pumpout gives an smart option for how to use information of noisy labels. Traditionally, we try to ignore the information by using data cleansing or robust reweighting methods. In this paper, the authors proposed using a scaled stochastic gradient ascent direction (instead of the normal gradient descent direction) as a more possibly correct update direction for noisy data. This idea is simple but reasonable and smart.</span></div><div class="reply_row clearfix"></div></div><div class="children"><div class="note_with_children"><div id="note_Sklly4ZkqQ" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Your understanding is correct</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=HyG1_j0cYQ&amp;noteId=Sklly4ZkqQ"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper317 Authors</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">01 Oct 2018</span><span class="item">ICLR 2019 Conference Paper317 Official Comment</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Comment: </span><span class="note_content_value">Yes, your understanding is correct. The idea of our Pumpout is to use scaled stochastic gradient ascent to actively squeezes out the negative effects of noisy labels from the training model. The realization is simple and general, which will benefit orthogonal techniques in the area of deep learning with noisy labels.</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

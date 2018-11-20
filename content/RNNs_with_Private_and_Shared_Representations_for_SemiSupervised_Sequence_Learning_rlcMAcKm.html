@@ -1,0 +1,230 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>RNNs with Private and Shared Representations for Semi-Supervised Sequence Learning | OpenReview</title>
+  <meta name="description" content="" />
+
+      <meta name="citation_title" content="RNNs with Private and Shared Representations for Semi-Supervised Sequence Learning" />
+        <meta name="citation_author" content="Anonymous" />
+      <meta name="citation_publication_date" content="2018/09/27" />
+      <meta name="citation_online_date" content="2018/09/27" />
+      <meta name="citation_pdf_url" content="https://openreview.net/pdf?id=r1lcM3AcKm" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@openreviewnet" />
+      <meta name="og:title" content="RNNs with Private and Shared Representations for Semi-Supervised..." />
+      <meta name="og:description" content="Training recurrent neural networks (RNNs) on long sequences using backpropagation through time (BPTT) remains a fundamental challenge. &#10;  It has been shown that adding a local unsupervised loss term..." />
+      <meta name="og:image" content="https://openreview.net/static/images/openreview_logo_512.png" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/static/css/main.min.css" />
+</head>
+
+<body class="forum">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand home push-link" href="/"><strong>OpenReview</strong>.net</a>
+      </div>
+  
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-left profile-search" role="search">
+          <div class="form-group has-feedback">
+            <input id="search_input" type="text" class="form-control ui-autocomplete-input" placeholder="Search ICLR 2019 Conference" autocomplete="off" />
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          </div>
+  
+          <input id="search_group" type="hidden" value="ICLR.cc/2019/Conference" />
+          <input id="search_content" type="hidden" value="all" />
+        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul></form>
+  
+        <ul class="nav navbar-nav navbar-right">
+        
+            <li id="user-menu"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+  
+    </div>
+  </nav>
+
+  <div id="or-banner" class="banner" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"><a href="/group?id=ICLR.cc/2019/Conference" title="Venue Homepage"><img class="icon" src="/static/images/arrow_left.svg" /> Go to <strong>ICLR 2019 Conference</strong> homepage</a></div>
+    </div>
+  </div>
+</div>
+<div id="flash-message-container" class="alert alert-danger" role="alert" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert-content">
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <main id="content" class="clearfix openbanner-visible legacy-styles"><div id="note_r1lcM3AcKm" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>RNNs with Private and Shared Representations for Semi-Supervised Sequence Learning</a> <a class="note_content_pdf" href="/pdf?id=r1lcM3AcKm" title="Download PDF" target="_blank"><img src="/static/images/pdf_icon_blue.svg" /></a> </h2></div><div class="meta_row"><span class="signatures">Anonymous</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">28 Sep 2018 (modified: 11 Oct 2018)</span><span class="item">ICLR 2019 Conference Blind Submission</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span><span class="item"><a class="action-bibtex-modal" data-bibtex="@inproceedings{    &#10;anonymous2019rnns,    &#10;title={RNNs with Private and Shared Representations for Semi-Supervised Sequence Learning},    &#10;author={Anonymous},    &#10;booktitle={Submitted to International Conference on Learning Representations},    &#10;year={2019},    &#10;url={https://openreview.net/forum?id=r1lcM3AcKm},    &#10;note={under review}    &#10;}">Show Bibtex</a></span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Abstract: </span><span class="note_content_value">Training recurrent neural networks (RNNs) on long sequences using backpropagation through time (BPTT) remains a fundamental challenge. 
+It has been shown that adding a local unsupervised loss term into the optimization objective makes the training of RNNs on long sequences more effective. 
+While the importance of an unsupervised task can in principle be controlled by a coefficient in the objective function, the gradients with respect to the unsupervised loss term still influence all the hidden state dimensions, which might cause important information about the supervised task to be degraded or erased. 
+Compared to existing semi-supervised sequence learning methods, this paper focuses upon a traditionally overlooked mechanism -- an architecture with explicitly designed private and shared hidden units designed to mitigate the detrimental influence of the auxiliary unsupervised loss over the main supervised task.
+We achieve this by dividing RNN hidden space into a private space for the supervised task and a shared space for both the supervised and unsupervised tasks. We present extensive experiments with the proposed framework on several long sequence modeling benchmark datasets. Results indicate that the proposed framework can yield performance gains in RNN models where long term dependencies are notoriously challenging to deal with. </span></div><div class="note_contents"><span class="note_content_field">Keywords: </span><span class="note_content_value">recurrent neural network, semi-supervised learning</span></div><div class="note_contents"><span class="note_content_field">TL;DR: </span><span class="note_content_value">This paper focuses upon a traditionally overlooked mechanism -- an architecture with explicitly designed private and shared hidden units designed to mitigate the detrimental influence of the auxiliary unsupervised loss over the main supervised task.</span></div><div class="reply_row clearfix"><div class="item" id="reply_count">3 Replies</div></div></div><hr class="small" /><div id="note_children"><div class="note_with_children"><div id="note_Hkgv_lvT3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1lcM3AcKm&amp;noteId=Hkgv_lvT3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1291 AnonReviewer2</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">05 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1291 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary of paper: Builds off work from Trinh et al. (2018) that proposed a semi-supervising learning model that combined the main task with an auxiliary task of predicting tokens in the input sequence. This paper proposes improving this two-task setup by splitting the hidden representations into two subsets, one for both tasks and one for only the main task. They compare against the baseline of Trinh et al. (2018), and find small improvements in performance.
+
+At it's core, this paper is simply trying to improve multi-task learning. Despite the heavy focus on the work of Trinh et al. (2018),  fundamentally, what the paper is trying to do is: given multiple tasks, figure out how to effectively model the tasks such that information is shared but the tasks don't harm each other. In other words, the authors mark this paper as a semi-supervised learning paper, but it is more of standard multi-task learning setup.
+
+However, multi-task learning (MTL) is never once mentioned in the paper. This is surprising given that there has been a wealth of literature devoted to tackling exactly this type of problem. For example, the usage of different representations for different tasks is a standard trick in MTL (multiple heads). The model is also reminiscent of Progressive Networks [1], with one representation feeding to other tasks. Unfortunately, the authors do not cite any relevant MTL work, which is a big omission. There are also no other MTL baselines in the experiments section.
+
+Even when ignoring the previous issue, the gains from the proposed method are consistently small, and explainable by noise. Furthermore, in the one experiment that there seems be a nontrivial difference (CIFAR), Table 4 shows that the model is extremely sensitive to the sharing percentage (going from 50% to 30% drops accuracy by 2.1%).
+
+To conclude, the authors miss critical discussion and comparison of prior works in MTL, and the experimental results are unconvincing.
+
+[1] Progressive Neural Networks (<a href="https://arxiv.org/abs/1606.04671)" target="_blank" rel="nofollow">https://arxiv.org/abs/1606.04671)</a></span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">3: Clear rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_SyeukiK5hX" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>Review </a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1lcM3AcKm&amp;noteId=SyeukiK5hX"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1291 AnonReviewer3</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">03 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1291 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">Summary: 
+Training RNNs on long-sequences is a challenging task as gradients tend to explode or vanish. One way to mitigate this problem to some extent is to use semi-supervised learning in which objective function consists of unsupervised and supervised loss functions. Even though the contribution of unsupervised loss function can be controlled by a coefficient in the objective function, the unsupervised loss term can cause important information about the supervised task to be degraded or erased. This paper proposed a method to mitigate the problem of training of RNNs on long sequences by coordinating supervised and unsupervised loss functions. More specifically, they use two RNNs in which RNNs have a shared feature space for both supervised and unsupervised tasks and allow one of RNN to have a private space dedicated for the supervised task. 
+
+Strengths:
++ The idea of dividing the hidden states into two parts is interesting as it helps the model to control the effect of unsupervised loss on main supervised task.
++ Shared and private spaces visualization are very informative. 
++ This model shows better results on MNIST and CIFAR-10 in compared with previous methods.
+Weaknesses:
+- Paper writing is good until section 3.1. This section is very confusing. I read it multiple times until understood what is happening. Lots of details are missing in sections 3.2 about how this model forces to not mix up the gradients for shared and private hidden units.
+- There are quite similarities between Trinh et al., 2018 and this paper. The only main difference is dividing the hidden state into shared and private ones. 
+- Is there any reason why StanfordDogs and DBpedia are not used in this paper? Given the close relationship between Trinh et al., 2018 and this paper, it would have been better to have some results for these sets.
+- The paper claims that their model trains and evaluates faster. Rather than an argument about fewer parameters for auxiliary tasks, I don't see any justification. Fewer parameters don't necessarily lead to faster training or test time.
+
+Comments and Questions
+- Is vanilla RNN used for the experiments? GRU is mentioned but my understanding is that it is only used for auxiliary loss.
+- There should be some detail about model architectures and training e.g. hidden units size, learning rate, dropout if any, etc. 
+- It mentions that the model uses different time-scale updating operations of distinct RNNs with different representational spaces, I don't see how. Can you elaborate? 
+</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">5: Marginally below acceptance threshold</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div><div class="note_with_children"><div id="note_BylzwfUY3Q" class="note panel"><div class="title_pdf_row clearfix"><h2 class="note_content_title"><a>This work needs further analysis on a proper dataset.</a>  <button class="btn btn-xs btn-default permalink-button" title="Link to this comment" data-permalink-url="https://openreview.net/forum?id=r1lcM3AcKm&amp;noteId=BylzwfUY3Q"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></button></h2></div><div class="meta_row"><span class="signatures">ICLR 2019 Conference Paper1291 AnonReviewer1</span></div><div class="clearfix"><div class="meta_row pull-left"><span class="date item">02 Nov 2018 (modified: 07 Nov 2018)</span><span class="item">ICLR 2019 Conference Paper1291 Official Review</span><span class="item">Readers: <span class="readers-icon glyphicon glyphicon-globe"></span> Everyone</span></div><div class="meta_row meta_actions"></div></div><div class="note_contents"><span class="note_content_field">Review: </span><span class="note_content_value">This paper introduces a recurrent neural network architecture that minimizes both supervised and unsupervised losses for sequence learning. 
+
+The intuition behind of this work makes sense that the mixing gradients problem would degrade the performance of RNNs on sequence learning tasks. However, the experimental results are not convincing although quite big improvements on CIFAR10 are observed. Particularly, I am not entirely convinced by the authors' argument that adding auxiliary loss is helpful for addressing long-term dependencies. What I can see from Table 2 is that the performance of the proposed method in terms of accuracy increases as the ratio of shared parameters increases. In my opinion, these results can be also interpreted as a regularization effect. 
+Datasets like MNIST and CIFAR can be used to show that the proposed idea is working as a proof of concept, but it might be difficult to draw a generalized conclusion from the results in the paper like the use of unsupervised loss during training helps.
+In my opinion, neural machine translation datasets might be an option if the authors would like to claim the use of an unsupervised loss is helpful to capture better long-range dependencies.</span></div><div class="note_contents"><span class="note_content_field">Rating: </span><span class="note_content_value">4: Ok but not good enough - rejection</span></div><div class="note_contents"><span class="note_content_field">Confidence: </span><span class="note_content_value">4: The reviewer is confident but not absolutely certain that the evaluation is correct</span></div><div class="reply_row clearfix"></div></div><div class="children"></div></div></div></main></div>
+  </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer class="sitemap">
+      <div class="container">
+        <div class="row hidden-xs">
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/venues">All Venues</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-sm-4">
+            <ul class="list-unstyled">
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="row visible-xs-block">
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/" class="home">Home</a></li>
+              <li><a href="/about">About OpenReview</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#feedback-modal">Feedback</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-6">
+            <ul class="list-unstyled">
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <footer class="sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">
+              OpenReview is created by the <a href="http://www.iesl.cs.umass.edu/" target="_blank">Information Extraction and Synthesis Laboratory</a>, College of Information and Computer Science, University of Massachusetts Amherst. We gratefully acknowledge the support of the OpenReview sponsors:  Google,  Facebook, NSF, the University of Massachusetts Amherst Center for Data Science, and Center for Intelligent Information Retrieval, as well as the Google Cloud Platform for donating the computing and networking services on which OpenReview.net runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h3 class="modal-title">Send Feedback</h3>
+        </div>
+        <div class="modal-body">
+          <p>Enter your feedback below and we'll get back to you as soon as possible.</p>
+          <form action="/feedback" method="POST">
+            <div class="form-group">
+              <input type="email" name="from" class="form-control" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control feedback-input" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+          <ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content" style="display: none;"></ul></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('&lt;script src="/static/js/vendor/jquery-2.2.4.min.js"&gt;&lt;\/script&gt;')</script>
+
+  <script src="/static/dist/vendor.min.js"></script>
+  <script src="/static/dist/templates.min.js"></script>
+  <script src="/static/dist/openreview.min.js"></script>
+
+    <script>window.legacyScripts = true;</script>
+
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-108703919-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-108703919-1');
+    </script>
+
+
+<div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>
